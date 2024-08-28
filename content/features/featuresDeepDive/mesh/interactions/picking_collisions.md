@@ -29,8 +29,6 @@ The method [scene.pickWithRay()](/typedoc/classes/babylon.scene#pickwithray) thr
 
 Use the [picking info](/typedoc/classes/babylon.pickinginfo) that is returned by [scene.pickWithRay()](/typedoc/classes/babylon.scene#pickwithray).
 
----
-
 ## Detect the first mesh touched by the ray
 
 Check out an example here: <Playground id="#KNE0O#1327" title="Get First Mesh Hit By Ray" description="Simple example of getting the first mesh hit by a ray." isMain={true} category="Mesh"/>
@@ -77,14 +75,10 @@ var hit = scene.pickWithRay(ray);
 And if a mesh is hit, we do what we want with the picking info like getting the mesh name, the position of the point etc...
 Here we change its size because it's funnier!
 
----
-
 **You're not forced to set `box.isPickable` to false**, if you need later to check rays intersection on this box for example.
 You can set the origin point of the vector in front of the box, the direction a little further and the length that you want _(line #55)_:
 
  <Playground id="#KNE0O#17" title="Ray Picking Example" description="Simple example of ray picking."/>
-
----
 
 ## Predicate function
 
@@ -117,12 +111,8 @@ We avoid also box2 for testing and allow the rest (box3 and box4 by default).
 And the result is, only box3, the second blue one behind, and box4 will grow.
 So it works fine like if box2 was transparent for the ray!
 
----
-
 There is one other optional argument to the method `pickWithRay`. It's the boolean **fastCheck** (`false` by default).
 `True` will return the first mesh that intersects with the ray (in the order of the meshes array), not the closest mesh to the ray's starting point.
-
----
 
 ## Triangle predicate
 
@@ -156,23 +146,39 @@ The picking result will be an array _(line #68)_.
 We can loop through the array to change all meshes hit. In the example you can see that the two blue boxes change in size.
 It's like a strong bullet!
 
----
+## Alternative picking methods
+Another method of picking with a ray is to directly use the **Ray class**. There is one caveat to this method, however. When using `pickWithRay`, the method will automatically transform the ray from world coordinates to local coordinates of the mesh being picked. If you want to use the **Ray class** itself, the conversion from the world coordinates of the ray to the local space of an intersecting mesh will need to be done manually. 
 
-An other method is to use directly the **Ray class**.
-
-To change the ray to a local space :
-
-```javascript
-Ray.Transform(ray, matrix) → Ray
-```
-
-Checking intersection:
+To do this, first create a ray and mesh to check for intersection, then convert the ray into the local space of the mesh to determine the correct intersection point on the mesh.
 
 ```javascript
-Ray.intersectsMesh(mesh, fastCheck) → PickingInfo
+// create a mesh to intersect
+let box = BABYLON.MeshBuilder.CreateBox("box", {size: 1.0}, scene);
+
+// define the ray origin, direction, and length
+let origin = new BABYLON.Vector3(0.0, 0.0, 1.5);
+let dir = new BABYLON.Vector3(0.0, 0.0, -1.0);
+let length = 5.0;
+
+// create the ray
+let myRay = new BABYLON.Ray(origin, dir, length);
+
+// use the ray helper to render the ray in the scene
+let rayHelper = new BABYLON.RayHelper(myRay);
+rayHelper.show(scene);
+
+// transform the ray into the local space of the mesh to get an accurate intersection point - in this case we are using the inverse of the mesh's world matrix to transform
+BABYLON.Ray.Transform(myRay, box.getWorldMatrix().invert())
 ```
 
----
+Then simply check if the ray intersects the mesh and capture the picking information.
+
+```javascript
+// check to see if the ray intersects the mesh and capture the pick information
+let pickingInfo = myRay.intersectsMesh(box);
+```
+
+<Playground id="#2IETSS" title="Picking a mesh with Ray.intersectsMesh" description="Simple alternative method for picking meshes."/>
 
 ## Picking Ray
 
@@ -181,24 +187,6 @@ Another handy feature is the createPickingRay. This special ray is cast from a c
  <Playground id="#AC8XPN#81" title="Picking Ray Example" description="Simple example of using a picking ray."/>
 
 <Youtube id="dgsWKpa7RcY"/>
-
----
-
-An other method is to use directly the **Ray class**.
-
-To change the ray to a local space :
-
-```javascript
-Ray.Transform(ray, matrix) → Ray
-```
-
-Checking intersection:
-
-```javascript
-Ray.intersectsMesh(mesh, fastCheck) → PickingInfo
-```
-
----
 
 ## Debugging
 
