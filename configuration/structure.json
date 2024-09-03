@@ -2236,6 +2236,11 @@
                             "friendlyName": "Running Babylon.js on a Server",
                             "children": {},
                             "content": "setup/support/serverSide"
+                        },
+                        "chunksFun": {
+                            "friendlyName": "Async-loading packages and Chunks using known bundlers",
+                            "children": {},
+                            "content": "setup/support/asyncChunks"
                         }
                     }
                 }
