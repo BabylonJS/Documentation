@@ -37,8 +37,5 @@ yarn-error.log*
 .vercel
 public/sitemap.xml
 
-# npm
-package-lock.json
-
 # editors
 .idea
