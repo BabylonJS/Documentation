@@ -244,3 +244,30 @@ Thanks to the call to `setPickingList`, the picker will be able to prepare all t
 <Playground id="#XJKQOC#1" title="GPU picking" description="Simple example of how to use GPU picking."/>
 
 Please note that if you pick a mesh with thin instances then the `pickingInfo.thinInstanceIndex` will give you the index of the picked thin instance if any.
+
+### GPU Multi picking
+
+You can perform a picking operation on multiple coordinates at once by using the `picker.multiPickAsync(coordinates: IVector2Like[])`. The function will return `Promise<BABYLON.IGPUMultiPickingInfo>`. 
+
+```typescript
+export interface IGPUMultiPickingInfo {
+    /**
+     * Picked mesh
+     */
+    meshes: Nullable<AbstractMesh>[];
+    /**
+     * Picked thin instance index
+     */
+    thinInstanceIndexes?: number[];
+}
+```
+
+The `meshes` property has always the length of the array of meshes you set with the  `picker.setPickingList` function so you can you index based look up for a picking hit. If the `mesh` was not picked the `meshes` property contains `undefined` at the given index. There is no difference in the `thinInstanceIndexes` property. It returns the indexes in the samy way as the `pickAsync` function does.
+
+Before you can use multi picking you have to set the meshes you intend to pick with the `setPickingList` as you do when performing single picking.
+
+You can use multi picking for occlusion detection like demonstreted in the following Playground:
+
+<Playground id="#GAB1RS#63" title="GPU Multipicking example" description="Demonstrates how can you use multipicking to get occlusion statuses of multiple meshes."/>
+
+Multi picking is optimized and always renders only a portion of the picking texture defined by the an area from min to max picking coordinates. If this are is too big you should consider calling `multiPickAsync` multiple times with smaller areas or perform `pickAsync` multiple times with a single coordinate. 
