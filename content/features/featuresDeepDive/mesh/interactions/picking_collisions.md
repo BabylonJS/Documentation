@@ -262,7 +262,7 @@ export interface IGPUMultiPickingInfo {
 }
 ```
 
-The `meshes` property has always the length of the array of meshes you set with the  `picker.setPickingList` function so you can you index based look up for a picking hit. If the `mesh` was not picked the `meshes` property contains `undefined` at the given index. There is no difference in the `thinInstanceIndexes` property. It returns the indexes in the samy way as the `pickAsync` function does.
+The `meshes` property has always the length of the array of meshes you set with the  `picker.setPickingList` function so you can use index based look up for a picking hit. If the `mesh` was not picked the `meshes` property contains `undefined` at the given index. There is no difference in the `thinInstanceIndexes` property. It returns the indexes in the samy way as the `pickAsync` function does.
 
 Before you can use multi picking you have to set the meshes you intend to pick with the `setPickingList` as you do when performing single picking.
 
