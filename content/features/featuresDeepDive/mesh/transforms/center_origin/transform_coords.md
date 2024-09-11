@@ -61,4 +61,4 @@ The building will be an array of boxes. Leaving the boxes as separate meshes wou
 ```
 Disc World: <Playground id="#TRAIXW#5" title="Disc World" description="Simple example of a disc world with coordinate transformation."/>
 
-One final step before considering using patents and pivots as a way of changing the center of transformation of a mesh is the more drastic step of changing the vertex data describing the mesh itself by baking a transformation into a mesh.
+One final step before considering using parents and pivots as a way of changing the center of transformation of a mesh is the more drastic step of changing the vertex data describing the mesh itself by baking a transformation into a mesh.
