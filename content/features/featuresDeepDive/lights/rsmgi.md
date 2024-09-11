@@ -33,7 +33,7 @@ One of the main uses we foresee is in the context of e-commerce, to better ancho
 
 The differences are subtle, just look at the shoe support and the backdrop (click to enlarge).
 
-<Playground id="#VW8IG3#11" title="Example in eCommerce context" description="Example of GI in eCommerce context"/>
+<Playground id="#VW8IG3#101" title="Example in eCommerce context" description="Example of GI in eCommerce context"/>
 
 ## Reflective Shadow Maps (RSM)
 
@@ -147,7 +147,7 @@ The output in this mode can be quite different from when it is deactivated, beca
 
 
 PG for first screenshot: <Playground id="#VW8IG3#9" title="useFullTexture parameter (false)" description="Changing the useFullTexture parameter of GIRSM"/>
-<br/>PG for second screenshot: <Playground id="#VW8IG3#10" title="useFullTexture parameter (true)" description="Changing the useFullTexture parameter of GIRSM"/>
+<br/>PG for second screenshot: <Playground id="#VW8IG3#102" title="useFullTexture parameter (true)" description="Changing the useFullTexture parameter of GIRSM"/>
 
 In the second screenshot, the size of the RSM texture is `29x26`, so the number of samples is `29x26=754`.
 Due to the low resolution of the RSM texture, moving objects can exhibit a "wobbling" effect in the lighting. This can be improved by increasing the texture resolution, but you'll quickly be limited by GPU power...
@@ -166,7 +166,7 @@ These are the main properties to set when configuring a GI RSM. `GIRSM.intensity
 |-|-|
 |![radius=0.2](/img/features/rsmgi/radius0_2.jpg!498)|![radius=0.6](/img/features/rsmgi/radius0_6.jpg!498)|
 
-<Playground id="#VW8IG3#14" title="radius parameter" description="Changing the radius parameter of GIRSM"/>
+<Playground id="#VW8IG3#103" title="radius parameter" description="Changing the radius parameter of GIRSM"/>
 
 The intensity and number of samples are the same in both cases. As you can see, because we've increased the radius, the lighting is more evenly distributed across the scene (you can barely see the red light bleeding from the wall towards the pillar). We'd have to increase the number of samples to regain some brightness, which would not come without a certain cost in terms of performance.
 
@@ -182,7 +182,7 @@ For example, here are two images using the `useFullTexture=true` mode, with diff
 |-|-|
 |![edgeArtifact=0.004](/img/features/rsmgi/edgeArtifact0_004.jpg!497)|![edgeArtifact=0.42](/img/features/rsmgi/edgeArtifact0_42.jpg!497)|
 
-<Playground id="#VW8IG3#13" title="edgeArtifactCorrection parameter" description="Changing the edgeArtifactCorrection parameter of GIRSM"/>
+<Playground id="#VW8IG3#104" title="edgeArtifactCorrection parameter" description="Changing the edgeArtifactCorrection parameter of GIRSM"/>
 
 As you can see, the artifacts are reduced in the second screenshot (but not completely removed).
 
@@ -194,7 +194,7 @@ As we only take a limited number of samples to calculate the GI contribution for
 |-|-|
 |![Banding final picture](/img/features/rsmgi/banding_full.jpg!496)|![Banding GI only](/img/features/rsmgi/banding_gi.jpg!496)|
 
-<Playground id="#VW8IG3#15" title="Banding" description="Example of banding"/>
+<Playground id="#VW8IG3#105" title="Banding" description="Example of banding"/>
 
 You can trade banding for noise by setting `GIRSM.rotateSample = true`. You'll also need to set `GIRSM.noiseFactor` to a value large enough to make the noise pattern small enough:
 
@@ -202,7 +202,7 @@ You can trade banding for noise by setting `GIRSM.rotateSample = true`. You'll a
 |-|-|
 |![Noise factor too small](/img/features/rsmgi/noise_too_small.jpg!497)|![Noise factor ok](/img/features/rsmgi/noise_ok.jpg!497)|
 
-<Playground id="#VW8IG3#16" title="Noise" description="Example of noise"/>
+<Playground id="#VW8IG3#106" title="Noise" description="Example of noise"/>
 
 The right value depends on the scale of your scene. Noise is less objectionable than banding and can be more easily treated by a blur pass (see below) than banding.
 
@@ -246,7 +246,7 @@ Values depend on the scale of your scene. For example:
 |-|-|
 |![No blur](/img/features/rsmgi/shoe_normal_35.jpg!500)|![Simple blur](/img/features/rsmgi/shoe_normal_80.jpg!500)|
 
-<Playground id="#VW8IG3#17" title="Normal threshold parameter" description="Changing the blurNormalThreshold parameter of GIRSMManager"/>
+<Playground id="#VW8IG3#107" title="Normal threshold parameter" description="Changing the blurNormalThreshold parameter of GIRSMManager"/>
 
 As you can see, values between 0.15 and 0.35 are correct, but 0.01 is too low (not enough pixels are blurred), and 0.8 is too high (too many pixels are blurred).
 
@@ -258,7 +258,7 @@ As you can see, values between 0.15 and 0.35 are correct, but 0.01 is too low (n
 |-|-|
 |![No blur](/img/features/rsmgi/cornell_blurkernel_4.jpg!500)|![Simple blur](/img/features/rsmgi/cornell_blurkernel_14.jpg!500)|
 
-<Playground id="#VW8IG3#18" title="blurKernel parameter" description="Changing the blurKernel parameter of GIRSMManager"/>
+<Playground id="#VW8IG3#108" title="blurKernel parameter" description="Changing the blurKernel parameter of GIRSMManager"/>
 
 Try to use the lowest possible value, as higher values mean greater consumption of GPU resources.
 
@@ -311,7 +311,7 @@ For example, here are two screenshots taken with an RSM texture the size of the 
 |![RSM full](/img/features/rsmgi/rsm_size_big.jpg!500)|![RSM small](/img/features/rsmgi/rsm_size_small.jpg!500)|
 |![RSM full](/img/features/rsmgi/rsm_size_big2.jpg!500)|![RSM small](/img/features/rsmgi/rsm_size_small2.jpg!500)|
 
-<Playground id="#VW8IG3#19" title="RSM size 35x smaller in each dimension" description="RSM size 35x smaller in each dimension"/>
+<Playground id="#VW8IG3#109" title="RSM size 35x smaller in each dimension" description="RSM size 35x smaller in each dimension"/>
 
 The difference is barely noticeable in the screenshots. However, be aware that you will see differences if certain objects or light move around in the scene (lighting will flicker if the texture size is too small)! So, once again, use the right dimensions to suit your needs.
 
