@@ -24,7 +24,7 @@ though the existing default values of `minmaps`, `sampling mode` and `texture fo
 
 Whereas the name and scene parameters are obvious, the `option` parameter, which determines the width and height of the dynamic texture, can be one of three values:
 
-1. An already created canvas, in which case `canvas.width` and `canvas.height` are used;
+1. An existing canvas, in which case `canvas.width` and `canvas.height` are used;
 2. An object having the properties `width` and `height`;
 3. A number, in which case both width and height are set to this number.
 
@@ -35,6 +35,10 @@ const myMaterial = new BABYLON.StandardMaterial("Mat", scene);
 myMaterial.diffuseTexture = myDynamicTexture;
 mesh.material = myMaterial;
 ```
+## Attaching to a Canvas
+An existing canvas can be used to define the size of a `dynamicTexture` when passed an an `option` parameter during creation as seen above. In addition to referencing the size of the canvas, the created `dynamicTexture` will also attach itself to that referenced canvas. This means that the `dynamicTexture` will duplicate whatever is rendered to that referenced canvas when `dynamicTexture.update()` is called. 
+
+<Playground id="#RLDCOV" title="Attach to Canvas" description="Copying contents of canvas to a dynamic texture." image="/img/playgroundsAndNMEs/dynamicTextureReferencingCanvas.jpg"/>
 
 ## Writing Text
 
