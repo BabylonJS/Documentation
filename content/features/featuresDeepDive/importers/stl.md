@@ -21,8 +21,15 @@ To use it you just have to reference it after Babylon.js:
 <script src="babylon.stlFileLoader.js"></script>
 ```
 
-Then you can use one of the static functions on the `SceneLoader` to load.
-See [how to load from any file type](/features/featuresDeepDive/importers/loadingFileTypes)
+When using the Babylon npm packages in your own build, it is preferable to register the STL file importer via the top level dynamic loader registration function `registerBuiltInLoaders`. See [Loading Any File Type](/features/featuresDeepDive/importers/loadingFileTypes#npm) for more information.
+
+If you want to import the STL file importer statically (not recommended), you can do so via:
+
+```javascript
+import "@babylonjs/loaders/STL/stlFileLoader";
+```
+
+You can read more about [NPM support](/setup/frameworkPackages/npmSupport)
 
 By default, the STL loader swaps the Y and Z axes. To disable this behavior,
 set

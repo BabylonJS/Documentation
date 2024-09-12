@@ -12,37 +12,97 @@ video-content:
 
 By default, babylon.js comes with an importer for .babylon files.
 
-You can also create your own importer by providing a specific object to the `BABYLON.SceneLoader.RegisterPlugin` function.
+You can also create your own importer by providing a specific object to the `BABYLON.registerSceneLoaderPlugin` function.
 
-This object must have three properties:
+### Plugins
 
-- A list of supported file extensions (`extensions`)
-- An `importMesh` function to import specific meshes
-- A `load` function to import complete scene
-- A `loadAssets` function to import all babylon elements from the file but do not add them to the scene
+A file importer should implement the `ISceneLoaderPluginAsync` interface.
 
-Here is a sample importer object:
+<Alert severity="warning" title="Warning" description="Avoid using ISceneLoaderPlugin as it is legacy and has been replaced by ISceneLoaderPluginAsync" />
 
-```javascript
-BABYLON.SceneLoader.RegisterPlugin({
-  extensions: ".babylon",
-  importMesh: function (meshesNames, scene, data, rootUrl, meshes, particleSystems, skeletons) {
-    return true;
-  },
-  load: function (scene, data, rootUrl) {
-    return true;
-  },
-  loadAssets(scene, data, rootUrl) {
-    const container = new AssetContainer(scene);
-    return container;
+An abbreviated example of a file importer (scene loader plugin) might look something like this:
+
+```typescript
+import { ISceneLoaderPluginAsync } from "@babylonjs/core/Loading/sceneLoader";
+
+class MyCustomImporter implements ISceneLoaderPluginAsync {
+  public readonly name = "myCustomImporter";
+
+  public readonly extensions = ".myCustomExtension";
+
+  public async importMeshAsync(...) {
+    // Load specified meshes into the Scene
+  }
+
+  public async loadAsync(...) {
+    // Load all data into the Scene
+  }
+
+  public async loadAssetContainerAsync(...) {
+    // Load all data into an AssetContainer
+  }
+}
+```
+
+A plugin instance can be passed to `BABYLON.registerSceneLoaderPlugin`, but plugin factories are more flexible and full featured, so we recommend using them to create your custom importers.
+
+### Plugin Factories
+
+When you register a plugin, you can register a plugin factory rather than a plugin instance. The factory must have a `createPlugin` function that returns an instance of the plugin. The factory is invoked each time a load function is called. The `pluginOptions` property of the loader options are also passed to the factory function. This makes it possible for your file importer to be configurable through options.
+
+A plugin factory can return the plugin instance either synchronously or asynchronously. We recommend you dynamically import your plugin to avoid loading it until it is needed. For example:
+
+```typescript
+import { registerSceneLoaderPlugin } from "@babylonjs/core/Loading/sceneLoader";
+
+registerSceneLoaderPlugin({
+  name: "myCustomImporter",
+  extensions: ".myCustomExtension",
+  createPlugin: async () => {
+    const { MyCustomImporter } = await import("./MyCustomImporter");
+    return new MyCustomImporter();
   },
 });
 ```
 
-- `meshesNames` is the names of meshes to import
-- `scene` is the scene to load data into
-- `data` is the string representation of the file to load
-- `rootUrl` defines the root URL of your assets
-- `meshes` is the list of imported meshes
-- `particleSystems` is the list of imported particle systems
-- `skeletons` is the list of imported skeletons
+To expose options for your custom file importer, you should first augment the `SceneLoaderPluginOptions` interface to add options for your importer. For example, if the name of your importer is `myCustomImporter`, you would add the following to your code:
+
+```typescript
+type MyCustomImporterOptions = { option1?: string, option2?: number };
+
+declare module "@babylonjs/core" {
+  export interface SceneLoaderPluginOptions {
+    myCustomImporter: MyCustomImporterOptions;
+  }
+}
+```
+
+Then, when you register your file importer, you can access the options like this:
+
+```typescript
+import { registerSceneLoaderPlugin } from "@babylonjs/core/Loading/sceneLoader";
+
+registerSceneLoaderPlugin({
+  name: "myCustomImporter",
+  extensions: ".myCustomExtension",
+  createPlugin: async (options) => {
+    const { MyCustomImporter } = await import("./MyCustomImporter");
+    return new MyCustomImporter(options["myCustomImporter"]);
+  },
+});
+```
+
+Note that in this example, you will need to modify the `MyCustomImporter` class to accept options (`MyCustomImporterOptions`) in its constructor.
+
+Finally, these options can be passed into one of the scene loader functions like this:
+
+```typescript
+await loadAssetContainerAsync("path/to/model", scene, {
+  pluginOptions: {
+    myCustomImporter: {
+      option1: "hello world",
+      option2: 42,
+    },
+  },
+});
+```

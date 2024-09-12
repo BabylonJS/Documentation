@@ -649,6 +649,11 @@
                                             "friendlyName": "Progressively Load .glTF Files",
                                             "children": {},
                                             "content": "features/featuresDeepDive/importers/glTF/progressiveglTFLoad"
+                                        },
+                                        "createExtensions": {
+                                            "friendlyName": "Create Your Own glTF Extensions",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/importers/glTF/createExtensions"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/importers/glTF"

@@ -37,27 +37,55 @@ Currently plugins can be found for:
 - [.stl](/features/featuresDeepDive/importers/stl)
 - .splat
 
+You can also create your own [custom importer](/features/featuresDeepDive/importers/createImporters) for additional file types.
+
+#### CDN
+
 To quickly add support for all loaders the following script can be added to your page:
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-#### Production links
+##### Production links
 
 ```html
 <script src="https://cdn.babylonjs.com/babylon.js"></script>
 <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
 ```
 
-#### Preview links (useful to test for changes to loaders)
+##### Preview links (useful to test for changes to loaders)
 
 ```html
 <script src="https://preview.babylonjs.com/babylon.js"></script>
 <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
 ```
 
-For NPM usage see: https://www.npmjs.com/package/@babylonjs/loaders
-
 Once the plugin is referenced, scene loader functions can be used to load model files.
+
+#### NPM
+
+When you have a built/bundled app, you can use https://www.npmjs.com/package/@babylonjs/loaders.
+
+The preferred way to bring in the loaders is via:
+
+```typescript
+import { registerBuiltInLoaders } from "@babylonjs/loaders/dynamic";
+...
+registerBuiltInLoaders();
+```
+
+This will register all supported loaders, but internally uses dynamic imports to only download/load a specific importer (e.g. glTF, splat, etc.) when a model of that type is first loaded.
+
+<Alert severity="warning" title="Warning" description="Note that some of the legacy loader functions (e.g. SceneLoader.Append) synchronously return the loader instance. When using dynamically imported loaders, these functions will return null." />
+
+You can also register all loaders statically (e.g. they will all be included in your primary bundle). This is not recommended, but can be done via:
+
+<Alert severity="warning" title="Warning" description="If possible, prefer registerBuiltInLoaders rather than statically importing loaders." />
+
+```typescript
+import "@babylonjs/loaders";
+```
+
+Importers must be registered with one of these approaches before the scene loader functions can be used.
 
 ## loadAssetContainerAsync
 
@@ -156,7 +184,7 @@ const assetContainer = await BABYLON.loadAssetContainerAsync("https://raw.github
         MSFT_lod: {
           maxLODsToLoad: 1,
         },
-      }
+      },
     },
   },
 });
