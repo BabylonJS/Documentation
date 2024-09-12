@@ -18,7 +18,7 @@ Using a parent is an alternative method to using a Babylon.js [pivot](/features/
 
 Making mesh P a parent of mesh C, changes the frame of reference for mesh C to the local axes of mesh P. Repositioning, rotating or scaling mesh P will apply the same transformations to mesh C. Positioning, rotating and scaling of mesh C will depend on the position and orientation of the local axes of C relative to those of P.
 
-Please note that non-uniform scaling (scaling with different values on different axes) is not supported on parent nodes. Indeed, decomposition of such a Matrix would result in supporting [shear mapping]([url](https://en.wikipedia.org/wiki/Shear_mapping)) at the transform level. That has not been added out of concern for performance.
+Please note that non-uniform scaling (scaling with different values on different axes) is not supported on parent nodes. Indeed, decomposition of such a Matrix would result in supporting [shear mapping](https://en.wikipedia.org/wiki/Shear_mapping) at the transform level. That has not been added out of concern for performance.
 
 To parent mesh C to mesh P you use any of these three methods
 
@@ -75,7 +75,7 @@ scene.registerAfterRender(function () {
 
 ## Disc World
 
-Imagine a disc flying around space with building on it. In fact the following example uses a thin cylinder as the disc since the top circular face is horizontal whilst the face of a disc in Babylon.js is vertical. (OK it does make any real difference but it more natural to start with a horizontal ground).
+Imagine a disc flying around space with building on it. In fact the following example uses a thin cylinder as the disc since the top circular face is horizontal whilst the face of a disc in Babylon.js is vertical. (OK it doesn't make any real difference but it more natural to start with a horizontal ground).
 
 The building will be an array of boxes with each box parented to the disc.
 
