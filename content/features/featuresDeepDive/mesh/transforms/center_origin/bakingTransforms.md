@@ -21,7 +21,7 @@ The most straight forward way is to apply a transformation to the mesh. For exam
 
 Baking a current transformation: <Playground id="#6AH5EL" title="Baking Current Transformation" description="Simple example of baking current transforms."/>
 
-When the current transformation is baked into the mesh the local origin of the mesh is also altered so that the location and orientation of the mesh within the seen is not changed.
+When the current transformation is baked into the mesh the local origin of the mesh is also altered so that the location and orientation of the mesh within the scene is not changed.
 
 
 There is also a method, _bakeTransformIntoVertices_, to bake a matrix as a transformation into the vertices. This will bake the transformation provided by the matrix directly into the mesh vertices changing their values but leaving the world matrix unchanged.
