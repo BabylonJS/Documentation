@@ -63,7 +63,7 @@ Once the plugin is referenced, scene loader functions can be used to load model 
 
 #### NPM
 
-When you have a built/bundled app, you can use https://www.npmjs.com/package/@babylonjs/loaders.
+When you have a built/bundled app, you can use [@babylonjs/loaders](https://www.npmjs.com/package/@babylonjs/loaders).
 
 The preferred way to bring in the loaders is via:
 
@@ -84,6 +84,8 @@ You can also register all loaders statically (e.g. they will all be included in 
 ```typescript
 import "@babylonjs/loaders";
 ```
+
+If you are using the UMD package, dynamic loading is not supported. Instead, you should use the static import approach. See [`babylonjs-loaders`](https://www.npmjs.com/package/babylonjs-loaders).
 
 Importers must be registered with one of these approaches before the scene loader functions can be used.
 
