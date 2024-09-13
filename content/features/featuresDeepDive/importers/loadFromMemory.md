@@ -39,7 +39,9 @@ const assetUrl = URL.createObjectURL(assetBlob);
 Then finally we load the asset into the scene from the url which points to the memory blob.
 
 ```javascript
-await BABYLON.SceneLoader.AppendAsync(assetUrl, undefined, scene, undefined, ".glb");
+await BABYLON.appendSceneAsync(assetUrl, scene, {
+    pluginExtension: ".glb"
+});
 ```
 
-It's important to note that the Babylon scene loader will use the correct loader based on the file extension of the asset you're trying to load. In this case, since we're loading binary data saved to memory, the scene loader needs to be explicitly told which loader to use. This is why the final argument in the AppendAsync method is ".glb".
+It's important to note that the Babylon scene loader will use the correct loader based on the file extension of the asset you're trying to load. In this case, since we're loading binary data saved to memory, the scene loader needs to be explicitly told which loader to use. This is why the final argument in the `appendSceneAsync` method (the options object) specifies the `pluginExtension` as `".glb"`.
