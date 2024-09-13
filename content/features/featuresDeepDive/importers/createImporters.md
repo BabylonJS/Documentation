@@ -18,7 +18,7 @@ You can also create your own importer by providing a specific object to the `BAB
 
 A file importer should implement the `ISceneLoaderPluginAsync` interface.
 
-<Alert severity="warning" title="Warning" description="Avoid using ISceneLoaderPlugin as it is legacy and has been replaced by ISceneLoaderPluginAsync" />
+<Alert severity="warning" title="Warning" description="Avoid using ISceneLoaderPlugin as it is deprecated and has been replaced by ISceneLoaderPluginAsync" />
 
 An abbreviated example of a file importer (scene loader plugin) might look something like this:
 

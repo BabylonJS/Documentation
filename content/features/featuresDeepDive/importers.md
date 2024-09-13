@@ -16,4 +16,4 @@ Possible file types are gLTF, splat, obj, stl.
 
 To help you with imported assets there is a manager for them.
 
-**Note:** Since meshes you import can have a _rotationQuaternion_ set before applying a rotation set the _rotationQuaternion_ to _null.
+**Note:** Since meshes you import can have a `rotationQuaternion` set before applying a rotation set the `rotationQuaternion` to `null`.
