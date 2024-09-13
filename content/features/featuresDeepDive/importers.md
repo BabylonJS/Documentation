@@ -12,7 +12,7 @@ video-content:
 
 The built in file type is `.babylon` and Babylon.js can load these without a plugin. All other file types require a plugin as described in this section.
 
-Possible file types are gLTF, splat, obj, stl.
+Possible file types are glTF, splat, obj, stl.
 
 To help you with imported assets there is a manager for them.
 

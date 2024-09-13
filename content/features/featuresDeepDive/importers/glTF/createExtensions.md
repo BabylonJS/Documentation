@@ -3,7 +3,7 @@ title: Create glTF extensions
 image:
 description: Learn about creating new glTF loader extensions.
 keywords: diving deeper, import, importing assets, asset, glTF, extensions
-further-reading:
+further-reading: ["https://babylonjs.medium.com/extending-the-gltf-loader-in-babylon-js-588e48fb692b"]
 video-overview:
 video-content:
 ---
