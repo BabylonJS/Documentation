@@ -11,68 +11,39 @@ video-content:
 Here is the default list of Node Material Blocks available to use.
 
 ## Animation
+
 ### Bones
-Provides a world matrix for each vertex, based on skeletal (bone/joint) animation.
-    -   Inputs:
-        -   matricesIndices: Vector4
-        -   matricesWeights: Vector4
-        -   matricesIndicesExtra: Vector4
-        -   matricesWeightsExtra: Vector4
-        -   world: Matrix
-    -   Outputs:
-        -   output: Matrix
+
+Provides a world matrix for each vertex, based on skeletal (bone/joint) animation. - Inputs: - matricesIndices: Vector4 - matricesWeights: Vector4 - matricesIndicesExtra: Vector4 - matricesWeightsExtra: Vector4 - world: Matrix - Outputs: - output: Matrix
 
 ### MorphTargets
-Provides the final positions, normals, tangents, and uvs based on morph targets in a mesh.
-    -   Inputs:
-        -   position: Vector3
-        -   normal: Vector3
-        -   tangent: Vector3
-        -   uv: Vector2
-    -   Outputs:
-        -   positionOutput: Vector3
-        -   normalOutput: Vector3
-        -   tangentOutput: Vetor3
-        -   uvOutput: Vector2
+
+Provides the final positions, normals, tangents, and uvs based on morph targets in a mesh. - Inputs: - position: Vector3 - normal: Vector3 - tangent: Vector3 - uv: Vector2 - Outputs: - positionOutput: Vector3 - normalOutput: Vector3 - tangentOutput: Vetor3 - uvOutput: Vector2
 
 ## Color Management
+
 ### Desaturate
-Convert a color input into a grayscale representation.
-    -   Inputs:
-        -   color: Color3
-        -   level: Float
-    -   Outputs:
-        -   output: Color3
+
+Convert a color input into a grayscale representation. - Inputs: - color: Color3 - level: Float - Outputs: - output: Color3
 
 ### Gradient
-Returns the color in the gradient represented by the target value of the input.
-    -   Inputs:
-        -   value: Float.
-    -   Outputs:
-        -   output: Color3.
+
+Returns the color in the gradient represented by the target value of the input. - Inputs: - value: Float. - Outputs: - output: Color3.
 
 ### Posterize
-Reduces the number of values in each channel to the number in the corresponding channel of steps.
-    -   Inputs:
-        -   value: Float, Vector2, Vector3, Vector4, Color3, or Color4.
-        -   steps: Float, Vector2, Vector3, Vector4, Color3, or Color4.
-    -   Outputs:
-        -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
+
+Reduces the number of values in each channel to the number in the corresponding channel of steps. - Inputs: - value: Float, Vector2, Vector3, Vector4, Color3, or Color4. - steps: Float, Vector2, Vector3, Vector4, Color3, or Color4. - Outputs: - output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### ReplaceColor
-Outputs the replacement color if the distance between value and reference is less than distance, else outputs the value color.
-    -   Inputs:
-        -   value: Vector2, Vector3, Vector4, Color3, or Color4.
-        -   reference: Vector2, Vector3, Vector4, Color3, or Color4.
-        -   distance: Float
-        -   replacement: Vector2, Vector3, Vector4, Color3, or Color4.
-    -   Outputs:
-        -   output: Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
+
+Outputs the replacement color if the distance between value and reference is less than distance, else outputs the value color. - Inputs: - value: Vector2, Vector3, Vector4, Color3, or Color4. - reference: Vector2, Vector3, Vector4, Color3, or Color4. - distance: Float - replacement: Vector2, Vector3, Vector4, Color3, or Color4. - Outputs: - output: Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 Example: <NME id="#98NGSE" title="Replace Color Block Example" description="Simple Replace Color block example."/>
 
 ## Conversion
+
 ### ColorMerger
+
 Combines float input channels into a color.
 
     -   Inputs:
@@ -85,6 +56,7 @@ Combines float input channels into a color.
         -   rgb: Color3
 
 ### ColorSplitter
+
 Separates color input channels into individual floats.
 
     -   Inputs:
@@ -98,6 +70,7 @@ Separates color input channels into individual floats.
         -   a: Float
 
 ### VectorMerger
+
 Combines up to four input floats into a vector.
 
     -   Inputs:
@@ -111,21 +84,13 @@ Combines up to four input floats into a vector.
         -   xy: Vector2
 
 ### VectorSplitter
-Separates vectors input channels into individual floats.
-    -   Inputs:
-        -   xyzw: Vector4
-        -   xyz: Vector3
-        -   xy: Vector2
-    -   Outputs:
-        -   xyz: Vector3
-        -   xy: Vector2
-        -   x: Float
-        -   y: Float
-        -   z: Float
-        -   w: Float
+
+Separates vectors input channels into individual floats. - Inputs: - xyzw: Vector4 - xyz: Vector3 - xy: Vector2 - Outputs: - xyz: Vector3 - xy: Vector2 - x: Float - y: Float - z: Float - w: Float
 
 ## Inputs
+
 ### BiPlanar
+
 A node for reading a texture with biplanar mapping
 
     - Inputs:
@@ -144,30 +109,35 @@ A node for reading a texture with biplanar mapping
         -   level: Float
 
 ### Color3
+
 A color made up of red, green, and blue channel values.
 
     -   Output:
         -   output: Color3
 
 ### Color4
+
 A color made up of red, green, blue, and alpha channel values.
 
     -   Output:
         -   output: Color4
 
 ### DeltaTime
+
 A float representing the time that has passed since the last frame was rendered.
 
     -   Output:
         -   output: Float
 
 ### Float
+
 A floating point number representing a value with a fractional component.
 
     -   Output:
         -   output: Float
 
 ### FragCoord
+
 The gl_FragCoord predefined variable (window relative coordinates (x,y,z,1/w))
 
     -   Output:
@@ -180,16 +150,18 @@ The gl_FragCoord predefined variable (window relative coordinates (x,y,z,1/w))
         -   w: Float
 
 ### ImageSource
+
 A node for reading an embedded or linked image that can be shared across several Texture nodes.
 
     -   Output:
         -   Source: Can only be used as an input on a Texture block or any other block allowing an ImageSource as input
 
 ### MaterialAlpha
-A float representing the alpha value of the material.
-    -   Output: Float
+
+A float representing the alpha value of the material. - Output: Float
 
 ### ReflectionTexture
+
 Creates a reflection from the input texture.
 
     -   Input:
@@ -206,6 +178,7 @@ Creates a reflection from the input texture.
         -   b: Float
 
 ### ScreenSize
+
 The size of the screen window
 
     -   Output:
@@ -214,6 +187,7 @@ The size of the screen window
         -   y: Float
 
 ### Texture
+
 A node for reading a linked or embedded texture file.
 
     -   Inputs:
@@ -229,12 +203,14 @@ A node for reading a linked or embedded texture file.
         -   level: Float
 
 ### Time
+
 A float value that represents the time that has passed since the scene was loaded.
 
     -   Output:
         -   output: Float
 
 ### TriPlanar
+
 A node for reading a texture with triplanar mapping
 
     - Inputs:
@@ -254,24 +230,27 @@ A node for reading a texture with triplanar mapping
         -   level: Float
 
 ### Vector2
+
 a vector composed of X and Y channels.
 
     -   Output:
         -   output: Vector2
 
 ### Vector3
+
 a vector composed of X, Y, and Z channels.
 
     -   Output:
         -   output: Vector3
 
 ### Vector4
-a vector composed of X, Y, Z, and W channels.
-    -   Output:
-        -   output: Vector4
+
+a vector composed of X, Y, Z, and W channels. - Output: - output: Vector4
 
 ## Interpolation
+
 ### Lerp
+
 Outputs a value that is a mix of the left and right inputs based on the target value.
 
     -   Inputs:
@@ -282,6 +261,7 @@ Outputs a value that is a mix of the left and right inputs based on the target v
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on left and right input types.
 
 ### NLerp
+
 Outputs a value that is a mix of the left and right inputs based on the target's normalized value.
 
     -   Inputs:
@@ -292,6 +272,7 @@ Outputs a value that is a mix of the left and right inputs based on the target's
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on left and right input types.
 
 ### SmoothStep
+
 Outputs a value based on the input value's position on a curve between the two edge values.
 
     -   Inputs:
@@ -302,6 +283,7 @@ Outputs a value based on the input value's position on a curve between the two e
         -   output: Float
 
 ### Step
+
 Outputs 1 for any input value above the edge input, outputs 0 for any input value below the edge input.
 
     -   Input:
@@ -311,7 +293,9 @@ Outputs 1 for any input value above the edge input, outputs 0 for any input valu
         -   output: Float
 
 ## Logical
+
 ### And
+
 If both inputs are non-zero values the block evaluates true, otherwise it evaluates false.
 
     -   Inputs:
@@ -322,6 +306,7 @@ If both inputs are non-zero values the block evaluates true, otherwise it evalua
         -   output: Float
 
 ### Equal
+
 If both inputs are equal the block evaluates true, otherwise it evaluates false.
 
     -   Inputs:
@@ -332,6 +317,7 @@ If both inputs are equal the block evaluates true, otherwise it evaluates false.
         -	output: Float
 
 ### GreaterOrEqual
+
 If input a is greater or equal to input b the block evaluates true, otherwise it evaluates false.
 
     -   Inputs:
@@ -342,6 +328,7 @@ If input a is greater or equal to input b the block evaluates true, otherwise it
         -	output: Float
 
 ### GreaterThan
+
 If input a is greater than input b the block evaluates true, otherwise it evaluates false.
 
     -	Inputs:
@@ -352,6 +339,7 @@ If input a is greater than input b the block evaluates true, otherwise it evalua
         -	output: Float
 
 ### LessOrEqual
+
 If input a is less than or equal to input b the block evaluates true, otherwise it evaluates false.
 
     -	Inputs:
@@ -362,6 +350,7 @@ If input a is less than or equal to input b the block evaluates true, otherwise 
         -	output: Float
 
 ### LessThan
+
 If input a is less than input b the block evaluates true, otherwise it evaluates false.
 
     -	Inputs:
@@ -372,6 +361,7 @@ If input a is less than input b the block evaluates true, otherwise it evaluates
         -	output: Float
 
 ### NotEqual
+
 If input a not equal to input b the block evaluates true, otherwise it evaluates false.
 
     -	Inputs:
@@ -382,6 +372,7 @@ If input a not equal to input b the block evaluates true, otherwise it evaluates
         -	output: Float
 
 ### Or
+
 If either input is a non-zero value the block evaluates true, otherwise it evaluates false.
 
     -	Inputs:
@@ -392,8 +383,9 @@ If either input is a non-zero value the block evaluates true, otherwise it evalu
         -	output: Float
 
 ### Xor
+
 if input a and input b are both a value of zero the block evaluates false, otherwise it evaluates true.
-    
+
     -	Inputs:
         -	a: Float
         -	b: Float
@@ -401,8 +393,41 @@ if input a and input b are both a value of zero the block evaluates false, other
     -	Outputs:
         -	output: Float
 
+## Loop
+
+### Loop
+
+This creates a root node that will iterate on a number of iterations (that value can be set through node.iterations or through the iterations input).
+
+    -   Inputs:
+        -   input: Defines the initial value of the storage data
+        -   iterations: How many iterations for that loop (this will superseed the value defined on node.iterations)
+    -   Outputs
+        -   output: The aggregated value computed by the loop
+        -   index: That value will be changed on each loop to indicate the current index
+        -   loopID: Use this special port to connect StorageRead and StorageWrite entries to this loop
+
+### StorageRead
+
+Used to read the current value of the loop stored data.
+
+    -   Inputs:
+        -   loopID: Establish the connection with the parent loop
+    -   Outputs
+        -   value: The current value of the loop stored data
+
+### StorageWrite
+
+Used to write the new value of the loop stored data.
+
+    -   Inputs:
+        -   loopID: Establish the connection with the parent loop
+        -   value: The new value of the loop stored data
+
 ## Math: Standard
+
 ### Add
+
 Adds the left and right inputs of the same type together.
 
     -   Inputs:
@@ -412,6 +437,7 @@ Adds the left and right inputs of the same type together.
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Divide
+
 Divides the left input by the right input of the same type.
 
     -   Inputs:
@@ -421,6 +447,7 @@ Divides the left input by the right input of the same type.
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Max
+
 Outputs the largest value between the left and right inputs of the same type.
 
     -   Inputs:
@@ -430,6 +457,7 @@ Outputs the largest value between the left and right inputs of the same type.
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Min
+
 Outputs the smallest value between the left and right inputs of the same type.
 
     -   Inputs:
@@ -439,6 +467,7 @@ Outputs the smallest value between the left and right inputs of the same type.
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Mod
+
 Outputs the value of the left input modulo the right input
 
     -   Inputs:
@@ -448,6 +477,7 @@ Outputs the value of the left input modulo the right input
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Multiply
+
 Multiplies the left and right inputs of the same type together.
 
     -   Inputs:
@@ -457,6 +487,7 @@ Multiplies the left and right inputs of the same type together.
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Negate
+
 Multiplies the input by -1.
 
     -   Inputs:
@@ -466,6 +497,7 @@ Multiplies the input by -1.
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### OneMinus
+
 Subtracts each channel of the input value from 1 (1 - input).
 
     -   Inputs:
@@ -475,6 +507,7 @@ Subtracts each channel of the input value from 1 (1 - input).
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Reciprocal
+
 Quotient of 1 divided by the input.
 
     -   Inputs:
@@ -484,6 +517,7 @@ Quotient of 1 divided by the input.
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Scale
+
 Multiplies the input channels by a float factor.
 
     -   Inputs:
@@ -493,6 +527,7 @@ Multiplies the input channels by a float factor.
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Sign
+
 Returns 1 if the input is positive, 0 if input is equal to 0, or -1 if the input is negative.
 
     -   Input:
@@ -501,6 +536,7 @@ Returns 1 if the input is positive, 0 if input is equal to 0, or -1 if the input
         -   output: Float
 
 ### Sqrt
+
 Outputs the square root of the input value.
 
     -   Input:
@@ -509,15 +545,13 @@ Outputs the square root of the input value.
         -   output: Float
 
 ### Subtract
-Subtracts the right input from the left input of the same type.
-    -   Inputs:
-        -   left: Float, Vector2, Vector3, Vector4, Color3, or Color4.
-        -   right: Float, Vector2, Vector3, Vector4, Color3, or Color4.
-    -   Outputs:
-        -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
+
+Subtracts the right input from the left input of the same type. - Inputs: - left: Float, Vector2, Vector3, Vector4, Color3, or Color4. - right: Float, Vector2, Vector3, Vector4, Color3, or Color4. - Outputs: - output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ## Math: Scientific
+
 ### Abs
+
 Outputs the absolute value of the input value.
 
     -   Input:
@@ -526,6 +560,7 @@ Outputs the absolute value of the input value.
         -   output: Float
 
 ### ArcCos
+
 Outputs the inverse of the cosine value based on the input value.
 
     -   Input:
@@ -534,6 +569,7 @@ Outputs the inverse of the cosine value based on the input value.
         -   output: Float
 
 ### ArcSin
+
 Outputs the inverse of the sine value based on the input value.
 
     -   Input:
@@ -542,6 +578,7 @@ Outputs the inverse of the sine value based on the input value.
         -   output: Float
 
 ### ArcTan
+
 Outputs the inverse of the tangent value based on the input value.
 
     -   Input:
@@ -550,6 +587,7 @@ Outputs the inverse of the tangent value based on the input value.
         -   output: Float
 
 ### ArcTan2
+
 Outputs the inverse of the tangent value based on the input value.
 
     -   Input:
@@ -558,6 +596,7 @@ Outputs the inverse of the tangent value based on the input value.
         -   output: Float
 
 ### Cos
+
 Outputs the cosine value based on the input value.
 
     -   Input:
@@ -566,6 +605,7 @@ Outputs the cosine value based on the input value.
         -   output: Float
 
 ### DegreesToRadians
+
 Converts the input degrees value to radians.
 
     -   Input:
@@ -574,6 +614,7 @@ Converts the input degrees value to radians.
         -   output: Float
 
 ### Exp
+
 Outputs the input value multiplied by itself 9 time. (Exponent of 10)
 
     -   Input:
@@ -582,6 +623,7 @@ Outputs the input value multiplied by itself 9 time. (Exponent of 10)
         -   output: Float
 
 ### Exp2
+
 Outputs the input value multiplied by itself 1 time. (Exponent of 2)
 
     -   Input:
@@ -590,6 +632,7 @@ Outputs the input value multiplied by itself 1 time. (Exponent of 2)
         -   output: Float
 
 ### Fract
+
 Outputs only the fractional value of a floating point number.
 
     -   Input:
@@ -598,6 +641,7 @@ Outputs only the fractional value of a floating point number.
         -   output: Float
 
 ### Log
+
 The logarithmic value based on the input value.
 
     -   Input:
@@ -606,6 +650,7 @@ The logarithmic value based on the input value.
         -   output: Float
 
 ### Pow
+
 Outputs the input value multiplied by itself the number of times equal to the power input (Exponent of power)
 
     -   Input:
@@ -615,6 +660,7 @@ Outputs the input value multiplied by itself the number of times equal to the po
         -   output: Float
 
 ### RadiansToDegrees
+
 Converts the input radians value to degrees.
 
     -   Input:
@@ -623,6 +669,7 @@ Converts the input radians value to degrees.
         -   output: Float
 
 ### SawToothWave
+
 Outputs a sawtooth pattern value between -1 and 1 based on the input value.
 
     -   Input:
@@ -631,6 +678,7 @@ Outputs a sawtooth pattern value between -1 and 1 based on the input value.
         -   output: Float
 
 ### Sin
+
 Outputs the sine value based on the input value.
 
     -   Input:
@@ -639,6 +687,7 @@ Outputs the sine value based on the input value.
         -   output: Float
 
 ### SquareWave
+
 Outputs a stepped pattern value between -1 and 1 based on the input value.
 
     -   Input:
@@ -647,6 +696,7 @@ Outputs a stepped pattern value between -1 and 1 based on the input value.
         -   output: Float
 
 ### Tan
+
 Outputs the tangent value based on the input value.
 
     -   Input:
@@ -655,14 +705,13 @@ Outputs the tangent value based on the input value.
         -   output: Float
 
 ### TriangleWave
-Outputs a sawtooth pattern value between 0 and 1 based on the input value.
-    -   Input:
-        -   input: Float
-    -   Output:
-        -   output: Float
+
+Outputs a sawtooth pattern value between 0 and 1 based on the input value. - Input: - input: Float - Output: - output: Float
 
 ## Math: Vector
+
 ### Cross
+
 Outputs a vector that is perpendicular to two input vectors.
 
     -   Inputs:
@@ -672,6 +721,7 @@ Outputs a vector that is perpendicular to two input vectors.
         -   output: Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on left and right input types.
 
 ### Derivative
+
 FRAGMENT SHADER ONLY. Provides the rate of change for an input on a given axis (x,y).
 
     -   Inputs:
@@ -681,6 +731,7 @@ FRAGMENT SHADER ONLY. Provides the rate of change for an input on a given axis (
         -   dy: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on left and right input types.
 
 ### Distance
+
 Provides a distance vector based on the left and right input vectors.
 
     -   Inputs:
@@ -690,6 +741,7 @@ Provides a distance vector based on the left and right input vectors.
         -   output: Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Dot
+
 Outputs the cos of the angle between two vectors.
 
     -   Inputs:
@@ -699,6 +751,7 @@ Outputs the cos of the angle between two vectors.
         -   output: Float
 
 ### Fresnel
+
 Outputs the grazing angle of the surface of the mesh, relative to a camera influenced by the bias and power inputs.
 
     -   Input:
@@ -710,6 +763,7 @@ Outputs the grazing angle of the surface of the mesh, relative to a camera influ
         -   fresnel: Float
 
 ### Length
+
 Outputs the length of an input vector.
 
     -   Inputs:
@@ -719,6 +773,7 @@ Outputs the length of an input vector.
         -   output: Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Reflect
+
 Outputs the direction of the input vector reflected across the surface normal.
 
     -   Inputs:
@@ -728,6 +783,7 @@ Outputs the direction of the input vector reflected across the surface normal.
         -   output: Vector3
 
 ### Refract
+
 Outputs a direction simulating a deflection of the input vector.
 
     -   Inputs:
@@ -738,6 +794,7 @@ Outputs a direction simulating a deflection of the input vector.
         -   output: Vector3
 
 ### Rotate2D
+
 Rotates UV coordinates around the W axis.
 
     -   Inputs:
@@ -747,6 +804,7 @@ Rotates UV coordinates around the W axis.
         -   output: Vector2
 
 ### ScreenSpace
+
 Converts a world space position into the corresponding XY screen coordinates in a range of -1 to 1.
 
     -	Inputs:
@@ -758,6 +816,7 @@ Converts a world space position into the corresponding XY screen coordinates in 
         -	Y: Float
 
 ### Transform
+
 Transforms an input vector based on the input matrix.
 
     -   Inputs:
@@ -767,6 +826,7 @@ Transforms an input vector based on the input matrix.
         -   output: Vector4
 
 ### Twirl
+
 Twirls UV coordinates around the W axis
 
     -	Inputs:
@@ -780,13 +840,16 @@ Twirls UV coordinates around the W axis
         -	Y: Float
 
 ## Matrices
+
 ### Matrix
+
 A 4x4 table of related values.
 
     -   Output:
         -   output: Matrix
 
 ### MatrixBuilder
+
 Creates a custom matrix from four Vector4 inputs.
 
     -	Inputs:
@@ -798,86 +861,83 @@ Creates a custom matrix from four Vector4 inputs.
         -	output: Matrix
 
 ### ProjectionMatrix
+
 A matrix to remap points in 3D space to 2D plane relative to the screen.
 
     -   Output:
         -   output: Matrix
 
 ### ViewMatrix
+
 A matrix to remap points in 3D space to 2D plane relative to the view of the scene camera.
 
     -   Output:
         -   output: Matrix
 
 ### ViewProjectionMatrix
+
 A matrix to remap points in 3D space to 2D view space before remapping to 2D screen space.
 
     -   Output:
         -   output: Matrix
 
 ### WorldMatrix
+
 A matrix to remap points in 3D local space to 3D world space.
 
     -   Output:
         -   output: Matrix
 
 ### WorldViewMatrix
+
 A matrix to remap points in 3D local space to 3D world space, and ending in 2D camera space.
 
     -   Output:
         -   output: Matrix
 
 ### WorldViewProjectionMatrix
-A matrix to remap points in 3D local space to 3D world space, then to 2D camera space, and ending in 2D screen space.
-    -   Output:
-        -   output: Matrix
+
+A matrix to remap points in 3D local space to 3D world space, then to 2D camera space, and ending in 2D screen space. - Output: - output: Matrix
 
 ## Misc
+
 ### Elbow
-Passthrough block mostly used to organize your graph.
-    -   Input: any type
-    -   Output: any type
+
+Passthrough block mostly used to organize your graph. - Input: any type - Output: any type
 
 ### ShadowMap
-Compute a depth value suitable for shadow map generation
-    -   Input:
-        -   worldPosition: Vector4
-        -   viewProjection: Matrix
-        -   worldNormal: Vector3 / Vector4
-    -   Output:
-        -   depth: Vector3
+
+Compute a depth value suitable for shadow map generation - Input: - worldPosition: Vector4 - viewProjection: Matrix - worldNormal: Vector3 / Vector4 - Output: - depth: Vector3
 
 ## Mesh
+
 ### Color
+
 Outputs the RGBA color of each vertex in the mesh.
 
     -   Output:
         -   output: Color4
 
 ### FrontFacing
+
 Returns 1 if a mesh triangle faces the normal direction and 0 if it does not.
 
     -   Outputs:
         -   output: Float
 
 ### HeightToNormal
-Convert a hight map into a normal map.
-    -   Input:
-        -   input: Float
-        -   worldPosition: Vector3
-        -   worldNormal: Vector3
-        -   worldTangent: Vector3 / Vector4
-    -   Output:
-        -   output: Vector4
-        -   xyz: Vector3
+
+Convert a hight map into a normal map. - Input: - input: Float - worldPosition: Vector3 - worldNormal: Vector3 - worldTangent: Vector3 / Vector4 - Output: - output: Vector4 - xyz: Vector3
 
 ### InstanceColor
+
 Outputs the RGBA color of each instance.
 
     -   Output:
         -   output: Color4
 
 ### Instances
+
 Provides the world matrix for each instance to apply this material to all instances.
 
     -   Inputs:
@@ -890,24 +950,28 @@ Provides the world matrix for each instance to apply this material to all instan
         -   output: Matrix
 
 ### MatricesIndices
+
 A Vector4 representing the vertex to bone skinning assignments.
 
     -   Output:
         -   output: Vector4
 
 ### MatricesWeights
+
 A Vector4 representing the vertex to bone skinning weights.
 
     -   Output:
         -   output: Vector4
 
 ### Normal
+
 A Vector3 representing the normal of each vertex of the attached mesh.
 
     -   Output:
         -   output: Vector3
 
 ### NormalBlend
+
 Outputs the result of blending two normal maps together using a per-channel screen.
 
     -   Input:
@@ -917,6 +981,7 @@ Outputs the result of blending two normal maps together using a per-channel scre
         -   output: Vector3
 
 ### PerturbNormal
+
 Creates high-frequency detail normal vectors based on a normal map, the world position, and world normal.
 
     -   Input:
@@ -929,36 +994,32 @@ Creates high-frequency detail normal vectors based on a normal map, the world po
         -   output: Vector4
 
 ### Position
+
 A Vector3 representing the position of each vertex of the attached mesh.
 
     -   Output:
         -   output: Vector3
 
 ### Tangent
+
 A Vector3 representing the tangent of each vertex of the attached mesh.
 
     -   Output:
         -   output: Vector3
 
 ### TBN
-Creates a TBN matrix from normal, tangent and bitangent vectors.
-    -   Input:
-        -   normal: Vector3
-        -   tangent: Vector4
-        -   world: Matrix
-    -   Output:
-        -   TBN: the TBN matrix
-        -   row0: the first row (tangent) of the matrix
-        -   row1: the second row (bitangent) of the matrix
-        -   row2: the third row (normal) of the matrix
+
+Creates a TBN matrix from normal, tangent and bitangent vectors. - Input: - normal: Vector3 - tangent: Vector4 - world: Matrix - Output: - TBN: the TBN matrix - row0: the first row (tangent) of the matrix - row1: the second row (bitangent) of the matrix - row2: the third row (normal) of the matrix
 
 ### UV
+
 A Vector2 representing the UV coordinates of each vertex of the attached mesh.
 
     -   Output:
         -   output: Vector2
 
 ### WorldNormal
+
 A Vector4 representing the normal of each vertex of the attached mesh transformed into world space.
 
     -   Input:
@@ -968,6 +1029,7 @@ A Vector4 representing the normal of each vertex of the attached mesh transforme
         -   output: Vector4
 
 ### WorldPosition
+
 A Vector4 representing the position of each vertex of the attached mesh transformed into world space.
 
     -   Input:
@@ -977,6 +1039,7 @@ A Vector4 representing the position of each vertex of the attached mesh transfor
         -   output: Vector4
 
 ### WorldTangent
+
 A Vector4 representing the tangent of each vertex of the attached mesh transformed into world space.
 
     -	Inputs:
@@ -987,7 +1050,9 @@ A Vector4 representing the tangent of each vertex of the attached mesh transform
         -	xyz: Vector3
 
 ## Noises
+
 ### Cloud
+
 Creates a random pattern resembling clouds.
 
     -   Inputs:
@@ -1000,6 +1065,7 @@ Creates a random pattern resembling clouds.
         -   output: Float
 
 ### RandomNumber
+
 Provides a random number based on an input seed.
 
     -   Inputs:
@@ -1008,6 +1074,7 @@ Provides a random number based on an input seed.
         -   output: Float
 
 ### SimplexPerlin3D
+
 Creates a type of gradient noise with few directional artifacts.
 
     -   Inputs:
@@ -1016,6 +1083,7 @@ Creates a type of gradient noise with few directional artifacts.
         -   output: Float
 
 ### VoronoiNoise
+
 Creates a random pattern of cells in 2D.
 
     -	Inputs:
@@ -1027,6 +1095,7 @@ Creates a random pattern of cells in 2D.
         -	cells: Float
 
 ### WorleyNoise3D
+
 Creates a random pattern resembling cells.
 
     -   Inputs:
@@ -1036,12 +1105,13 @@ Creates a random pattern resembling cells.
         -   output: Vector2
 
 ## Outputs
+
 ### ClipPlanes
-A node that adds clip planes support.
-    -   Input:
-        -   worldPosition: Vector4
+
+A node that adds clip planes support. - Input: - worldPosition: Vector4
 
 ### Discard
+
 A final node that will not output a pixel below the cutoff value.
 
     -   Inputs:
@@ -1049,13 +1119,11 @@ A final node that will not output a pixel below the cutoff value.
         -   cutoff: Float
 
 ### FragDepth
-A final node that sets the fragment depth.
-    -   Inputs:
-        -   depth: Float
-        -   worldPos: Vector4
-        -   viewProjection: Matrix
+
+A final node that sets the fragment depth. - Inputs: - depth: Float - worldPos: Vector4 - viewProjection: Matrix
 
 ### FragmentOutput
+
 A mandatory final node for outputing the color of each pixel.
 
     -   Inputs:
@@ -1064,12 +1132,13 @@ A mandatory final node for outputing the color of each pixel.
         -   a: Float
 
 ### VertexOutput
-A mandatory final node for outputing the position of each vertex.
-    -   Inputs:
-        -   vector: Vector4
+
+A mandatory final node for outputing the position of each vertex. - Inputs: - vector: Vector4
 
 ## Particle
+
 ### ParticleBlendMultiply
+
 The "blend/multiply" module of the particle shader
 
     -   Inputs:
@@ -1080,52 +1149,46 @@ The "blend/multiply" module of the particle shader
         -   blendColor: Color4
 
 ### ParticleColor
-The color of the particle
-    -   Outputs:
-        -   output: Color4
+
+The color of the particle - Outputs: - output: Color4
+
 ### ParticlePositionWorld
-The world position of the particle
-    -   Outputs:
-        -   output: Vector3
+
+The world position of the particle - Outputs: - output: Vector3
+
 ### ParticleRampGradient
-The "ramp gradient" module of the particle shader
-    -   Inputs:
-        -   color: Color4
-    -   Outputs:
-        -   rampColor: Color4
+
+The "ramp gradient" module of the particle shader - Inputs: - color: Color4 - Outputs: - rampColor: Color4
+
 ### ParticleTexture
-The texture of the particle
-    -   Inputs:
-        -   uv: Vector2
-    -   Outputs:
-        -   rgba: Color4
-        -   rgb: Color3
-        -   r: Float
-        -   g: Float
-        -   b: Float
-        -   a: Float
+
+The texture of the particle - Inputs: - uv: Vector2 - Outputs: - rgba: Color4 - rgb: Color3 - r: Float - g: Float - b: Float - a: Float
+
 ### ParticleTextureMask
-The textureMask property of the particle
-    -   Outputs:
-        -   output: Color4
+
+The textureMask property of the particle - Outputs: - output: Color4
+
 ### ParticleUV
-the uv coordinates of the particle
-    -   Outputs:
-        -   output: Vector2
+
+the uv coordinates of the particle - Outputs: - output: Vector2
 
 ## PBR (since 4.2)
-### Anisotropy
-The anisotropy module of the PBR material
--   Inputs:
-    -   intensity: Float
-    -   direction: Vector2 - note that if you read the direction from a texture, you will probably want to apply the transformation `texture.xy * 2 - 1` to get coordinates between -1 and 1!
-    -   uv: Vector2
-    -   worldTangent: Vector4
--   Outputs:
 
-    -   anisotropy: can only be used as input of the `PBRMetallicRoughness` block
+### Anisotropy
+
+The anisotropy module of the PBR material
+
+- Inputs:
+  - intensity: Float
+  - direction: Vector2 - note that if you read the direction from a texture, you will probably want to apply the transformation `texture.xy * 2 - 1` to get coordinates between -1 and 1!
+  - uv: Vector2
+  - worldTangent: Vector4
+- Outputs:
+
+  - anisotropy: can only be used as input of the `PBRMetallicRoughness` block
 
 ### ClearCoat
+
 The clear coat module of the PBR material
 
     -   Inputs:
@@ -1142,6 +1205,7 @@ The clear coat module of the PBR material
         -   clearcoat: can only be used as input of the `PBRMetallicRoughness` block
 
 ### Iridescence
+
 The iridescence module of the PBR material
 
     -   Inputs:
@@ -1152,6 +1216,7 @@ The iridescence module of the PBR material
         -   iridescence: can only be used as input of the `PBRMetallicRoughness` block
 
 ### PBRMetallicRoughness
+
 The PBR material implementing the metallic/roughness model
 
     -   Inputs:
@@ -1197,47 +1262,47 @@ The PBR material implementing the metallic/roughness model
     -   The `shadow` output is the shadow component when this material is used for shadow rendering (0 means completely in shadow from all lights and 1 means fully visible by all lights). You can use it for additional special effects (see <Playground id="#Y642I8" title="Tinted Shadows Example" description="A Playground example of tinted shadows."/> ) for tinted shadows for eg - it's for the standard material but it would work the same for PBR too) but note that you don't need to do anything with it by default to have shadows rendered correctly for your material
 
 ### Reflection
-The reflection module of the PBR material
-    -   Inputs:
-        -   position: Vector3
-        -   world: Matrix
-        -   color: Color3
-    -   Outputs:
-        -   reflection: can only be used as input of the `PBRMetallicRoughness` block
+
+The reflection module of the PBR material - Inputs: - position: Vector3 - world: Matrix - color: Color3 - Outputs: - reflection: can only be used as input of the `PBRMetallicRoughness` block
 
 ### Refraction
+
 The refraction module of the PBR material (used by the `SubSurface` block)
 
--   Inputs:
-    -   intensity: Float
-    -   tintAtDistance: Float
--   Outputs:
-    -   refraction: can only be used as input of the `SubSurface` block
+- Inputs:
+  - intensity: Float
+  - tintAtDistance: Float
+- Outputs:
+  - refraction: can only be used as input of the `SubSurface` block
 
 ### Sheen
+
 The sheen module of the PBR material
 
--   Inputs:
-    -   intensity: Float
-    -   color: Color3
-    -   roughness: Float
--   Outputs:
-    -   sheen: can only be used as input of the `PBRMetallicRoughness` block
+- Inputs:
+  - intensity: Float
+  - color: Color3
+  - roughness: Float
+- Outputs:
+  - sheen: can only be used as input of the `PBRMetallicRoughness` block
 
 ### SubSurface
+
 The sub surface module of the PBR material
 
--   Inputs:
-    -   thickness: Float
-    -   tintColor: Color3
-    -   translucencyIntensity: Float
-    -   translucencyDiffusionDist: Color3
-    -   refraction: output of the `Refraction` block
--   Outputs:
-    -   subsurface: can only be used as input of the `PBRMetallicRoughness` block
+- Inputs:
+  - thickness: Float
+  - tintColor: Color3
+  - translucencyIntensity: Float
+  - translucencyDiffusionDist: Color3
+  - refraction: output of the `Refraction` block
+- Outputs:
+  - subsurface: can only be used as input of the `PBRMetallicRoughness` block
 
 ## PostProcess
+
 ### CurrentScreen
+
 The current screen (texture) used to render the post process
 
     -   Inputs:
@@ -1251,12 +1316,13 @@ The current screen (texture) used to render the post process
         -   a: Float
 
 ### ScreenPosition
-The 2D clip coordinates (values between -1 and 1 for both x and y)
-    -   Outputs:
-        -   output: Vector2
+
+The 2D clip coordinates (values between -1 and 1 for both x and y) - Outputs: - output: Vector2
 
 ## Range
+
 ### Clamp
+
 Outputs values above the maximum or below minimum as maximum or minimum values respectively.
 
     -   Input:
@@ -1265,6 +1331,7 @@ Outputs values above the maximum or below minimum as maximum or minimum values r
         -   input: Float
 
 ### Normalize
+
 Remaps the length of a vector or color to 1.
 
     -   Inputs:
@@ -1273,18 +1340,13 @@ Remaps the length of a vector or color to 1.
         -   output: Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
 ### Remap
-Remaps input value between sourceMin and sourceMax to a new range between targetMin and targetMax.
-    -   Inputs:
-        -   input: Float, Vector2, Vector3, Vector4, Color3, Color4.
-        -   sourceMin: Float
-        -   sourceMax: Float
-        -   targetMin: Float
-        -   targetMax: Float
-    -   Outputs:
-        -   output: Float, Vector2, Vector3, Vector4, Color3, Color4. Output varies based on input type.
+
+Remaps input value between sourceMin and sourceMax to a new range between targetMin and targetMax. - Inputs: - input: Float, Vector2, Vector3, Vector4, Color3, Color4. - sourceMin: Float - sourceMax: Float - targetMin: Float - targetMax: Float - Outputs: - output: Float, Vector2, Vector3, Vector4, Color3, Color4. Output varies based on input type.
 
 ## Round
+
 ### Ceiling
+
 Outputs fractional values as the next higher whole number.
 
     -   Input:
@@ -1293,6 +1355,7 @@ Outputs fractional values as the next higher whole number.
         -   output: Float
 
 ### Floor
+
 Outputs fractional values as the next lower whole number.
 
     -   Input:
@@ -1301,26 +1364,27 @@ Outputs fractional values as the next lower whole number.
         -   output: Float
 
 ### Round
-Outputs fractional values rounded to the nearest whole number.
-    -   Input:
-        -   input: Float
-    -   Output:
-        -   output: Float
+
+Outputs fractional values rounded to the nearest whole number. - Input: - input: Float - Output: - output: Float
 
 ## Scene Attributes
+
 ### CameraPosition
+
 Outputs a Vector3 position of the active scene camera.
 
     -   Output:
         -   output: Vector3
 
 ### CameraParameters
+
 Outputs a Vector4 containing parameters associated with the camera (x: -1 for webGL and 1 for webGPU, y: minZ, z: maxZ, w: 1 / maxZ).
-    
+
         -   Output:
             -   output: Vector4
 
 ### Fog
+
 Applies fog to the scene with an increasing opacity based on distance from the camera.
 
     -   Input:
@@ -1332,12 +1396,14 @@ Applies fog to the scene with an increasing opacity based on distance from the c
         -   output: Color3
 
 ### FogColor
+
 The system value for fog color pulled from the scene.
 
     -   Output:
         -   output: Color3
 
 ### ImageProcessing
+
 Provides access to all the Babylon image processing properties. Input is expected in Gamma color space. [Post Processes](/features/featuresDeepDive/postProcesses/usePostProcesses)
 
     -   Input:
@@ -1347,6 +1413,7 @@ Provides access to all the Babylon image processing properties. Input is expecte
         -   rgb: Color3
 
 ### Light
+
 Outputs diffuse and specular contributions from one or more scene lights.
 
     -   Input:
@@ -1362,6 +1429,7 @@ Outputs diffuse and specular contributions from one or more scene lights.
         -   specularOutput: Color3
 
 ### LightInformation
+
 Provides the direction, color and intensity of a selected light based on its world position.
 
     -   Input:
@@ -1372,16 +1440,9 @@ Provides the direction, color and intensity of a selected light based on its wor
         -   intensity: Float
 
 ### SceneDepth
-The scene depth buffer.
-    -   Input:
-        -   uv: Vector2 / Vector3 / Vector4
-    -   Output:
-        -   depth: Float
+
+The scene depth buffer. - Input: - uv: Vector2 / Vector3 / Vector4 - Output: - depth: Float
 
 ### ViewDirection
-Outputs the direction vector of where the camera is aimed.
-    -   Input:
-        -   worldPosition: Vector4
-        -   cameraPosition: Vector3
-    -   Output:
-        -   output: Vector3
+
+Outputs the direction vector of where the camera is aimed. - Input: - worldPosition: Vector4 - cameraPosition: Vector3 - Output: - output: Vector3
