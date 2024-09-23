@@ -408,7 +408,8 @@ This creates a root node that will loop through a number of iterations (that val
 
 
     -   Inputs:
-        -   input: Defines the initial value of the storage data
+        -   input: Defines the initial value of the stored data
+
         -   iterations: How many iterations for that loop (this will superseed the value defined on node.iterations)
     -   Outputs
         -   output: The aggregated value computed by the loop
