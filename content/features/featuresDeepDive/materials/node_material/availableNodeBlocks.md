@@ -404,10 +404,12 @@ if input a and input b are both a value of zero the block evaluates false, other
 
 ### Loop
 
-This creates a root node that will iterate on a number of iterations (that value can be set through node.iterations or through the iterations input).
+This creates a root node that will loop through a number of iterations (that value can be set through node.iterations or through the iterations input).
+
 
     -   Inputs:
-        -   input: Defines the initial value of the storage data
+        -   input: Defines the initial value of the stored data
+
         -   iterations: How many iterations for that loop (this will superseed the value defined on node.iterations)
     -   Outputs
         -   output: The aggregated value computed by the loop
