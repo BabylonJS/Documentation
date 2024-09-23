@@ -429,14 +429,14 @@ You could also have used `Lerp(0, alphaCutOff, ALPHATEST)` as the input for `Dis
 
 #### Using loops
 
-Loops are always a complicated discussion within a shader as they can easily kill the performance. With Babylon v8.0, we are introducing a new node named `Loop`. The goal of that node is to allow the user to aggregate a value through iterations (Think for instance about a texture blur).
+Loops are always a complicated discussion within a shader as they can easily kill the performance. With Babylon v8.0, we are introducing a new node named `Loop`. The goal of that node is to allow the user to aggregate a value through multiple iterations (think, for instance, about a texture blur).
 
 To do so you will need to drop a `Loop" block and connect an input value. That value will be the initial value of the aggregated variable. Once computed that value will be available on the output port of the block.
 
 To aggregate the value you will need to wire a `StorageRead` and `StorageWrite` block to the loopID port of the `Loop` block. These 2 blocks will give you access to the running value of the aggregated variable.
 
-Here is an example where the loop is simply adding 2 to a float 10 times:
-![Emissive](/img/playgroundsAndNMEs/simple-loop.png)
+Here is an example where the loop is simply adding a shade of red to a black color 10 times:
+<NME id="#N2ROVF" title="Node Material Editor Simple Loop Example" description="Using a loop block to accumlate a color" image="/img/playgroundsAndNMEs/simple-loop.png"/>
 
 Of course you can do far more like a texture blur:
 <NME id="#OXJ1ND" title="Node Material Editor Loop Example" description="Using a loop block to blur a texture" image="/img/playgroundsAndNMEs/texture-blur.png"/>
