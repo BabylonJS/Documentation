@@ -32,7 +32,7 @@ BABYLON.SceneLoader.ImportMeshAsync(null, "https://assets.babylonjs.com/splats/"
 
 User can update or generate new Splats with the `updateData`method.
 Mandatory values are splat center position, size, orientation and color.
-The following example updates the Gaussian Splatting with 1 single 
+The following example updates the Gaussian Splatting with 1 single splat.
 
 ```javascript
 var gs = new BABYLON.GaussianSplattingMesh("GS", undefined, scene, true);
