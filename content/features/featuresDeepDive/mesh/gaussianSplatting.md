@@ -28,6 +28,50 @@ BABYLON.SceneLoader.ImportMeshAsync(null, "https://assets.babylonjs.com/splats/"
     const gaussianSplattingMesh = result.meshes[0]; });
 ```
 
+## Updating datas of a Gaussian Splatting
+
+User can update or generate new Splats with the `updateData`method.
+Mandatory values are splat center position, size, orientation and color.
+The following example updates the Gaussian Splatting with 1 single 
+
+```javascript
+var gs = new BABYLON.GaussianSplattingMesh("GS", undefined, scene, true);
+
+// size of a single splat, in bytes
+const rowLength = 32;
+
+// chunck size of splats
+const splatCount = 1;
+
+const uBuffer = new Uint8Array(splatCount * rowLength);
+const fBuffer = new Float32Array(uBuffer.buffer);
+
+// center position
+fBuffer[0] = 0; // x
+fBuffer[1] = 0; // y
+fBuffer[2] = 0; // z
+
+// size
+fBuffer[3 + 0] = 0.1;
+fBuffer[3 + 1] = 0.1;
+fBuffer[3 + 2] = 0.1;
+
+// orientation quaternion. Values are remapped from -1..1 to 0..255. 128 is 0. 255 is 1
+uBuffer[28 + 1] = 128; 
+uBuffer[28 + 2] = 128;
+uBuffer[28 + 3] = 128;
+uBuffer[28 + 0] = 255;
+
+// color
+uBuffer[24 + 0] = 128;
+uBuffer[24 + 1] = 128;
+uBuffer[24 + 2] = 128;
+uBuffer[24 + 3] = 255;
+gs.updateData(uBuffer);
+```
+
 <Playground id="#CID4NN#203" title="Simple Example of Gaussian Splatting" description="Simple example of setting a Gaussian Splatting."/>
 
 <Playground id="#45KYTJ#61" title="Loading and displaying different Gaussian Splatting scenes" description="Loading and displaying different Gaussian Splatting scenes."/>
+
+<Playground id="#EILZ5L#3" title="10000 splats updated" description="Creating and updating a Gaussian Splatting made of 10000 individual splats"/>
