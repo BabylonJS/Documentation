@@ -400,6 +400,38 @@ if input a and input b are both a value of zero the block evaluates false, other
         -	true: Float, Vector2, Vector3, Vector4, Color3, Color4
     -	Outputs:
         -	output: Float
+## Loop
+
+### Loop
+
+This creates a root node that will loop through a number of iterations (that value can be set through node.iterations or through the iterations input).
+
+
+    -   Inputs:
+        -   input: Defines the initial value of the stored data
+
+        -   iterations: How many iterations for that loop (this will superseed the value defined on node.iterations)
+    -   Outputs
+        -   output: The aggregated value computed by the loop
+        -   index: That value will be changed on each loop to indicate the current index
+        -   loopID: Use this special port to connect StorageRead and StorageWrite entries to this loop
+
+### StorageRead
+
+Used to read the current value of the loop stored data.
+
+    -   Inputs:
+        -   loopID: Establish the connection with the parent loop
+    -   Outputs
+        -   value: The current value of the loop stored data
+
+### StorageWrite
+
+Used to write the new value of the loop stored data.
+
+    -   Inputs:
+        -   loopID: Establish the connection with the parent loop
+        -   value: The new value of the loop stored data
 
 ## Math: Standard
 ### Add

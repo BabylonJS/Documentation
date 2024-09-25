@@ -69,12 +69,24 @@ This loader supports only glTF 1.0 and will fail to load glTF 2.0.
 <script src="babylon.glTF1FileLoader.js"></script>
 ```
 
+## NPM
+
+When using the Babylon npm packages in your own build, it is preferable to register the glTF file importer via the top level dynamic loader registration function `registerBuiltInLoaders`. See [Loading Any File Type](/features/featuresDeepDive/importers/loadingFileTypes#npm) for more information.
+
+If you want to import the glTF file importer statically (not recommended), you can do so via:
+
+```javascript
+import "@babylonjs/loaders/glTF/2.0";
+```
+
+You can read more about [NPM support](/setup/frameworkPackages/npmSupport)
+
 ## Loading the Scene
 
-Use one of the static function on the `SceneLoader` to load a glTF asset.
+Use one of scene loader functions to load a glTF asset.
 See [Load from any file type](/features/featuresDeepDive/importers/loadingFileTypes).
 
-See an example here: <Playground id="#WGZLGJ" title="Load a glTF Asset" description="Simple example showing how load a .glTF asset into your scene." image="/img/playgroundsAndNMEs/divingDeeperglTF1.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#WGZLGJ#10552" title="Load a glTF Asset" description="Simple example showing how load a .glTF asset into your scene." image="/img/playgroundsAndNMEs/divingDeeperglTF1.jpg" isMain={true} category="Import"/>
 
 ## API (Version 2)
 
@@ -84,7 +96,9 @@ See the available [properties and methods](/typedoc/classes/babylon.gltffileload
 
 ## Extensions
 
-See the available [extensions](/typedoc/modules/babylon.gltf2.loader.extensions) from the API documentation.
+See the built in [extensions](/typedoc/modules/babylon.gltf2.loader.extensions) from the API documentation.
+
+You can also [create your own extensions](/features/featuresDeepDive/importers/glTF/createExtensions).
 
 ## API (Version 1)
 
@@ -105,8 +119,3 @@ Set this property to true in order to work with homogeneous coordinates, availab
 ```javascript
 BABYLON.GLTFFileLoader.HomogeneousCoordinates = true;
 ```
-
-## Extensions
-
-[KHR_binary_glTF](https://github.com/KhronosGroup/glTF/tree/master/extensions/1.0/Khronos/KHR_binary_glTF)  
-[KHR_materials_common](https://github.com/KhronosGroup/glTF/tree/master/extensions/1.0/Khronos/KHR_materials_common)

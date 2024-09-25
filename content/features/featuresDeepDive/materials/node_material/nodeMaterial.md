@@ -327,12 +327,13 @@ You can also use a standalone version of the editor here: <NME id="" title="Node
 Learn more about the [Node Material Editor here](/toolsAndResources/nme).
 
 ### Using Node Material With WebGL and WebGPU
+
 Node materials are now able to render with either the popular WebGL API or the newer [WebGPU API](/setup/support/webGPU) which allows node material to leverage a device's graphics processing unit (GPU). To define which API should be used by a node material, you can set up that option in the constructor or simply set the `nodeMaterial.shaderLanguage` parameter to `BABYLON.ShaderLanguage.WGSL`.
 
 Inside the Node Material Editor, you have an option to choose which engine to use during creation time:
 ![Engine toggle for WebGL and WebGPU](/img/tools/nme/engineSwitch.jpg)
 
-The assigned engine parameter will NOT be saved in the node material's json file allowing you to still choose the correct version at runtime. 
+The assigned engine parameter will NOT be saved in the node material's json file allowing you to still choose the correct version at runtime.
 
 ### Recreating the StandardMaterial
 
@@ -402,11 +403,11 @@ Example:
 
 If `EMISSIVE` is set to 0, the output is `vEmissiveColor`, else it is the color from the emissive map. In effect, the `EMISSIVE` boolean lets you choose to use either the constant `vEmissiveColor` color or the color from the texture map as the emissive color.
 
-The **Lerp** block will also accept more than a numerical value for `gradient`. The `gradient` input also accepts textures - either single channel or RGB - to determine which output is passed for each pixel. A `gradient` pixel with value 0.0 passes the corresponding pixel from `a` where a value of 0.0 would pass the corresponding pixel from `b`. A value between 0.0 and 1.0 will pass a blend of the values of the corresponding pixel from `a` and `b` mixed at the ratio of the value in `gradient`. If the texture is a single channel texture, each of the RGB channels from `a` and `b` are mixed at the same amount. If the texture in `gradient` is an RGB texture, each of the RGB channels of `a` and `b` will be mixed at the ratio of the corresponding `gradient` channel. In other words, the red channel of `gradient` will determine the mix of the pixels in the red channels of `a` and `b`.  
+The **Lerp** block will also accept more than a numerical value for `gradient`. The `gradient` input also accepts textures - either single channel or RGB - to determine which output is passed for each pixel. A `gradient` pixel with value 0.0 passes the corresponding pixel from `a` where a value of 0.0 would pass the corresponding pixel from `b`. A value between 0.0 and 1.0 will pass a blend of the values of the corresponding pixel from `a` and `b` mixed at the ratio of the value in `gradient`. If the texture is a single channel texture, each of the RGB channels from `a` and `b` are mixed at the same amount. If the texture in `gradient` is an RGB texture, each of the RGB channels of `a` and `b` will be mixed at the ratio of the corresponding `gradient` channel. In other words, the red channel of `gradient` will determine the mix of the pixels in the red channels of `a` and `b`.
 
 ![Texture Blending](/img/tools/nme/lerpExample.jpg)
 
-The **Lerp** node is often used for techniques like blending tiling textures to hide repeated patterns or to "splat" textures in specific areas of a mesh. This can also be helpful for creating terrain meshes where it is desireable to scatter patches of dirt or grass on a ground plane in a randomly generated procedural method. 
+The **Lerp** node is often used for techniques like blending tiling textures to hide repeated patterns or to "splat" textures in specific areas of a mesh. This can also be helpful for creating terrain meshes where it is desireable to scatter patches of dirt or grass on a ground plane in a randomly generated procedural method.
 
 - <Playground id="#KR6748" title="Blending Tiling Textures" description="Blending tiling textures to hide repeating elements." image="/img/playgroundsAndNMEs/tilingTextureBlend.jpg" isMain={true} category="Materials"/>
 
@@ -425,6 +426,22 @@ If `ALPHATEST = 1`, the computed value is `alphaCutOff`, which is the expected i
 If `ALPHATEST = 0`, the computed value is `-1 + alphaCutOff`. As `alphaCutOff` is a value between 0 and 1, `-1 + alphaCutOff` will always be lower or equal to 0. So, `Discard.cutoff` &lt;= 0 in that case, meaning the fragment will never be discarded (which is the expected result when alpha testing is disabled).
 
 You could also have used `Lerp(0, alphaCutOff, ALPHATEST)` as the input for `Discard.cutoff`, but it's likely that the addition + subtraction used above is faster than a `Lerp` on GPUs (would need some benchmarking to be sure), even if it's by a small (negligible) margin.
+
+#### Using loops
+
+Loops are always a complicated discussion within a shader as they can easily kill the performance. With Babylon v8.0, we are introducing a new node named `Loop`. The goal of that node is to allow the user to aggregate a value through multiple iterations (think, for instance, about a texture blur).
+
+To do so you will need to drop a `Loop" block and connect an input value. That value will be the initial value of the aggregated variable. Once computed that value will be available on the output port of the block.
+
+To aggregate the value you will need to wire a `StorageRead` and `StorageWrite` block to the loopID port of the `Loop` block. These 2 blocks will give you access to the running value of the aggregated variable.
+
+Here is an example where the loop is simply adding a shade of red to a black color 10 times:
+<NME id="#N2ROVF" title="Node Material Editor Simple Loop Example" description="Using a loop block to accumlate a color" image="/img/playgroundsAndNMEs/simple-loop.png"/>
+
+Of course you can do far more like a texture blur:
+<NME id="#OXJ1ND" title="Node Material Editor Loop Example" description="Using a loop block to blur a texture" image="/img/playgroundsAndNMEs/texture-blur.png"/>
+
+Please keep in mind that loops have to be used cautiously as they can add a lot of computations to your shaders.
 
 #### Shader Promotion Optimization
 

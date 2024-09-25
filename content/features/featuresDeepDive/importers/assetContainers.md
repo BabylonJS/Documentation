@@ -34,7 +34,7 @@ container.removeAllFromScene();
 
 <Playground id="#5NFRVE#1" title="Asset Container Adding and Removing Assets" description="Simple Example of adding and removing asset container assets into your scene." image="/img/playgroundsAndNMEs/divingDeeperAssetContainer1.jpg"/>
 
-This can be used to add/remove all objects in a scene without the need to exit WebVR. <Playground id="#JA1ND3#48" title="Asset Container Adding and Removing Assets in WebVR" description="Simple Example of adding and removing asset container assets into your WebVR scene." image="/img/playgroundsAndNMEs/divingDeeperAssetContainer2.jpg"/>
+This can be used to add/remove all objects in a scene without the need to exit WebVR. <Playground id="#JA1ND3#1016" title="Asset Container Adding and Removing Assets in WebVR" description="Simple Example of adding and removing asset container assets into your WebVR scene." image="/img/playgroundsAndNMEs/divingDeeperAssetContainer2.jpg"/>
 
 When creating assets manually the moveAllFromScene method can be used to move all assets currently in a scene into an AssetContainer and remove them from the scene for later use.
 
@@ -62,7 +62,7 @@ The return entries object will contain:
 - skeletons: A list of all the skeletons created by the duplication process
 - animationGroups: A list of all the animation groups created by the duplication process
 
-<Playground id="#S7E00P" title="Instantiating Asset Container Assets" description="Simple Example of using asset containers as templates to duplicate assets in a scene." image="/img/playgroundsAndNMEs/divingDeeperAssetContainer3.jpg"/>
+<Playground id="#S7E00P#439" title="Instantiating Asset Container Assets" description="Simple Example of using asset containers as templates to duplicate assets in a scene." image="/img/playgroundsAndNMEs/divingDeeperAssetContainer3.jpg"/>
 
 You can also set two parameters to the call to `instantiateModelsToScene`:
 

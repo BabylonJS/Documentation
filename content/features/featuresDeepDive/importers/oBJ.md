@@ -21,13 +21,9 @@ You can find it [here](https://cdn.babylonjs.com/loaders/babylon.objFileLoader.j
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-If you are using UMD imports via NPM, you need to reference with side-effects:
+When using the Babylon npm packages in your own build, it is preferable to register the OBJ file importer via the top level dynamic loader registration function `registerBuiltInLoaders`. See [Loading Any File Type](/features/featuresDeepDive/importers/loadingFileTypes#npm) for more information.
 
-```javascript
-import "babylonjs-loaders";
-```
-
-If you wish to benefit from the tree-shakeable ES6 package, you need to reference:
+If you want to import the OBJ file importer statically (not recommended), you can do so via:
 
 ```javascript
 import "@babylonjs/loaders/OBJ/objFileLoader";
