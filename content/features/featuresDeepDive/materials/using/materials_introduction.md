@@ -167,13 +167,33 @@ When _backFaceCulling_ is false the back faces are not removed during rendering,
 
 ## WireFrame
 
-You can see a mesh in wireframe mode by using:
+Every material has the capacity to display as a wireframe by setting the wireframe accessor of the material to true.
 
 ```javascript
 materialSphere1.wireframe = true;
 ```
 
-![wireframe](/img/how_to/Materials/04-3.png)
+The output of enabling wireframe mode on the material is to display the wireframe using a line renderer, while still displaying the specific properties defined by the material including color, specularity, and alpha. Note that wireframe mode ignores the value for _backFaceCulling_ on the material because there is no backface any longer. Instead, lines are rendered on mesh edges and the concept of "back face" is no longer applicable. 
+
+![wireframe mode on a sphere](/img/how_to/Materials/04-3.png)
+
+<Playground id="#T8KESP" title="Wireframe Example" description="Simple example enabling wireframe on a material." image="/img/playgroundsAndNMEs/wireframeMode.jpg"/>
+
+This will work with any material available in Babylon.js such as _StandardMaterial_, _PBRMaterial_, and even _NodeMaterial_. This is because the accessor is inherited from the _Material_ class, enabling every material in the engine to take advantage of it. Controlling the appearance of the wireframe is done through the material's parameters. 
+
+![Making the wireframe red and emissive](/img/how_to/Materials/wireframe_red.jpg)
+<Playground id="#T8KESP#1" title="Styling a wireframe" description="Styling the wireframe to be red." image="/img/playgroundsAndNMEs/wireframe_red.jpg"/>
+
+However, the thickness of the line is predetermined by the line renderer in screen space which renders the line at the same thickness regardless of the distance from the line to the camera. This means that the wireframe will dynamically update the thickness so that it won't cease to render if the camera gets too far away.
+
+### Rendering WireFrame Over Material
+If it is necessary to render a wireframe over an existing material, the way to achieve this is by cloning the mesh and assigning a material to it that has _wireframe_ enabled. Since the wireframe renders in screen space, depth sorting is not an issue and the wireframe will always render on top of the visible parts of the mesh. The wireframe can be occluded by other meshes in the scene, but will not be occluded by an identical mesh that shares the same world position as the wireframe mesh.
+
+This enables scenarios where blending materials and wireframes is necessary. In the example below, two _NodeMaterials_ are used to create the layer effect blending between wireframe over a solid color to the material's base color. The gradient for the interpolation is based on the distance from a pixel to the world origin and the same value is passed to both the _NodeMaterial_ for the mesh and the _NodeMaterial_ for the wireframe. In the case of the wireframe, this gradient is setting the alpha value of the material rather than interpolating between two different colors, which makes the wireframe appear to blend into the original material base color. This is the power of leveraging _NodeMaterial_ to drive the look of the wireframe of a mesh.
+
+![Blending wireframe with material color](/img/how_to/Materials/wireframe_blending.jpg)
+
+<Playground id="#PKJCS5" title="Blending wireframe" description="Using node material to blend wireframe" image="/img/playgroundsAndNMEs/wireframe_blend.jpg"/>
 
 ## Local File Access
 
