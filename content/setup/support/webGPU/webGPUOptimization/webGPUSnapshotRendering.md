@@ -93,3 +93,18 @@ You will need to call the `updateEffectLayer` method each time the camera or the
 To make skeleton animations work in the fast SR mode, you simply need to call the `prepare` method on the skeletons you want to animate:
 
 <Playground id="#WGZLGJ#4072" engine="webgpu" title="Use bones in fast SR mode" description="Demonstrates how to make bones work in fast snapshot rendering mode"/>
+
+### Using a default skybox
+If you create a skybox by calling `scene.createDefaultSkybox`, you need to make two changes for it to work in fast SR mode:
+* After creating the skybox, do `skybox.ignoreCameraMaxZ = false;` on the mesh returned by `createDefaultSkybox`: `ignoreCameraMaxZ` is not supported in fast SR mode (`createDefaultSkybox` sets it to `true`).
+* Add code to update skybox position, as this is no longer done automatically:
+```javascript
+scene.onBeforeRenderObservable.add(() => {
+    if (engine.snapshotRendering && engine.snapshotRenderingMode === BABYLON.Constants.SNAPSHOTRENDERING_FAST) {
+        const world = skybox.computeWorldMatrix(true);
+        skybox.transferToEffect(world);
+    }
+});
+```
+
+<Playground id="#WGZLGJ#10605" engine="webgpu" title="Use default skybox in fast SR mode" description="Demonstrates how to make default skyboxes work in fast snapshot rendering mode"/>
