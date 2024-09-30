@@ -35,6 +35,7 @@ You will find explanation of these options below this code snippet.
 
 ```javascript
 points: GreasedLinePoints;
+pointsOptions?: GreasedLinePointsOptions;
 widths?: number[];
 widthDistribution?: GreasedLineMeshWidthDistribution;
 instance?: GreasedLineMesh;
@@ -50,6 +51,10 @@ Points of the line specified as x, y, z coordinates. _All the points connected a
 `points` can be type of `number[]`, `number[][]`, `Vector3[]`, `Vector3[][]`, `Float32Array` or `Float32Array[]`.
 
 If you want to draw only one contiguous line you can use 1D arrays or `Float32Array`. If you want to draw multiple lines you have to use 2D arrays or `Float32Array[]`.
+
+To draw multiple disconnected lines using a flat `Float32Array` you can specify the `pointsOptions.stride` property in the `GreasedLineMeshBuilderOptions` object. This value sets how many entries from the `Float32Array`will be used to create one line. One entry = 3 float values.
+
+<Playground id="#TCURLI#3" title="Float32Array stride" description="How to create disconnected lines using a flat Float32Array." />
 
 ```javascript
 const points =
