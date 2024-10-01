@@ -107,4 +107,4 @@ scene.onBeforeRenderObservable.add(() => {
 });
 ```
 
-<Playground id="#WGZLGJ#10605" engine="webgpu" title="Use default skybox in fast SR mode" description="Demonstrates how to make default skyboxes work in fast snapshot rendering mode"/>
+<Playground id="#WGZLGJ#10606" engine="webgpu" title="Use default skybox in fast SR mode" description="Demonstrates how to make default skyboxes work in fast snapshot rendering mode"/>
