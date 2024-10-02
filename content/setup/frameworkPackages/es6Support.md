@@ -733,3 +733,43 @@ initializeWebWorker(worker, wasm);
 
 SetBasisTranscoderWorker(worker);
 ```
+
+## Avoiding side-effects
+
+Starting with Babylon.js v7.23, we are introducing a new way for ES6 users to import optional features without side effects.
+Depending on how the internal engine works, we have aimed to reduce the number of functions that need to be added at the prototype level. Instead, when possible, we are offering more 'pick and choose' public functions.
+
+### Animations
+
+- File to import: "core/Animations/animatable.core" (instead of "core/Animations/animatable" which has side-effects)
+- Function to import and execute to initialize the module: `AddAnimationExtensions(sceneClass, boneClass)`
+- Calling `AddAnimationExtensions` will populate the following prootype functions:
+  - Bone.prototype.copyAnimationRange
+  - Scene.prototype.beginAnimation
+  - Scene.prototype.beginDirectAnimation
+  - Scene.prototype.beginDirectHierarchyAnimation
+  - Scene.prototype.beginWeightedAnimation
+  - Scene.prototype.beginHierarchyAnimation
+  - Scene.prototype.getAllAnimatablesByTarget
+  - Scene.prototype.getAnimatableByTarget
+  - Scene.prototype.sortActiveAnimatables
+  - Scene.prototype.stopAllAnimations
+
+### Ray
+
+- File to import: "core/Culling/ray.core" (instead of "core/Culling/ray" which has side-effects)
+- Function to import and execute to initialize the module: `AddRayExtensions(sceneClass, cameraClass)`
+- Calling `AddRayExtensions` will populate the following prootype functions:
+  - Camera.prototype.getForwardRay
+  - Camera.prototype.getForwardRayToRef
+  - Scene.prototype.createPickingRay
+- The following functions will be available:
+  - CreatePickingRay
+  - CreatePickingRayToRef
+  - CreatePickingRayInCameraSpace
+  - CreatePickingRayInCameraSpaceToRef
+  - Pick
+  - PickWithRay
+  - PickWithBoundingInfo
+  - MultiPick
+  - MultiPickWithRay
