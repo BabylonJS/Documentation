@@ -1241,6 +1241,11 @@
                                                     "friendlyName": "Baking Transformations",
                                                     "children": {},
                                                     "content": "features/featuresDeepDive/mesh/transforms/center_origin/bakingTransforms"
+                                                },
+                                                "lattice": {
+                                                    "friendlyName": "Lattice",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/mesh/transforms/lattice"
                                                 }
                                             },
                                             "content": "features/featuresDeepDive/mesh/transforms/center_origin"
