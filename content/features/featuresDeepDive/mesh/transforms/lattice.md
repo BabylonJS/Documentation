@@ -55,6 +55,23 @@ var lattice = new BABYLON.Lattice({
 
 ```
 
+## Defining the lattice
+
+By default a lattice will simply not change your mesh until you update its data:
+
+```
+   // Make it pointy
+    for (x = 0; x < lattice.resolutionX; x++) {
+        for (z = 0; z < lattice.resolutionZ; z++) {
+            const control = lattice.data[x][lattice.resolutionY - 1][z];
+            control.y += 1;
+        }
+    }
+```
+
+By accessing the data property you will have access to the tri-dimensional arrays containing each control point.
+It is then up to you to update this points to apply the deformation you need.
+
 ## Applying the lattice
 
 To apply the lattice you can either call `deform(vertexData)` or `deformMesh(mesh)`.
@@ -80,3 +97,91 @@ sphere.createNormals(true);
 ```
 
 ## Updating the lattice
+
+Lattice can moved by updating their position value (so the lattice will move in the object space).
+Here is a complete example of a moving lattice:
+
+```
+ var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
+const positions = sphere.getVerticesData(BABYLON.VertexBuffer.PositionKind);
+const updates = new Float32Array(positions.length);
+
+// lattice
+var lattice = new BABYLON.Lattice({ size: new BABYLON.Vector3(2, 2, 2), position: BABYLON.Vector3.Zero()});
+
+// Make it pointy
+for (x = 0; x < lattice.resolutionX; x++) {
+    for (z = 0; z < lattice.resolutionZ; z++) {
+        const control = lattice.data[x][lattice.resolutionY - 1][z];
+        control.y += 1;
+    }
+}
+
+// Shrink that belly!
+for (x = 0; x < lattice.resolutionX; x++) {
+    for (z = 0; z < lattice.resolutionZ; z++) {
+        const control = lattice.data[x][1][z];
+        control.x = 0;
+        control.z = 0;
+    }
+}
+
+let offset = -2;
+scene.onBeforeRenderObservable.add(() => {
+    lattice.position.x = offset;
+    offset += 0.01;
+
+    lattice.deform(positions, updates);
+    sphere.setVerticesData(BABYLON.VertexBuffer.PositionKind, updates, true);
+    sphere.createNormals(true);
+});
+
+```
+
+One important point here is that we use the `deform` function with a second parameter in order to not alter the original mesh data.
+<Playground id="#MDVD75#18" title="Moving lattice" description="Simple example of a moving lattice."/>
+
+You can also update the lattice data:
+
+```
+ const loadedData = await BABYLON.SceneLoader.ImportMeshAsync("", "scenes/", "skull.babylon", scene);
+const skull = loadedData.meshes[0];
+skull.position.set(0, 0, 0);
+
+const positions = skull.getVerticesData(BABYLON.VertexBuffer.PositionKind);
+const updatedPositions = new Float32Array(positions.length);
+
+// lattice
+var lattice = new BABYLON.Lattice({
+    resolutionY: 10,
+    autoAdaptToMesh: skull,
+    position: BABYLON.Vector3.Zero()
+});
+
+scene.onBeforeRenderObservable.add(() => {
+    // Twist!!
+    for (x = 0; x < lattice.resolutionX; x++) {
+        for (y = 0; y < lattice.resolutionY; y++) {
+            for (z = 0; z < lattice.resolutionZ; z++) {
+                const angle = (y / lattice.resolutionY) * 0.02;
+                const control = lattice.data[x][y][z];
+                const cx = control.x;
+                const cz = control.z;
+
+                const cosAngle = Math.cos(angle);
+                const sinAngle = Math.sin(angle);
+
+                // Rotation
+                control.x = cosAngle * cx - sinAngle * cz;
+                control.z = sinAngle * cx + cosAngle * cz;
+            }
+        }
+    }
+
+    lattice.deform(positions, updatedPositions);
+    skull.setVerticesData(BABYLON.VertexBuffer.PositionKind, updatedPositions);
+    skull.createNormals(true);
+});
+```
+
+<Playground id="#MDVD75#23" title="Updating lattice data" description="The twisting skull."/>
