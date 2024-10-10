@@ -14,6 +14,9 @@ A lattice is like a flexible grid of points used to modify or reshape objects in
 
 Instead of adjusting each small part of the object directly, you just move the points of the lattice. The object inside will stretch, bend, or twist based on how you move the lattice, and the changes happen smoothly. This makes it much easier to apply complex transformations to an object without dealing with every little detail.
 
+An example of a 10x10x10 lattice over a sphere mesh:
+![10x10x10 Lattice](/img/features/lattice.jpg)
+
 ## Creating a lattice
 
 To create a lattice you simply need to instantiate it:
