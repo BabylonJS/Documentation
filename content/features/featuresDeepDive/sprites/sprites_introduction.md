@@ -79,3 +79,47 @@ const mySpriteMap = new BABYLON.SpriteMap(name, atlasJSON, spriteSheetTexture, o
 - _scene_ (_scene_) _REQUIRED_
 
 The initializing options set up the data buffers in memory and get the system prepared for display. When making changes to any of the options it is recommended that you dispose the map and re-initialize with the correct options.
+
+## Pixel perfection
+
+You can use the `options` object to set options for the both sprite managers:
+
+```typescript
+export interface SpriteManagerOptions {
+    spriteRendererOptions: SpriteRendererOptions;
+}
+```
+
+This way you can set options for the sprite render:
+
+```typescript
+export interface SpriteRendererOptions {
+    pixelPerfect?: boolean;
+}
+```
+
+Setting `pixelPerfect` to true instantiates the sprite render in pixel perfect mode. Creating the renderer in pixel perfect mode is faster than creating it in non-pixel perfect mode and setting it's `pixelPerfect` property to `true`.
+
+### Example:
+
+```javascript
+const spriteManagerPlayer = new BABYLON.SpriteManager(
+    "playerManager",
+    "sprite_url.png",
+    3,
+    {
+        width: 32,
+        height: 32,
+    },
+    scene,
+    0.003,
+    undefined,
+    undefined,
+    undefined,
+    {
+        spriteRendererOptions: {
+            pixelPerfect: true
+        }
+    }
+);
+```
