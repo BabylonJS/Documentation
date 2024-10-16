@@ -1774,6 +1774,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/postProcesses/screenSpaceReflectionsPostProcess"
                                 },
+                                "TAARenderingPipeline": {
+                                    "friendlyName": "Temporal Anti-Aliasing (TAA) rendering pipeline",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/postProcesses/taaRenderingPipeline"
+                                },
                                 "renderTargetTextureMultiPass": {
                                     "friendlyName": "Using RenderTargetTexture and Multiple Passes",
                                     "children": {},
