@@ -16,19 +16,19 @@ Hotspot is a feature designed to compute world space positions within the triang
 
 Simple example of a hotspot :
 ```javascript
-var hotspotQuery = {pointIndex:[6527,6526,6525],barycentric:[0.723, 0.079, 0.196]};
+const hotspotQuery = {pointIndex:[6527,6526,6525],barycentric:[0.723, 0.079, 0.196]};
 BABYLON.GetHotSpotToRef(mesh, hotspotQuery, worldPosition);
 ```
 
 `pointIndex` represents to 3 vertices used to compute the transformed triangle. Usually, it corresponds to a real rendered triangle indices.
-`barycentric` is the barycentric coordinates of the hotspot point in the triangle composed by `pointIndex`
+`barycentric` is the barycentric coordinates of the hotspot point in the triangle composed by `pointIndex`.
 
 ## Getting hotspot query values
 
 Scene picking queries provide everything needed. To fill a query object, first pick inside the displayed scene.
 
 ```javascript
-var pickResult = scene.pick(scene.pointerX, scene.pointerY);
+const pickResult = scene.pick(scene.pointerX, scene.pointerY);
 if (pickResult.hit) {
     const indices = pickResult.pickedMesh.getIndices();
     const base = pickResult.faceId * 3;
@@ -54,7 +54,7 @@ const viewportWidth = camera.viewport.width * renderWidth;
 const viewportHeight = camera.viewport.height * renderHeight;
 const viewport = new BABYLON.Viewport(0, 0, viewportWidth, viewportHeight);
 
-var screenPosition = new BABYLON.Vector3();
+let screenPosition = new BABYLON.Vector3();
 
 BABYLON.Vector3.ProjectToRef(worldPosition, mesh.getWorldMatrix(), scene.getTransformMatrix(), viewport, screenPosition);
 line.x2 = screenPosition.x;
