@@ -1427,6 +1427,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/gaussianSplatting"
                                 },
+                                "hotspot": {
+                                    "friendlyName": "Hotspot",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/hotspot"
+                                },
                                 "meshExploder": {
                                     "friendlyName": "Exploding Meshes",
                                     "children": {},
