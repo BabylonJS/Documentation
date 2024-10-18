@@ -125,7 +125,6 @@ const mergeMeshes = function (meshName, arrayObj, scene) {
 ## Merging Meshes with Constructive Solid Geometry
 
 You can construct complex meshes by using `subtract`, `intersect`, and `add` methods of the [CSG2](/typedoc/classes/babylon.csg2) class.
-The `slice` function is also available to extract a cross-section from your `CSG2`.
 
 ### Initializing CSG2
 
