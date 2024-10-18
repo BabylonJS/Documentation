@@ -55,7 +55,7 @@ And the converted version:
 
 ### Using CSG2
 
-Please refer tou the CSG2 [class documentation for more details](http://localhost:3000/features/featuresDeepDive/mesh/mergeMeshes#merging-meshes-with-constructive-solid-geometry)
+Please refer tou the CSG2 [class documentation for more details](/features/featuresDeepDive/mesh/mergeMeshes#merging-meshes-with-constructive-solid-geometry)
 
 ## 7.19.0
 
