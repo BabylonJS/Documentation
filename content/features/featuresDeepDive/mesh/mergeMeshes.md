@@ -124,50 +124,102 @@ const mergeMeshes = function (meshName, arrayObj, scene) {
 
 ## Merging Meshes with Constructive Solid Geometry
 
-You can also construct complex meshes by using `subtract`, `inverse`, `union`, and `intersect` methods of the [CSG](/typedoc/classes/babylon.csg) class.
+You can also construct complex meshes by using `subtract`, `intersect`, and `add` methods of the [CSG2](/typedoc/classes/babylon.csg2) class.
 
-For example, let's say you want to create a "pipe" shape with an inner and outer diameter (_i.e._, not just a "tube" mesh, which is a curved plane with no "thickness"). This can be constructed by first creating a "cylinder" mesh, and then _subtracting_ a "tube" mesh from the inside of it.
+### Initializing CSG2
+
+Before being able to use `CSG2` you will have to initialize the [Manifold](https://github.com/elalish/manifold) library.
+
+To do so you need to call the `InitializeCSG2Async` function:
+
+```
+await BABYLON.InitializeCSG2Async();
+```
+
+Please note that if you want to import the library yourself, you have to call the `InitializeCSG2Async` with the following information:
+
+```
+await BABYLON.InitializeCSG2Async({
+  manifoldInstance: ...
+  manifoldMeshInstance: ...
+});
+```
+
+You can alternatively provide a link to the library itself:
+
+```
+await BABYLON.InitializeCSG2Async({
+  manifoldUrl: "https://unpkg.com/manifold-3d@2.5.1"
+});
+```
+
+### using CSG2
+
+Let's say you want to create a "pipe" shape with an inner and outer diameter (_i.e._, not just a "tube" mesh, which is a curved plane with no "thickness"). This can be constructed by first creating a "cylinder" mesh, and then _subtracting_ a "tube" mesh from the inside of it.
 
 ```typescript
-function createPipe(diamInner: number, diamOuter: number, length: number, scene: BABYLON.Scene): BABYLON.Mesh {
+function createPipe(diamInner: number, diamOuter: number, height: number, scene: BABYLON.Scene): BABYLON.Mesh {
   // Create the outer wall using a Cylinder mesh
   const mOuter = BABYLON.MeshBuilder.CreateCylinder(
     "mOuter",
     {
       diameter: diamOuter,
-      height: length,
+      height: height,
     },
     scene,
   );
-  // Create the inner wall using a Tube mesh
-  const mInner = BABYLON.MeshBuilder.CreateTube(
-    "mInner",
+  // Create the inner wall using a Cylinder mesh
+  const mInner = BABYLON.MeshBuilder.CreateCylinder(
+    "mOuter",
     {
-      path: [new BABYLON.Vector3(0, -length / 2, 0), new BABYLON.Vector3(0, length / 2, 0)],
-      radius: diamInner / 2,
-      sideOrientation: BABYLON.Mesh.DOUBLESIDE,
+      diameter: diamInner,
+      height: height,
     },
     scene,
   );
   // Create CSG objects from each mesh
-  const outerCSG = BABYLON.CSG.FromMesh(mOuter);
-  const innerCSG = BABYLON.CSG.FromMesh(mInner);
+  const outerCSG = BABYLON.CSG2.FromMesh(mOuter);
+  const innerCSG = BABYLON.CSG2.FromMesh(mInner);
+
   // Create a new CSG object by subtracting the inner tube from the outer cylinder
   const pipeCSG = outerCSG.subtract(innerCSG);
+
   // Create the resulting mesh from the new CSG object
-  const mPipe = pipeCSG.toMesh("mPipe", null, scene);
+  const mPipe = pipeCSG.toMesh("mPipe", scene);
+
   // Dispose of the meshes, no longer needed
   mInner.dispose();
   mOuter.dispose();
-  scene.removeMesh(mInner);
-  scene.removeMesh(mOuter);
+
+  outerCSG.dispose();
+  innerCSG.dispose();
+
   // Return the result
   return mPipe;
 }
 ```
 
 Playground example:
-<Playground id="#L5T0DK" title="Pipe CSG Example" description="Creating a pipe from a cylinder and a tube using CSGs."/>
+<Playground id="#PJQHYV" title="Pipe CSG Example" description="Creating a pipe from 2 cylinders using CSGs."/>
+
+The `FromMesh` function accepts a second parameter that can be set to `true` if you do not want to work in world space.
+The `toMesh` function can take an option as the third parameter:
+
+```
+{
+    /**
+     * Rebuild normals (false by default)
+     */
+    rebuildNormals: boolean;
+    /**
+     * True to center the mesh on 0,0,0. True by default
+     */
+    centerMesh?: boolean;
+}
+
+```
+
+Please note that you can also work directly with `VertexData` with the `FromVertexData` and `toVertexData` functions.
 
 Subtract example:
-<Playground id="#VYZEEQ#4" title="CSG Subtract Example" description="Simple example of using a CSG subtract operation."/>
+<Playground id="#PJQHYV#1" title="CSG Subtract Example" description="Simple example of using a CSG subtract operation."/>
