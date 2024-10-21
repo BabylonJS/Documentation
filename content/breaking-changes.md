@@ -11,6 +11,9 @@ toc-levels: 2
 
 ## 7.31.0
 
+### Instance now get the same parent as the source
+Before the instances where created with no parent but this was causing a lot of rendering issues when the source was coming from a glTF object. This change will make sure the source and the instance have the same parent.
+
 ### Deprecation of CSG class in favor of CSG2
 
 The old CSG class was made of pure JS (it was a port from https://github.com/evanw/csg.js/) and while it served us, it was not maintained and not usable anymore.
