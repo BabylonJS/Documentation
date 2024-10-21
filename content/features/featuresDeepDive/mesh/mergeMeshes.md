@@ -153,7 +153,7 @@ await BABYLON.InitializeCSG2Async({
 });
 ```
 
-### using CSG2
+### Using CSG2
 
 Let's say you want to create a "pipe" shape with an inner and outer diameter (_i.e._, not just a "tube" mesh, which is a curved plane with no "thickness"). This can be constructed by first creating a "cylinder" mesh, and then _subtracting_ a "tube" mesh from the inside of it.
 
