@@ -8,13 +8,13 @@ video-overview:
 video-content:
 ---
 
-Currently, all shaders used by **Babylon.js** are written in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) and are converted to [WGSL](https://gpuweb.github.io/gpuweb/wgsl/) (the only shader language that WebGPU knows about) by some special tools.
+Currently, most of the main shaders used by **Babylon.js** are written in [WGSL](https://gpuweb.github.io/gpuweb/wgsl/) (the only shader language that WebGPU knows about). That being said, we keep an active compatibility with [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language).
 
-So, even in WebGPU, if you use a `CustomMaterial` or a `PBRCustomMaterial` to inject some custom shader code, you must write it in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language).
+If you decide to write a shader with [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language), **Babylon.js** will detect it and will use internal tools to compilte it to [WGSL](https://gpuweb.github.io/gpuweb/wgsl/). It will take some times and will download a WASM library to do the conversion.
 
-If you want to write shader code in the WGSL language, you can either write a [compute shader](/features/featuresDeepDive/materials/shaders/computeShader) or use the [ShaderMaterial](/typedoc/classes/babylon.shadermaterial) class to wrap a vertex/fragment shader. The latter is the subject of this page.
+It is recommended to write your shaders directly in [WGSL](https://gpuweb.github.io/gpuweb/wgsl/) for faster starter time and smaller download sizes.
 
-Note: You can also write post-processes in WGSL, thanks to the `shaderLanguage` constructor parameter (which is `GLSL` by default). So everything explained for `ShaderMaterial` on this page also applies to post-processes.
+For some specific materials like `CustomMaterial` or `PBRCustomMaterial`, to protect backward compatibility, you will needto inject your custom shader code in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language).
 
 ## Using ShaderMaterial to write WGSL code
 You can use the `ShaderMaterial` class to write WGSL code in much the same way you use it to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) but with some small differences.
