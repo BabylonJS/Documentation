@@ -207,7 +207,7 @@ Your project also needs one more file to complete the setup which defines the ti
 
 This will open a text editor for you to create the file. At the top, type `_config.yml` in the input field as the name of the file to save in your repository. Then type the following in the body of the file:
 
-```
+```yaml
 theme: jekyll-theme-minimal
 title: Title For Your Website
 description: Website description.
