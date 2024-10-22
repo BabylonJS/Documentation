@@ -14,7 +14,7 @@ If you decide to write a shader with [GLSL](https://www.khronos.org/opengl/wiki/
 
 It is recommended to write your shaders directly in [WGSL](https://gpuweb.github.io/gpuweb/wgsl/) for faster starter time and smaller download sizes.
 
-For some specific materials like `CustomMaterial` or `PBRCustomMaterial`, to protect backward compatibility, you will needto inject your custom shader code in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language).
+For some specific materials like `CustomMaterial` or `PBRCustomMaterial`, to protect backward compatibility, you will need to inject your custom shader code in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language).
 
 ## Using ShaderMaterial to write WGSL code
 You can use the `ShaderMaterial` class to write WGSL code in much the same way you use it to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) but with some small differences.
