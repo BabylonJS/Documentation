@@ -2197,11 +2197,6 @@
                                     "children": {},
                                     "content": "setup/support/webGPU/webGPUWGSL"
                                 },
-                                "webGPULimitations": {
-                                    "friendlyName": "Limitations",
-                                    "children": {},
-                                    "content": "setup/support/webGPU/webGPULimitations"
-                                },
                                 "webGPUOptimization": {
                                     "friendlyName": "Optimizations",
                                     "children": {
