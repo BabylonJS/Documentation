@@ -92,7 +92,7 @@ You will need to call the `updateEffectLayer` method each time the camera or the
 ### Animating bones
 To make skeleton animations work in the fast SR mode, you simply need to call the `prepare` method on the skeletons you want to animate:
 
-<Playground id="#WGZLGJ#4072" engine="webgpu" title="Use bones in fast SR mode" description="Demonstrates how to make bones work in fast snapshot rendering mode"/>
+<Playground id="#WGZLGJ#10672" engine="webgpu" title="Use bones in fast SR mode" description="Demonstrates how to make bones work in fast snapshot rendering mode" image="/img/playgroundsAndNMEs/pg-WGZLGJ-4072.png"/>
 
 ### Using a default skybox
 If you create a skybox by calling `scene.createDefaultSkybox`, you need to make two changes for it to work in fast SR mode:
@@ -108,3 +108,32 @@ scene.onBeforeRenderObservable.add(() => {
 ```
 
 <Playground id="#WGZLGJ#10606" engine="webgpu" title="Use default skybox in fast SR mode" description="Demonstrates how to make default skyboxes work in fast snapshot rendering mode"/>
+
+## The SnapshotRenderingHelper class
+To simplify use of the fast SR mode, we've created a [SnapshotRenderingHelper](https://doc.babylonjs.com/typedoc/classes/babylon.snapshotrenderinghelper) class to help work with this mode. This class is available as of Babylon.js version 7.32.0.
+
+To use it, just create an instance of the class and call `enableSnapshotRendering()` after you loaded/created your scene:
+```typescript
+const sr = new BABYLON.SnapshotRenderingHelper(scene);
+...
+// make sure your scene is loaded/created
+...
+sr.enableSnapshotRendering();
+```
+
+You don't need to call `scene.executeWhenReady()` yourself anymore, `enableSnapshotRendering()` will make sure everything is ready before enabling the mode.
+
+Call `updateMesh()` to update a mesh when its position/rotation/scaling/visibility property has changed.
+
+If you create a layer (glow, highlight), call `updateMeshesForEffectLayer()` for that layer to make it compatible with fast SR mode.
+
+If you create/add news meshes later on, call `fixMeshes()` to make sure new meshes are compatible with fast SR mode:
+
+* their `ignoreCameraMaxZ` property will be set to `false`, as this feature is not compatible with fast SR mode
+* the maximum number of influencers of morph target managers will be set to a fixed value (that you can define through the `options` parameter of the `SnapshotRenderingHelper` constructor). This is needed to make sure morphs work in fast SR mode
+
+<br/>Thanks to this class, you can rewrite the above examples much more simply:
+* Updating position/rotation/scaling/visibility properties of meshes: <Playground id="#7YW416#11" engine="webgpu" title="Update mesh matrix in fast SR mode with snapshot helper class" description="Demonstrates how to update the position/rotation/scaling/visibility properties of a mesh in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-7YW416-3.png"/>
+* Using the glow layer: <Playground id="#LRFB2D#852" engine="webgpu" title="Use glow layer in fast SR mode with snapshot helper class" description="Demonstrates how to make the glow layer work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-LRFB2D-218.png"/>
+* Animating bones: <Playground id="#WGZLGJ#10670" engine="webgpu" title="Use bones in fast SR mode with snapshot helper class" description="Demonstrates how to make bones work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-WGZLGJ-4072.png"/>
+* Using a default skybox: <Playground id="#WGZLGJ#10671" engine="webgpu" title="Use default skybox in fast SR mode with snapshot helper class" description="Demonstrates how to make default skyboxes work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-WGZLGJ-10606.png"/>
