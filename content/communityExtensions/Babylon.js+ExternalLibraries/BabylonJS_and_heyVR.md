@@ -2,7 +2,7 @@
 title: Babylon.js and heyVR.io
 image:
 description: heyVR integration for Babylon.js games
-keywords: babylon.js, extension, external libraries, external, heyV, heyVR.io, WebXR
+keywords: babylon.js, extension, external libraries, external, heyVR, heyVR.io, WebXR
 further-reading:
 video-overview:
 video-content:
@@ -10,7 +10,7 @@ video-content:
 
 heyVR.io is a publishing platform for WebXR games, giving you access to a global audience of hundreds of thousands of players across multiple devices.
 
-We offer a wide range of ready-to-use gameplay features to enhance your players' experience and enable you to start earning from your game through in-game content sales and advertisements.
+It offers a wide range of ready-to-use gameplay features to enhance your players' experience and enable you to start earning from your game through in-game content sales and advertisements.
 
 ## Useful Links
 - [heyVR.io](https://heyvr.io)
@@ -19,11 +19,13 @@ We offer a wide range of ready-to-use gameplay features to enhance your players'
 
 ## Publishing Flow
 heyVR.io is free to use, both for players and game developers.
-Developers can create an account in our [Developer Area](https://developer.heyvr.io) and publish their games free of charge.
-To read more about how the process works, please refer to our documentation on [Publishing Flow](https://docs.heyvr.io/en/developer-area/publish-a-game).
+Developers can create an account on the [Developer Area](https://developer.heyvr.io) and publish their games free of charge.
+To read more about how the process works, please refer to the documentation on [Publishing Flow](https://docs.heyvr.io/en/developer-area/publish-a-game).
 
 ## SDK Implementation
-heyVR offers 2 different way to integrate the SDK into your Babylon.js game. Based on your development environment, you can proceed with either of these.
+While implementing the heyVR SDK in your games is completely optional, It's highly recommended that you take advantage of the SDK to further enhance your game and make use of features such as save games, leaderboards, inventory etc. to provide better user experience.
+
+heyVR offers 2 different ways to integrate the SDK into your Babylon.js game. Based on your development environment, you can proceed with either of these.
 
 ### 1) Built-in SDK
 Every game submitted on heyVR has the option to enable the built-in SDK. This will inject the SDk into the game at runtime. 
@@ -31,7 +33,7 @@ Every game submitted on heyVR has the option to enable the built-in SDK. This wi
 #### 1.1) Installation
 The built-in SDK does not require any installation. 
 To enable the built-in SDK, all you need to do is to choose an SDK version for your build before uploading it. 
-You can read more about this on our [documentation website](https://docs.heyvr.io/en/developer-area/publish-a-game#game-files).
+You can read more about this on the [documentation website](https://docs.heyvr.io/en/developer-area/publish-a-game#game-files).
 
 > If you're using TypeScript, you can install the type definition package for the built-in SDK. Simply run:
 > `npm i @heyvr/sdk-types -D` in your project's root directory.
@@ -58,7 +60,7 @@ window.heyVR.user.isLoggedIn()
 ```
 
 The SDK offers extensive methods and functionalities, including a sandbox version that allows your game to use the SDK features locally. 
-To read about how to use these features, please consult our [SDk Documentation](https://docs.heyvr.io/game-development/sdk/gameplay).
+To read about how to use these features, please consult the [SDk Documentation](https://docs.heyvr.io/game-development/sdk/gameplay).
 
 ### 2) NPM Package
 You might be using NPM to manage your game's dependencies.
@@ -86,4 +88,4 @@ User.isLoggedIn()
 ```
 
 The package also includes a sandbox version. 
-For detailed instructions on how to use the package, check out our documentation on the [NPM Package](https://docs.heyvr.io/en/game-development/sdk/gameplay/npm-package).
+For detailed instructions on how to use the package, check out the documentation on [NPM Package](https://docs.heyvr.io/en/game-development/sdk/gameplay/npm-package).
