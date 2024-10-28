@@ -3373,6 +3373,11 @@
                 "Babylon.js+ExternalLibraries": {
                     "friendlyName": "Babylon.js + External Libraries",
                     "children": {
+                        "BabylonJS_and_heyVR": {
+                            "friendlyName": "BabylonJS and heyVR.io",
+                            "children": {},
+                            "content": "communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_heyVR"
+                        },
                         "BabylonJS_and_Instant_Games": {
                             "friendlyName": "BabylonJS and Instant Games",
                             "children": {},
