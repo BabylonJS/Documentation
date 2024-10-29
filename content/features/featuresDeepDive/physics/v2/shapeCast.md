@@ -86,6 +86,7 @@ PG: <Playground id="#1VT1BK#11" title="Shape Proximity" description="Find the cl
 
 ## Shape Cast query
 When a shape goes from a start position to an end position, if there is a collision, at which fraction of that movement does it happen?
+> Note: Result will not be correct for intesecting shapes.
 
 ```javascript
 hk.shapeCast({
