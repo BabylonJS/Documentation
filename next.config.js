@@ -15,6 +15,7 @@ module.exports = withMDX(
         images: {
             unoptimized: true,
         },
+        assetPrefix: process.env.BASE_PATH || "",
         async redirects() {
             return [
               {
