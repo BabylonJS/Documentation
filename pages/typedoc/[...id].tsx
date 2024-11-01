@@ -118,6 +118,7 @@ export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParse
 export const getStaticPaths: GetStaticPaths = async () => {
     console.log("API - get static paths");
     const paths = await generateTypeDoc();
+    console.log("API - paths", "done");
     return {
         paths,
         fallback: false,
