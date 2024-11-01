@@ -12,9 +12,9 @@ module.exports = withMDX(
             includePaths: ["./styles"],
         },
         staticPageGenerationTimeout: 400,
-        // images: {
-        //     unoptimized: true,
-        // },
+        images: {
+            unoptimized: true,
+        },
         async redirects() {
             return [
               {
