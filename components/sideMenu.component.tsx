@@ -34,13 +34,12 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
             setOpened([...opened, item.url]);
         }
     };
-
+    const baseUrl = useContext(BaseUrlContext);
     const renderMenuItem = (item: IMenuItem, level: number = 0): ReactFragment => {
         const hasChildren = item.children && item.children.length;
         const key = item.url;
         const isSelected = selected === key;
         const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1;
-        const baseUrl = useContext(BaseUrlContext);
         return (item.filtered && toggleFilter) || !item.url ? null : (
             <Box
                 component="li"
