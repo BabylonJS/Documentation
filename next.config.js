@@ -16,7 +16,7 @@ module.exports = withMDX(
             unoptimized: true,
         },
         trailingSlash: true,
-        assetPrefix: process.env.BASE_PATH || "",
+        assetPrefix: process.env.BASE_URL || "",
         async redirects() {
             return [
               {
