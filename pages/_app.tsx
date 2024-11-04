@@ -34,7 +34,7 @@ export const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => 
                 {/* <script src="https://www.googletagmanager.com/gtag/js?id=G-Q8XDD8TYY2" /> */}
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
             </Head>
-            <BaseUrlProvider baseUrl={pageProps.baseUrl ?? process.env.BASE_URL ?? ""}>
+            <BaseUrlProvider baseUrl={pageProps.baseUrl || process.env.BASE_URL || ""}>
                 <ThemeToggle>
                     <Component {...pageProps} />
                     <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q8XDD8TYY2" />
