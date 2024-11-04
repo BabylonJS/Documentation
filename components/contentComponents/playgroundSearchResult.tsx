@@ -1,5 +1,5 @@
 import { Typography,  Chip, Accordion, AccordionSummary, AccordionDetails, IconButton, Tooltip, Box, useTheme } from "@mui/material";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 
 import CodeIcon from "@mui/icons-material/Code";
 import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
@@ -10,6 +10,7 @@ import vsDark from "prism-react-renderer/themes/vsDark";
 
 import Link from "next/link";
 import { IExampleLink } from "../../lib/content.interfaces";
+import { BaseUrlContext } from "../../pages/_app";
 
 export type SearchType = "code" | "name" | "tags" | "description" | "all";
 
@@ -79,6 +80,8 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
         });
     }, [searchResult]);
 
+    const baseUrl = useContext(BaseUrlContext);
+
     return (
         <Accordion
             id={searchResult.id}
@@ -124,7 +127,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                         >
                             {Array.from(tags).map((chip: string) => {
                                 return (
-                                    <Link key={chip} href={`/playground?q=${chip}&type=tags`}>
+                                    <Link key={chip} href={baseUrl + `/playground?q=${chip}&type=tags`}>
                                         <Chip size="small" color="primary" label={chip} />
                                     </Link>
                                 );

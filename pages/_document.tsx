@@ -72,8 +72,11 @@ MyDocument.getInitialProps = async (ctx) => {
 
     const initialProps = await Document.getInitialProps(ctx);
 
+    const baseUrl = process.env.BASE_URL ?? "";
+
     return {
         ...initialProps,
+        baseUrl,
         // Styles fragment is rendered after the app and page rendering finish.
         styles: [...React.Children.toArray(initialProps.styles)],
     };

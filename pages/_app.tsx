@@ -9,6 +9,12 @@ import "./typedoc/apiPage.global.scss";
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
+// Base URL context and provider
+export const BaseUrlContext = createContext<string>("");
+export const BaseUrlProvider: FunctionComponent<{ baseUrl: string }> = ({ baseUrl, children }) => {
+    return <BaseUrlContext.Provider value={baseUrl}>{children}</BaseUrlContext.Provider>;
+};
+
 const ThemeToggle = dynamic(() => import("./toggleColor"), {
     ssr: false,
 });
@@ -28,19 +34,21 @@ export const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => 
                 {/* <script src="https://www.googletagmanager.com/gtag/js?id=G-Q8XDD8TYY2" /> */}
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
             </Head>
-            <ThemeToggle>
-                <Component {...pageProps} />
-                <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q8XDD8TYY2" />
-                <Script id="google-analytics">
-                    {`
+            <BaseUrlProvider baseUrl={pageProps.baseUrl ?? process.env.BASE_URL ?? ""}>
+                <ThemeToggle>
+                    <Component {...pageProps} />
+                    <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q8XDD8TYY2" />
+                    <Script id="google-analytics">
+                        {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag("js", new Date());
 
               gtag('config', 'G-Q8XDD8TYY2');
             `}
-                </Script>
-            </ThemeToggle>
+                    </Script>
+                </ThemeToggle>
+            </BaseUrlProvider>
         </>
     );
 };

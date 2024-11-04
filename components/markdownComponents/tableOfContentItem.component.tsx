@@ -1,6 +1,7 @@
 import { FunctionComponent, PropsWithChildren, useContext, useEffect, useState } from "react";
 import { ITableOfContentsItem } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";
+import { BaseUrlContext } from "../../pages/_app";
 
 import LinkIcon from "@mui/icons-material/Link";
 import { IconButton, Tooltip, Box } from "@mui/material";
@@ -33,6 +34,8 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
         return item.id || item.title.replace(/ /g, "-").toLowerCase();
     };
 
+    const baseUrl = useContext(BaseUrlContext);
+
     const getItem = () => {
         const id = getId(item);
         switch (item.level) {
@@ -42,7 +45,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
             case 1:
                 return (
                     <>
-                        {item.image && <img src={item.image} alt={item.alt || item.title} id={id} />}
+                        {item.image && <img src={baseUrl + item.image} alt={item.alt || item.title} id={id} />}
                         <Box
                             component="h2"
                             sx={{
@@ -79,7 +82,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
             case 2:
                 return (
                     <>
-                        {item.image && <img src={item.image} alt={item.alt || item.title} id={id} />}
+                        {item.image && <img src={baseUrl + item.image} alt={item.alt || item.title} id={id} />}
                         <Box
                             sx={{
                                 position: "relative",

@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { IDocumentationPageProps } from "../lib/content.interfaces";
 import { Card, CardContent, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -6,6 +6,7 @@ import { styled } from "@mui/material/styles";
 import Link, { LinkProps } from "next/link";
 import Image from "next/image";
 import { getImageUrl } from "../lib/frontendUtils/frontendTools";
+import { BaseUrlContext } from "../pages/_app";
 
 export interface IBucketContentProps {
     childPages?: {
@@ -62,8 +63,10 @@ interface IBucketItem {
 }
 
 const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUrl, description }: IBucketItem) => {
+    const baseUrl = useContext(BaseUrlContext);
+    console.log(baseUrl);
     return (
-        <StyledLink key={link} href={link}>
+        <StyledLink key={link} href={`${baseUrl}${link}`}>
             <Card
                 sx={{
                     display: "flex",
@@ -86,7 +89,7 @@ const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUr
                     </CardContent>
                 </DetailsDiv>
                 <ImageContainer>
-                    <Image alt={title} src={imageUrl} fill={true}></Image>
+                    <Image alt={title} src={baseUrl + imageUrl} fill={true}></Image>
                 </ImageContainer>
             </Card>
         </StyledLink>
@@ -107,6 +110,7 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
         const imageUrl = getImageUrl(childData.imageUrl);
         return { title, link, imageUrl, description: childData.description };
     });
+    const baseUrl = useContext(BaseUrlContext);
     return (
         <>
             {(!!bucketItems.length || (externalLinks && !!externalLinks.length)) && (

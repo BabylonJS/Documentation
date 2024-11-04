@@ -1,5 +1,6 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { ComponentsWithoutNodeOptions } from "rehype-react/lib/complex-types";
+import { BaseUrlContext } from "../../pages/_app";
 
 export interface IDocumentationLinkProps extends ComponentsWithoutNodeOptions {
     href: string;
@@ -17,7 +18,8 @@ export const AnchorWrapper: FunctionComponent<IDocumentationLinkProps> = (props)
     if (!isInternal) {
         return <a rel="noopener" target="_blank" {...props}></a>;
     } else {
+        const baseUrl = useContext(BaseUrlContext);
         const href = props.href.replace('.html', '').replace('globals', '');
-        return <a {...props} href={href}></a>;
+        return <a {...props} href={baseUrl + href}></a>;
     }
 };

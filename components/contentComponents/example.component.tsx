@@ -9,12 +9,14 @@ import Link from "next/link";
 import { getExampleImageUrl, getExampleLink, getImageUrl } from "../../lib/frontendUtils/frontendTools";
 import Image from "next/image";
 import { Box } from "@mui/system";
+import { BaseUrlContext } from "../../pages/_app";
 
 export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExamplePressed?: (example: IExampleLink) => void }> = ({ example, onExamplePressed }) => {
     const context = useContext(DocumentationContext);
     const { title, description, image, imageUrl, type = "pg" } = example;
     const link = getExampleLink(example, false);
     const theme = useTheme();
+    const baseUrl = useContext(BaseUrlContext);
 
     const onPlaygroundPressed = () => {
         context.setActiveExample(example);
@@ -92,7 +94,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                         (e.target as HTMLImageElement).alt = "Babylon.js logo";
                         (e.target as HTMLImageElement).srcset = "";
                     }}
-                    src={image || imageUrl || getExampleImageUrl(example)}
+                    src={baseUrl + (image || imageUrl || getExampleImageUrl(example))}
                     title={title}
                     alt={title}
                     fill={true}

@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { FunctionComponent, useEffect, useRef, useState } from "react";
+import { FunctionComponent, useEffect, useRef, useState, useContext } from "react";
 import { Button, Modal, Card, Fade, Hidden, IconButton, Box, useTheme, styled } from "@mui/material";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
 import ZoomOutMapIcon from "@mui/icons-material/ZoomOutMap";
 import CloseIcon from "@mui/icons-material/Close";
+import { BaseUrlContext } from "../../pages/_app";
 
 const StylesImg = styled("img")(({ theme }) => ({
     borderRadius: theme.shape.borderRadius,
@@ -60,6 +61,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
     const [containerScale, setContainerScale] = useState<{ w: number; h: number }>({ h: 0, w: 0 });
     const [intrinsic, setIntrinsic] = useState<{ w: number; h: number }>({ h: 0, w: 0 });
     const theme = useTheme();
+    const baseUrl = useContext(BaseUrlContext);
     const containerRef = useRef<HTMLImageElement>();
     const onResize = () => {
         if (intrinsic.h === 0) {
@@ -96,7 +98,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                     style.height = `${+preH}px`;
                 }
             }
-            return <StylesImg {...props} src={src} style={style} />;
+            return <StylesImg {...props} src={baseUrl + src} style={style} />;
         }
         const properties: IImageEmbed = { ...props };
         if (!properties.width || !properties.height) {
@@ -140,11 +142,11 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                         }
                     }}
                     {...properties}
-                    src={src}
+                    src={baseUrl + src}
                 ></StyledImage>
             );
         } catch (e) {
-            return <StylesImg {...props} src={src} />;
+            return <StylesImg {...props} src={baseUrl+ src} />;
         }
     };
     const [isOpen, setIsOpen] = useState(false);
@@ -194,7 +196,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                                 padding: "0 0.5rem 0.5rem 0.5rem",
                             }}
                         >
-                            <StyledModalImage {...props} src={src} />
+                            <StyledModalImage {...props} src={baseUrl + src} />
                         </Box>
                     </Card>
                 </Fade>

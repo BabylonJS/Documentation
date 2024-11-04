@@ -264,7 +264,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             const engine = /engine="(.*?)"/.test(full) && (/engine="(.*?)"/.exec(full)[1] as any);
             const fileExists = imageUrl ? existsSync(join(process.cwd(), "public", imageUrl)) : existsSync(getExampleImagePath({ id: exampleId, type: realType }));
             if (exampleId && exampleId !== "nmeId" && exampleId !== "playgroundId" && !(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !fileExists) {
-                await generateExampleImage(realType, exampleId, imageUrl, engine);
+                // await generateExampleImage(realType, exampleId, imageUrl, engine);
             }
             if (realType === "pg") {
                 const title = (/title="(.*?)"/.test(full) && /title="(.*?)"/.exec(full)[1]) || `Playground for ${metadata.title}`;
@@ -340,6 +340,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         relatedExternalLinks,
         lastModified: lastModified ? lastModified.toUTCString() : "",
         gitHubUrl,
+        baseUrl: process.env.BASE_URL ?? "",
     } as IDocumentationPageProps;
 
     if (!fullPage) {
