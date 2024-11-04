@@ -823,7 +823,7 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#241" title="Drawing text" description="You can also draw text with GreasedLine." />
 <Playground id="#H1LRZ3#121" title="GetPositionOnLineByVisibility tool function example" description="Finding the last visible position on the line when using the visibility option." />
 <Playground id="#H1LRZ3#136" title="Cloning" description="Cloning the GreasedLine mesh and it's material." />
-<Playground id="#H1LRZ3#127" title="Serialization and parsing" description="Serializing and parsing the GreasedLine mesh and it's material." />
+<Playground id="#H1LRZ3#655" title="Serialization and parsing" description="Serializing and parsing the GreasedLine mesh and it's material." />
 <Playground id="#H1LRZ3#542" title="Thin instances" description="How to deal with thin instances and instance colors." />
 <Playground id="#H1LRZ3#194" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />

@@ -90,7 +90,7 @@ BABYLON.RegisterMaterialPlugin("BlackAndWhite", (material) => {
 });
 ```
 
-You can see the final code in action in the PlayGround: <Playground id="#GC63G5#90" title="Basic example" description="Basic material plugin example"/>
+You can see the final code in action in the PlayGround: <Playground id="#GC63G5#90" engine="webgpu" title="Basic example" description="Basic material plugin example"/>
 
 ## More complex plugins
 
@@ -212,11 +212,11 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
 }
 ```
 
-<Playground id="#P8B91Z#127" title="Using uniforms" description="Material plugin example with uniforms"/>
+<Playground id="#P8B91Z#127" engine="webgpu" title="Using uniforms" description="Material plugin example with uniforms"/>
 
-Here's another example which uses a sampler: <Playground id="#HBWKYN#86" title="Using sampler" description="Material plugin example with sampler"/>
+Here's another example which uses a sampler: <Playground id="#HBWKYN#86" engine="webgpu" title="Using sampler" description="Material plugin example with sampler"/>
 
-And another one using a custom attribute this time: <Playground id="#HBWKYN#87" title="Using attribute" description="Material plugin example with attribute"/>
+And another one using a custom attribute this time: <Playground id="#HBWKYN#87" engine="webgpu" title="Using attribute" description="Material plugin example with attribute"/>
 
 ## Applying a plugin to a single material
 
@@ -228,7 +228,7 @@ const myPlugin = new BlackAndWhitePluginMaterial(material);
 
 This is also useful for dynamic loading of plugins.
 
-<Playground id="#22HT5Z#112" title="Single material" description="Material plugin applied to a single material"/>
+<Playground id="#22HT5Z#112" engine="webgpu" title="Single material" description="Material plugin applied to a single material"/>
 
 ## Implementing a complete and well designed plugin
 

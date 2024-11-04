@@ -125,7 +125,12 @@ export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: strin
     try {
         const page = await browser.newPage(); // creates a new page
 
-        await page.setDefaultNavigationTimeout(60000);
+        page.setDefaultNavigationTimeout(60000);
+
+        page.on("dialog", async (dialog) => {
+            //on event listener trigger
+            await dialog.dismiss(); 
+        });
 
         // you can also set dimensions
         await page.setViewport({ width: 1200, height: 800 }); // sets it's  dimensions
