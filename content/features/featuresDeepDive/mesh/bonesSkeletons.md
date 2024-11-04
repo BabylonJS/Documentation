@@ -159,16 +159,15 @@ Please keep in mind that this operation is using the CPU so it has to be used wi
 
 That being said, starting with Babylon 7.12, you can now use a new class to use the GPU to compute complex meshes' bounding info:
 
-```
+```javascript
 var bbHelper = new BABYLON.BoundingInfoHelper(engine);
 await bbHelper.computeAsync(scene.meshes);
 ```
 
 That class will use Transform Feedbacks on WebGL2 and Compute Shaders on WebGPU to compute the bounding info.
- <Playground id="#BCNJD4#42" title="Computing Bounding Info with the GPU" description="Simple example of how to use BoundingInfoHelper."/>
+<Playground id="#BCNJD4#42" engine="webgpu" title="Computing Bounding Info with the GPU" description="Simple example of how to use BoundingInfoHelper."/>
 
 Please note that there is a limit to be aware of: The GPU will be faster only if the objects to scan are complex enough. Else the price to upload data to the GPU and prepare shaders will not be compensated.
-
 
 ## Attaching a mesh to a specific bone
 
@@ -393,7 +392,6 @@ The BoneIKController constructor takes the mesh of the character, the bone that 
 - bendAxis
 - maxAngle
 
-
 ```javascript
 const ikCtrl = new BABYLON.BoneIKController(characterMesh, forearmBone, { targetMesh: target, poleTargetMesh: poleTarget, poleAngle: Math.PI });
 ```
@@ -613,6 +611,6 @@ One of these will be the correct mesh to pass to the bone to get absolute transf
 Note that some engines (e.g., Unity3D) and glTF do not support sharing skeletons between skinned meshes with different transforms because the skinned mesh transforms are ignored in these cases. If nothing is modified after loading from a glTF, any of the filtered list of skinned meshes should work as the skinned mesh argument to a bone method for getting absolute transforms. In this case, selecting the first mesh of this filter works for glTF assets. See [this issue](https://github.com/KhronosGroup/glTF/issues/1285) and linked issues for more detailed analysis of shared skeletons in glTF and [glTF Skinning](/features/featuresDeepDive/importers/glTF/glTFSkinning) for more details about glTF skinning in Babylon.js.
 
 ## Skinning and Skeleton Tutorials
-This is a tutorial created by [Snowden](https://forum.babylonjs.com/u/snowden/summary) from our [forum](https://forum.babylonjs.com/) about customizing skinned characters by composing them from multiple meshes.   
-<Youtube id="bjBzns0KOws"/>
 
+This is a tutorial created by [Snowden](https://forum.babylonjs.com/u/snowden/summary) from our [forum](https://forum.babylonjs.com/) about customizing skinned characters by composing them from multiple meshes.  
+<Youtube id="bjBzns0KOws"/>
