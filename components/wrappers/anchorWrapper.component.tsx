@@ -18,8 +18,9 @@ export const AnchorWrapper: FunctionComponent<IDocumentationLinkProps> = (props)
     if (!isInternal) {
         return <a rel="noopener" target="_blank" {...props}></a>;
     } else {
+        const isRelative = props.href.startsWith(".");
         const baseUrl = useContext(BaseUrlContext);
-        const href = props.href.replace('.html', '').replace('globals', '');
-        return <a {...props} href={baseUrl + href}></a>;
+        const href = props.href.replace(".html", "").replace("globals", "");
+        return <a {...props} href={(isRelative ? "" : baseUrl) + href}></a>;
     }
 };
