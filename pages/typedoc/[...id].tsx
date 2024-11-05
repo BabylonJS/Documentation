@@ -47,7 +47,6 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
             router.replace(redirect + window.location.hash);
         } else {
             const onhashchange = () => {
-                console.log(location.hash)
                 if (location.hash === "") {
                     document.querySelector(".col-content")?.scrollTo({ behavior: "auto", top: 0, left: 0 });
                 } else {

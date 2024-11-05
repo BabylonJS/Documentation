@@ -211,7 +211,6 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    console.log("main getStaticPages");
     const paths = await getAvailableUrls();
     // ONLY when building
     if (process.env.PRODUCTION) {

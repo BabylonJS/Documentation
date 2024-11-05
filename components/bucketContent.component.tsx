@@ -64,7 +64,6 @@ interface IBucketItem {
 
 const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUrl, description }: IBucketItem) => {
     const baseUrl = useContext(BaseUrlContext);
-    console.log(baseUrl);
     return (
         <StyledLink key={link} href={`${baseUrl}${link}`}>
             <Card
