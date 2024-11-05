@@ -17,14 +17,14 @@ module.exports = withMDX(
         },
         trailingSlash: true,
         assetPrefix: process.env.BASE_URL || "",
-        async redirects() {
-            return [
-              {
-                source: '/typedoc',
-                destination: '/typedoc/modules/BABYLON', // Matched parameters can be used in the destination
-                permanent: true,
-              },
-            ]
-          },
+        // async redirects() {
+        //     return [
+        //       {
+        //         source: '/typedoc',
+        //         destination: '/typedoc/modules/BABYLON', // Matched parameters can be used in the destination
+        //         permanent: true,
+        //       },
+        //     ]
+        //   },
     },
 );
