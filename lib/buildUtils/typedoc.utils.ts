@@ -51,29 +51,37 @@ export const generateTypeDoc = async () => {
             }),
         );
 
-        const app = await TypeDoc.Application.bootstrap({
-            // typedoc options here
-            name: "Babylon.js API documentation",
-            excludeExternals: true,
-            excludePrivate: true,
-            excludeProtected: true,
-            excludeInternal: true,
-            includes: basePathResolved,
-            hideGenerator: true,
-            tsconfig: `${basePathResolved}${sep}tsconfig.json`,
-            readme: "none",
-            entryPoints: [`${basePathResolved}${sep}doc.d.ts`],
-        })
+        try {
+            const app = await TypeDoc.Application.bootstrap({
+                // typedoc options here
+                name: "Babylon.js API documentation",
+                excludeExternals: true,
+                excludePrivate: true,
+                excludeProtected: true,
+                excludeInternal: true,
+                includes: basePathResolved,
+                hideGenerator: true,
+                tsconfig: `${basePathResolved}${sep}tsconfig.json`,
+                readme: "none",
+                entryPoints: [`${basePathResolved}${sep}doc.d.ts`],
+            });
 
-        // If you want TypeDoc to load tsconfig.json / typedoc.json files
-        app.options.addReader(new TypeDoc.TSConfigReader());
-        app.options.addReader(new TypeDoc.TypeDocReader());
+            console.log("API starting", "post bootstrap");
 
-        const project = await app.convert();
+            // If you want TypeDoc to load tsconfig.json / typedoc.json files
+            app.options.addReader(new TypeDoc.TSConfigReader());
+            app.options.addReader(new TypeDoc.TypeDocReader());
 
-        if (project) {
-            // Rendered docs
-            await app.generateDocs(project, `${basePathResolved}${sep}files`);
+            const project = await app.convert();
+
+            console.log("API starting", "post convert");
+
+            if (project) {
+                // Rendered docs
+                await app.generateDocs(project, `${basePathResolved}${sep}files`);
+            }
+        } catch (e) {
+            console.error(e);
         }
     }
 

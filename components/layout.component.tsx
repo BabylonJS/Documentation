@@ -17,10 +17,9 @@ import { IPageProps } from "../lib/content.interfaces";
 import { SideMenu } from "./sideMenu.component";
 import { useRouter } from "next/dist/client/router";
 import { useContext } from "react";
-import { ColorModeContext } from "../pages/_app";
+import { ColorModeContext, BaseUrlContext } from "../pages/_app";
 
 export const defaultKeywords = ["babylonjs", "documentation", "webgl", "engine"].join(", ");
-
 // very temporary structure configuration
 
 const menuStructure = generateMenuStructure();
@@ -36,7 +35,6 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
         }
     };
     const router = useRouter();
-    const baseDomain = "https://doc.babylonjs.com";
     const { title, description, keywords, imageUrl, robots } = disableMetadataAugmentation
         ? metadata
         : {
@@ -47,6 +45,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
               robots: metadata.robots || "index, follow",
           };
 
+    const baseDomain = useContext(BaseUrlContext);
     const MenuStructure = <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>;
     const indexOfQuery = router.asPath.indexOf("?");
     const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : indexOfQuery !== -1 ? router.asPath.substring(0, indexOfQuery) : router.asPath);
@@ -122,7 +121,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             },
                         }}
                     >
-                        <Link href="/">
+                        <Link href={baseDomain + "/"}>
                             <span></span>
                         </Link>
                     </Typography>
@@ -227,16 +226,16 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         },
                     }}
                 >
-                    <Link href="/typedoc">API</Link>
+                    <Link href={baseDomain + "/typedoc"}>API</Link>
                     {!!previous && (
-                        <Link key="previousArticle" href={"/" + previous.id.join("/")}>
+                        <Link key="previousArticle" href={baseDomain + "/" + previous.id.join("/")}>
                             <Tooltip title={`Previous article: ${previous.metadata.title}`} aria-label="Previous article">
                                 <LeftArrowIcon></LeftArrowIcon>
                             </Tooltip>
                         </Link>
                     )}
                     {!!next && (
-                        <Link key="nextArticle" href={"/" + next.id.join("/")}>
+                        <Link key="nextArticle" href={baseDomain + "/" + next.id.join("/")}>
                             <Tooltip title={`Next article: ${next.metadata.title}`} aria-label="Next article">
                                 <RightArrowIcon></RightArrowIcon>
                             </Tooltip>
@@ -257,7 +256,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             return (
                                 <div key={`bc-${idx}`}>
                                     <span>
-                                        <Link href={link.url}>{link.name}</Link>
+                                        <Link href={baseDomain + link.url}>{link.name}</Link>
                                     </span>
                                     <span>{idx !== breadcrumbs.length - 1 ? "|" : ""}</span>
                                 </div>
@@ -326,8 +325,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                 onClick={handleDrawerToggle}
                                 onKeyDown={handleDrawerToggle}
                             >
-                                <Link href="/">
-                                    <img src="/img/babylonidentity.svg" alt="Babylon.js logo" width="200" height="60" />
+                                <Link href={baseDomain + "/"}>
+                                    <img src={baseDomain + "/img/babylonidentity.svg"} alt="Babylon.js logo" width="200" height="60" />
                                 </Link>
                                 {MenuStructure}
                             </Box>

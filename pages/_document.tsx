@@ -1,7 +1,6 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-
 export class MyDocument extends Document {
     render() {
         return (
@@ -34,7 +33,7 @@ export class MyDocument extends Document {
     }
 }
 
-export default MyDocument
+export default MyDocument;
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with server-side generation (SSG).
@@ -72,8 +71,15 @@ MyDocument.getInitialProps = async (ctx) => {
 
     const initialProps = await Document.getInitialProps(ctx);
 
+    const baseUrl = process.env.BASE_URL ?? "";
+
+    if (baseUrl) {
+        globalThis.baseUrl = baseUrl;
+    }
+
     return {
         ...initialProps,
+        baseUrl: baseUrl || globalThis.baseUrl,
         // Styles fragment is rendered after the app and page rendering finish.
         styles: [...React.Children.toArray(initialProps.styles)],
     };

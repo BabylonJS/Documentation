@@ -3,7 +3,7 @@
 const withMDX = require("@next/mdx")();
 module.exports = withMDX(
     {
-        // output: "export",
+        output: "export",
         // experimental: {
         //   workerThreads: false,
         //   cpus: 1,
@@ -12,17 +12,19 @@ module.exports = withMDX(
             includePaths: ["./styles"],
         },
         staticPageGenerationTimeout: 400,
-        // images: {
-        //     unoptimized: true,
-        // },
-        async redirects() {
-            return [
-              {
-                source: '/typedoc',
-                destination: '/typedoc/modules/BABYLON', // Matched parameters can be used in the destination
-                permanent: true,
-              },
-            ]
-          },
+        images: {
+            unoptimized: true,
+        },
+        trailingSlash: true,
+        assetPrefix: process.env.BASE_URL || "",
+        // async redirects() {
+        //     return [
+        //       {
+        //         source: '/typedoc',
+        //         destination: '/typedoc/modules/BABYLON', // Matched parameters can be used in the destination
+        //         permanent: true,
+        //       },
+        //     ]
+        //   },
     },
 );

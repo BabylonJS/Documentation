@@ -47,7 +47,6 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
             router.replace(redirect + window.location.hash);
         } else {
             const onhashchange = () => {
-                console.log(location.hash)
                 if (location.hash === "") {
                     document.querySelector(".col-content")?.scrollTo({ behavior: "auto", top: 0, left: 0 });
                 } else {
@@ -118,6 +117,7 @@ export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParse
 export const getStaticPaths: GetStaticPaths = async () => {
     console.log("API - get static paths");
     const paths = await generateTypeDoc();
+    console.log("API - paths", "done");
     return {
         paths,
         fallback: false,
