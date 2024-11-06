@@ -2476,6 +2476,11 @@
                                     "friendlyName": "Digital Rain",
                                     "children": {},
                                     "content": "toolsAndResources/assetLibraries/postProcessLibrary/digitalRainPP"
+                                },
+                                "edgeDetectionPP": {
+                                    "friendlyName": "Edge Detection",
+                                    "children": {},
+                                    "content": "toolsAndResources/assetLibraries/postProcessLibrary/edgeDetectionPP"
                                 }
                             },
                             "content": "toolsAndResources/assetLibraries/postProcessLibrary"

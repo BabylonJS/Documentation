@@ -21,7 +21,7 @@ If you’re aiming for that look, this tutorial is for you.
 
 To use it, attach the post-process to your main camera to enable the effect.
 
-```
+```javascript
 // Creates the post process
 var edgeDetectionPostProcess = new BABYLON.EdgeDetectionPostProcess("EdgeDetection", camera);
 ```
@@ -31,18 +31,16 @@ var edgeDetectionPostProcess = new BABYLON.EdgeDetectionPostProcess("EdgeDetecti
 
 You can adjust the thickness of the outlines like so:
 
-<!-- default 값 변경 필요 -->
-```
+```javascript
 // Creates the post process with custom width, intensity, color
 edgeDetectionPostProcess.edgeWidth = 1; // default is 1.0 
 edgeDetectionPostProcess.edgeIntensity = 1;
 edgeDetectionPostProcess.edgeColor = BABYLON.Color3.Red();
 ```
-<!-- id 변경해야 됨 -->
 <Playground id="#HBSUDW#1" title="Edge Detection Post Process Render Mode Demo" description="Edge Detection Post Process Render Mode Demo"/>
 
 Additionally, you can change the render mode
-```
+```javascript
 // General :0, Normal: 1, Depth: 2, Only Outline: 3 
 edgeDetectionPostProcess.renderMode = 3; // default is 1 
 ```
@@ -52,7 +50,6 @@ Futhermore, you can check the cel materials with outline.
 
 ![Screenshot](/img/resources/edgeDetectionPP/EDPP2.png)
 
-<!-- id 변경해야 됨 -->
 <Playground id="##T6IKWW" title="Edge Detection Post Process Full Demo" description="Edge Detection Post Process Full  Demo"/>
 
 The available parameters are:
