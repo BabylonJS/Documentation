@@ -13,11 +13,9 @@ video-content:
 
 The HTML Mesh is a mesh that displays a webpage (or DOM element) in the scene, meaning that it can occlude other meshes and be occluded by other meshs.
 
-[Online Demo](https://codesandbox.io/p/sandbox/babylon-html-mesh-demo-862gh5)
+<Playground id="#HVHYJC#5" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.png"/>
 
-<Playground id="#Y2LIXI#44" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.png"/>
-
-<Playground id="#B17TC7#44" title="HtmlMesh Box Example" description="Example of using multiple HtmlMesh instances as the sides of a box"  image="/img/playgroundsAndNMEs/HtmlMeshBoxPG.png"/>
+<Playground id="#B17TC7#112" title="HtmlMesh Box Example" description="Example of using multiple HtmlMesh instances as the sides of a box"  image="/img/playgroundsAndNMEs/HtmlMeshBoxPG.png"/>
 
 The following uses cases are supported by the HtmlMesh
 
@@ -37,19 +35,17 @@ By default the HtmlMesh will capture pointer events as soon as the pointer enter
 
 ## Installation
 
-HtmlMesh is available as an NPM package
+HtmlMesh is available as an UMD NPM package
 
 ```shell
-npm install babylon-htmlmesh --save
+-npm install babylonjs-addons --save
 ```
 
-Alternatively, you can include HtmlMesh via CDN
-`"https://cdn.jsdelivr.net/npm/babylon-htmlmesh/dist/umd/babylon-htmlmesh.min.js";`
+and as an ES6 package:
 
-## Peer Dependencies
-
-This package depends on BabylonJS, specifically the Core ES6 Supported package `@babylonjs/core`. This is done to support apps that are taking advantage of dependency optimization to reduce the size of the included BabylonJS dependencies. See the documentation for [BabylonJS ES6 Support](https://doc.babylonjs.com/setup/frameworkPackages/es6Support) for details. Note that it will not work if your app is using the legacy `babylonjs` package. If this is an issue, please create an issue on github and I'll look into creating a legacy compatible version.
-
+```shell
+-npm install @babylonjs/adddons --save
+```
 ## Usage
 
 The first step is to create an instance of `HtmlMeshRenderer`. Pass this the scene, and optionally an options object containing:
@@ -98,8 +94,7 @@ import { ExecuteCodeAction } from "@babylonjs/core/Actions/directActions";
 import { Color4 } from "@babylonjs/core/Maths/math.color";
 import "@babylonjs/core/Helpers/sceneHelpers";
 
-import { HtmlMeshRenderer } from "./src/html-mesh-renderer";
-import { HtmlMesh } from "./src/html-mesh";
+import { HtmlMeshRenderer, HtmlMesh } from "babylonjs-addons"
 
 let engine;
 let scene;

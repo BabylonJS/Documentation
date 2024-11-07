@@ -3004,6 +3004,16 @@
             },
             "content": "guidedLearning"
         },
+        "addons": {
+            "friendlyName": "Official Add-ons",
+            "children": {
+            "htmlMesh": {
+                    "friendlyName": "HTML Mesh",
+                    "children": {},
+                    "content": "addons/htmlMesh"
+                }
+            }
+        },
         "communityExtensions": {
             "friendlyName": "Community Extensions",
             "children": {
@@ -3185,11 +3195,6 @@
                     "friendlyName": "Figma to BabylonJS",
                     "children": {},
                     "content": "communityExtensions/figmaToBabylonJS"
-                },
-                "htmlMesh": {
-                    "friendlyName": "HTML Mesh",
-                    "children": {},
-                    "content": "communityExtensions/htmlMesh"
                 },
                 "lottieTexture": {
                     "friendlyName": "Lottie Texture",
