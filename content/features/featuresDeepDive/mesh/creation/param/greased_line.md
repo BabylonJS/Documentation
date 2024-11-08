@@ -29,6 +29,10 @@ const line = BABYLON.CreateGreasedLine("name", { points });
 <Playground id="#H1LRZ3#98" title="Basic usage" description="Basic scenarios with GreasedLine." />
 <Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
 
+## Dispose a GreasedLine
+
+Please note that the `dispose` function doesn't dispose the material created for the line by default. You have to set the `disposeMaterialAndTextures` parameter to `true` in the `dispose` function if you want to dispose the associated material and textures as well.
+
 ### GreasedLineMeshBuilderOptions
 
 You will find explanation of these options below this code snippet.
