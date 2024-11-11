@@ -88,7 +88,7 @@ const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUr
                     </CardContent>
                 </DetailsDiv>
                 <ImageContainer>
-                    <Image alt={title} src={baseUrl + imageUrl} fill={true}></Image>
+                    <Image alt={title} src={imageUrl} fill={true}></Image>
                 </ImageContainer>
             </Card>
         </StyledLink>
