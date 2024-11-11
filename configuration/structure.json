@@ -1764,6 +1764,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/postProcesses/dofLenseEffects"
                                 },
+                                "IBLShadowsRenderingPipeline": {
+                                    "friendlyName": "Using the IBL Shadows Rendering Pipeline",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/postProcesses/IBLShadowsRenderingPipeline"
+                                },
                                 "motionBlurPostProcess": {
                                     "friendlyName": "Motion Blur Post Process",
                                     "children": {},
