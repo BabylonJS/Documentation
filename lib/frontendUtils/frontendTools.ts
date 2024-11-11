@@ -4,7 +4,7 @@ export const getExampleLink = (example: Partial<IExampleLink>, full: boolean = t
     const idToUse = example.playgroundId || example.id;
     const id = idToUse ? (idToUse[0] === "#" ? idToUse : `#${idToUse}`) : "";
     // webgpu parameter. Stay safe and validate
-    const params = (example.engine && example.engine==='webgpu') ? `?${example.engine}` : '';
+    const params = example.engine && example.engine === "webgpu" ? `?${example.engine}` : "";
     switch (example.type) {
         case "nge":
             return `https://nge.babylonjs.com/${id}`;
@@ -21,8 +21,9 @@ export const getExampleImageUrl = (example: Partial<IExampleLink>) => {
     return `/img/playgroundsAndNMEs/${example.type}${idToUse.replace(/#/g, "-")}.png`;
 };
 
-export const getImageUrl = (imageUrl?: string) => {
-    return imageUrl || "/img/defaultImage.png";
+export const getImageUrl = (imageUrl?: string, baseUrl?: string) => {
+    const imgUrl = imageUrl || "/img/defaultImage.png";
+    return imgUrl.startsWith("http") ? imgUrl : baseUrl ? baseUrl + imgUrl : imgUrl;
 };
 
 export const getUrlById = (id: string[]) => {
