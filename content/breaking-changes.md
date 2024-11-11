@@ -9,6 +9,14 @@ video-content:
 toc-levels: 2
 ---
 
+## 7.34.0
+
+### `SceneLoader.Load`, `SceneLoader.Append`, `SceneLoader.ImportMesh` does not return the plugin used to load the content anymore
+In order to support automatic mimetype detection, we have removed the synchronous aspect of these 3 functions and they will return void for now on.
+More details: https://forum.babylonjs.com/t/potential-new-breaking-change-please-chime-in/54651
+
+To get the plugin used to load content, you can register to `SceneLoader.OnPluginActivatedObservable`
+
 ## 7.31.0
 
 ### Instance now get the same parent as the source
