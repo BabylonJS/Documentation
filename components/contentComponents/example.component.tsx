@@ -90,7 +90,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                 <Image
                     onError={(e) => {
                         // fallback to default image
-                        (e.target as HTMLImageElement).src = getImageUrl();
+                        (e.target as HTMLImageElement).src = getImageUrl(undefined, baseUrl);
                         (e.target as HTMLImageElement).alt = "Babylon.js logo";
                         (e.target as HTMLImageElement).srcset = "";
                     }}

@@ -35,17 +35,17 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
         }
     };
     const router = useRouter();
+    const baseDomain = useContext(BaseUrlContext);
     const { title, description, keywords, imageUrl, robots } = disableMetadataAugmentation
         ? metadata
         : {
               title: `${metadata.title} | Babylon.js Documentation`,
               description: metadata.description,
               keywords: `${metadata.keywords},${defaultKeywords}`,
-              imageUrl: getImageUrl(metadata.imageUrl),
+              imageUrl: getImageUrl(metadata.imageUrl, baseDomain),
               robots: metadata.robots || "index, follow",
           };
 
-    const baseDomain = useContext(BaseUrlContext);
     const MenuStructure = <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>;
     const indexOfQuery = router.asPath.indexOf("?");
     const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : indexOfQuery !== -1 ? router.asPath.substring(0, indexOfQuery) : router.asPath);
