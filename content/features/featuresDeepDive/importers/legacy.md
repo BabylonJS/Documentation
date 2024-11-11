@@ -142,18 +142,6 @@ BABYLON.SceneLoader.OnPluginActivatedObservable.add(function (loader) {
 });
 ```
 
-Alternatively, the static synchronous SceneLoader functions return the plugin.
-
-```javascript
-const loader = BABYLON.SceneLoader.Load("./", "duck.gltf", engine, function (scene) {
-  // do something with the scene
-});
-
-// do something with the loader
-// loader.<option1> = <...>
-// loader.<option2> = <...>
-```
-
 ## Loading multiple assets
 
 For assistance when load multiple assets the AssetsManager class can be used.
