@@ -75,8 +75,6 @@ registerBuiltInLoaders();
 
 This will register all supported loaders, but internally uses dynamic imports to only download/load a specific importer (e.g. glTF, splat, etc.) when a model of that type is first loaded.
 
-<Alert severity="warning" title="Warning" description="Note that some of the legacy loader functions (e.g. SceneLoader.Append) synchronously return the loader instance. When using dynamically imported loaders, these functions will return null." />
-
 You can also register all loaders statically (e.g. they will all be included in your primary bundle). This is not recommended, but can be done via:
 
 <Alert severity="warning" title="Warning" description="If possible, prefer registerBuiltInLoaders rather than statically importing loaders." />
