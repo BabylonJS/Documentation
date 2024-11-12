@@ -10,7 +10,7 @@ video-content:
 ## Introduction
 
 In real-time rendering, shadows are commonly rendered using [shadow maps](https://doc.babylonjs.com/features/featuresDeepDive/lights/shadows) but these are most practical for punctual lights (i.e. directional, point and spot lights). When it comes to image-based lighting (IBL), generating accurate shadows becomes much more difficult because light is coming from all directions.
-The IBL Shadows pipeline does what the name implies; it renders shadows cast by image-based lighting (i.e. [HDR environment lights](https://doc.babylonjs.com/features/featuresDeepDive/materials/using/HDREnvironment)) and allows you to then apply the shadows to PBR materials. It does this by generating a voxel grid for all objects that will cast shadows and then traces rays through the voxel grid to determine which pixels will be shadowed.
+The IBL Shadows pipeline does what the name implies; it renders shadows cast by image-based lighting (i.e. [HDR environment lights](https://doc.babylonjs.com/features/featuresDeepDive/materials/using/HDREnvironment)) and allows you to then apply the shadows to PBR and standard materials. It does this by generating a voxel grid for all objects that will cast shadows and then traces rays through the voxel grid to determine which pixels will be shadowed.
 
 Here is a comparison of the rendering with and without the activation of the IBL Shadows pipeline:
 
@@ -20,7 +20,7 @@ Here is a comparison of the rendering with and without the activation of the IBL
 
 Here is the playground that generated the above images:
 
-- <Playground id="#8R5SSE#386" title="IBL Shadows Pipeline Example" description="Boombox scene with IBL shadows" isMain={true} category="Post-processing"/>
+- <Playground id="#8R5SSE#406" title="IBL Shadows Pipeline Example" description="Boombox scene with IBL shadows" isMain={true} category="Post-processing"/>
 
 ## Important Usage Notes
 
@@ -77,7 +77,7 @@ The voxel grid will need to be regenerated whenever the scene changes so that ne
 
 1. The scene is rendered to the voxel grid, layer by layer, as it's not possible to render to the entire 3D texture at once in WebGL. The voxelization uses the maximum number of draw buffers to render several layers in each render pass. The higher-resolution the voxel grid is, the more passes will be necessary and the slower the voxelization will be.
 1. If `triPlanarVoxelization` is enabled (the default), the voxelization will be done three times, once along each axis. The purpose of this is to avoid missing triangles that are parallel to the camera's line-of-sight. Disabling `triPlanarVoxelization` will speed up voxelization time but can often result in missing geometry.
-1. After the voxel grid is generated, the heirarchical mips need to be generated for it. These are successively smaller and smaller textures that are used by the voxel tracing algorithm to efficiently traverse the voxel grid and find ray-geometry intersections, something like an octree.
+1. After the voxel grid is generated, the hierarchical mips need to be generated for it. These are successively smaller and smaller textures that are used by the voxel tracing algorithm to efficiently traverse the voxel grid and find ray-geometry intersections, something like an octree.
 
 ### Each Frame
 
@@ -92,7 +92,7 @@ Once the CDF maps and voxel grid are created, there are several fullscreen passe
       1. Two shadow values are then generated. The first is the simple accumulation of the shadow amount from each sample. The second is scaled by a view-dependent factor to approximate shadowing of specular lighting from the sampled direction.  
    1. The total shadow contribution of both diffuse shadowing and specular shadowing is divided by the number of samples to get the amount of raw shadowing for this frame. Taking more samples per frame will decrease the noise in the image.
 1. A blur pass then blurs the shadows to help remove some of the noise.
-1. An accumulation pass will then combine the new shadow frame with shadows generated in previous frames. This has the effect of building up a smooth image of the shadows over several frames. The speed at which this happen can be adjusted using the `shadowRemenance` property.
+1. An accumulation pass will then combine the new shadow frame with shadows generated in previous frames. This has the effect of building up a smooth image of the shadows over several frames. The speed at which this happen can be adjusted using the `shadowRemanance` property.
 1. The accumulated shadows are then applied in a mesh's material using Babylon's [material plugin system](https://doc.babylonjs.com/features/featuresDeepDive/materials/using/materialPlugins). The diffuse shadows are applied directly to the diffuse component of the material, leaving emissive light unaffected. Specular shadows are applied to specular lighting but this is a bit more complex because the view-dependence of specular lighting depends on the roughness of the surface. We blend between diffuse and specular shadow factors based on the roughness of the surface. Highly smooth surfaces get the specular shadows and rough surfaces (which are essentially non-directional) get the diffuse shadows.
 
 ## Screen-space Shadows
@@ -126,7 +126,7 @@ The following properties can be set on the pipeline (or passed in the constructo
 | --- | --- |
 | shadowOpacity | How dark the shadows are. 1.0 is full opacity, 0.0 is no shadows. |
 | sampleDirections | The number of different directions to sample during the voxel-tracing pass. Higher values will result in better quality and more stable shadows but will also be more expensive to compute each frame. Since shadows are accumulated from frame to frame, increasing this value doesn't help much when the camera isn't moving. |
-| shadowRemenance | A factor that controls how long the shadows remain in the scene. 0.0 is no persistence, 1.0 is full persistence. This value applies only while the camera is moving. Once stationary, the pipeline increases remenance automatically to help the shadows converge. |
+| shadowRemanance | A factor that controls how long the shadows remain in the scene. 0.0 is no persistence, 1.0 is full persistence. This value applies only while the camera is moving. Once stationary, the pipeline increases remanance automatically to help the shadows converge. |
 | shadowRenderSizeFactor | A size multiplier for the internal shadow render targets (default 1.0). A value of 1.0 represents full-resolution. Scaling this below 1.0 will result in blurry shadows and potentially more artifacts but it could help increase performance on less powerful GPU's. |
 | envRotation | The global Y-axis rotation of the IBL for shadows. This should match the Y-rotation of the environment map applied to materials, skybox, etc. |
 
@@ -154,7 +154,7 @@ The following properties can be set on the pipeline (or passed in the constructo
 | toggleShadow | Turn the shadows on or off |
 | updateSceneBounds | Trigger the scene bounds of shadow-casters to be calculated. This is the world size that the voxel grid will cover and will always be a cube. |
 | updateVoxelization | Trigger the scene to be re-voxelized. This should be run when any shadow-casters have been added, removed or moved. |
-| resetAccumulation | Reset the shadow accumulation. This has a similar affect to lowering the remenance for a single frame. This is useful when making a sudden change to the IBL. |
+| resetAccumulation | Reset the shadow accumulation. This has a similar affect to lowering the remanance for a single frame. This is useful when making a sudden change to the IBL. |
 | setIblTexture | Set the IBL image to be used for shadowing. It can be either a cubemap or a 2D equirectangular texture. |
 | addShadowCastingMesh | Add a mesh to be used for shadow-casting in the IBL shadow pipeline. These meshes will be written to the voxel grid. |
 | removeShadowCastingMesh | Remove a mesh from the shadow-casting list. The mesh will no longer be written to the voxel grid and will not cast shadows. |
