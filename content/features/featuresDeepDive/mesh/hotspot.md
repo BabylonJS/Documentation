@@ -61,4 +61,4 @@ line.x2 = screenPosition.x;
 line.y2 = screenPosition.y;
 ```
 
-<Playground id="#BQOFIX#7" title="Simple Example of Mesh Hotspot" description="Hotspot hooked to a animated skinned mesh."/>
+<Playground id="#BQOFIX#15" title="Simple Example of Mesh Hotspot" description="Hotspot hooked to a animated skinned mesh."/>
