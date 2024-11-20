@@ -56,7 +56,7 @@ const viewport = new BABYLON.Viewport(0, 0, viewportWidth, viewportHeight);
 
 let screenPosition = new BABYLON.Vector3();
 
-BABYLON.Vector3.ProjectToRef(worldPosition, mesh.getWorldMatrix(), scene.getTransformMatrix(), viewport, screenPosition);
+BABYLON.Vector3.ProjectToRef(worldPosition, BABYLON.Matrix.Identity(), scene.getTransformMatrix(), viewport, screenPosition);
 line.x2 = screenPosition.x;
 line.y2 = screenPosition.y;
 ```
