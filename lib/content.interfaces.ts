@@ -87,4 +87,5 @@ export interface IDocumentationPageProps extends IPageProps {
         [key: string]: IDocumentationPageProps;
     };
     relatedExternalLinks?: { url: string; title: string }[];
+    redirectTo?: string;
 }
