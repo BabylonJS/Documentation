@@ -19,6 +19,8 @@ import { ParsedUrlQuery } from "querystring";
 import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
 import { VideoCollection } from "../components/videoCollection.component";
 import styles from "./documentationPage.module.scss";
+import { getRedirect, getRedirects, isRedirect } from "../lib/buildUtils/redirects";
+import Link from "next/link";
 
 // testing lib instead of src (documentation states to use the src)
 
@@ -40,7 +42,25 @@ export const DocumentationContext = createContext<DocumentationPageContext>({
     setActiveTOCItem: (_tocItem: ITableOfContentsItem) => {},
 });
 
-export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, mdxContent, childPages, id, previous, next, relatedArticles, relatedExternalLinks, gitHubUrl }) => {
+export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, mdxContent, childPages, id, previous, next, relatedArticles, relatedExternalLinks, gitHubUrl, redirectTo }) => {
+    if (redirectTo) {
+        setTimeout(() => {
+            location.href = redirectTo;
+        }, 5000);
+        return (
+            <div style={
+                {
+                    textAlign: "center",
+                    padding: "20px",
+                }
+            }>
+                This page has moved to <br />
+                <Link href={redirectTo}>{redirectTo}</Link>
+                <br />
+                You will be redirected shortly.
+            </div>
+        );
+    }
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
@@ -191,9 +211,20 @@ export default DocumentationPage;
 
 export interface IDocumentationParsedUrlQuery extends ParsedUrlQuery {
     id: string[];
+    redirectTo?: string;
 }
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async ({ params }) => {
+    // check if it is a redirect
+    if (isRedirect(params.id)) {
+        return {
+            props: {
+                id: params.id,
+                redirectTo: getRedirect(params.id),
+            },
+        };
+    }
+
     const props = await getPageData(params.id, true);
     const remarkSlug = (await import("remark-slug")).default;
     const remarkGfm = (await import("remark-gfm")).default;
@@ -219,11 +250,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
             getAllFiles(markdownDirectory).map((path) => path.replace(/\\/g, "/").replace("content/", "")),
         );
     }
+
+    const redirects = getRedirects();
     // TODO solve this more elegantly.
     // This is done since index is not a part of this dynamic url mapping (next.js issue)
     paths.shift();
     return {
-        paths,
+        paths: [...paths, ...redirects],
         fallback: false,
     };
 };
