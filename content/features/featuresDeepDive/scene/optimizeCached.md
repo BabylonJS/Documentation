@@ -1,6 +1,6 @@
 ---
 title: Optimizing Using Cached Resources
-image: 
+image:
 description: Learn how to optimize your scene using cached resources in Babylon.js.
 keywords: diving deeper, scene, optimization, optimize, cache
 further-reading:
@@ -19,13 +19,20 @@ Starting with the **1.4 release** of Babylon.JS, you can indicate that you want 
 To enable offline support, the first thing you need to do is create a _**.manifest**_ file associated with your scene. It should be named _NameOfYourScene.babylon.manifest_.
 
 **Starting with Babylon.js v4.0 you also have to turn the feature on with:**
-```
+
+```javascript
+engine.enableOfflineSupport = true;
 BABYLON.Database.IDBStorageEnabled = true;
 ```
 
 **Note:** by default, the Babylon engine is configured to use online resources. So if you don’t provide any .manifest file, it will assume that you want the resources to be loaded directly from the web all the time.
+If you still want to cache the downloaded resources and provide no manifest you can add the following flag to engine:
 
-Inside this **.manifest** file, insert the following piece of JSON:
+```javascript
+engine.disableManifestCheck = true;
+```
+
+It is better to use a manifest file, because it allows you to control the point in which the offline database is updated. Inside this **.manifest** file, insert the following piece of JSON:
 
 ```javascript
 {
@@ -48,10 +55,11 @@ You have 3 parameters to fill:
 **Note:** images are loaded using XHR2 in the blob format. IE11, Firefox and Chrome 37+ support the storing of blob data into the IndexedDB. [More details](http://caniuse.com/#search=indexeddb)
 
 ## Exceptions
+
 If you do not want to enable offline mode, you can set `engine.enableOfflineSupport = false`. This will completely turn off the feature.
 If you want more fine-grained control, you can use the `scene.disableOfflineSupportExceptionRules` array:
 
-```
+```javascript
 scene.disableOfflineSupportExceptionRules.push(/dude\.babylon/gi);
 ```
 
