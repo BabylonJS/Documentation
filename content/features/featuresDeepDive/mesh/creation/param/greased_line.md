@@ -187,7 +187,7 @@ color?: Color3;
 colorMode?: GreasedLineMeshColorMode;
 colors?: Color3[];
 colorDistribution?: GreasedLineMeshColorDistribution;
-colorDistributioType?: GreasedLineMeshColorDistributionType;
+colorDistributionType?: GreasedLineMeshColorDistributionType;
 useColors?: boolean;
 colorsSampling?: number;
 useDash?: boolean;
@@ -302,8 +302,13 @@ The method used to distribute the colors along the line. You can use segment dis
 
 <Playground id="#H1LRZ3#258" title="Color distribution type" description="Shows how to use available color distribution types." />
 <Playground id="#H1LRZ3#55" title="Line colors using your own texture" description="Create your own color texture." />
+
+When running on WebGPU/WGSL you must use RGBA textures:
+<Playground id="#H1LRZ3#678" title="Line colors using your own texture - WebGPU/WGSL" description="Create your own color texture - WebGPU/WGSL." />
+
 <Playground id="#VUKIHZ#3" title="Animating line colors using your own texture" description="Animating colors on a line using your color texture." />
 <Playground id="#H1LRZ3#233" title="Setting color pointers manually" description="A loader circle created by modifying the color pointers. Also shows how to use gradients with GreasedLine." />
+
 
 #### **colorsSampling**
 
