@@ -1723,6 +1723,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/physics/v2/prestep"
                                 },
+                                "characterController": {
+                                    "friendlyName": "Character Controller",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/characterController"
+                                },
                                 "havokPlugin": {
                                     "friendlyName": "The Havok Physics Plugin",
                                     "children": {},
