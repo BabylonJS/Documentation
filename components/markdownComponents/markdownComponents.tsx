@@ -4,12 +4,14 @@ import { ImageMarkdownComponent } from "./image.component";
 import { YoutubeComponent, MediaFileComponent } from "./media.component";
 import { AlertMarkdownComponent, SyntaxHighlighting } from "./syntaxHighlight.component";
 import { H1MarkdownComponent, H2MarkdownComponent, H3MarkdownComponent, H4MarkdownComponent } from "./tableOfContentItem.component";
+import { CodePenComponent } from "./codepen.component";
 
 export const markdownComponents = {
     Alert: AlertMarkdownComponent,
     Youtube: YoutubeComponent,
     Media: MediaFileComponent,
     Playground: PlaygroundMarkdownComponent,
+    CodePen: CodePenComponent,
     nme: NMEMarkdownComponent,
     NME: NMEMarkdownComponent,
     nge: NGEMarkdownComponent,
