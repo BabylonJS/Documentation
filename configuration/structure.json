@@ -2282,7 +2282,7 @@
                     "content": "toolsAndResources/accessibility"
                 },
                 "thePlayground": {
-                    "friendlyName": "The Playground",
+                    "friendlyName": "Playground",
                     "children": {
                         "externalPGAssets": {
                             "friendlyName": "Using External Assets In The Playground",
@@ -2306,6 +2306,10 @@
                         }
                     },
                     "content": "toolsAndResources/thePlayground"
+                },
+                "sandbox": {
+                    "friendlyName": "Sandbox",
+                    "content": "toolsAndResources/sandbox"
                 },
                 "inspector": {
                     "friendlyName": "Inspector",
