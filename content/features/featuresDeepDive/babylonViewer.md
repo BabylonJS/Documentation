@@ -42,13 +42,13 @@ The Babylon.js viewer automatically provides a [default viewing experience](#def
 
 ## Example
 
-<CodePen pen="QxzBPd" user="BabylonJS" tab="html,result" title="Babylon.js Viewer - Display a 3D model" />
+<CodePen pen="QxzBPd" tab="html,result" title="Babylon.js Viewer - Display a 3D model" />
 
 ## Resizing
 
 Controlling the size of the viewer is one of the most common configuration operation. It is rather easy as the viewer in default mode will fill 100% of the width and height of its container. So in order to control the viewer, you can simply style its enclosing container.
 
-<CodePen pen="qMBwar" user="BabylonJS" tab="html,result" title="Babylon.js Viewer - Resize the viewer" />
+<CodePen pen="qMBwar" tab="html,result" title="Babylon.js Viewer - Resize the viewer" />
 
 ## Using the viewer in your project
 
