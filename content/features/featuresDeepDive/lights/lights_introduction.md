@@ -203,3 +203,17 @@ In order to control the projection orientation and range, you can also rely on t
 - `projectionTextureUpDirection` : helps defining the light space which is oriented towards the light direction and aligned with the up direction.
 
 The projected information is multiplied against the normal light values to better fit in the Babylon JS lighting. It also only impact the diffuse value. So it might be necessary to change the specular color of the light to better fit with the scene.
+
+## IES Profile
+
+Starting with Babylon v7.40.0, you can specify an [IES light](https://ieslibrary.com/) profile for your **SpotLight**.
+
+This will control (based on [IES specification](https://store.ies.org/product/lm-63-19-approved-method-ies-standard-file-format-for-the-electronic-transfer-of-photometric-data-and-related-information/?v=0b3b97fa6688)) how the light fall off is supposed to render.
+
+To do so, you have to set the `spotLight.iesProfileTexture` to a texture loaded from an .ies file.
+
+```
+light.iesProfileTexture = new BABYLON.Texture("https://assets.babylonjs.com/meshes/EXT_lights_ies/LightProfile.ies");
+```
+
+<Playground id="#UIAXAU#15" title="Projection Texture Example" description="Simple Example of using an IES profile."/>
