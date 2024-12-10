@@ -3021,12 +3021,13 @@
         "addons": {
             "friendlyName": "Official Add-ons",
             "children": {
-            "htmlMesh": {
+                "htmlMesh": {
                     "friendlyName": "HTML Mesh",
                     "children": {},
                     "content": "addons/htmlMesh"
                 }
-            }
+            },
+            "content": "addons"
         },
         "communityExtensions": {
             "friendlyName": "Community Extensions",
