@@ -1723,6 +1723,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/physics/v2/prestep"
                                 },
+                                "characterController": {
+                                    "friendlyName": "Character Controller",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/characterController"
+                                },
                                 "havokPlugin": {
                                     "friendlyName": "The Havok Physics Plugin",
                                     "children": {},
@@ -2297,7 +2302,7 @@
                     "content": "toolsAndResources/accessibility"
                 },
                 "thePlayground": {
-                    "friendlyName": "The Playground",
+                    "friendlyName": "Playground",
                     "children": {
                         "externalPGAssets": {
                             "friendlyName": "Using External Assets In The Playground",
@@ -2321,6 +2326,10 @@
                         }
                     },
                     "content": "toolsAndResources/thePlayground"
+                },
+                "sandbox": {
+                    "friendlyName": "Sandbox",
+                    "content": "toolsAndResources/sandbox"
                 },
                 "inspector": {
                     "friendlyName": "Inspector",

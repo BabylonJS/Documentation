@@ -70,8 +70,34 @@ uBuffer[24 + 3] = 255;
 gs.updateData(uBuffer);
 ```
 
+## Updating and downloading datas of a Gaussian Splatting
+
+An access to the kept in memory splats data allows to modify loaded splats and download it after.
+A simple call to `updateData` will show the change.
+
+```javascript
+function modifyMesh(gs) {
+    // Get GS data
+    const arrayBuffer = gs.splatsData;
+    // Make a float32 access. A splat is 32bytes (8floats)
+    var positions = new Float32Array(arrayBuffer);
+    // Do a change to the first 30000 splats
+    for (let i = 0; i < 30000; i++) {
+        // Translate splats a little. GS shown here is upside down
+        positions[i * 8 + 1] -= 2.0;
+    }
+    // Make that change visible
+    gs.updateData(arrayBuffer);
+    // Create a blob with array buffer and download it. It can be used directly with the sandbox
+    const blob = new Blob([arrayBuffer], { type: 'application/octet-stream' });
+    BABYLON.Tools.DownloadBlob(blob, "newGSplat.splat");
+}
+```
+
 <Playground id="#CID4NN#203" title="Simple Example of Gaussian Splatting" description="Simple example of setting a Gaussian Splatting."/>
 
 <Playground id="#45KYTJ#61" title="Loading and displaying different Gaussian Splatting scenes" description="Loading and displaying different Gaussian Splatting scenes."/>
 
 <Playground id="#EILZ5L#3" title="10000 splats updated" description="Creating and updating a Gaussian Splatting made of 10000 individual splats"/>
+
+<Playground id="#RKKCHG#0" title="Download and modify a GS" description="Download a Gaussian Splatting and modify a bunch splats. Then, downloads it."/>

@@ -193,7 +193,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             if (!url) {
                 throw new Error("Error in md file, maybe used tab instead of space?");
             }
-            if (!url.startsWith("http") && !url.startsWith("/typedoc")) {
+            if (!url.startsWith("http") && !url.startsWith("/typedoc") && !url.startsWith("/packages")) {
                 const idArray = url.split("/");
                 if (idArray[0] === "") {
                     idArray.shift();
@@ -306,7 +306,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                 .map((res) => {
                     return res[1].replace(/\)/g, "").split("#")[0].split(" ")[0];
                 })
-                .filter((link) => link.indexOf(".") === -1 && link.indexOf("/typedoc") === -1);
+                .filter((link) => link.indexOf(".") === -1 && link.indexOf("/typedoc") === -1  && link.indexOf("/packages") === -1);
 
             internalLinks.forEach((link) => {
                 const found = getElementByIdArray(link.split("/"), true);
