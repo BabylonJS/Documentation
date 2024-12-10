@@ -787,7 +787,7 @@ body {
     .tsd-panel-group.tsd-index-group {
         margin-bottom: 0;
     }
-    .tsd-index-panel .tsd-index-list {
+    .tsd-index-panel .tsd-index-list, .tsd-member-summaries {
         list-style: none;
         line-height: 1.333em;
         margin: 0;
@@ -798,13 +798,18 @@ body {
         column-gap: 1rem;
         grid-template-rows: auto;
     }
+
+    .tsd-member-summary:empty {
+        display: none;
+    }
+
     @media (max-width: 1024px) {
-        .tsd-index-panel .tsd-index-list {
+        .tsd-index-panel .tsd-index-list, .tsd-member-summaries {
             grid-template-columns: repeat(2, 1fr);
         }
     }
     @media (max-width: 768px) {
-        .tsd-index-panel .tsd-index-list {
+        .tsd-index-panel .tsd-index-list, .tsd-member-summaries {
             grid-template-columns: repeat(1, 1fr);
         }
     }
