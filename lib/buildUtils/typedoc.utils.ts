@@ -14,20 +14,20 @@ import { htmlToText } from "html-to-text";
 import { parse, HTMLElement } from "node-html-parser";
 import { addToSitemap } from "./sitemap.utils";
 
-const basePath = path.join(process.cwd(), `.${sep}.temp${sep}docdirectory`);
-const tmpPath = path.join(process.cwd(), `.${sep}.temp`);
-const basePathResolved = path.resolve(basePath);
-
-export const generateTypeDoc = async () => {
+export const generateTypeDoc = async (url: string = "https://cdn.babylonjs.com/documentation.d.ts", title: string = "Babylon.js API documentation", baseLocation: string = "typedoc") => {
+    const basePath = path.join(process.cwd(), `.${sep}.temp${sep}${baseLocation}${sep}docdirectory`);
+    const tmpPath = path.join(process.cwd(), `.${sep}.temp${sep}${baseLocation}`);
+    const basePathResolved = path.resolve(basePath);
     // force recreating the API docs when in production mode
     if (process.env.NODE_ENV === "production") {
         console.log("making sure directory is empty", basePathResolved);
+
         await del(tmpPath);
     }
     if (!existsSync(basePathResolved + sep + "files" + sep + "index.html")) {
         console.log("generating API docs, patience is required");
         // download the latest .d.ts
-        const response = await fetch("https://cdn.babylonjs.com/documentation.d.ts");
+        const response = await fetch(url);
         const text = (await response.text()).replace(/declare module "[^}]*}/g, "");
         try {
             mkdirSync(basePathResolved, { recursive: true });
@@ -54,12 +54,12 @@ export const generateTypeDoc = async () => {
         try {
             const app = await TypeDoc.Application.bootstrap({
                 // typedoc options here
-                name: "Babylon.js API documentation",
+                name: title,
                 excludeExternals: true,
                 excludePrivate: true,
                 excludeProtected: true,
                 excludeInternal: true,
-                includes: basePathResolved,
+                // includes: basePathResolved,
                 hideGenerator: true,
                 tsconfig: `${basePathResolved}${sep}tsconfig.json`,
                 readme: "none",
@@ -87,29 +87,35 @@ export const generateTypeDoc = async () => {
 
     console.log("API done");
 
-    const files = getTypeDocFiles();
+    const files = getTypeDocFiles(baseLocation);
 
     // clear the search index if needed
     // only run this when building for master
     if (process.env.PRODUCTION) {
         // only remove those that don't exist anymore
-        const existingDocs = files.map(({ params }) => `/typedoc/${params.id.join("/")}`);
+        const existingDocs = files.map(({ params }) => `/${baseLocation}/${params.id.join("/")}`);
         await clearIndex(true, existingDocs);
     }
 
     return files;
 };
 
-export const generateBreadcrumbs = (html: HTMLElement, id: string[]) => {
-    return html.querySelectorAll(".tsd-breadcrumb li a").map((element) => {
-        const baseUrl = "/typedoc/" + id[0] + "/";
+export const generateBreadcrumbs = (html: HTMLElement, id: string[], baseLocation: string) => {
+    const breadcrumbs = html.querySelectorAll(".tsd-breadcrumb li a").map((element) => {
+        const baseUrl = "/" + baseLocation + "/" + id[0] + "/";
         const href = element.getAttribute("href");
         let url = "";
         // index?
         if (href === "/modules/BABYLON.html" || href === "../modules/BABYLON.html") {
-            url = "/typedoc";
+            url = "/" + baseLocation;
         } else {
             url = baseUrl + href.replace(".html", "");
+        }
+        if (url.endsWith("/")) {
+            url = url.substring(0, url.length - 1);
+        }
+        if (url.endsWith("/index")) {
+            url = url.substring(0, url.length - 6);
         }
 
         return {
@@ -117,17 +123,27 @@ export const generateBreadcrumbs = (html: HTMLElement, id: string[]) => {
             url,
         };
     });
+    // remove the first element, it's not needed
+    if (baseLocation === "typedoc") {
+        breadcrumbs.shift();
+    } else {
+        if (breadcrumbs.length) {
+            breadcrumbs[0].url = "/" + baseLocation + "/index";
+        }
+    }
+    return breadcrumbs;
 };
 
-export const getAPIPageData = async (id: string[]) => {
+export const getAPIPageData = async (id: string[], baseLocation: string = "typedoc") => {
+    const basePath = path.join(process.cwd(), `.${sep}.temp${sep}${baseLocation}${sep}docdirectory`);
     let filename = `${basePath}${sep}files${sep}${id.join(sep)}.html`;
     const allLowerCase = id.every((i) => i.toLowerCase() === i);
-    if (allLowerCase) {
+    if (allLowerCase && id.length > 1) {
         glob.sync(path.relative(path.resolve("."), path.resolve(filename)).replace(/\\/g, "/"), { nocase: true }).forEach((f) => {
             filename = f.substring(f.indexOf(id[0]));
         });
         return {
-            redirect: `/typedoc/${filename.replace(".html", "")}`,
+            redirect: `/${baseLocation}/${filename.replace(".html", "")}`,
         };
     }
     const html = readFileSync(filename, "utf-8").toString();
@@ -138,7 +154,7 @@ export const getAPIPageData = async (id: string[]) => {
     const metadata: MarkdownMetadata = {
         title: "Babylon.js API",
         description: "[Babylon.js API]",
-        keywords: "babylonjs, babylon.js, api, typedoc," + id.join(","),
+        keywords: "babylonjs, babylon.js, api, " + baseLocation + "," + id.join(","),
     };
     const titleNode = head.querySelector("title").firstChild;
     if (titleNode) {
@@ -153,14 +169,14 @@ export const getAPIPageData = async (id: string[]) => {
     // clean description
     metadata.description = metadata.description.replace(/\n/g, "").replace(/\t/g, "");
     // Search index
-    let url = "/typedoc/" + id.join("/");
+    let url = "/" + baseLocation + "/" + id.join("/");
     // create a buffer
     const buff = Buffer.from(url, "utf-8");
     const searchId = buff.toString("base64");
     // index page
     if (id.length === 1 && id[0] === "module/BABYLON") {
         metadata.description = "Babylon.js API main page - BABYLON namespace";
-        url = "/typedoc";
+        url = "/" + baseLocation;
     }
 
     root.querySelectorAll("script").forEach((node) => node.remove());
@@ -189,11 +205,12 @@ export const getAPIPageData = async (id: string[]) => {
         metadata,
         cssArray,
         contentNode: root.toString(),
-        breadcrumbs: generateBreadcrumbs(root, id),
+        breadcrumbs: generateBreadcrumbs(root, id, baseLocation),
     };
 };
 
-export const getTypeDocFiles = () => {
+export const getTypeDocFiles = (baseLocation: string = "typedoc") => {
+    const basePath = path.join(process.cwd(), `.${sep}.temp${sep}${baseLocation}${sep}docdirectory`);
     const filenames = getAllFiles(`${basePath}${sep}files`, [], ".html");
     const fileMap = filenames
         .map((fileName) => {
@@ -208,9 +225,9 @@ export const getTypeDocFiles = () => {
                 },
             };
         })
-        .filter(({ params }) => params.id.indexOf("index") === -1 && params.id.indexOf("module/BABYLON") === -1);
+        .filter(({ params }) => (baseLocation === "typedoc" ? params.id.indexOf("index") === -1 && params.id.indexOf("module/BABYLON") === -1 : true));
     const extra =
-        os.platform() === "win32"
+        os.platform() === "win32" || os.platform() === "darwin"
             ? []
             : fileMap.map((file) => {
                   return {
