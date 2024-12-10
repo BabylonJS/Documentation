@@ -8,6 +8,10 @@ video-overview:
 video-content:
 ---
 
+<Alert severity="warning" title="Warning">
+  This story references the [legacy Babylon Viewer V1](/legacy/babylonViewer). When building new experiences, please use the [Babylon Viewer V2](/features/featuresDeepDive/babylonViewer).
+</Alert>
+
 Related links:
 Original Vaporwear site ([source](https://github.com/syntheticmagus/vaporwear-original-asset-host/tree/main/wp_sites_sources/vaporwear),
 [demo](https://syntheticmagus.github.io/vaporwear-original-asset-host/vaporwear_wp_original.mp4)),
@@ -44,7 +48,7 @@ caters to e-commerce scenarios by
 (This certification ensures that 3D rendering will be consistent so that
 models always look the way site owners and customers expect them to.)
 Furthermore, Babylon.js provides a
-[Viewer](/features/featuresDeepDive/babylonViewer)
+[Viewer](/legacy/babylonViewer)
 that makes it easy to add 3D to an existing site using only HTML-style
 code. So Allan consulted with his Web developer Barnabas, and the two of
 them figured out how they would add 3D to the Vaporwear e-commerce
@@ -81,7 +85,7 @@ Though Barnabas was quite experienced with WordPress, he'd never added 3D
 to an existing site before, so the first thing he wanted to do was make
 sure he coul get at least *something* rendering on the site in 3D. After
 finding the
-[Viewer Examples](/features/featuresDeepDive/babylonViewer/viewerExamples#basic-usage)
+[Viewer Examples](/legacy/babylonViewer/viewerExamples#basic-usage)
 in the Babylon.js docs, Barnabas decided to just grab the code from there
 and add it directly to his WordPress site.
 
@@ -103,7 +107,7 @@ and add it directly to his WordPress site.
 
     ![Where to put the Viewer](/img/devStories/vaporwearViewer/06_div.png)
 1. Within this `div`, he added the `script` tag he'd found
-    [in the Babylon Viewer docs](/features/featuresDeepDive/babylonViewer#display-3d-models-on-your-webpage)
+    [in the Babylon Viewer docs](/legacy/babylonViewer#display-3d-models-on-your-webpage)
     to import the Viewer so he could use it on his page.
 
     ![Viewer script tag](/img/devStories/vaporwearViewer/07_script.png)
@@ -188,7 +192,7 @@ to render it on the Vaporwear WordPress site.
 
     ![New model URL](/img/devStories/vaporwearViewer/18_new_model_url.png)
 1. However, Barnabas knew the Babylon Viewer is
-    [highly configurable](/features/featuresDeepDive/babylonViewer/configuringViewer),
+    [highly configurable](/legacy/babylonViewer/configuringViewer),
     so he decided to tweak a few things about its appearance to make it
     look just right for Vaporwear. First, he removed the leftover code
     from the sample adding VR support. (He also cleaned up a lot of

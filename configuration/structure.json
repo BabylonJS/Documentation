@@ -1955,35 +1955,50 @@
                             "content": "features/featuresDeepDive/tags"
                         },
                         "babylonViewer": {
-                            "friendlyName": "Babylon.js Viewer",
+                            "friendlyName": "Viewer",
                             "children": {
-                                "configuringViewer": {
-                                    "friendlyName": "Configuring The Viewer",
+                                "cameraControls": {
+                                    "friendlyName": "Viewer Camera Controls",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/babylonViewer/configuringViewer"
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/cameraControls"
                                 },
-                                "viewerTemplatingSystem": {
-                                    "friendlyName": "The Viewer Templating System",
+                                "defaultUI": {
+                                    "friendlyName": "Viewer Default UI",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/babylonViewer/viewerTemplatingSystem"
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/defaultUI"
                                 },
-                                "defaultViewerConfig": {
-                                    "friendlyName": "Recreating The Default Viewer Configuration",
+                                "elementInterface": {
+                                    "friendlyName": "Viewer HTML Element Interface",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/babylonViewer/defaultViewerConfig"
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/elementInterface"
                                 },
-                                "advancedViewerUsage": {
-                                    "friendlyName": "Advanced Viewer Usage",
+                                "elementStyling": {
+                                    "friendlyName": "Viewer HTML Element Styling",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/babylonViewer/advancedViewerUsage"
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/elementStyling"
                                 },
-                                "viewerExamples": {
-                                    "friendlyName": "Viewer Examples",
+                                "hotspots": {
+                                    "friendlyName": "Viewer HotSpots & Annotations",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/babylonViewer/viewerExamples"
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/hotspots"
+                                },
+                                "advancedUsage": {
+                                    "friendlyName": "Viewer Advanced Usage",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/advancedUsage"
+                                },
+                                "react": {
+                                    "friendlyName": "Viewer & React",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/react"
+                                },
+                                "migrationGuide": {
+                                    "friendlyName": "Viewer Migration (V1 -> V2)",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/migrationGuide"
                                 }
                             },
-                            "content": "features/featuresDeepDive/babylonViewer"
+                            "content": "features/featuresDeepDive/babylonViewer.v2"
                         },
                         "webXR": {
                             "friendlyName": "WebXR",
@@ -3585,6 +3600,37 @@
                         }
                     },
                     "content": "features/featuresDeepDive/physics"
+                },
+                "babylonViewer": {
+                    "friendlyName": "Babylon.js Viewer V1",
+                    "children": {
+                        "configuringViewer": {
+                            "friendlyName": "Configuring The Viewer",
+                            "children": {},
+                            "content": "features/featuresDeepDive/babylonViewer/v1/configuringViewer"
+                        },
+                        "viewerTemplatingSystem": {
+                            "friendlyName": "The Viewer Templating System",
+                            "children": {},
+                            "content": "features/featuresDeepDive/babylonViewer/v1/viewerTemplatingSystem"
+                        },
+                        "defaultViewerConfig": {
+                            "friendlyName": "Recreating The Default Viewer Configuration",
+                            "children": {},
+                            "content": "features/featuresDeepDive/babylonViewer/v1/defaultViewerConfig"
+                        },
+                        "advancedViewerUsage": {
+                            "friendlyName": "Advanced Viewer Usage",
+                            "children": {},
+                            "content": "features/featuresDeepDive/babylonViewer/v1/advancedViewerUsage"
+                        },
+                        "viewerExamples": {
+                            "friendlyName": "Viewer Examples",
+                            "children": {},
+                            "content": "features/featuresDeepDive/babylonViewer/v1/viewerExamples"
+                        }
+                    },
+                    "content": "features/featuresDeepDive/babylonViewer.v1"
                 }
             }
         },
