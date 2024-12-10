@@ -50,4 +50,4 @@ const newPosition = characterController.getPosition();
 
 The test room PG provides an example to compute the desired velocity based on a finite state.
 
-<Playground id="WO0H1U#12" title="Character Controller testing room" description="Character Controller testing room" />
+<Playground id="WO0H1U#13" title="Character Controller testing room" description="Character Controller testing room" />
