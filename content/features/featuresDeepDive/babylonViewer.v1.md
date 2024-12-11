@@ -1,22 +1,26 @@
 ---
-title: Babylon.js Viewer
+title: Babylon.js Viewer (V1)
 image:
 description: The viewer is the simplest way to display 3D content on a web page.
 keywords: extensions, babylon.js, viewer, web page, display
 further-reading:
     - title: Configuring the viewer
-      url: /features/featuresDeepDive/babylonViewer/configuringViewer
+      url: /legacy/babylonViewer/configuringViewer
     - title: The templating system
-      url: /features/featuresDeepDive/babylonViewer/viewerTemplatingSystem
+      url: /legacy/babylonViewer/viewerTemplatingSystem
     - title: Recreating the default configuration for the viewer
-      url: /features/featuresDeepDive/babylonViewer/defaultViewerConfig
+      url: /legacy/babylonViewer/defaultViewerConfig
     - title: Advanced usage
-      url: /features/featuresDeepDive/babylonViewer/advancedViewerUsage
+      url: /legacy/babylonViewer/advancedViewerUsage
     - title: Babylon.js viewer examples
-      url: /features/featuresDeepDive/babylonViewer/viewerExamples
+      url: /legacy/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---
+
+<Alert severity="warning" title="Deprecated">
+  The Babylon Viewer V1 is deprecated. When building new experiences, please use the [Babylon Viewer V2](/features/featuresDeepDive/babylonViewer).
+</Alert>
 
 ## Display 3D models on your webpage
 

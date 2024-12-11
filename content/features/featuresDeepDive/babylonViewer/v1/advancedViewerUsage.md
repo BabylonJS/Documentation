@@ -5,15 +5,15 @@ description: Advanced uses of the viewer.
 keywords: extensions, babylon.js, library, viewer, advanced
 further-reading:
   - title: Babylon.js Viewer
-    url: /features/featuresDeepDive/babylonViewer
+    url: /legacy/babylonViewer
   - title: Configuring the viewer
-    url: /features/featuresDeepDive/babylonViewer/configuringViewer
+    url: /legacy/babylonViewer/configuringViewer
   - title: The templating system
-    url: /features/featuresDeepDive/babylonViewer/viewerTemplatingSystem
+    url: /legacy/babylonViewer/viewerTemplatingSystem
   - title: Recreating the default configuration for the viewer
-    url: /features/featuresDeepDive/babylonViewer/defaultViewerConfig
+    url: /legacy/babylonViewer/defaultViewerConfig
   - title: Babylon.js viewer examples
-    url: /features/featuresDeepDive/babylonViewer/viewerExamples
+    url: /legacy/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---
