@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, PropsWithChildren, useState } from "react";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import { Alert, AlertTitle, IconButton, Tooltip, Box } from "@mui/material";
 import LinkIcon from "@mui/icons-material/ContentCopy";
@@ -92,12 +92,13 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
     );
 };
 
-type AlertMarkdownComponentProps = { severity: "error" | "warning" | "info" | "success"; description: string; title?: string };
+type AlertMarkdownComponentProps = PropsWithChildren<{ severity: "error" | "warning" | "info" | "success"; description: string; title?: string }>;
 export const AlertMarkdownComponent: FunctionComponent<AlertMarkdownComponentProps> = (props: AlertMarkdownComponentProps) => {
     return (
         <Alert severity={props.severity} style={{ marginBottom: "1.3rem" }}>
             {props.title || <AlertTitle>{props.title}</AlertTitle>}
             <p style={{ margin: "0" }} dangerouslySetInnerHTML={{ __html: props.description }}/>
+            {props.children}
         </Alert>
     );
 };
