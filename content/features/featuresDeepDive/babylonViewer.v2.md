@@ -34,6 +34,17 @@ To get started, here is a very basic usage example:
 
 <CodePen pen="ogvbyyW" tab="html,result" title="Babylon Viewer Basics" />
 
+<Alert severity="warning" title="CDN vs. Bundler">
+  In the example above (and all other Viewer examples in the docs), for simplicity the ESM bundle included in the NPM package is referenced through a public CDN.
+  In most production scenarios, it is likely preferable to use the NPM packages directly with your own bundler and your own deployment. You can install the package into your project via:
+
+  ```bash
+  npm install @babylonjs/viewer@preview
+  ```
+
+  See the [NPM page](https://www.npmjs.com/package/@babylonjs/viewer) for more details on using the NPM package.
+</Alert>
+
 ## Viewer Layers
 
 The Babylon Viewer is constructed through three layers to enable cross platform and cross framework usage.
