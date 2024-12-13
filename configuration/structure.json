@@ -2897,6 +2897,11 @@
                     "children": {},
                     "content": "guidedLearning/usingVite"
                 },
+                "lightmaps": {
+                    "friendlyName": "Level blocking with lightmaps",
+                    "children": {},
+                    "content": "guidedLearning/lightmaps"
+                },
                 "networking": {
                     "friendlyName": "Networking",
                     "children": {
