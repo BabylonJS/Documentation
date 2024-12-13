@@ -14,62 +14,94 @@ In order to support fog in your custom shaders, you will have to add some lines 
 
 ## Vertex shader
 
-First, you need to declare a varying variable:
+First, you need to make sure you are computing the world position in your vertex shader (it has to be named worldPos):
 
 ```
-varying float fFogDistance;
+vec4 worldPos = world * p;
+gl_Position = viewProjection * worldPos;
 ```
 
-Then you have to compute this value inside the shader:
+This means you have to declare these uniforms:
 
 ```
-fFogDistance = (view * worldPosition).z; // This is the distance of the vertex from the point of view of the camera (Camera space)
+uniform mat4 world;    
+uniform mat4 view;    
+uniform mat4 viewProjection;
 ```
 
-## Pixel shader
-
-Next, you need to add the following code to be able to compute the fog accordingly to parameters sent by the scene:
+Please note the addition of view which is used by the fog functions. Then you need to import the fog functions:
 
 ```
-#define FOGMODE_NONE 0.
-#define FOGMODE_EXP 1.
-#define FOGMODE_EXP2 2.
-#define FOGMODE_LINEAR 3.
-#define E 2.71828
+#include<fogVertexDeclaration>
+```
 
-uniform vec4 vFogInfos;
-uniform vec3 vFogColor;
-varying float fFogDistance;
+And call them:
 
-float CalcFogFactor()
-{
- float fogCoeff = 1.0;
- float fogStart = vFogInfos.y;
- float fogEnd = vFogInfos.z;
- float fogDensity = vFogInfos.w;
+```
+#include<fogVertex>
+```
 
- if (FOGMODE_LINEAR == vFogInfos.x)
- {
-  fogCoeff = (fogEnd - fFogDistance) / (fogEnd - fogStart);
- }
- else if (FOGMODE_EXP == vFogInfos.x)
- {
-  fogCoeff = 1.0 / pow(E, fFogDistance * fogDensity);
- }
- else if (FOGMODE_EXP2 == vFogInfos.x)
- {
-  fogCoeff = 1.0 / pow(E, fFogDistance * fFogDistance * fogDensity * fogDensity);
- }
+Here is a full example of a working vertex shader:
 
- return clamp(fogCoeff, 0.0, 1.0);
+```
+BABYLON.Effect.ShadersStore["myVertexShader"] = `
+precision highp float;
+attribute vec3 position;
+attribute vec2 uv;
+uniform mat4 world;    
+uniform mat4 view;    
+uniform mat4 viewProjection;
+varying vec2 vUV;
+
+#include<fogVertexDeclaration>
+
+void main() {
+    vec4 p = vec4(position, 1.);
+    vec4 worldPos = world * p;
+    gl_Position = viewProjection * worldPos;
+    vUV = uv;
+
+    #include<fogVertex>
+}`
+```
+
+## Fragment shader
+
+For the fragment you also need to import the fog functions:
+
+```
+#include<fogFragmentDeclaration>
+```
+
+Then used them:
+
+```
+#include<fogFragment>(color,gl_FragColor)
+```
+
+The full version will look like this:
+
+```
+BABYLON.Effect.ShadersStore['myFragmentShader'] = `
+varying vec2 vUV;
+
+uniform sampler2D tex;
+#include<fogFragmentDeclaration>
+
+vec2 uvPixelPerfect(vec2 uv) {
+    vec2 res = vec2(textureSize(tex, 0));
+    
+    uv = uv * res;
+    vec2 seam = floor(uv + 0.5);
+    uv = seam + clamp((uv-seam) / fwidth(uv), -0.5, 0.5);
+    return uv / res;
 }
-```
 
-Then, inside the shader, you have to use this function to get the fog color:
-
-```
-float fog = CalcFogFactor();
-color.rgb = fog * color.rgb + (1.0 - fog) * vFogColor;
+void main() {
+    vec4 color = texture2D(tex,vUV);
+    gl_FragColor = color;
+    #include<fogFragment>(color,gl_FragColor)
+}`
 ```
 
 ## Javascript
@@ -77,9 +109,8 @@ color.rgb = fog * color.rgb + (1.0 - fog) * vFogColor;
 You then have to add the following code for the onBind callback of your ShaderMaterial:
 
 ```javascript
-shaderMaterial.onBind = function (mat, mesh) {
-  const effect = mat.getEffect();
-  effect.setMatrix("view", scene.getViewMatrix());
+shaderMaterial.onBind = function () {
+  const effect = shaderMaterial.getEffect();
   effect.setFloat4("vFogInfos", scene.fogMode, scene.fogStart, scene.fogEnd, scene.fogDensity);
   effect.setColor3("vFogColor", scene.fogColor);
 };
