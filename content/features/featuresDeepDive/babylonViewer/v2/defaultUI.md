@@ -20,6 +20,10 @@ When a model is loading a default progress bar is shown near the top of the elem
 
 <CodePen pen="yyBexov" tab="result" title="Babylon Viewer Progress Bar" />
 
+## Camera
+
+A reset camera pose button is always present. When pressed, the camera will interpolate to the default pose. This is the same as double clicking/tapping off the model.
+
 ## Animation
 
 When a model contains animations, controls will be displayed to play/pause the animation, change the speed of the animation, and provide an animation timeline (that can also be manually scrubbed). If a model contains several animations, additional UI is shown to allow selecting the active animation. The example below shows a model with multiple animations.
