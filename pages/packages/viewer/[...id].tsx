@@ -45,6 +45,7 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
     }, []);
     useEffect(() => {
         setTimeout(() => updateUseElements());
+        if (location.pathname.endsWith("/")) history.replaceState({}, "ReplaceState", location.href.replace(location.pathname, location.pathname.substring(0, location.pathname.length - 1)))
         if (redirect) {
             router.replace(redirect + window.location.hash);
         } else {
@@ -57,6 +58,7 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
                         el.scrollIntoView();
                     }
                 }
+                if(location.pathname.endsWith("/")) history.replaceState({}, "ReplaceState", location.href.replace(location.pathname, location.pathname.substring(0, location.pathname.length - 1)));
             };
             window.addEventListener("hashchange", onhashchange);
             return () => {
@@ -72,7 +74,7 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
     }
 
     return (
-        <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={["packages/viewer", ...id]}>
+        <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={["packages", "viewer", ...id]}>
             <Head>
                 {cssArray.map((css, idx) => {
                     return (
