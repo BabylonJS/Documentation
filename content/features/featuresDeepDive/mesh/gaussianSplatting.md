@@ -18,6 +18,7 @@ Supported formats are :
 
 - .PLY https://en.wikipedia.org/wiki/PLY_(file_format)
 - .splat that is Javascript types serialized version of .PLY datas
+- Niantic Labs .spz format https://scaniverse.com/news/spz-gaussian-splat-open-source-file-format
 
 ## Loading a Gaussian Splatting
 
