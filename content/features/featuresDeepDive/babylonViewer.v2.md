@@ -39,7 +39,7 @@ To get started, here is a very basic usage example:
   In most production scenarios, it is likely preferable to use the NPM packages directly with your own bundler and your own deployment. You can install the package into your project via:
 
   ```bash
-  npm install @babylonjs/viewer@preview
+  npm install @babylonjs/viewer
   ```
 
   See the [NPM page](https://www.npmjs.com/package/@babylonjs/viewer) for more details on using the NPM package.
