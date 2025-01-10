@@ -12,7 +12,7 @@ video-content:
 
 ## Introduction
 
-The sky material allows to create dynamic and texture free effects for skyboxes.
+The sky material allows you to create dynamic and texture free effects for skyboxes.
 
 This work is based on ["A Practical Analytic Model for Daylight"](https://www2.cs.duke.edu/courses/cps124/spring08/assign/07_papers/p91-preetham.pdf).
 First implemented by [Simon Wallner](http://simonwallner.at/project/atmospheric-scattering/),
@@ -62,7 +62,7 @@ skyMaterial.turbidity = 1; // Represents the amount (scattering) of haze as oppo
 ![skyTurbidity](/img/extensions/materials/skyTurbidity.png)
 
 ```javascript
-skyMaterial.luminance = 1; // Controls the overall luminance of sky in interval ]0, 1,190[
+skyMaterial.luminance = 1; // Controls the overall luminance of sky in interval [0, 1190]
 ```
 
 ![skyLuminance](/img/extensions/materials/skyLuminance.png)
@@ -103,7 +103,7 @@ skyMaterial.mieCoefficient = 0.005; // The mieCoefficient in interval [0, 0.1], 
 
 ## Keeping the horizon relative to the camera elevation
 
-In some cases, you would like to keep the horizon's "position" relative to the camera's position (typically a game where you can flight very high).
+In some cases, you would like to keep the horizon's "position" relative to the camera's position (typically a game where you can fly very high).
 To do that, the material exposes a vector (`.cameraOffset`) that you can customize.
 
 Typically:
