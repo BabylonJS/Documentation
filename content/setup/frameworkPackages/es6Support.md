@@ -619,7 +619,7 @@ When using node environment, you can just use the fs module to read the file as 
 
 We provide the Draco compression and Basis decoder as part of the ES6 `@babylonjs/core` package. As recommended, it is always better to serve those resources from your own server. If you want them to be included as part of your build process, you can do so by providing the resources directly to the modules.
 
-### Draco Compression
+### Draco Decoder packages
 
 Just like with the KTX2 decoder, you need to first decide if you use workers or not. For example, in a node environment you will not be able to use workers, but in a web environment it would be recommended to use them.
 
@@ -627,11 +627,11 @@ If using workers, create a worker file:
 
 ```javascript
 // worker.js
-import { workerFunction } from "@babylonjs/core/Meshes/Compression/dracoCompressionWorker.js";
+import { DecoderWorkerFunction } from "@babylonjs/core/Meshes/Compression/dracoCompressionWorker.js";
 // will populate globalThis.DracoDecoderModule
 import "@babylonjs/core/assets/Draco/draco_decoder_gltf.js";
 
-workerFunction();
+DecoderWorkerFunction();
 ```
 
 And then create a worker pool:
@@ -641,7 +641,7 @@ And then create a worker pool:
 // import the wasm as array buffer. see the KTX2 documentation for hints on how to do that
 import wasm from "@babylonjs/core/assets/Draco/draco_decoder_gltf.wasm";
 import { AutoReleaseWorkerPool } from "@babylonjs/core/Misc/workerPool.js";
-import { DracoCompression } from "@babylonjs/core/Meshes/Compression/dracoCompression.js";
+import { DracoDecoder } from "@babylonjs/core/Meshes/Compression/dracoDecoder.js";
 import { initializeWebWorker } from "@babylonjs/core/Meshes/Compression/dracoCompressionWorker.js";
 import { Tools } from "@babylonjs/core/Misc/tools.js";
 import { VertexBuffer } from "@babylonjs/core/Meshes/buffer.js";
@@ -654,29 +654,29 @@ const workerPool = new AutoReleaseWorkerPool(4, () => {
 });
 
 // set the worker pool
-DracoCompression.Configuration.decoder.workerPool = workerPool;
+DracoDecoder.DefaultConfiguration.workerPool = workerPool;
 
-// if you are creating your own version of the draco compression class you can pass the worker pool in the constructor instead:
+// if you are creating your own version of the draco decoder class you can pass the worker pool in the constructor instead:
 
-const dracoCompression = new DracoCompression({
+const dracoDecoder = new DracoDecoder({
   workerPool,
 });
 ```
 
-If you are not using workers, you will need to pass the wasm file and its js module directly to the draco compression configuration:
+If you are not using workers, you will need to pass the wasm file and its js module directly to the draco decoder configuration:
 
 ```javascript
 // import the wasm file as an arraybuffer
 import wasm from "@babylonjs/core/assets/Draco/draco_decoder_gltf.wasm";
 // import the js module
 import "@babylonjs/core/assets/Draco/draco_decoder_gltf.js";
-DracoCompression.Configuration.decoder.wasmBinary = wasm;
-DracoCompression.Configuration.decoder.jsModule = globalThis.DracoDecoderModule;
+DracoDecoder.DefaultConfiguration.wasmBinary = wasm;
+DracoDecoder.DefaultConfiguration.jsModule = globalThis.DracoDecoderModule;
 ```
 
 #### Using Draco in node environment
 
-To use the draco compression in nodejs to decode your own file:
+To use the draco decoder in nodejs to decode your own file:
 
 ```javascript
 const BABYLON = require("babylonjs");
@@ -688,8 +688,8 @@ require("babylonjs-loaders");
 const Draco = require("./assets/draco_decoder_gltf.js");
 const wasm = fs.readFileSync(process.cwd() + "/assets/draco_decoder_gltf.wasm");
 
-BABYLON.DracoCompression.Configuration.decoder.wasmBinary = wasm;
-BABYLON.DracoCompression.Configuration.decoder.jsModule = Draco;
+BABYLON.DracoDecoder.DefaultConfiguration.wasmBinary = wasm;
+BABYLON.DracoDecoder.DefaultConfiguration.jsModule = Draco;
 
 globalThis.XMLHttpRequest = xhr.XMLHttpRequest;
 let engine = new BABYLON.NullEngine();
