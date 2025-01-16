@@ -122,7 +122,7 @@ This is a list of URLs that can be configured individually:
 ```javascript
 const baseUrl = "https://foo.bar";
 
-DracoDecoder.DefaultConfiguration = {
+BABYLON.DracoDecoder.DefaultConfiguration = {
     wasmUrl: baseUrl + "/draco_wasm_wrapper_gltf.js",
     wasmBinaryUrl: baseUrl + "/draco_decoder_gltf.wasm",
     fallbackUrl: baseUrl + "/draco_decoder_gltf.js",
