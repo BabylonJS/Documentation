@@ -40,6 +40,8 @@ More information about the other arguments of the function can be found in its [
 
 This function also has a `CreateScreenshotAsync` version that can be waited for using the [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) keyword.
 
+_NOTE: If creating a screenshot with a camera that is NOT the scene's active camera, use `CreateScreenshotUsingRenderTarget` instead._
+
 ## CreateScreenshotUsingRenderTarget
 
 As the name suggests, this function renders the screenshotted scene to a [RenderTargetTexture](/features/featuresDeepDive/postProcesses/renderTargetTextureMultiPass). It has a few more [configuration options](/typedoc/classes/BABYLON.Tools#CreateScreenshotUsingRenderTarget):
