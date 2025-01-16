@@ -16,7 +16,7 @@ The `CreateScreenshot` functions can be utilized to render a screenshot of the c
 
 ```javascript
 scene.onReadyObservable.add(() => {
-  BABYLON.Tools.CreateScreenshot(engine, camera, size, successCallback, mimeType, forceDownload, quality);
+  BABYLON.Tools.CreateScreenshot(engine, camera, size, successCallback, mimeType, forceDownload, quality, useFill);
 });
 ```
 
@@ -29,6 +29,8 @@ The size parameter can be one of the following:
 - A `{width: number, height: number}` with the width and height of the canvas and created screenshot.
 - A `{precision: number}` value that is a multiplier of the current resolution of the canvas.
 - A single number indicating both width and height.
+
+The optional `useFill` parameter, when set to true, allows the render canvas to fill the screenshot. Otherwise, the render canvas will be "letterboxed" if its aspect ratio does not match the aspect ratio of the screenshot size.
 
 The success callback is a function that contains the screenshot as a string of base64-encoded characters. This string can be assigned to the src parameter of an `<img>` to display it, or it can be used to create a new Texture in the scene.
 
