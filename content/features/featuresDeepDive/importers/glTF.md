@@ -25,19 +25,17 @@ This loader supports both glTF 1.0 and 2.0 and will use the correct loader based
 
 ## Loading files locally
 
-By default, the gltf loader will request additional files for [draco compression](https://google.github.io/draco/) from _preview.babylonjs.com_. In case you want to deliver these files locally (e.g. for GDPR compliance), you can set the [DracoCompression.Configuration](https://doc.babylonjs.com/typedoc/classes/BABYLON.DracoCompression) object to use local files:
+By default, the glTF loader will request additional files for [draco compression](https://google.github.io/draco/) from _cdn.babylonjs.com_. In case you want to deliver these files locally (e.g. for GDPR compliance), you can set the [DracoDecoder.DefaultConfiguration](https://doc.babylonjs.com/typedoc/classes/BABYLON.DracoDecoder) object to use local files:
 
 ```typescript
-DracoCompression.Configuration = {
-  decoder: {
-    wasmUrl: "/babylon-draco-files/draco_wasm_wrapper_gltf.js",
-    wasmBinaryUrl: "/babylon-draco-files/draco_decoder_gltf.wasm",
-    fallbackUrl: "/babylon-draco-files/draco_decoder_gltf.js",
-  },
+DracoDecoder.DefaultConfiguration = {
+  wasmUrl: "/babylon-draco-files/draco_wasm_wrapper_gltf.js",
+  wasmBinaryUrl: "/babylon-draco-files/draco_decoder_gltf.wasm",
+  fallbackUrl: "/babylon-draco-files/draco_decoder_gltf.js",
 };
 ```
 
-Be sure to download the files first (from `https://preview.babylonjs.com/[FILENAME]`) and put them in a local path (`public/babylon-draco-files`, in this case).
+Be sure to download the files first (from `https://cdn.babylonjs.com/[FILENAME]`) and put them in a local path (`public/babylon-draco-files`, in this case).
 
 ## Warning
 
