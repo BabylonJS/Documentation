@@ -111,7 +111,6 @@ This option is the best for you, as you are in full control of the resources. To
 
 After downloading the cdn snapshot zip file and deploying it on your server, change the base URL to the base URL of the resources deployed.
 
-
 Make sure that your Server/CDN supports CORS, at least from your own Babylon experience.
 
 ### A bit more complex - deploy and configure specific resources
@@ -123,7 +122,7 @@ This is a list of URLs that can be configured individually:
 ```javascript
 const baseUrl = "https://foo.bar";
 
-BABYLON.DracoCompression.Configuration.decoder = {
+BABYLON.DracoDecoder.DefaultConfiguration = {
     wasmUrl: baseUrl + "/draco_wasm_wrapper_gltf.js",
     wasmBinaryUrl: baseUrl + "/draco_decoder_gltf.wasm",
     fallbackUrl: baseUrl + "/draco_decoder_gltf.js",
