@@ -16,7 +16,7 @@ The `CreateScreenshot` functions can be utilized to render a screenshot of the c
 
 ```javascript
 scene.onReadyObservable.add(() => {
-  BABYLON.Tools.CreateScreenshot(engine, camera, size, successCallback, mimeType, forceDownload, quality);
+  BABYLON.Tools.CreateScreenshot(engine, camera, size, successCallback, mimeType, forceDownload, quality, useFill);
 });
 ```
 
@@ -30,6 +30,8 @@ The size parameter can be one of the following:
 - A `{precision: number}` value that is a multiplier of the current resolution of the canvas.
 - A single number indicating both width and height.
 
+The optional `useFill` parameter, when set to true, allows the render canvas to fill the screenshot. Otherwise, the render canvas will be "letterboxed" if its aspect ratio does not match the aspect ratio of the screenshot size.
+
 The success callback is a function that contains the screenshot as a string of base64-encoded characters. This string can be assigned to the src parameter of an `<img>` to display it, or it can be used to create a new Texture in the scene.
 
 <Playground id="#750168#1" title="Use screenshot as texture" description="Example of how to use the CreateScreenshot callback to assign the screenshot data as a texture in the scene" />
@@ -37,6 +39,8 @@ The success callback is a function that contains the screenshot as a string of b
 More information about the other arguments of the function can be found in its [documentation page](/typedoc/classes/BABYLON.Tools#CreateScreenshot).
 
 This function also has a `CreateScreenshotAsync` version that can be waited for using the [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) keyword.
+
+_NOTE: If creating a screenshot with a camera that is NOT the scene's active camera, use `CreateScreenshotUsingRenderTarget` instead._
 
 ## CreateScreenshotUsingRenderTarget
 
