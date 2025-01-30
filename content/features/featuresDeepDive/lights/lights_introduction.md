@@ -63,8 +63,7 @@ const light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 1
 
 ### The Rectangular Area Light
 
-A rectangular area light is defined by a width and a height and emits light from the resulting surface towards the -Z direction. Even though the RectAreaLight class itself does not have a direction component, 
-it can be attached to a transform node to be rotated and moved around.
+A rectangular area light is defined by its position, width, and height. It emits light from the resulting surface towards the -Z direction. Even though the RectAreaLight class itself does not have a direction component, it can be attached to a transform node to be rotated and moved around.
 
 _A simple use of a rectangular area light_
 
@@ -72,8 +71,7 @@ _A simple use of a rectangular area light_
 const light = new BABYLON.RectAreaLight("areaLight", new BABYLON.Vector3(0, 1, 0), 2, 2, scene);
 ```
 
-One important thing to note is that, due to differences in implementation, the way StandardMaterial will reflect and RectAreaLight will be based on its "roughness" value (instead of specular power such as other lights). 
-This difference in behavior is important and scene should set the correct roughness value to get the correct look.
+One important thing to note is that, due to differences in implementation, StandardMaterial will reflect light based on its "roughness" value (instead of specular power, as with other lights). This difference in behavior is significant, and the scene should set the correct roughness value to achieve the desired look.
 
 Also, the current implementation for RectAreaLight does not cast shadows, but we have plans to have this implemented in the future.
 
