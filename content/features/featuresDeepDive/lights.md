@@ -18,6 +18,7 @@ There are four types of lights that can be used with a range of lighting propert
 - The Directional Light - think planet lit by a distant sun.
 - The Spot Light - think of a focused beam of light.
 - The Hemispheric Light - think of the ambient light.
+- The Rectangular Area Light - think LED panel.
 
 Color properties for all lights include _emissive_, _diffuse_ and _specular_.
 
