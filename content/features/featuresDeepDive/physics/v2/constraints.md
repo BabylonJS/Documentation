@@ -85,6 +85,30 @@ let constraint = new BABYLON.Physics6DoFConstraint({
     {axis: BABYLON.PhysicsConstraintAxis.ANGULAR_Y, minLimit: 0, maxLimit: 1.58}
 ], scene);
 ```
+## Debug visualization
+
+Physics viewer allows to display angular and linear limits of constraints.
+Following example adds and immediately removes a constraint from debug visualization.
+
+```javascript
+physicsViewer = new BABYLON.Debug.PhysicsViewer(scene, visualizationSizeFactor);
+let joint = new BABYLON.HingeConstraint(
+    new BABYLON.Vector3(0, 0, -0.5),
+    new BABYLON.Vector3(0, 0, 0.5),
+    undefined,
+    undefined,
+    scene
+);
+agg1.body.addConstraint(agg2.body, joint);
+  
+physicsViewer.showConstraint(joint);
+physicsViewer.hideConstraint(joint);
+```
+
+Because of performance, limit debug mesh is not recreated when constraints change. User is responsible for removing and adding the constraint if any limit is changed.
+
+<Playground id="#RMF5CJ#38" title="Constraint Debug view" description="Edit angular and linear limits of a constraint" isMain={true} category="Physics"/>
+<Playground id="#7DMWP8#693" title="Constraints limits" description="View limits for different type of constraints" isMain={true} category="Physics"/>
 
 ## Best practices
 
