@@ -90,7 +90,7 @@ In these playgrounds see how the specular color (green) is combined with the dif
 
 <Playground id="#20OAV9#5" title="Hemispheric Light Example" description="Simple Example of adding a Hemispheric Light to your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro4.jpg" isMain={true} category="Lights"/>
 
-<Playground id="#T7FXR8#11" title="Rectangular Area Light Example" description="Simple Example of adding a Rectangular Area Light to your scene." image="/img/playgroundsAndNMEs/areaLightStandardExample.jpg" isMain={true} category="Lights"/>
+<Playground id="#T7FXR8#20" title="Rectangular Area Light Example" description="Simple Example of adding a Rectangular Area Light to your scene." image="/img/playgroundsAndNMEs/areaLightStandardExample.jpg" isMain={true} category="Lights"/>
 
 For a hemispheric light the _groundColor_ is the light in the opposite direction to the one specified during creation.
 You can think of the _diffuse_ and _specular_ light as coming from the centre of the object in the given direction and the _groundColor_ light in the opposite direction.
