@@ -65,8 +65,6 @@ const light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 1
 
 A rectangular area light is defined by its position, width, and height. It emits light from the resulting surface towards the -Z direction. Even though the RectAreaLight class itself does not have a direction component, it can be attached to a transform node to be rotated and moved around.
 
-_A simple use of a rectangular area light_
-
 ```javascript
 const light = new BABYLON.RectAreaLight("areaLight", new BABYLON.Vector3(0, 1, 0), 2, 2, scene);
 ```
