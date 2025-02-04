@@ -94,7 +94,8 @@ This will create a default tsconfig.json. You can replace the contents with:
 
 ### Setting Up Webpack
 
-#### Installing Dependencies
+**Installing Dependencies**
+
 Now that we have our package.json generated, we need to install the dev dependencies for using webpack.
 
 ```shell
@@ -103,7 +104,8 @@ npm install --save-dev typescript webpack ts-loader webpack-cli
 
 **NOTE** if this line doesn't work the first time, try one more time
 
-#### Configure Webpack
+**Configure Webpack**
+
 Now we will need to configure webpack to know what to do. Create a webpack.config.js file within your root directory. This is an example of what my configuration looks like:
 
 ```javascript
@@ -132,7 +134,8 @@ module.exports = {
 };
 ```
 
-#### Plugins
+**Plugins**
+
 Additionally, we will install some plugins that will help with updating when running locally, and cleaning our bundle.
 
 **NOTE** Make sure that the file *webpack.config.js* is closed before installing the plugins.
@@ -193,7 +196,7 @@ Now when we build and run our project, if we make any updates, the browser will 
 
 We'll be setting up the app.ts file to be the main entry point for our project.
 
-#### Set up and create the App class
+**Set up and create the App class**
 
 The App class will serve as our entire game application. This is a very simple example of how to set up a scene and should be separated out into different functions and make use of class variables for your project as you progress.
 
