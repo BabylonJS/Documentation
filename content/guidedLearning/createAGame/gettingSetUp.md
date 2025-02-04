@@ -32,7 +32,7 @@ First you'll need to set up where you want the project to be located.
     - Go into your src folder and create an app.ts file
     - Go into your public folder and create an _index.html_ file with the following contents:
 
-```javascript
+```html
 <!DOCTYPE html>
 <html>
     <head>
@@ -50,7 +50,7 @@ Notice that we currently don't have anything within the body of our html file. W
 
 1. Generate the package.json
 
-```javascript
+```shell
 npm init
 ```
 
@@ -58,7 +58,7 @@ You can fill these out now or just keep pressing _Enter_ and fill these out in y
 
 3. Install Babylon.js
 
-```javascript
+```shell
 npm install --save-dev @babylonjs/core
 npm install --save-dev @babylonjs/inspector
 ```
@@ -67,13 +67,13 @@ This will install all of the dependencies for babylon that you'll need.
 
 4. Typescript Support
 
-```javascript
+```shell
 tsc --init
 ```
 
 This will create a default tsconfig.json. You can replace the contents with:
 
-```javascript
+```json
 {
   "compilerOptions": {
     "target": "es6",
@@ -94,15 +94,16 @@ This will create a default tsconfig.json. You can replace the contents with:
 
 ### Setting Up Webpack
 
-** Installing Dependencies **  
+#### Installing Dependencies
 Now that we have our package.json generated, we need to install the dev dependencies for using webpack.
 
-```javascript
+```shell
 npm install --save-dev typescript webpack ts-loader webpack-cli
 ```
 
-**NOTE** if this line doesn't work the first time, try one more time  
-** Configure Webpack **  
+**NOTE** if this line doesn't work the first time, try one more time
+
+#### Configure Webpack
 Now we will need to configure webpack to know what to do. Create a webpack.config.js file within your root directory. This is an example of what my configuration looks like:
 
 ```javascript
@@ -131,12 +132,12 @@ module.exports = {
 };
 ```
 
-** Plugins **  
+#### Plugins
 Additionally, we will install some plugins that will help with updating when running locally, and cleaning our bundle.
 
 **NOTE** Make sure that the file *webpack.config.js* is closed before installing the plugins.
 
-```javascript
+```shell
 npm install --save-dev html-webpack-plugin
 npm install --save-dev webpack-dev-server
 ```
@@ -192,11 +193,11 @@ Now when we build and run our project, if we make any updates, the browser will 
 
 We'll be setting up the app.ts file to be the main entry point for our project.
 
-**Set up and create the App class**
+#### Set up and create the App class
 
 The App class will serve as our entire game application. This is a very simple example of how to set up a scene and should be separated out into different functions and make use of class variables for your project as you progress.
 
-```javascript
+```typescript
 class App {
     constructor() {
         // create the canvas html element and attach it to the webpage
@@ -218,7 +219,7 @@ class App {
         // hide/show the Inspector
         window.addEventListener("keydown", (ev) => {
             // Shift+Ctrl+Alt+I
-            if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.key === 'i') {
+            if (ev.shiftKey && ev.ctrlKey && ev.altKey && (ev.key === "I" || ev.key === "i")) {
                 if (scene.debugLayer.isVisible()) {
                     scene.debugLayer.hide();
                 } else {
@@ -238,7 +239,7 @@ new App();
 
 At this point, you should be seeing a lot of errors. This is because we haven't imported the babylonjs dependencies. Add to the top of your file:
 
-```javascript
+```typescript
 import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
 import "@babylonjs/loaders/glTF";
@@ -249,7 +250,7 @@ import { Engine, Scene, ArcRotateCamera, Vector3, HemisphericLight, Mesh, MeshBu
 
 Now that we have our project set up, how do we run it locally? We need to set up tasks in our package.json. In your package.json replace your "scripts" with this:
 
-```javascript
+```json
     "scripts": {
         "build": "webpack",
         "start": "webpack-dev-server --port 8080"
@@ -258,12 +259,14 @@ Now that we have our project set up, how do we run it locally? We need to set up
 
 Now all we need to do is:
 
-```javascript
+```shell
 npm run build
 npm run start
 ```
 
 Then when you visit localhost:8080 in our browser, you should see a sphere!
+
+**NOTE** Additionally, you can press `SHIFT` + `CTRL` + `ALT` + `I` to show/hide the inspector.
 
 ### (Optional) Github for Version Control
 
