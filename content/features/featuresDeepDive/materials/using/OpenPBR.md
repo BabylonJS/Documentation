@@ -10,7 +10,7 @@ video-content:
 
 ## Introduction
 
-OpenPBR is an open standard developed by Autodesk and Adobe, that defines an artist friendly material model and with a focus on interoperability. Materials authored using it should have a consistent look on platforms that support OpenPBR.
+[OpenPBR](https://github.com/AcademySoftwareFoundation/OpenPBR?tab=readme-ov-file) is an open standard developed by Autodesk and Adobe, that defines an artist friendly material model and with a focus on interoperability. Materials authored using it should have a consistent look on platforms that support OpenPBR.
 
 The implementation of OpenPBR support in Babylon.js has started and its status is listed below.
 
