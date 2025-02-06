@@ -19,10 +19,6 @@ The implementation of OpenPBR support in Babylon.js has started and its status i
 
 OpenPBR is a so-called über shader. Unlike node based or closure based models like MaterialX or MDL, which allow to describe arbitrarily complex shaders, OpenPBR has a fixed material structure. This saves valuable time because the structure is already designed (by gauging the most valuable material features to cover the majority of production needs), but is less flexible and will not cover all possible cases.
 
-In OpenPBR, a surface material is considered to be made of "slabs", that can be mixed or layered. The slabs that compose the OpenPBR are organised as shown in this diagram from the official documentation:
-
-FIXME: diagram
-
 
 ## OpenPBR support in Babylon.js
 
