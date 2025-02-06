@@ -27,7 +27,7 @@ The parameters controlling the behaviour of the different parts of the material 
 
 ### Base
 
-Most of the Base group is already expected to work in Babylon.js. One notable missing element is the new [energy conserving Oren-Nayar](https://arxiv.org/abs/2410.18026) introduced for OpenPBR.
+Most of the Base group is already expected to work in Babylon.js. One notable missing element is the new [energy conserving Oren-Nayar diffuse model](https://arxiv.org/abs/2410.18026) introduced for OpenPBR.
 
 | Parameter                | Support in Babylon.js |
 | ------------------------ | --------------------- |
