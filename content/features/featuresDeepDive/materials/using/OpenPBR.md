@@ -31,10 +31,10 @@ Most of the Base group is already expected to work in Babylon.js. One notable mi
 
 | Parameter                | Support in Babylon.js |
 | ------------------------ | --------------------- |
-| `base_weight`            | Newly implemented |
-| `base_color`             | Corresponds to the `albedoColor` input |
-| `base_metalness`         | Strictly equivalent to the `metallic` input |
-| `base_diffuse_roughness` | The diffuse parameter is missing, and the implemented diffuse is a different model. |
+| `base_weight`            | Present as `PBRBaseMaterial._baseWeightTexture` and `_baseWeight` |
+| `base_color`             | Present as `PBRBaseMaterial._albedoTexture` and `_albedoColor` |
+| `base_metalness`         | Present as `PBRBaseMaterial._metallicTexture` and `_metallic` |
+| `base_diffuse_roughness` | Missing. |
 
 
 ### Specular
@@ -43,11 +43,11 @@ In OpenPBR, the specular lobe uses the F82-tint model and a new anisotropy param
 
 | Parameter                       | Support in Babylon.js |
 | ------------------------------- | --------------------- |
-| `specular_weight`               | FIXME                 |
-| `specular_color`                | FIXME                 |
-| `specular_roughness`            | Strictly equivalent to the `roughness` input |
-| `specular_roughness_anisotropy` | FIXME                 |
-| `specular_ior`                  | FIXME                 |
+| `specular_weight`               | Missing               |
+| `specular_color`                | To be evaluated       |
+| `specular_roughness`            | Present as `PBRBaseMaterial._microSurfaceTexture` and `_roughness` |
+| `specular_roughness_anisotropy` | To be evaluated       |
+| `specular_ior`                  | To be evaluated       |
 
 
 ### Transmission
@@ -56,13 +56,13 @@ In OpenPBR, Transmission represents the volume part in which scattering is limit
 
 | Parameter                             | Support in Babylon.js |
 | ------------------------------------- | --------------------- |
-| `transmission_weight`                 | FIXME                 |
-| `transmission_color`                  | FIXME                 |
-| `transmission_depth`                  | FIXME                 |
-| `transmission_scatter`                | FIXME                 |
-| `transmission_scatter_anisotropy`     | FIXME                 |
-| `transmission_dispersion_scale`       | FIXME                 |
-| `transmission_dispersion_abbe_number` | FIXME                 |
+| `transmission_weight`                 | To be evaluated       |
+| `transmission_color`                  | To be evaluated       |
+| `transmission_depth`                  | To be evaluated       |
+| `transmission_scatter`                | To be evaluated       |
+| `transmission_scatter_anisotropy`     | To be evaluated       |
+| `transmission_dispersion_scale`       | To be evaluated       |
+| `transmission_dispersion_abbe_number` | To be evaluated       |
 
 
 ### Subsurface
@@ -71,23 +71,23 @@ In OpenPBR, Subsurface represents the volume part in which scattering is strong.
 
 | Parameter                       | Support in Babylon.js |
 | ------------------------------- | --------------------- |
-| `subsurface_weight`             | FIXME                 |
-| `subsurface_color`              | FIXME                 |
-| `subsurface_radius`             | FIXME                 |
-| `subsurface_radius_scale`       | FIXME                 |
-| `subsurface_scatter_anisotropy` | FIXME                 |
+| `subsurface_weight`             | To be evaluated       |
+| `subsurface_color`              | To be evaluated       |
+| `subsurface_radius`             | To be evaluated       |
+| `subsurface_radius_scale`       | To be evaluated       |
+| `subsurface_scatter_anisotropy` | To be evaluated       |
 
 
 ### Coat
 
 | Parameter                   | Support in Babylon.js |
 | --------------------------- | --------------------- |
-| `coat_weight`               | FIXME                 |
-| `coat_color`                | FIXME                 |
-| `coat_roughness`            | FIXME                 |
-| `coat_roughness_anisotropy` | FIXME                 |
-| `coat_ior`                  | FIXME                 |
-| `coat_darkening`            | FIXME                 |
+| `coat_weight`               | Present as `PBRClearCoatConfiguration.intensity` |
+| `coat_color`                | Present as `PBRClearCoatConfiguration.tintColor` |
+| `coat_roughness`            | Present as `PBRClearCoatConfiguration.roughness` |
+| `coat_roughness_anisotropy` | Missing               |
+| `coat_ior`                  | Present as `PBRClearCoatConfiguration.indexOfRefraction` |
+| `coat_darkening`            | Missing               |
 
 
 ### Fuzz
@@ -96,9 +96,9 @@ What OpenPBR refers to as "Fuzz" is what some models call "Sheen", but expressiv
 
 | Parameter        | Support in Babylon.js |
 | ---------------- | --------------------- |
-| `fuzz_weight`    | FIXME                 |
-| `fuzz_color`     | FIXME                 |
-| `fuzz_roughness` | FIXME                 |
+| `fuzz_weight`    | To be evaluated       |
+| `fuzz_color`     | To be evaluated       |
+| `fuzz_roughness` | To be evaluated       |
 
 
 ### Emission
@@ -107,19 +107,19 @@ In OpenPBR, the emissive properties of a material are given in physical units. T
 
 | Parameter            | Support in Babylon.js |
 | -------------------- | --------------------- |
-| `emission_luminance` | FIXME                 |
-| `emission_color`     | FIXME                 |
+| `emission_luminance` | To be evaluated       |
+| `emission_color`     | To be evaluated       |
 
 
 ### Thin-film
 
-In OpenPBR, iridescence uses a thin-film model.
+In OpenPBR, iridescence uses a thin-film model. Iridescence is already supported in Babylon.js and exposes similar parameters, but the model might be different.
 
 | Parameter             | Support in Babylon.js |
 | --------------------- | --------------------- |
-| `thin_film_weight`    | FIXME                 |
-| `thin_film_thickness` | FIXME                 |
-| `thin_film_ior`       | FIXME                 |
+| `thin_film_weight`    | Present as `PBRIridescenceConfiguration.intensity` |
+| `thin_film_thickness` | Exposed as `PBRIridescenceConfiguration.thicknessTexture` with `minimumThickness` and `maximumThickness` |
+| `thin_film_ior`       | Present as `PBRIridescenceConfiguration.indexOfRefraction` |
 
 
 ### Geometry
@@ -128,9 +128,9 @@ OpenPBR only describes the material, but it expects to be given certain informat
 
 | Parameter               | Support in Babylon.js |
 | ----------------------- | --------------------- |
-| `geometry_opacity`      | FIXME                 |
-| `geometry_thin_walled`  | FIXME                 |
-| `geometry_normal`       | FIXME                 |
-| `geometry_tangent`      | FIXME                 |
-| `geometry_coat_normal`  | FIXME                 |
-| `geometry_coat_tangent` | FIXME                 |
+| `geometry_opacity`      | To be evaluated       |
+| `geometry_thin_walled`  | To be evaluated       |
+| `geometry_normal`       | To be evaluated       |
+| `geometry_tangent`      | To be evaluated       |
+| `geometry_coat_normal`  | To be evaluated       |
+| `geometry_coat_tangent` | To be evaluated       |
