@@ -58,6 +58,13 @@ You can now download and use your `.env` environment, using this bit of code:
 scene.environmentTexture = new BABYLON.CubeTexture("environment.env", scene);
 ```
 
+Note that you can rotate your environmentTexture if needed:
+
+```javascript
+const hdrRotation = 10; // in degrees
+scene.environmentTexture.setReflectionTextureMatrix(BABYLON.Matrix.RotationY(BABYLON.Tools.ToRadians(hdrRotation)));
+```
+
 As of 7.48.0, you can even check the diffuse box to ensure your env texture will contain the diffuse information in a texture. This can help a lot with the rendering quality at the expense of a tiny big bigger file (about 10 more kb).
 
 See [What is a .env (Tech Deep Dive)](#what-is-a-env-tech-deep-dive) part at the bottom of this page to know more.
