@@ -58,6 +58,8 @@ You can now download and use your `.env` environment, using this bit of code:
 scene.environmentTexture = new BABYLON.CubeTexture("environment.env", scene);
 ```
 
+As of 7.48.0, you can even check the diffuse box to ensure your env texture will contain the diffuse information in a texture. This can help a lot with the rendering quality at the expense of a tiny big bigger file (about 10 more kb).
+
 See [What is a .env (Tech Deep Dive)](#what-is-a-env-tech-deep-dive) part at the bottom of this page to know more.
 
 ## IBL Texture tool
@@ -79,60 +81,11 @@ Please note that WebGL2 is required for prefiltering on-the-fly.
 
 As sometimes you might even want to fully filter in realtime (for animated reflections for instance) you might want to have a look at [the reflection probes tutorial](/features/featuresDeepDive/environment/reflectionProbes).
 
-## External tools
+As of 7.48.0 new options are available on the prefiltering front.
+- The parameter `prefilterIrradianceOnLoad` prefilters the HDR texture and stores the diffuse part of the IBL as a texture instead of harmonics. This gives a lot more dynamicity to the output and can allow "true" hdr.
+- The parameter `prefilterUsingCdf` can be used to generate the irradiance texture containing by relying on the HDR CDF data which helps a lot to get closer from Ray tracers.
 
-The first tool rely on an open source framework named IBL Baker whereas the second one creating higher resolution results is based on a proprietary software named Lys.
-
-Note that you can rotate your environmentTexture if needed:
-
-```javascript
-const hdrRotation = 10; // in degrees
-hdrTexture.setReflectionTextureMatrix(BABYLON.Matrix.RotationY(BABYLON.Tools.ToRadians(hdrRotation)));
-```
-
-### Creating a dds environment file from IBL Baker
-
-You can find IBLBaker on: [https://github.com/derkreature/IBLBaker](https://github.com/derkreature/IBLBaker)
-
-After cloning the repo, you will be able to go to `/bin64` folder and launch `IBLBaker.exe`.
-
-Now use the `Load environment` button to load an HDR image (Try one from [there](https://github.com/sbtron/BabylonJS-glTFLoader/tree/master/src/images) as well)
-
-We recommend to play with the environment scale to define the brightness you want.
-
-You may also want to reduce the output size by setting the specular resolution of 128 to ensure the correctness of the blur dropoff:
-
-![iblbaker](/img/how_to/Environment/IBLbaker_DefaultSettings.png)
-
-Once you are satisfied with the overall result, just click on `save environment` button and you are good to go! The file to pick is the SpecularHDR one.
-
-**Please do not forget to write full name with extension in order to make the save works correctly**.
-
-### Creating a dds environment file from LYS
-
-[Lys](https://www.knaldtech.com/lys/) can be found on the [knaldtech](https://www.knaldtech.com/lys/) website.
-
-Using Lys, the output quality of the generated mipmaps will be a higher standard really close in roughness response to the Unity standard materials. You could generate with Lys: 128, 256 or 512 px wide dds cube texture.
-
-Please, follow the steps below to ensure of the physical correctness of the response.
-
-First, you need to choose the following settings in the main window (Adapt the size according to your choices 128, 256, or 512):
-
-![Main Window](/img/how_to/Environment/Lys_DefaultSettings_Main.png)
-
-Once done, in the preferences tab, please set the legacy dds mode (Four CC is not supported byBabylon.js):
-
-![Preferences](/img/how_to/Environment/Lys_DefaultSettings_Prefs.png)
-
-In the export window, you can choose the appropriate options (setting DDS to 32 bits should be done last as we have seen it defaulting back to 8 bits otherwise):
-
-![ExportSettings](/img/how_to/Environment/Lys_DefaultSettings_Export.png)
-
-Finally, you can export your texture through the main tab:
-
-![Export](/img/how_to/Environment/Lys_DefaultSettings_MainExportButton.png)
-
-You are all set and ready to use the exported texture in the `CubeTexture.CreateFromPrefilteredData` function.
+![IBL Filters](/img/how_to/environment/iblFilters.png)
 
 ## Using a pure cube texture
 
