@@ -75,7 +75,7 @@ class MyCustomExtension implements IGLTFLoaderExtension {
 Finally, these options can be passed into one of the scene loader functions like this:
 
 ```typescript
-await loadAssetContainerAsync("path/to/model", scene, {
+await LoadAssetContainerAsync("path/to/model", scene, {
   pluginOptions: {
     glTF: {
       extensionOptions: {

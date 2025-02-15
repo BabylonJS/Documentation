@@ -12,7 +12,7 @@ video-content:
 
 By default, babylon.js comes with an importer for .babylon files.
 
-You can also create your own importer by providing a specific object to the `BABYLON.registerSceneLoaderPlugin` function.
+You can also create your own importer by providing a specific object to the `BABYLON.RegisterSceneLoaderPlugin` function.
 
 ### Plugins
 
@@ -44,7 +44,7 @@ class MyCustomImporter implements ISceneLoaderPluginAsync {
 }
 ```
 
-A plugin instance can be passed to `BABYLON.registerSceneLoaderPlugin`, but plugin factories are more flexible and full featured, so we recommend using them to create your custom importers.
+A plugin instance can be passed to `BABYLON.RegisterSceneLoaderPlugin`, but plugin factories are more flexible and full featured, so we recommend using them to create your custom importers.
 
 ### Plugin Factories
 
@@ -53,9 +53,9 @@ When you register a plugin, you can register a plugin factory rather than a plug
 A plugin factory can return the plugin instance either synchronously or asynchronously. We recommend you dynamically import your plugin to avoid loading it until it is needed. For example:
 
 ```typescript
-import { registerSceneLoaderPlugin } from "@babylonjs/core/Loading/sceneLoader";
+import { RegisterSceneLoaderPlugin } from "@babylonjs/core/Loading/sceneLoader";
 
-registerSceneLoaderPlugin({
+RegisterSceneLoaderPlugin({
   name: "myCustomImporter",
   extensions: ".myCustomExtension",
   createPlugin: async () => {
@@ -80,9 +80,9 @@ declare module "@babylonjs/core" {
 Then, when you register your file importer, you can access the options like this:
 
 ```typescript
-import { registerSceneLoaderPlugin } from "@babylonjs/core/Loading/sceneLoader";
+import { RegisterSceneLoaderPlugin } from "@babylonjs/core/Loading/sceneLoader";
 
-registerSceneLoaderPlugin({
+RegisterSceneLoaderPlugin({
   name: "myCustomImporter",
   extensions: ".myCustomExtension",
   createPlugin: async (options) => {
@@ -97,7 +97,7 @@ Note that in this example, you will need to modify the `MyCustomImporter` class 
 Finally, these options can be passed into one of the scene loader functions like this:
 
 ```typescript
-await loadAssetContainerAsync("path/to/model", scene, {
+await LoadAssetContainerAsync("path/to/model", scene, {
   pluginOptions: {
     myCustomImporter: {
       option1: "hello world",
