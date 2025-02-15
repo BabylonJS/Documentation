@@ -45,7 +45,7 @@ For users less experienced with command line tools, here's a more detailed step 
 8. And you're ready to load it into Babylon!
 
 ```javascript
-await BABYLON.appendSceneAsync("src/my-scene.incremental.babylon", scene);
+await BABYLON.AppendSceneAsync("src/my-scene.incremental.babylon", scene);
 console.log("My incremental file was loaded! WOHOO!");
 ```
 

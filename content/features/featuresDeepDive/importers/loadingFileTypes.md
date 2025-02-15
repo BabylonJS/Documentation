@@ -87,44 +87,44 @@ If you are using the UMD package, dynamic loading is not supported. Instead, you
 
 Importers must be registered with one of these approaches before the scene loader functions can be used.
 
-## loadAssetContainerAsync
+## LoadAssetContainerAsync
 
 Loads all babylon assets from the file and does not append them to the scene. Instead, they are returned in an `AssetContainer` object.
 
 ```typescript
-const container = await BABYLON.loadAssetContainerAsync("path/to/model", scene);
+const container = await BABYLON.LoadAssetContainerAsync("path/to/model", scene);
 ```
 
-See an example here: <Playground id="#C3MP99#14" title="Asset Container Load Example" description="Simple example showing how to load assets into asset containers." image="/img/playgroundsAndNMEs/divingDeeperFileImport5.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#C3MP99#26" title="Asset Container Load Example" description="Simple example showing how to load assets into asset containers." image="/img/playgroundsAndNMEs/divingDeeperFileImport5.jpg" isMain={true} category="Import"/>
 
-## appendSceneAsync
+## AppendSceneAsync
 
 Loads all babylon assets from the file and appends them to the scene.
 
 ```typescript
-await BABYLON.appendSceneAsync("path/to/model", scene);
+await BABYLON.AppendSceneAsync("path/to/model", scene);
 ```
 
-See an example here: <Playground id="#WGZLGJ#10491" title="Append An Object" description="Simple example showing how append an object to your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport1.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#WGZLGJ#11018" title="Append An Object" description="Simple example showing how append an object to your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport1.jpg" isMain={true} category="Import"/>
 
-## loadSceneAsync
+## LoadSceneAsync
 
 Loads all babylon assets from the file and creates a new scene.
 
 ```typescript
-const scene = await BABYLON.loadSceneAsync("path/to/model", engine);
+const scene = await BABYLON.LoadSceneAsync("path/to/model", engine);
 ```
 
-## importAnimationsAsync
+## ImportAnimationsAsync
 
 Loads the animations from the file and merges them to the scene.
 You can customize the import process using options and callbacks.
 
 ```typescript
-await BABYLON.importAnimationsAsync("./Elf_run.gltf", scene);
+await BABYLON.ImportAnimationsAsync("./Elf_run.gltf", scene);
 ```
 
-See an example here: <Playground id="#UGD0Q0#296" title="Importing Animations" description="Simple example showing how to import animations into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport6.jpg"/>
+See an example here: <Playground id="#UGD0Q0#312" title="Importing Animations" description="Simple example showing how to import animations into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport6.jpg"/>
 
 ## String encoded model sources
 
@@ -133,16 +133,16 @@ For any of the scene loading functions, you can also pass a string containing th
 Loads all babylon assets from a string and appends them to the scene.
 
 ```typescript
-await BABYLON.appendSceneAsync("data:" + gltfString, scene);
+await BABYLON.AppendSceneAsync("data:" + gltfString, scene);
 ```
 
-See an example here: <Playground id="#ANPU8N" title="Append Assets From A String" description="Simple example showing how append objects from a string." image="/img/playgroundsAndNMEs/divingDeeperFileImport2.jpg"/>
+See an example here: <Playground id="#ANPU8N#10" title="Append Assets From A String" description="Simple example showing how append objects from a string." image="/img/playgroundsAndNMEs/divingDeeperFileImport2.jpg"/>
 
 You can also load a .glb binary file from a data string as long as the binary data is base64 encoded:
 
 ```typescript
 const base64_model_content = "data:;base64,BASE 64 ENCODED DATA...";
-await BABYLON.appendSceneAsync(base64_model_content, scene);
+await BABYLON.AppendSceneAsync(base64_model_content, scene);
 ```
 
 Note that two mime types are allowed in the string data:
@@ -152,16 +152,16 @@ const base64_model_content = "data:application/octet-stream;base64,-BASE 64 ENCO
 const base64_model_content = "data:model/gltf-binary;base64,-BASE 64 ENCODED DATA-";
 ```
 
-See an example here: <Playground id="#68J9RS" title="Load .glb From Binary Data" description="Simple example showing how to load an object from a data string that is base64 encoded." image="/img/playgroundsAndNMEs/divingDeeperFileImport3.jpg"/>
+See an example here: <Playground id="#68J9RS#1" title="Load .glb From Binary Data" description="Simple example showing how to load an object from a data string that is base64 encoded." image="/img/playgroundsAndNMEs/divingDeeperFileImport3.jpg"/>
 
 When loading from a string that is not glTF data, you must specify the pluginExtension option to tell Babylon which loader to use. For example, to load an OBJ file from a string:
 
 ```typescript
 const objDataURL = "data:;base64,ZyB0ZXRyYWhlZHJvbgoKdiAx...";
-await BABYLON.appendSceneAsync(objDataURL, scene, { pluginExtension: "obj" });
+await BABYLON.AppendSceneAsync(objDataURL, scene, { pluginExtension: "obj" });
 ```
 
-See example here: <Playground id="#58T0JY#40" title="Load base64 model" description="Example showing how to load a base64 encoded model using the data url syntax" image="/img/playgroundsAndNMEs/pg-58T0JY.png" />
+See example here: <Playground id="#58T0JY#46" title="Load base64 model" description="Example showing how to load a base64 encoded model using the data url syntax" image="/img/playgroundsAndNMEs/pg-58T0JY.png" />
 
 ## Advanced usage
 
@@ -170,13 +170,13 @@ For any of the scene loading functions, you can pass in an options object that c
 For example, if you need to explicitly pass in the root url (rather than allowing us to try to infer it from the file path), you can do so like this:
 
 ```typescript
-await BABYLON.appendSceneAsync("model_file_name", scene, { rootUrl: "https://example.com/assets/" });
+await BABYLON.AppendSceneAsync("model_file_name", scene, { rootUrl: "https://example.com/assets/" });
 ```
 
 You can also pass in loader specific options. For example, with the glTF loader, you can pass in general glTF options and even options for individual glTF extensions. For example:
 
 ```typescript
-const assetContainer = await BABYLON.loadAssetContainerAsync("https://raw.githubusercontent.com/BabylonJS/Assets/master/meshes/LevelOfDetail.glb", scene, {
+const assetContainer = await BABYLON.LoadAssetContainerAsync("https://raw.githubusercontent.com/BabylonJS/Assets/master/meshes/LevelOfDetail.glb", scene, {
   pluginOptions: {
     gltf: {
       skipMaterials: false,
@@ -190,7 +190,7 @@ const assetContainer = await BABYLON.loadAssetContainerAsync("https://raw.github
 });
 ```
 
-See an example here: <Playground id="#IAAJMR#3" title="Load With Detailed Options" description="Simple example showing how to pass glTF loader options and glTF extension options." image="/img/playgroundsAndNMEs/divingDeeperFileImport7.jpg"/>
+See an example here: <Playground id="#IAAJMR#4" title="Load With Detailed Options" description="Simple example showing how to pass glTF loader options and glTF extension options." image="/img/playgroundsAndNMEs/divingDeeperFileImport7.jpg"/>
 
 ## SceneLoader class (legacy)
 
