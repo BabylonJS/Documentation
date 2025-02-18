@@ -9,6 +9,13 @@ video-content:
 toc-levels: 2
 ---
 
+## 7.45.0
+
+### `PBRMaterial` rough metals are looking closer to ray traced results
+Improving the way we render is an ongoing mission for the Babylon team and as explained on the [forum](https://forum.babylonjs.com/t/differences-in-pbr-material-behavior-between-babylon-5-and-7/56585/5?u=sebavan), our PBR rendering has been improved to more correct results.
+
+As we understand you might have changed your art to adapt to the previous behavior, you can bring it back by setting `PBRBRDFConfiguration.DEFAULT_MIX_IBL_RADIANCE_WITH_IRRADIANCE = false;` before creating your `PBRMaterial`.
+
 ## 7.34.0
 
 ### `SceneLoader.Load`, `SceneLoader.Append`, `SceneLoader.ImportMesh` does not return the plugin used to load the content anymore
