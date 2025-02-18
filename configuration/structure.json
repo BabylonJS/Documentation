@@ -813,6 +813,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/materials/using/masterPBR"
                                         },
+                                        "OpenPBR": {
+                                            "friendlyName": "OpenPBR",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/materials/using/OpenPBR"
+                                        },
                                         "proceduralTextures": {
                                             "friendlyName": "Procedural Textures",
                                             "children": {},
