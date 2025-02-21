@@ -9,6 +9,17 @@ video-content:
 toc-levels: 2
 ---
 
+## 7.47.3
+
+### Fix alpha support
+It was not always easy to understand how alpha was applied, depending on the value of certain material properties, and the handling of certain glTF files with transparency was even broken.
+
+Since version 7.47.3, if you give a non-null value to `transparencyMode`, it will always be respected, regardless of the values you give to the other properties (such as the mesh `visibility`, the material `alpha`, etc.). This makes it easy to apply alpha testing, alpha blending, or both at the same time, by setting the correct value for `transparencyMode`.
+
+However, this change could break your code. If it does, most of the time, the solution is simply to set the correct value for `transparencyMode`.
+
+PR: https://github.com/BabylonJS/Babylon.js/pull/16144
+
 ## 7.45.0
 
 ### `PBRMaterial` rough metals are looking closer to ray traced results
