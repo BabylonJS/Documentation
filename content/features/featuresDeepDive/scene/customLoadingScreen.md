@@ -81,7 +81,7 @@ engine.hideLoadingUI();
 
 Here a playground using a custom loading screen:
 
-<Playground id="#5Y2GIC#39" title="Custom Loading Screen Example" description="Simple example showing how to create and use a custom loading screen."/>
+<Playground id="#5Y2GIC#847" title="Custom Loading Screen Example" description="Simple example showing how to create and use a custom loading screen."/>
 
 You might also be interested in a standalone html example:
 
@@ -222,4 +222,4 @@ BABYLON.SceneLoader.ImportMesh(
 
 This example expands on the use of [SceneLoaderProgressEvent](/typedoc/classes/babylon.sceneloader) from the previous section to track the loading of multiple assets using different loading methods.
 
-<Playground id="#BCU1XR#6700" title="Loading Rate of Multiple Assets" description="Example showing how to get a loading rate for multiple assets."/>
+<Playground id="#BCU1XR#7895" title="Loading Rate of Multiple Assets" description="Example showing how to get a loading rate for multiple assets."/>
