@@ -20,6 +20,18 @@ However, this change could break your code. If it does, most of the time, the so
 
 PR: https://github.com/BabylonJS/Babylon.js/pull/16144
 
+## 7.46.0
+
+### Loading screen on multiple canvases
+In order to manage the visibility of the loading screen on multiple canvases, we have changed the underlying data structure that tracks the loading screen info.
+
+However, if you have implemented an own custom loading screen, this change could break your code. If it does, you should:
+1. Manually set the `this._isLoading` attribute to true in `displayLoadingUI` and false in `hideLoadingUI`.
+2. Manage your custom loading div through `this._loadingDivToRenderingCanvasMap` rather than the old `this._loadingDiv` attribute.
+
+Here is an example of a PG using a custom loading screen:
+<Playground id="#5Y2GIC#847" title="Custom Loading Screen Example" description="Simple example showing how to create and use a custom loading screen."/>
+
 ## 7.45.0
 
 ### `PBRMaterial` rough metals are looking closer to ray traced results
