@@ -29,7 +29,7 @@ And two types of **trigger** events:
 - TRIGGER_ENTERED
 - TRIGGER_EXITED
 
-To use collision callbacks, first, the body needs to enable it. This can be achieved with `setCollisionCallbackEnabled`, for the COLLISION_STARTED and COLLISION_CONTINUED events, or with `setCollisionCallbackEnded` for the COLLISION_ENDED event. Then, we need to obtain the collision Observable by calling `getCollisionObservable` or `getCollisionEndedObservable` on the body. You can have either a body-specific callback or a world-wide callback. The second option requires filtering for the correct body to process, but it is more performant.
+To use collision callbacks, first, the body needs to enable it. This can be achieved with `setCollisionCallbackEnabled`, for the COLLISION_STARTED and COLLISION_CONTINUED events, or with `setCollisionEndedCallbackEnabled` for the COLLISION_ENDED event. Then, we need to obtain the collision Observable by calling `getCollisionObservable` or `getCollisionEndedObservable` on the body. You can have either a body-specific callback or a world-wide callback. The second option requires filtering for the correct body to process, but it is more performant.
 
 ```javascript
 // player is a PhysicsBody
