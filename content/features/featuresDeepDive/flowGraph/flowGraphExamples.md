@@ -151,4 +151,4 @@ sceneReady.done.connectTo(playAnimation.in);
 coord.start();
 ```
 
-<Playground id="#FQWPBI#3" title="Flow Graph basic example 4" snapshot="refs/pull/16201/merge"/>
+<Playground id="#FQWPBI#11" title="Flow Graph basic example 4" snapshot="refs/pull/16201/merge"/>
