@@ -117,7 +117,7 @@ export const getExampleImagePath = (example: Partial<IExampleLink>) => {
     return join(process.cwd(), "public/img/playgroundsAndNMEs/", `${example.type}${example.id.replace(/#/g, "-")}.png`);
 };
 
-export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: string, optionalFilename?: string, engine?: "webgpu" | "webgl2") => {
+export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: string, optionalFilename?: string, engine?: "webgpu" | "webgl2", snapshot?: string) => {
     const browser = await puppeteer.launch({
         headless: true,
     }); // opens a virtual browser
@@ -134,7 +134,7 @@ export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: strin
 
         // you can also set dimensions
         await page.setViewport({ width: 1200, height: 800 }); // sets it's  dimensions
-        const url = getExampleLink({ type, id, engine });
+        const url = getExampleLink({ type, id, engine, snapshot });
         await page.goto(url); // navigates to the url
         if (type === "pg") {
             await page.waitForSelector("#renderCanvas", { visible: true });
@@ -267,9 +267,10 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             const realType: "pg" | "nme" | "nge" = (typePlayground as "pg" | "nme" | "nge") || "pg";
             const imageUrl = /image="(.*?)"/.test(full) && /image="(.*?)"/.exec(full)[1];
             const engine = /engine="(.*?)"/.test(full) && (/engine="(.*?)"/.exec(full)[1] as any);
+            const snapshot = /snapshot="(.*?)"/.test(full) && /snapshot="(.*?)"/.exec(full)[1];
             const fileExists = imageUrl ? existsSync(join(process.cwd(), "public", imageUrl)) : existsSync(getExampleImagePath({ id: exampleId, type: realType }));
             if (exampleId && exampleId !== "nmeId" && exampleId !== "playgroundId" && !(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !fileExists) {
-                await generateExampleImage(realType, exampleId, imageUrl, engine);
+                await generateExampleImage(realType, exampleId, imageUrl, engine, snapshot);
             }
             if (realType === "pg") {
                 const title = (/title="(.*?)"/.test(full) && /title="(.*?)"/.exec(full)[1]) || `Playground for ${metadata.title}`;
