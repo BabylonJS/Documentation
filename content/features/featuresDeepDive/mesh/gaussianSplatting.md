@@ -31,7 +31,7 @@ BABYLON.SceneLoader.ImportMeshAsync(null, "https://assets.babylonjs.com/splats/"
 
 **Note: Gaussian splatting files do not have a standard on handness or orientation. No space change operation will happen. Some scene might appear updside down or mirrored.**
 
-<Playground id="#M05L0C#0" title="Nianticlabs .SPZ examples need a rotation." description="Nianticlabs .SPZ examples up is not the same as Babylon.js default."/>
+<Playground id="#M05L0C#1" title="Nianticlabs .SPZ examples need a rotation." description="Nianticlabs .SPZ examples up is not the same as Babylon.js default."/>
 
 ## Updating datas of a Gaussian Splatting
 
