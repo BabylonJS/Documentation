@@ -9,11 +9,11 @@ keywords: diving deeper, flow graph, interactive scenes, action editor, getting 
 
 Let's dive into the basic concepts of the Flow Graph system in Babylon.js.
 
-The flow graph system is being controlled by a flow graph coordinator, which in turn controls one or more graphs. The graph is a collection of blocks, which are connected to each other by edges. Each node has a type, which determines its behavior and the types of edges it can have. The starting blocks are event blocks, which are triggered by events in the scene. Each graph can have one or more execution contexts, which are used to store data and state information for the blocks in the graph.
+The flow graph system is being controlled by a flow graph coordinator, which in turn controls one or more graphs. The graph is a collection of blocks, which are connected to each other by edges. Each block has a type, which determines its behavior and the types of edges it can have. The starting blocks are event blocks, which are triggered by events in the scene. Each graph can have one or more execution contexts, which are used to store data and state information for the blocks in the graph.
 
 Here is a deeper dive into the basic concepts of the flow graph system. Some concepts might be referenced at first without explanation, but they are explained at a later point in the documentation.
 
-Note that we might use "blocks" and "blocks" interchangeably. The official name for the component is "block", but "node" is more common in the programming world.
+Note that we might use "blocks" and "blocks" interchangeably. The official name for the component is "block", but "block" is more common in the programming world.
 
 ![Base concepts relations](/img/flowGraph/flowGraphBaseConcepts.png)
 
@@ -49,7 +49,7 @@ A graph belongs to a coordinator, and is created using the `createGraph` method 
 const graph = coordinator.createGraph();
 ```
 
-Each FlowGraph object has its own SceneEventCoordinator, which is the "glue" between scene events and the graph itself. When an event node is added to the graph, it is automatically connected to the ScenEventCoordinator, which listens to the scene events and triggers the event node when the event occurs.
+Each FlowGraph object has its own SceneEventCoordinator, which is the "glue" between scene events and the graph itself. When an event block is added to the graph, it is automatically connected to the ScenEventCoordinator, which listens to the scene events and triggers the event block when the event occurs.
 
 A flow graph will usually be started by its coordinator. However, it can be manually started using the `start` method:
 
@@ -57,12 +57,12 @@ A flow graph will usually be started by its coordinator. However, it can be manu
 graph.start();
 ```
 
-As the blocks are not aware o the graph they belong to, you will need to add any new event block you create yourself to the graph. A graph can have 1 or more event blocks, but it is not required to have any. If a graph has no event blocks, it will be idle and will not execute any blocks.
-To add an event node to a graph, use the `addEventNode` method:
+As the blocks are not aware of the graph they belong to, you will need to add any new event block you create yourself to the graph. A graph can have 1 or more event blocks, but it is not required to have any. If a graph has no event blocks, it will be idle and will not execute any blocks.
+To add an event block to a graph, use the `addEventblock` method:
 
 ```javascript
-const eventNode = new MyNewEventNode();
-graph.addEventBlock(eventNode);
+const eventblock = new MyNewEventblock();
+graph.addEventBlock(eventblock);
 ```
 
 The different events that the flow graph currently supports are:
@@ -80,7 +80,7 @@ The different events that the flow graph currently supports are:
 
 It is important to note that even while an event is supported by the graph, if there is no block to catch this event, it will not be executed. For example, if the graph itself can response to a PointerMove event, but no PointerMove block is added to the graph, the event will not be executed.
 
-When an event occurs, the SceneEventCoordinator will trigger the event node, which will then execute the block(s) connected to it. Each block's action will be executed with all available execution contexts. A graph can have 1 or more execution context. If none was created, a new one will be created when the graph starts.
+When an event occurs, the SceneEventCoordinator will trigger the event block, which will then execute the block(s) connected to it. Each block's action will be executed with all available execution contexts. A graph can have 1 or more execution context. If none was created, a new one will be created when the graph starts.
 
 ### Execution Context
 
@@ -96,7 +96,7 @@ const context = graph.createContext();
 The context holds a few important lists of variables:
 
 - user variables - A list of user-defined variables, which can be used by any of the blocks in the graph. These variables are created and managed by the user, and can be used to store data that needs to be accessed by the different blocks.
-- Execution variables - A block doesn't have any internal state. Instead, it stores its state in the execution context. Think about these as the "private" variables of a specific node. This is important when implementing a new node - it should never have any internal state, but should use the execution context to store its state.
+- Execution variables - A block doesn't have any internal state. Instead, it stores its state in the execution context. Think about these as the "private" variables of a specific block. This is important when implementing a new block - it should never have any internal state, but should use the execution context to store its state.
 - global context variables - whereas an execution variable is for a specific block, the global variables are shared among blocks that are using the same context. This is a perfect way for the graph to share information between blocks that are not directly connected to each other.
 - connection values - the (cached) values of the connections between blocks. This is important for performance, as it avoids recalculating the same value multiple times.
 
