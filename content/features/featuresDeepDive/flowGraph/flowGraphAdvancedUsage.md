@@ -121,6 +121,7 @@ They are being created in the constructor:
 
 ```javascript
 this.array = this.registerDataInput("array", RichTypeAny);
+// define the index as type integer, and also assign a default value to it. The 3rd variable is optional, and each type has its own default value
 this.index = this.registerDataInput("index", RichTypeFlowGraphInteger, new FlowGraphInteger(-1));
 this.value = this.registerDataOutput("value", RichTypeAny);
 ```
@@ -135,9 +136,13 @@ public override _updateOutputs(context: FlowGraphContext): void {
     const array = this.array.getValue(context);
     // get the index from the data input.
     const index = this.index.getValue(context).value; // this is a flow graph integer, this is why we have `.value`
-    // now populate the output with the right value
     if (array && index >= 0 && index < array.length) {
+        // now populate the output with the right value
         this.value.setValue(array[index], context);
+    } else {
+        // optionally, we could also set it to null, because either the array is null or the index is out of bounds
+        // this is important because we don't have exception handling here. The execution node taking this value will be able to trigger an error if it is null
+        this.value.setValue(null, context);
     }
 }
 ```
