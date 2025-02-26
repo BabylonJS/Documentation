@@ -9,6 +9,14 @@ video-content:
 toc-levels: 2
 ---
 
+## 7.51.0
+
+### Fix calculation of diffuse transmittance in PBR materials
+
+This is a bug fix, but it may have an impact on the rendering of your scene. It will manifest itself as lighter materials when you activate translucency on a PBR material.
+
+PR: https://github.com/BabylonJS/Babylon.js/pull/16214
+
 ## 7.47.3
 
 ### Fix alpha support
