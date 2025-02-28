@@ -562,6 +562,32 @@
                             },
                             "content": "features/featuresDeepDive/Exporters"
                         },
+                        "flowGraph": {
+                            "friendlyName": "Flow Graph",
+                            "children": {
+                                "flowGraphBasicConcepts": {
+                                    "friendlyName": "Basic concepts and getting started",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/flowGraph/flowGraphBasicConcepts"
+                                },
+                                "flowGraphBlocks": {
+                                    "friendlyName": "Flow Graph Blocks",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/flowGraph/flowGraphBlocks"
+                                },
+                                "flowGraphExamples": {
+                                    "friendlyName": "Write your first graph",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/flowGraph/flowGraphExamples"
+                                },
+                                "flowGraphAdvanced": {
+                                    "friendlyName": "Advanced concepts",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/flowGraph/flowGraphAdvancedUsage"
+                                }
+                            },
+                            "content": "features/featuresDeepDive/flowGraph"
+                        },
                         "gui": {
                             "friendlyName": "GUI",
                             "children": {

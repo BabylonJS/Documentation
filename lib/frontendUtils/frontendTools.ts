@@ -4,7 +4,13 @@ export const getExampleLink = (example: Partial<IExampleLink>, full: boolean = t
     const idToUse = example.playgroundId || example.id;
     const id = idToUse ? (idToUse[0] === "#" ? idToUse : `#${idToUse}`) : "";
     // webgpu parameter. Stay safe and validate
-    const params = example.engine && example.engine === "webgpu" ? `?${example.engine}` : "";
+    let params = example.engine && example.engine === "webgpu" ? `?${example.engine}` : "";
+    if(example.version) {
+        params += params ? `&version=${example.version}` : `?version=${example.version}`;
+    }
+    if(example.snapshot) {
+        params += params ? `&snapshot=${example.snapshot}` : `?snapshot=${example.snapshot}`;
+    }
     switch (example.type) {
         case "nge":
             return `https://nge.babylonjs.com/${id}`;
