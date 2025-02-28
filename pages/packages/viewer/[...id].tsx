@@ -116,7 +116,7 @@ export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParse
 
 export const getStaticPaths: GetStaticPaths = async () => {
     console.log("API - get static paths");
-    const paths = await generateTypeDoc("https://cdn.jsdelivr.net/npm/@babylonjs/viewer@preview/lib/index.d.ts", "Babylon.js Viewer", baseLocation);
+    const paths = await generateTypeDoc("https://cdn.jsdelivr.net/npm/@babylonjs/viewer/lib/index.d.ts", "Babylon.js Viewer", baseLocation);
     console.log("API - paths", "done");
     return {
         paths,
