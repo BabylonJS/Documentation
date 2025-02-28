@@ -51,9 +51,9 @@ The Babylon Viewer is constructed through three layers to enable cross platform 
 
 **`HTML3DElement` (`<babylon-viewer>`)** - this layer leverages [HTML Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements), is intended for use directly in HTML, and provides default UI for things like animation controls. The documentation primarily focuses on this layer.
 
-**`createViewerForCanvas`** - this layer binds Viewer functionality to an html `canvas`. It is used by `HTML3DElement`, and could be used for other web framework bindings (such as [React](https://react.dev/)).
+**`CreateViewerForCanvas`** - this layer binds Viewer functionality to an html `canvas`. It is used by `HTML3DElement`, and could be used for other web framework bindings (such as [React](https://react.dev/)).
 
-**`Viewer`** - this layer has the bulk of the core Viewer functionality. It is used by `createViewerForCanvas`, and could be used in other Babylon scenarios, such as with Babylon Native.
+**`Viewer`** - this layer has the bulk of the core Viewer functionality. It is used by `CreateViewerForCanvas`, and could be used in other Babylon scenarios, such as with Babylon Native.
 
 ## File Formats
 
@@ -67,7 +67,7 @@ Loaders are dynamically imported, so the user does not pay the download cost unt
 
 ## Engines
 
-`HTML3DElement` (`<babylon-viewer>`) and `createViewerForCanvas` support both WebGL and WebGPU. When not explicitly selected, the Viewer will default to an appropriate engine based on browser support and stability.
+`HTML3DElement` (`<babylon-viewer>`) and `CreateViewerForCanvas` support both WebGL and WebGPU. When not explicitly selected, the Viewer will default to an appropriate engine based on browser support and stability.
 
 When WebGPU is used, [snapshot rendering](/setup/support/webGPU/webGPUOptimization/webGPUSnapshotRendering) is automatically enabled and managed. This can significantly improve performance for complex models.
 
@@ -75,7 +75,9 @@ For Babylon Native, a `NativeEngine` instance can be passed into the `Viewer` co
 
 ## Power & Resource Optimizations
 
-When a `HTML3DElement` (`<babylon-viewer>`) is not within the browser's viewport (e.g. scrolled out of view), it pauses the render loop. This is especially helpful on power or resource constrained devices (e.g. mobile), or when many Viewer instances are used on a page.
+When a `HTML3DElement` (`<babylon-viewer>`) is not within the browser's viewport (e.g. scrolled out of view), rendering is suspended. Additionally, within the lower `Viewer` layer, when nothing is changing frame to frame (e.g. no user interactions, no animations playing, etc.), rendering is also suspended. Suspending rendering is especially helpful on power or resource constrained devices (e.g. mobile), or when many Viewer instances are used on a page.
+
+By default, `Viewer` will try to render at the native device resolution (maximum quality). When the `Viewer` is not able to render at the target framerate, the render resolution will progressively be reduced until the target frame rate is achieved, or the minimum resolution is reached.
 
 ## 3D Commerce Certified
 
