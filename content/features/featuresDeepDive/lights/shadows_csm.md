@@ -18,7 +18,7 @@ This is a shadow map technique, so a lot of what is said in [Shadows](/features/
 
 Note that CSM requires WebGL 2+.
 
-Here's a Playground demonstrating the CSM technique: <Playground id="#KY0N7T" title="Cascaded Shadow Map Example" description="Simple Example of using the CSM system in your scene." isMain={true} category="Shadows"/>
+Here's a Playground demonstrating the CSM technique: <Playground id="#KY0N7T#68" title="Cascaded Shadow Map Example" description="Simple Example of using the CSM system in your scene." isMain={true} category="Shadows"/>
 
 ## Technical overview
 
