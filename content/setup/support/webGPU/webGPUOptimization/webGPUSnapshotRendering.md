@@ -92,7 +92,7 @@ You will need to call the `updateEffectLayer` method each time the camera or the
 ### Animating bones
 To make skeleton animations work in the fast SR mode, you simply need to call the `prepare` method on the skeletons you want to animate:
 
-<Playground id="#WGZLGJ#10672" engine="webgpu" title="Use bones in fast SR mode" description="Demonstrates how to make bones work in fast snapshot rendering mode" image="/img/playgroundsAndNMEs/pg-WGZLGJ-4072.png"/>
+<Playground id="#WGZLGJ#11074" engine="webgpu" title="Use bones in fast SR mode" description="Demonstrates how to make bones work in fast snapshot rendering mode" image="/img/playgroundsAndNMEs/pg-WGZLGJ-4072.png"/>
 
 ### Using a default skybox
 If you create a skybox by calling `scene.createDefaultSkybox`, you need to make two changes for it to work in fast SR mode:
@@ -107,7 +107,7 @@ scene.onBeforeRenderObservable.add(() => {
 });
 ```
 
-<Playground id="#WGZLGJ#10606" engine="webgpu" title="Use default skybox in fast SR mode" description="Demonstrates how to make default skyboxes work in fast snapshot rendering mode"/>
+<Playground id="#WGZLGJ#11075" engine="webgpu" title="Use default skybox in fast SR mode" description="Demonstrates how to make default skyboxes work in fast snapshot rendering mode"/>
 
 ## The SnapshotRenderingHelper class
 To simplify use of the fast SR mode, we've created a [SnapshotRenderingHelper](https://doc.babylonjs.com/typedoc/classes/babylon.snapshotrenderinghelper) class to help work with this mode. This class is available as of Babylon.js version 7.32.0.

@@ -121,10 +121,18 @@ Loads the animations from the file and merges them to the scene.
 You can customize the import process using options and callbacks.
 
 ```typescript
-await BABYLON.ImportAnimationsAsync("./Elf_run.gltf", scene);
+await BABYLON.ImportAnimationsAsync("path/to/model", scene);
 ```
 
 See an example here: <Playground id="#UGD0Q0#312" title="Importing Animations" description="Simple example showing how to import animations into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport6.jpg"/>
+
+## ImportMeshAsync
+
+Loads the meshes from the file and appends them to the scene.
+
+```typescript
+await BABYLON.ImportMeshAsync("path/to/model", scene);
+```
 
 ## String encoded model sources
 
