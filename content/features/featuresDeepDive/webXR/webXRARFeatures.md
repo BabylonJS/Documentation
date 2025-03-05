@@ -4,8 +4,8 @@ image:
 description: Learn about WebXR augmented reality features in Babylon.js.
 keywords: babylon.js, diving deeper, WebXR, VR, AR, AR features
 further-reading:
-    - title: Blog article about light estimation
-      url: https://babylonjs.medium.com/light-estimation-in-babylon-js-285cab428dbb
+  - title: Blog article about light estimation
+    url: https://babylonjs.medium.com/light-estimation-in-babylon-js-285cab428dbb
 video-overview:
 video-content:
 ---
@@ -102,7 +102,7 @@ In TypeScript, you can also get the type set correctly:
 
 ```typescript
 // featuresManager from the base webxr experience helper
-const hitTest = featuresManager.enableFeature(BABYLON.WebXRHitTest, 'latest') as BABYLON.WebXRHitTest;
+const hitTest = featuresManager.enableFeature(BABYLON.WebXRHitTest, "latest") as BABYLON.WebXRHitTest;
 ```
 
 This will enable the default behavior of hit-testing which is sending a single hit-test ray from the center of the display forward on each frame.
@@ -178,7 +178,7 @@ or for TypeScript:
 
 ```typescript
 // featuresManager from the base webxr experience helper
-const anchorSystem = featuresManager.enableFeature(BABYLON.WebXRAnchorSystem, 'latest') as BABYLON.WebXRAnchorSystem;
+const anchorSystem = featuresManager.enableFeature(BABYLON.WebXRAnchorSystem, "latest") as BABYLON.WebXRAnchorSystem;
 ```
 
 Some options can be passed to the anchor system:
@@ -389,11 +389,11 @@ export interface IWebXRBackgroundRemoverOptions {
     /**
      * Should the skybox be removed (default false)
      */
-    skyBox?: boolean,
+    skyBox?: boolean;
     /**
      * Should the ground be removed (default false)
      */
-    ground?: boolean,
+    ground?: boolean;
   };
   /**
    * don't disable the environment helper
@@ -448,54 +448,54 @@ For example, when placing an element on the floor, it could provide the light di
 
 The idea is that the underlying system provides us with a lot of details that allow us to “match” the object we are placing with the real world. Light estimation can provide us:
 
-* Light color (and intensity)
-* Light direction
-* Reflection cubemap (environment)
-* Spherical harmonics coefficients
-* Happiness
+- Light color (and intensity)
+- Light direction
+- Reflection cubemap (environment)
+- Spherical harmonics coefficients
+- Happiness
 
 The data is only provided per frame if requested by the developer. This allows adjusting performance on older/slower devices. When enabling light estimation you can provide the following options:
 
 ```typescript
 export interface IWebXRLightEstimationOptions {
-    /**
-     * Disable the cube map reflection feature. In this case only light direction and color will be updated
-     */
-    disableCubeMapReflection?: boolean;
-    /**
-     * Should the scene's env texture be set to the cube map reflection texture
-     * Note that this doesn't work is disableCubeMapReflection if set to false
-     */
-    setSceneEnvironmentTexture?: boolean;
-    /**
-     * How often should the cubemap update in ms.
-     * If not set the cubemap will be updated every time the underlying system updates the environment texture.
-     */
-    cubeMapPollInterval?: number;
-    /**
-     * How often should the light estimation properties update in ms.
-     * If not set the light estimation properties will be updated on every frame (depending on the underlying system)
-     */
-    lightEstimationPollInterval?: number;
-    /**
-     * Should a directional light source be created.
-     * If created, this light source will be updated whenever the light estimation values change
-     */
-    createDirectionalLightSource?: boolean;
-    /**
-     * Define the format to be used for the light estimation texture.
-     */
-    reflectionFormat?: XRReflectionFormat;
-    /**
-     * Should the light estimation's needed vectors be constructed on each frame.
-     * Use this when you use those vectors and don't want their values to change outside of the light estimation feature
-     */
-    disableVectorReuse?: boolean;
+  /**
+   * Disable the cube map reflection feature. In this case only light direction and color will be updated
+   */
+  disableCubeMapReflection?: boolean;
+  /**
+   * Should the scene's env texture be set to the cube map reflection texture
+   * Note that this doesn't work is disableCubeMapReflection if set to false
+   */
+  setSceneEnvironmentTexture?: boolean;
+  /**
+   * How often should the cubemap update in ms.
+   * If not set the cubemap will be updated every time the underlying system updates the environment texture.
+   */
+  cubeMapPollInterval?: number;
+  /**
+   * How often should the light estimation properties update in ms.
+   * If not set the light estimation properties will be updated on every frame (depending on the underlying system)
+   */
+  lightEstimationPollInterval?: number;
+  /**
+   * Should a directional light source be created.
+   * If created, this light source will be updated whenever the light estimation values change
+   */
+  createDirectionalLightSource?: boolean;
+  /**
+   * Define the format to be used for the light estimation texture.
+   */
+  reflectionFormat?: XRReflectionFormat;
+  /**
+   * Should the light estimation's needed vectors be constructed on each frame.
+   * Use this when you use those vectors and don't want their values to change outside of the light estimation feature
+   */
+  disableVectorReuse?: boolean;
 
-    /**
-     * disable applying the spherical polynomial to the cube map texture
-     */
-    disableSphericalPolynomial?: boolean;
+  /**
+   * disable applying the spherical polynomial to the cube map texture
+   */
+  disableSphericalPolynomial?: boolean;
 }
 ```
 
@@ -524,10 +524,10 @@ This will create a directional light source that will be updated constantly.
 Since a light source is created for you, you can enable a shadow generator using this light. To do that use the following code after enabling the feature:
 
 ```javascript
-const le = defaultXRExperience.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.LIGHT_ESTIMATION, 'latest', {
-    createDirectionalLightSource: true,
+const le = defaultXRExperience.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.LIGHT_ESTIMATION, "latest", {
+  createDirectionalLightSource: true,
 });
-const shadowGenerator = new BABYLON.ShadowGenerator(512, le.directionalLight)
+const shadowGenerator = new BABYLON.ShadowGenerator(512, le.directionalLight);
 shadowGenerator.useBlurExponentialShadowMap = true;
 shadowGenerator.setDarkness(0.1);
 shadowGenerator.getShadowMap().renderList.push(meshesToAdd);
@@ -554,28 +554,20 @@ Enable the Depth Sensing:
 
 ```javascript
 // featuresManager from the base webxr experience helper
-const depthSensing = featureManager.enableFeature(
-  BABYLON.WebXRFeatureName.DEPTH_SENSING,
-  "latest",
-  {
-    dataFormatPreference: ["ushort", "float"],
-    usagePreference: ["cpu", "gpu"],
-  },
-);
+const depthSensing = featureManager.enableFeature(BABYLON.WebXRFeatureName.DEPTH_SENSING, "latest", {
+  dataFormatPreference: ["ushort", "float"],
+  usagePreference: ["cpu", "gpu"],
+});
 ```
 
 or for TypeScript:
 
 ```typescript
 // featuresManager from the base webxr experience helper
-const depthSensing = featureManager.enableFeature(
-  BABYLON.WebXRFeatureName.DEPTH_SENSING,
-  "latest",
-  {
-    dataFormatPreference: ["ushort", "float"],
-    usagePreference: ["cpu", "gpu"],
-  } as BABYLON.IWebXRDepthSensingOptions,
-) as BABYLON.WebXRDepthSensing;
+const depthSensing = featureManager.enableFeature(BABYLON.WebXRFeatureName.DEPTH_SENSING, "latest", {
+  dataFormatPreference: ["ushort", "float"],
+  usagePreference: ["cpu", "gpu"],
+} as BABYLON.IWebXRDepthSensingOptions) as BABYLON.WebXRDepthSensing;
 ```
 
 When you enable depth sensing feature, you have to pass options.
@@ -589,14 +581,34 @@ export type WebXRDepthDataFormat = "ushort" | "float";
  * Options for Depth Sensing feature
  */
 export interface IWebXRDepthSensingOptions {
-  /**
-   *  The desired depth sensing usage for the session
-   */
-  usagePreference: WebXRDepthUsage[];
-  /**
-   * The desired depth sensing data format for the session
-   */
-  dataFormatPreference: WebXRDepthDataFormat[];
+    /**
+     *  The desired depth sensing usage for the session
+     */
+    usagePreference: WebXRDepthUsage[];
+    /**
+     * The desired depth sensing data format for the session
+     */
+    dataFormatPreference: WebXRDepthDataFormat[];
+
+    /**
+     * Depth sensing will be enabled on all materials per default, if the GPU variant is enabled.
+     * If you just want to use the texture or the CPU variant instead set this to true.
+     */
+    disableDepthSensingOnMaterials?: boolean;
+
+    /**
+     * If set to true the occluded pixels will not be discarded but the pixel color will be changed based on the occlusion factor
+     * Enabling this will lead to worse performance but slightly better outcome.
+     * It is possible we will change this in the future to look even better.
+     */
+    useToleranceFactorForDepthSensing?: boolean;
+
+    /**
+     * If set to true the texture will be set to be used for visualization.
+     * In this case it will probably NOT work correctly on the materials.
+     * So be aware that, for the time being, you can only use one or the other.
+     */
+    prepareTextureForVisualization?: boolean;
 }
 ```
 
@@ -606,24 +618,26 @@ Some information can be accessed only cpu mode (gpu is also same).
 The data format is currently "ushort" or "float". It describes a data format for buffers and textures.
 Same as depth usage, you can specify when you initialize the feature.
 
+Enabling this feature will automatically enable all added materials to be hidden behind real-world objects. If you want to disable this feature, you can set `disableDepthSensingOnMaterials` to `true`.
+
 With this feature, you can access some information like below.
 
 ```typescript
 sessionManager.onXRFrameObservable.add(() => {
   const {
-    depthUsage,                  // "cpu" or "gpu"
-    depthDataFormat,             // "ushort" or "float"
+    depthUsage, // "cpu" or "gpu"
+    depthDataFormat, // "ushort" or "float"
 
-    width,                       // depth image width
-    height,                      // depth image height
+    width, // depth image width
+    height, // depth image height
 
-    rawValueToMeters,            // operator of obtain depth value in meters
+    rawValueToMeters, // operator of obtain depth value in meters
 
     normDepthBufferFromNormView, // An XRRigidTransform
 
-    latestDepthImageTexture,     // RawTexture for depth image
-    latestDepthBuffer,           // depth value array (cpu only)
-    latestInternalTexture,       // InternalTexture of depth image (gpu only)
+    latestDepthImageTexture, // RawTexture for depth image
+    latestDepthBuffer, // depth value array (cpu only)
+    latestInternalTexture, // InternalTexture of depth image (gpu only)
   } = depthSensing;
 
   // apply depth texture to a material
@@ -637,6 +651,8 @@ depthSensing.onGetDepthInMetersAvailable.add((getDepthInMeters) => {
   console.log(meters);
 });
 ```
+
+<Playground id="#KDWCZY" title="Placing A Mesh In Space with depth sensing" description="See how depth sensing works when adding models to the real world" image="/img/playgroundsAndNMEs/vrglasses.png"/>
 
 ## Demos
 
