@@ -17,7 +17,12 @@ A packed spritesheet will look something like this
 
 with sprite cells of different sizes arranged to optimize the file size.
 
-The corresponding JSON file will have the format which is based on that produced using the _TexturePacker_ app with output file framework set to JSON Hash format and Trim to None and Allow Rotation to Off. A frame is another way of talking about a cell.
+The corresponding JSON file will have the format which is based on that produced using the [TexturePacker](https://www.codeandweb.com/texturepacker) app with the following settings:
+
+- Data format: *Babylon.js (JSON Hash for SpritePackedManager)* 
+- Trim: None
+- Allow Rotation: Off
+
 
 ```javascript
 {   "frames": {
@@ -62,7 +67,7 @@ The corresponding JSON file will have the format which is based on that produced
 }
 ```
 
-**Note:** *SpriteMap* uses the JSON Array format for packed spritesheets. JSON files are not interchangeable between *SpritePackedManager* and *SpritMap*.
+**Note:** *SpriteMap* uses the *Babylon.js (JSON Array for SpriteMap)* format for packed spritesheets. JSON files are not interchangeable between *SpritePackedManager* and *SpritMap*.
 
 The minimal format required by *SpritePackedManager* is below. Although currently it only uses the frame property it may be able to use others in the future. 
 
