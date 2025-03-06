@@ -10,6 +10,8 @@ video-content:
 
 Babylon Smart Filters is a node-based graph system for building GPU accelerated 2D effects for scenarios like real-time video filters. We call them smart because this feature includes an optimizer which automatically minimizes the number of draw calls and intermediate textures for you.
 
+This feature is currently in preview - additional documentation will be provided before release.
+
 You can build Smart Filters programmatically:
 
 ```javascript
