@@ -2445,6 +2445,10 @@
                     },
                     "content": "toolsAndResources/nge"
                 },
+                "viewerConfigurator": {
+                    "friendlyName": "Viewer Configurator",
+                    "content": "toolsAndResources/viewerConfigurator"
+                },
                 "assetLibrarian": {
                     "friendlyName": "Asset Librarian",
                     "children": {},

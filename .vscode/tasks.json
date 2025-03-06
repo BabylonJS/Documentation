@@ -22,7 +22,7 @@
                         "regexp": ".*Starting...",
                     },
                     "endsPattern": {
-                        "regexp": ".*Ready in .*ms",
+                        "regexp": ".*Ready in \\d.*",
                     },
                 },
             },
