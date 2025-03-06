@@ -10,6 +10,10 @@ further-reading:
       url: https://doc.babylonjs.com/packages/viewer/index
     - title: Viewer Blog Post
       url: https://www.linkedin.com/pulse/babylon-viewer-v2-babylon-js-lkstc/?trackingId=8xWb1OZKqf5Rulor%2BbhCZQ%3D%3D
+    - title: Viewer Configurator Tool
+      url: https://viewerconfig.babylonjs.com
+    - title: Viewer Configurator Docs
+      url: /toolsAndResources/viewerConfigurator
     - title: Babylon.js Supported Model Formats
       url: /features/featuresDeepDive/importers/loadingFileTypes
     - title: WebGPU Snapshot Rendering
@@ -82,3 +86,7 @@ By default, `Viewer` will try to render at the native device resolution (maximum
 ## 3D Commerce Certified
 
 The Babylon Viewer is configured by default to be compliant with the [Khronos 3D Commerce Certification](/setup/support/3D_commerce_certif).
+
+## Viewer Configurator
+
+The [Viewer Configurator](https://viewerconfig.babylonjs.com) is a tool that simplifies configuring the Viewer. Find more details in the [Viewer Configurator docs](/toolsAndResources/viewerConfigurator).
