@@ -1929,6 +1929,11 @@
                             },
                             "content": "features/featuresDeepDive/scene"
                         },
+                        "smartFilters": {
+                            "friendlyName": "Smart Filters",
+                            "children": {},
+                            "content": "features/featuresDeepDive/smartFilters"
+                        },
                         "sprites": {
                             "friendlyName": "Sprites",
                             "children": {
