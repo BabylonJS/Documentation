@@ -78,7 +78,7 @@ const options: IExportOptions = {
   // Begin serialization without waiting for the scene to be ready. Defaults to false.
   exportWithoutWaitingForScene: false,
   // Indicates if unused UV vertex attributes should be included in export. Defaults to false.
-  exportUnusedUVs: false;
+  exportUnusedUVs: false,
   // Remove no-op root nodes when possible. Defaults to true.
   removeNoopRootNodes: true,
   // The mesh compression method to use. Defaults to "None".
