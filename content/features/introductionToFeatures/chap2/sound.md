@@ -1,9 +1,9 @@
 ---
 title: Getting Started - Chapter 2 - Sound
-image: 
+image:
 description: Continue your Babylon.js learning by adding sound to your scene.
 keywords: getting started, start, chapter 2, sound, audio
-further-reading: 
+further-reading:
 video-overview:
 video-content:
 ---
@@ -14,28 +14,38 @@ video-content:
 
 Adding sounds to your world is very easy.
 
-For continuous sounds we use
+First, create an audio engine and unlock it. Note that we're using `await` to wait for the promises to resolve, so this needs to be done in an `async` function, for example:
 
 ```javascript
-const sound = new BABYLON.Sound("name", "url to sound file", scene, null, { loop: true, autoplay: true });
+async function initAudio() {
+  const audioEngine = await BABYLON.CreateAudioEngineAsync();
+  await audioEngine.unlock();
+
+  // Audio engine is ready to play sounds ...
+}
 ```
 
-<Playground id="#SFCC74#3" title="Adding Sound To Your Scene" description="A playground showing how easy it is to add sound to your scene." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
 
-
-To play a sound once we use
+For continuously looping background music we use a streaming sound:
 
 ```javascript
-const sound = new BABYLON.Sound("sound", "url to sound file", scene,()=>{
-  //Leave time for the sound file to load before playing it
-  sound.play();
-});
+BABYLON.CreateStreamingSoundAsync("name", "<sound file URL>", { loop: true, autoplay: true }, audioEngine);
 ```
 
-To account for loading time, in the example below *setInterval* is used to play the sound every 3 seconds
+<Playground id="#SFCC74#773" title="Adding Sound To Your Scene" description="A playground showing how easy it is to add sound to your scene." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
 
-<Playground id="#SFCC74#4" title="Playing Sound Every 3 Seconds" description="Set an interval to play a sound every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
 
-Since you probably prefer listening to your own music as you work and oft repeated sound can get annoying the above playground examples are the only ones in Getting Started that load sounds. 
+To play a short sound once we can use a sound that plays from a fully downloaded buffer:
 
-Now back to making our world and the developing our buildings. Buildings come in varied sizes, positions and orientations and this will be true for the world we are creating.
+```javascript
+const sound = await BABYLON.CreateSoundAsync("sound", "<sound file URL>");
+sound.play();
+```
+
+In the example below *setInterval* is used to play the sound every 3 seconds
+
+<Playground id="#SFCC74#776" title="Playing Sound Every 3 Seconds" description="Set an interval to play a sound every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
+
+Since you probably prefer listening to your own music as you work, and repeated sounds can get annoying, the above playground examples are the only ones in this tutorial that load sounds.
+
+Now back to making our world and the developing our buildings! Buildings come in varied sizes, positions and orientations and this will be true for the world we are creating.
