@@ -14,15 +14,17 @@ video-content:
 
 Adding sounds to your world is very easy.
 
-First, we create an audio engine and unlock it:
+First, create an audio engine and unlock it. Note that we're using `await` to wait for the promises to resolve, so this needs to be done in an `async` function, for example:
 
 ```javascript
-BABYLON.CreateAudioEngineAsync().then((audioEngine) => {
-  audioEngine.unlock().then(() => {
-    // Audio engine is ready to play sounds ...
-  });
-});
+async function initAudio() {
+  const audioEngine = await BABYLON.CreateAudioEngineAsync();
+  await audioEngine.unlock();
+
+  // Audio engine is ready to play sounds ...
+}
 ```
+
 
 For continuously looping background music we use a streaming sound:
 
@@ -30,20 +32,19 @@ For continuously looping background music we use a streaming sound:
 BABYLON.CreateStreamingSoundAsync("name", "<sound file URL>", { loop: true, autoplay: true }, audioEngine);
 ```
 
-<Playground id="#SFCC74#769" title="Adding Sound To Your Scene" description="A playground showing how easy it is to add sound to your scene." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
+<Playground id="#SFCC74#773" title="Adding Sound To Your Scene" description="A playground showing how easy it is to add sound to your scene." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
 
 
 To play a short sound once we can use a sound that plays from a fully downloaded buffer:
 
 ```javascript
-BABYLON.CreateSoundAsync("sound", "<sound file URL>").then((sound) => {
-  sound.play();
-});
+const sound = await BABYLON.CreateSoundAsync("sound", "<sound file URL>");
+sound.play();
 ```
 
 In the example below *setInterval* is used to play the sound every 3 seconds
 
-<Playground id="#SFCC74#770" title="Playing Sound Every 3 Seconds" description="Set an interval to play a sound every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
+<Playground id="#SFCC74#776" title="Playing Sound Every 3 Seconds" description="Set an interval to play a sound every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
 
 Since you probably prefer listening to your own music as you work, and repeated sounds can get annoying, the above playground examples are the only ones in this tutorial that load sounds.
 
