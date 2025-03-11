@@ -320,7 +320,12 @@
                                 "playingSoundsMusic": {
                                     "friendlyName": "Playing Sounds and Music",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/audio/playingSoundsMusic"
+                                    "content": "features/featuresDeepDive/audio/v2/playingSoundsMusic"
+                                },
+                                "migrate": {
+                                    "friendlyName": "Migrating from the old audio engine",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/audio/v2/migrateFromV1"
                                 }
                             },
                             "content": "features/featuresDeepDive/audio"
@@ -3615,6 +3620,11 @@
             "friendlyName": "Legacy",
             "content": "legacy",
             "children": {
+                "audio": {
+                    "friendlyName": "AudioEngine",
+                    "children": {},
+                    "content": "features/featuresDeepDive/audio/v1/playingSoundsMusic"
+                },
                 "physics": {
                     "friendlyName": "Physics V1",
                     "children": {
