@@ -9,6 +9,18 @@ video-content:
 toc-levels: 2
 ---
 
+## 7.52.0
+
+### Deprecation of legacy audio engine
+
+To pave the way for the new audio engine, the old audio engine is no longer created by default when the graphics engine is initialized. To use the old deprecated audio engine, set the `audioEngine` option to `true` in the graphics engine constructor, for example:
+
+```javascript
+const engine = BABYLON.Engine(canvas, true, { audioEngine: true }, true);
+```
+
+PR: https://github.com/BabylonJS/Babylon.js/pull/15839
+
 ## 7.51.0
 
 ### Fix calculation of diffuse transmittance in PBR materials
