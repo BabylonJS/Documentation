@@ -99,6 +99,8 @@ By way of illustration, here are two examples of the two cases outlined above.
 
 ### The frame graph replacing the scene render loop
 
+#### Using the frame graph classes directly
+
 Start by creating the frame graph:
 ```javascript
 const frameGraph = new BABYLON.FrameGraph(scene, true);
@@ -201,7 +203,45 @@ frameGraph.build();
 await frameGraph.whenReadyAsync();
 ```
 
-Here's the PG corresponding to this example: <Playground id="#9YU4C5#6" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop"/>
+Here's the PG corresponding to this example: <Playground id="#9YU4C5#6" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (manual use of the frame graph classes)"/>
+
+#### Using a node render graph
+
+Let's do the same thing, but this time using a node render graph created with the [Node Render Graph Editor](https://nrge.babylonjs.com/).
+
+Here is the node render graph: https://nrge.babylonjs.com/#CCDXLX
+(this is the default graph you get when you browse to the NRGE url)
+
+The javascript code:
+```javascript
+const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("#CCDXLX", scene);
+
+nrg.build();
+
+await nrg.whenReadyAsync();
+
+scene.frameGraph = nrg.frameGraph;
+```
+That's all you need to make it work with a node render graph!
+
+The full PG: <Playground id="#9YU4C5#7" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (node render graph)"/>
+
+For more complicated examples, you may need to pass a third parameter to `NodeRenderGraph.ParseFromSnippetAsync()` to configure the node render graph:
+```javascript
+const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("#CCDXLX", scene, {
+    debugTextures: false,
+    autoConfigure: false,
+    verbose: false,
+    rebuildGraphOnEngineResize: true,
+    autoFillExternalInputs: true,
+});
+```
+The code snippet above shows you the default values of the various parameters.
+
+`autoFillExternalInputs:true` will try to give reasonable values to certain input resources:
+* `camera` resources will be set to `scene.cameras[0]` for the first camera resource, `scene.cameras[1]` for the second camera resource, and so on.
+* `object list` resources will be set to `scene.meshes` and `scene.particleSystems`.
+* `shadow light` resources will be set to the first shadow light of `scene.lights` for the first light resource, to the second shadow light of `scene.lights` for the second light resource, and so on.
 
 ### The frame graph in addition to the scene render loop
 
