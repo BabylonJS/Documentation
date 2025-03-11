@@ -20,9 +20,9 @@ The sound formats supported by the audio engine are dictated by the browser. All
 
 ## Creating an audio engine
 
-The audio engine is created with the [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync) function. The options for creating an audio engine are listed in the [`IWebAudioEngineOptions`](http://localhost:3000/typedoc/interfaces/BABYLON.IWebAudioEngineOptions) interface documentation.
+Before any sounds can be played, the audio engine must be created and initialized with the [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync) function. The options for creating an audio engine are listed in the [`IWebAudioEngineOptions`](http://localhost:3000/typedoc/interfaces/BABYLON.IWebAudioEngineOptions) interface documentation.
 
-The [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync) functions is asynchronous, which means it returns a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will resolve when the audio engine is ready.
+The [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync) function is asynchronous, which means it returns a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will resolve when the audio engine is ready.
 
 **You must wait for the [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) to resolve before use**, which can be done with the [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) keyword. The following code snippet shows how to do this:
 
@@ -35,7 +35,7 @@ async function initAudio() {
 }
 ```
 
-Note that the example code snippet also waits for the audio engine to be "unlocked" because browsers prevent audio from sounding until the user interacts with the web page. See [Browser autoplay considerations](#browser-autoplay-considerations) for more information.
+Note that the example code snippet also waits for the audio engine to be "unlocked" because browsers prevent audio from playing a user interaction occurs. See [Browser autoplay considerations](#browser-autoplay-considerations) for more information.
 
 ## Playing a sound
 
