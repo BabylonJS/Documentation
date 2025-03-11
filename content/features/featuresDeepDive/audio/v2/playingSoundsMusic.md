@@ -98,6 +98,7 @@ bounce.play({ loop: true });
 
 TODO: Add static sound loop example.
 
+## Playback instances
 
 ## Using browser-specific audio codecs
 
