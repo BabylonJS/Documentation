@@ -20,7 +20,7 @@ The sound formats supported by the audio engine are dictated by the browser. All
 
 ## Creating an audio engine
 
-Before any sounds can be played, the audio engine must be created and initialized with the [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync) function. The options for creating an audio engine are listed in the [`IWebAudioEngineOptions`](http://localhost:3000/typedoc/interfaces/BABYLON.IWebAudioEngineOptions) interface documentation.
+Before any sounds can be played, the audio engine must be created and initialized with the [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync) function. The options for creating an audio engine are listed in the [`IWebAudioEngineOptions`](/typedoc/interfaces/BABYLON.IWebAudioEngineOptions) interface documentation.
 
 The [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync) function is asynchronous, which means it returns a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will resolve when the audio engine is ready.
 
@@ -39,7 +39,7 @@ Note that the example code snippet also waits for the audio engine to be "unlock
 
 ## Playing a sound
 
-The simplest way to play a sound is to create it with the [`CreateSoundAsync`](/typedoc/functions/BABYLON.CreateSoundAsync) function, and call the sound's [`play()`](http://localhost:3000/typedoc/classes/BABYLON.AbstractSound#play) function after the audio engine is unlocked:
+The simplest way to play a sound is to create it with the [`CreateSoundAsync`](/typedoc/functions/BABYLON.CreateSoundAsync) function, and call the sound's [`play()`](/typedoc/classes/BABYLON.AbstractSound#play) function after the audio engine is unlocked:
 
 ```javascript
 async function initAudio() {
@@ -57,11 +57,11 @@ See this playground for a full example: <Playground id="#VP1B9P" title="Play a s
 
 ## Streaming sounds
 
-In addition to the `CreateSoundAsync` function, there is also [`CreateStreamingSoundAsync`](http://localhost:3000/typedoc/functions/BABYLON.CreateStreamingSoundAsync) which plays sounds using [`HTMLMediaElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement).
+In addition to the `CreateSoundAsync` function, there is also [`CreateStreamingSoundAsync`](/typedoc/functions/BABYLON.CreateStreamingSoundAsync) which plays sounds using the browser's [`HTMLMediaElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement) feature.
 
-Streaming sounds store only part of the sound file in memory while playing instead of downloading the entire sound into an audio buffer beforehand. As a result, streaming sounds save a significant amount of memory when playing long sound files, and are useful for background music and extended narration.
+The advantage of streaming sounds is they only store part of the sound file in memory while playing instead of downloading the entire sound into an audio buffer beforehand. As a result, streaming sounds save a significant amount of memory when playing long sound files, and are useful for background music and extended narration.
 
-The tradeoff for the memory savings is the [`StreamingSound`](http://localhost:3000/typedoc/classes/BABYLON.StreamingSound) class has fewer playback options than the [`StaticSound`](http://localhost:3000/typedoc/classes/BABYLON.StaticSound) class.
+The disadvantages for [`streaming sounds`](/typedoc/classes/BABYLON.StreamingSound) are they have fewer playback options than [`non-streaming static sounds`](/typedoc/classes/BABYLON.StaticSound). For example, streaming sounds can not be played for durations shorter than the sound file, they do not have the `loopStart` and `loopEnd` options, and initial playback may be delayed while the initial playback buffer is being downloaded, although this can be mitigated using the [`preloadCount` option](/typedoc/interfaces/BABYLON.IStreamingSoundOptions#preloadcount) or [`StreamingSound.preloadCount`](/typedoc/classes/BABYLON.StreamingSound#preloadcount) property.
 
 TODO: Add streaming sound code snippet and playground example.
 
@@ -70,8 +70,8 @@ TODO: Add streaming sound code snippet and playground example.
 Sounds stop playing automatically when playback reaches the end of the sound file. To make sounds continue playing from the beginning again instead of stopping at the end, set the sound to loop using one of the following methods:
 
 1. Set the [`loop`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#loop) option to `true` when creating the sound.
-1. Set the sound's [`loop`](http://localhost:3000/typedoc/classes/BABYLON.AbstractSound#loop) property to `true` after creating the sound, but before calling the `play()` function.
-1. Call the sound's [`play`](http://localhost:3000/typedoc/classes/BABYLON.AbstractSound#play) function with the [`loop`](/typedoc/interfaces/BABYLON.IAbstractSoundPlayOptions#loop) option set to `true`.
+1. Set the sound's [`loop`](/typedoc/classes/BABYLON.AbstractSound#loop) property to `true` after creating the sound, but before calling the `play()` function.
+1. Call the sound's [`play`](/typedoc/classes/BABYLON.AbstractSound#play) function with the [`loop`](/typedoc/interfaces/BABYLON.IAbstractSoundPlayOptions#loop) option set to `true`.
 
 <br/>
 
