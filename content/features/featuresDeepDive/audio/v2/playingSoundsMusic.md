@@ -18,6 +18,22 @@ The audio engine is simple and powerful, and its API is similar to the Babylon.j
 
 The sound formats supported by the audio engine are dictated by the browser. All browsers support the **.mp3** and **.wav** formats, and most browsers support **.ogg**, **.m4a**, and **.mp4**. Other formats like **.aac** and **.webm** are browser-specific. When creating sounds, you can specify an array of sound file URLs to choose from and the first format recognized by the browser will be used. See [Using browser-specific audio codecs](#using-browser-specific-audio-codecs).
 
+## Creating an audio engine
+
+The audio engine is created with the [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync) function. The options for creating an audio engine are listed in the [`IWebAudioEngineOptions`](http://localhost:3000/typedoc/interfaces/BABYLON.IWebAudioEngineOptions) interface documentation.
+
+The [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync) functions is asynchronous, which means it returns a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will resolve when the audio engine is ready.
+
+**You must wait for the [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) to resolve before use**, which can be done with the [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) keyword. The following code snippet shows how to do this:
+
+```javascript
+async function initAudio() {
+  const audioEngine = await BABYLON.CreateAudioEngineAsync();
+  await audioEngine.unlock();
+
+  // Audio engine is ready to play sounds ...
+}
+```
 ## Using browser-specific audio codecs
 
 ## TODO: Finish this page
