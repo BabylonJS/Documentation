@@ -1,5 +1,5 @@
 ---
-title: Introduction To Smart Filters
+title: How To Use Smart Filters
 image:
 description: Learn how to get started with Smart Filters
 keywords: video, babylon.js, sfe, smart, filter, effect
@@ -20,12 +20,20 @@ It requires the following peer dependencies:
 
 ## Important Notes
 
-1. Do not rely on the path of files within the `@babylonjs/smart-filters` package - instead import from the root index and allow tree-shaking to remove anything you don't use
-   - Otherwise future updates could move or rename files and require you to update your references
+<Alert severity="info">
+Do not rely on the path of files within the `@babylonjs/smart-filters` package
+ - Instead import from the root index and allow tree-shaking to remove anything you don't use
+ - Otherwise future updates could move or rename files and require you to update your references
+
+</Alert>
 
 ## Simplest Usage
 
 This sample creates a trivial hardcoded SmartFilter, creates the runtime, and then calls render() to render one frame to the canvas.
+
+<Alert severity="info">
+Note: Smart Filters are currently compatible with the Babylon Engine and ThinEngine.
+</Alert>
 
 ```typescript
 // Create a SmartFilter

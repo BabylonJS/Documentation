@@ -18,7 +18,9 @@ It includes the blocks from the @babylonjs/smart-filters-blocks package (also in
 
 You can save the Smart Filters you create with SFE as local JSON files or as custom URLs you can share with others.
 
-_Note_ if you share a Smart Filter that uses custom assets or blocks, the person you are sharing with will with need to load those custom assets and blocks before loading your Smart Filter.
+<Alert severity="Info">
+Note that if you share a Smart Filter that uses custom assets or blocks, the person you are sharing with will with need to load those custom assets and blocks before loading your Smart Filter.
+</Alert>
 
 ## Navigating SFE
 
@@ -70,7 +72,7 @@ vec4 mainImage(vec2 vUV) { // main
 }
 ```
 
-See [Creating Blocks](/features/featuresDeepDive/smartFilters/creatingBlocks) for details of the annotation format.
+See [Creating New Blocks](/features/featuresDeepDive/smartFilters/creatingNewBlocks) for details of the annotation format.
 
 ### JSON block definitions
 

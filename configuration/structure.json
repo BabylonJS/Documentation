@@ -1947,10 +1947,10 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/smartFilters/howSmartFiltersWork"
                                 },
-                                "creatingBlocks": {
-                                    "friendlyName": "Creating Blocks",
+                                "creatingNewBlocks": {
+                                    "friendlyName": "Creating New Blocks",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/smartFilters/creatingBlocks"
+                                    "content": "features/featuresDeepDive/smartFilters/creatingNewBlocks"
                                 }
                             },
                             "content": "features/featuresDeepDive/smartFilters"

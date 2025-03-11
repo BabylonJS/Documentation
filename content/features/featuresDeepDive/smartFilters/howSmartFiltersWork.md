@@ -93,23 +93,25 @@ const runtime = await filter.createRuntimeAsync(this.engine, rtg);
 
 ### Alpha
 
-Smart Filter blocks operate on straight alpha. If you need premultiplied alpha for your output, you can use a PreMultiplyAlphaBlock at the end of your Smart Filter. Note that the Smart Filter Editor sets premultipliedAlpha to false when creating the ThinEngine, so Smart Filters in the Smart Filter Editor do not need to use a PreMultiplyAlphaBlock.
+Smart Filter blocks operate on straight alpha. If you need premultiplied alpha for your output, you can use a PreMultiplyAlphaBlock at the end of your Smart Filter. Note that the Smart Filter Editor sets the Engine option [premultipliedAlpha](/typedoc/interfaces/BABYLON.EngineOptions#premultipliedalpha) to false when creating the ThinEngine so it doesn't expect premultiplied alpha, so Smart Filters in the Smart Filter Editor do not need to use a PreMultiplyAlphaBlock.
 
 ## Runtime
 
-To keep a nice separation between edition time, resource management and render time, the filter itself cannot be rendered directly. In order to do so, a runtime needs to be created from the filter:
+To keep a nice separation between edit time, resource management and render time, the filter itself cannot be rendered directly. In order to do so, a runtime needs to be created from the filter:
 
 ```typescript
 const runtime = await smartFilter.createRuntimeAsync(engine);
 ```
 
-_Note_ the same filter can be used across different runtimes.
+<Alert severity="info">
+Note that the same filter can be used across different runtimes.
+</Alert>
 
 The runtime contains the list of resources required to render the filter like (intermediate textures, shaders and buffers). It also owns a Command buffer containing the list of all the actions required to render the filter.
 
 For instance the content of the command buffer for the simplest filter would be:
 
-```
+```console
 ----- Command buffer commands -----
     Owner: OutputBlock (output) - Command: OutputBlock.render
 -----------------------------------
@@ -128,11 +130,13 @@ Whereas the one of a more complex one could look like:
 -----------------------------------
 ```
 
-The command buffer is accessible through the runtime for debugging and logging purpose. The list of command could therefore be extended with custom ones if necessary of be parsed for introspection purpose as we do in ./src/command/commandBufferDebugger.ts
+The command buffer is accessible through the runtime for debugging and logging purposes. The list of commands could be extended with custom ones if necessary, such as for introspection as we do in ./src/command/commandBufferDebugger.ts
 
 Rendering the current runtime is as simple as `runtime.render();`
 
-_Note_ The runtime should be disposed once it is not used anymore to free the GPU memory and prevent leaks.
+<Alert severity="info">
+Note that the runtime should be disposed once it is no longer needed to free GPU memory and prevent leaks.
+</Alert>
 
 ## A Few Core Principles
 

@@ -29,7 +29,7 @@ Read more about the Smart Filters Editor [here](../../../../toolsAndResources/sf
 
 ### With Code
 
-Clone the @babylonjs/smart-filters repo, and you can see a small demo of how Smart Filters can be integrated into a web application.
+Clone [BabylonJS/SmartFilters](https://github.com/BabylonJS/SmartFilters), and you can see a small demo of how Smart Filters can be integrated into a web application.
 
 Once you've cloned, simply run these commands to see the demo application:
 
@@ -41,7 +41,7 @@ Once you've cloned, simply run these commands to see the demo application:
 - demo/src/app.ts
   - The main file for the demo app - responsible for creating all of the helpers, wiring up to the UI, and connecting them all together
 - demo/src/smartFilterLoader.ts
-  - Loads a `SmartFilter` from a "Manifest" (either are hardcoded or serialized Smart Filter)
+  - Loads a `SmartFilter` from a "Manifest" (either a hardcoded or serialized Smart Filter)
 - demo/src/smartFilterRenderer.ts
   - Takes a `SmartFilter`, creates the `SmartFilterRuntime`, loads any test assets (e.g. images or videos), and starts rendering
 - demo/src/configuration/smartFilters/\*.ts

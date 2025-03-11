@@ -1,5 +1,5 @@
 ---
-title: Creating Blocks
+title: Creating New Blocks
 image:
 description: Learn how to get started with Smart Filters
 keywords: video, babylon.js, sfe, smart, filter, effect, block, custom
@@ -30,7 +30,7 @@ The easiest process for creating a custom block using annotated GLSL code is to:
 1. Click "Add" under "Custom Blocks" then select your GLSL file
 1. Watch the console UI at the bottom of the editor for any errors
 1. Drag your block into the Smart Filter and wire it up
-1. To see changes, just modify your file, and click "Add" under "Custom Blocks" again
+1. To see changes, just modify your GLSL file, click "Add" under "Custom Blocks" again, and select it
    - Your new block definition will be loaded and the current Smart Filter rebuilt, so you'll see your changes immediately
 
 ### Sample
