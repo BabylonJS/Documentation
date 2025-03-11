@@ -37,7 +37,34 @@ async function initAudio() {
 
 Note that the example code snippet also waits for the audio engine to be "unlocked" because browsers prevent audio from sounding until the user interacts with the web page. See [Browser autoplay considerations](#browser-autoplay-considerations) for more information.
 
-## Playing sounds
+## Playing a sound
+
+The simplest way to play a sound is to create it with the [`CreateSoundAsync`](/typedoc/functions/BABYLON.CreateSoundAsync) function, and call the sound's [`play()`](http://localhost:3000/typedoc/classes/BABYLON.AbstractSound#play) function after the audio engine is unlocked:
+
+```javascript
+async function initAudio() {
+  const audioEngine = await BABYLON.CreateAudioEngineAsync();
+  const gunshot = await BABYLON.CreateSoundAsync("gunshot", "sounds/gunshot.wav");
+
+  await audioEngine.unlock();
+
+  // Audio engine is ready to play sounds ...
+  gunshot.play()
+}
+```
+
+See this playground for a full example: <Playground id="#VP1B9P" title="Play a sound" description="A simple example of playing a sound."/>
+
+## Streaming sounds
+
+In addition to the `CreateSoundAsync` function, there is also [`CreateStreamingSoundAsync`](http://localhost:3000/typedoc/functions/BABYLON.CreateStreamingSoundAsync) which plays sounds using [`HTMLMediaElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement).
+
+Streaming sounds store only part of the sound file in memory while playing instead of downloading the entire sound into an audio buffer beforehand. As a result, streaming sounds save a significant amount of memory when playing long sound files, and are useful for background music and extended narration.
+
+The tradeoff for the memory savings is the [`StreamingSound`](http://localhost:3000/typedoc/classes/BABYLON.StreamingSound) class has fewer playback options than the [`StaticSound`](http://localhost:3000/typedoc/classes/BABYLON.StaticSound) class.
+
+TODO: Add streaming sound code snippet and playground example.
+
 
 ## Using browser-specific audio codecs
 
