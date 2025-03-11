@@ -1931,7 +1931,28 @@
                         },
                         "smartFilters": {
                             "friendlyName": "Smart Filters",
-                            "children": {},
+                            "children": {
+                                "introductionToSmartFilters": {
+                                    "friendlyName": "Introduction To Smart Filters",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/introductionToSmartFilters"
+                                },
+                                "howToUseSmartFilters": {
+                                    "friendlyName": "How To Use Smart Filters",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/howToUseSmartFilters"
+                                },
+                                "howSmartFiltersWork": {
+                                    "friendlyName": "How Smart Filters Work",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/howSmartFiltersWork"
+                                },
+                                "creatingBlocks": {
+                                    "friendlyName": "Creating Blocks",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/creatingBlocks"
+                                }
+                            },
                             "content": "features/featuresDeepDive/smartFilters"
                         },
                         "sprites": {
@@ -2693,6 +2714,11 @@
                         }
                     },
                     "content": "toolsAndResources/utilities"
+                },
+                "sfe": {
+                    "friendlyName": "Smart Filter Editor",
+                    "children": {},
+                    "content": "toolsAndResources/sfe"
                 }
             },
             "content": "toolsAndResources"
@@ -2700,10 +2726,26 @@
         "preparingArtForBabylon": {
             "friendlyName": "Preparing Assets for Babylon.js",
             "children": {
-                "dccToGltf": { "friendlyName": "Exporting to glTF", "children": {}, "content": "preparingArtForBabylon/dccToGltf" },
-                "planningRealTimeAssets": { "friendlyName": "Planning Real-Time Assets", "children": {}, "content": "preparingArtForBabylon/planningRealTimeAssets" },
-                "planningMeshUVs": { "friendlyName": "Planning Mesh UVs", "children": {}, "content": "preparingArtForBabylon/planningMeshUVs" },
-                "controllingColorSpace": { "friendlyName": "Controlling Color Space", "children": {}, "content": "preparingArtForBabylon/controllingColorSpace" }
+                "dccToGltf": {
+                    "friendlyName": "Exporting to glTF",
+                    "children": {},
+                    "content": "preparingArtForBabylon/dccToGltf"
+                },
+                "planningRealTimeAssets": {
+                    "friendlyName": "Planning Real-Time Assets",
+                    "children": {},
+                    "content": "preparingArtForBabylon/planningRealTimeAssets"
+                },
+                "planningMeshUVs": {
+                    "friendlyName": "Planning Mesh UVs",
+                    "children": {},
+                    "content": "preparingArtForBabylon/planningMeshUVs"
+                },
+                "controllingColorSpace": {
+                    "friendlyName": "Controlling Color Space",
+                    "children": {},
+                    "content": "preparingArtForBabylon/controllingColorSpace"
+                }
             },
             "content": "preparingArtForBabylon/basicConcepts"
         },

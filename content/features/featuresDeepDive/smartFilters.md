@@ -9,9 +9,7 @@ video-content:
 ---
 
 Babylon Smart Filters is a node-based graph system for building GPU accelerated 2D effects for scenarios like real-time video filters. We call them smart because this feature includes an optimizer which automatically minimizes the number of draw calls and intermediate textures for you.
-
-This feature is currently in preview - additional documentation will be provided before release.
-
+s
 You can build Smart Filters programmatically:
 
 ```javascript
@@ -43,3 +41,5 @@ pixelateBlock.output.connectTo(smartFilter.output);
 
 Or visually using a new tool, the [Smart Filter Editor](https://sfe.babylonjs.com):
 ![SFE](/img/how_to/smart-filters/sfe-default.png)
+
+See the following sub topics to learn about how to get started with Smart Filters, how to integrate them into your projects, how to create custom blocks, and more.
