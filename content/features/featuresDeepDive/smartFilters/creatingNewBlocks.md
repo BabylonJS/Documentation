@@ -115,6 +115,21 @@ Use this approach if you need a custom vertex shader, custom binding logic, or d
 1. You'll import the output from buildShader.js (e.g. blackAndWhiteBlock.autogen.shaderProgram.js) in your TypeScript file
 1. You can also use the provided watchShaders.js file for your watch mode (see the block library's [package.json scripts](https://github.com/BabylonJS/SmartFilters/blob/main/packages/blocks/package.json) as an example)
    - Note you'll need to reference the js utilities in your node_modules folder - the block library uses a relative path reference since it is in the same mono repo as the Smart Filters core
+1. Add these lines to your `.gitignore` file:
+
+```text
+**/*.autogen.shaderProgram.ts
+**/*.autogen.block.ts
+```
+
+1. If you use VSCode, we suggest you add this to your `.vscode/settings.json` file:
+
+```json
+"files.exclude": {
+    "**/*.autogen.shaderProgram.ts": true,
+    "**/*.autogen.block.ts": true
+},
+```
 
 ### Block Design Requirements
 
