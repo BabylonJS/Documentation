@@ -34,6 +34,13 @@ async function initAudio() {
   // Audio engine is ready to play sounds ...
 }
 ```
+
+Note that the example code snippet also waits for the audio engine to be "unlocked" because browsers prevent audio from sounding until the user interacts with the web page. See [Browser autoplay considerations](#browser-autoplay-considerations) for more information.
+
+## Playing sounds
+
 ## Using browser-specific audio codecs
+
+## Browser autoplay considerations
 
 ## TODO: Finish this page
