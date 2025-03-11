@@ -65,6 +65,39 @@ The tradeoff for the memory savings is the [`StreamingSound`](http://localhost:3
 
 TODO: Add streaming sound code snippet and playground example.
 
+### Looping playback
+
+Sounds stop playing automatically when playback reaches the end of the sound file. To make sounds continue playing from the beginning again instead of stopping at the end, set the sound to loop using one of the following methods:
+
+1. Set the [`loop`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#loop) option to `true` when creating the sound.
+1. Set the sound's [`loop`](http://localhost:3000/typedoc/classes/BABYLON.AbstractSound#loop) property to `true` after creating the sound, but before calling the `play()` function.
+1. Call the sound's [`play`](http://localhost:3000/typedoc/classes/BABYLON.AbstractSound#play) function with the [`loop`](/typedoc/interfaces/BABYLON.IAbstractSoundPlayOptions#loop) option set to `true`.
+
+<br/>
+
+For example, all three of the following code snippets loop the sound forever:
+
+```javascript
+const bounce = await BABYLON.CreateSoundAsync("bounce", "sounds/bounce.wav", { loop: true });
+
+bounce.play();
+```
+
+```javascript
+const bounce = await BABYLON.CreateSoundAsync("bounce", "sounds/bounce.wav");
+
+bounce.loop = true;
+bounce.play();
+```
+
+```javascript
+const bounce = await BABYLON.CreateSoundAsync("bounce", "sounds/bounce.wav");
+
+bounce.play({ loop: true });
+```
+
+TODO: Add static sound loop example.
+
 
 ## Using browser-specific audio codecs
 
