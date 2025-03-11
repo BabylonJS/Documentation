@@ -588,6 +588,22 @@
                             },
                             "content": "features/featuresDeepDive/flowGraph"
                         },
+                        "frameGraph": {
+                            "friendlyName": "Frame Graph",
+                            "children": {
+                                "frameGraphBasicConcepts": {
+                                    "friendlyName": "Basic concepts and getting started",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts"
+                                },
+                                "frameGraphBlocks": {
+                                    "friendlyName": "Frame Graph Blocks",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks"
+                                }
+                            },
+                            "content": "features/featuresDeepDive/frameGraph"
+                        },
                         "gui": {
                             "friendlyName": "GUI",
                             "children": {
