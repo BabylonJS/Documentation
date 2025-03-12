@@ -53,7 +53,10 @@ async function initAudio() {
 }
 ```
 
-See this playground for a full example: <Playground id="#VP1B9P" title="Playing a sound" description="A simple example of playing a sound."/>
+<Playground id="#VP1B9P" title="Playing a sound" description="A simple example of playing a sound."/>
+
+<br/>
+<br/>
 
 ## Streaming a sound
 
@@ -92,7 +95,10 @@ setTimeout(() => {
 }, 4000);
 ```
 
-See this playground for a full example: <Playground id="#VP1B9P#8" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
+<Playground id="#VP1B9P#8" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
+
+<br/>
+<br/>
 
 ## Looping playback
 
