@@ -113,20 +113,17 @@ Here's an example of playing a sound 3 times with the [`maxInstances`](/typedoc/
 ```javascript
 const sound = await BABYLON.CreateSoundAsync("sound", "sounds/alarm-1.mp3", { maxInstances: 2 });
 
-sound.play();
+sound.play(); // Instance #1.
 
 setTimeout(() => {
-  sound.playbackRate = 1.25;
-  sound.play();
-}, 1000);
-
-setTimeout(() => {
-  sound.playbackRate = 1.5;
-  sound.play();
-}, 2000);
+    sound.playbackRate = 2;
+    sound.play(); // Instance #2.
+    sound.pitch = 100;
+    sound.play(); // Instance #3.
+}, 4000);
 ```
 
-See this playground for a full example: <Playground id="#VP1B9P#5" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
+See this playground for a full example: <Playground id="#VP1B9P#7" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
 
 ## Volume
 
