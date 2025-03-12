@@ -28,10 +28,10 @@ The [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync
 
 ```javascript
 async function initAudio() {
-  const audioEngine = await BABYLON.CreateAudioEngineAsync();
-  await audioEngine.unlock();
+    const audioEngine = await BABYLON.CreateAudioEngineAsync();
+    await audioEngine.unlock();
 
-  // Audio engine is ready to play sounds ...
+    // Audio engine is ready to play sounds ...
 }
 ```
 
@@ -44,7 +44,9 @@ The simplest way to play a sound is to create it with the [`CreateSoundAsync`](/
 ```javascript
 async function initAudio() {
     const audioEngine = await BABYLON.CreateAudioEngineAsync();
-    const gunshot = await BABYLON.CreateSoundAsync("gunshot", "sounds/gunshot.wav");
+    const gunshot = await BABYLON.CreateSoundAsync("gunshot",
+        "sounds/gunshot.wav"
+    );
 
     await audioEngine.unlock();
 
@@ -64,12 +66,16 @@ To stream sounds, use the [`CreateStreamingSoundAsync`](/typedoc/functions/BABYL
 
 Streaming sounds keep only a small chunk of the sound file in memory while playing instead of downloading the entire sound into an audio buffer beforehand. As a result, streaming sounds save a significant amount of memory when playing long sound files, and are useful for background music and extended narrations.
 
-The main disadvantage of [`streaming sounds`](/typedoc/classes/BABYLON.StreamingSound) is they have fewer playback options than [`non-streaming static sounds`](/typedoc/classes/BABYLON.StaticSound). For example, streaming sounds can not be played for durations shorter than the sound file, they do not have the `loopStart` and `loopEnd` options, and initial playback may be delayed while the initial playback buffer is being downloaded (although this can be avoided using the [`preloadCount` option](/typedoc/interfaces/BABYLON.IStreamingSoundOptions#preloadcount)).
+The main disadvantage of [`streaming sounds`](/typedoc/classes/BABYLON.StreamingSound) is they have fewer playback options than [`non-streaming static sounds`](/typedoc/classes/BABYLON.StaticSound). For example, streaming sounds can not be played for durations shorter than the sound file, they do not have the `loopStart` and `loopEnd` options, and initial playback may be delayed while the playback buffer is being filled (note that this can be avoided using the [`preloadCount` option](/typedoc/interfaces/BABYLON.IStreamingSoundOptions#preloadcount)).
+
+Here is an example of playing a streaming sound:
 
 ```javascript
 async function initAudio() {
     const audioEngine = await BABYLON.CreateAudioEngineAsync();
-    const narration = await BABYLON.CreateStreamingSoundAsync("narration", "https://assets.babylonjs.com/sound/testing/60-count.mp3");
+    const narration = await BABYLON.CreateStreamingSoundAsync("narration",
+        "https://assets.babylonjs.com/sound/testing/60-count.mp3"
+    );
 
     await audioEngine.unlock();
 
@@ -87,18 +93,17 @@ async function initAudio() {
 
 When a sound's `play` function is called, it creates a sound "instance" to perform the audio playback using the sound's current settings. Calling `play` multiple times causes multiple instances to be created, allowing individual sounds to be played simultaneously and overlapped.
 
-You can limit the number of instances that get created by setting a sound's [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option or [`maxInstances`](/typedoc/classes/BABYLON.AbstractSound#maxinstances) property. When `maxInstances` is exceeded, old instances are stopped and deactivated until the number of active instances is reduced to the given maximum. For example, if `maxInstances` is set to `2`, calling `play` 3 times in a row will cause the 1st instance to be stopped automatically so the 3rd instance can play without the `maxInstances` setting being exceeded.
+You can limit the number of instances that get created using a sound's `maxInstances` setting. When the [`maxInstances` option](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) or [property](/typedoc/classes/BABYLON.AbstractSound#maxinstances) is exceeded, old instances are stopped and deactivated until the number of active instances is reduced to the given maximum. For example, if `maxInstances` is set to `2`, calling `play` three times in a row makes the first instance stop automatically so the third instance can play without the `maxInstances` setting being exceeded.
 
-Some sound functions and properties affect all of the currently playing instances, like the [`stop`](/typedoc/classes/BABYLON.AbstractSound#stop) function and the [`volume`](/typedoc/classes/BABYLON.AbstractSound#volume) property.
+Some sound functions and settings affect all of the currently playing instances, like the [`stop`](/typedoc/classes/BABYLON.AbstractSound#stop) function and the [`volume`](/typedoc/classes/BABYLON.AbstractSound#volume) property. However, **the [`currentTime`](/typedoc/classes/BABYLON.AbstractSound#currenttime) property only affects the newest playback instance**. Other properties only affect new playback instances created by the sound's `play` function after the properties have been set. For example, changing a sound's `loop` property from `false` to `true` will not make any of the currently playing instances start looping. Only new playback instances will take the updated `loop` property's value.
 
-The [`currentTime`](/typedoc/classes/BABYLON.AbstractSound#currenttime) property, however, affects only the most recently started playback instance. Other properties only affect new playback instances created by the sound's `play` function after the properties have been set. For example, changing a sound's `loop` property from `false` to `true` will not make any of the currently playing instances start looping. Only new playback instances will take the updated `loop` property's value.
-
-Here's an example of playing a sound 3 times with the [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option set to 2. Notice that the first playback instance is stopped when the third instance plays. Also notice that the changes to the [`playbackRate`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#playbackrate) and [`pitch`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#pitch) properties only affect new instances, with no effect on currently playing instances.
+Here's an example of playing a sound 3 times with the [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option set to 2. Notice that the first playback instance is stopped when the third instance plays. Also notice that the changes to the [`playbackRate`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#playbackrate) and [`pitch`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#pitch) properties have no effect on currently playing instances. Only new instances are affected when those properties are changed.
 
 ```javascript
-const sound = await BABYLON.CreateSoundAsync("sound", "sounds/alarm-1.mp3", {
-    maxInstances: 2
-});
+const sound = await BABYLON.CreateSoundAsync("sound",
+    "https://assets.babylonjs.com/sound/alarm-1.mp3",
+    { maxInstances: 2 }
+);
 
 sound.play(); // Instance #1.
 
@@ -117,7 +122,7 @@ setTimeout(() => {
 
 ## Looping playback
 
-Sounds stop playing automatically when playback reaches the end of the sound file. To make sounds continue playing from the beginning again instead of stopping at the end, set the sound to loop using one of the following methods:
+Sounds stop playing automatically when playback reaches the end of the sound file. To make sounds restart from the beginning when they reach the end, set the sound's `loop` setting any of the following ways:
 
 1. Set the [`loop`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#loop) option to `true` when creating the sound.
 1. Set the sound's [`loop`](/typedoc/classes/BABYLON.AbstractSound#loop) property to `true` after creating the sound, but before calling the `play()` function.
@@ -125,23 +130,30 @@ Sounds stop playing automatically when playback reaches the end of the sound fil
 
 <br/>
 
-For example, all three of the following code snippets loop the sound repeatedly:
+For example, the following code snippets all loop the sound indefinitely:
 
 ```javascript
-const bounce = await BABYLON.CreateSoundAsync("bounce", "sounds/bounce.wav", { loop: true });
+const bounce = await BABYLON.CreateSoundAsync("bounce",
+    "sounds/bounce.wav",
+    { loop: true }
+);
 
 bounce.play();
 ```
 
 ```javascript
-const bounce = await BABYLON.CreateSoundAsync("bounce", "sounds/bounce.wav");
+const bounce = await BABYLON.CreateSoundAsync("bounce",
+    "sounds/bounce.wav"
+);
 
 bounce.loop = true;
 bounce.play();
 ```
 
 ```javascript
-const bounce = await BABYLON.CreateSoundAsync("bounce", "sounds/bounce.wav");
+const bounce = await BABYLON.CreateSoundAsync("bounce",
+    "sounds/bounce.wav"
+);
 
 bounce.play({ loop: true });
 ```
