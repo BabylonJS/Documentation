@@ -43,13 +43,13 @@ The simplest way to play a sound is to create it with the [`CreateSoundAsync`](/
 
 ```javascript
 async function initAudio() {
-  const audioEngine = await BABYLON.CreateAudioEngineAsync();
-  const gunshot = await BABYLON.CreateSoundAsync("gunshot", "sounds/gunshot.wav");
+    const audioEngine = await BABYLON.CreateAudioEngineAsync();
+    const gunshot = await BABYLON.CreateSoundAsync("gunshot", "sounds/gunshot.wav");
 
-  await audioEngine.unlock();
+    await audioEngine.unlock();
 
-  // Audio engine is ready to play sounds ...
-  gunshot.play()
+    // Audio engine is ready to play sounds ...
+    gunshot.play()
 }
 ```
 
