@@ -53,7 +53,7 @@ async function initAudio() {
 }
 ```
 
-See this playground for a full example: <Playground id="#VP1B9P" title="Play a sound" description="A simple example of playing a sound."/>
+See this playground for a full example: <Playground id="#VP1B9P" title="Playing a sound" description="A simple example of playing a sound."/>
 
 ## Streaming a sound
 
