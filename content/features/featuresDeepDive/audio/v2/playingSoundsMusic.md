@@ -75,10 +75,12 @@ Some sound functions and properties affect all of the currently playing instance
 
 The [`currentTime`](/typedoc/classes/BABYLON.AbstractSound#currenttime) property, however, affects only the most recently started playback instance. Other properties only affect new playback instances created by the sound's `play` function after the properties have been set. For example, changing a sound's `loop` property from `false` to `true` will not make any of the currently playing instances start looping. Only new playback instances will take the updated `loop` property's value.
 
-Here's an example of playing a sound 3 times with the [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option set to 2. Notice that the first playback instance is stopped when the third instance plays. Also notice that the changes to the [`playbackRate`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#playbackrate) property only affect new instances, with no effect on currently playing instances.
+Here's an example of playing a sound 3 times with the [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option set to 2. Notice that the first playback instance is stopped when the third instance plays. Also notice that the changes to the [`playbackRate`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#playbackrate) and [`pitch`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#pitch) properties only affect new instances, with no effect on currently playing instances.
 
 ```javascript
-const sound = await BABYLON.CreateSoundAsync("sound", "sounds/alarm-1.mp3", { maxInstances: 2 });
+const sound = await BABYLON.CreateSoundAsync("sound", "sounds/alarm-1.mp3", {
+    maxInstances: 2
+});
 
 sound.play(); // Instance #1.
 
@@ -90,7 +92,7 @@ setTimeout(() => {
 }, 4000);
 ```
 
-See this playground for a full example: <Playground id="#VP1B9P#7" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
+See this playground for a full example: <Playground id="#VP1B9P#8" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
 
 ## Looping playback
 
