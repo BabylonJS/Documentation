@@ -65,6 +65,33 @@ The disadvantages of [`streaming sounds`](/typedoc/classes/BABYLON.StreamingSoun
 
 TODO: Add streaming sound code snippet and playground example.
 
+## Sound instances
+
+When a sound's `play` function is called, it creates a sound "instance" to perform the audio playback using the sound's current settings. Calling `play` multiple times causes multiple instances to be created, allowing individual sounds to be played simultaneously and overlapped.
+
+You can limit the number of instances that get created by setting a sound's [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option or [`maxInstances`](/typedoc/classes/BABYLON.AbstractSound#maxinstances) property. When `maxInstances` is exceeded, old instances are stopped and deactivated until the number of active instances is reduced to the given maximum. For example, if `maxInstances` is set to `2`, calling `play` 3 times in a row will cause the 1st instance to be stopped automatically so the 3rd instance can play without the `maxInstances` setting being exceeded.
+
+Some sound functions and properties affect all of the currently playing instances, like the [`stop`](/typedoc/classes/BABYLON.AbstractSound#stop) function and the [`volume`](/typedoc/classes/BABYLON.AbstractSound#volume) property.
+
+The [`currentTime`](/typedoc/classes/BABYLON.AbstractSound#currenttime) property, however, affects only the most recently started playback instance. Other properties only affect new playback instances created by the sound's `play` function after the properties have been set. For example, changing a sound's `loop` property from `false` to `true` will not make any of the currently playing instances start looping. Only new playback instances will take the updated `loop` property's value.
+
+Here's an example of playing a sound 3 times with the [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option set to 2. Notice that the first playback instance is stopped when the third instance plays. Also notice that the changes to the [`playbackRate`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#playbackrate) property only affect new instances, with no effect on currently playing instances.
+
+```javascript
+const sound = await BABYLON.CreateSoundAsync("sound", "sounds/alarm-1.mp3", { maxInstances: 2 });
+
+sound.play(); // Instance #1.
+
+setTimeout(() => {
+    sound.playbackRate = 2;
+    sound.play(); // Instance #2.
+    sound.pitch = 100;
+    sound.play(); // Instance #3.
+}, 4000);
+```
+
+See this playground for a full example: <Playground id="#VP1B9P#7" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
+
 ## Looping playback
 
 Sounds stop playing automatically when playback reaches the end of the sound file. To make sounds continue playing from the beginning again instead of stopping at the end, set the sound to loop using one of the following methods:
@@ -97,33 +124,6 @@ bounce.play({ loop: true });
 ```
 
 TODO: Add static sound loop playground.
-
-## Sound instances
-
-When a sound's `play` function is called, it creates a sound "instance" to perform the audio playback using the sound's current settings. Calling `play` multiple times causes multiple instances to be created, allowing individual sounds to be played simultaneously and overlapped.
-
-You can limit the number of instances that get created by setting a sound's [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option or [`maxInstances`](/typedoc/classes/BABYLON.AbstractSound#maxinstances) property. When `maxInstances` is exceeded, old instances are stopped and deactivated until the number of active instances is reduced to the given maximum. For example, if `maxInstances` is set to `2`, calling `play` 3 times in a row will cause the 1st instance to be stopped automatically so the 3rd instance can play without the `maxInstances` setting being exceeded.
-
-Some sound functions and properties affect all of the currently playing instances, like the [`stop`](/typedoc/classes/BABYLON.AbstractSound#stop) function and the [`volume`](/typedoc/classes/BABYLON.AbstractSound#volume) property.
-
-The [`currentTime`](/typedoc/classes/BABYLON.AbstractSound#currenttime) property, however, affects only the most recently started playback instance. Other properties only affect new playback instances created by the sound's `play` function after the properties have been set. For example, changing a sound's `loop` property from `false` to `true` will not make any of the currently playing instances start looping. Only new playback instances will take the updated `loop` property's value.
-
-Here's an example of playing a sound 3 times with the [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option set to 2. Notice that the first playback instance is stopped when the third instance plays. Also notice that the changes to the [`playbackRate`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#playbackrate) property only affect new instances, with no effect on currently playing instances.
-
-```javascript
-const sound = await BABYLON.CreateSoundAsync("sound", "sounds/alarm-1.mp3", { maxInstances: 2 });
-
-sound.play(); // Instance #1.
-
-setTimeout(() => {
-    sound.playbackRate = 2;
-    sound.play(); // Instance #2.
-    sound.pitch = 100;
-    sound.play(); // Instance #3.
-}, 4000);
-```
-
-See this playground for a full example: <Playground id="#VP1B9P#7" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
 
 ## Volume
 
