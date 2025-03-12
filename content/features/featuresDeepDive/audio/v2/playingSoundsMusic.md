@@ -165,7 +165,25 @@ bounce.play({ loop: true });
 
 ## Volume
 
-The volume can be set using the `volume` property available for [sounds](/typedoc/classes/BABYLON.AbstractSound#volume) and [buses](http://localhost:3000/typedoc/classes/BABYLON.AbstractAudioBus#volume) which affects all sounds using  the bus, and there is also the [audio engine master volume](/typedoc/classes/BABYLON.AudioEngineV2#volume) which affects all sounds created using the audio engine.
+The sound, bus and audio engine `volume` setting adjusts sound loudness, with `0` to `1` being the normal range of silent to 100% and values above `1` boosting the sound's signal proportionately. Volume options and properties are available on [sounds](/typedoc/classes/BABYLON.AbstractSound#volume) and [buses](http://localhost:3000/typedoc/classes/BABYLON.AbstractAudioBus#volume) which affect all sounds using the bus, and on the [audio engine](/typedoc/classes/BABYLON.AudioEngineV2#volume) which affects all sounds and buses associated with that audio engine.
+
+```javascript
+async function initAudio() {
+    const audioEngine = await BABYLON.CreateAudioEngineAsync();
+    audioEngine.volume = 0.5;
+
+    const gunshot = await BABYLON.CreateSoundAsync("gunshot",
+        "sounds/gunshot.wav"
+    );
+
+    await audioEngine.unlock();
+
+    // Audio engine is ready to play sounds ...
+
+    gunshot.volume = 0.75;
+    gunshot.play()
+}
+```
 
 ## Stereo panning
 
