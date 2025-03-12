@@ -55,17 +55,17 @@ async function initAudio() {
 
 See this playground for a full example: <Playground id="#VP1B9P" title="Play a sound" description="A simple example of playing a sound."/>
 
-## Streaming sounds
+## Streaming a sound
 
 In addition to the `CreateSoundAsync` function, there is also [`CreateStreamingSoundAsync`](/typedoc/functions/BABYLON.CreateStreamingSoundAsync) which plays sounds using the browser's [`HTMLMediaElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement) feature.
 
-The advantage of streaming sounds is they only store part of the sound file in memory while playing instead of downloading the entire sound into an audio buffer beforehand. As a result, streaming sounds save a significant amount of memory when playing long sound files, and are useful for background music and extended narration.
+The advantage of streaming sounds is they only a small chunk of the sound file in memory while playing instead of downloading the entire sound into an audio buffer beforehand. As a result, streaming sounds save a significant amount of memory when playing long sound files, and are useful for background music and extended narration.
 
-The disadvantages for [`streaming sounds`](/typedoc/classes/BABYLON.StreamingSound) are they have fewer playback options than [`non-streaming static sounds`](/typedoc/classes/BABYLON.StaticSound). For example, streaming sounds can not be played for durations shorter than the sound file, they do not have the `loopStart` and `loopEnd` options, and initial playback may be delayed while the initial playback buffer is being downloaded, although this can be mitigated using the [`preloadCount` option](/typedoc/interfaces/BABYLON.IStreamingSoundOptions#preloadcount) or [`StreamingSound.preloadCount`](/typedoc/classes/BABYLON.StreamingSound#preloadcount) property.
+The disadvantages of [`streaming sounds`](/typedoc/classes/BABYLON.StreamingSound) are they have fewer playback options than [`non-streaming static sounds`](/typedoc/classes/BABYLON.StaticSound). For example, streaming sounds can not be played for durations shorter than the sound file, they do not have the `loopStart` and `loopEnd` options, and initial playback may be delayed while the initial playback buffer is being downloaded, although this can be mitigated using the [`preloadCount` option](/typedoc/interfaces/BABYLON.IStreamingSoundOptions#preloadcount).
 
 TODO: Add streaming sound code snippet and playground example.
 
-### Looping playback
+## Looping playback
 
 Sounds stop playing automatically when playback reaches the end of the sound file. To make sounds continue playing from the beginning again instead of stopping at the end, set the sound to loop using one of the following methods:
 
@@ -75,7 +75,7 @@ Sounds stop playing automatically when playback reaches the end of the sound fil
 
 <br/>
 
-For example, all three of the following code snippets loop the sound forever:
+For example, all three of the following code snippets loop the sound repeatedly:
 
 ```javascript
 const bounce = await BABYLON.CreateSoundAsync("bounce", "sounds/bounce.wav", { loop: true });
@@ -96,12 +96,72 @@ const bounce = await BABYLON.CreateSoundAsync("bounce", "sounds/bounce.wav");
 bounce.play({ loop: true });
 ```
 
-TODO: Add static sound loop example.
+TODO: Add static sound loop playground.
 
-## Playback instances
+## Sound instances
+
+When a sound's `play` function is called, it creates a sound "instance" to perform the audio playback using the sound's current settings. Calling `play` multiple times causes multiple instances to be created, allowing individual sounds to be played simultaneously and overlapped.
+
+You can limit the number of instances that get created by setting a sound's [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option or [`maxInstances`](/typedoc/classes/BABYLON.AbstractSound#maxinstances) property. When `maxInstances` is exceeded, old instances are stopped and deactivated until the number of active instances is reduced to the given maximum. For example, if `maxInstances` is set to `2`, calling `play` 3 times in a row will cause the 1st instance to be stopped automatically so the 3rd instance can play without the `maxInstances` setting being exceeded.
+
+Some sound functions and properties affect all of the currently playing instances, like the [`stop`](/typedoc/classes/BABYLON.AbstractSound#stop) function and the [`volume`](/typedoc/classes/BABYLON.AbstractSound#volume) property.
+
+The [`currentTime`](/typedoc/classes/BABYLON.AbstractSound#currenttime) property, however, affects only the most recently started playback instance. Other properties only affect new playback instances created by the sound's `play` function after the properties have been set. For example, changing a sound's `loop` property from `false` to `true` will not make any of the currently playing instances start looping. Only new playback instances will take the updated `loop` property's value.
+
+Here's an example of playing a sound 3 times with the [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option set to 2. Notice that the first playback instance is stopped when the third instance plays. Also notice that the changes to the [`playbackRate`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#playbackrate) property only affect new instances, with no effect on currently playing instances.
+
+```javascript
+const sound = await BABYLON.CreateSoundAsync("sound", "sounds/alarm-1.mp3", { maxInstances: 2 });
+
+sound.play();
+
+setTimeout(() => {
+  sound.playbackRate = 1.25;
+  sound.play();
+}, 1000);
+
+setTimeout(() => {
+  sound.playbackRate = 1.5;
+  sound.play();
+}, 2000);
+```
+
+See this playground for a full example: <Playground id="#VP1B9P#5" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
+
+## Volume
+
+TODO: Document all the different ways that volume can be set on sounds, buses and the audio engine itself.
+
+## Stereo panning
+
+TODO: Document the `stereo` subproperty on sounds and buses.
+
+## Spatialization
+
+TODO: Document the `spatial` subproperty on sounds and buses.
+
+TODO: Document the `listener` subproperty on the audio engine.
+
+## Audio buses
+
+TODO: Document `AudioBus` and `MainAudioBus` classes.
+- Talk about the audio engine's default main bus.
+- Talk about the sound and audio bus `outBus` property.
+
+## Analyzer
+
+TODO: Document the `analyzer` subproperty on sounds and buses.
+
+## Sound buffers
+
+TODO: Document reusing sound buffers across multiple sounds.
+- Talk about CPU and memory savings from sharing buffers.
 
 ## Using browser-specific audio codecs
 
+TODO: Document using URLs in string arrays when creating sounds.
+
 ## Browser autoplay considerations
 
-## TODO: Finish this page
+TODO: Document browser autoplay restrictions and how that affects the audio engine.
+- Talk about how sound `autoplay` and `loop` options affect playback when the audio context is unlocked.
