@@ -185,9 +185,35 @@ async function initAudio() {
 }
 ```
 
-## Stereo panning
+## Stereo pan
 
-TODO: Document the `stereo` subproperty on sounds and buses.
+The sound and bus `stereo.pan` setting moves a sound between the left and right speakers. The `stereo` property is available on [`sounds`](/typedoc/classes/BABYLON.AbstractSound#stereo) and [`buses`](/typedoc/classes/BABYLON.AudioBus#stereo), but not [`main buses`](/typedoc/classes/BABYLON.MainAudioBus). Values can range from `-1` to `1`. A value of negative one moves sound output to the left speaker, and a value of positive one moves sound output to the right speaker.
+
+To create a sound with the `stereo.pan` option set, use the [`stereoPan`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereopan) option.
+
+The following example plays a sound effect in the left speaker using the `stereo.pan` property:
+
+```javascript
+async function initAudio() {
+    const audioEngine = await BABYLON.CreateAudioEngineAsync();
+    audioEngine.volume = 0.5;
+
+    const gunshot = await BABYLON.CreateSoundAsync("gunshot",
+        "sounds/gunshot.wav",
+        { stereoEnabled: true }
+    );
+
+    await audioEngine.unlock();
+
+    // Audio engine is ready to play sounds ...
+
+    gunshot.stereo.pan = -1;
+    gunshot.play()
+}
+```
+
+Note that this example creates the sound with the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option set to `true`. This is done because the underlying `stereo` property is not enabled by default, so a small delay occurs to enable it the first time the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property is accessed. Setting the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option to `true` avoids this delay, as does setting the [`stereoPan`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereopan) option when the sound is created instead of using the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property later. Subsequent changes to the stereo settings are instantaneous after the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property has been enabled.
+
 
 ## Spatialization
 
