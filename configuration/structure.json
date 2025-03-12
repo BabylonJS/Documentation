@@ -593,7 +593,18 @@
                             "children": {
                                 "frameGraphBasicConcepts": {
                                     "friendlyName": "Basic concepts and getting started",
-                                    "children": {},
+                                    "children": {
+                                        "frameGraphReplaceRenderLoop": {
+                                            "friendlyName": "Frame Graph replacing the scene render loop",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts/frameGraphReplaceRenderLoop"
+                                        },
+                                        "frameGraphInAdditionToRenderLoop": {
+                                            "friendlyName": "Frame Graph in addition to the scene render loop",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts/frameGraphInAdditionToRenderLoop"
+                                        }
+                                    },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts"
                                 },
                                 "frameGraphBlocks": {
