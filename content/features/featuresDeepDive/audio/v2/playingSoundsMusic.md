@@ -127,7 +127,7 @@ See this playground for a full example: <Playground id="#VP1B9P#7" title="Sound 
 
 ## Volume
 
-TODO: Document all the different ways that volume can be set on sounds, buses and the audio engine itself.
+The volume can be set using the `volume` property available for [sounds](/typedoc/classes/BABYLON.AbstractSound#volume) and [buses](http://localhost:3000/typedoc/classes/BABYLON.AbstractAudioBus#volume) which affects all sounds using  the bus, and there is also the [audio engine master volume](/typedoc/classes/BABYLON.AudioEngineV2#volume) which affects all sounds created using the audio engine.
 
 ## Stereo panning
 
