@@ -158,7 +158,10 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 bounce.play({ loop: true });
 ```
 
-TODO: Add static sound loop playground.
+<Playground id="#VP1B9P#12" title="Looping playback" description="An example of looping sound playback three different ways."/>
+
+<br/>
+<br/>
 
 ## Volume
 
