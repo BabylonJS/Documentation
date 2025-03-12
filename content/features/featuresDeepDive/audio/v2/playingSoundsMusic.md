@@ -66,7 +66,22 @@ The advantage of streaming sounds is they keep a small chunk of the sound file i
 
 The disadvantages of [`streaming sounds`](/typedoc/classes/BABYLON.StreamingSound) are they have fewer playback options than [`non-streaming static sounds`](/typedoc/classes/BABYLON.StaticSound). For example, streaming sounds can not be played for durations shorter than the sound file, they do not have the `loopStart` and `loopEnd` options, and initial playback may be delayed while the initial playback buffer is being downloaded (although this can be avoided using the [`preloadCount` option](/typedoc/interfaces/BABYLON.IStreamingSoundOptions#preloadcount)).
 
-TODO: Add streaming sound code snippet and playground example.
+```javascript
+async function initAudio() {
+    const audioEngine = await BABYLON.CreateAudioEngineAsync();
+    const narration = await BABYLON.CreateStreamingSoundAsync("narration", "https://assets.babylonjs.com/sound/testing/60-count.mp3");
+
+    await audioEngine.unlock();
+
+    // Audio engine is ready to play sounds ...
+    narration.play()
+}
+```
+
+<Playground id="#VP1B9P#10" title="Streaming a sound" description="A simple example of playing a streaming sound."/>
+
+<br/>
+<br/>
 
 ## Sound instances
 
