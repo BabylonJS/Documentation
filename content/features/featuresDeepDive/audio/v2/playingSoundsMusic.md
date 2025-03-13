@@ -165,7 +165,7 @@ bounce.play({ loop: true });
 
 ## Volume
 
-The sound, bus and audio engine `volume` setting adjusts sound loudness, with `0` to `1` being the normal range of silent to 100% and values above `1` boosting the sound's signal proportionately. Volume options and properties are available on [sounds](/typedoc/classes/BABYLON.AbstractSound#volume) and [buses](http://localhost:3000/typedoc/classes/BABYLON.AbstractAudioBus#volume) which affect all sounds using the bus, and on the [audio engine](/typedoc/classes/BABYLON.AudioEngineV2#volume) which affects all sounds and buses associated with that audio engine.
+The sound, bus and audio engine `volume` setting adjusts sound loudness, with `0` to `1` being the normal range of silent to 100% and values above `1` boosting the sound's signal proportionately. Volume options and properties are available on [sounds](/typedoc/classes/BABYLON.AbstractSound#volume) and [buses](typedoc/classes/BABYLON.AbstractAudioBus#volume) which affect all sounds using the bus, and on the [audio engine](/typedoc/classes/BABYLON.AudioEngineV2#volume) which affects all sounds and buses associated with that audio engine.
 
 ```javascript
 async function initAudio() {
@@ -215,11 +215,43 @@ async function initAudio() {
 Note that this example creates the sound with the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option set to `true`. This is done because the underlying `stereo` property is not enabled by default, so a small delay occurs to enable it the first time the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property is accessed. Setting the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option to `true` avoids this delay, as does setting the [`stereoPan`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereopan) option when the sound is created instead of using the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property later. Subsequent changes to the stereo settings are instantaneous after the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property has been enabled.
 
 
-## Spatialization
+## Spatial audio
 
-TODO: Document the `spatial` subproperty on sounds and buses.
+Spatial audio refers to sounds placed in a three dimensional space. It requires a "listener" to hear the audio, and a "source" to emit the audio. Listeners and sources both have a 3D position and direction, and sources have additional settings for specifying how the sound should propogate in the 3D space.
 
-TODO: Document the `listener` subproperty on the audio engine.
+There is one spatial audio listener per audio engine. It can be accessed through the audio engine's [`listener`](/typedoc/classes/BABYLON.AudioEngineV2#listener) property.
+
+Sounds and buses expose their spatial settings through their [`spatial`](/typedoc/classes/BABYLON.AbstractSound#spatial) property. See the [`AbstractSpatialAudio`]/typedoc/classes/BABYLON.AbstractSpatialAudio) documentation for details on the available spatial audio settings for sound sources.
+
+### Attaching spatial audio sources
+
+The easiest way to control the position and direction of a spatial sound source or listener is to attach it to a mesh or other graphics object. This can be done with the [`spatial.attach`](/typedoc/classes/BABYLON.AbstractSpatialAudio#attach) function, as in the following example:
+
+```javascript
+const bounce = await BABYLON.CreateSoundAsync("bounce",
+    "sounds/bounce.wav",
+    { spatialEnabled: true }
+);
+
+bounce.spatial.attach(mesh);
+
+bounce.play({ loop: true });
+
+```
+
+Note that this example creates the sound with the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option set to `true`. This is done because the underlying `spatial` property is not enabled by default, so a small delay occurs to enable it the first time the [`spatial`](/typedoc/classes/BABYLON.AbstractSound#spatial) property is accessed. Setting the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option to `true` avoids this delay, as does setting any of the  spatial audio options when the sound is created.
+
+<Playground id="#VP1B9P#28" title="Attach to mesh" description="An example of attaching a spatial sound source to a mesh."/>
+
+<br/>
+<br/>
+
+To experiment with the available [spatial sound source settings]/typedoc/classes/BABYLON.AbstractSpatialAudio), the following playground is provided:
+
+<Playground id="#VP1B9P#31" title="Spatial vizualizer" description="A spatial sounds source setting visualizer."/>
+
+<br/>
+<br/>
 
 ## Audio buses
 
