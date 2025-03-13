@@ -217,7 +217,7 @@ Note that this example creates the sound with the [`stereoEnabled`](/typedoc/int
 
 ## Spatial audio
 
-Spatial audio refers to sounds placed in a three dimensional space. It requires a "listener" to hear the audio, and a "source" to emit the audio. Listeners and sources both have a 3D position and direction, and sources have additional settings for specifying how the sound should propogate in the 3D space.
+"Spatial audio" refers to sounds placed in a three dimensional space. It requires a "listener" to hear the audio, and a "source" to emit the audio. Listeners and sources both have a 3D position and direction, and sources have additional settings for specifying how the sound should propogate in the 3D space.
 
 There is one spatial audio listener per audio engine. It can be accessed through the audio engine's [`listener`](/typedoc/classes/BABYLON.AudioEngineV2#listener) property.
 
@@ -236,7 +236,6 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 bounce.spatial.attach(mesh);
 
 bounce.play({ loop: true });
-
 ```
 
 Note that this example creates the sound with the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option set to `true`. This is done because the underlying `spatial` property is not enabled by default, so a small delay occurs to enable it the first time the [`spatial`](/typedoc/classes/BABYLON.AbstractSound#spatial) property is accessed. Setting the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option to `true` avoids this delay, as does setting any of the  spatial audio options when the sound is created.
