@@ -254,9 +254,45 @@ To experiment with the available [spatial sound source settings]/typedoc/classes
 
 ## Audio buses
 
-TODO: Document `AudioBus` and `MainAudioBus` classes.
-- Talk about the audio engine's default main bus.
-- Talk about the sound and audio bus `outBus` property.
+Audio buses combine the audio output of multiple sound sources into a single audio output. They make it possible to group sound output together, which makes it easier to manage large audio routing graphs and can be used to reduce the amount of CPU used for effects like [spatial audio](#spatial-audio).
+
+Sounds and buses send their audio output to the bus specified by the [`outBus`](/typedoc/classes/BABYLON.AbstractSound#outbus) property, which can be set to a [`MainAudioBus`](/typedoc/classes/BABYLON.MainAudioBus) or a full-featured [`AudioBus`](/typedoc/classes/BABYLON.AudioBus).
+
+### Main audio buses
+
+A [`MainAudioBus`](/typedoc/classes/BABYLON.MainAudioBus) is the last bus that audio passes through before reaching the speakers. It always sends its output to the speakers. It can not send its output to another bus like [intermediate audio buses](#intermediate-audio-buses) can.
+
+A default [`MainAudioBus`](/typedoc/classes/BABYLON.MainAudioBus) is created automatically by the audio engine, and all sounds and [intermediate audio buses](#intermediate-audio-buses) have their [`outBus`](/typedoc/classes/BABYLON.AbstractSound#outbus) property set to it by default.
+
+Main buses are simpler than normal buses. They can not be used as [spatial audio](#spatial-audio) sources and they do not support [stereo pan](#stereo-pan). These features **are** supported by [intermediate audio buses](#intermediate-audio-buses).
+
+### Intermediate audio buses
+
+Sounds send their audio output to a main bus by default, but the [`outBus`](/typedoc/classes/BABYLON.AbstractSound#outbus) can be changed to an intermediate [`AudioBus`](/typedoc/classes/BABYLON.AudioBus) instead if needed. This allows multiple sounds to be sent to a single [`AudioBus`](/typedoc/classes/BABYLON.AudioBus) that supports [stereo pan](#stereo-pan) and can be used as a [spatial audio](#spatial-audio) source.
+
+Intermediate [`AudioBus`](/typedoc/classes/BABYLON.AudioBus) output can be sent to other intermediate audio buses as long as no cyclic audio routing loops are created. An error will be thrown if a cyclic routing loop is detected when setting the [`AudioBus.outBus`](/typedoc/classes/BABYLON.AudioBus#outbus) property.
+
+Note that intermediate audio buses can not be the last bus in the audio routing graph. Only a [`MainAudioBus`](/typedoc/classes/BABYLON.MainAudioBus) can send audio to the speakers.
+
+Here is a simple example of using an intermediate [`AudioBus`](/typedoc/classes/BABYLON.AudioBus):
+
+```javascript
+const bus = await BABYLON.CreateAudioBusAsync("bus",
+    { spatialEnabled: true }
+);
+
+bus.spatial.attach(mesh);
+
+const bounce = await BABYLON.CreateSoundAsync("bounce",
+    "sounds/bounce.wav",
+);
+
+bounce.outBus = bus;
+
+bounce.play({ loop: true });
+```
+
+TODO: Add playground example for buses.
 
 ## Analyzer
 
