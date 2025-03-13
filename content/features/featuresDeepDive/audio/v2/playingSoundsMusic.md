@@ -223,9 +223,9 @@ There is one spatial audio listener per audio engine. It can be accessed through
 
 Sounds and buses expose their spatial settings through their [`spatial`](/typedoc/classes/BABYLON.AbstractSound#spatial) property. See the [`AbstractSpatialAudio`]/typedoc/classes/BABYLON.AbstractSpatialAudio) documentation for details on the available spatial audio settings for sound sources.
 
-### Attaching spatial audio sources
+### Attaching meshes
 
-The easiest way to control the position and direction of a spatial sound source or listener is to attach it to a mesh or other graphics object. This can be done with the [`spatial.attach`](/typedoc/classes/BABYLON.AbstractSpatialAudio#attach) function, as in the following example:
+The easiest way to control the position and direction of a spatial sound source or listener is to attach it to a mesh or other graphics object. This can be done with the [`spatial.attach`](/typedoc/classes/BABYLON.AbstractSpatialAudio#attach) function, like in the following example:
 
 ```javascript
 const bounce = await BABYLON.CreateSoundAsync("bounce",
@@ -241,12 +241,12 @@ bounce.play({ loop: true });
 
 Note that this example creates the sound with the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option set to `true`. This is done because the underlying `spatial` property is not enabled by default, so a small delay occurs to enable it the first time the [`spatial`](/typedoc/classes/BABYLON.AbstractSound#spatial) property is accessed. Setting the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option to `true` avoids this delay, as does setting any of the  spatial audio options when the sound is created.
 
-<Playground id="#VP1B9P#28" title="Attach to mesh" description="An example of attaching a spatial sound source to a mesh."/>
+<Playground id="#VP1B9P#28" title="Attaching meshes" description="An example of attaching a spatial sound source to a mesh."/>
 
 <br/>
 <br/>
 
-To experiment with the available [spatial sound source settings]/typedoc/classes/BABYLON.AbstractSpatialAudio), the following playground is provided:
+To experiment with the available [spatial sound source settings]/typedoc/classes/BABYLON.AbstractSpatialAudio), a spatial audio visualizer playground is provided:
 
 <Playground id="#VP1B9P#34" title="Spatial vizualizer" description="A spatial sound settings visualizer."/>
 
