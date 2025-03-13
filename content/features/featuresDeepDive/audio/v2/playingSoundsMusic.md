@@ -1,0 +1,320 @@
+---
+title: Audio
+image:
+description: Dive into everything you could want to know about using the Babylon.js sound engine for simple to advanced audio.
+keywords: diving deeper, sound, audio, sound engine, audio engine
+further-reading:
+  - title: Sound
+    url: /typedoc/classes/BABYLON.StaticSound
+  - title: Audio Buses
+    url: /typedoc/classes/BABYLON.AudioBus
+video-overview:
+video-content:
+---
+
+<br/>
+
+The Babylon.js audio engine is based on the [Web Audio specification](https://webaudio.github.io/web-audio-api/). It features ambient, spatialized and directional sounds, and audio buses for signal routing and mixing.
+
+The audio engine is simple and powerful, and its API is similar to the Babylon.js graphics APIs, which makes it easy to learn if you are already familiar with Babylon.js framework.
+
+The sound formats supported by the audio engine are dictated by the browser. All browsers support the .mp3 and .wav formats, and most browsers support .ogg, .m4a, and .mp4. Other formats like .aac and .webm are browser-specific. When creating sounds, you can specify an array of sound file URLs to choose from and the first format recognized by the browser will be used. See [Using browser-specific audio codecs](#using-browser-specific-audio-codecs).
+
+## Creating an audio engine
+
+Before any sounds can be played, the audio engine must be created and initialized with the [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync) function. The available options for creating an audio engine are listed in the [`IWebAudioEngineOptions`](/typedoc/interfaces/BABYLON.IWebAudioEngineOptions) interface documentation.
+
+The [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync) function is asynchronous, which means it returns a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will resolve when the audio engine is ready.
+
+**You must wait for the [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) to resolve before use**, which can be done with the [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) keyword. The following code snippet shows how to do this:
+
+```javascript
+async function initAudio() {
+    const audioEngine = await BABYLON.CreateAudioEngineAsync();
+
+    // Create sounds here, but don't call `play()` on them, yet ...
+
+    // Wait until audio engine is ready to play sounds.
+    await audioEngine.unlock();
+
+    // Start sound playback ...
+}
+```
+
+Note that the example code snippet also waits for the audio engine to be "unlocked" because browsers prevent audio from playing a user interaction occurs. See [Browser autoplay considerations](#browser-autoplay-considerations) for more information.
+
+## Playing a sound
+
+The simplest way to play a sound is to create it with the [`CreateSoundAsync`](/typedoc/functions/BABYLON.CreateSoundAsync) function, and call the sound's [`play()`](/typedoc/classes/BABYLON.AbstractSound#play) function after the audio engine is unlocked:
+
+```javascript
+const audioEngine = await BABYLON.CreateAudioEngineAsync();
+
+const gunshot = await BABYLON.CreateSoundAsync("gunshot",
+    "sounds/gunshot.wav"
+);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
+gunshot.play()
+```
+
+<Playground id="#VP1B9P" title="Playing a sound" description="A simple example of playing a sound."/>
+
+<br/>
+<br/>
+
+## Streaming a sound
+
+To stream sounds, use the [`CreateStreamingSoundAsync`](/typedoc/functions/BABYLON.CreateStreamingSoundAsync) function, which plays sounds using the browser's [`HTMLMediaElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement) feature.
+
+Streaming sounds keep only a small chunk of the sound file in memory while playing instead of downloading the entire sound into an audio buffer beforehand. As a result, streaming sounds save a significant amount of memory when playing long sound files, and are useful for background music and extended narrations.
+
+The main disadvantage of [`streaming sounds`](/typedoc/classes/BABYLON.StreamingSound) is they have fewer playback options than [`non-streaming static sounds`](/typedoc/classes/BABYLON.StaticSound). For example, streaming sounds can not be played for durations shorter than the sound file, they do not have the `loopStart` and `loopEnd` options, and initial playback may be delayed while the playback buffer is being filled (note that this can be avoided using the [`preloadCount` option](/typedoc/interfaces/BABYLON.IStreamingSoundOptions#preloadcount)).
+
+Here is an example of playing a streaming sound:
+
+```javascript
+const narration = await BABYLON.CreateStreamingSoundAsync("narration",
+    "https://assets.babylonjs.com/sound/testing/60-count.mp3"
+);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
+narration.play()
+```
+
+<Playground id="#VP1B9P#10" title="Streaming a sound" description="A simple example of playing a streaming sound."/>
+
+<br/>
+<br/>
+
+## Sound instances
+
+When a sound's `play` function is called, it creates a sound "instance" to perform the audio playback using the sound's current settings. Calling `play` multiple times causes multiple instances to be created, allowing individual sounds to be played simultaneously and overlapped.
+
+You can limit the number of instances that get created using a sound's `maxInstances` setting. When the [`maxInstances` option](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) or [property](/typedoc/classes/BABYLON.AbstractSound#maxinstances) is exceeded, old instances are stopped and deactivated until the number of active instances is reduced to the given maximum. For example, if `maxInstances` is set to `2`, calling `play` three times in a row makes the first instance stop automatically so the third instance can play without the `maxInstances` setting being exceeded.
+
+Some sound functions and settings affect all of the currently playing instances, like the [`stop`](/typedoc/classes/BABYLON.AbstractSound#stop) function and the [`volume`](/typedoc/classes/BABYLON.AbstractSound#volume) property. However, **the [`currentTime`](/typedoc/classes/BABYLON.AbstractSound#currenttime) property only affects the newest playback instance**. Other properties only affect new playback instances created by the sound's `play` function after the properties have been set. For example, changing a sound's `loop` property from `false` to `true` will not make any of the currently playing instances start looping. Only new playback instances will take the updated `loop` property's value.
+
+Here's an example of playing a sound 3 times with the [`maxInstances`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#maxinstances) option set to 2. Notice that the first playback instance is stopped when the third instance plays. Also notice that the changes to the [`playbackRate`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#playbackrate) and [`pitch`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#pitch) properties have no effect on currently playing instances. Only new instances are affected when those properties are changed.
+
+```javascript
+const sound = await BABYLON.CreateSoundAsync("sound",
+    "https://assets.babylonjs.com/sound/alarm-1.mp3",
+    { maxInstances: 2 }
+);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
+sound.play(); // Instance #1.
+
+setTimeout(() => {
+    sound.playbackRate = 2;
+    sound.play(); // Instance #2.
+    sound.pitch = 100;
+    sound.play(); // Instance #3.
+}, 4000);
+```
+
+<Playground id="#VP1B9P#8" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
+
+<br/>
+<br/>
+
+## Looping playback
+
+Sounds stop playing automatically when playback reaches the end of the sound file. To make sounds restart from the beginning when they reach the end, set the sound's `loop` setting using any of the following methods:
+
+1. Set the [`loop`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#loop) option to `true` when creating the sound.
+1. Set the sound's [`loop`](/typedoc/classes/BABYLON.AbstractSound#loop) property to `true` after creating the sound, but before calling the `play()` function.
+1. Call the sound's [`play`](/typedoc/classes/BABYLON.AbstractSound#play) function with the [`loop`](/typedoc/interfaces/BABYLON.IAbstractSoundPlayOptions#loop) option set to `true`.
+
+<br/>
+
+For example, the following code snippets all loop the sound indefinitely:
+
+```javascript
+const bounce = await BABYLON.CreateSoundAsync("bounce",
+    "sounds/bounce.wav",
+    { loop: true }
+);
+
+bounce.play();
+```
+
+```javascript
+const bounce = await BABYLON.CreateSoundAsync("bounce",
+    "sounds/bounce.wav"
+);
+
+bounce.loop = true;
+bounce.play();
+```
+
+```javascript
+const bounce = await BABYLON.CreateSoundAsync("bounce",
+    "sounds/bounce.wav"
+);
+
+bounce.play({ loop: true });
+```
+
+<Playground id="#VP1B9P#12" title="Looping playback" description="An example of looping sound playback three different ways."/>
+
+<br/>
+<br/>
+
+## Volume
+
+The sound, bus and audio engine `volume` setting adjusts sound loudness, with `0` to `1` being the normal range from silent to 100%. Values above `1` boost the sound's signal proportionately.
+
+Volume options and properties are available on [sounds](/typedoc/classes/BABYLON.AbstractSound#volume) and [buses](typedoc/classes/BABYLON.AbstractAudioBus#volume) which affect all sounds using the bus, and on the [audio engine](/typedoc/classes/BABYLON.AudioEngineV2#volume) which affects all sounds and buses associated with that audio engine.
+
+```javascript
+const audioEngine = await BABYLON.CreateAudioEngineAsync();
+audioEngine.volume = 0.5;
+
+const gunshot = await BABYLON.CreateSoundAsync("gunshot",
+    "sounds/gunshot.wav"
+);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
+gunshot.volume = 0.75;
+gunshot.play()
+```
+
+## Stereo pan
+
+The sound and bus `stereo.pan` setting moves a sound between the left and right speakers. The `stereo` property is available on [`sounds`](/typedoc/classes/BABYLON.AbstractSound#stereo) and [`buses`](/typedoc/classes/BABYLON.AudioBus#stereo), but not [`main buses`](/typedoc/classes/BABYLON.MainAudioBus). Values can range from `-1` to `1`. A value of negative one moves sound output to the left speaker, and a value of positive one moves sound output to the right speaker.
+
+To create a sound with the `stereo.pan` option set, use the [`stereoPan`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereopan) option.
+
+The following example plays a sound effect in the left speaker using the `stereo.pan` property:
+
+```javascript
+const audioEngine = await BABYLON.CreateAudioEngineAsync();
+audioEngine.volume = 0.5;
+
+const gunshot = await BABYLON.CreateSoundAsync("gunshot",
+    "sounds/gunshot.wav",
+    { stereoEnabled: true }
+);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
+gunshot.stereo.pan = -1;
+gunshot.play()
+```
+
+Note that this example creates the sound with the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option set to `true`. This is done because the underlying `stereo` property is not enabled by default, so a small delay occurs to enable it the first time the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property is accessed. Setting the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option to `true` avoids this delay, as does setting the [`stereoPan`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereopan) option when the sound is created instead of using the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property later. Subsequent changes to the stereo settings are instantaneous after the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property has been enabled.
+
+
+## Spatial audio
+
+"Spatial audio" refers to sounds placed in a three dimensional space. It requires a "listener" to hear the audio, and a "source" to emit the audio. Listeners and sources both have a 3D position and direction, and sources have additional settings for specifying how the sound should propogate in the 3D space.
+
+There is one spatial audio listener per audio engine. It can be accessed through the audio engine's [`listener`](/typedoc/classes/BABYLON.AudioEngineV2#listener) property.
+
+Sounds and buses expose their spatial settings through their [`spatial`](/typedoc/classes/BABYLON.AbstractSound#spatial) property. See the [`AbstractSpatialAudio`]/typedoc/classes/BABYLON.AbstractSpatialAudio) documentation for details on the available spatial audio settings for sound sources.
+
+### Attaching meshes
+
+The easiest way to control the position and direction of a spatial sound source or listener is to attach it to a mesh or other graphics object. This can be done with the [`spatial.attach`](/typedoc/classes/BABYLON.AbstractSpatialAudio#attach) function, like in the following example:
+
+```javascript
+const bounce = await BABYLON.CreateSoundAsync("bounce",
+    "sounds/bounce.wav",
+    { spatialEnabled: true }
+);
+
+bounce.spatial.attach(mesh);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
+bounce.play({ loop: true });
+```
+
+Note that this example creates the sound with the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option set to `true`. This is done because the underlying `spatial` property is not enabled by default, so a small delay occurs to enable it the first time the [`spatial`](/typedoc/classes/BABYLON.AbstractSound#spatial) property is accessed. Setting the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option to `true` avoids this delay, as does setting any of the  spatial audio options when the sound is created.
+
+<Playground id="#VP1B9P#28" title="Attaching meshes" description="An example of attaching a spatial sound source to a mesh."/>
+
+<br/>
+<br/>
+
+To experiment with the available [spatial sound source settings]/typedoc/classes/BABYLON.AbstractSpatialAudio), a spatial audio visualizer playground is provided:
+
+<Playground id="#VP1B9P#34" title="Spatial vizualizer" description="A spatial sound settings visualizer."/>
+
+<br/>
+<br/>
+
+## Audio buses
+
+Audio buses combine the audio output of multiple sound sources into a single audio output. They make it possible to group sound output together, which makes it easier to manage large audio routing graphs and can be used to reduce the amount of CPU used for effects like [spatial audio](#spatial-audio).
+
+Sounds and buses send their audio output to the bus specified by the [`outBus`](/typedoc/classes/BABYLON.AbstractSound#outbus) property, which can be set to a [`MainAudioBus`](/typedoc/classes/BABYLON.MainAudioBus) or a full-featured [`AudioBus`](/typedoc/classes/BABYLON.AudioBus).
+
+### Main audio buses
+
+A [`MainAudioBus`](/typedoc/classes/BABYLON.MainAudioBus) is the last bus that audio passes through before reaching the speakers. It always sends its output to the speakers. It can not send its output to another bus like [intermediate audio buses](#intermediate-audio-buses) can.
+
+A default [`MainAudioBus`](/typedoc/classes/BABYLON.MainAudioBus) is created automatically by the audio engine, and all sounds and [intermediate audio buses](#intermediate-audio-buses) have their [`outBus`](/typedoc/classes/BABYLON.AbstractSound#outbus) property set to it by default.
+
+Main buses are simpler than normal buses. They can not be used as [spatial audio](#spatial-audio) sources and they do not support [stereo pan](#stereo-pan). These features **are** supported by [intermediate audio buses](#intermediate-audio-buses).
+
+### Intermediate audio buses
+
+Sounds send their audio output to a main bus by default, but the [`outBus`](/typedoc/classes/BABYLON.AbstractSound#outbus) can be changed to an intermediate [`AudioBus`](/typedoc/classes/BABYLON.AudioBus) instead if needed. This allows multiple sounds to be sent to a single [`AudioBus`](/typedoc/classes/BABYLON.AudioBus) that supports [stereo pan](#stereo-pan) and can be used as a [spatial audio](#spatial-audio) source.
+
+Intermediate [`AudioBus`](/typedoc/classes/BABYLON.AudioBus) output can be sent to other intermediate audio buses as long as no cyclic audio routing loops are created. An error will be thrown if a cyclic routing loop is detected when setting the [`AudioBus.outBus`](/typedoc/classes/BABYLON.AudioBus#outbus) property.
+
+Note that intermediate audio buses can not be the last bus in the audio routing graph. Only a [`MainAudioBus`](/typedoc/classes/BABYLON.MainAudioBus) can send audio to the speakers.
+
+Here is a simple example of using an intermediate [`AudioBus`](/typedoc/classes/BABYLON.AudioBus):
+
+```javascript
+const bus = await BABYLON.CreateAudioBusAsync("bus",
+    { spatialEnabled: true }
+);
+
+bus.spatial.attach(mesh);
+
+const bounce = await BABYLON.CreateSoundAsync("bounce",
+    "sounds/bounce.wav",
+);
+
+bounce.outBus = bus;
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
+bounce.play({ loop: true });
+```
+
+TODO: Add playground example for buses.
+
+## Analyzer
+
+TODO: Document the `analyzer` subproperty on sounds and buses.
+
+## Sound buffers
+
+TODO: Document reusing sound buffers across multiple sounds.
+- Talk about CPU and memory savings from sharing buffers.
+
+## Using browser-specific audio codecs
+
+TODO: Document using URLs in string arrays when creating sounds.
+
+## Browser autoplay considerations
+
+TODO: Document browser autoplay restrictions and how that affects the audio engine.
+- Talk about how sound `autoplay` and `loop` options affect playback when the audio context is unlocked.
