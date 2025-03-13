@@ -268,7 +268,7 @@ A [`MainAudioBus`](/typedoc/classes/BABYLON.MainAudioBus) is the last bus that a
 
 A default [`MainAudioBus`](/typedoc/classes/BABYLON.MainAudioBus) is created automatically by the audio engine, and all sounds and [intermediate audio buses](#intermediate-audio-buses) have their [`outBus`](/typedoc/classes/BABYLON.AbstractSound#outbus) property set to it by default.
 
-Main buses are simpler than normal buses. They can not be used as [spatial audio](#spatial-audio) sources and they do not support [stereo pan](#stereo-pan). These features **are** supported by [intermediate audio buses](#intermediate-audio-buses).
+Main buses are simpler than normal buses. They can not be used as [spatial audio](#spatial-audio) sources and they do not support [stereo pan](#stereo-pan). These features are only supported by sounds and [intermediate audio buses](#intermediate-audio-buses).
 
 ### Intermediate audio buses
 
