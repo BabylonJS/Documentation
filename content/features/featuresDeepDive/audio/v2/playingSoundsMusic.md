@@ -12,9 +12,11 @@ video-overview:
 video-content:
 ---
 
-The Babylon.js audio engine is based on the [Web Audio specification](https://webaudio.github.io/web-audio-api/). It features ambient, spatialized and directional sounds, as well as basic audio buses for signal routing and mixing.
+<br/>
 
-The audio engine is simple and powerful, and its API is similar to the Babylon.js graphics APIs, which makes it easier to learn for users already familiar with the rest of the Babylon.js framework.
+The Babylon.js audio engine is based on the [Web Audio specification](https://webaudio.github.io/web-audio-api/). It features ambient, spatialized and directional sounds, and audio buses for signal routing and mixing.
+
+The audio engine is simple and powerful, and its API is similar to the Babylon.js graphics APIs, which makes it easy to learn if you are already familiar with Babylon.js framework.
 
 The sound formats supported by the audio engine are dictated by the browser. All browsers support the .mp3 and .wav formats, and most browsers support .ogg, .m4a, and .mp4. Other formats like .aac and .webm are browser-specific. When creating sounds, you can specify an array of sound file URLs to choose from and the first format recognized by the browser will be used. See [Using browser-specific audio codecs](#using-browser-specific-audio-codecs).
 
@@ -29,9 +31,13 @@ The [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync
 ```javascript
 async function initAudio() {
     const audioEngine = await BABYLON.CreateAudioEngineAsync();
+
+    // Create sounds here, but don't call `play()` on them, yet ...
+
+    // Wait until audio engine is ready to play sounds.
     await audioEngine.unlock();
 
-    // Audio engine is ready to play sounds ...
+    // Start sound playback ...
 }
 ```
 
@@ -42,17 +48,16 @@ Note that the example code snippet also waits for the audio engine to be "unlock
 The simplest way to play a sound is to create it with the [`CreateSoundAsync`](/typedoc/functions/BABYLON.CreateSoundAsync) function, and call the sound's [`play()`](/typedoc/classes/BABYLON.AbstractSound#play) function after the audio engine is unlocked:
 
 ```javascript
-async function initAudio() {
-    const audioEngine = await BABYLON.CreateAudioEngineAsync();
-    const gunshot = await BABYLON.CreateSoundAsync("gunshot",
-        "sounds/gunshot.wav"
-    );
+const audioEngine = await BABYLON.CreateAudioEngineAsync();
 
-    await audioEngine.unlock();
+const gunshot = await BABYLON.CreateSoundAsync("gunshot",
+    "sounds/gunshot.wav"
+);
 
-    // Audio engine is ready to play sounds ...
-    gunshot.play()
-}
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
+gunshot.play()
 ```
 
 <Playground id="#VP1B9P" title="Playing a sound" description="A simple example of playing a sound."/>
@@ -71,17 +76,14 @@ The main disadvantage of [`streaming sounds`](/typedoc/classes/BABYLON.Streaming
 Here is an example of playing a streaming sound:
 
 ```javascript
-async function initAudio() {
-    const audioEngine = await BABYLON.CreateAudioEngineAsync();
-    const narration = await BABYLON.CreateStreamingSoundAsync("narration",
-        "https://assets.babylonjs.com/sound/testing/60-count.mp3"
-    );
+const narration = await BABYLON.CreateStreamingSoundAsync("narration",
+    "https://assets.babylonjs.com/sound/testing/60-count.mp3"
+);
 
-    await audioEngine.unlock();
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
 
-    // Audio engine is ready to play sounds ...
-    narration.play()
-}
+narration.play()
 ```
 
 <Playground id="#VP1B9P#10" title="Streaming a sound" description="A simple example of playing a streaming sound."/>
@@ -105,6 +107,9 @@ const sound = await BABYLON.CreateSoundAsync("sound",
     { maxInstances: 2 }
 );
 
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
 sound.play(); // Instance #1.
 
 setTimeout(() => {
@@ -122,7 +127,7 @@ setTimeout(() => {
 
 ## Looping playback
 
-Sounds stop playing automatically when playback reaches the end of the sound file. To make sounds restart from the beginning when they reach the end, set the sound's `loop` setting any of the following ways:
+Sounds stop playing automatically when playback reaches the end of the sound file. To make sounds restart from the beginning when they reach the end, set the sound's `loop` setting using any of the following methods:
 
 1. Set the [`loop`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#loop) option to `true` when creating the sound.
 1. Set the sound's [`loop`](/typedoc/classes/BABYLON.AbstractSound#loop) property to `true` after creating the sound, but before calling the `play()` function.
@@ -165,24 +170,23 @@ bounce.play({ loop: true });
 
 ## Volume
 
-The sound, bus and audio engine `volume` setting adjusts sound loudness, with `0` to `1` being the normal range of silent to 100% and values above `1` boosting the sound's signal proportionately. Volume options and properties are available on [sounds](/typedoc/classes/BABYLON.AbstractSound#volume) and [buses](typedoc/classes/BABYLON.AbstractAudioBus#volume) which affect all sounds using the bus, and on the [audio engine](/typedoc/classes/BABYLON.AudioEngineV2#volume) which affects all sounds and buses associated with that audio engine.
+The sound, bus and audio engine `volume` setting adjusts sound loudness, with `0` to `1` being the normal range from silent to 100%. Values above `1` boost the sound's signal proportionately.
+
+Volume options and properties are available on [sounds](/typedoc/classes/BABYLON.AbstractSound#volume) and [buses](typedoc/classes/BABYLON.AbstractAudioBus#volume) which affect all sounds using the bus, and on the [audio engine](/typedoc/classes/BABYLON.AudioEngineV2#volume) which affects all sounds and buses associated with that audio engine.
 
 ```javascript
-async function initAudio() {
-    const audioEngine = await BABYLON.CreateAudioEngineAsync();
-    audioEngine.volume = 0.5;
+const audioEngine = await BABYLON.CreateAudioEngineAsync();
+audioEngine.volume = 0.5;
 
-    const gunshot = await BABYLON.CreateSoundAsync("gunshot",
-        "sounds/gunshot.wav"
-    );
+const gunshot = await BABYLON.CreateSoundAsync("gunshot",
+    "sounds/gunshot.wav"
+);
 
-    await audioEngine.unlock();
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
 
-    // Audio engine is ready to play sounds ...
-
-    gunshot.volume = 0.75;
-    gunshot.play()
-}
+gunshot.volume = 0.75;
+gunshot.play()
 ```
 
 ## Stereo pan
@@ -194,22 +198,19 @@ To create a sound with the `stereo.pan` option set, use the [`stereoPan`](/typed
 The following example plays a sound effect in the left speaker using the `stereo.pan` property:
 
 ```javascript
-async function initAudio() {
-    const audioEngine = await BABYLON.CreateAudioEngineAsync();
-    audioEngine.volume = 0.5;
+const audioEngine = await BABYLON.CreateAudioEngineAsync();
+audioEngine.volume = 0.5;
 
-    const gunshot = await BABYLON.CreateSoundAsync("gunshot",
-        "sounds/gunshot.wav",
-        { stereoEnabled: true }
-    );
+const gunshot = await BABYLON.CreateSoundAsync("gunshot",
+    "sounds/gunshot.wav",
+    { stereoEnabled: true }
+);
 
-    await audioEngine.unlock();
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
 
-    // Audio engine is ready to play sounds ...
-
-    gunshot.stereo.pan = -1;
-    gunshot.play()
-}
+gunshot.stereo.pan = -1;
+gunshot.play()
 ```
 
 Note that this example creates the sound with the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option set to `true`. This is done because the underlying `stereo` property is not enabled by default, so a small delay occurs to enable it the first time the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property is accessed. Setting the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option to `true` avoids this delay, as does setting the [`stereoPan`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereopan) option when the sound is created instead of using the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property later. Subsequent changes to the stereo settings are instantaneous after the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property has been enabled.
@@ -234,6 +235,9 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 );
 
 bounce.spatial.attach(mesh);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
 
 bounce.play({ loop: true });
 ```
@@ -288,6 +292,9 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 );
 
 bounce.outBus = bus;
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
 
 bounce.play({ loop: true });
 ```
