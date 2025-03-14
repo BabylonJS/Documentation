@@ -52,6 +52,8 @@ It is obvious that the `Clear` block will be executed before the `Main Rendering
 
 However, it is not always possible to describe the order of execution in this way. For example, imagine that you have to render a surveillance center, where a screen shows you a view of the exterior of the building. In this case, you will have to render (R1) the exterior view in a texture and use this texture as the diffuse texture of the screen mesh material during the rendering of the surveillance center (R2). The problem is that you have no way of representing this dependency between R1 and R2 using only the standard inputs/outputs of these blocks:
 
-![The dependencies input](/img/frameGraph/dependencies_input.jpg)
+![The dependencies input](/img/frameGraph/dependencies_input.jpg) <span url="https://nrge.babylonjs.com/#PSA9PS#157"/>
 
 `CustomRendering` renders the exterior view in a texture. Without the connection to the **dependencies** entry of the `MainRendering` block, you could not make `CustomRendering` part of the graph and execute it before `MainRendering`.
+
+Note that this **dependencies** input is specific to the node render graph framework: frame graph tasks do not have this property! If you use the frame graph framework yourself (see [Frame Graph Usage](/features/featuresDeepDive/frameGraph/frameGraphBasicConcepts#frame-graph-usage)), it is your responsibility to add tasks in a frame graph in the correct order and to ensure that if a task depends on another task, the latter is added first.
