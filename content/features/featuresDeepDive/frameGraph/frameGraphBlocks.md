@@ -57,3 +57,66 @@ However, it is not always possible to describe the order of execution in this wa
 `CustomRendering` renders the exterior view in a texture. Without the connection to the **dependencies** entry of the `MainRendering` block, you could not make `CustomRendering` part of the graph and execute it before `MainRendering`.
 
 Note that this **dependencies** input is specific to the node render graph framework: frame graph tasks do not have this property! If you use the frame graph framework yourself (see [Frame Graph Usage](/features/featuresDeepDive/frameGraph/frameGraphBasicConcepts#frame-graph-usage)), it is your responsibility to add tasks in a frame graph in the correct order and to ensure that if a task depends on another task, the latter is added first.
+
+### Inputs allowing several types of connection
+
+Sometimes, an input of a block allows several types of connections, but you cannot know what these types are by simply looking at the name of the connection. For example, the `SSR` block needs a depth texture as input:
+
+![SSR](/img/frameGraph/ssr.jpg)
+
+If you click on the connection point itself (the green circle), you can see in the right-hand pane the main type of connection, as well as the other accepted types:
+
+![SSR geomDepth accepted types](/img/frameGraph/ssr_geomdepth.jpg)
+
+The main type is a texture that stores view depth data, but the connection point also accepts a texture with screen depth data.
+
+## Input blocks
+
+Here is the description of the input blocks supported by the node render graph framework.
+
+Note that most of the input blocks are “external” inputs, which means that you will have to provide a value for these blocks in your code, after loading a node render graph. The only input block that can be configured as an “internal” input is the `Texture` input, in which case you can define all the characteristics of the texture (size, format, type, etc.) directly on the input inside the graph.
+
+The NRGE preview area will try to set sensible values for the external inputs (such as using the scene camera for `Camera` inputs, using the scene meshes for `ObjectList` inputs, etc), so that the preview can still be useful. But this is only true in the context of the preview area; you will still need to supply these values yourself when using a node render graph in your code.
+
+### Camera
+
+This input block allows you to define a camera in the graph, which you can connect to blocks that need a camera as input. This input is always an “external” input, so you will need to supply a value for this block by code when using a node render graph in your projects.
+
+### ObjectList
+
+This input block allows you to define a list of objects in the graph, which you can connect to blocks that need an input list of objects. This input is always an “external” input, so you will need to provide a value for this block by code when using a node render graph in your projects.
+
+Note that for the moment, an object list can contain a list of meshes + a list of particle systems. From a programmatic point of view, it is defined as follows:
+
+```typescript
+export class FrameGraphObjectList {
+    /**
+     * The meshes in the object list.
+     */
+    meshes: Nullable<AbstractMesh[]>;
+    /**
+     * The particle systems in the object list.
+     */
+    particleSystems: Nullable<IParticleSystem[]>;
+}
+```
+
+This list may also contain a list of sprites in the future.
+
+### ShadowLight
+
+This input block allows you to define a shadow light (that is, a light that can generate shadows - all types of lights in Babylon, except area lights) in the graph, which you can connect to blocks that need a shadow light as input. This input is always an “external” input, so you will need to provide a value for this block by code when you use a node render graph in your projects.
+
+The shadow light inputs are mainly used by the `ShadowGenerator` block, which itself can be connected to an `ObjectRenderer` block to render objects with shadows (see the description of the `ShadowGenerator` block below).
+
+### TextureBackBuffer, TextureBackBufferDepthStencil
+
+[TO DO]
+
+### Texture, TextureDepthStencil
+
+[TO DO]
+
+## Task blocks
+
+[TO DO]
