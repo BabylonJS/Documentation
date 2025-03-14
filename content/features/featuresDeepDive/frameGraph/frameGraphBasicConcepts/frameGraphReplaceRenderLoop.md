@@ -115,7 +115,7 @@ Here's the PG corresponding to this example: <Playground id="#9YU4C5#9" title="F
 
 Let's do the same thing, but this time using a node render graph created with the [Node Render Graph Editor](https://nrge.babylonjs.com/).
 
-Here is the node render graph: https://nrge.babylonjs.com/#CCDXLX
+Here is the node render graph: https://nrge.babylonjs.com/#CCDXLX#3
 (this is the default graph you get when you browse to the NRGE url)
 
 The javascript code:
@@ -130,7 +130,7 @@ scene.frameGraph = nrg.frameGraph;
 ```
 That's all you need to make it work with a node render graph!
 
-The full PG: <Playground id="#9YU4C5#10" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (node render graph)"/>
+The full PG: <Playground id="#9YU4C5#11" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (node render graph)"/>
 
 For more complicated examples, you may need to pass a third parameter to `NodeRenderGraph.ParseFromSnippetAsync()` to configure the node render graph:
 ```javascript
