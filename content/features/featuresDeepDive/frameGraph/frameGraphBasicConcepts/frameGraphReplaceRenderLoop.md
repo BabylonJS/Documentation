@@ -109,7 +109,7 @@ frameGraph.build();
 await frameGraph.whenReadyAsync();
 ```
 
-Here's the PG corresponding to this example: <Playground id="#9YU4C5#9" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (manual use of the frame graph classes)"/>
+Here's the PG corresponding to this example: <Playground id="#9YU4C5#12" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (manual use of the frame graph classes)"/>
 
 ## Using a node render graph
 
