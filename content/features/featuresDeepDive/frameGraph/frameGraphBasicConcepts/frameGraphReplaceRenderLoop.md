@@ -60,7 +60,7 @@ const clearTask = new BABYLON.FrameGraphClearTextureTask("clear", frameGraph);
 
 clearTask.clearColor = true;
 clearTask.clearDepth = true;
-clearTask.destinationTexture = colorTexture;
+clearTask.targetTexture = colorTexture;
 clearTask.depthTexture = depthTexture;
 
 frameGraph.addTask(clearTask);
@@ -76,7 +76,7 @@ const rlist = {
 
 const renderTask = new BABYLON.FrameGraphObjectRendererTask("renderObjects", frameGraph, scene);
 
-renderTask.destinationTexture = clearTask.outputTexture;
+renderTask.targetTexture = clearTask.outputTexture;
 renderTask.depthTexture = clearTask.outputDepthTexture;
 renderTask.objectList = rlist;
 renderTask.camera = camera;
@@ -84,7 +84,7 @@ renderTask.camera = camera;
 frameGraph.addTask(renderTask);
 ```
 Once again, it's a fairly simple code. We create the appropriate task (`FrameGraphObjectRendererTask`), configure it and add it to the frame graph.
-Notice how the previous task is linked to this task: the color/depth output texture of the “clear” task is defined as the destination/depth input texture of the “renderObjects” task.
+Notice how the previous task is linked to this task: the color/depth output texture of the “clear” task is defined as the target/depth input texture of the “renderObjects” task.
 
 The last task simply copies the texture to the output:
 ```javascript
@@ -109,7 +109,7 @@ frameGraph.build();
 await frameGraph.whenReadyAsync();
 ```
 
-Here's the PG corresponding to this example: <Playground id="#9YU4C5#6" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (manual use of the frame graph classes)"/>
+Here's the PG corresponding to this example: <Playground id="#9YU4C5#9" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (manual use of the frame graph classes)"/>
 
 ## Using a node render graph
 
@@ -130,7 +130,7 @@ scene.frameGraph = nrg.frameGraph;
 ```
 That's all you need to make it work with a node render graph!
 
-The full PG: <Playground id="#9YU4C5#7" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (node render graph)"/>
+The full PG: <Playground id="#9YU4C5#10" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (node render graph)"/>
 
 For more complicated examples, you may need to pass a third parameter to `NodeRenderGraph.ParseFromSnippetAsync()` to configure the node render graph:
 ```javascript
