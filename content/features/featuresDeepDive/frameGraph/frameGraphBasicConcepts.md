@@ -8,6 +8,7 @@ keywords: diving deeper, frame graph, rendering, node editor, getting started, b
 ## Frame Graph Introduction
 
 ### Naming
+
 First a word about the names.
 
 We used “Frame Graph” as the base name for our main classes (in the `src/FrameGraph/` directory), because it is the name that their inventor used in the first place (see [FrameGraph: Extensible Rendering Architecture in Frostbite](https://www.slideshare.net/DICEStudio/framegraph-extensible-rendering-architecture-in-frostbite)), and also because we don't only have rendering tasks in a frame graph (for example, we also have a culling task).
@@ -15,6 +16,7 @@ We used “Frame Graph” as the base name for our main classes (in the `src/Fra
 However, we have used the name “Render Graph” for the node framework (under the directory `src/FrameGraph/Node/`), built on top of the frame graph framework. This is to easily differentiate the two frameworks (the frame graph framework is autonomous, you don't have to use the node render graph framework if you don't want to), and also because it makes a nice acronym (NRG - Node Render Graph) :).
 
 ### Description
+
 A frame graph is a DAG (Directed Acyclic Graph - a bit like NME / NGE) where each node (task) represents a render pass, or more generally a task performed when rendering a frame (we have tasks that are not render passes, such as the culling task).
 
 Each task declares its input and output resources.
