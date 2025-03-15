@@ -23,9 +23,7 @@ Any hotspot can also optionally include a custom camera orbit (alpha, beta, radi
 
 <CodePen pen="vEBGGmx" tab="html,result" title="Babylon Viewer HotSpots" />
 
-Defining hotspots by hand is not an easy task. We are working on tooling to make this easy, but in the meantime you can use this Playground to help define hotspots:
-
-<Playground id="#2DBAQN#3" title="Babylon Viewer HotSpot Helper" description="A Playground to help define Babylon Viewer hotspots (until real tooling is finished!)." />
+Defining hot spots by hand is not an easy task, but the [Viewer Configurator](/toolsAndResources/viewerConfigurator) makes this simple.
 
 ## Annotations
 
@@ -37,6 +35,19 @@ Here is a simple example that adds labels to some of the planets within the sola
 
 ### Annotation Styling
 
+Annotations provide default UI which can be styled in several ways.
+
+#### CSS Variables
+
+The following CSS variables can be used to change basic styling of the default UI:
+
+| Variable                        | Description                                              |
+| ------------------------------- | -------------------------------------------------------- |
+| `--annotation-foreground-color` | The default color for the foreground of all annotations. |
+| `--annotation-background-color` | The default color for the background of all annotations. |
+
+#### CSS Custom States
+
 By default, `HTML3DAnnotationElement` (`<babylon-viewer-annotation>`) has a reduced opacity when the hotspot normal is facing away from the camera. This default styling can be overridden through CSS custom states. The custom states available are:
 
 | State         | Description                                                                                                                                                                                                                                                                                  |
@@ -46,14 +57,30 @@ By default, `HTML3DAnnotationElement` (`<babylon-viewer-annotation>`) has a redu
 
 Following is an example that overrides the style for the `back-facing` state to keep the annotation at full opacity regardless of the hotspot normal:
 
-<CodePen pen="MYgyyVM" tab="css,result" title="Babylon Viewer Annotations - Styling" />
+<CodePen pen="MYgyyVM" tab="css,result" title="Babylon Viewer Annotations - CSS States" />
+
+#### Parts
+
+For more complex styling, use the `annotation` part. Following is an example that uses this to increase the annotation font size:
+
+<CodePen pen="mydpOyB" tab="css,result" title="Babylon Viewer Annotations - Parts" />
 
 ### Custom Annotations
 
-Fully custom annotations are also possible by:
+Custom annotations are also supported in two different ways.
+
+#### Custom UI
+
+If you want annotations that track a single hotspot just like the default annotation UI, but you want to completely customize how it looks, simply add child elements to the `HTML3DAnnotationElement` (`<babylon-viewer-annotation>`). These child elements will override the default UI.
+
+Following is an example that overrides the default annotation UI:
+
+#### Custom UI and Behavior
+
+If you want custom UI and you don't want the default "one annotation tracks one hotspot" behavior, this is also supported by:
 1. Adding arbitrary child elements to the `HTML3DElement` (`<babylon-viewer>`).
 1. Calling the `queryHotSpot` function and using the results to position the child elements.
 
 In the following example, the Earth and Mars hotspots are queried every frame, and the results are used to display a line between Earth and Mars with a label at the midpoint that displays the distance between the two planets in the current orbital state.
 
-<CodePen pen="MYgeejW" tab="css,result" title="Babylon Viewer Annotations - Styling" />
+<CodePen pen="MYgeejW" tab="css,result" title="Babylon Viewer Annotations - Custom" />
