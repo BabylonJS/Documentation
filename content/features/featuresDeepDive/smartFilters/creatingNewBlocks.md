@@ -10,6 +10,10 @@ video-content:
 
 ## Overview
 
+1. Numbered item
+   - Nested bullet
+   - Nested bullet
+
 There are two ways you can make and use blocks for Smart Filters:
 
 1. With annotated GLSL code
@@ -65,16 +69,16 @@ vec4 mainImage(vec2 vUV) { // main
 ### Annotation Requirements
 
 1. The file must start with a // comment containing a serialized JSON object of type `GlslHeader`
-   - The smartFilterBlockType property is required
-   - See [shaderConverter.ts](https://github.com/BabylonJS/SmartFilters/blob/main/packages/core/src/utils/buildTools/shaderConverter.ts) for the full object definition
+     - The smartFilterBlockType property is required
+     - See [shaderConverter.ts](https://github.com/BabylonJS/SmartFilters/blob/main/packages/core/src/utils/buildTools/shaderConverter.ts) for the full object definition
 1. There must be a single main function which takes in a vec2 named vUV and returns a vec4, and it must have a comment on its line like this:
    `// main`
 1. Functions must be declared with the open curly brace on the same line as the function name
 1. Any uniforms which should have the same value across all instances of the same block should have a comment on its line like this:
    `// single`
 1. Uniforms can have metadata, such as a default value if no connection is made to their corresponding connection point
-   - In the line immediately above the uniform declaration, start with a // comment followed by a JSON object
-   - The supported metadata is described in the `UniformMetadataProperties` type in [shaderConverter.ts](https://github.com/BabylonJS/SmartFilters/blob/main/packages/core/src/utils/buildTools/shaderConverter.ts)
+    - In the line immediately above the uniform declaration, start with a // comment followed by a JSON object
+    - The supported metadata is described in the `UniformMetadataProperties` type in [shaderConverter.ts](https://github.com/BabylonJS/SmartFilters/blob/main/packages/core/src/utils/buildTools/shaderConverter.ts)
 
 ### Using Your Block
 

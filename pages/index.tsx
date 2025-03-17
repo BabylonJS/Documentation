@@ -119,12 +119,13 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async () => {
     const props = await getPageData([], true);
-    const remarkSlug = (await import("remark-slug")).default;
+    const rehypeSlug = (await import("rehype-slug")).default;
     const remarkGfm = (await import("remark-gfm")).default;
     props.mdxContent = await serialize(props.content, {
         // components: markdownComponents,
         mdxOptions: {
-            remarkPlugins: [remarkSlug, remarkGfm],
+            remarkPlugins: [remarkGfm],
+            rehypePlugins: [rehypeSlug]
         },
     });
     return {
