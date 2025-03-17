@@ -23,7 +23,7 @@ Any hotspot can also optionally include a custom camera orbit (alpha, beta, radi
 
 <CodePen pen="vEBGGmx" tab="html,result" title="Babylon Viewer HotSpots" />
 
-Defining hot spots by hand is not an easy task, but the [Viewer Configurator](/toolsAndResources/viewerConfigurator) makes this simple.
+Defining hotspots by hand is not an easy task, but the [Viewer Configurator](/toolsAndResources/viewerConfigurator) makes this simple.
 
 ## Annotations
 
@@ -75,6 +75,8 @@ If you want annotations that track a single hotspot just like the default annota
 
 Following is an example that overrides the default annotation UI:
 
+<CodePen pen="wBvpovj" tab="css,result" title="Babylon Viewer Annotations - Custom UI" />
+
 #### Custom UI and Behavior
 
 If you want custom UI and you don't want the default "one annotation tracks one hotspot" behavior, this is also supported by:
@@ -83,4 +85,4 @@ If you want custom UI and you don't want the default "one annotation tracks one 
 
 In the following example, the Earth and Mars hotspots are queried every frame, and the results are used to display a line between Earth and Mars with a label at the midpoint that displays the distance between the two planets in the current orbital state.
 
-<CodePen pen="MYgeejW" tab="css,result" title="Babylon Viewer Annotations - Custom" />
+<CodePen pen="MYgeejW" tab="css,result" title="Babylon Viewer Annotations - Custom Behavior" />
