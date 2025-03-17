@@ -35,7 +35,7 @@ Currently plugins can be found for:
 - [.gltf](/features/featuresDeepDive/importers/glTF) (also used for binary version .glb)
 - [.obj](/features/featuresDeepDive/importers/oBJ)
 - [.stl](/features/featuresDeepDive/importers/stl)
-- .splat
+- [.ply, .compressed.ply, .splat, .spz](/features/featuresDeepDive/importers/gaussianSplatting)
 
 You can also create your own [custom importer](/features/featuresDeepDive/importers/createImporters) for additional file types.
 
