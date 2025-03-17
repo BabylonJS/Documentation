@@ -79,11 +79,7 @@ Most of the time, these textures (except for the general purpose texture) will b
 
 ![Geometry Renderer block](/img/frameGraph/block_geometry_renderer.jpg)
 
-To make these textures stand out, the corresponding outputs are all preceded by the prefix **geom**. The same goes for the blocks that are expecting one (or more) of these "geometry" textures as input. For example:
-
-![Blocks with geometry textures as inputs](/img/frameGraph/blocks_input_geomtexture.jpg)
-
-This makes it clear what kind of texture is expected for a given input and should help users to associate the right kind of texture with these blocks.
+See the [GeometryRenderer block](#geometryrenderer) section for more information.
 
 ### Inputs allowing several types of connection
 
@@ -132,9 +128,9 @@ This list may also contain a list of sprites in the future.
 
 ### ShadowLight
 
-This input block allows you to define a shadow light (that is, a light that can generate shadows - all types of lights in Babylon, except area lights) in the graph, which you can connect to blocks that need a shadow light as input. This input is always an “external” input, so you will need to provide a value for this block by code when you use a node render graph in your projects.
+This input block allows you to define a shadow light (that is, a light that can generate shadows - all types of lights in Babylon, except area and hemispherical lights) in the graph, which you can connect to blocks that need a shadow light as input. This input is always an “external” input, so you will need to provide a value for this block by code when you use a node render graph in your projects.
 
-The shadow light inputs are mainly used by the `ShadowGenerator` block, which itself can be connected to an `ObjectRenderer` block to render objects with shadows (see the description of the `ShadowGenerator` block below).
+The shadow light inputs are mainly used by the `ShadowGenerator` block, which itself can be connected to an `ObjectRenderer` block to render objects with shadows (see the description of the [ShadowGenerator](#shadowGenerator-and-cascadedshadowgenerator) block below).
 
 ### TextureBackBuffer, TextureBackBufferDepthStencil
 
@@ -178,9 +174,9 @@ You should refer to the post-process class in the Babylon framework if you need 
 
 In the rest of this section, we will focus on post-processes that have special features and will skip post-processes that should be self-explanatory (those for which you just need to connect the right inputs and define the right values for their parameters!).
 
-### SSR (Screen Space Reflection)
+<H3Image title="SSR (Screen Space Reflection)" image="/img/frameGraph/ssr.jpg" alt="SSR node"/>
 
-![SSR](/img/frameGraph/ssr.jpg)
+This block allows you to apply a Screen Space Reflection post-process to a given texture.
 
 The first thing to note is that **geomDepth** and **geomBackDepth** allow a view or screen space depth geometry texture, and **geomNormal** allows a view or world space normal geometry texture: as explained in [this section](#inputs-allowing-several-types-of-connection), you can see all the accepted connection types by clicking on the circle icon representing the connection point.
 
@@ -204,36 +200,88 @@ You will see in this PG that we are rebuilding the graph (see line 67) because w
 
 <H3Image title="ObjectRenderer" image="/img/frameGraph/block_objectrenderer.jpg" alt="ObjectRenderer node"/>
 
-This is the main block used to render objects to a texture.
+This is the main block used to render objects on a texture. You can consider it as the equivalent of `RenderTargetTexture` when you want to create a render pass programmatically.
 
-### GeometryRenderer
+You will always get the same texture at the **output** output as the texture connected to the **target** input. The same goes for **outputDeth** and **depth** (in case you connect something to the **depth** input, which is optional).
 
-### ShadowGenerator and CascadedShadowGenerator
+The **shadowGenerators** input is optional and can be used if you want to generate shadows at the same time as you render the objects. This input expects a connection from a **ShadowGenerator.generator** output. If you want to render objects with shadows from multiple lights, you can use a `ResourceContainer` block to gather multiple shadow generators, and connect the container to the **shadowGenerators** input:
+
+![Using multiple shadow generators with an ObjectRenderer block](/img/frameGraph/multiple_shadowgenerators.jpg)
+
+PG: <Playground id="#JWKDME#30" title="Multiple shadow generators example" description="Using multiple shadow generators with a ObjectRenderer block"/>
+
+<H3Image title="GeometryRenderer" image="/img/frameGraph/block_geometry_renderer.jpg" alt="GeometryRenderer node"/>
+
+This block is used to generate geometry textures, i.e. textures containing special data such as depths in view/screen space, normals in view/world space, reflectivity, etc.
+
+To make these textures stand out, the corresponding outputs are all preceded by the prefix **geom**. The same goes for the blocks that are expecting one (or more) of these geometry textures as input. For example:
+
+![Blocks with geometry textures as inputs](/img/frameGraph/blocks_input_geomtexture.jpg)
+
+This makes it clear what kind of texture is expected for a given input and should help users to associate the right kind of texture with these blocks.
+
+<H3Image title="ShadowGenerator and CascadedShadowGenerator" image="/img/frameGraph/block_shadowgenerator.jpg" alt="ShadowGenerator and CascadedShadowGenerator nodes"/>
+
+Use this block when you want to generate shadows from a light. The light must be a “shadow light”, i.e. any light except area lights and hemispherical lights. The `CascadedShadowGenerator` block has the same inputs and outputs as the `ShadowGenerator` block, but with additional parameters (click on the block to access the list of parameters).
+
+You may be surprised to see a **camera** input, because the scene is rendered from the point of view of the light to generate the shadow map, not from the point of view of a camera. This camera is necessary to:
+* split the camera frustum when using a `CascadedShadowGenerator` block
+* calculate the LOD of the meshes. The LOD of the meshes is defined according to the distance from a camera, not from a light.
+
+The **generator** output is what you need to connect to the **ObjectRenderer.shadowGenerators** input, to render meshes with shadows. This is because the `ObjectRenderer` block needs more than access to the shadow map texture; it needs access to the shadow generator object itself. The **output** is the texture of the shadow map, in case you need it in other parts of the graph.
 
 ### TAAObjectRenderer
 
+[TODO]
+
 ### UtilityLayerRenderer
+
+[TODO]
 
 ## Layers blocks
 
+[TODO]
+
 ### GlowLayer and HighlightLayer
+
+[TODO]
 
 ## Textures blocks
 
+[TODO]
+
 ### Clear
+
+[TODO]
 
 ### CopyTexture
 
+[TODO]
+
 ### GenerateMipmaps
+
+[TODO]
 
 ## Misc blocks
 
+[TODO]
+
 ### Cull
+
+[TODO]
 
 ### Execute
 
+[TODO]
+
 ### GUI
+
+[TODO]
 
 ### ResourceContainer
 
+[TODO]
+
 ### Output
+
+[TODO]
