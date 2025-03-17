@@ -607,6 +607,11 @@
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts"
                                 },
+                                "frameGraphAdvancedConcepts": {
+                                    "friendlyName": "Advanced Concepts",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphAdvancedConcepts"
+                                },
                                 "frameGraphBlocks": {
                                     "friendlyName": "Frame Graph Blocks",
                                     "children": {},
