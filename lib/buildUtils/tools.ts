@@ -143,7 +143,7 @@ export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: strin
         } else {
             await page.waitForSelector("#graph-canvas", { visible: true, timeout: 60000 });
         }
-        await new Promise((r) => setTimeout(r, 1000)); // wait for the page to load
+        await new Promise((r) => setTimeout(r, 1300)); // wait for the page to load
 
         const imageUrl = optionalFilename ? join(process.cwd(), "public", optionalFilename) : getExampleImagePath({ type, id });
 
