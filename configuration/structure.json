@@ -713,6 +713,11 @@
                                     "friendlyName": "SceneLoader class (legacy)",
                                     "children": {},
                                     "content": "features/featuresDeepDive/importers/legacy"
+                                },
+                                "gaussianSplatting": {
+                                    "friendlyName": "Gaussian Splatting",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/importers/gaussianSplatting"
                                 }
                             },
                             "content": "features/featuresDeepDive/importers"
