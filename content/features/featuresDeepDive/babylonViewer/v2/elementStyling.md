@@ -31,7 +31,7 @@ The following CSS variables can be used to change basic styling of the default U
 | `--ui-background-color`       | The default color for the background of all UI elements (by default, derived from the background hue, saturation, lightness, and opacity).              |
 | `--ui-background-color-hover` | The default color for the background of all UI elements when hovered (by default, derived from the background hue, saturation, lightness, and opacity). |
 
-<CodePen pen="wBwGMQd" tab="html,result" title="Babylon Viewer Camera Pose" />
+<CodePen pen="wBwGMQd" tab="html,result" title="Babylon Viewer CSS Variables" />
 
 ## Parts
 
@@ -42,7 +42,7 @@ The following CSS shadow parts can be used for more complex styling changes of t
 | `progress-bar` | The loading progress bar that is displayed near the top of the custom element by default.                                                            |
 | `tool-bar`     | The toolbar that has controls for animation, material variants, and hotspots and that is displayed near the bottom of the custom element by default. |
 
-<CodePen pen="YPKqwdy" tab="html,result" title="Babylon Viewer Camera Pose" />
+<CodePen pen="YPKqwdy" tab="html,result" title="Babylon Viewer CSS Parts" />
 
 ## Slots
 
@@ -57,8 +57,8 @@ When replacing the default UI, you can use the properties, functions, and events
 
 Example of replacing the default **loading progress bar**:
 
-<CodePen pen="GgKZoej" tab="html,result" title="Babylon Viewer Camera Pose" />
+<CodePen pen="GgKZoej" tab="html,result" title="Babylon Viewer Slots (Progress Bar)" />
 
 Example of replacing the default **tool bar**:
 
-<CodePen pen="jENqWjz" tab="html,result" title="Babylon Viewer Camera Pose" />
+<CodePen pen="jENqWjz" tab="html,result" title="Babylon Viewer Slots (Tool Bar)" />
