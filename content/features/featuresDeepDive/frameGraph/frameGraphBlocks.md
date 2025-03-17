@@ -160,18 +160,14 @@ For “internal” textures, you will need to provide all the parameters necessa
 
 These parameters should be self-explanatory. Regarding **Size is in percentage**, if it is **true**, it means that the size values are percentages instead of pixel sizes. These percentages are related to the size of the output screen. If you set `Width=Height=100`, this means that the texture will be created with the same size as the output screen. If you set these values to `50`, the texture will be created with half the size of the screen, and so on. Most of the time, you will want to check **Size is in percentage** to keep your frame graph independent of the output size.
 
-## Task blocks
-
-Here is the description of the task blocks supported by the node render graph framework.
-
-### Post-Process blocks
+## Post-Process blocks
 
 Example of post-process blocks:
 
 ![Example of post-process blocks](/img/frameGraph/source_target_inputs.jpg)
 
 These blocks are all constructed according to the same model:
-* They have a **source** and **target** input. The **source** is the texture to which the post-processing will be applied, and the **target** is the resulting texture. **target** is the resulting texture. If **target** is not provided, a texture will be automatically created, with the same size, format, type, etc. as **source**.
+* They have a **source** and **target** input. The **source** is the texture to which the post-processing will be applied, and the **target** is the resulting texture. If **target** is not provided, a texture will be automatically created, with the same size, format, type, etc. as **source**.
 * They have an **output** texture, which is the result of the post-processing applied to **source**, and which is the same texture as **target**.
 
 You can modify the parameters of a post-process by clicking on it and changing the values in the panel on the right. For example, for the `DepthOfField` post-process:
@@ -182,7 +178,7 @@ You should refer to the post-process class in the Babylon framework if you need 
 
 In the rest of this section, we will focus on post-processes that have special features and will skip post-processes that should be self-explanatory (those for which you just need to connect the right inputs and define the right values for their parameters!).
 
-#### SSR (Screen Space Reflection)
+### SSR (Screen Space Reflection)
 
 ![SSR](/img/frameGraph/ssr.jpg)
 
@@ -203,3 +199,41 @@ Note that the `Geometry renderer back faces` block has been configured with **Re
 PG: <Playground id="#PIZ1GK#2094" title="Using SSR in a node render graph" description="Example of a node render graph using SSR with automatic thickness computation"/>
 
 You will see in this PG that we are rebuilding the graph (see line 67) because we have set the `ssr.blurDispersionStrength` property to 0. As the SSR block has a non-zero value in NRGE, we are in the case explained above where the graph must be rebuilt.
+
+## Rendering blocks
+
+<H3Image title="ObjectRenderer" image="/img/frameGraph/block_objectrenderer.jpg" alt="ObjectRenderer node"/>
+
+This is the main block used to render objects to a texture.
+
+### GeometryRenderer
+
+### ShadowGenerator and CascadedShadowGenerator
+
+### TAAObjectRenderer
+
+### UtilityLayerRenderer
+
+## Layers blocks
+
+### GlowLayer and HighlightLayer
+
+## Textures blocks
+
+### Clear
+
+### CopyTexture
+
+### GenerateMipmaps
+
+## Misc blocks
+
+### Cull
+
+### Execute
+
+### GUI
+
+### ResourceContainer
+
+### Output
