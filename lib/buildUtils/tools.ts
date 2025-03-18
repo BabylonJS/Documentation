@@ -117,7 +117,7 @@ export const getExampleImagePath = (example: Partial<IExampleLink>) => {
     return join(process.cwd(), "public/img/playgroundsAndNMEs/", `${example.type}${example.id.replace(/#/g, "-")}.png`);
 };
 
-export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: string, optionalFilename?: string, engine?: "webgpu" | "webgl2", snapshot?: string) => {
+export const generateExampleImage = async (type: "pg" | "nme" | "nge" | "sfe" | "nrge", id: string, optionalFilename?: string, engine?: "webgpu" | "webgl2", snapshot?: string) => {
     const browser = await puppeteer.launch({
         headless: true,
     }); // opens a virtual browser
@@ -129,13 +129,15 @@ export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: strin
 
         page.on("dialog", async (dialog) => {
             //on event listener trigger
-            await dialog.dismiss(); 
+            await dialog.dismiss();
         });
 
         // you can also set dimensions
         await page.setViewport({ width: 1200, height: 800 }); // sets it's  dimensions
         const url = getExampleLink({ type, id, engine, snapshot });
         await page.goto(url); // navigates to the url
+        // if the page has an alert, dismiss it
+
         if (type === "pg") {
             await page.waitForSelector("#renderCanvas", { visible: true });
             await page.waitForFunction(`typeof scene !== 'undefined' && scene.isLoading === false`, { timeout: 60000 });
@@ -146,10 +148,16 @@ export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: strin
         await new Promise((r) => setTimeout(r, 1000)); // wait for the page to load
 
         const imageUrl = optionalFilename ? join(process.cwd(), "public", optionalFilename) : getExampleImagePath({ type, id });
-
-        await page.screenshot({ path: imageUrl, fullPage: true, type: imageUrl.endsWith("jpg") ? "jpeg" : "png" }); // takes a screenshot
-        console.log("screenshot created for", id);
+        if (type !== "pg") {
+            const element = await page.$("#graph-canvas");
+            await page.setViewport({ width: 1700, height: 800 });
+            await element.screenshot({ path: imageUrl, type: imageUrl.endsWith("jpg") ? "jpeg" : "png" }); // takes a screenshot
+        } else {
+            await page.screenshot({ path: imageUrl, fullPage: true, type: imageUrl.endsWith("jpg") ? "jpeg" : "png" }); // takes a screenshot
+        }
+        console.log("screenshot created for", id, "of type", type);
     } catch (e) {
+        console.log(e);
         console.log("## error", type, id /*, e*/);
     }
     await browser.close(); // closes the browser.
@@ -261,7 +269,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         addToSitemap(metadata.title, url, lastModified ? lastModified.toISOString() : "");
 
         // generate images to examples. Offline only at the moment
-        const matches = Array.from(content.matchAll(/(<(Playground|nme|nge|NME|NGE).*id="([A-Za-z0-9#]*)".*\/>)/g));
+        const matches = Array.from(content.matchAll(/(<(Playground|nme|nge|NME|NGE|NRGE|nrge|SFE|sfe).*id="([A-Za-z0-9#]*)".*\/>)/g));
         for (const [_, full, type, exampleId] of matches) {
             const typePlayground = type === "Playground" ? "pg" : (type.toLowerCase() as "nme" | "nge");
             const realType: "pg" | "nme" | "nge" = (typePlayground as "pg" | "nme" | "nge") || "pg";
@@ -307,7 +315,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                 .map((res) => {
                     return res[1].replace(/\)/g, "").split("#")[0].split(" ")[0];
                 })
-                .filter((link) => link.indexOf(".") === -1 && link.indexOf("/typedoc") === -1  && link.indexOf("/packages") === -1);
+                .filter((link) => link.indexOf(".") === -1 && link.indexOf("/typedoc") === -1 && link.indexOf("/packages") === -1);
 
             internalLinks.forEach((link) => {
                 const found = getElementByIdArray(link.split("/"), true);
