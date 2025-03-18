@@ -117,3 +117,7 @@ export const NGEMarkdownComponent: FunctionComponent<IExampleLink> = (props) => 
 export const SFEMarkdownComponent: FunctionComponent<IExampleLink> = (props) => {
     return <ExampleMarkdownComponent {...props} type="sfe"></ExampleMarkdownComponent>;
 };
+
+export const NRGEMarkdownComponent: FunctionComponent<IExampleLink> = (props) => {
+    return <ExampleMarkdownComponent {...props} type="nrge"></ExampleMarkdownComponent>;
+};

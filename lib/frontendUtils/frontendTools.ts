@@ -18,6 +18,8 @@ export const getExampleLink = (example: Partial<IExampleLink>, full: boolean = t
             return `https://nme.babylonjs.com/${id}`;
         case "sfe":
             return `https://sfe.babylonjs.com/${id}`;
+        case "nrge":
+            return `https://nrge.babylonjs.com/${id}`;
         case "pg":
         default:
             return `https://playground.babylonjs.com/${full ? "full.html" : ""}${params}${id}`;

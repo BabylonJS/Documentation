@@ -12,7 +12,7 @@ export interface IMenuItem {
 }
 
 export interface IExampleLink {
-    type?: "pg" | "nme" | "nge" | "sfe";
+    type?: "pg" | "nme" | "nge" | "sfe" | "nrge";
     id?: string; // both are accepted
     playgroundId?: string; // both are accepted. This one has priority
     title?: string;
