@@ -1,5 +1,5 @@
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
-import { PlaygroundMarkdownComponent, NMEMarkdownComponent, NGEMarkdownComponent } from "./example.component";
+import { PlaygroundMarkdownComponent, NMEMarkdownComponent, NGEMarkdownComponent, SFEMarkdownComponent } from "./example.component";
 import { ImageMarkdownComponent } from "./image.component";
 import { YoutubeComponent, MediaFileComponent } from "./media.component";
 import { AlertMarkdownComponent, SyntaxHighlighting } from "./syntaxHighlight.component";
@@ -16,6 +16,8 @@ export const markdownComponents = {
     NME: NMEMarkdownComponent,
     nge: NGEMarkdownComponent,
     NGE: NGEMarkdownComponent,
+    SFE: SFEMarkdownComponent,
+    sfe: SFEMarkdownComponent,
     pre: (props) => <div {...props} />,
     code: SyntaxHighlighting,
     table: Table,
