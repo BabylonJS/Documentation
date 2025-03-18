@@ -607,14 +607,20 @@
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts"
                                 },
-                                "frameGraphAdvancedConcepts": {
-                                    "friendlyName": "Advanced Concepts",
-                                    "children": {},
-                                    "content": "features/featuresDeepDive/frameGraph/frameGraphAdvancedConcepts"
-                                },
                                 "frameGraphBlocks": {
-                                    "friendlyName": "Frame Graph Blocks",
-                                    "children": {},
+                                    "friendlyName": "Render Graph Blocks",
+                                    "children": {
+                                        "frameGraphBlocksGeneralNotes": {
+                                            "friendlyName": "General notes about Render Graph Blocks",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksGeneralNotes"
+                                        },
+                                        "frameGraphBlocksDescription": {
+                                            "friendlyName": "Description of the Render Graph Blocks",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksDescription"
+                                        }
+                                    },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks"
                                 }
                             },
