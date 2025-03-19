@@ -29,7 +29,7 @@ To clarify the ideas, here is a simple graph:
 
 ![Basic graph](/img/frameGraph/basic_graph.jpg)
 
-The “Color Texture”, “Depth Texture”, “Camera” and “Object List” nodes are resources (respectively, of the texture, depth texture, camera and object list type). “Clear” and “Main Rendering” are two tasks, the first clears a texture/depth texture and the second renders objects in a texture. “Output” is the output buffer (think of it as the screen output).
+The “Color Texture”, “Depth Texture”, “Camera” and “Object List” nodes are input resources (respectively, of the texture, depth texture, camera and object list type). “Clear” and “Main Rendering” are two tasks, the first clears a texture/depth texture and the second renders objects in a texture. “Output” is the output buffer (think of it as the screen output).
 
 ### Benefits
 
@@ -57,7 +57,7 @@ With a frame graph, nothing is defined in advance; you simply create tasks and t
 
 Automatic texture management optimizes texture allocation and can lead to substantial GPU memory savings, depending on your graph:
 
-![Basic graph](/img/frameGraph/gpu_memory_saving.jpg)
+![Example of GPU memory saving](/img/frameGraph/gpu_memory_saving.jpg) <span url="https://nrge.babylonjs.com/#DDFRYD#5"/>
 
 In this simple graph, reusing textures saves 25% of the GPU's memory, but we have already seen savings of 40% or more in other graphs.
 

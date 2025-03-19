@@ -20,6 +20,28 @@ As the message indicates, the two textures must use the same number of samples. 
 
 You will probably encounter these transient errors several times during your work with NRGE, so don't be surprised. You should be able to correct them easily by updating the correct parameter (the message should help you find the right parameter!).
 
+### Optional inputs
+
+Some block inputs are optional: you can easily spot them because they appear in black.
+
+![SSR](/img/frameGraph/ssr.jpg)
+
+In the `SSR` block, **target**, **geomBackDepth** and **dependencies** are optional.
+
+It is important not to connect anything to these inputs if it is not necessary, because in some cases you could suffer a performance penalty by doing so! See [SSR (Screen Space Reflection)](/features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksDescription#ssr-(screen-space-reflection)) for more explanations on the `SSR` block.
+
+### Inputs allowing several types of connection
+
+The "wheel" icon that you may see for some input connection points means that the input accepts several types of connection, but you cannot know what these types are by simply looking at the name of the input. For example, the `SSR` block needs a geometry depth texture as input:
+
+![SSR](/img/frameGraph/ssr.jpg)
+
+If you click on the connection point itself (the black wheel icon), you can see in the right-hand pane the main type of connection, as well as the other accepted types:
+
+![SSR geomDepth accepted types](/img/frameGraph/ssr_geomdepth.jpg)
+
+The main type is a texture that stores view depth data, but the connection point also accepts a texture with screen depth data.
+
 ### The **target** inputs
 
 You will see that a number of blocks have an input called **target**, which may seem strange at first glance for an input connection...
@@ -72,18 +94,6 @@ Most of the time, these textures (except for the general purpose texture) will b
 ![Geometry Renderer block](/img/frameGraph/block_geometry_renderer.jpg)
 
 See the [GeometryRenderer block](#geometryrenderer) section for more information.
-
-### Inputs allowing several types of connection
-
-Sometimes, an input of a block allows several types of connections, but you cannot know what these types are by simply looking at the name of the connection. For example, the `SSR` block needs a geometry depth texture as input:
-
-![SSR](/img/frameGraph/ssr.jpg)
-
-If you click on the connection point itself (the green circle), you can see in the right-hand pane the main type of connection, as well as the other accepted types:
-
-![SSR geomDepth accepted types](/img/frameGraph/ssr_geomdepth.jpg)
-
-The main type is a texture that stores view depth data, but the connection point also accepts a texture with screen depth data.
 
 ### Description of block parameters
 
