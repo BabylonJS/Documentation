@@ -44,7 +44,7 @@ HtmlMesh is available as an UMD NPM package
 and as an ES6 package:
 
 ```shell
--npm install @babylonjs/adddons --save
+-npm install @babylonjs/addons --save
 ```
 ## Usage
 
