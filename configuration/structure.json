@@ -588,6 +588,44 @@
                             },
                             "content": "features/featuresDeepDive/flowGraph"
                         },
+                        "frameGraph": {
+                            "friendlyName": "Frame Graph",
+                            "children": {
+                                "frameGraphBasicConcepts": {
+                                    "friendlyName": "Basic concepts and getting started",
+                                    "children": {
+                                        "frameGraphReplaceRenderLoop": {
+                                            "friendlyName": "Frame Graph replacing the scene render loop",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts/frameGraphReplaceRenderLoop"
+                                        },
+                                        "frameGraphInAdditionToRenderLoop": {
+                                            "friendlyName": "Frame Graph in addition to the scene render loop",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts/frameGraphInAdditionToRenderLoop"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts"
+                                },
+                                "frameGraphBlocks": {
+                                    "friendlyName": "Render Graph Blocks",
+                                    "children": {
+                                        "frameGraphBlocksGeneralNotes": {
+                                            "friendlyName": "General notes about Render Graph Blocks",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksGeneralNotes"
+                                        },
+                                        "frameGraphBlocksDescription": {
+                                            "friendlyName": "Description of the Render Graph Blocks",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksDescription"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks"
+                                }
+                            },
+                            "content": "features/featuresDeepDive/frameGraph"
+                        },
                         "gui": {
                             "friendlyName": "GUI",
                             "children": {
