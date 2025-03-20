@@ -174,7 +174,7 @@ bounce.play({ loop: true });
 
 The sound, bus and audio engine `volume` setting adjusts sound loudness, with `0` to `1` being the normal range from silent to 100%. Values above `1` boost the sound's signal proportionately.
 
-Volume options and properties are available on [sounds](/typedoc/classes/BABYLON.AbstractSound#volume) and [buses](typedoc/classes/BABYLON.AbstractAudioBus#volume) which affect all sounds using the bus, and on the [audio engine](/typedoc/classes/BABYLON.AudioEngineV2#volume) which affects all sounds and buses associated with that audio engine.
+Volume options and properties are available on [sounds](/typedoc/classes/BABYLON.AbstractSound#volume) and [buses](/typedoc/classes/BABYLON.AbstractAudioBus#volume) which affect all sounds using the bus, and on the [audio engine](/typedoc/classes/BABYLON.AudioEngineV2#volume) which affects all sounds and buses associated with that audio engine.
 
 ```javascript
 const audioEngine = await BABYLON.CreateAudioEngineAsync();
@@ -224,7 +224,7 @@ Note that this example creates the sound with the [`stereoEnabled`](/typedoc/int
 
 There is one spatial audio listener per audio engine. It can be accessed through the audio engine's [`listener`](/typedoc/classes/BABYLON.AudioEngineV2#listener) property.
 
-Sounds and buses expose their spatial settings through their [`spatial`](/typedoc/classes/BABYLON.AbstractSound#spatial) property. See the [`AbstractSpatialAudio`]/typedoc/classes/BABYLON.AbstractSpatialAudio) documentation for details on the available spatial audio settings for sound sources.
+Sounds and buses expose their spatial settings through their [`spatial`](/typedoc/classes/BABYLON.AbstractSound#spatial) property. See the [`AbstractSpatialAudio`](/typedoc/classes/BABYLON.AbstractSpatialAudio) documentation for details on the available spatial audio settings for sound sources.
 
 ### Attaching meshes
 
