@@ -6,6 +6,8 @@ keywords: diving deeper, sound, audio, sound engine, audio engine
 further-reading:
   - title: Sound
     url: /typedoc/classes/BABYLON.StaticSound
+  - title: Streaming Sound
+    url: /typedoc/classes/BABYLON.StreamingSound
   - title: Audio Buses
     url: /typedoc/classes/BABYLON.AudioBus
 video-overview:
