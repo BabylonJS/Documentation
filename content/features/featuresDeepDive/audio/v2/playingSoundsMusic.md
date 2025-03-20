@@ -9,7 +9,7 @@ further-reading:
   - title: Streaming Sound
     url: /typedoc/classes/BABYLON.StreamingSound
   - title: Audio Buses
-    url: /typedoc/classes/BABYLON.AudioBus
+    url: /typedoc/classes/BABYLON.AbstractAudioBus
 video-overview:
 video-content:
 ---
