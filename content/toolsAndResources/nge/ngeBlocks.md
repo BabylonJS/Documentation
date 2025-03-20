@@ -1879,7 +1879,7 @@ Note that call count and execution count appear five times on this node, once fo
 - **facesCount** is an Int representing the total number of faces in this Geometry.
 
 <H3Image title="Interceptor" image="/img/tools/nge/interceptor.jpg" alt="Interceptor node"/>
-The Interceptor node can very simply be thought of as a "code insertion" point. With this node, it is very easy to create a Node Geometry tree, and add custom code where the intercetpor node is added into the tree. This allows you to easily customize and modify your existing Node Geometry Tree with just about anything you could imagine wanting to do. 
+The Interceptor node can very simply be thought of as a "code insertion" point. With this node serves as a hook within a node tree to pass custom code to the graph to be executed at a specific point in the calculation of the node geometry. This allows you to easily customize and modify your existing Node Geometry Tree with just about anything you could imagine wanting to do. 
 
 See this playground example to see it in action: <Playground id="#QGTNH5" title="Interceptor Example" description="Simple example of the Interceptor Node."/>
 
@@ -2023,7 +2023,7 @@ There are times when it is necessary to recompute normals when creating geometry
 - **output** is the geometry after computing normals.
 
 <H3Image title="Lattice" image="/img/tools/nge/lattice.jpg" alt="Lattice Node"/>
-The lattice places a simplified "cage" over your geometry, allowing you to manipulate the geometry from a higher more simplified level. This is similar in concept to how subdivisional surfaces work, where a complex mesh is derived from a more simplified mesh. The lattice tool is a handy way to make larger manipulations to an already detailed piece of geometry.
+The lattice places a simplified "cage" over your geometry, allowing you to manipulate the geometry from a higher and simplified level. You can think of it as a deformer based on a simplified mesh. The lattice tool is a handy way to make larger manipulations to an already detailed piece of geometry.
 
 There are a couple of special things to note about the lattice node. In the 3D example below, the white cone represents the geometry passed to the lattice node and the wireframe box represents the lattice cage placed around the geometry. The lattice cage is automatically mapped to the bounding box of the geometry that's connected to it. Each manipulation point of the lattice is known as a "Lattice ID." Much like vertices, these Lattice ID's are each represented by a Vector3. In the case of the 3D example below, the resolutionX, resolutionY, and resolutionZ are all set to 3 and you can see the Vector3 ID of each point on the lattice cage. Note that the lattice ID of (0,0,0) is always mapped to the lowest x,y,z point of the bounding box surrounding the geometry. 
 
@@ -2031,15 +2031,15 @@ There are a couple of special things to note about the lattice node. In the 3D e
 
 Manipulating the lattice IDs is very similar to how you modify vertices in the Node Geometry Editor. Have a look at this example: <NGE id="#FF8N3Q#5" title="Lattice Example" description="Simple example of the Lattice Node."/>
 
-<img src="/img/tools/nge/latticeExample1.jpg" title="LatticeExample1"/>
+<img src="/img/tools/nge/latticeExample1.jpg" title="LatticeExample1" alt="Lattice Example 1"/>
 
 You start by connecting geometry to the input port of the Lattice node and connect the output geometry port of the lattice node to the Geometry Output node. This step creates the "cage" around the input cylinder.
 
-<img src="/img/tools/nge/latticeExample2.jpg" title="LatticeExample2"/>
+<img src="/img/tools/nge/latticeExample2.jpg" title="LatticeExample2" alt="Lattice Example 2"/>
 
 Next, you specify the lattice IDs of the cage that you'd like to manipulate. In the case of the image above, we are targeting any lattice ID that has the same y value as defined by an input slider. Note the use of the Lattice ID node here.
 
-<img src="/img/tools/nge/latticeExample3.jpg" title="LatticeExample3"/>
+<img src="/img/tools/nge/latticeExample3.jpg" title="LatticeExample3" alt="Lattice Example 3"/>
 
 Lastly, manipulating the Lattice Control values will apply the modification to the Lattice. In the case above, the Lattice Control node is passed to the Equal node's ifFalse port. This means that when the Y value of a Lattice ID is NOT equal to the slider, don't do anything. Or in more simple terms, apply nothing. In the case of the evaluation being "True" we modify the Lattice Control, multiplying the X and Z values by 1.5. 
 
