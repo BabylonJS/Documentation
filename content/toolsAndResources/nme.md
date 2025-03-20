@@ -83,3 +83,7 @@ For an introductory look at the Node Material Editor, check out where it all sta
 When you're ready to learn more, head on over to the [Node Material Documentation](/features/featuresDeepDive/materials/node_material/nodeMaterial) for more info.
 
 You can also dive into the API that powers it all here: [API documentation.](/typedoc/classes/babylon.nodematerial)
+
+A handy pro tip in the Node Material Editor Preview Window is the ability to CTRL+Hover to see the RGB values.
+
+<img src="/img/how_to/Materials/nmeRGBTrick.jpg" title="Babylon.js Node Material Editor"/>

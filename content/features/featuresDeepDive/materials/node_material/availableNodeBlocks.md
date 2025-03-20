@@ -1016,7 +1016,7 @@ A matrix to remap points in 3D local space to 3D world space, then to 2D camera 
 
 ### Debug
 
-The Debug node is a very handy tool that allows you to see the visual progress of your NME graph at any point. Rather than having to wire the output to the middle of your graph, you can connect as many debug nodes as you like anywhere in your graph. Simply clicking once on any debug node will then show you the results of your graph at that point, in the NME preview window.
+The Debug node is a very handy tool that allows you to see the visual progress of your NME graph at any point. Rather than having to wire the output to the middle of your graph, you can connect as many debug nodes as you like anywhere in your graph. Simply clicking once on any debug node will then show you the results of your graph at that point, in the NME preview window. Note that the debug node will preview the Fragment Shader results at the point in the graph where it is connected, however it will also show the entire node graph result of the Vertex Shader.
 
 See it in action here: <NME id="#JNK6Z4" title="Debug Node Example" description="Simple example of the Debug Node."/>
 
@@ -1041,7 +1041,7 @@ Compute a depth value suitable for shadow map generation
   - depth: Vector3
 
 ### Teleport In
-This node is an organizational node to help reduce the complexity of overlapping wires within a graph. It is a passthrough node that supports all data types. This node works in conjunction with the TeleportOut node to make a connection, often far across a graph, without the need for a wire. This node can be connected to any node to create a reference to the value passed by the connected node. When connecting the TeleportIn node to another node, it is important to rename this node to a unique name as this name will be referenced by the TeleportOut node. On the TeleportOut node, selecting the name used by this node as the entry point will create a reference to the value connected to the TeleportIn node. In this way, a single value can be used in several places of a graph without the need to stretch wires across the graph.
+This node is an organizational node to help reduce the complexity of overlapping wires within a graph. It is a passthrough node that supports Float, Int, Vector2, Vector3, Vector4, and Matrix types. This node works in conjunction with the TeleportOut node to make a connection, often far across a graph, without the need for a wire. This node can be connected to most nodes to create a reference to the value passed by the connected node. When connecting the TeleportIn node to another node, it is important to rename this node to a unique name as this name will be referenced by the TeleportOut node. On the TeleportOut node, selecting the name used by this node as the entry point will create a reference to the value connected to the TeleportIn node. In this way, a single value can be used in several places of a graph without the need to stretch wires across the graph.
 
 - Input:
   - Float, Int, Vector2, Vector3, Vector4, Matrix.
