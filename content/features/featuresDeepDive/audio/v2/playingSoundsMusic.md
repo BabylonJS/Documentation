@@ -320,3 +320,7 @@ TODO: Document using URLs in string arrays when creating sounds.
 
 TODO: Document browser autoplay restrictions and how that affects the audio engine.
 - Talk about how sound `autoplay` and `loop` options affect playback when the audio context is unlocked.
+
+### Unmute button
+
+TODO: Document removing and customizing the default UI unmute button.
