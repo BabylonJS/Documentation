@@ -250,7 +250,7 @@ Note that this example creates the sound with the [`spatialEnabled`](/typedoc/in
 <br/>
 <br/>
 
-To experiment with the available [spatial sound source settings]/typedoc/classes/BABYLON.AbstractSpatialAudio), a spatial audio visualizer playground is provided:
+To experiment with the available [spatial sound source settings](/typedoc/classes/BABYLON.AbstractSpatialAudio), a spatial audio visualizer playground is provided:
 
 <Playground id="#1BZK59#5" title="Spatial audio visualizer" description="A spatial audio settings visualizer."/>
 
