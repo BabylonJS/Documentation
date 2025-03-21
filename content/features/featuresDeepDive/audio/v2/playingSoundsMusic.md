@@ -1,5 +1,5 @@
 ---
-title: Audio
+title: Playing Sounds and Music
 image:
 description: Dive into everything you could want to know about using the Babylon.js sound engine for simple to advanced audio.
 keywords: diving deeper, sound, audio, sound engine, audio engine
@@ -390,7 +390,7 @@ bounce2.play();
 
 Some sound file types like **.ac3** and **.ogg** are not recognized by all browsers. The **.ac3** format for example, is recognized by Apple's Safari browser and is the most efficient on Apple platforms, but it is not recognized by other browsers. Conversely, the **.ogg** format is also efficient but it is not recognized by Safari. Other formats like **.mp3** and **.wav** are lower quality or less efficient but are recognized by all browsers.
 
-To address these differences you can limit the formats used to**.mp3** and **.wav** to maximize compatibility at the expense of quality and efficiency, or you can use an array of sound file URLs when creating sounds and sound buffers to maximize efficiency while retaining quality. The first file in the URL array that is recognized by the browser will be used. This allows you to specify different file formats for different platforms.
+To address these differences you can limit the formats used to **.mp3** and **.wav** to maximize compatibility at the expense of quality and efficiency, or you can use an array of sound file URLs when creating sounds and sound buffers to maximize efficiency while retaining quality. The first file in the URL array that is recognized by the browser will be used. This allows you to specify different file formats for different platforms.
 
 For example, if the following array of URLs is used for the [`CreateSoundAsync`](/typedoc/functions/BABYLON.CreateSoundAsync) `source` paramter, Safari will see the **.ac3** file first and use it, but other browsers will ignore the **.ac3** file and skip to the **.ogg** file, instead. If a browser does not support **.ac3** or **.ogg**, then it will fall through to the **.mp3** file that is last in the array.
 
