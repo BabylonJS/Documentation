@@ -10,8 +10,7 @@ video-content:
 
 # Migrate from the old audio engine
 
-Babylon 8.0 brought a new audio engine, which faster, more powerful and easier to use than the old audio engine.
-
+Babylon 8.0 brought a new audio engine, which is faster, more powerful, and easier to use than the old audio engine.
 ## How to continue using the old audio engine
 
 The old audio engine is not going away! It is turned off by default now, but it can be enabled by setting the [`audioEngine`](/typedoc/interfaces/BABYLON.EngineOptions#audioengine) option to `true` when creating the graphics engine with the [`Engine constructor`](/typedoc/classes/BABYLON.Engine#constructor), for example:
