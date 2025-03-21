@@ -55,6 +55,12 @@ In the old audio engine, [`SoundTrack`](/typedoc/classes/BABYLON.SoundTrack) obj
 
 In the new audio engine, sound tracks replaced by [audio buses](../playingSoundsMusic/#audio-buses), which implement stereo and spatial audio, and allow their audio output to be routed to other audio bus objects using the [`AudioBus.outBus`](/typedoc/classes/BABYLON.AudioBus#outbus) property.
 
+## Migration examples
+
+Description | Old playground | New playground | Notes
+-|-|-|-
+Spatial audio | [#2AH4YH](https://playground.babylonjs.com/#2AH4YH) | [#2AH4YH#188](https://playground.babylonjs.com/#2AH4YH#188) | Thanks to [dad72](https://forum.babylonjs.com/u/dad72/summary)
+
 ## Feature requests and bug fixes
 
 To request new features or bug fixes, create a new topic at https://forum.babylonjs.com and tag [`@docEdub`](https://forum.babylonjs.com/u/docedub/summary). Thanks!
