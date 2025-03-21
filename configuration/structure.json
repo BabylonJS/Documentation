@@ -593,6 +593,44 @@
                             },
                             "content": "features/featuresDeepDive/flowGraph"
                         },
+                        "frameGraph": {
+                            "friendlyName": "Frame Graph",
+                            "children": {
+                                "frameGraphBasicConcepts": {
+                                    "friendlyName": "Basic concepts and getting started",
+                                    "children": {
+                                        "frameGraphReplaceRenderLoop": {
+                                            "friendlyName": "Frame Graph replacing the scene render loop",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts/frameGraphReplaceRenderLoop"
+                                        },
+                                        "frameGraphInAdditionToRenderLoop": {
+                                            "friendlyName": "Frame Graph in addition to the scene render loop",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts/frameGraphInAdditionToRenderLoop"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts"
+                                },
+                                "frameGraphBlocks": {
+                                    "friendlyName": "Render Graph Blocks",
+                                    "children": {
+                                        "frameGraphBlocksGeneralNotes": {
+                                            "friendlyName": "General notes about Render Graph Blocks",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksGeneralNotes"
+                                        },
+                                        "frameGraphBlocksDescription": {
+                                            "friendlyName": "Description of the Render Graph Blocks",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksDescription"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks"
+                                }
+                            },
+                            "content": "features/featuresDeepDive/frameGraph"
+                        },
                         "gui": {
                             "friendlyName": "GUI",
                             "children": {
@@ -718,6 +756,11 @@
                                     "friendlyName": "SceneLoader class (legacy)",
                                     "children": {},
                                     "content": "features/featuresDeepDive/importers/legacy"
+                                },
+                                "gaussianSplatting": {
+                                    "friendlyName": "Gaussian Splatting",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/importers/gaussianSplatting"
                                 }
                             },
                             "content": "features/featuresDeepDive/importers"
@@ -1936,7 +1979,28 @@
                         },
                         "smartFilters": {
                             "friendlyName": "Smart Filters",
-                            "children": {},
+                            "children": {
+                                "introductionToSmartFilters": {
+                                    "friendlyName": "Introduction To Smart Filters",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/introductionToSmartFilters"
+                                },
+                                "howToUseSmartFilters": {
+                                    "friendlyName": "How To Use Smart Filters",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/howToUseSmartFilters"
+                                },
+                                "howSmartFiltersWork": {
+                                    "friendlyName": "How Smart Filters Work",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/howSmartFiltersWork"
+                                },
+                                "creatingNewBlocks": {
+                                    "friendlyName": "Creating New Blocks",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/creatingNewBlocks"
+                                }
+                            },
                             "content": "features/featuresDeepDive/smartFilters"
                         },
                         "sprites": {
@@ -2698,6 +2762,11 @@
                         }
                     },
                     "content": "toolsAndResources/utilities"
+                },
+                "sfe": {
+                    "friendlyName": "Smart Filter Editor",
+                    "children": {},
+                    "content": "toolsAndResources/sfe"
                 }
             },
             "content": "toolsAndResources"
@@ -2705,10 +2774,26 @@
         "preparingArtForBabylon": {
             "friendlyName": "Preparing Assets for Babylon.js",
             "children": {
-                "dccToGltf": { "friendlyName": "Exporting to glTF", "children": {}, "content": "preparingArtForBabylon/dccToGltf" },
-                "planningRealTimeAssets": { "friendlyName": "Planning Real-Time Assets", "children": {}, "content": "preparingArtForBabylon/planningRealTimeAssets" },
-                "planningMeshUVs": { "friendlyName": "Planning Mesh UVs", "children": {}, "content": "preparingArtForBabylon/planningMeshUVs" },
-                "controllingColorSpace": { "friendlyName": "Controlling Color Space", "children": {}, "content": "preparingArtForBabylon/controllingColorSpace" }
+                "dccToGltf": {
+                    "friendlyName": "Exporting to glTF",
+                    "children": {},
+                    "content": "preparingArtForBabylon/dccToGltf"
+                },
+                "planningRealTimeAssets": {
+                    "friendlyName": "Planning Real-Time Assets",
+                    "children": {},
+                    "content": "preparingArtForBabylon/planningRealTimeAssets"
+                },
+                "planningMeshUVs": {
+                    "friendlyName": "Planning Mesh UVs",
+                    "children": {},
+                    "content": "preparingArtForBabylon/planningMeshUVs"
+                },
+                "controllingColorSpace": {
+                    "friendlyName": "Controlling Color Space",
+                    "children": {},
+                    "content": "preparingArtForBabylon/controllingColorSpace"
+                }
             },
             "content": "preparingArtForBabylon/basicConcepts"
         },

@@ -936,6 +936,40 @@ Creates a custom matrix from four Vector4 inputs.
 - Outputs:
   - output: Matrix
 
+### MatrixDeterminant
+
+Provides the determinant value of an input matrix.
+
+- Inputs:
+  - input: Matrix
+- Outputs:
+  - output: Float
+
+### MatrixSplitter
+
+A block used to split an input matrix into Vector4's. 
+
+- Inputs:
+  - input: Matrix
+- Outputs:
+  - row0: Vector4
+  - row1: Vector4
+  - row2: Vector4
+  - row3: Vector4
+  - col0: Vector4
+  - col1: Vector4
+  - col2: Vector4
+  - col3: Vector4
+
+### MatrixTranspose
+
+A block used to compute the transpose of a Matrix.
+
+- Inputs:
+  - input: Matrix
+- Outputs:
+  - output: Matrix
+
 ### ProjectionMatrix
 
 A matrix to remap points in 3D space to 2D plane relative to the screen.
@@ -980,6 +1014,14 @@ A matrix to remap points in 3D local space to 3D world space, then to 2D camera 
 
 ## Misc
 
+### Debug
+
+The Debug node is a very handy tool that allows you to see the visual progress of your NME graph at any point. Rather than having to wire the output to the middle of your graph, you can connect as many debug nodes as you like anywhere in your graph. Simply clicking once on any debug node will then show you the results of your graph at that point, in the NME preview window. Note that the debug node will preview the Fragment Shader results at the point in the graph where it is connected, however it will also show the entire node graph result of the Vertex Shader.
+
+See it in action here: <NME id="#JNK6Z4" title="Debug Node Example" description="Simple example of the Debug Node."/>
+
+- Input: Float, Int, Vector2, Vector3, Vector4, Color3, Object
+
 ### Elbow
 
 Passthrough block mostly used to organize your graph.
@@ -997,6 +1039,19 @@ Compute a depth value suitable for shadow map generation
   - worldNormal: Vector3 / Vector4
 - Output:
   - depth: Vector3
+
+### Teleport In
+This node is an organizational node to help reduce the complexity of overlapping wires within a graph. It is a passthrough node that supports Float, Int, Vector2, Vector3, Vector4, and Matrix types. This node works in conjunction with the TeleportOut node to make a connection, often far across a graph, without the need for a wire. This node can be connected to most nodes to create a reference to the value passed by the connected node. When connecting the TeleportIn node to another node, it is important to rename this node to a unique name as this name will be referenced by the TeleportOut node. On the TeleportOut node, selecting the name used by this node as the entry point will create a reference to the value connected to the TeleportIn node. In this way, a single value can be used in several places of a graph without the need to stretch wires across the graph.
+
+- Input:
+  - Float, Int, Vector2, Vector3, Vector4, Matrix.
+
+### Teleport Out
+This node is an organizational node to help reduce the complexity of overlapping wires within a graph. It is a passthrough node that supports Float, Int, Vector2, Vector3, Vector4, and Matrix types. This node works in conjunction with the TeleportIn node to make a connection, often far across a graph, without the need for a wire. Setting the entry point property on this node will tell the node which value to reference. Each TeleportIn node in the graph will be available to the TeleportOut node and it can be changed just by selecting a new entry point if needed. In this way, a single value can be used in several places of a graph without the need to stretch wires across the graph.
+
+- Output:
+  - The value referenced by the selected entry point in a type that matches the referenced value.
+
 
 ## Mesh
 

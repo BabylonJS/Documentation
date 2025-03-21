@@ -230,4 +230,4 @@ To do so, you have to set the `spotLight.iesProfileTexture` to a texture loaded 
 light.iesProfileTexture = new BABYLON.Texture("https://assets.babylonjs.com/meshes/EXT_lights_ies/LightProfile.ies");
 ```
 
-<Playground id="#UIAXAU#15" title="Projection Texture Example" description="Simple Example of using an IES profile."/>
+<Playground id="#UIAXAU#29" title="Projection Texture Example" description="Simple Example of using an IES profile."/>

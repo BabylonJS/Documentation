@@ -245,6 +245,16 @@ Note that these properties only appear when there is nothing connected to the co
 #### Outputs
 - **geometry** is the generated plane and fulfills the requirement for at least one geometry in the graph.
 
+<H3Image title="Point List" image="/img/tools/nge/pointList.jpg" alt="Point List Node"/>
+The Point List is exactly as it sounds, a list of points (Vector3's). In the properties window, a user can add specific Vector3 points to the list manually. Those points are then output with the geometry output port.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*.
+
+#### Outputs
+- **geometry** is the user-defined list of points.
+
 <H3Image title="Sphere" image="/img/tools/nge/sphereNode.jpg" alt="Sphere source node"/>
 This source node creates a sphere of the given diameter at the resolution set by segments. It can be created as a complete or a partial sphere as follows. 
 
@@ -1868,6 +1878,21 @@ Note that call count and execution count appear five times on this node, once fo
 - **verticesCount** is an Int representing the total number of vertices in this Geometry.
 - **facesCount** is an Int representing the total number of faces in this Geometry.
 
+<H3Image title="Interceptor" image="/img/tools/nge/interceptor.jpg" alt="Interceptor node"/>
+The Interceptor node can very simply be thought of as a "code insertion" point. With this node serves as a hook within a node tree to pass custom code to the graph to be executed at a specific point in the calculation of the node geometry. This allows you to easily customize and modify your existing Node Geometry Tree with just about anything you could imagine wanting to do. 
+
+See this playground example to see it in action: <Playground id="#QGTNH5" title="Interceptor Example" description="Simple example of the Interceptor Node."/>
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **input** can be connected to a node providing any type of input
+
+#### Outputs
+- **output** is a passthrough of the value connected to input of the same type. 
+
 <H3Image title="TeleportIn" image="/img/tools/nge/teleportInNode.jpg" alt="Teleport in node"/>
 This node is an organizational node to help reduce the complexity of overlapping wires within a graph. It is a passthrough node that supports all data types. This node works in conjunction with the TeleportOut node to make a connection, often far across a graph, without the need for a wire. This node can be connected to any node to create a reference to the value passed by the connected node. When connecting the TeleportIn node to another node, it is important to rename this node to a unique name as this name will be referenced by the TeleportOut node. On the TeleportOut node, selecting the name used by this node as the entry point will create a reference to the value connected to the TeleportIn node. In this way, a single value can be used in several places of a graph without the need to stretch wires across the graph.
 
@@ -1890,6 +1915,41 @@ This node is an organizational node to help reduce the complexity of overlapping
 ## Updates
 These nodes will update connected geometry in one of several ways. It could be assigning it to a collection, merging with other geometry, or setting one of the various properties of geometry like colors, material IDs, normals, positions, tangents, or UVs. These nodes, like the math nodes, are some of the most commonly used nodes as they perform very important operations for creating geometry.
 
+<H3Image title="Aggregator" image="/img/tools/nge/aggregator.jpg" alt="Aggregator node"/>
+This node parses through provided data to provide the min, max, or sum of the data provided. It most commonly works when provided geometry and a subset of the positional data of the vertices of that geometry. 
+
+In the example below, the desired outcome is to place a plane on a box, at the exact position of the second to last edge in Y from the top. No matter how many subdivisions the cube has, the plane will always appear at the second to last edge in the Y direction from the top.
+
+<NGE id="#W1WROK" title="Aggregator Example" description="Simple example of the Aggregator Node."/>
+
+It essentially works with these high level steps:
+
+1 - Create the box
+2 - Create the plane
+3 - Rotate the plane so it's facing down
+4 - Find the minimum Y value of the bounding box of the Box geometry
+5 - Find all Y positions of the Box geometry that are greater than the result of step 4
+6 - Any Y position NOT greater than the result of step 4, set to a value of 1.
+7 - Pass all Y positions into the Aggregator node and output the minimum value
+8 - Set the plane's y positions equal to the output of step 5
+
+Try adjusting the Int slider being passed to the subdivisionsY value of the Box node. You should see the plane automatically set to the second to last edge (from the top), no matter how many subdivisions you have in the box.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Operation** determines the mathematical operation to set on the input positional values (min, max, sum)
+
+#### Inputs
+- **geometry** is connected to a node providing a Geometry type.
+- **source** float positional values.
+
+#### Outputs
+- **output** is the resulting float from the aggregator operation (min, max, sum)
+
 <H3Image title="Boolean" image="/img/tools/nge/boolean.jpg" alt="Boolean node"/>
 This node will create a new mesh from the intersection of the two meshes connected to the inputs depending on the operation chosen. Note that this operation works best when both geometry inputs have a moderately high and relatively similar subdivision count. If the two geometry inputs have low resolution or big differences between them in resolution the resulting mesh can be poorly triangulated. The result of the boolean operation will be a newly constructed triangle list removing any vertices that are eliminated by the chosen operation. Because this is a newly generated mesh, previous mesh attributes like UVs will be removed and need to be authored for this new mesh. 
 
@@ -1907,6 +1967,22 @@ This node will create a new mesh from the intersection of the two meshes connect
 
 #### Outputs
 - **output** is the resulting mesh from the boolean operation.
+
+<H3Image title="CleanGeometry" image="/img/tools/nge/cleanGeometry.jpg" alt="Clean Geometry Node"/>
+It is possible to end up with geometry where the faces are inverted from what the user expects to see, even after using the "Compute Normals" node. The Clean Geometry node attempts to resolve this by recalculating the normal direction of surfaces. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+
+#### Inputs
+- **geometry** is connected to a node providing a Geometry type.
+
+#### Outputs
+- **output** is the geometry after computing normals.
 
 <H3Image title="Collection" image="/img/tools/nge/collectionNode.jpg" alt="Collection node"/>
 This node creates a collection of up to 10 geometry inputs. When used in conjunction with one of the instantiate nodes, the collection will provide one random geometry from the collection per iteration of the instantiate node. This allows for more randomization when creating a procedural mesh. The collection also provides a unique collection ID to each included geometry to help drive logic within the graph. The collection ID can be accessed with the GeometryInfo node. 
@@ -1942,6 +2018,44 @@ There are times when it is necessary to recompute normals when creating geometry
 
 #### Inputs
 - **geometry** is connected to a node providing a Geometry type.
+
+#### Outputs
+- **output** is the geometry after computing normals.
+
+<H3Image title="Lattice" image="/img/tools/nge/lattice.jpg" alt="Lattice Node"/>
+The lattice places a simplified "cage" over your geometry, allowing you to manipulate the geometry from a higher and simplified level. You can think of it as a deformer based on a simplified mesh. The lattice tool is a handy way to make larger manipulations to an already detailed piece of geometry.
+
+There are a couple of special things to note about the lattice node. In the 3D example below, the white cone represents the geometry passed to the lattice node and the wireframe box represents the lattice cage placed around the geometry. The lattice cage is automatically mapped to the bounding box of the geometry that's connected to it. Each manipulation point of the lattice is known as a "Lattice ID." Much like vertices, these Lattice ID's are each represented by a Vector3. In the case of the 3D example below, the resolutionX, resolutionY, and resolutionZ are all set to 3 and you can see the Vector3 ID of each point on the lattice cage. Note that the lattice ID of (0,0,0) is always mapped to the lowest x,y,z point of the bounding box surrounding the geometry. 
+
+<CodePen pen="WbNXYpw" tab="result" title="Lattice Visualization" />
+
+Manipulating the lattice IDs is very similar to how you modify vertices in the Node Geometry Editor. Have a look at this example: <NGE id="#FF8N3Q#5" title="Lattice Example" description="Simple example of the Lattice Node."/>
+
+<img src="/img/tools/nge/latticeExample1.jpg" title="LatticeExample1" alt="Lattice Example 1"/>
+
+You start by connecting geometry to the input port of the Lattice node and connect the output geometry port of the lattice node to the Geometry Output node. This step creates the "cage" around the input cylinder.
+
+<img src="/img/tools/nge/latticeExample2.jpg" title="LatticeExample2" alt="Lattice Example 2"/>
+
+Next, you specify the lattice IDs of the cage that you'd like to manipulate. In the case of the image above, we are targeting any lattice ID that has the same y value as defined by an input slider. Note the use of the Lattice ID node here.
+
+<img src="/img/tools/nge/latticeExample3.jpg" title="LatticeExample3" alt="Lattice Example 3"/>
+
+Lastly, manipulating the Lattice Control values will apply the modification to the Lattice. In the case above, the Lattice Control node is passed to the Equal node's ifFalse port. This means that when the Y value of a Lattice ID is NOT equal to the slider, don't do anything. Or in more simple terms, apply nothing. In the case of the evaluation being "True" we modify the Lattice Control, multiplying the X and Z values by 1.5. 
+
+When you adjust the 'LatticeYInfluence' Slider, you'll see different parts of the cone geometry expand by 1.5 in the X and Z directions. 
+
+Finally, to fully get a sense of what the lattice node can do, try adjusting a few things. Try increasing the subdivisions of the Cylinder geometry. After playing with the 'LatticeYInfluence' slider again, you'll notice the geometry change differently. And finally, try increasing the resolution of the Lattice Cage in the Lattice node. Again you see different results. 
+
+The Lattice tool is incredibly powerful for making large sweeping modifications to otherwise very detailed geometry!
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **geometry** is connected to a node providing a Geometry type.
+- **controls** is connected to Vector3 data, ideally provided by modified data coming from the output of the Lattice Control node.
 
 #### Outputs
 - **output** is the geometry after computing normals.
@@ -2109,6 +2223,25 @@ This node is one of the several which are responsible for defining geometry prop
 
 #### Outputs
 - **output** is the geometry after defining a property with this node.
+
+<H3Image title="Subdivide" image="/img/tools/nge/subdivide.jpg" alt="Subdivide node"/>
+The subdivide node divides geometry into smaller polygons.
+
+In this example, a box is subdivided into a spherical shape: <NGE id="#X7L4SK" title="Subdivide Example" description="Simple example of the Subidivide Node."/>
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Loop weight** is used to define how tightly the subdivision should consider the surrounding loop shape in the subdivision calculation.
+
+#### Inputs
+- **geometry** is connected to a node providing a Geometry type.
+- **level** int that defines the number of times the input geometry should be subdivided.
+
+#### Outputs
+- **output** is the geometry after it has been subdivided.
 
 ## Noises
 These nodes are used to create randomize values used for various operations in procedural geometry creation. 

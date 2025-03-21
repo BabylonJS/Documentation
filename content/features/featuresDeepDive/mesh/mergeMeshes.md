@@ -126,6 +126,9 @@ const mergeMeshes = function (meshName, arrayObj, scene) {
 
 You can construct complex meshes by using `subtract`, `intersect`, and `add` methods of the [CSG2](/typedoc/classes/babylon.csg2) class.
 
+Complete example:
+<Playground id="#0MDAYA" title="Complete CSG2 example" description="Showcase of subtract, intersect and add"/>
+
 ### Initializing CSG2
 
 Before being able to use `CSG2` you will have to initialize the [Manifold](https://github.com/elalish/manifold) library.
