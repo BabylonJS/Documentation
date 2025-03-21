@@ -308,7 +308,37 @@ bounce.play({ loop: true });
 
 ## Analyzer
 
-TODO: Document the `analyzer` subproperty on sounds and buses.
+The sound and bus `analyzer` property provides realtime analysis of the audio output's frequencies. The [`analyzer.getFloatFrequencyData()`](/typedoc/classes/BABYLON.AbstractAudioAnalyzer#getFloatFrequencyData) and [`analyzer.getByteFrequencyData()`](/typedoc/classes/BABYLON.AbstractAudioAnalyzer#getByteFrequencyData) functions return an array of volumes, in decibels, corresponding to the frequencies analyzed. Calling these functions quickly and repeatedly over time is useful for frequency-based visualizations, like in the following example:
+
+```javascript
+const bounce = await BABYLON.CreateSoundAsync("bounce",
+    "sounds/bounce.wav",
+    { analyzerEnabled: true }
+);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
+bounce.play({ loop: true });
+
+// Get the audio analyzer frequency data on every frame.
+scene.onBeforeRenderObservable.add(() => {
+    const frequencies = bounce.analyzer.getByteFrequencyData();
+    for (let i = 0; i < 16; i++) {
+        columns[i].value = frequencies[i] / 255;
+    }
+});
+```
+
+Note that this example creates the sound with the [`analyzerEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#analyzerenabled) option set to `true`. This is done because the underlying `analyzer` property is not enabled by default, so a small delay occurs when enabling it for the first time. Setting the [`analyzerEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#analyzerenabled) option to `true` avoids this delay, as does setting any of the analyzer options when the sound is created.
+
+Here is an example playground that uses the analyzer to animate frequency-based shader.
+
+<Playground id="#VP1B9P#50" title="Audio analyzer" description="An example of using the audio analyzer."/>
+
+<br/>
+<br/>
+
 
 ## Sound buffers
 
