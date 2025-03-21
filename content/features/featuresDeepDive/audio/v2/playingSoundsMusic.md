@@ -31,7 +31,7 @@ The [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync
 **You must wait for the [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) to resolve before use**, which can be done with the [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) keyword. The following code snippet shows how to do this:
 
 ```javascript
-async function initAudio() {
+(async () => {
     const audioEngine = await BABYLON.CreateAudioEngineAsync();
 
     // Create sounds here, but don't call `play()` on them, yet ...
@@ -40,10 +40,10 @@ async function initAudio() {
     await audioEngine.unlock();
 
     // Start sound playback ...
-}
+})();
 ```
 
-Note that the example code snippet also waits for the audio engine to be "unlocked" because browsers prevent audio from playing a user interaction occurs. See [Browser autoplay considerations](#browser-autoplay-considerations) for more information.
+Note that the example code snippet creates an async function and calls it immediately, and that it uses `await` to wait for the audio engine to be "unlocked" since browsers prevent audio from playing until a user interaction occurs. See [Browser autoplay considerations](#browser-autoplay-considerations) for more information.
 
 ## Playing a sound
 
