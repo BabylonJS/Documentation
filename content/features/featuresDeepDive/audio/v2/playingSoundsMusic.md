@@ -423,5 +423,30 @@ If a sound has its [`play`](/typedoc/classes/BABYLON.AbstractSound#play) functio
 
 ### Unmute button
 
-TODO: Document removing and customizing the default UI unmute button.
-TODO: Document other unlock options / disabling the various auto-unlock features.
+The Bablyon audio engine's unmute button unlocks the audio engine. It is shown automatically when the audio engine is locked, but it can be disabled when creating the audio engine by setting the [`disableDefaultUI`](/typedoc/interfaces/BABYLON.IWebAudioEngineOptions#disabledefaultui) options to `false`.
+
+The unmute button's CSS styling can be modified using the `#babylonUnmuteButton` id, like the following example that moves the button to the bottom left and makes it twice as big:
+
+```javascript
+const audioEngine = await BABYLON.CreateAudioEngineAsync();
+
+const unmuteButtonStyle = document.createElement("style");
+
+unmuteButtonStyle.appendChild(
+    document.createTextNode(`
+        #babylonUnmuteButton {
+            top: unset;
+            bottom: 35px;
+            margin-left: 50px;
+            transform: scale(2);
+        }
+        #babylonUnmuteButton:hover {
+            transform: scale(2.5);
+        }
+    `)
+);
+
+document.head.appendChild(unmuteButtonStyle);
+```
+
+<Playground id="#VP1B9P#55" title="Unmute styling" description="An example of customizing the unmute button's CSS styling."/>
