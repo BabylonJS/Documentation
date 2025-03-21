@@ -338,7 +338,6 @@ Here is an example playground that uses the analyzer to animate frequency-based 
 <br/>
 <br/>
 
-
 ## Sound buffers
 
 When sound is created with the [`CreateSoundAsync`](/typedoc/functions/BABYLON.CreateSoundAsync) function using a URL for the `source` parameter, the sound is downloaded and decoded into an in-memory data structure called a [sound buffer](/typedoc/classes/BABYLON.StaticSoundBuffer) which can be reused when creating other sounds referencing the same `source` URL. This lets you avoid downloading and decoding the same audio data multiple times.
@@ -386,8 +385,6 @@ await audioEngine.unlock();
 bounce1.play();
 bounce2.play();
 ```
-
-
 
 ## Using browser-specific audio codecs
 
