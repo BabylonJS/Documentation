@@ -215,8 +215,7 @@ gunshot.stereo.pan = -1;
 gunshot.play()
 ```
 
-Note that this example creates the sound with the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option set to `true`. This is done because the underlying `stereo` property is not enabled by default, so a small delay occurs to enable it the first time the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property is accessed. Setting the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option to `true` avoids this delay, as does setting the [`stereoPan`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereopan) option when the sound is created instead of using the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property later. Subsequent changes to the stereo settings are instantaneous after the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property has been enabled.
-
+Note that this example creates the sound with the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option set to `true`. This is done because the underlying `stereo` property is not enabled by default, so a small delay occurs when enabling it for the first time. Setting the [`stereoEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereoenabled) option to `true` avoids this delay, as does setting the [`stereoPan`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#stereopan) option when the sound is created instead of using the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property later. Subsequent changes to the stereo settings are instantaneous after the [`stereo`](/typedoc/classes/BABYLON.AbstractSound#stereo) property has been enabled.
 
 ## Spatial audio
 
@@ -244,7 +243,7 @@ await audioEngine.unlock();
 bounce.play({ loop: true });
 ```
 
-Note that this example creates the sound with the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option set to `true`. This is done because the underlying `spatial` property is not enabled by default, so a small delay occurs to enable it the first time the [`spatial`](/typedoc/classes/BABYLON.AbstractSound#spatial) property is accessed. Setting the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option to `true` avoids this delay, as does setting any of the  spatial audio options when the sound is created.
+Note that this example creates the sound with the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option set to `true`. This is done because the underlying `spatial` property is not enabled by default, so a small delay occurs when enabling it for the first time. Setting the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option to `true` avoids this delay, as does setting any of the spatial audio options when the sound is created.
 
 <Playground id="#VP1B9P#28" title="Attaching meshes" description="An example of attaching a spatial sound source to a mesh."/>
 
@@ -253,7 +252,7 @@ Note that this example creates the sound with the [`spatialEnabled`](/typedoc/in
 
 To experiment with the available [spatial sound source settings]/typedoc/classes/BABYLON.AbstractSpatialAudio), a spatial audio visualizer playground is provided:
 
-<Playground id="#VP1B9P#47" title="Spatial vizualizer" description="A spatial sound settings visualizer."/>
+<Playground id="#VP1B9P#47" title="Spatial audio visualizer" description="A spatial audio settings visualizer."/>
 
 <br/>
 <br/>
