@@ -44,7 +44,8 @@ Or call the equivalent functions on the audio engine directly:
 
 In the old audio engine, there is one `Sound` class for both static sounds and streaming sounds, and the `streaming` option is used to differentiate them. This is confusing because some sound options only apply to static sounds, and some streaming features do not work well across browsers so they should not be used.
 
-To address these issues, the new audio engine has separate classes for static and streaming sounds, with a clear separate between the available options and features.
+To address these issues, the new audio engine has separate classes for static and streaming sounds, with a clear separation between the available options and features.
+
 
 See the [sound](../playingSoundsMusic/#playing-a-sound) and [streaming sound](../playingSoundsMusic/#streaming-a-sound) documentation for more information.
 
