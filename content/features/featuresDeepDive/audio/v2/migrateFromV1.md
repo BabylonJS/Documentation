@@ -54,3 +54,7 @@ See the [sound](../playingSoundsMusic/#playing-a-sound) and [streaming sound](..
 In the old audio engine, [`SoundTrack`](/typedoc/classes/BABYLON.SoundTrack) objects are used for audio routing and managing groups of sounds, and they can only route sounds, not other sound tracks. This makes creating extended audio routing chains impossible. Another limitation of sound tracks is they have no stereo or spatial audio features.
 
 In the new audio engine, sound tracks replaced by [audio buses](../playingSoundsMusic/#audio-buses), which implement stereo and spatial audio, and allow their audio output to be routed to other audio bus objects using the [`AudioBus.outBus`](/typedoc/classes/BABYLON.AudioBus#outbus) property.
+
+## Feature requests and bug fixes
+
+To request new features or bug fixes, create a new topic at https://forum.babylonjs.com and tag [`@docEdub`](https://forum.babylonjs.com/u/docedub/summary). Thanks!

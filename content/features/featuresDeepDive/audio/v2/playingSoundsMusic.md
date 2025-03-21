@@ -447,3 +447,7 @@ document.head.appendChild(unmuteButtonStyle);
 ```
 
 <Playground id="#1BZK59#8" title="Unmute styling" description="An example of customizing the unmute button's CSS styling."/>
+
+## Feature requests and bug fixes
+
+To request new features or bug fixes, create a new topic at https://forum.babylonjs.com and tag [`@docEdub`](https://forum.babylonjs.com/u/docedub/summary). Thanks!
