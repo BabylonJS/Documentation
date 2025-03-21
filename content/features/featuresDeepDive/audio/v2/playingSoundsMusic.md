@@ -62,7 +62,7 @@ await audioEngine.unlock();
 gunshot.play()
 ```
 
-<Playground id="#VP1B9P" title="Playing a sound" description="A simple example of playing a sound."/>
+<Playground id="#1BZK59" title="Playing a sound" description="A simple example of playing a sound."/>
 
 <br/>
 <br/>
@@ -88,7 +88,7 @@ await audioEngine.unlock();
 narration.play()
 ```
 
-<Playground id="#VP1B9P#10" title="Streaming a sound" description="A simple example of playing a streaming sound."/>
+<Playground id="#1BZK59#1" title="Streaming a sound" description="A simple example of playing a streaming sound."/>
 
 <br/>
 <br/>
@@ -122,7 +122,7 @@ setTimeout(() => {
 }, 4000);
 ```
 
-<Playground id="#VP1B9P#8" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
+<Playground id="#1BZK59#2" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
 
 <br/>
 <br/>
@@ -165,7 +165,7 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 bounce.play({ loop: true });
 ```
 
-<Playground id="#VP1B9P#12" title="Looping playback" description="An example of looping sound playback three different ways."/>
+<Playground id="#1BZK59#3" title="Looping playback" description="An example of looping sound playback three different ways."/>
 
 <br/>
 <br/>
@@ -245,14 +245,14 @@ bounce.play({ loop: true });
 
 Note that this example creates the sound with the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option set to `true`. This is done because the underlying `spatial` property is not enabled by default, so a small delay occurs when enabling it for the first time. Setting the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option to `true` avoids this delay, as does setting any of the spatial audio options when the sound is created.
 
-<Playground id="#VP1B9P#51" title="Attaching meshes" description="An example of attaching a spatial sound source to a mesh."/>
+<Playground id="#1BZK59#4" title="Attaching meshes" description="An example of attaching a spatial sound source to a mesh."/>
 
 <br/>
 <br/>
 
 To experiment with the available [spatial sound source settings]/typedoc/classes/BABYLON.AbstractSpatialAudio), a spatial audio visualizer playground is provided:
 
-<Playground id="#VP1B9P#47" title="Spatial audio visualizer" description="A spatial audio settings visualizer."/>
+<Playground id="#1BZK59#5" title="Spatial audio visualizer" description="A spatial audio settings visualizer."/>
 
 <br/>
 <br/>
@@ -300,7 +300,7 @@ await audioEngine.unlock();
 bounce.play({ loop: true });
 ```
 
-<Playground id="#VP1B9P#49" title="Audio buses" description="An example of chaining audio buses."/>
+<Playground id="#1BZK59#6" title="Audio buses" description="An example of chaining audio buses."/>
 
 <br/>
 <br/>
@@ -333,7 +333,7 @@ Note that this example creates the sound with the [`analyzerEnabled`](/typedoc/i
 
 Here is an example playground that uses the analyzer to animate frequency-based shader.
 
-<Playground id="#VP1B9P#50" title="Audio analyzer" description="An example of using the audio analyzer."/>
+<Playground id="#1BZK59#7" title="Audio analyzer" description="An example of using the audio analyzer."/>
 
 <br/>
 <br/>
@@ -446,4 +446,4 @@ unmuteButtonStyle.appendChild(
 document.head.appendChild(unmuteButtonStyle);
 ```
 
-<Playground id="#VP1B9P#55" title="Unmute styling" description="An example of customizing the unmute button's CSS styling."/>
+<Playground id="#1BZK59#8" title="Unmute styling" description="An example of customizing the unmute button's CSS styling."/>
