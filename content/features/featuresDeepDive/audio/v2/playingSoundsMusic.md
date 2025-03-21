@@ -245,7 +245,7 @@ bounce.play({ loop: true });
 
 Note that this example creates the sound with the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option set to `true`. This is done because the underlying `spatial` property is not enabled by default, so a small delay occurs when enabling it for the first time. Setting the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option to `true` avoids this delay, as does setting any of the spatial audio options when the sound is created.
 
-<Playground id="#VP1B9P#28" title="Attaching meshes" description="An example of attaching a spatial sound source to a mesh."/>
+<Playground id="#VP1B9P#51" title="Attaching meshes" description="An example of attaching a spatial sound source to a mesh."/>
 
 <br/>
 <br/>
