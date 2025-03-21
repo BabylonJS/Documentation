@@ -409,8 +409,17 @@ If needed, this behavior can be disabled by setting the [`skipCodecCheck`](/type
 
 ## Browser autoplay considerations
 
-TODO: Document browser autoplay restrictions and how that affects the audio engine.
-- Talk about how sound `autoplay` and `loop` options affect playback when the audio context is unlocked.
+When working with audio in the browser, [autoplay](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay) must be considered. Autoplay is generally disabled by default in most browsers and as a result, the Babylon audio engine can not play sounds until a user interaction has occurred on the page.
+
+By default, the Babylon audio engine shows an unmute button in the top left corner of the render area that when pressed, unlocks the audio engine and lets sounds play. This button can be disabled when creating the audio engine by setting the [`disableDefaultUI`](/typedoc/interfaces/BABYLON.IWebAudioEngineOptions#disabledefaultui) options to `false`.
+
+The audio engine also adds a `click` handler to the entire document by default, which unlocks the audio engine on any user interaction, not just the unmute button. This can be disabled by setting the [`resumeOnInteraction`](/typedoc/interfaces/BABYLON.IWebAudioEngineOptions#resumeOnInteraction) option to `false`.
+
+In some rare cases, the browser automatically locks the audio engine after it has been unlocked, like when VisionOS enters WebXR immersive mode. By default, the audio engine will attempt to unlock the audio engine automatically when this occurs. This should work in all cases, but it can be disabled by setting the [`resumeOnPause`](/typedoc/interfaces/BABYLON.IWebAudioEngineOptions#resumeonpause) option to `false` if needed.
+
+### Playing sounds after the audio engine is unlocked
+
+If a sound has its [`play`](/typedoc/classes/BABYLON.AbstractSound#play) function called while the audio engine is locked, the sound will not play. If a sound is set to loop and its `autoplay` setting is turned on or its [`play`](/typedoc/classes/BABYLON.AbstractSound#play) function is called while the audio engine is locked, then the sound will start playing automatically when the audio engine is unlocked. If the sound is not set to loop, and its [`play`](/typedoc/classes/BABYLON.AbstractSound#play) function is called while the audio engine is locked, then it will **not** be automatically started when the audio engine is unlocked, even if its `autoplay` setting is turned on.
 
 ### Unmute button
 
