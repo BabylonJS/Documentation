@@ -301,7 +301,10 @@ await audioEngine.unlock();
 bounce.play({ loop: true });
 ```
 
-TODO: Add playground example for buses.
+<Playground id="#VP1B9P#49" title="Audio buses" description="An example of chaining audio buses."/>
+
+<br/>
+<br/>
 
 ## Analyzer
 
