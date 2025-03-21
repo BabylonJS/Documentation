@@ -356,3 +356,4 @@ TODO: Document browser autoplay restrictions and how that affects the audio engi
 ### Unmute button
 
 TODO: Document removing and customizing the default UI unmute button.
+TODO: Document other unlock options / disabling the various auto-unlock features.
