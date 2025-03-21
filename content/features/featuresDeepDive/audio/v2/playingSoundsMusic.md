@@ -341,8 +341,53 @@ Here is an example playground that uses the analyzer to animate frequency-based 
 
 ## Sound buffers
 
-TODO: Document reusing sound buffers across multiple sounds.
-- Talk about CPU and memory savings from sharing buffers.
+When sound is created with the [`CreateSoundAsync`](/typedoc/functions/BABYLON.CreateSoundAsync) function using a URL for the `source` parameter, the sound is downloaded and decoded into an in-memory data structure called a [sound buffer](/typedoc/classes/BABYLON.StaticSoundBuffer) which can be reused when creating other sounds referencing the same `source` URL. This lets you avoid downloading and decoding the same audio data multiple times.
+
+Here is an example of reusing a sound buffer with the [`StaticSound.buffer`](/typedoc/classes/BABYLON.StaticSound#buffer) property:
+
+```javascript
+const bounce1 = await BABYLON.CreateSoundAsync("bounce1",
+    "sounds/bounce.wav"
+);
+
+const bounce2 = await BABYLON.CreateSoundAsync("bounce2",
+    bounce1.buffer,
+    { playbackRate: 2 }
+);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
+bounce1.play();
+bounce2.play();
+```
+
+Note that the first sound uses a URL for its `source` parameter, and the second sound uses the first sound's [`buffer`](/typedoc/classes/BABYLON.StaticSound#buffer) for its `source` parameter.
+
+Sound buffers can also be created using the [`CreateSoundBufferAsync`](/typedoc/functions/BABYLON.CreateSoundBufferAsync) function, like in this example:
+
+```javascript
+const soundBuffer = await BABYLON.CreateSoundBufferAsync(
+    "sounds/bounce.wav"
+);
+
+const bounce1 = await BABYLON.CreateSoundAsync("bounce1",
+    soundBuffer
+);
+
+const bounce2 = await BABYLON.CreateSoundAsync("bounce2",
+    soundBuffer
+    { playbackRate: 2 }
+);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlock();
+
+bounce1.play();
+bounce2.play();
+```
+
+
 
 ## Using browser-specific audio codecs
 
