@@ -6,8 +6,9 @@ import { createElement } from "react";
 // import ReactDOM from "react-dom";
 import { unified } from "unified";
 import highlight from "rehype-highlight";
-import rehype2react from "rehype-react";
+import rehypeReact from "rehype-react";
 import parse from "rehype-parse";
+import production from 'react/jsx-runtime'
 
 // linting
 import { AnchorWrapper } from "../../components/wrappers/anchorWrapper.component";
@@ -92,12 +93,7 @@ export const parseNode = (htmlContent: string, baseLocation = "typedoc") => {
         .use(highlight)
         .use(apiLinkParserPlugin.call(null, baseLocation))
         .use(addPlaygroundSearch)
-        .use(rehype2react, {
-            createElement: createElement,
-            components: {
-                a: AnchorWrapper,
-            },
-        });
+        .use(rehypeReact, production);
 
     return processor.processSync(htmlContent) as any;
 };

@@ -226,14 +226,14 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     }
 
     const props = await getPageData(params.id, true);
-    const remarkSlug = (await import("remark-slug")).default;
+    const rehypeSlug = (await import("rehype-slug")).default;
     const remarkGfm = (await import("remark-gfm")).default;
     const remarkMath = (await import("remark-math")).default;
     const rehypeKatex = (await import("rehype-katex")).default;
     props.mdxContent = await serialize(props.content, {
         mdxOptions: {
-            remarkPlugins: [remarkSlug, /*remarkLint, */ remarkGfm, remarkMath],
-            rehypePlugins: [rehypeKatex],
+            remarkPlugins: [ /*remarkLint, */ remarkGfm, remarkMath],
+            rehypePlugins: [rehypeSlug, rehypeKatex],
         },
     });
     return {
