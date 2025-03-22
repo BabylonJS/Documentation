@@ -323,7 +323,7 @@
                                     "content": "features/featuresDeepDive/audio/v2/playingSoundsMusic"
                                 },
                                 "migrate": {
-                                    "friendlyName": "Migrating from the old audio engine",
+                                    "friendlyName": "Migrating From The Old Audio Engine",
                                     "children": {},
                                     "content": "features/featuresDeepDive/audio/v2/migrateFromV1"
                                 }
@@ -3706,7 +3706,7 @@
             "content": "legacy",
             "children": {
                 "audio": {
-                    "friendlyName": "AudioEngine",
+                    "friendlyName": "Audio",
                     "children": {},
                     "content": "features/featuresDeepDive/audio/v1/playingSoundsMusic"
                 },

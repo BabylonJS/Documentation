@@ -1,5 +1,5 @@
 ---
-title: Migrate from Old Audio Engine
+title: Migrating From The Old Audio Engine
 image:
 description: A guide on best practices to port a scene that uses the old audio engine to the new audio engine v2
 keywords: diving deeper, audio, migration
