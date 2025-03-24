@@ -1,6 +1,6 @@
 ---
 title: Creating a Bowling Scene with the Havok Physics Plugin
-image: 
+image:
 description: Simple bowling scene that simulates bowling ball movement and pin interactions
 keywords: workshop, bowling, Havok, physics
 further-reading:
@@ -16,25 +16,25 @@ Let’s first create a new playground. We can get rid of the sphere and ground w
 
 ```javascript
 var createScene = function () {
-    // This creates a basic Babylon Scene object (non-mesh)
-    var scene = new BABYLON.Scene(engine);
+  // This creates a basic Babylon Scene object (non-mesh)
+  var scene = new BABYLON.Scene(engine);
 
-    // This creates and positions a free camera (non-mesh)
-    var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+  // This creates and positions a free camera (non-mesh)
+  var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
 
-    // This targets the camera to scene origin
-    camera.setTarget(BABYLON.Vector3.Zero());
+  // This targets the camera to scene origin
+  camera.setTarget(BABYLON.Vector3.Zero());
 
-    // This attaches the camera to the canvas
-    camera.attachControl(canvas, true);
+  // This attaches the camera to the canvas
+  camera.attachControl(canvas, true);
 
-    // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-    var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+  // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
+  var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
-    // Default intensity is 1. Let's dim the light a small amount
-    light.intensity = 0.7;
+  // Default intensity is 1. Let's dim the light a small amount
+  light.intensity = 0.7;
 
-    return scene;
+  return scene;
 };
 ```
 
@@ -86,9 +86,9 @@ We first start by loading the bowling pin from the Asset Librarian. Once loaded,
 
 ```javascript
 async function createPins(scene) {
-    const result = await BABYLON.SceneLoader.ImportMeshAsync("", Assets.meshes.bowlingPinpin_glb.rootUrl, Assets.meshes.bowlingPinpin_glb.filename, scene);
-            const bowlingPin = result.meshes[1];
-            bowlingPin.scaling = new BABYLON.Vector3(0.3, 0.3, 0.3)
+  const result = await BABYLON.ImportMeshAsync(Assets.meshes.bowlingPinpin_glb.rootUrl + Assets.meshes.bowlingPinpin_glb.filename, scene);
+  const bowlingPin = result.meshes[1];
+  bowlingPin.scaling = new BABYLON.Vector3(0.3, 0.3, 0.3);
 }
 
 createPins(scene);
@@ -106,26 +106,26 @@ Since we can change the position for each instanced pin, we need a way to both s
 
 ```javascript
 pinPositions = [
-    new BABYLON.Vector3(0, 0, 5),
-    new BABYLON.Vector3(.5, 0, 6),
-    new BABYLON.Vector3(-.5, 0, 6),
-    new BABYLON.Vector3(0, 0, 7),
-    new BABYLON.Vector3(1, 0, 7),
-    new BABYLON.Vector3(-1, 0, 7),
-    new BABYLON.Vector3(-1.5, 0, 8),
-    new BABYLON.Vector3(-.5, 0, 8),
-    new BABYLON.Vector3(.5, 0, 8),
-    new BABYLON.Vector3(1.5, 0, 8)
-]
+  new BABYLON.Vector3(0, 0, 5),
+  new BABYLON.Vector3(0.5, 0, 6),
+  new BABYLON.Vector3(-0.5, 0, 6),
+  new BABYLON.Vector3(0, 0, 7),
+  new BABYLON.Vector3(1, 0, 7),
+  new BABYLON.Vector3(-1, 0, 7),
+  new BABYLON.Vector3(-1.5, 0, 8),
+  new BABYLON.Vector3(-0.5, 0, 8),
+  new BABYLON.Vector3(0.5, 0, 8),
+  new BABYLON.Vector3(1.5, 0, 8),
+];
 ```
 
 We now iterate over the `pinPositions` array using the `map()` method. For each position in `pinPositions`, a new `bowlingPin` instance is created. Each new pin’s name is given the prefix `pin` followed by the corresponding index. The instanced pin’s position is then assigned based on the corresponding position value from the `pinPositions` array.
 
 ```javascript
 return pinPositions.map(function (positionInSpace, idx) {
-    const pin = new BABYLON.InstancedMesh("pin-" + idx, bowlingPin);
-    pin.position = positionInSpace;
-    return pin;
+  const pin = new BABYLON.InstancedMesh("pin-" + idx, bowlingPin);
+  pin.position = positionInSpace;
+  return pin;
 });
 ```
 
@@ -145,10 +145,10 @@ With our bowling lane created and our pins perfectly placed, we’re ready to cr
 
 ```javascript
 async function createBall(scene) {
-    const result = await BABYLON.SceneLoader.ImportMeshAsync("", Assets.meshes.bowlingBall_glb.rootUrl, Assets.meshes.bowlingBall_glb.filename, scene);
-        const bowlingBall = result.meshes[1];
-        bowlingBall.scaling.scaleInPlace(0.2);
-        bowlingBall.position = new BABYLON.Vector3(0, 0.5, -5);
+  const result = await BABYLON.ImportMeshAsync(Assets.meshes.bowlingBall_glb.rootUrl + Assets.meshes.bowlingBall_glb.filename, scene);
+  const bowlingBall = result.meshes[1];
+  bowlingBall.scaling.scaleInPlace(0.2);
+  bowlingBall.position = new BABYLON.Vector3(0, 0.5, -5);
 }
 
 createBall(scene);
@@ -178,13 +178,12 @@ The final step in our tutorial is to add keyboard input to both move the positio
 
 ```javascript
 scene.onKeyboardObservable.add((kbInfo) => {
-    switch (kbInfo.type) {
-        case BABYLON.KeyboardEventTypes.KEYDOWN:
-            switch (kbInfo.event.key.toLowerCase()) {
-
-            }
-        }
-    });
+  switch (kbInfo.type) {
+    case BABYLON.KeyboardEventTypes.KEYDOWN:
+      switch (kbInfo.event.key.toLowerCase()) {
+      }
+  }
+});
 ```
 
 For typical keyboard game play, the A and D keys are used for left and right movement, respectively. Since we’re only moving the bowling ball to the left and right, we change the ball’s `x` position when the key is pressed. We don’t want to change the position too much per key press, therefore, we decrement and increment `0.1` on the x-axis.

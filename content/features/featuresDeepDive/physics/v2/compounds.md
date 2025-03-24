@@ -1,11 +1,11 @@
 ---
 title: Physics compounds
-image: 
+image:
 description: How to use compounds to model complex objects with simple primitives
 keywords: diving deeper, phyiscs
 further-reading:
-    - title: How To Use Forces
-      url: /features/featuresDeepDive/physics/forces
+  - title: How To Use Forces
+    url: /features/featuresDeepDive/physics/forces
 video-overview:
 video-content:
 ---
@@ -19,7 +19,7 @@ The Compound is a special type of shape that acts as a "container" to other shap
 Imagine you have a mesh that represents a character. Character meshes are usually pretty complex, thus we want to avoid using it directly for collision. We can approximate the shape of the character with a sphere representing the head, and a box representing the rest of the body. We will create two meshes to represent these shapes, parent them to the character mesh, create two child PhysicShapes and parent them to a PhysicsShapeContainer:
 
 ```javascript
-const myMesh = BABYLON.SceneLoader.ImportMeshAsync(...);
+const myMesh = BABYLON.ImportMeshAsync(...);
 
 const headNode = new BABYLON.TransformNode("headNode");
 headNode.position.y = 3;
@@ -38,8 +38,9 @@ parentShape.addChildFromParent(myMesh, sphereShape, headNode);
 const body = new BABYLON.PhysicsBody(myMesh, scene);
 body.shape = parentShape;
 ```
+
 The following Playground shows a simple example of creating a Container body to approximate a mesh:
 <Playground id="3H3DLR" title="Simple Physics Container example" description="Simple Physics Container example" />
-            
+
 The following Playground shows a comparison of using Container, Convex Hull and Mesh shapes on different meshes:
 <Playground id="LKPBW5" title="Comparison of using Container, Convex Hull and Mesh shapes on different meshes" description="Comparison of using Container, Convex Hull and Mesh shapes on different meshes" />

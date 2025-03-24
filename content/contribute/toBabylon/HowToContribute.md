@@ -724,7 +724,7 @@ This is an extended example of how to use the dev host to integrate GUI, Loaders
 import { canvas, engine } from "./index";
 import "@dev/loaders";
 import { Inspector } from "@dev/inspector";
-import { ArcRotateCamera, CubeTexture, Scene, SceneLoader } from "@dev/core";
+import { ArcRotateCamera, CubeTexture, Scene, AppendSceneAsync } from "@dev/core";
 import { AdvancedDynamicTexture, Button } from "@dev/gui";
 
 export const createScene = async function () {
@@ -734,7 +734,7 @@ export const createScene = async function () {
     scene.createDefaultSkybox(hdrTexture, true, 10000);
 
     // The first parameter can be used to specify which mesh to import. Here we import all meshes
-    SceneLoader.AppendAsync("https://assets.babylonjs.com/meshes/webp/", "webp.gltf", scene, function (_newMeshes) {
+    AppendSceneAsync("https://assets.babylonjs.com/meshes/webp/webp.gltf", scene).then((result) => {
         scene.activeCamera!.attachControl(canvas, false);
         // scene.activeCamera!.alpha += Math.PI; // camera +180°
         (scene.activeCamera as ArcRotateCamera).radius = 80;

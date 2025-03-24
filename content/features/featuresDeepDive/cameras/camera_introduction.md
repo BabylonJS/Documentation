@@ -251,7 +251,7 @@ function startGame() {
     const canvas = document.getElementById("renderCanvas");
     const engine = new BABYLON.Engine(canvas, true);
 
-    BABYLON.SceneLoader.Load("Espilit/", "Espilit.babylon", engine, function (newScene) {
+    BABYLON.LoadSceneAsync("Espilit/Espilit.babylon", engine).then(function (newScene) {
 
       const VJC = new BABYLON.VirtualJoysticksCamera("VJC", newScene.activeCamera.position, newScene);
       VJC.rotation = newScene.activeCamera.rotation;
@@ -268,9 +268,7 @@ function startGame() {
           newScene.render();
         }),
       }),
-    }, function (progress) {
-    // To do: give progress feedback to user.
-    }),
+    });,
   }
 }
 ```

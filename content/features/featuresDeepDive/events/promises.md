@@ -23,12 +23,12 @@ Regarding portability, Babylon.js provides a custom polyfill for browsers where 
 ### Basic usage
 
 ```javascript
-BABYLON.SceneLoader.LoadAssetContainerAsync("https://playground.babylonjs.com/scenes/", "skull.babylon", scene).then(function (container) {
+BABYLON.LoadAssetContainerAsync("https://playground.babylonjs.com/scenes/skull.babylon", scene).then(function (container) {
   container.addAllToScene();
 });
 ```
 
-<Playground id="#JA1ND3#63" title="Simple Promise Example" description="Simple example loading an asset into a scene after the file has been loaded." image="/img/playgroundsAndNMEs/divingDeeperPromises1.jpg"/>
+<Playground id="/#JA1ND3#1052" title="Simple Promise Example" description="Simple example loading an asset into a scene after the file has been loaded." image="/img/playgroundsAndNMEs/divingDeeperPromises1.jpg"/>
 
 ### Chaining multiple promises together
 
@@ -37,7 +37,7 @@ const scene = new BABYLON.Scene(engine);
 const xrPromise = scene.createDefaultXRExperienceAsync();
 xrPromise
   .then((xrExperience) => {
-    return BABYLON.SceneLoader.AppendAsync("https://playground.babylonjs.com/scenes/", "skull.babylon", scene);
+    return BABYLON.AppendSceneAsync("https://playground.babylonjs.com/scenes/skull.babylon", scene);
   })
   .then(function () {
     // xr resolved, skull added to the scene
@@ -51,10 +51,8 @@ Note: This is not supported in all browsers
 ```javascript
 const main = async function () {
   const scene = new BABYLON.Scene(engine);
-  const helper = scene.createDefaultVRExperience();
-  const supported = await helper.webVRCamera.useStandingMatrixAsync();
-  console.log(supported);
-  await BABYLON.SceneLoader.AppendAsync("https://playground.babylonjs.com/scenes/", "skull.babylon", scene);
+  const xrPromise = await scene.createDefaultXRExperienceAsync();
+  return BABYLON.AppendSceneAsync("https://playground.babylonjs.com/scenes/skull.babylon", scene);
 };
 ```
 
@@ -66,10 +64,10 @@ const scene = new BABYLON.Scene(engine);
 const baseUrl = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/";
 
 Promise.all([
-  BABYLON.SceneLoader.ImportMeshAsync(null, baseUrl + "BoomBox/glTF/", "BoomBox.gltf", scene).then(function (result) {
+  BABYLON.ImportMeshAsync(baseUrl + "BoomBox/glTF/BoomBox.gltf", scene).then(function (result) {
     result.meshes[0].position.x = 0.01;
   }),
-  BABYLON.SceneLoader.ImportMeshAsync(null, baseUrl + "Avocado/glTF/", "Avocado.gltf", scene).then(function (result) {
+  BABYLON.ImportMeshAsync(baseUrl + "Avocado/glTF/Avocado.gltf", scene).then(function (result) {
     result.meshes[0].position.x = -0.01;
     result.meshes[0].position.y = -0.01;
     result.meshes[0].scaling.scaleInPlace(0.25);
@@ -80,4 +78,4 @@ Promise.all([
 });
 ```
 
-<Playground id="#U2KKMK#1" title="Load 2 Asset At Once" description="Simple example of loading 2 assets at once inside of a promise." image="/img/playgroundsAndNMEs/divingDeeperPromises2.jpg"/>
+<Playground id="#U2KKMK#308" title="Load 2 Asset At Once" description="Simple example of loading 2 assets at once inside of a promise." image="/img/playgroundsAndNMEs/divingDeeperPromises2.jpg"/>

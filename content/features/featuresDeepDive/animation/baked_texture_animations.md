@@ -22,7 +22,7 @@ The `VertexAnimationBaker` class generates a texture for you given the animation
 let baker = null,
   mesh = null;
 const animationRanges = [{ from: 1, to: 20, name: "My animation" }];
-BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/RaggarDK/Baby/baby/", "arr.babylon", scene, undefined)
+BABYLON.ImportMeshAsync("https://raw.githubusercontent.com/RaggarDK/Baby/baby/arr.babylon", scene, undefined)
   .then((importResult) => {
     mesh = importResult.meshes[0];
     // create the baker helper, so we can generate the texture
@@ -58,7 +58,7 @@ BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/Ragga
 
 Here's an example for a single mesh:
 
-<Playground id="#CP2RN9#16" title="Vertex Texture Animations" description="An example of playing a vertex texture animation."/>
+<Playground id="#CP2RN9#235" title="Vertex Texture Animations" description="An example of playing a vertex texture animation."/>
 
 ## VATs for instances
 
@@ -107,7 +107,7 @@ Baking the texture can be a slow process, and will play the entire animation vis
 let baker = null,
   mesh = null;
 const animationRanges = [{ from: 1, to: 20, name: "My animation" }];
-BABYLON.SceneLoader.ImportMeshAsync("", "http://example.com", "arr.babylon", scene, undefined)
+BABYLON.ImportMeshAsync("http://example.com/arr.babylon", scene, undefined)
   .then((importResult) => {
     mesh = importResult.meshes[0];
     // create the baker helper, so we can generate the texture
@@ -134,7 +134,7 @@ let baker = null,
 const animationRanges = [{ from: 1, to: 20, name: "My animation" }];
 
 // read your mesh like always
-BABYLON.SceneLoader.ImportMeshAsync("", "http://example.com", "arr.babylon", scene, undefined)
+BABYLON.ImportMeshAsync("http://example.com/arr.babylon", scene, undefined)
   .then((importResult) => {
     mesh = importResult.meshes[0];
     // read the vertex data file.

@@ -82,7 +82,7 @@ Let's say you have exported [WaterBottle.glb](https://github.com/KhronosGroup/gl
       const engine = new BABYLON.Engine(canvas, true);
 
       // here the doc for Load function: //doc.babylonjs.com/api/classes/babylon.sceneloader#load
-      BABYLON.SceneLoader.Load("", "WaterBottle.glb", engine, function (scene) {
+      BABYLON.LoadSceneAsync("WaterBottle.glb", engine).then(function (scene) {
         scene.createDefaultCamera(true, true, true);
         scene.createDefaultEnvironment({
           createGround: false,

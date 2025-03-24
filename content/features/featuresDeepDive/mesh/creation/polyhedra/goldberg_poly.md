@@ -214,9 +214,9 @@ Although a Goldberg mesh is a very specialized mesh Babylon.js supports the expo
 A Goldberg mesh is exported to file.babylon.
 
 ```javascript
-BABYLON.SceneLoader.ImportMeshAsync("", "PATH TO FOLDER", "file.babylon").then((result) => {
+BABYLON.ImportMeshAsync("PATH TO FOLDER" + "file.babylon").then((result) => {
   const goldbergPoly = result.meshes[0];
 });
 ```
 
-PG: <Playground id="#A8VZGP#43" title="Import as a Goldberg Mesh" description="Additional properties and methods can also be applied"/>
+PG: <Playground id="#A8VZGP#288" title="Import as a Goldberg Mesh" description="Additional properties and methods can also be applied"/>

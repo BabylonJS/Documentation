@@ -44,11 +44,9 @@ BABYLON.SceneLoader.OnPluginActivatedObservable.addOnce(function (loader) {
 When loading large assets either using loose files or with range requests, it is useful to show the download progress. Progress is supported through the progress callback of `BABYLON.SceneLoader` methods which is a small subset of the HTTP request [progress event](https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent). Here is an example from the demo above:
 
 ```javascript
-BABYLON.SceneLoader.AppendAsync(
-  url,
-  undefined,
-  scene,
-  function (event) {
+BABYLON.AppendSceneAsync(url, scene, {
+  pluginExtension: ".glb",
+  onProgress: function (event) {
     // Compute the percentage for each stage unless the length is not computable.
     // The lengthComputable is often false when serving content that is gzipped.
     const percentage = event.lengthComputable ? " " + Math.floor((event.loaded / event.total) * 100) + "%" : "";
@@ -65,8 +63,7 @@ BABYLON.SceneLoader.AppendAsync(
       bottomLine.text = "Loading '" + lodNames[lodNext] + "' LOD..." + percentage;
     }
   },
-  ".glb",
-);
+});
 ```
 
 ## Key Notes
@@ -80,15 +77,15 @@ It is useful to stop at a specific LOD to inspect the results. This can be achie
 
 ```javascript
 BABYLON.SceneLoader.OnPluginActivatedObservable.addOnce(function (loader) {
-    if (loader.name === "gltf") {
-        loader.onExtensionLoadedObservable.add(function (extension) {
-            if (extension.name === "MSFT_lod") {
-                // Stop at the first LOD.
-                extension.maxLODsToLoad = 1;
-            }
-        }
-    }
-}
+  if (loader.name === "gltf") {
+    loader.onExtensionLoadedObservable.add(function (extension) {
+      if (extension.name === "MSFT_lod") {
+        // Stop at the first LOD.
+        extension.maxLODsToLoad = 1;
+      }
+    });
+  }
+});
 ```
 
 ## Enabling Logging

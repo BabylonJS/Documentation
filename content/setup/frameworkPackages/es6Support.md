@@ -696,9 +696,9 @@ let engine = new BABYLON.NullEngine();
 // create your scene here
 const scene = .....;
 
-BABYLON.SceneLoader.ImportMesh("",  "https://awesomeserver.mine.com/",  "my.glb",  scene,  () => {
+BABYLON.ImportMeshAsync("https://awesomeserver.mine.com/my.glb", scene).then(() => {  
     console.log("draco worked");
-  },  null,  (e) => {
+  }, (e) => {
     console.log("oh no! something is off", e);
   }
 );

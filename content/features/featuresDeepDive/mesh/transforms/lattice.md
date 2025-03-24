@@ -146,8 +146,8 @@ One important point here is that we use the `deform` function with a second para
 
 You can also update the lattice data:
 
-```
- const loadedData = await BABYLON.SceneLoader.ImportMeshAsync("", "scenes/", "skull.babylon", scene);
+```javascript
+const loadedData = await BABYLON.ImportMeshAsync("scenes/skull.babylon", scene);
 const skull = loadedData.meshes[0];
 skull.position.set(0, 0, 0);
 
@@ -156,35 +156,35 @@ const updatedPositions = new Float32Array(positions.length);
 
 // lattice
 var lattice = new BABYLON.Lattice({
-    resolutionY: 10,
-    autoAdaptToMesh: skull,
-    position: BABYLON.Vector3.Zero()
+  resolutionY: 10,
+  autoAdaptToMesh: skull,
+  position: BABYLON.Vector3.Zero(),
 });
 
 scene.onBeforeRenderObservable.add(() => {
-    // Twist!!
-    for (x = 0; x < lattice.resolutionX; x++) {
-        for (y = 0; y < lattice.resolutionY; y++) {
-            for (z = 0; z < lattice.resolutionZ; z++) {
-                const angle = (y / lattice.resolutionY) * 0.02;
-                const control = lattice.data[x][y][z];
-                const cx = control.x;
-                const cz = control.z;
+  // Twist!!
+  for (x = 0; x < lattice.resolutionX; x++) {
+    for (y = 0; y < lattice.resolutionY; y++) {
+      for (z = 0; z < lattice.resolutionZ; z++) {
+        const angle = (y / lattice.resolutionY) * 0.02;
+        const control = lattice.data[x][y][z];
+        const cx = control.x;
+        const cz = control.z;
 
-                const cosAngle = Math.cos(angle);
-                const sinAngle = Math.sin(angle);
+        const cosAngle = Math.cos(angle);
+        const sinAngle = Math.sin(angle);
 
-                // Rotation
-                control.x = cosAngle * cx - sinAngle * cz;
-                control.z = sinAngle * cx + cosAngle * cz;
-            }
-        }
+        // Rotation
+        control.x = cosAngle * cx - sinAngle * cz;
+        control.z = sinAngle * cx + cosAngle * cz;
+      }
     }
+  }
 
-    lattice.deform(positions, updatedPositions);
-    skull.setVerticesData(BABYLON.VertexBuffer.PositionKind, updatedPositions);
-    skull.createNormals(true);
+  lattice.deform(positions, updatedPositions);
+  skull.setVerticesData(BABYLON.VertexBuffer.PositionKind, updatedPositions);
+  skull.createNormals(true);
 });
 ```
 
-<Playground id="#MDVD75#23" title="Updating lattice data" description="The twisting skull."/>
+<Playground id="#MDVD75#27" title="Updating lattice data" description="The twisting skull."/>
