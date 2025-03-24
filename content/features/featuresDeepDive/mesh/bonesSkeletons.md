@@ -67,7 +67,9 @@ Skeletons and bones can be loaded from .babylon files.
 Here is a sample of how to load a boned mesh and how to launch skeleton animation:
 
 ```javascript
-BABYLON.ImportMeshAsync("scenes/Dude/Dude.babylon", scene).then(function (result) {
+BABYLON.ImportMeshAsync("scenes/Dude/Dude.babylon", scene, {
+  meshNames: "him",
+}).then(function (result) {
   scene.createDefaultCameraOrLight(true, true, true);
   scene.createDefaultEnvironment();
 
