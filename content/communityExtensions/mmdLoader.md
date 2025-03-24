@@ -79,10 +79,10 @@ await new Promise((resolve) => {
 ```typescript
 import "babylon-mmd/esm/Loader/pmxLoader"; // side effect import
 
-const mmdMesh = await SceneLoader.ImportMeshAsync(undefined, "your_model_path.pmx", undefined, scene).then((result) => result.meshes[0]);
+const mmdMesh = await ImportMeshAsync("your_model_path.pmx", scene).then((result) => result.meshes[0]);
 ```
 
-load PMX model by `SceneLoader.ImportMeshAsync` always returns a 1-length array, so you can get the mesh by `result.meshes[0]`.
+load PMX model by `ImportMeshAsync` always returns a 1-length array, so you can get the mesh by `result.meshes[0]`.
 
 ### Import VMD Motion
 

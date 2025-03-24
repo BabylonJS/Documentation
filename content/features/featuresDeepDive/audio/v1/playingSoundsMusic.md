@@ -431,30 +431,22 @@ Here is a simple sample loading a _.babylon_ scene file embedding some sounds:
 ```javascript
 const canvas = document.getElementById("renderCanvas");
 const engine = new BABYLON.Engine(canvas, true);
-BABYLON.SceneLoader.Load(
-  "TestScene/",
-  "testsound.babylon",
-  engine,
-  function (newScene) {
-    newScene.executeWhenReady(function () {
-      newScene.activeCamera.attachControl(canvas);
+BABYLON.LoadSceneAsync("TestScene/testsound.babylon", engine).then(function (newScene) {
+  newScene.executeWhenReady(function () {
+    newScene.activeCamera.attachControl(canvas);
 
-      const gunshotSound = newScene.getSoundByName("gunshot-1.wav");
-      window.addEventListener("keydown", function (evt) {
-        if (evt.keyCode === 32 && gunshotSound) {
-          gunshotSound.play();
-        }
-      });
-
-      engine.runRenderLoop(function () {
-        newScene.render();
-      });
+    const gunshotSound = newScene.getSoundByName("gunshot-1.wav");
+    window.addEventListener("keydown", function (evt) {
+      if (evt.keyCode === 32 && gunshotSound) {
+        gunshotSound.play();
+      }
     });
-  },
-  function (progress) {
-    // To do: give progress feedback to user
-  },
-);
+
+    engine.runRenderLoop(function () {
+      newScene.render();
+    });
+  });
+});
 ```
 
 Pressing the spacebar will play the gunshot sound.

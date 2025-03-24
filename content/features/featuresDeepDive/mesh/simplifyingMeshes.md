@@ -71,8 +71,8 @@ This function will be called after the Auto-LOD process is successfully done.
 - **Usage Example**
 
 ```javascript
-BABYLON.SceneLoader.ImportMesh("", "./", "DanceMoves.babylon", scene, (newMeshes, particleSystems, skeletons) => {
-  newMeshes[1].simplify(
+BABYLON.ImportMeshAsync("./DanceMoves.babylon", scene).then((result) => {
+  result.meshes[1].simplify(
     [
       { quality: 0.9, distance: 25 },
       { quality: 0.3, distance: 50 },
@@ -89,7 +89,7 @@ BABYLON.SceneLoader.ImportMesh("", "./", "DanceMoves.babylon", scene, (newMeshes
 Once the simplification is finished, you can also access the simplified mesh by utilizing the [getLODLevelAtDistance](/typedoc/classes/babylon.mesh#getlodlevelatdistance) and [getLODLevels](/typedoc/classes/babylon.mesh#getlodlevels) functions of the mesh class. You can use this to clone the simplified mesh and use it indepedently of the main mesh.
 <Playground id="#1ED15P#38" title="Clone simplified mesh" description="Access a simplified mesh and clone it."/>
 
-## Demos 
+## Demos
 
 Zoom in and out to see the effect, watch the number of active vertices closely.
 

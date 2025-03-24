@@ -185,19 +185,19 @@ In `sources`, we have our master scene, with only static objects (on the layer 1
 
 Once exported, you can see in `BJS/index.html` that we create our main scene using this `.babylon`: line 36
 
-```html
-BABYLON.SceneLoader.Load("", "01.master-static-scene.babylon", engine, function (scene) { });
+```javascript
+BABYLON.LoadSceneAsync("01.master-static-scene.babylon", engine).then(function (scene) {});
 ```
 
 Same way for out animated object in `sources/02.classic-animation.blend`: layer 1 is for our object, layer 6 is just for us to see the main scene in our _.blend_. _Export only selected layers_ is used to help us exporting only the first layer to babylon.
 
 Once exported, we can import our meshes inside the onSuccess of our Loader above. Check on `BJS/index.html`, line 64:
 
-```html
-BABYLON.SceneLoader.ImportMesh("", "", "02.classic-animation.babylon", scene, function (importedMeshes){ });
+```javascript
+BABYLON.ImportMeshAsync("02.classic-animation.babylon", scene).then(function (result) {});
 ```
 
-Now, you already have a basic scene with animations autoplaying in it.
+Now, you already have a basic scene with animations auto-playing in it.
 
 ### Armatures
 
@@ -259,7 +259,7 @@ Let's say you have exported your first scene. In this example we will use [blend
       const engine = new BABYLON.Engine(canvas, true);
 
       // here the doc for Load function: //doc.babylonjs.com/typedoc/classes/babylon.sceneloader#load
-      BABYLON.SceneLoader.Load("", "babylonJS_logo_v3.babylon", engine, function (scene) {
+      BABYLON.LoadSceneAsync("babylonJS_logo_v3.babylon", engine)then(function (scene) {
         //as this .babylon example hasn't camera in it, we have to create one
         const camera = new BABYLON.ArcRotateCamera("Camera", 1, 1, 4, BABYLON.Vector3.Zero(), scene);
         camera.attachControl(canvas, false);
@@ -286,5 +286,3 @@ Let's say you have exported your first scene. In this example we will use [blend
   - some browsers may not want loading the scene, for some security issues (e.g.: Chrome). In this case, you have to open the html file through a webserver (local or not), or try into another browser (e.g.: Firefox, Edge).
 
 ![blender babylon scene loaded in BJS](/img/exporters/blender/babylon/babylon-loaded.png)
-
-#### Animated object

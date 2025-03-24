@@ -1,13 +1,13 @@
 ---
 title: Creating Custom Loading Screens
-image: 
+image:
 description: Learn how to create custom loading screens in Babylon.js.
 keywords: diving deeper, scene, loader, loading screen
 further-reading:
 video-overview:
 video-content:
-    - title: Custom Loading Screens
-      url: https://youtu.be/cLqK9vgTKBw
+  - title: Custom Loading Screens
+    url: https://youtu.be/cLqK9vgTKBw
 ---
 
 ## How To Create a Custom Loading Screen
@@ -31,14 +31,14 @@ interface ILoadingScreen {
 In plain JavaScript, your loader code will look like this:
 
 ```javascript
-function CustomLoadingScreen( /* variables needed, for example:*/ text) {
+function CustomLoadingScreen(/* variables needed, for example:*/ text) {
   //init the loader
   this.loadingUIText = text;
 }
-CustomLoadingScreen.prototype.displayLoadingUI = function() {
+CustomLoadingScreen.prototype.displayLoadingUI = function () {
   alert(this.loadingUIText);
 };
-CustomLoadingScreen.prototype.hideLoadingUI = function() {
+CustomLoadingScreen.prototype.hideLoadingUI = function () {
   alert("Loaded!");
 };
 ```
@@ -88,7 +88,7 @@ You might also be interested in a standalone html example:
 ```html
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <title>Babylon.js custom loading screen example</title>
@@ -97,89 +97,83 @@ You might also be interested in a standalone html example:
     <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
 
     <style>
-        html,
-        body {
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+      html,
+      body {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
-        #renderCanvas {
-            width: 100%;
-            height: 100%;
-            touch-action: none;
-        }
+      #renderCanvas {
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
 
-        #loadingScreen {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            color: white;
-            font-size: 50px;
-            text-align: center;
-            background-color: #BB464Bcc;
-            z-index: 9999;
-        }
+      #loadingScreen {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        color: white;
+        font-size: 50px;
+        text-align: center;
+        background-color: #bb464bcc;
+        z-index: 9999;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="loadingScreen">default div text</div>
     <canvas id="renderCanvas"></canvas>
     <script>
-        var canvas = document.getElementById("renderCanvas");
-        var engine = new BABYLON.Engine(canvas, true);
+      var canvas = document.getElementById("renderCanvas");
+      var engine = new BABYLON.Engine(canvas, true);
 
-        var loadingScreenDiv = window.document.getElementById("loadingScreen");
+      var loadingScreenDiv = window.document.getElementById("loadingScreen");
 
-        function customLoadingScreen() {
-            console.log("customLoadingScreen creation")
+      function customLoadingScreen() {
+        console.log("customLoadingScreen creation");
+      }
+      customLoadingScreen.prototype.displayLoadingUI = function () {
+        console.log("customLoadingScreen loading");
+        loadingScreenDiv.innerHTML = "loading";
+      };
+      customLoadingScreen.prototype.hideLoadingUI = function () {
+        console.log("customLoadingScreen loaded");
+        loadingScreenDiv.style.display = "none";
+      };
+      var loadingScreen = new customLoadingScreen();
+      engine.loadingScreen = loadingScreen;
+
+      engine.displayLoadingUI();
+
+      var delayCreateScene = function () {
+        var scene = new BABYLON.Scene(engine);
+        scene.createDefaultCamera(true, true, true);
+        BABYLON.ImportMeshAsync("https://models.babylonjs.com/CornellBox/cornellBox.glb", scene).then(function () {
+          scene.createDefaultCamera(true, true, true);
+          scene.createDefaultEnvironment();
+          scene.activeCamera.alpha = Math.PI / 2;
+
+          engine.hideLoadingUI();
+        });
+        return scene;
+      };
+      var scene = delayCreateScene();
+
+      engine.runRenderLoop(function () {
+        if (scene) {
+          scene.render();
         }
-        customLoadingScreen.prototype.displayLoadingUI = function () {
-            console.log("customLoadingScreen loading")
-            loadingScreenDiv.innerHTML = "loading";
-        };
-        customLoadingScreen.prototype.hideLoadingUI = function () {
-            console.log("customLoadingScreen loaded")
-            loadingScreenDiv.style.display = "none";
-        };
-        var loadingScreen = new customLoadingScreen();
-        engine.loadingScreen = loadingScreen;
-
-        engine.displayLoadingUI();
-
-        var delayCreateScene = function () {
-            var scene = new BABYLON.Scene(engine);
-            scene.createDefaultCamera(true, true, true);
-            BABYLON.SceneLoader.ImportMesh(
-                "",
-                "https://models.babylonjs.com/CornellBox/",
-                "cornellBox.glb",
-                scene,
-                function () {
-                    scene.createDefaultCamera(true, true, true);
-                    scene.createDefaultEnvironment();
-                    scene.activeCamera.alpha = Math.PI / 2;
-
-                    engine.hideLoadingUI();
-
-                });
-            return scene;
-        };
-        var scene = delayCreateScene();
-
-        engine.runRenderLoop(function () {
-            if (scene) {
-                scene.render();
-            }
-        });
-        window.addEventListener("resize", function () {
-            engine.resize();
-        });
+      });
+      window.addEventListener("resize", function () {
+        engine.resize();
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -187,35 +181,28 @@ You might also be interested in a standalone html example:
 
 When loading files, you can get the [SceneLoaderProgressEvent](/typedoc/classes/babylon.sceneloader) sent in the `onProgress` callback.
 
-Example using `BABYLON.SceneLoader.ImportMesh`:
+Example using `BABYLON.ImportMeshAsync`:
 
 ```javascript
-BABYLON.SceneLoader.ImportMesh(
-    "",
-    "https://models.babylonjs.com/CornellBox/",
-    "cornellBox.glb",
-    scene,
-    function () {
-        // onSuccess
-        scene.createDefaultCamera(true, true, true);
-        scene.activeCamera.alpha = Math.PI / 2;
-        engine.hideLoadingUI();
-    },
-    function (evt) {
-        // onProgress
-        var loadedPercent = 0;
-        if (evt.lengthComputable) {
-            loadedPercent = (evt.loaded * 100 / evt.total).toFixed();
-        } else {
-            var dlCount = evt.loaded / (1024 * 1024);
-            loadedPercent = Math.floor(dlCount * 100.0) / 100.0;
-        }
-        // assuming "loadingScreenPercent" is an existing html element
-        document.getElementById("loadingScreenPercent").innerHTML = loadedPercent;
+BABYLON.ImportMeshAsync("https://models.babylonjs.com/CornellBox/cornellBox.glb", scene, {
+  onProgress: function (evt) {
+    // onProgress
+    var loadedPercent = 0;
+    if (evt.lengthComputable) {
+      loadedPercent = ((evt.loaded * 100) / evt.total).toFixed();
+    } else {
+      var dlCount = evt.loaded / (1024 * 1024);
+      loadedPercent = Math.floor(dlCount * 100.0) / 100.0;
     }
-);
-
-
+    // assuming "loadingScreenPercent" is an existing html element
+    document.getElementById("loadingScreenPercent").innerHTML = loadedPercent;
+  },
+}).then(function () {
+  // onSuccess
+  scene.createDefaultCamera(true, true, true);
+  scene.activeCamera.alpha = Math.PI / 2;
+  engine.hideLoadingUI();
+});
 ```
 
 ## File Loading Rate of Multiple Assets

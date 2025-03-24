@@ -19,7 +19,7 @@ Previously, we created an [Environment class](/guidedLearning/createAGame/simple
 ### \_loadAsset
 
 ```javascript
-const result = await SceneLoader.ImportMeshAsync(null, "./models/", "envSetting.glb", this._scene);
+const result = await ImportMeshAsync("./models/envSetting.glb", this._scene);
 
 let env = result.meshes[0];
 let allMeshes = env.getChildMeshes();
@@ -29,8 +29,8 @@ We want to first import the mesh for the environment, then grab the root and ext
 
 ```javascript
 return {
-    env: env, //reference to our entire imported glb (meshes and transform nodes)
-    allMeshes: allMeshes, // all of the meshes that are in the environment
+  env: env, //reference to our entire imported glb (meshes and transform nodes)
+  allMeshes: allMeshes, // all of the meshes that are in the environment
 };
 ```
 
@@ -44,8 +44,8 @@ Now we need to update the **load** function to call **\_loadAsset**. We use awai
 const assets = await this._loadAsset();
 //Loop through all environment meshes that were imported
 assets.allMeshes.forEach((m) => {
-    m.receiveShadows = true;
-    m.checkCollisions = true;
+  m.receiveShadows = true;
+  m.checkCollisions = true;
 });
 ```
 
@@ -80,7 +80,7 @@ The function's purpose is to call loadCharacter(), store our assets, and then re
 In order to load our assets, we just need to modify the body portion of our character assets. Instead of having primitives for our body, we'll be using the imported mesh.
 
 ```javascript
-return SceneLoader.ImportMeshAsync(null, "./models/", "player.glb", scene).then((result) =>{
+return ImportMeshAsync("./models/player.glb", scene).then((result) =>{
     const root = result.meshes[0];
     //body is our actual player mesh
     const body = root;
@@ -116,8 +116,8 @@ scene.getMeshByName("outer").position = scene.getTransformNodeByName("startPosit
 
 ```javascript
 await this._setUpGame().then((res) => {
-    finishedLoading = true;
-    this._goToGame();
+  finishedLoading = true;
+  this._goToGame();
 });
 ```
 
@@ -129,14 +129,14 @@ When you run the game now, you'll see the environment and character meshes in th
 
 **Files Used:**
 
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
--   [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)
--   [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
+- [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)
+- [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
 
 **Follow Along:**
 
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/importMeshes/app.ts)
--   [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/importMeshes/environment.ts)
--   [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/importMeshes/characterController.ts)
--   [environment model](https://github.com/BabylonJS/SummerFestival/blob/master/public/models/envSetting.glb)
--   [player model](https://github.com/BabylonJS/SummerFestival/blob/master/public/models/player.glb)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/importMeshes/app.ts)
+- [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/importMeshes/environment.ts)
+- [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/importMeshes/characterController.ts)
+- [environment model](https://github.com/BabylonJS/SummerFestival/blob/master/public/models/envSetting.glb)
+- [player model](https://github.com/BabylonJS/SummerFestival/blob/master/public/models/player.glb)

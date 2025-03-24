@@ -72,7 +72,7 @@ import * as BABYLON from "@babylonjs/core";
 import "babylon-vrm-loader";
 
 // vrmFile is File object retrieved by <input type="file">.
-const scene = await BABYLON.SceneLoader.LoadAsync("file:", vrmFile, engine);
+const scene = await BABYLON.LoadSceneAsync("file:" + vrmFile, engine);
 const vrmManager = scene.metadata.vrmManagers[0];
 
 // Update secondary animation

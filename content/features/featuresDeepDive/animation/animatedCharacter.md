@@ -70,8 +70,9 @@ The result is exported as a .GLB file and the animation information can be seen 
 The model can be loaded using the [**ImportMesh**](/typedoc/classes/babylon.sceneloader#importmesh) method of the SceneLoader class and making sure to add the animationGroups parameter as it is used to get and play the animations.
 
 ```javascript
-BABYLON.SceneLoader.ImportMesh("", "https://assets.babylonjs.com/meshes/", "HVGirl.glb", scene, function (newMeshes, particleSystems, skeletons, animationGroups) {
-  const hero = newMeshes[0];
+// Load hero character and play animation
+BABYLON.ImportMeshAsync("https://assets.babylonjs.com/meshes/HVGirl.glb", scene).then(function (result) {
+  var hero = result.meshes[0];
 
   //Scale the model down
   hero.scaling.scaleInPlace(0.1);
@@ -87,7 +88,7 @@ BABYLON.SceneLoader.ImportMesh("", "https://assets.babylonjs.com/meshes/", "HVGi
 });
 ```
 
-<Playground id="#Z6SWJU#5" title="Load Model and Play Animation Group" description="Simple example of loading a gltf/glb asset and playing the animation groups tha come with it." image="/img/playgroundsAndNMEs/divingDeeperAnimatedCharacter1.jpg" isMain={true} category="Animation"/>
+<Playground id="#Z6SWJU#1144" title="Load Model and Play Animation Group" description="Simple example of loading a gltf/glb asset and playing the animation groups tha come with it." image="/img/playgroundsAndNMEs/divingDeeperAnimatedCharacter1.jpg" isMain={true} category="Animation"/>
 
 The names of the AnimationGroups can be found in the Sandbox via the Inspector, by loading the model and selecting the Animation Group in the Scene Explorer.
 

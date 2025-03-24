@@ -17,36 +17,36 @@ The playgrounds on this page contain models (in this example, houses) which can 
 When you add a model to a scene, you are loading it through the browser. As you likely already know, loading anything from a website is an asynchronous function. Therefore, before you can do anything with your models, you first must ensure they have been loaded successfully. You can do this using the _ImportMeshAsync_ method of the _SceneLoader_, which can be done as follows:
 
 ```javascript
-BABYLON.SceneLoader.ImportMeshAsync(model_name, folder_path, file_name, scene);
+BABYLON.ImportMeshAsync(folder_path + file_name, scene, optionalOptions);
 ```
 
-The scene parameter is optional and will default to the current scene. The first parameter can be any one of three types depending whether you want to load all the models, just one model or a list of models.
+The scene parameter is optional and will default to the current scene. In the options you can specify which meshes to load:
 
 ```javascript
-BABYLON.SceneLoader.ImportMeshAsync("", "/relative path/", "myFile"); //Empty string loads all meshes
-BABYLON.SceneLoader.ImportMeshAsync("model1", "/relative path/", "myFile"); //Name of the model loads one model
-BABYLON.SceneLoader.ImportMeshAsync(["model1", "model2"], "/relative path/", "myFile"); //Array of model names
+BABYLON.ImportMeshAsync("/relative path/myFile"); //Empty string loads all meshes
+BABYLON.ImportMeshAsync("model1", "/relative path/", "myFile", scene, { meshNames: "model1" }); //Name of the model loads one model
+BABYLON.ImportMeshAsync("/relative path/myFile", scene, { meshNames: ["model1", "model2"] }); //Array of model names
 ```
 
 Note that any of the calls above will only load the models; however, you will not be able to manipulate them in any way. Internally, a Promise object is setup and returned, but the above code does nothing with the result of that Promise. Examples of this are in the following two playgrounds, which **only** import the named models.
 
-<Playground id="#YNEAUL#11" title="Loading Your First Model" description="Load a model into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModel.jpg"/>
+<Playground id="#YNEAUL#5260" title="Loading Your First Model" description="Load a model into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModel.jpg"/>
 
-<Playground id="#YNEAUL#12" title="Loading Multiple Models at Once" description="Load multiple models into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModelwGrass.jpg"/>
+<Playground id="#YNEAUL#5261" title="Loading Multiple Models at Once" description="Load multiple models into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModelwGrass.jpg"/>
 
 Therefore, in order to act on the result and manipulate the objects, we follow the Promise with the _then_ method to call a function with the _result_ of the _Promise_. The _result_ is an object containing, among other things, the property _meshes_ which contains all the loaded models. We can use this array, or their names, to manipulate each mesh.
 
 ```javascript
-BABYLON.SceneLoader.ImportMeshAsync("", "/relative path/", "myFile").then((result) => {
-    result.meshes[1].position.x = 20;
-    const myMesh1 = scene.getMeshByName("myMesh_1");
-    myMesh1.rotation.y = Math.PI / 2;
+BABYLON.ImportMeshAsync("/relative path/myFile").then((result) => {
+  result.meshes[1].position.x = 20;
+  const myMesh1 = scene.getMeshByName("myMesh_1");
+  myMesh1.rotation.y = Math.PI / 2;
 });
 ```
 
 The following playground imports all models and changes their positions:
 
-<Playground id="#YNEAUL#13" title="Modifying Models After Load" description="Load a model into a scene and modify their position after loading completes." image="/img/playgroundsAndNMEs/gettingStartedFirstModelLoadSuccess.jpg"/>
+<Playground id="#YNEAUL#5262" title="Modifying Models After Load" description="Load a model into a scene and modify their position after loading completes." image="/img/playgroundsAndNMEs/gettingStartedFirstModelLoadSuccess.jpg"/>
 
 ## Moving On
 

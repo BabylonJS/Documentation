@@ -103,7 +103,7 @@ Ok it's time for another addition to the scene. After all of your ground-related
 You should see the following lines of code pop right into the playground:
 
 ```javascript
-BABYLON.SceneLoader.ImportMesh("meshName", "url to the mesh parent directory", "Mesh filename.fileextension", scene, function (newMeshes) {});
+BABYLON.ImportMeshAsync("url to the mesh parent directory" + "Mesh filename.fileextension", scene, { meshNames: "meshName" }).then(function (result) {});
 ```
 
 Let's do a few more things:
@@ -112,24 +112,24 @@ Let's do a few more things:
 - 2. Replace "url to the mesh parent directory" (including quotes) with this:
 
 ```javascript
-Assets.meshes.Yeti.rootUrl
+Assets.meshes.Yeti.rootUrl;
 ```
 
 - 3. Replace the "Mesh filename.fileextension" (including quotes) with this:
 
 ```javascript
-Assets.meshes.Yeti.filename
+Assets.meshes.Yeti.filename;
 ```
 
-- 4. After the `BABYLON.SceneLoader.ImportMesh` line, but before the "});" add the following line:
+- 4. After the `BABYLON.ImportMeshAsync` line, but before the "});" add the following line:
 
 ```javascript
-newMeshes[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
+result.meshes[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
 ```
 
 - 5. Run the scene
 
-<Playground id="#2krng9#3104" title="Playground 4" description="Yeti on the dance floor!"/>
+<Playground id="#2KRNG9#3849" title="Playground 4" description="Yeti on the dance floor!"/>
 
 Whoa! Cool! You just added an animated .gltf object into the scene! And you also scaled it down to fit on the groundplane! Well done!
 
@@ -141,7 +141,7 @@ Press CTRL+SPACE to bring up the playground templates and create an Arc Rotate C
 
 Run the scene and click+drag or touch+drag on the Babylon scene.
 
-<Playground id="#2krng9#3105" title="Playground 5" description="Move that camera!"/>
+<Playground id="#2KRNG9#3850" title="Playground 5" description="Move that camera!"/>
 
 WooHoo! You've added interaction to the scene! Great job! Go ahead and save your playground by pressing CTRL+S or hitting the save button.
 
@@ -211,7 +211,6 @@ This will open a text editor for you to create the file. At the top, type `_conf
 theme: jekyll-theme-minimal
 title: Title For Your Website
 description: Website description.
-
 ```
 
 ![create config file](/img/home/createTextFile.jpg)

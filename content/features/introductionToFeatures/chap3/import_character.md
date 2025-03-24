@@ -20,7 +20,7 @@ The *Dude* model is one that has been built with its own skeleton animation.
 Once imported the character and its skeleton are obtained from the meshes and skeletons properties of the results object.
 
 ```javascript
-BABYLON.SceneLoader.ImportMeshAsync("him" /* mesh name */, "/scenes/Dude/" /* path to model */, "Dude.babylon" /* model file */, scene).then((result) => {
+BABYLON.ImportMeshAsync("/scenes/Dude/Dude.babylon" /* model file */, scene).then((result) => {
     var dude = result.meshes[0];
     dude.scaling = new BABYLON.Vector3(0.25, 0.25, 0.25);
                 
@@ -28,6 +28,6 @@ BABYLON.SceneLoader.ImportMeshAsync("him" /* mesh name */, "/scenes/Dude/" /* pa
 });
 ```
 
-<Playground id="#SFW46K#1" title="Loading an Animated Character" description="Simple example of loading an animated character into your scene." image="/img/playgroundsAndNMEs/getingStartedCharacterAnimation.jpg"/>
+<Playground id="#SFW46K#1371" title="Loading an Animated Character" description="Simple example of loading an animated character into your scene." image="/img/playgroundsAndNMEs/getingStartedCharacterAnimation.jpg"/>
 
 Currently the character is set in one position and we would like him to walk around the village. This time instead of creating another animation object for the character we will change its position and orientation before each frame is rendered. 
