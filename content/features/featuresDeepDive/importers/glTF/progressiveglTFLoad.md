@@ -47,22 +47,22 @@ When loading large assets either using loose files or with range requests, it is
 BABYLON.AppendSceneAsync(url, scene, {
   pluginExtension: ".glb",
   onProgress: function (event) {
-  // Compute the percentage for each stage unless the length is not computable.
-  // The lengthComputable is often false when serving content that is gzipped.
-  const percentage = event.lengthComputable ? " " + Math.floor((event.loaded / event.total) * 100) + "%" : "";
+    // Compute the percentage for each stage unless the length is not computable.
+    // The lengthComputable is often false when serving content that is gzipped.
+    const percentage = event.lengthComputable ? " " + Math.floor((event.loaded / event.total) * 100) + "%" : "";
 
-  // Check if an LOD is loading yet.
-  if (lodNext === null) {
-    // Ignore GLB header progress.
-    if (event.total === 20) return;
+    // Check if an LOD is loading yet.
+    if (lodNext === null) {
+      // Ignore GLB header progress.
+      if (event.total === 20) return;
 
-    // Show that the glTF is downloading.
-    bottomLine.text = "Loading glTF..." + percentage;
-  } else {
-    // Show that the LOD is downloading.
-    bottomLine.text = "Loading '" + lodNames[lodNext] + "' LOD..." + percentage;
-  }
-}
+      // Show that the glTF is downloading.
+      bottomLine.text = "Loading glTF..." + percentage;
+    } else {
+      // Show that the LOD is downloading.
+      bottomLine.text = "Loading '" + lodNames[lodNext] + "' LOD..." + percentage;
+    }
+  },
 });
 ```
 
