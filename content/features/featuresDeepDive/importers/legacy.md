@@ -72,7 +72,7 @@ See an example here: <Playground id="#JUKXQD" title="Import Mesh" description="S
 
 ```javascript
 // The first parameter can be set to null to load all meshes and skeletons
-const importPromise = BABYLON.ImportMeshAsync("./duck.gltf", scene);
+const importPromise = BABYLON.ImportMeshAsync("./duck.gltf", scene, { meshNames: ["myMesh1", "myMesh2"] });
 importPromise.then((result) => {
   //// Result has meshes, particleSystems, skeletons, animationGroups and transformNodes
 });
@@ -84,7 +84,7 @@ or
 
 ```javascript
 // The first parameter can be set to null to load all meshes and skeletons
-const result = await BABYLON.ImportMeshAsync("./duck.gltf", scene);
+const result = await BABYLON.ImportMeshAsync("./duck.gltf", scene, { meshNames: ["myMesh1", "myMesh2"] });
 // Result has meshes, particleSystems, skeletons, animationGroups and transformNodes
 ```
 

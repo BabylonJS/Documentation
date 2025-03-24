@@ -92,7 +92,7 @@ Bones and skeletons can be cloned (This is the case with the rabbits in the prev
 Here is a sample of how to load and clone a mesh and its skeleton:
 
 ```javascript
-BABYLON.ImportMeshAsync("Scenes/Rabbit/Rabbit.babylon", scene).then(function (result) {
+BABYLON.ImportMeshAsync("Scenes/Rabbit/Rabbit.babylon", scene, { meshNames: "Rabbit" }).then(function (result) {
   const rabbit = result.meshes[1];
 
   rabbit.scaling = new BABYLON.Vector3(0.4, 0.4, 0.4);
@@ -118,7 +118,7 @@ BABYLON.ImportMeshAsync("Scenes/Rabbit/Rabbit.babylon", scene).then(function (re
 More complex models, such as the Dude, contain submeshes. When cloning you must iterate and clone the submeshes as well. Here is an example of how to clone a more complex model:
 
 ```javascript
-BABYLON.ImportMeshAsync("Dude/dude.babylon", scene).then(function (result) {
+BABYLON.ImportMeshAsync("Dude/dude.babylon", scene, { meshNames: "him" }).then(function (result) {
   result.meshes[0].position = new BABYLON.Vector3(0, 0, 5); // The original dude
   scene.beginAnimation(result.skeletons[0], 0, 120, 1.0, true);
 

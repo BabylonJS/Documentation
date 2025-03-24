@@ -259,7 +259,7 @@ Let's say you have exported your first scene. In this example we will use [blend
       const engine = new BABYLON.Engine(canvas, true);
 
       // here the doc for Load function: //doc.babylonjs.com/typedoc/classes/babylon.sceneloader#load
-      BABYLON.LoadSceneAsync("babylonJS_logo_v3.babylon", engine)then(function (scene) {
+      BABYLON.LoadSceneAsync("babylonJS_logo_v3.babylon", engine).then(function (scene) {
         //as this .babylon example hasn't camera in it, we have to create one
         const camera = new BABYLON.ArcRotateCamera("Camera", 1, 1, 4, BABYLON.Vector3.Zero(), scene);
         camera.attachControl(canvas, false);

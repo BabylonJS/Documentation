@@ -46,7 +46,7 @@ When loading large assets either using loose files or with range requests, it is
 ```javascript
 BABYLON.AppendSceneAsync(url, scene, {
   pluginExtension: ".glb",
-}).then(function (event) {
+  onProgress: function (event) {
   // Compute the percentage for each stage unless the length is not computable.
   // The lengthComputable is often false when serving content that is gzipped.
   const percentage = event.lengthComputable ? " " + Math.floor((event.loaded / event.total) * 100) + "%" : "";
@@ -62,6 +62,7 @@ BABYLON.AppendSceneAsync(url, scene, {
     // Show that the LOD is downloading.
     bottomLine.text = "Loading '" + lodNames[lodNext] + "' LOD..." + percentage;
   }
+}
 });
 ```
 

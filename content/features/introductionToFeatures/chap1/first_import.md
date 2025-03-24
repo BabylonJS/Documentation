@@ -24,7 +24,7 @@ The scene parameter is optional and will default to the current scene. In the op
 
 ```javascript
 BABYLON.ImportMeshAsync("/relative path/myFile"); //Empty string loads all meshes
-BABYLON.ImportMeshAsync("model1", "/relative path/", "myFile", scene, { meshNames: "model1" }); //Name of the model loads one model
+BABYLON.ImportMeshAsync("/relative path/myFile", scene, { meshNames: "model1" }); //Name of the model loads one model
 BABYLON.ImportMeshAsync("/relative path/myFile", scene, { meshNames: ["model1", "model2"] }); //Array of model names
 ```
 
