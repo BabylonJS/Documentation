@@ -2044,6 +2044,10 @@
         {
             "source": "/features/es6_support",
             "destination": "/setup/frameworkPackages/es6Support"
+        },
+        {
+            "source": "/how_to/node_material",
+            "destination": "/features/featuresDeepDive/materials/node_material"
         }
     ]
 }
