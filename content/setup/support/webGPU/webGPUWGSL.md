@@ -10,9 +10,9 @@ video-content:
 
 Currently, most of the main shaders used by **Babylon.js** are written in [WGSL](https://gpuweb.github.io/gpuweb/wgsl/) (the only shader language that WebGPU knows about). That being said, we keep an active compatibility with [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language).
 
-If you decide to write a shader with [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language), **Babylon.js** will detect it and will use internal tools to compilte it to [WGSL](https://gpuweb.github.io/gpuweb/wgsl/). It will take some times and will download a WASM library to do the conversion.
+If you decide to write a shader with [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language), **Babylon.js** will detect it and will use internal tools to compile it to [WGSL](https://gpuweb.github.io/gpuweb/wgsl/). It will take some time and will download a WASM library to do the conversion.
 
-It is recommended to write your shaders directly in [WGSL](https://gpuweb.github.io/gpuweb/wgsl/) for faster starter time and smaller download sizes.
+It is recommended to write your shaders directly in [WGSL](https://gpuweb.github.io/gpuweb/wgsl/) for faster startup time and smaller download sizes.
 
 For some specific materials like `CustomMaterial` or `PBRCustomMaterial`, to protect backward compatibility, you will need to inject your custom shader code in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language).
 

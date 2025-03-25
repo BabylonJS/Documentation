@@ -29,5 +29,8 @@
         ".next{,/**}",
     ],
     "appService.deploySubpath": ".",
-    "appService.defaultWebAppToDeploy": "None"
+    "appService.defaultWebAppToDeploy": "None",
+    "cSpell.words": [
+        "WGSL"
+    ]
 }
