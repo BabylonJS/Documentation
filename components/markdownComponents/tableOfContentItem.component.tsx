@@ -45,6 +45,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
             case 1:
                 return (
                     <>
+                        {item.image && <img src={baseUrl + item.image} alt={item.alt || item.title} id={id} />}
                         <Box
                             component="h2"
                             sx={{
@@ -76,12 +77,12 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                                 </IconButton>
                             )}
                         </Box>
-                        {item.image && <img src={baseUrl + item.image} alt={item.alt || item.title} id={id} />}
                     </>
                 );
             case 2:
                 return (
                     <>
+                        {item.image && <img src={baseUrl + item.image} alt={item.alt || item.title} id={id} />}
                         <Box
                             sx={{
                                 position: "relative",
@@ -113,7 +114,6 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                                 </IconButton>
                             )}
                         </Box>
-                        {item.image && <img src={baseUrl + item.image} alt={item.alt || item.title} id={id} />}
                     </>
                 );
             case 3:
