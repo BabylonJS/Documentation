@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-Babylon Smart Filters is a node-based graph system for building GPU accelerated 2D effects for scenarios like real-time video filters. We call them smart because this feature includes an optimizer which automatically minimizes the number of draw calls and intermediate textures for you.
+Babylon Smart Filters is a node-based graph system for building GPU accelerated 2D effects for scenarios like real-time video filters such as background blur. While the Node Material Editor is a graphical tool for creating shaders, Smart Filters is for generating a pipeline of shaders. We call them smart because this feature includes an optimizer which automatically minimizes the number of draw calls and intermediate textures for you.
 
 You can build Smart Filters programmatically:
 
