@@ -37,7 +37,7 @@ The [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync
     // Create sounds here, but don't call `play()` on them, yet ...
 
     // Wait until audio engine is ready to play sounds.
-    await audioEngine.unlock();
+    await audioEngine.unlockAsync();
 
     // Start sound playback ...
 })();
@@ -57,12 +57,12 @@ const gunshot = await BABYLON.CreateSoundAsync("gunshot",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 gunshot.play()
 ```
 
-<Playground id="#1BZK59" title="Playing a sound" description="A simple example of playing a sound."/>
+<Playground id="#1BZK59#10" title="Playing a sound" description="A simple example of playing a sound."/>
 
 <br/>
 <br/>
@@ -83,12 +83,12 @@ const narration = await BABYLON.CreateStreamingSoundAsync("narration",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 narration.play()
 ```
 
-<Playground id="#1BZK59#1" title="Streaming a sound" description="A simple example of playing a streaming sound."/>
+<Playground id="#1BZK59#11" title="Streaming a sound" description="A simple example of playing a streaming sound."/>
 
 <br/>
 <br/>
@@ -110,7 +110,7 @@ const sound = await BABYLON.CreateSoundAsync("sound",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 sound.play(); // Instance #1.
 
@@ -122,7 +122,7 @@ setTimeout(() => {
 }, 4000);
 ```
 
-<Playground id="#1BZK59#2" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
+<Playground id="#1BZK59#12" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
 
 <br/>
 <br/>
@@ -165,7 +165,7 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 bounce.play({ loop: true });
 ```
 
-<Playground id="#1BZK59#3" title="Looping playback" description="An example of looping sound playback three different ways."/>
+<Playground id="#1BZK59#13" title="Looping playback" description="An example of looping sound playback three different ways."/>
 
 <br/>
 <br/>
@@ -185,7 +185,7 @@ const gunshot = await BABYLON.CreateSoundAsync("gunshot",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 gunshot.volume = 0.75;
 gunshot.play()
@@ -209,7 +209,7 @@ const gunshot = await BABYLON.CreateSoundAsync("gunshot",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 gunshot.stereo.pan = -1;
 gunshot.play()
@@ -238,21 +238,21 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 bounce.spatial.attach(mesh);
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 bounce.play({ loop: true });
 ```
 
 Note that this example creates the sound with the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option set to `true`. This is done because the underlying `spatial` property is not enabled by default, so a small delay occurs when enabling it for the first time. Setting the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option to `true` avoids this delay, as does setting any of the spatial audio options when the sound is created.
 
-<Playground id="#1BZK59#4" title="Attaching meshes" description="An example of attaching a spatial sound source to a mesh."/>
+<Playground id="#1BZK59#14" title="Attaching meshes" description="An example of attaching a spatial sound source to a mesh."/>
 
 <br/>
 <br/>
 
 To experiment with the available [spatial sound source settings](/typedoc/classes/BABYLON.AbstractSpatialAudio), a spatial audio visualizer playground is provided:
 
-<Playground id="#1BZK59#5" title="Spatial audio visualizer" description="A spatial audio settings visualizer."/>
+<Playground id="#A9NDNJ" title="Spatial audio visualizer" description="A spatial audio settings visualizer."/>
 
 <br/>
 <br/>
@@ -295,12 +295,12 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 bounce.outBus = bus;
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 bounce.play({ loop: true });
 ```
 
-<Playground id="#1BZK59#6" title="Audio buses" description="An example of chaining audio buses."/>
+<Playground id="#1BZK59#16" title="Audio buses" description="An example of chaining audio buses."/>
 
 <br/>
 <br/>
@@ -316,7 +316,7 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 bounce.play({ loop: true });
 
@@ -333,7 +333,7 @@ Note that this example creates the sound with the [`analyzerEnabled`](/typedoc/i
 
 Here is an example playground that uses the analyzer to animate frequency-based shader.
 
-<Playground id="#1BZK59#7" title="Audio analyzer" description="An example of using the audio analyzer."/>
+<Playground id="#1BZK59#17" title="Audio analyzer" description="An example of using the audio analyzer."/>
 
 <br/>
 <br/>
@@ -355,7 +355,7 @@ const bounce2 = await BABYLON.CreateSoundAsync("bounce2",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 bounce1.play();
 bounce2.play();
@@ -380,7 +380,7 @@ const bounce2 = await BABYLON.CreateSoundAsync("bounce2",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 bounce1.play();
 bounce2.play();
@@ -446,7 +446,7 @@ unmuteButtonStyle.appendChild(
 document.head.appendChild(unmuteButtonStyle);
 ```
 
-<Playground id="#1BZK59#8" title="Unmute styling" description="An example of customizing the unmute button's CSS styling."/>
+<Playground id="#1BZK59#18" title="Unmute styling" description="An example of customizing the unmute button's CSS styling."/>
 
 ## Feature requests and bug fixes
 
