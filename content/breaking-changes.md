@@ -9,6 +9,14 @@ video-content:
 toc-levels: 2
 ---
 
+## 7.54.0
+
+### PBR: Fix calculation of diffuse transmission in PBR materials
+
+This is a bug fix, but it may have an impact on the rendering of your scene. Previously, we incorrectly applied the albedo color when outputting the subsurface block calculation.
+
+PR: https://github.com/BabylonJS/Babylon.js/pull/16337
+
 ## 7.52.0
 
 ### Deprecation of legacy audio engine
