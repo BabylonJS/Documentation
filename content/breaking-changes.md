@@ -14,7 +14,7 @@ toc-levels: 2
 ### PBR: Fix calculation of diffuse transmission in PBR materials
 
 This is a bug fix, but it may have an impact on the rendering of your scene. Previously, we incorrectly applied the albedo color when outputting the subsurface block calculation.
-However, if you need to restore the old behavior for some reason, you can do `mat.subSurface.applyAlbedoAfterSubSurface = true`.
+However, if you need to restore the old behavior for some reason, you can do `mat.subSurface.applyAlbedoAfterSubSurface = true`. Note that from 8.0.2 and forward you can also set PBRSubSurfaceConfiguration.DEFAULT_APPLY_ALBEDO_AFTERSUBSURFACE to true to automatically apply the back compat behavior to all materials.
 
 PR: https://github.com/BabylonJS/Babylon.js/pull/16337
 
