@@ -9,12 +9,22 @@ video-content:
 toc-levels: 2
 ---
 
+## 8.2.0
+
+### PBR: Add flag to calculate legacy translucency
+
+In previous PRs (https://github.com/BabylonJS/Babylon.js/pull/16337, https://github.com/BabylonJS/Babylon.js/pull/16214), we corrected the way translucency/transmission is calculated.
+However, we failed to add a flag to allow you to render your scene exactly as it was before these changes. We have therefore added a property `mat.subSurface.legacyTranslucency` (default: false), in case your scene does not render as expected with the new code and you want an easy way to do it. You can also set `PBRSubSurfaceConfiguration.DEFAULT_LEGACY_TRANSLUCENCY` to true to automatically apply the back compat behavior to all materials.
+
+PR: https://github.com/BabylonJS/Babylon.js/pull/16446
+
 ## 7.54.0
 
 ### PBR: Fix calculation of diffuse transmission in PBR materials
 
 This is a bug fix, but it may have an impact on the rendering of your scene. Previously, we incorrectly applied the albedo color when outputting the subsurface block calculation.
-However, if you need to restore the old behavior for some reason, you can do `mat.subSurface.applyAlbedoAfterSubSurface = true`. Note that from 8.0.2 and forward you can also set PBRSubSurfaceConfiguration.DEFAULT_APPLY_ALBEDO_AFTERSUBSURFACE to true to automatically apply the back compat behavior to all materials.
+However, if you need to restore the old behavior for some reason, you can do `mat.subSurface.applyAlbedoAfterSubSurface = true`. Note that from 8.0.2 and forward you can also set `PBRSubSurfaceConfiguration.DEFAULT_APPLY_ALBEDO_AFTERSUBSURFACE` to true to automatically apply the back compat behavior to all materials.
+Note that you can probably make your assets compatible with the new code without needing to set `applyAlbedoAfterSubSurface = true` by setting the correct texture in the `translucencyColorTexture` property.
 
 PR: https://github.com/BabylonJS/Babylon.js/pull/16337
 
