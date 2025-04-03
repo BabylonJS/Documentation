@@ -86,11 +86,18 @@ const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("#FAPQIH#1", sce
 const frameGraph = nrg.frameGraph;
 
 engine.onResizeObservable.add(() => {
-    nrg.getBlockByName("Texture").value = passPostProcess.inputTexture.texture;
     nrg.build();
 });
 
-nrg.getBlockByName("Texture").value = passPostProcess.inputTexture.texture;
+const externalTextureBlock = nrg.getBlockByName("Texture");
+
+passPostProcess.onSizeChangedObservable.add(() => {
+    const passPostProcessHandle = externalTextureBlock.output.value;
+    frameGraph.textureManager.importTexture("pass post-process", passPostProcess.inputTexture.texture, passPostProcessHandle);
+});
+
+externalTextureBlock.value = passPostProcess.inputTexture.texture;
+
 nrg.build();
 
 await nrg.whenReadyAsync();
@@ -101,8 +108,8 @@ scene.onAfterRenderObservable.add(() => {
 ```
 As above, we create a "pass" post-process, so that the scene is rendered in a texture. This texture is set as the value of the block named “Texture”, which is our input texture in the graph.
 
-Note that we have deactivated the automatic building of the graph when resizing the engine, because when the screen is resized, we must first update the texture of the “Texture” block before rebuilding the graph.
+Note that we have deactivated the automatic building of the graph when resizing the engine, because when the screen is resized, we must first update the texture of the “Texture” block before rebuilding the graph. To do this, we need to retrieve the handle of the texture, which is available via `textureBlock.output.value`, and reimport the new texture into the frame graph using a call to `TextureManager.importTexture`.
 
 The rest of the code should be simple to understand.
 
-The full PG: <Playground id="#RM56RY#14" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (node render graph)"/>
+The full PG: <Playground id="#RM56RY#19" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (node render graph)"/>
