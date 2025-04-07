@@ -3697,7 +3697,25 @@
                         }
                     },
                     "content": "communityExtensions/Unity"
-                }
+                },
+	            "WebXRExtension": {
+		            "friendlyName": "WebXR Extension",
+		            "content": "communityExtensions/WebXRExtension/webxrextension",
+		            "children": {
+			            "gestureRecognition": {
+				            "friendlyName": "Gesture recognition",
+				            "content": "communityExtensions/WebXRExtension/gestureRecognition"
+			            },
+			            "handsAnimation": {
+				            "friendlyName": "Hands animations",
+				            "content": "communityExtensions/WebXRExtension/handsAnimation"
+			            },
+			            "spaceMarkUp": {
+				            "friendlyName": "Space markup",
+				            "content": "communityExtensions/WebXRExtension/spaceMarkUp"
+			            }
+		            }
+	            }
             },
             "content": "communityExtensions"
         },
