@@ -353,14 +353,14 @@ The treatment even if a bit annoying is simple: you need to import manually only
 
 _How do I efficiently use the `Mesh.Create...` methods?_
 
-The simplest is to load only the builder corresponding to your construction method. If you wish to use the `CreateBox` method, you can simply `import { CreateBox } from "@babylonjs/core/Meshes/Builders/boxBuilder.js";` to ensure that the dependant modules have been loaded.**Except if you are relying on all the MeshBuilder methods, we would recommend to not use it directly but favor the smaller builders**.
+The simplest is to load only the builder corresponding to your construction method. If you wish to use the `CreateBox` method, you can simply `import "@babylonjs/core/Meshes/Builders/boxBuilder.js";` to ensure that the dependant modules have been loaded.**Except if you are relying on all the MeshBuilder methods, we would recommend to not use it directly but favor the smaller builders**.
 
 _Why using the default material is not working?_
 By default, any mesh in a scene are using the scene defaultMaterial. With tree shaking you might not need this material so we do not force it as a dependency in the code. That said, would you need to use it, you can simply `` `import "@babylonjs/core/Materials/standardMaterial.js";` `` to ensure that the default material would be operational.
 
 _How does deserialization work?_
 
-When you deserialize a Babylon.js object like a Material or Light, it is impossible for the framework to know beforehand what kind of entity is enclosed in your file. For instance, are you relying on Standard vs PBRMaterial. We again rely on side effect here and the deserialization will only be able to load the kind of entity you have imported in your app. This means if you know you will need to deserialize a PBRMaterial, you can `import { PBRMaterial } from "@babylonjs/core/Materials/PBR/pbrMaterial.js";` beforehand.
+When you deserialize a Babylon.js object like a Material or Light, it is impossible for the framework to know beforehand what kind of entity is enclosed in your file. For instance, are you relying on Standard vs PBRMaterial. We again rely on side effect here and the deserialization will only be able to load the kind of entity you have imported in your app. This means if you know you will need to deserialize a PBRMaterial, you can `import "@babylonjs/core/Materials/PBR/pbrMaterial.js";` beforehand.
 
 _How do I know if I am importing a folder or a file?_
 
