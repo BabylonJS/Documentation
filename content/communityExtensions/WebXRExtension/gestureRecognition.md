@@ -3,6 +3,14 @@ title: WebXR extension / Gesture recognition
 description: Gestures and combinations recognition 
 keywords: extensions, WebXR, Hand tracking, gestures
 further-reading:
+  - title: PalmOut gesture JSON example file
+    url: https://webxr.projects.clickon.pro/assets/gestures/figures/palm-out.json
+  - title: Fist outside gesture JSON example file
+    url: https://webxr.projects.clickon.pro/assets/gestures/figures/fist-outside.json
+  - title: Activate combination JSON example file
+    url: https://webxr.projects.clickon.pro/assets/gestures/combinations/activate.json
+  - title: Recognitions live demo page
+    url: https://webxr.projects.clickon.pro/#/about/gesture-recognizer
 video-overview: "https://youtu.be/brveNlSEnns?si=EG7FZV2LAFRrrn4a"
 video-content:
 ---
@@ -113,9 +121,3 @@ ftHandEnv.combinations$.subscribe((comb)=>{
 ftHandEnv.startRecognize('activate-deactivate');
 
 ```
-
-Useful links:
-- [PalmOut gesture JSON example file](https://webxr.projects.clickon.pro/assets/gestures/figures/palm-out.json)
-- [Fist outside gesture JSON example file](https://webxr.projects.clickon.pro/assets/gestures/figures/fist-outside.json)
-- [Activate combination JSON example file](https://webxr.projects.clickon.pro/assets/gestures/combinations/activate.json)
-- [Recognitions live demo page](https://webxr.projects.clickon.pro/#/about/gesture-recognizer)

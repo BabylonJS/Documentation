@@ -2,7 +2,11 @@
 title: WebXR extension / Hands Animation
 description: Hands Animations. Recording and playback
 keywords: extensions, WebXR, Hand tracking
-further-reading:
+further-reading: 
+  - title: Demonstration of playback feature
+    url: https://webxr.projects.clickon.pro/#/about/animation-hands-playback
+  - title: Animation capture utility
+    url: https://webxr.projects.clickon.pro/#/anima-hands    
 video-overview: "https://youtu.be/-vC6TPvXMiE?si=XH0_buuws7jAP8c3"
 video-content:
 ---
@@ -148,11 +152,7 @@ await player.play(
 	skeleton,
 	false
 );
-
 ```
+[Animation example file*](https://webxr.projects.clickon.pro/assets/gestures/animations/activate.json)
 
-Useful links:
-- [Animation example file](https://webxr.projects.clickon.pro/assets/gestures/animations/activate.json)
-* Attention: To use it as JSON, you need to add a 0 before numbers starting with '.' or '-.'
-- [Playback demo page](https://webxr.projects.clickon.pro/#/about/animation-hands-playback)
-- [Animation capture utility](https://webxr.projects.clickon.pro/#/anima-hands)
+\* Warning!: To use this file as JSON, you need to add a 0 before numbers starting with '.' or '-.'

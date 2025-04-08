@@ -5,8 +5,30 @@ imageUrl: /img/extensions/WebXRExtension/thumb150.png
 description: The library and utility are designed to simplify the creation of applications using hand gesture recognition. They also include other useful features for working with virtual reality headsets.
 keywords: extensions, WebXR, Hand tracking
 further-reading:
+  - title: Article
+    url: https://medium.com/@drblax/gesture-recognition-babylonjs-webxr-a5d286c62c8f
+  - title: Live demos and utility
+    url: https://webxr.projects.clickon.pro
 video-overview:
 video-content:
+  - title: Typical workflow
+    url: https://youtu.be/QT25wo62S24?si=G1kU0pTgHXFeqFqZ
+  - title: Recording hand gesture
+    url: https://youtu.be/-vC6TPvXMiE?si=Zrk68DTNObeGfORC
+  - title: Gesture recognition
+    url: https://youtu.be/brveNlSEnns?si=pBVsPjkFmYvB5cHc
+  - title: Space markup. Restriction
+    url: https://youtu.be/syFqnBxBcNU?si=CiomZiafmc9kuhxb      
+  - title: Stairs
+    url: https://youtu.be/MKc1mn3_eRU?si=VUiIPphVfnKhPlDe
+  - title: Set the possible direction
+    url: https://youtu.be/ti8ViO6BcgI?si=ibzFOYs-oQuUyphb      
+  - title: Teleportation
+    url: https://youtu.be/MFa_kNC7smo?si=sa5okqG6BJF5GwK6
+  - title: Slopes
+    url: https://youtu.be/5XaNzpdk2B8?si=C76XkHajSJu0wJ-b
+  - title: VUE3 based 3D GUI with gestures 
+    url: https://youtu.be/tTbBMga-RVc?si=t6UtGdEUfTD-KGEd
 ---
 # WebXR Extension
 
@@ -76,11 +98,6 @@ export interface IXRFeatEnv<NATIVE_FEAT_TYPE extends IWebXRFeature = IWebXRFeatu
 	//...
 }
 ```
-
-Useful links with descriptions of approaches, examples, and videos:
-- [Article](https://medium.com/@drblax/gesture-recognition-babylonjs-webxr-a5d286c62c8f)
-- [YouTube playlist](https://youtube.com/playlist?list=PLlta-b8CW53-4mmBGVYV7lwftqy-FcYFN&si=LUuI9YqANYsVwrem)
-- [Live demos and utility](https://webxr.projects.clickon.pro)
 
 
   

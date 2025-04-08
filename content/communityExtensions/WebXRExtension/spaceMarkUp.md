@@ -3,6 +3,10 @@ title: WebXR extension / Space markup
 description: Space markup in immersive mode 
 keywords: extensions, WebXR
 further-reading:
+  - title: Using slopes live demo
+    url: https://webxr.projects.clickon.pro/#/about/slopes-overview
+  - title: Using stairs live demo
+    url: https://webxr.projects.clickon.pro/#/about/stairs  
 video-overview: "https://youtu.be/ti8ViO6BcgI?si=VtVGBdXaUC_MTsFf"
 video-content:
 ---
@@ -120,8 +124,3 @@ export interface ISpaceMarkUpEnv {
 	// ...
 }
 ```
-
-Useful links:
-- [Using slopes live demo]:(https://webxr.projects.clickon.pro/#/about/slopes-overview)
-- [Using stairs live demo]:(https://webxr.projects.clickon.pro/#/about/stairs)
-
