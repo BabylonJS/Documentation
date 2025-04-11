@@ -68,9 +68,13 @@ The `GeometryOutputBlock` will collect the final VertexData that can then be use
 
 ```
 // Build and instantiate mesh
+nodegeo.onBuildObservable.addOnce(() => {
+    var mesh = nodegeo.createMesh("nodegeomesh");
+})
 nodegeo.build();
-var mesh = nodegeo.createMesh("nodegeomesh");
 ```
+
+<Alert severity="warning" title="Warning" description="Please note that the geometry MAY not be ready immediately after invoking build(). For this reason, it is recommended to wait until onBuildObservable is raised before instantiating a mesh using the geometry."/>
 
 ## Updating the Geometry Flow
 
@@ -113,9 +117,10 @@ nodegeo.outputBlock = output;
 setPositions.output.connectTo(output.geometry);       
 
 // Build and instantiate mesh
+nodegeo.onBuildObservable.addOnce(() => {
+    var mesh = nodegeo.createMesh("nodegeomesh");
+})
 nodegeo.build();
-var mesh = nodegeo.createMesh("nodegeomesh");
-
 ```
 
 The `setPositionsBlock` will call the `RandomBlock` once per vertex to generate the final mesh:
@@ -192,8 +197,10 @@ setpositions.output.connectTo(geometryout.geometry);
 
 // Output nodes
 nodeGeometry.outputBlock = geometryout;
-nodeGeometry.build();
-var mesh = nodeGeometry.createMesh("nodegeomesh");
+nodegeo.onBuildObservable.addOnce(() => {
+    var mesh = nodegeo.createMesh("nodegeomesh");
+})
+nodegeo.build();
 ```
 
 Which will generate the following mesh:
@@ -359,8 +366,10 @@ nodeGeometry.getBlockByName("my_mesh").mesh = myLoadedMesh;
 Once we are done setting parameters or attaching meshes to our node geometry, we then call `build` and `createMesh`.
 
 ```javascript
+nodeGeometry.onBuildObservable.addOnce(() => {
+    const myGeometry = nodeGeometry.createMesh("myGeometry");
+})
 nodeGeometry.build();
-const myGeometry = nodeGeometry.createMesh("myGeometry");
 ```
 
 The order of operations here is important. If node geometry is built and then we try to update any values on the blocks within the graph, no changes will be seen until `nodeGeometry.build()` is called and we `createMesh` again. This also means that we can load and build a node geometry and keep it in memory until we need it with a call to `createMesh`. Or we could `dispose` of a mesh created from nodeGeometry and simply call `createMesh` again at a later point to bring the node geometry back into the scene. In this way node geometry acts a little like Asset Container where we always have it in the memory ready to create new meshes whenever we need them.
