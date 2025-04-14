@@ -109,7 +109,7 @@ current animation frame globally. To ensure that a specific instance starts at i
 compute the correct offset using the following formula:
 
 ```typescript
-function computeOffsetInAnim(
+function computeOffset(
   fromFrame: number,
   toFrame: number,
   time: number,
