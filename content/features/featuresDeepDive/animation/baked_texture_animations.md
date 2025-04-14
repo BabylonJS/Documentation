@@ -99,6 +99,32 @@ Here's an example:
 
 <Playground id="#CP2RN9#20" title="Vertex Texture Animations on thin instances" description="An example of playing VATs on thin instances."/>
 
+### VATs offset
+
+When using VAT with thin instances, you might expect each instance to start its animation with a specific time
+offset. However, this is **not guaranteed by default**.
+
+This is because multiple instances often share the same `BakedVertexAnimationManager`, which internally handles the
+current animation frame globally. To ensure that a specific instance starts at its intended offset you can manually
+compute the correct offset using the following formula:
+
+```typescript
+function computeOffsetInAnim(
+  fromFrame: number,
+  toFrame: number,
+  time: number,
+  fps: number = 60
+): number {
+  const totalFrames = toFrame - fromFrame + 1;
+  const t = time * fps / totalFrames;
+  const frame = Math.floor((t - Math.floor(t)) * totalFrames);
+  return totalFrames - frame;
+}
+```
+
+<Playground id="#3NIXCL#519" title="Vertex Texture Animations on thin instances at offset" description="An example of playing VATs on thin instances with specific offset."/>
+
+
 ## Serializing and loading VATs
 
 Baking the texture can be a slow process, and will play the entire animation visibly. In order to avoid this during run-time, it's better to bake the texture data at build time, and just load it at run-time. Here's a sample script to bake the vertex data and get the JSON file to save locally:
