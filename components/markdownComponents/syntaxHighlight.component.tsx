@@ -1,9 +1,8 @@
 import Image from "next/image";
 import { FunctionComponent, PropsWithChildren, useState } from "react";
-import Highlight, { defaultProps, Language } from "prism-react-renderer";
+import { Highlight, themes } from "prism-react-renderer";
 import { Alert, AlertTitle, IconButton, Tooltip, Box } from "@mui/material";
 import LinkIcon from "@mui/icons-material/ContentCopy";
-import vsDark from "prism-react-renderer/themes/vsDark";
 
 export const SyntaxHighlighting: FunctionComponent<{ className: string; children: string }> = (props) => {
     const [isCopy, setIsCopied] = useState(false);
@@ -11,7 +10,7 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
     if (!props.className && typeof props.children === "string" && !props.children.includes("\n")) {
         return <code>{props.children}</code>;
     }
-    const language = props.className ? (props.className.replace(/language-/, "") as Language) : "javascript";
+    const language = props.className ? (props.className.replace(/language-/, "")) : "javascript";
     const copyPaste = () => {
         navigator.clipboard.writeText(props.children.trim());
         setIsCopied(true);
@@ -73,7 +72,7 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
                 <i>{language}</i>
                 {copyPasteIcon}
             </Box>
-            <Highlight {...defaultProps} theme={vsDark} code={props.children.trim()} language={language}>
+            <Highlight theme={themes.vsDark} code={props.children.trim()} language={language}>
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
                     <pre className={className} style={{ ...style, padding: "20px" }}>
                         <code>
@@ -97,7 +96,7 @@ export const AlertMarkdownComponent: FunctionComponent<AlertMarkdownComponentPro
     return (
         <Alert severity={props.severity} style={{ marginBottom: "1.3rem" }}>
             {props.title || <AlertTitle>{props.title}</AlertTitle>}
-            <p style={{ margin: "0" }} dangerouslySetInnerHTML={{ __html: props.description }}/>
+            <p style={{ margin: "0" }} dangerouslySetInnerHTML={{ __html: props.description }} />
             {props.children}
         </Alert>
     );
