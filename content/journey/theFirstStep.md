@@ -96,38 +96,37 @@ groundMaterial.diffuseTexture = groundTexture;
 
 Pretty cool! You've now created your first Babylon.js texture and assigned it to the texture property of your ground material!
 
-Ok it's time for another addition to the scene. After all of your ground-related code, give yourself a little space by hitting enter and on a new line press CTRL+SPACE. This will spawn a list of playground templates. These templates are handy pieces of code that you will likely reuse over and over again through your Babylon learning journey. Go ahead and select the template that says "Import a Mesh w/Callback".
+Ok it's time for another addition to the scene. After all of your ground-related code, give yourself a little space by hitting enter and on a new line press CTRL+SPACE. This will spawn a list of playground templates. These templates are handy pieces of code that you will likely reuse over and over again through your Babylon learning journey. Go ahead and select the template that says "Import a Mesh Async".
 
-![templates](/img/home/playgroundTemplates.jpg)
+![templates](/img/home/playgroundTemplates.png)
 
 You should see the following lines of code pop right into the playground:
 
 ```javascript
-BABYLON.ImportMeshAsync("url to the mesh parent directory" + "Mesh filename.fileextension", scene, { meshNames: "meshName" }).then(function (result) {});
+BABYLON.ImportMeshAsync("url to the mesh parent directory/Mesh filename.fileextension", scene, { meshNames: "" }).then(function (result) {});
 ```
 
 Let's do a few more things:
 
-- 1. Delete the word 'meshName' but leave the quotes "".
-- 2. Replace "url to the mesh parent directory" (including quotes) with this:
+- 1. Replace "url to the mesh parent directory" (including quotes) with this:
 
 ```javascript
 Assets.meshes.Yeti.rootUrl;
 ```
 
-- 3. Replace the "Mesh filename.fileextension" (including quotes) with this:
+- 2. Replace the "Mesh filename.fileextension" (including quotes) with this:
 
 ```javascript
 Assets.meshes.Yeti.filename;
 ```
 
-- 4. After the `BABYLON.ImportMeshAsync` line, but before the "});" add the following line:
+- 3. After the `BABYLON.ImportMeshAsync` line, but before the `"});"` add the following line:
 
 ```javascript
 result.meshes[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
 ```
 
-- 5. Run the scene
+- 4. Run the scene
 
 <Playground id="#2KRNG9#3849" title="Playground 4" description="Yeti on the dance floor!"/>
 
