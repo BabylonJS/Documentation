@@ -1575,6 +1575,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/particles/particle_system/ramps_and_blends"
                                         },
+                                        "attractors": {
+                                            "friendlyName": "Attractors",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/particle_system/attractors"
+                                        },
                                         "subEmitters": {
                                             "friendlyName": "Sub Emitters",
                                             "children": {},
