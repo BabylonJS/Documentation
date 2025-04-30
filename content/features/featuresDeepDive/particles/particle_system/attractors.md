@@ -2,7 +2,7 @@
 
 Starting from Babylon.js v8.4, you can create add gravity attractors to your particle system.
 
-**Note:** Sub emitters are NOT supported in GPU particles (WebGL 2 and WebGPU).
+**Note:** Attractors are NOT supported in GPU particles (WebGL 2 and WebGPU).
 
 Here is a complete example to try:
 
