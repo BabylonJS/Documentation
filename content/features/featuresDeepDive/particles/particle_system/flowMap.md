@@ -15,10 +15,10 @@ This means the flow behaves consistently relative to the viewport, regardless of
 
 The flow map is a standard texture where each pixel encodes a 3D direction vector and strength using a Color4 format (assuming the camera is pointing towards Z):  
 
-Red (R): X-component of the flow direction (0 → screen-left, 1 → screen-right, 0.5 → no movement)
-Green (G): Y-component of the flow direction (0 → screen-down, 1 → screen-up, 0.5 → no movement)
-Blue (B): Z-component of the flow direction (0 → toward the screen, 1 → away from the screen, 0.5 → no movement)
-Alpha (A): flow strength (0 → no effect)
+* Red (R): X-component of the flow direction (0 → screen-left, 1 → screen-right, 0.5 → no movement)
+* Green (G): Y-component of the flow direction (0 → screen-down, 1 → screen-up, 0.5 → no movement)
+* Blue (B): Z-component of the flow direction (0 → toward the screen, 1 → away from the screen, 0.5 → no movement)
+* Alpha (A): flow strength (0 → no effect)
 
 # Example
 
