@@ -10,16 +10,14 @@ Here is a complete example to try:
 # Definition
 
 A flow map is a screen-aligned image that is used to control the direction and intensity of forces applied to particles based on their position on the screen, not in world space. 
-This means the flow behaves consistently relative to the viewport, regardless of camera movement or rotation.
 
-The flow map is a standard texture where each pixel encodes a 3D direction vector and strength using a Color4 format:
+This means the flow behaves consistently relative to the viewport, regardless of camera movement or rotation. Because we are speaking of direction in derived from a screen aligned image, we will present directions in relation to the screen such as screen-left or screen-up.
 
-Red (R): X-component of the flow direction (0 → left, 1 → right, 0.5 → no movement)
+The flow map is a standard texture where each pixel encodes a 3D direction vector and strength using a Color4 format (assuming the camera is pointing towards Z):  
 
-Green (G): Y-component of the flow direction (0 → down, 1 → up, 0.5 → no movement)
-
-Blue (B): Z-component of the flow direction (0 → front, 1 → back, 0.5 → no movement)
-
+Red (R): X-component of the flow direction (0 → screen-left, 1 → screen-right, 0.5 → no movement)
+Green (G): Y-component of the flow direction (0 → screen-down, 1 → screen-up, 0.5 → no movement)
+Blue (B): Z-component of the flow direction (0 → toward the screen, 1 → away from the screen, 0.5 → no movement)
 Alpha (A): flow strength (0 → no effect)
 
 # Example
