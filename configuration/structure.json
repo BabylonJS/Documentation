@@ -1580,6 +1580,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/particles/particle_system/attractors"
                                         },
+                                        "flowMap": {
+                                            "friendlyName": "Flow Maps",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/particle_system/flowMap"
+                                        },
                                         "subEmitters": {
                                             "friendlyName": "Sub Emitters",
                                             "children": {},
