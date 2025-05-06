@@ -170,6 +170,9 @@ On the javascript side, you have the corresponding methods to set a value to the
 * storage buffer: `setStorageBuffer(name, buffer)`
 * external texture: `setExternalTexture(name, buffer)`
 
+## Important difference from GLSL
+The [normalized device coordinates](https://gpuweb.github.io/gpuweb/#coordinate-systems) (NDC) in WebGPU is slightly different from WebGL's. In GLSL, NDC for the z-axis lies in the -1.0 ≤ z ≤ 1.0 range. In WGSL, NDC for the z-axis lies in the 0.0 ≤ z ≤ 1.0 range. If you are using NDC in your shader, please ensure you make the necessary adjustments for the z-axis. There are no differences for the xy axes.
+
 ## Examples
 This playground is a basic example of using WGSL in a `ShaderMaterial`: <Playground id="#6GFJNR#178" image="/img/playgroundsAndNMEs/pg-6GFJNR-164.png" engine="webgpu" title="Basic example of WGSL with ShaderMaterial" description="Demonstrate how to write WGSL code with the ShaderMaterial class"/>
 
