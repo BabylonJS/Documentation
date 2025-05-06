@@ -1,0 +1,2053 @@
+{
+    "redirects": [
+        {
+            "source": "/divingDeeper/developWithBjs/forum",
+            "destination": "/journey/forum"
+        },
+        {
+            "source": "/start",
+            "destination": "/features/introductionToFeatures"
+        },
+        {
+            "source": "/start/chap1",
+            "destination": "/features/introductionToFeatures/chap1"
+        },
+        {
+            "source": "/start/chap1/first_scene",
+            "destination": "/features/introductionToFeatures/chap1/first_scene"
+        },
+        {
+            "source": "/start/chap1/first_viewer",
+            "destination": "/features/introductionToFeatures/chap1/first_viewer"
+        },
+        {
+            "source": "/start/chap1/first_import",
+            "destination": "/features/introductionToFeatures/chap1/first_import"
+        },
+        {
+            "source": "/start/chap1/first_app",
+            "destination": "/features/introductionToFeatures/chap1/first_app"
+        },
+        {
+            "source": "/start/chap2",
+            "destination": "/features/introductionToFeatures/chap2"
+        },
+        {
+            "source": "/start/chap2/ground",
+            "destination": "/features/introductionToFeatures/chap2/ground"
+        },
+        {
+            "source": "/start/chap2/sound",
+            "destination": "/features/introductionToFeatures/chap2/sound"
+        },
+        {
+            "source": "/start/chap2/placement",
+            "destination": "/features/introductionToFeatures/chap2/placement"
+        },
+        {
+            "source": "/start/chap2/variation",
+            "destination": "/features/introductionToFeatures/chap2/variation"
+        },
+        {
+            "source": "/start/chap2/material",
+            "destination": "/features/introductionToFeatures/chap2/material"
+        },
+        {
+            "source": "/start/chap2/face_material",
+            "destination": "/features/introductionToFeatures/chap2/face_material"
+        },
+        {
+            "source": "/start/chap2/combine",
+            "destination": "/features/introductionToFeatures/chap2/combine"
+        },
+        {
+            "source": "/start/chap2/copies",
+            "destination": "/features/introductionToFeatures/chap2/copies"
+        },
+        {
+            "source": "/start/chap2/viewer2",
+            "destination": "/features/introductionToFeatures/chap2/viewer2"
+        },
+        {
+            "source": "/start/chap2/app2",
+            "destination": "/features/introductionToFeatures/chap2/app2"
+        },
+        {
+            "source": "/start/chap3",
+            "destination": "/features/introductionToFeatures/chap3"
+        },
+        {
+            "source": "/start/chap3/parent",
+            "destination": "/features/introductionToFeatures/chap3/parent"
+        },
+        {
+            "source": "/start/chap3/polycar",
+            "destination": "/features/introductionToFeatures/chap3/polycar"
+        },
+        {
+            "source": "/start/chap3/carmat",
+            "destination": "/features/introductionToFeatures/chap3/carmat"
+        },
+        {
+            "source": "/start/chap3/animation",
+            "destination": "/features/introductionToFeatures/chap3/animation"
+        },
+        {
+            "source": "/start/chap3/caranimation",
+            "destination": "/features/introductionToFeatures/chap3/caranimation"
+        },
+        {
+            "source": "/start/chap3/import_character",
+            "destination": "/features/introductionToFeatures/chap3/import_character"
+        },
+        {
+            "source": "/start/chap3/walkpath",
+            "destination": "/features/introductionToFeatures/chap3/walkpath"
+        },
+        {
+            "source": "/start/chap4",
+            "destination": "/features/introductionToFeatures/chap4"
+        },
+        {
+            "source": "/start/chap4/mesh_intersect",
+            "destination": "/features/introductionToFeatures/chap4/mesh_intersect"
+        },
+        {
+            "source": "/start/chap5",
+            "destination": "/features/introductionToFeatures/chap5"
+        },
+        {
+            "source": "/start/chap5/hills",
+            "destination": "/features/introductionToFeatures/chap5/hills"
+        },
+        {
+            "source": "/start/chap5/sky",
+            "destination": "/features/introductionToFeatures/chap5/sky"
+        },
+        {
+            "source": "/start/chap5/trees",
+            "destination": "/features/introductionToFeatures/chap5/trees"
+        },
+        {
+            "source": "/start/chap6",
+            "destination": "/features/introductionToFeatures/chap6"
+        },
+        {
+            "source": "/start/chap6/fountain",
+            "destination": "/features/introductionToFeatures/chap6/fountain"
+        },
+        {
+            "source": "/start/chap6/particlespray",
+            "destination": "/features/introductionToFeatures/chap6/particlespray"
+        },
+        {
+            "source": "/start/chap6/onoff",
+            "destination": "/features/introductionToFeatures/chap6/onoff"
+        },
+        {
+            "source": "/start/chap7",
+            "destination": "/features/introductionToFeatures/chap7"
+        },
+        {
+            "source": "/start/chap7/lights",
+            "destination": "/features/introductionToFeatures/chap7/lights"
+        },
+        {
+            "source": "/start/chap7/light_gui",
+            "destination": "/features/introductionToFeatures/chap7/light_gui"
+        },
+        {
+            "source": "/start/chap7/shadows",
+            "destination": "/features/introductionToFeatures/chap7/shadows"
+        },
+        {
+            "source": "/start/chap8",
+            "destination": "/features/introductionToFeatures/chap8"
+        },
+        {
+            "source": "/start/chap8/camera",
+            "destination": "/features/introductionToFeatures/chap8/camera"
+        },
+        {
+            "source": "/start/chap8/follow",
+            "destination": "/features/introductionToFeatures/chap8/follow"
+        },
+        {
+            "source": "/start/chap8/vr",
+            "destination": "/features/introductionToFeatures/chap8/vr"
+        },
+        {
+            "source": "/divingDeeper",
+            "destination": "/features/featuresDeepDive"
+        },
+        {
+            "source": "/divingDeeper/animation",
+            "destination": "/features/featuresDeepDive/animation"
+        },
+        {
+            "source": "/divingDeeper/animation/animation_introduction",
+            "destination": "/features/featuresDeepDive/animation/animation_introduction"
+        },
+        {
+            "source": "/divingDeeper/animation/animation_design",
+            "destination": "/features/featuresDeepDive/animation/animation_design"
+        },
+        {
+            "source": "/divingDeeper/animation/animation_method",
+            "destination": "/features/featuresDeepDive/animation/animation_method"
+        },
+        {
+            "source": "/divingDeeper/animation/sequenceAnimations",
+            "destination": "/features/featuresDeepDive/animation/sequenceAnimations"
+        },
+        {
+            "source": "/divingDeeper/animation/groupAnimations",
+            "destination": "/features/featuresDeepDive/animation/groupAnimations"
+        },
+        {
+            "source": "/divingDeeper/animation/combineAnimations",
+            "destination": "/features/featuresDeepDive/animation/combineAnimations"
+        },
+        {
+            "source": "/divingDeeper/animation/animatedCharacter",
+            "destination": "/features/featuresDeepDive/animation/animatedCharacter"
+        },
+        {
+            "source": "/divingDeeper/animation/advanced_animations",
+            "destination": "/features/featuresDeepDive/animation/advanced_animations"
+        },
+        {
+            "source": "/divingDeeper/animation/render_frame_animation",
+            "destination": "/features/featuresDeepDive/animation/render_frame_animation"
+        },
+        {
+            "source": "/divingDeeper/animation/baked_texture_animations",
+            "destination": "/features/featuresDeepDive/animation/baked_texture_animations"
+        },
+        {
+            "source": "/divingDeeper/audio",
+            "destination": "/features/featuresDeepDive/audio"
+        },
+        {
+            "source": "/divingDeeper/audio/playingSoundsMusic",
+            "destination": "/features/featuresDeepDive/audio/playingSoundsMusic"
+        },
+        {
+            "source": "/divingDeeper/behaviors",
+            "destination": "/features/featuresDeepDive/behaviors"
+        },
+        {
+            "source": "/divingDeeper/behaviors/cameraBehaviors",
+            "destination": "/features/featuresDeepDive/behaviors/cameraBehaviors"
+        },
+        {
+            "source": "/divingDeeper/behaviors/meshBehaviors",
+            "destination": "/features/featuresDeepDive/behaviors/meshBehaviors"
+        },
+        {
+            "source": "/divingDeeper/cameras",
+            "destination": "/features/featuresDeepDive/cameras"
+        },
+        {
+            "source": "/divingDeeper/cameras/camera_introduction",
+            "destination": "/features/featuresDeepDive/cameras/camera_introduction"
+        },
+        {
+            "source": "/divingDeeper/cameras/camera_collisions",
+            "destination": "/features/featuresDeepDive/cameras/camera_collisions"
+        },
+        {
+            "source": "/divingDeeper/cameras/customizingCameraInputs",
+            "destination": "/features/featuresDeepDive/cameras/customizingCameraInputs"
+        },
+        {
+            "source": "/divingDeeper/cameras/multiViewsPart1",
+            "destination": "/features/featuresDeepDive/cameras/multiViewsPart1"
+        },
+        {
+            "source": "/divingDeeper/cameras/multiViewsPart2",
+            "destination": "/features/featuresDeepDive/cameras/multiViewsPart2"
+        },
+        {
+            "source": "/divingDeeper/cameras/layerMasksAndMultiCam",
+            "destination": "/features/featuresDeepDive/cameras/layerMasksAndMultiCam"
+        },
+        {
+            "source": "/divingDeeper/cameras/webVRCamera",
+            "destination": "/features/featuresDeepDive/cameras/webVRCamera"
+        },
+        {
+            "source": "/divingDeeper/cameras/webVRHelper",
+            "destination": "/features/featuresDeepDive/cameras/webVRHelper"
+        },
+        {
+            "source": "/divingDeeper/controls",
+            "destination": "/features/featuresDeepDive/controls"
+        },
+        {
+            "source": "/divingDeeper/controls/timeline",
+            "destination": "/features/featuresDeepDive/controls/timeline"
+        },
+        {
+            "source": "/divingDeeper/controls/resizer",
+            "destination": "/features/featuresDeepDive/controls/resizer"
+        },
+        {
+            "source": "/divingDeeper/controls/imageFilter",
+            "destination": "/features/featuresDeepDive/controls/imageFilter"
+        },
+        {
+            "source": "/extensions/crowdNavigation",
+            "destination": "/features/featuresDeepDive/crowdNavigation"
+        },
+        {
+            "source": "/extensions/crowdNavigation/createNavMesh",
+            "destination": "/features/featuresDeepDive/crowdNavigation/createNavMesh"
+        },
+        {
+            "source": "/extensions/crowdNavigation/crowdAgents",
+            "destination": "/features/featuresDeepDive/crowdNavigation/crowdAgents"
+        },
+        {
+            "source": "/extensions/crowdNavigation/obstacles",
+            "destination": "/features/featuresDeepDive/crowdNavigation/obstacles"
+        },
+        {
+            "source": "/divingDeeper/environment",
+            "destination": "/features/featuresDeepDive/environment"
+        },
+        {
+            "source": "/divingDeeper/environment/environment_introduction",
+            "destination": "/features/featuresDeepDive/environment/environment_introduction"
+        },
+        {
+            "source": "/divingDeeper/environment/skybox",
+            "destination": "/features/featuresDeepDive/environment/skybox"
+        },
+        {
+            "source": "/divingDeeper/environment/backgroundMaterial",
+            "destination": "/features/featuresDeepDive/environment/backgroundMaterial"
+        },
+        {
+            "source": "/divingDeeper/environment/lenseFlare",
+            "destination": "/features/featuresDeepDive/environment/lenseFlare"
+        },
+        {
+            "source": "/divingDeeper/environment/reflectionProbes",
+            "destination": "/features/featuresDeepDive/environment/reflectionProbes"
+        },
+        {
+            "source": "/divingDeeper/environment/360PhotoDome",
+            "destination": "/features/featuresDeepDive/environment/360PhotoDome"
+        },
+        {
+            "source": "/divingDeeper/environment/360VideoDome",
+            "destination": "/features/featuresDeepDive/environment/360VideoDome"
+        },
+        {
+            "source": "/divingDeeper/events",
+            "destination": "/features/featuresDeepDive/events"
+        },
+        {
+            "source": "/divingDeeper/events/actions",
+            "destination": "/features/featuresDeepDive/events/actions"
+        },
+        {
+            "source": "/divingDeeper/events/observables",
+            "destination": "/features/featuresDeepDive/events/observables"
+        },
+        {
+            "source": "/divingDeeper/events/promises",
+            "destination": "/features/featuresDeepDive/events/promises"
+        },
+        {
+            "source": "/divingDeeper/events/coroutines",
+            "destination": "/features/featuresDeepDive/events/coroutines"
+        },
+        {
+            "source": "/extensions/Exporters",
+            "destination": "/features/featuresDeepDive/Exporters"
+        },
+        {
+            "source": "/extensions/glTFExporter",
+            "destination": "/features/featuresDeepDive/Exporters/glTFExporter"
+        },
+        {
+            "source": "/extensions/Exporters/3DSMax",
+            "destination": "/features/featuresDeepDive/Exporters/3DSMax"
+        },
+        {
+            "source": "/extensions/Exporters/3DSMax_to_glTF",
+            "destination": "/features/featuresDeepDive/Exporters/3DSMax_to_glTF"
+        },
+        {
+            "source": "/extensions/Exporters/Blender",
+            "destination": "/features/featuresDeepDive/Exporters/Blender"
+        },
+        {
+            "source": "/extensions/Exporters/Blender_Tips",
+            "destination": "/features/featuresDeepDive/Exporters/Blender_Tips"
+        },
+        {
+            "source": "/extensions/Exporters/Blender_to_glTF",
+            "destination": "/features/featuresDeepDive/Exporters/Blender_to_glTF"
+        },
+        {
+            "source": "/extensions/Exporters/Bones_influences_per_vertex",
+            "destination": "/features/featuresDeepDive/Exporters/Bones_influences_per_vertex"
+        },
+        {
+            "source": "/extensions/Exporters/Cheetah3D",
+            "destination": "/features/featuresDeepDive/Exporters/Cheetah3D"
+        },
+        {
+            "source": "/extensions/Exporters/Maya",
+            "destination": "/features/featuresDeepDive/Exporters/Maya"
+        },
+        {
+            "source": "/extensions/Exporters/Maya_to_glTF",
+            "destination": "/features/featuresDeepDive/Exporters/Maya_to_glTF"
+        },
+        {
+            "source": "/extensions/Exporters/Mixamo_to_Babylon",
+            "destination": "/features/featuresDeepDive/Exporters/Mixamo_to_Babylon"
+        },
+        {
+            "source": "/extensions/Exporters/Save_Babylon",
+            "destination": "/features/featuresDeepDive/Exporters/Save_Babylon"
+        },
+        {
+            "source": "/divingDeeper/gui",
+            "destination": "/features/featuresDeepDive/gui"
+        },
+        {
+            "source": "/divingDeeper/gui/gui",
+            "destination": "/features/featuresDeepDive/gui/gui"
+        },
+        {
+            "source": "/divingDeeper/gui/scrollViewer",
+            "destination": "/features/featuresDeepDive/gui/scrollViewer"
+        },
+        {
+            "source": "/divingDeeper/gui/xmlLoader",
+            "destination": "/features/featuresDeepDive/gui/xmlLoader"
+        },
+        {
+            "source": "/divingDeeper/gui/selector",
+            "destination": "/features/featuresDeepDive/gui/selector"
+        },
+        {
+            "source": "/divingDeeper/gui/gui3D",
+            "destination": "/features/featuresDeepDive/gui/gui3D"
+        },
+        {
+            "source": "/divingDeeper/gui/mrtk",
+            "destination": "/features/featuresDeepDive/gui/mrtk"
+        },
+        {
+            "source": "/divingDeeper/input",
+            "destination": "/features/featuresDeepDive/input"
+        },
+        {
+            "source": "/divingDeeper/input/gamepads",
+            "destination": "/features/featuresDeepDive/input/gamepads"
+        },
+        {
+            "source": "/divingDeeper/input/virtualJoysticks",
+            "destination": "/features/featuresDeepDive/input/virtualJoysticks"
+        },
+        {
+            "source": "/divingDeeper/input/deviceSourceManager",
+            "destination": "/features/featuresDeepDive/input/deviceSourceManager"
+        },
+        {
+            "source": "/divingDeeper/importers",
+            "destination": "/features/featuresDeepDive/importers"
+        },
+        {
+            "source": "/divingDeeper/importers/loadingFileTypes",
+            "destination": "/features/featuresDeepDive/importers/loadingFileTypes"
+        },
+        {
+            "source": "/advanced_topics/loadFromMemory",
+            "destination": "/features/featuresDeepDive/importers/loadFromMemory"
+        },
+        {
+            "source": "/divingDeeper/importers/incrementalLoading",
+            "destination": "/features/featuresDeepDive/importers/incrementalLoading"
+        },
+        {
+            "source": "/divingDeeper/importers/glTF",
+            "destination": "/features/featuresDeepDive/importers/glTF"
+        },
+        {
+            "source": "/divingDeeper/importers/glTF/glTFSkinning",
+            "destination": "/features/featuresDeepDive/importers/glTF/glTFSkinning"
+        },
+        {
+            "source": "/divingDeeper/importers/glTF/progressiveglTFLoad",
+            "destination": "/features/featuresDeepDive/importers/glTF/progressiveglTFLoad"
+        },
+        {
+            "source": "/divingDeeper/importers/stl",
+            "destination": "/features/featuresDeepDive/importers/stl"
+        },
+        {
+            "source": "/divingDeeper/importers/oBJ",
+            "destination": "/features/featuresDeepDive/importers/oBJ"
+        },
+        {
+            "source": "/divingDeeper/importers/assetManager",
+            "destination": "/features/featuresDeepDive/importers/assetManager"
+        },
+        {
+            "source": "/divingDeeper/importers/assetContainers",
+            "destination": "/features/featuresDeepDive/importers/assetContainers"
+        },
+        {
+            "source": "/divingDeeper/importers/createImporters",
+            "destination": "/features/featuresDeepDive/importers/createImporters"
+        },
+        {
+            "source": "/divingDeeper/lights",
+            "destination": "/features/featuresDeepDive/lights"
+        },
+        {
+            "source": "/divingDeeper/lights/lights_introduction",
+            "destination": "/features/featuresDeepDive/lights/lights_introduction"
+        },
+        {
+            "source": "/divingDeeper/lights/shadows",
+            "destination": "/features/featuresDeepDive/lights/shadows"
+        },
+        {
+            "source": "/divingDeeper/lights/shadows_csm",
+            "destination": "/features/featuresDeepDive/lights/shadows_csm"
+        },
+        {
+            "source": "/divingDeeper/lights/volumetricLightScattering",
+            "destination": "/features/featuresDeepDive/lights/volumetricLightScattering"
+        },
+        {
+            "source": "/advanced_topics/mathShadows",
+            "destination": "/features/featuresDeepDive/lights/mathShadows"
+        },
+        {
+            "source": "/divingDeeper/materials",
+            "destination": "/features/featuresDeepDive/materials"
+        },
+        {
+            "source": "/divingDeeper/materials/using",
+            "destination": "/features/featuresDeepDive/materials/using"
+        },
+        {
+            "source": "/divingDeeper/materials/using/materials_introduction",
+            "destination": "/features/featuresDeepDive/materials/using/materials_introduction"
+        },
+        {
+            "source": "/divingDeeper/materials/using/moreMaterials",
+            "destination": "/features/featuresDeepDive/materials/using/moreMaterials"
+        },
+        {
+            "source": "/divingDeeper/materials/using/parallaxMapping",
+            "destination": "/features/featuresDeepDive/materials/using/parallaxMapping"
+        },
+        {
+            "source": "/divingDeeper/materials/advanced/normalMaps",
+            "destination": "/features/featuresDeepDive/materials/using/normalMaps"
+        },
+        {
+            "source": "/divingDeeper/materials/using/blendModes",
+            "destination": "/features/featuresDeepDive/materials/using/blendModes"
+        },
+        {
+            "source": "/divingDeeper/materials/using/texturePerBoxFace",
+            "destination": "/features/featuresDeepDive/materials/using/texturePerBoxFace"
+        },
+        {
+            "source": "/divingDeeper/materials/using/frontAndBackUVs",
+            "destination": "/features/featuresDeepDive/materials/using/frontAndBackUVs"
+        },
+        {
+            "source": "/divingDeeper/materials/using/multiMaterials",
+            "destination": "/features/featuresDeepDive/materials/using/multiMaterials"
+        },
+        {
+            "source": "/divingDeeper/materials/using/dynamicTexture",
+            "destination": "/features/featuresDeepDive/materials/using/dynamicTexture"
+        },
+        {
+            "source": "/divingDeeper/materials/using/videoTexture",
+            "destination": "/features/featuresDeepDive/materials/using/videoTexture"
+        },
+        {
+            "source": "/divingDeeper/materials/using/reflectionTexture",
+            "destination": "/features/featuresDeepDive/materials/using/reflectionTexture"
+        },
+        {
+            "source": "/divingDeeper/materials/using/fresnelParameters",
+            "destination": "/features/featuresDeepDive/materials/using/fresnelParameters"
+        },
+        {
+            "source": "/divingDeeper/materials/using/ktx2Compression",
+            "destination": "/features/featuresDeepDive/materials/using/ktx2Compression"
+        },
+        {
+            "source": "/divingDeeper/materials/using/introToPBR",
+            "destination": "/features/featuresDeepDive/materials/using/introToPBR"
+        },
+        {
+            "source": "/divingDeeper/materials/using/HDREnvironment",
+            "destination": "/features/featuresDeepDive/materials/using/HDREnvironment"
+        },
+        {
+            "source": "/divingDeeper/materials/using/masterPBR",
+            "destination": "/features/featuresDeepDive/materials/using/masterPBR"
+        },
+        {
+            "source": "/divingDeeper/materials/using/proceduralTextures",
+            "destination": "/features/featuresDeepDive/materials/using/proceduralTextures"
+        },
+        {
+            "source": "/divingDeeper/materials/using/materialPlugins",
+            "destination": "/features/featuresDeepDive/materials/using/materialPlugins"
+        },
+        {
+            "source": "/advanced_topics/shaders",
+            "destination": "/features/featuresDeepDive/materials/shaders"
+        },
+        {
+            "source": "/advanced_topics/shaders/introToShaders",
+            "destination": "/features/featuresDeepDive/materials/shaders/introToShaders"
+        },
+        {
+            "source": "/advanced_topics/shaders/shaderCodeInBjs",
+            "destination": "/features/featuresDeepDive/materials/shaders/shaderCodeInBjs"
+        },
+        {
+            "source": "/advanced_topics/shaders/shaderMaterial",
+            "destination": "/features/featuresDeepDive/materials/shaders/shaderMaterial"
+        },
+        {
+            "source": "/advanced_topics/shaders/image_processing",
+            "destination": "/features/featuresDeepDive/materials/shaders/image_processing"
+        },
+        {
+            "source": "/advanced_topics/shaders/computeShader",
+            "destination": "/features/featuresDeepDive/materials/shaders/computeShader"
+        },
+        {
+            "source": "/divingDeeper/materials/node_material",
+            "destination": "/features/featuresDeepDive/materials/node_material"
+        },
+        {
+            "source": "/divingDeeper/materials/node_material/nodeMaterial",
+            "destination": "/features/featuresDeepDive/materials/node_material/nodeMaterial"
+        },
+        {
+            "source": "/divingDeeper/materials/node_material/NMEPBR",
+            "destination": "/features/featuresDeepDive/materials/node_material/NMEPBR"
+        },
+        {
+            "source": "/divingDeeper/materials/node_material/NMEPostProcesses",
+            "destination": "/features/featuresDeepDive/materials/node_material/NMEPostProcesses"
+        },
+        {
+            "source": "/divingDeeper/materials/node_material/NMEProceduralTexture",
+            "destination": "/features/featuresDeepDive/materials/node_material/NMEProceduralTexture"
+        },
+        {
+            "source": "/divingDeeper/materials/node_material/NMEParticleShaders",
+            "destination": "/features/featuresDeepDive/materials/node_material/NMEParticleShaders"
+        },
+        {
+            "source": "/divingDeeper/materials/node_material/availableNodeBlocks",
+            "destination": "/features/featuresDeepDive/materials/node_material/availableNodeBlocks"
+        },
+        {
+            "source": "/divingDeeper/materials/node_material/particles_and_nme",
+            "destination": "/features/featuresDeepDive/materials/node_material/particles_and_nme"
+        },
+        {
+            "source": "/divingDeeper/materials/advanced",
+            "destination": "/features/featuresDeepDive/materials/advanced"
+        },
+        {
+            "source": "/divingDeeper/materials/advanced/work",
+            "destination": "/features/featuresDeepDive/materials/advanced/work"
+        },
+        {
+            "source": "/divingDeeper/materials/advanced/facet_uvs",
+            "destination": "/features/featuresDeepDive/materials/advanced/facet_uvs"
+        },
+        {
+            "source": "/divingDeeper/materials/advanced/custom_procedural_textures",
+            "destination": "/features/featuresDeepDive/materials/advanced/custom_procedural_textures"
+        },
+        {
+            "source": "/divingDeeper/materials/advanced/texturePackage",
+            "destination": "/features/featuresDeepDive/materials/advanced/texturePackage"
+        },
+        {
+            "source": "/advanced_topics/mutliPlatTextures",
+            "destination": "/features/featuresDeepDive/materials/advanced/mutliPlatTextures"
+        },
+        {
+            "source": "/advanced_topics/renderPasses",
+            "destination": "/features/featuresDeepDive/materials/advanced/renderPasses"
+        },
+        {
+            "source": "/divingDeeper/materials/advanced/transparent_rendering",
+            "destination": "/features/featuresDeepDive/materials/advanced/transparent_rendering"
+        },
+        {
+            "source": "/divingDeeper/materials/advanced/rawTexture",
+            "destination": "/features/featuresDeepDive/materials/advanced/rawTexture"
+        },
+        {
+            "source": "/divingDeeper/materials/advanced/depthValuesDepthRenderer",
+            "destination": "/features/featuresDeepDive/materials/advanced/depthValuesDepthRenderer"
+        },
+        {
+            "source": "/divingDeeper/materials/advanced/logarithmicDepthBuffer",
+            "destination": "/features/featuresDeepDive/materials/advanced/logarithmicDepthBuffer"
+        },
+        {
+            "source": "/divingDeeper/mesh",
+            "destination": "/features/featuresDeepDive/mesh"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation",
+            "destination": "/features/featuresDeepDive/mesh/creation"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set",
+            "destination": "/features/featuresDeepDive/mesh/creation/set"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/box",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/box"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/tiled_box",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/tiled_box"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/sphere",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/sphere"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/cylinder",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/cylinder"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/capsule",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/capsule"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/plane",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/plane"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/tiled_plane",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/tiled_plane"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/disc",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/disc"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/torus",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/torus"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/torus_knot",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/torus_knot"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/ground",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/ground"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/ground_hmap",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/ground_hmap"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/height_map",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/height_map"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/set/tiled_ground",
+            "destination": "/features/featuresDeepDive/mesh/creation/set/tiled_ground"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param",
+            "destination": "/features/featuresDeepDive/mesh/creation/param"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/lines",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/lines"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/dashed",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/dashed"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/line_system",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/line_system"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/ribbon",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/ribbon"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/ribbon_extra",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/ribbon_extra"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/ribbon_maths",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/ribbon_maths"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/tube",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/tube"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/extrude_shape",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/extrude_shape"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/custom_extrude",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/custom_extrude"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/lathe",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/lathe"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/polygon",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/polygon"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/extrude_polygon",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/extrude_polygon"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/param/polyMeshBuilder",
+            "destination": "/features/featuresDeepDive/mesh/creation/param/polyMeshBuilder"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/polyhedra",
+            "destination": "/features/featuresDeepDive/mesh/creation/polyhedra"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/polyhedra/polyhedra_by_numbers",
+            "destination": "/features/featuresDeepDive/mesh/creation/polyhedra/polyhedra_by_numbers"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/polyhedra/custom_poly",
+            "destination": "/features/featuresDeepDive/mesh/creation/polyhedra/custom_poly"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/polyhedra/icosphere",
+            "destination": "/features/featuresDeepDive/mesh/creation/polyhedra/icosphere"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/polyhedra/geodesic_poly",
+            "destination": "/features/featuresDeepDive/mesh/creation/polyhedra/geodesic_poly"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/polyhedra/goldberg_poly",
+            "destination": "/features/featuresDeepDive/mesh/creation/polyhedra/goldberg_poly"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/custom",
+            "destination": "/features/featuresDeepDive/mesh/creation/custom"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/custom/custom",
+            "destination": "/features/featuresDeepDive/mesh/creation/custom/custom"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/custom/updatingVertices",
+            "destination": "/features/featuresDeepDive/mesh/creation/custom/updatingVertices"
+        },
+        {
+            "source": "/divingDeeper/mesh/creation/custom/vertexNormals",
+            "destination": "/features/featuresDeepDive/mesh/creation/custom/vertexNormals"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms",
+            "destination": "/features/featuresDeepDive/mesh/transforms"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/center_origin",
+            "destination": "/features/featuresDeepDive/mesh/transforms/center_origin"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/center_origin/position",
+            "destination": "/features/featuresDeepDive/mesh/transforms/center_origin/position"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/center_origin/rotation",
+            "destination": "/features/featuresDeepDive/mesh/transforms/center_origin/rotation"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/center_origin/add_rotations",
+            "destination": "/features/featuresDeepDive/mesh/transforms/center_origin/add_rotations"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/center_origin/rotation_quaternions",
+            "destination": "/features/featuresDeepDive/mesh/transforms/center_origin/rotation_quaternions"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/center_origin/target_align",
+            "destination": "/features/featuresDeepDive/mesh/transforms/center_origin/target_align"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/center_origin/rotation_conventions",
+            "destination": "/features/featuresDeepDive/mesh/transforms/center_origin/rotation_conventions"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/center_origin/ref_frame",
+            "destination": "/features/featuresDeepDive/mesh/transforms/center_origin/ref_frame"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/center_origin/transform_coords",
+            "destination": "/features/featuresDeepDive/mesh/transforms/center_origin/transform_coords"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/center_origin/bakingTransforms",
+            "destination": "/features/featuresDeepDive/mesh/transforms/center_origin/bakingTransforms"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/parent_pivot",
+            "destination": "/features/featuresDeepDive/mesh/transforms/parent_pivot"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/parent_pivot/transform_node",
+            "destination": "/features/featuresDeepDive/mesh/transforms/parent_pivot/transform_node"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/parent_pivot/parent",
+            "destination": "/features/featuresDeepDive/mesh/transforms/parent_pivot/parent"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/parent_pivot/pivots",
+            "destination": "/features/featuresDeepDive/mesh/transforms/parent_pivot/pivots"
+        },
+        {
+            "source": "/divingDeeper/mesh/transforms/parent_pivot/pivot",
+            "destination": "/features/featuresDeepDive/mesh/transforms/parent_pivot/pivot"
+        },
+        {
+            "source": "/divingDeeper/mesh/copies",
+            "destination": "/features/featuresDeepDive/mesh/copies"
+        },
+        {
+            "source": "/divingDeeper/mesh/copies/clones",
+            "destination": "/features/featuresDeepDive/mesh/copies/clones"
+        },
+        {
+            "source": "/divingDeeper/mesh/copies/sps_as_clone",
+            "destination": "/features/featuresDeepDive/mesh/copies/sps_as_clone"
+        },
+        {
+            "source": "/divingDeeper/mesh/copies/instances",
+            "destination": "/features/featuresDeepDive/mesh/copies/instances"
+        },
+        {
+            "source": "/divingDeeper/mesh/copies/thinInstances",
+            "destination": "/features/featuresDeepDive/mesh/copies/thinInstances"
+        },
+        {
+            "source": "/divingDeeper/mesh/interactions",
+            "destination": "/features/featuresDeepDive/mesh/interactions"
+        },
+        {
+            "source": "/divingDeeper/mesh/interactions/mesh_intersect",
+            "destination": "/features/featuresDeepDive/mesh/interactions/mesh_intersect"
+        },
+        {
+            "source": "/divingDeeper/mesh/interactions/picking_collisions",
+            "destination": "/features/featuresDeepDive/mesh/interactions/picking_collisions"
+        },
+        {
+            "source": "/divingDeeper/mesh/displayBoundingBoxes",
+            "destination": "/features/featuresDeepDive/mesh/displayBoundingBoxes"
+        },
+        {
+            "source": "/divingDeeper/mesh/decals",
+            "destination": "/features/featuresDeepDive/mesh/decals"
+        },
+        {
+            "source": "/divingDeeper/mesh/highlightLayer",
+            "destination": "/features/featuresDeepDive/mesh/highlightLayer"
+        },
+        {
+            "source": "/divingDeeper/mesh/glowLayer",
+            "destination": "/features/featuresDeepDive/mesh/glowLayer"
+        },
+        {
+            "source": "/divingDeeper/mesh/mergeMeshes",
+            "destination": "/features/featuresDeepDive/mesh/mergeMeshes"
+        },
+        {
+            "source": "/divingDeeper/mesh/drawCurves",
+            "destination": "/features/featuresDeepDive/mesh/drawCurves"
+        },
+        {
+            "source": "/divingDeeper/mesh/path3D",
+            "destination": "/features/featuresDeepDive/mesh/path3D"
+        },
+        {
+            "source": "/divingDeeper/mesh/facetData",
+            "destination": "/features/featuresDeepDive/mesh/facetData"
+        },
+        {
+            "source": "/divingDeeper/mesh/LOD",
+            "destination": "/features/featuresDeepDive/mesh/LOD"
+        },
+        {
+            "source": "/divingDeeper/mesh/dynamicMeshMorph",
+            "destination": "/features/featuresDeepDive/mesh/dynamicMeshMorph"
+        },
+        {
+            "source": "/divingDeeper/mesh/morphTargets",
+            "destination": "/features/featuresDeepDive/mesh/morphTargets"
+        },
+        {
+            "source": "/divingDeeper/mesh/bonesSkeletons",
+            "destination": "/features/featuresDeepDive/mesh/bonesSkeletons"
+        },
+        {
+            "source": "/divingDeeper/mesh/utilityLayerRenderer",
+            "destination": "/features/featuresDeepDive/mesh/utilityLayerRenderer"
+        },
+        {
+            "source": "/divingDeeper/mesh/gizmo",
+            "destination": "/features/featuresDeepDive/mesh/gizmo"
+        },
+        {
+            "source": "/divingDeeper/mesh/simplifyingMeshes",
+            "destination": "/features/featuresDeepDive/mesh/simplifyingMeshes"
+        },
+        {
+            "source": "/divingDeeper/mesh/edgeRenderer",
+            "destination": "/features/featuresDeepDive/mesh/edgeRenderer"
+        },
+        {
+            "source": "/divingDeeper/mesh/trailMesh",
+            "destination": "/features/featuresDeepDive/mesh/trailMesh"
+        },
+        {
+            "source": "/divingDeeper/mesh/meshExploder",
+            "destination": "/features/featuresDeepDive/mesh/meshExploder"
+        },
+        {
+            "source": "/divingDeeper/occlusionQueries",
+            "destination": "/features/featuresDeepDive/occlusionQueries"
+        },
+        {
+            "source": "/divingDeeper/particles",
+            "destination": "/features/featuresDeepDive/particles"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system",
+            "destination": "/features/featuresDeepDive/particles/particle_system"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system/particle_system_intro",
+            "destination": "/features/featuresDeepDive/particles/particle_system/particle_system_intro"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system/particles_tuning",
+            "destination": "/features/featuresDeepDive/particles/particle_system/particles_tuning"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system/tuning_gradients",
+            "destination": "/features/featuresDeepDive/particles/particle_system/tuning_gradients"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system/shape_emitters",
+            "destination": "/features/featuresDeepDive/particles/particle_system/shape_emitters"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system/animation",
+            "destination": "/features/featuresDeepDive/particles/particle_system/animation"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system/customizingParticles",
+            "destination": "/features/featuresDeepDive/particles/particle_system/customizingParticles"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system/particleHelper",
+            "destination": "/features/featuresDeepDive/particles/particle_system/particleHelper"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system/ramps_and_blends",
+            "destination": "/features/featuresDeepDive/particles/particle_system/ramps_and_blends"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system/subEmitters",
+            "destination": "/features/featuresDeepDive/particles/particle_system/subEmitters"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system/gpu_particles",
+            "destination": "/features/featuresDeepDive/particles/particle_system/gpu_particles"
+        },
+        {
+            "source": "/divingDeeper/particles/particle_system/particle_snippets",
+            "destination": "/features/featuresDeepDive/particles/particle_system/particle_snippets"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/sps_intro",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/sps_intro"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/sps_animate",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/sps_animate"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/manage_sps",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/manage_sps"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/manage_sps_particles",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/manage_sps_particles"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/sps_material",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/sps_material"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/immutable_sps",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/immutable_sps"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/sps_digest",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/sps_digest"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/sps_vertices",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/sps_vertices"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/picking_sps",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/picking_sps"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/sps_physics",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/sps_physics"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/optimize_sps",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/optimize_sps"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/expandable_sps",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/expandable_sps"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/sps_visibility",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/sps_visibility"
+        },
+        {
+            "source": "/divingDeeper/particles/solid_particle_system/sps_transparency",
+            "destination": "/features/featuresDeepDive/particles/solid_particle_system/sps_transparency"
+        },
+        {
+            "source": "/divingDeeper/particles/point_cloud_system",
+            "destination": "/features/featuresDeepDive/particles/point_cloud_system"
+        },
+        {
+            "source": "/divingDeeper/particles/point_cloud_system/pcs_intro",
+            "destination": "/features/featuresDeepDive/particles/point_cloud_system/pcs_intro"
+        },
+        {
+            "source": "/divingDeeper/particles/point_cloud_system/pcs_creation",
+            "destination": "/features/featuresDeepDive/particles/point_cloud_system/pcs_creation"
+        },
+        {
+            "source": "/divingDeeper/particles/point_cloud_system/pcs_manage",
+            "destination": "/features/featuresDeepDive/particles/point_cloud_system/pcs_manage"
+        },
+        {
+            "source": "/divingDeeper/particles/point_cloud_system/pcs_manage_particles",
+            "destination": "/features/featuresDeepDive/particles/point_cloud_system/pcs_manage_particles"
+        },
+        {
+            "source": "/divingDeeper/physics",
+            "destination": "/features/featuresDeepDive/physics"
+        },
+        {
+            "source": "/divingDeeper/physics/usingPhysicsEngine",
+            "destination": "/features/featuresDeepDive/physics/v1/usingPhysicsEngine"
+        },
+        {
+            "source": "/divingDeeper/physics/forces",
+            "destination": "/features/featuresDeepDive/physics/v1/forces"
+        },
+        {
+            "source": "/divingDeeper/physics/joints",
+            "destination": "/features/featuresDeepDive/physics/v1/joints"
+        },
+        {
+            "source": "/divingDeeper/physics/pivotsAxes",
+            "destination": "/features/featuresDeepDive/physics/v1/pivotsAxes"
+        },
+        {
+            "source": "/divingDeeper/physics/compoundBodies",
+            "destination": "/features/featuresDeepDive/physics/v1/compoundBodies"
+        },
+        {
+            "source": "/divingDeeper/physics/softBodies",
+            "destination": "/features/featuresDeepDive/physics/v1/softBodies"
+        },
+        {
+            "source": "/divingDeeper/physics/advancedPhysicsFeatures",
+            "destination": "/features/featuresDeepDive/physics/v1/advancedPhysicsFeatures"
+        },
+        {
+            "source": "/divingDeeper/physics/addPhysicsEngine",
+            "destination": "/features/featuresDeepDive/physics/v1/addPhysicsEngine"
+        },
+
+        {
+            "source": "/divingDeeper/physics/v2/aggregates",
+            "destination": "/features/featuresDeepDive/physics/v2/aggregates"
+        },
+        {
+            "source": "/divingDeeper/physics/v2/collisionCallback",
+            "destination": "/features/featuresDeepDive/physics/v2/collisionCallback"
+        },
+        {
+            "source": "/divingDeeper/physics/v2/compounds",
+            "destination": "/features/featuresDeepDive/physics/v2/compounds"
+        },
+        {
+            "source": "/divingDeeper/physics/v2/concepts",
+            "destination": "/features/featuresDeepDive/physics/v2/concepts"
+        },
+        {
+            "source": "/divingDeeper/physics/v2/constraints",
+            "destination": "/features/featuresDeepDive/physics/v2/constraints"
+        },
+        {
+            "source": "/divingDeeper/physics/v2/forces",
+            "destination": "/features/featuresDeepDive/physics/v2/forces"
+        },
+        {
+            "source": "/divingDeeper/physics/v2/raycast",
+            "destination": "/features/featuresDeepDive/physics/v2/raycast"
+        },
+        {
+            "source": "/divingDeeper/physics/v2/usingPhysicsEngine",
+            "destination": "/features/featuresDeepDive/physics/v2/usingPhysicsEngine"
+        },
+        {
+            "source": "/divingDeeper/postProcesses",
+            "destination": "/features/featuresDeepDive/postProcesses"
+        },
+        {
+            "source": "/divingDeeper/postProcesses/usePostProcesses",
+            "destination": "/features/featuresDeepDive/postProcesses/usePostProcesses"
+        },
+        {
+            "source": "/divingDeeper/postProcesses/postProcessRenderPipeline",
+            "destination": "/features/featuresDeepDive/postProcesses/postProcessRenderPipeline"
+        },
+        {
+            "source": "/divingDeeper/postProcesses/SSAORenderPipeline",
+            "destination": "/features/featuresDeepDive/postProcesses/SSAORenderPipeline"
+        },
+        {
+            "source": "/divingDeeper/postProcesses/standardRenderingPipeline",
+            "destination": "/features/featuresDeepDive/postProcesses/standardRenderingPipeline"
+        },
+        {
+            "source": "/divingDeeper/postProcesses/defaultRenderingPipeline",
+            "destination": "/features/featuresDeepDive/postProcesses/defaultRenderingPipeline"
+        },
+        {
+            "source": "/divingDeeper/postProcesses/dofLenseEffects",
+            "destination": "/features/featuresDeepDive/postProcesses/dofLenseEffects"
+        },
+        {
+            "source": "/divingDeeper/postProcesses/motionBlurPostProcess",
+            "destination": "/features/featuresDeepDive/postProcesses/motionBlurPostProcess"
+        },
+        {
+            "source": "/divingDeeper/postProcesses/screenSpaceReflectionsPostProcess",
+            "destination": "/features/featuresDeepDive/postProcesses/screenSpaceReflectionsPostProcess"
+        },
+        {
+            "source": "/divingDeeper/postProcesses/renderTargetTextureMultiPass",
+            "destination": "/features/featuresDeepDive/postProcesses/renderTargetTextureMultiPass"
+        },
+        {
+            "source": "/divingDeeper/scene",
+            "destination": "/features/featuresDeepDive/scene"
+        },
+        {
+            "source": "/divingDeeper/scene/fastBuildWorld",
+            "destination": "/features/featuresDeepDive/scene/fastBuildWorld"
+        },
+        {
+            "source": "/divingDeeper/scene/interactWithScenes",
+            "destination": "/features/featuresDeepDive/scene/interactWithScenes"
+        },
+        {
+            "source": "/divingDeeper/scene/multiScenes",
+            "destination": "/features/featuresDeepDive/scene/multiScenes"
+        },
+        {
+            "source": "/divingDeeper/scene/multiCanvas",
+            "destination": "/features/featuresDeepDive/scene/multiCanvas"
+        },
+        {
+            "source": "/divingDeeper/scene/deltaFiles",
+            "destination": "/features/featuresDeepDive/scene/deltaFiles"
+        },
+        {
+            "source": "/divingDeeper/scene/customLoadingScreen",
+            "destination": "/features/featuresDeepDive/scene/customLoadingScreen"
+        },
+        {
+            "source": "/divingDeeper/scene/optimize_your_scene",
+            "destination": "/features/featuresDeepDive/scene/optimize_your_scene"
+        },
+        {
+            "source": "/divingDeeper/scene/sceneOptimizer",
+            "destination": "/features/featuresDeepDive/scene/sceneOptimizer"
+        },
+        {
+            "source": "/divingDeeper/scene/optimizeOctrees",
+            "destination": "/features/featuresDeepDive/scene/optimizeOctrees"
+        },
+        {
+            "source": "/divingDeeper/scene/optimizeCached",
+            "destination": "/features/featuresDeepDive/scene/optimizeCached"
+        },
+        {
+            "source": "/divingDeeper/floating_origin",
+            "destination": "/features/featuresDeepDive/scene/floating_origin"
+        },
+        {
+            "source": "/divingDeeper/scene/reducingMemoryUsage",
+            "destination": "/features/featuresDeepDive/scene/reducingMemoryUsage"
+        },
+        {
+            "source": "/divingDeeper/scene/offscreenCanvas",
+            "destination": "/features/featuresDeepDive/scene/offscreenCanvas"
+        },
+        {
+            "source": "/divingDeeper/scene/renderToPNG",
+            "destination": "/features/featuresDeepDive/scene/renderToPNG"
+        },
+        {
+            "source": "/divingDeeper/scene/renderToVideo",
+            "destination": "/features/featuresDeepDive/scene/renderToVideo"
+        },
+        {
+            "source": "/divingDeeper/scene/clipPlanes",
+            "destination": "/features/featuresDeepDive/scene/clipPlanes"
+        },
+        {
+            "source": "/divingDeeper/scene/renderRemoteScreenshot",
+            "destination": "/features/featuresDeepDive/scene/renderRemoteScreenshot"
+        },
+        {
+            "source": "/divingDeeper/scene/layermask",
+            "destination": "/features/featuresDeepDive/scene/layermask"
+        },
+        {
+            "source": "/divingDeeper/sprites",
+            "destination": "/features/featuresDeepDive/sprites"
+        },
+        {
+            "source": "/divingDeeper/sprites/sprites_introduction",
+            "destination": "/features/featuresDeepDive/sprites/sprites_introduction"
+        },
+        {
+            "source": "/divingDeeper/sprites/sprite_manager",
+            "destination": "/features/featuresDeepDive/sprites/sprite_manager"
+        },
+        {
+            "source": "/divingDeeper/sprites/packed_manager",
+            "destination": "/features/featuresDeepDive/sprites/packed_manager"
+        },
+        {
+            "source": "/divingDeeper/sprites/picking_sprites",
+            "destination": "/features/featuresDeepDive/sprites/picking_sprites"
+        },
+        {
+            "source": "/divingDeeper/sprites/sprite_map",
+            "destination": "/features/featuresDeepDive/sprites/sprite_map"
+        },
+        {
+            "source": "/divingDeeper/sprites/sprite_map_tiles",
+            "destination": "/features/featuresDeepDive/sprites/sprite_map_tiles"
+        },
+        {
+            "source": "/divingDeeper/sprites/sprite_map_options",
+            "destination": "/features/featuresDeepDive/sprites/sprite_map_options"
+        },
+        {
+            "source": "/divingDeeper/sprites/sprite_map_animations",
+            "destination": "/features/featuresDeepDive/sprites/sprite_map_animations"
+        },
+        {
+            "source": "/divingDeeper/sprites/sprite_map_example",
+            "destination": "/features/featuresDeepDive/sprites/sprite_map_example"
+        },
+        {
+            "source": "/divingDeeper/sprites/sprite_snippets",
+            "destination": "/features/featuresDeepDive/sprites/sprite_snippets"
+        },
+        {
+            "source": "/divingDeeper/tags",
+            "destination": "/features/featuresDeepDive/tags"
+        },
+        {
+            "source": "/extensions/babylonViewer",
+            "destination": "/features/featuresDeepDive/babylonViewer"
+        },
+        {
+            "source": "/extensions/babylonViewer/configuringViewer",
+            "destination": "/features/featuresDeepDive/babylonViewer/configuringViewer"
+        },
+        {
+            "source": "/extensions/babylonViewer/viewerTemplatingSystem",
+            "destination": "/features/featuresDeepDive/babylonViewer/viewerTemplatingSystem"
+        },
+        {
+            "source": "/extensions/babylonViewer/defaultViewerConfig",
+            "destination": "/features/featuresDeepDive/babylonViewer/defaultViewerConfig"
+        },
+        {
+            "source": "/extensions/babylonViewer/advancedViewerUsage",
+            "destination": "/features/featuresDeepDive/babylonViewer/advancedViewerUsage"
+        },
+        {
+            "source": "/extensions/babylonViewer/viewerExamples",
+            "destination": "/features/featuresDeepDive/babylonViewer/viewerExamples"
+        },
+        {
+            "source": "/divingDeeper/webXR",
+            "destination": "/features/featuresDeepDive/webXR"
+        },
+        {
+            "source": "/divingDeeper/webXR/introToWebXR",
+            "destination": "/features/featuresDeepDive/webXR/introToWebXR"
+        },
+        {
+            "source": "/divingDeeper/webXR/WebXRSelectedFeatures",
+            "destination": "/features/featuresDeepDive/webXR/WebXRSelectedFeatures"
+        },
+        {
+            "source": "/divingDeeper/webXR/webXRExperienceHelpers",
+            "destination": "/features/featuresDeepDive/webXR/webXRExperienceHelpers"
+        },
+        {
+            "source": "/divingDeeper/webXR/webXRSessionManagers",
+            "destination": "/features/featuresDeepDive/webXR/webXRSessionManagers"
+        },
+        {
+            "source": "/divingDeeper/webXR/webXRCamera",
+            "destination": "/features/featuresDeepDive/webXR/webXRCamera"
+        },
+        {
+            "source": "/divingDeeper/webXR/webXRFeaturesManager",
+            "destination": "/features/featuresDeepDive/webXR/webXRFeaturesManager"
+        },
+        {
+            "source": "/divingDeeper/webXR/webXRDemos",
+            "destination": "/features/featuresDeepDive/webXR/webXRDemos"
+        },
+        {
+            "source": "/divingDeeper/webXR/webXRInputControllerSupport",
+            "destination": "/features/featuresDeepDive/webXR/webXRInputControllerSupport"
+        },
+        {
+            "source": "/divingDeeper/webXR/webXRARFeatures",
+            "destination": "/features/featuresDeepDive/webXR/webXRARFeatures"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/frameworkVers",
+            "destination": "/setup/frameworkPackages/frameworkVers"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/npmSupport",
+            "destination": "/setup/frameworkPackages/npmSupport"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/treeShaking",
+            "destination": "/setup/frameworkPackages/es6Support"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs",
+            "destination": "/setup/support"
+        },
+        {
+            "source": "/divingDeeper/3D_commerce_certif",
+            "destination": "/setup/support/3D_commerce_certif"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/workloads",
+            "destination": "/setup/support/workloads"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/vsCode",
+            "destination": "/setup/support/vsCode"
+        },
+        {
+            "source": "/advanced_topics/.babylonFileFormat",
+            "destination": "/setup/support/.babylonFileFormat"
+        },
+        {
+            "source": "/advanced_topics/minifiedVer",
+            "destination": "/setup/support/minifiedVer"
+        },
+        {
+            "source": "/advanced_topics/webGL2",
+            "destination": "/setup/support/webGL2"
+        },
+        {
+            "source": "/advanced_topics/webGPU",
+            "destination": "/setup/support/webGPU"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUStatus",
+            "destination": "/setup/support/webGPU/webGPUStatus"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUBreakingChanges",
+            "destination": "/setup/support/webGPU/webGPUBreakingChanges"
+        },
+        {
+            "source": "/advanced_topics/webGPU/computeShader",
+            "destination": "/setup/support/webGPU/computeShader"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUWGSL",
+            "destination": "/setup/support/webGPU/webGPUWGSL"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPULimitations",
+            "destination": "/setup/support/webGPU/webGPULimitations"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUOptimization",
+            "destination": "/setup/support/webGPU/webGPUOptimization"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUOptimization/webGPUNonCompatibilityMode",
+            "destination": "/setup/support/webGPU/webGPUOptimization/webGPUNonCompatibilityMode"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUOptimization/webGPUSnapshotRendering",
+            "destination": "/setup/support/webGPU/webGPUOptimization/webGPUSnapshotRendering"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUOptimization/webGPUMiscellaneous",
+            "destination": "/setup/support/webGPU/webGPUOptimization/webGPUMiscellaneous"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUInternals",
+            "destination": "/setup/support/webGPU/webGPUInternals"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUInternals/webGPUOverview",
+            "destination": "/setup/support/webGPU/webGPUInternals/webGPUOverview"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUInternals/webGPUCacheBindGroup",
+            "destination": "/setup/support/webGPU/webGPUInternals/webGPUCacheBindGroup"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUInternals/webGPUCacheRenderPipeline",
+            "destination": "/setup/support/webGPU/webGPUInternals/webGPUCacheRenderPipeline"
+        },
+        {
+            "source": "/advanced_topics/webGPU/webGPUInternals/webGPUMiscellaneous",
+            "destination": "/setup/support/webGPU/webGPUInternals/webGPUMiscellaneous"
+        },
+        {
+            "source": "/advanced_topics/serverSide",
+            "destination": "/setup/support/serverSide"
+        },
+        {
+            "source": "/toolsAndResources/tools/playground",
+            "destination": "/toolsAndResources/thePlayground"
+        },
+        {
+            "source": "/toolsAndResources/tools/playground/externalPGAssets",
+            "destination": "/toolsAndResources/thePlayground/externalPGAssets"
+        },
+        {
+            "source": "/toolsAndResources/tools/playground/pgTemplates",
+            "destination": "/toolsAndResources/thePlayground/pgTemplates"
+        },
+        {
+            "source": "/toolsAndResources/tools/playground/yourOwnSnippetServer",
+            "destination": "/toolsAndResources/thePlayground/yourOwnSnippetServer"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/usingThePlaygroundForBJSDev",
+            "destination": "/contribute/toBabylon/usingThePlaygroundForBJSDev"
+        },
+        {
+            "source": "/toolsAndResources/tools/inspector",
+            "destination": "/toolsAndResources/inspector"
+        },
+        {
+            "source": "/toolsAndResources/tools/inspector/inspectorVideoOverview",
+            "destination": "/toolsAndResources/inspector/inspectorVideoOverview"
+        },
+        {
+            "source": "/toolsAndResources/tools/animationCurveEditor",
+            "destination": "/toolsAndResources/inspector/animationCurveEditor"
+        },
+        {
+            "source": "/toolsAndResources/tools/particleEditor",
+            "destination": "/toolsAndResources/inspector/particleEditor"
+        },
+        {
+            "source": "/toolsAndResources/tools/spriteEditor",
+            "destination": "/toolsAndResources/inspector/spriteEditor"
+        },
+        {
+            "source": "/toolsAndResources/tools/textureInspector",
+            "destination": "/toolsAndResources/inspector/textureInspector"
+        },
+        {
+            "source": "/toolsAndResources/tools/skeletonViewer",
+            "destination": "/toolsAndResources/inspector/skeletonViewer"
+        },
+        {
+            "source": "/toolsAndResources/tools/performanceProfiler",
+            "destination": "/toolsAndResources/inspector/performanceProfiler"
+        },
+        {
+            "source": "/toolsAndResources/tools/inspector/reflector",
+            "destination": "/toolsAndResources/inspector/reflector"
+        },
+        {
+            "source": "/toolsAndResources/tools/guiEditor",
+            "destination": "/toolsAndResources/guiEditor"
+        },
+        {
+            "source": "/toolsAndResources/tools/nme",
+            "destination": "/toolsAndResources/nme"
+        },
+        {
+            "source": "/toolsAndResources/tools/nme/customFrames",
+            "destination": "/toolsAndResources/nme/customFrames"
+        },
+        {
+            "source": "/toolsAndResources/tools/nme/customBlocks",
+            "destination": "/toolsAndResources/nme/customBlocks"
+        },
+        {
+            "source": "/divingDeeper/multiplePlatforms",
+            "destination": "/BabylonCrossPlat/multiplePlatforms"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/howToStart",
+            "destination": "/contribute/toBabylon/HowToContribute"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/howToStart/validationTests",
+            "destination": "/contribute/toBabylon/validationTests"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/contributeToAPI",
+            "destination": "/contribute/toBabylon/contributeToAPI"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/approvedNamingConventions",
+            "destination": "/contribute/toBabylon/approvedNamingConventions"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/matForMatLibrary",
+            "destination": "/contribute/toBabylon/matForMatLibrary"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/proceduralTextureForTexLibrary",
+            "destination": "/contribute/toBabylon/proceduralTextureForTexLibrary"
+        },
+        {
+            "source": "/divingDeeper/developWithBjs/contributeToDocs",
+            "destination": "/contribute/contributeToDocs"
+        },
+        {
+            "source": "/guidedLearning/multiplayer",
+            "destination": "/guidedLearning/networking"
+        },
+        {
+            "source": "/guidedLearning/multiplayer/Colyseus",
+            "destination": "/guidedLearning/networking/Colyseus"
+        },
+        {
+            "source": "/guidedLearning/multiplayer/Colyseus_ammojs",
+            "destination": "/guidedLearning/networking/Colyseus_ammojs"
+        },
+        {
+            "source": "/extensions",
+            "destination": "/communityExtensions"
+        },
+        {
+            "source": "/extensions/amp360Video",
+            "destination": "/communityExtensions/amp360Video"
+        },
+        {
+            "source": "/extensions/babylonCMSIntegration",
+            "destination": "/communityExtensions/babylonCMSIntegration"
+        },
+        {
+            "source": "/extensions/babylonCMSIntegration/wordPress",
+            "destination": "/communityExtensions/babylonCMSIntegration/wordPress"
+        },
+        {
+            "source": "/extensions/bufferedInterpolation",
+            "destination": "/communityExtensions/bufferedInterpolation"
+        },
+        {
+            "source": "/extensions/castorGUI",
+            "destination": "/communityExtensions/castorGUI"
+        },
+        {
+            "source": "/extensions/castorGUI/guiButton",
+            "destination": "/communityExtensions/castorGUI/guiButton"
+        },
+        {
+            "source": "/extensions/castorGUI/guiCheckbox",
+            "destination": "/communityExtensions/castorGUI/guiCheckbox"
+        },
+        {
+            "source": "/extensions/castorGUI/guiColor",
+            "destination": "/communityExtensions/castorGUI/guiColor"
+        },
+        {
+            "source": "/extensions/castorGUI/guiDialog",
+            "destination": "/communityExtensions/castorGUI/guiDialog"
+        },
+        {
+            "source": "/extensions/castorGUI/guiFieldset",
+            "destination": "/communityExtensions/castorGUI/guiFieldset"
+        },
+        {
+            "source": "/extensions/castorGUI/guiGroup",
+            "destination": "/communityExtensions/castorGUI/guiGroup"
+        },
+        {
+            "source": "/extensions/castorGUI/guiLabel",
+            "destination": "/communityExtensions/castorGUI/guiLabel"
+        },
+        {
+            "source": "/extensions/castorGUI/guiManager",
+            "destination": "/communityExtensions/castorGUI/guiManager"
+        },
+        {
+            "source": "/extensions/castorGUI/guiMeter",
+            "destination": "/communityExtensions/castorGUI/guiMeter"
+        },
+        {
+            "source": "/extensions/castorGUI/guiPanel",
+            "destination": "/communityExtensions/castorGUI/guiPanel"
+        },
+        {
+            "source": "/extensions/castorGUI/guiProgress",
+            "destination": "/communityExtensions/castorGUI/guiProgress"
+        },
+        {
+            "source": "/extensions/castorGUI/guiRadio",
+            "destination": "/communityExtensions/castorGUI/guiRadio"
+        },
+        {
+            "source": "/extensions/castorGUI/guiSelect",
+            "destination": "/communityExtensions/castorGUI/guiSelect"
+        },
+        {
+            "source": "/extensions/castorGUI/guiSlider",
+            "destination": "/communityExtensions/castorGUI/guiSlider"
+        },
+        {
+            "source": "/extensions/castorGUI/guiSpinner",
+            "destination": "/communityExtensions/castorGUI/guiSpinner"
+        },
+        {
+            "source": "/extensions/castorGUI/guiText",
+            "destination": "/communityExtensions/castorGUI/guiText"
+        },
+        {
+            "source": "/extensions/castorGUI/guiTextarea",
+            "destination": "/communityExtensions/castorGUI/guiTextarea"
+        },
+        {
+            "source": "/extensions/castorGUI/guiTextfield",
+            "destination": "/communityExtensions/castorGUI/guiTextfield"
+        },
+        {
+            "source": "/extensions/castorGUI/guiTextures",
+            "destination": "/communityExtensions/castorGUI/guiTextures"
+        },
+        {
+            "source": "/extensions/castorGUI/guiWindow",
+            "destination": "/communityExtensions/castorGUI/guiWindow"
+        },
+        {
+            "source": "/extensions/clonerSystem",
+            "destination": "/communityExtensions/clonerSystem"
+        },
+        {
+            "source": "/extensions/clonerSystem/radialCloner",
+            "destination": "/communityExtensions/clonerSystem/radialCloner"
+        },
+        {
+            "source": "/extensions/clonerSystem/linearCloner",
+            "destination": "/communityExtensions/clonerSystem/linearCloner"
+        },
+        {
+            "source": "/extensions/clonerSystem/matrixCloner",
+            "destination": "/communityExtensions/clonerSystem/matrixCloner"
+        },
+        {
+            "source": "/extensions/clonerSystem/objectCloner",
+            "destination": "/communityExtensions/clonerSystem/objectCloner"
+        },
+        {
+            "source": "/extensions/clonerSystem/randomEffector",
+            "destination": "/communityExtensions/clonerSystem/randomEffector"
+        },
+        {
+            "source": "/extensions/dynamicTerrains",
+            "destination": "/communityExtensions/dynamicTerrains"
+        },
+        {
+            "source": "/extensions/dynamicTerrains/addingDTObjects",
+            "destination": "/communityExtensions/dynamicTerrains/addingDTObjects"
+        },
+        {
+            "source": "/extensions/dynamicTerrains/DTExamples",
+            "destination": "/communityExtensions/dynamicTerrains/DTExamples"
+        },
+        {
+            "source": "/extensions/meshWriter",
+            "destination": "/communityExtensions/meshWriter"
+        },
+        {
+            "source": "/extensions/textureCanvas",
+            "destination": "/communityExtensions/textureCanvas"
+        },
+        {
+            "source": "/extensions/treeGenerators",
+            "destination": "/communityExtensions/treeGenerators"
+        },
+        {
+            "source": "/extensions/treeGenerators/simplePineGenerator",
+            "destination": "/communityExtensions/treeGenerators/simplePineGenerator"
+        },
+        {
+            "source": "/extensions/treeGenerators/spsTreeGenerator",
+            "destination": "/communityExtensions/treeGenerators/spsTreeGenerator"
+        },
+        {
+            "source": "/extensions/treeGenerators/quickTreeGenerator",
+            "destination": "/communityExtensions/treeGenerators/quickTreeGenerator"
+        },
+        {
+            "source": "/extensions/editor",
+            "destination": "/communityExtensions/editor"
+        },
+        {
+            "source": "/extensions/editor/gettingStarted",
+            "destination": "/communityExtensions/editor/gettingStarted"
+        },
+        {
+            "source": "/extensions/editor/workspace",
+            "destination": "/communityExtensions/editor/workspace"
+        },
+        {
+            "source": "/extensions/editor/workspace/creatingWorkspace",
+            "destination": "/communityExtensions/editor/workspace/creatingWorkspace"
+        },
+        {
+            "source": "/extensions/editor/workspace/creatingProject",
+            "destination": "/communityExtensions/editor/workspace/creatingProject"
+        },
+        {
+            "source": "/extensions/editor/workspace/renamingProject",
+            "destination": "/communityExtensions/editor/workspace/renamingProject"
+        },
+        {
+            "source": "/extensions/editor/running",
+            "destination": "/communityExtensions/editor/running"
+        },
+        {
+            "source": "/extensions/editor/running/runningWorkspace",
+            "destination": "/communityExtensions/editor/running/runningWorkspace"
+        },
+        {
+            "source": "/extensions/editor/running/runningProject",
+            "destination": "/communityExtensions/editor/running/runningProject"
+        },
+        {
+            "source": "/extensions/editor/assets",
+            "destination": "/communityExtensions/editor/assets"
+        },
+        {
+            "source": "/extensions/editor/assets/introduction",
+            "destination": "/communityExtensions/editor/assets/introduction"
+        },
+        {
+            "source": "/extensions/editor/assets/addingFiles",
+            "destination": "/communityExtensions/editor/assets/addingFiles"
+        },
+        {
+            "source": "/extensions/editor/assets/addingMeshes",
+            "destination": "/communityExtensions/editor/assets/addingMeshes"
+        },
+        {
+            "source": "/extensions/editor/assets/addingMaterials",
+            "destination": "/communityExtensions/editor/assets/addingMaterials"
+        },
+        {
+            "source": "/extensions/editor/assets/addingTextures",
+            "destination": "/communityExtensions/editor/assets/addingTextures"
+        },
+        {
+            "source": "/extensions/editor/scripting",
+            "destination": "/communityExtensions/editor/scripting"
+        },
+        {
+            "source": "/extensions/editor/scripting/attachingScripts",
+            "destination": "/communityExtensions/editor/scripting/attachingScripts"
+        },
+        {
+            "source": "/extensions/editor/scripting/exposingProperties",
+            "destination": "/communityExtensions/editor/scripting/exposingProperties"
+        },
+        {
+            "source": "/extensions/editor/scripting/gettingComponents",
+            "destination": "/communityExtensions/editor/scripting/gettingComponents"
+        },
+        {
+            "source": "/extensions/editor/scripting/listeningEvents",
+            "destination": "/communityExtensions/editor/scripting/listeningEvents"
+        },
+        {
+            "source": "/extensions/editor/physics",
+            "destination": "/communityExtensions/editor/physics"
+        },
+        {
+            "source": "/extensions/editor/physics/usingPhysics",
+            "destination": "/communityExtensions/editor/physics/usingPhysics"
+        },
+        {
+            "source": "/extensions/editor/collisions",
+            "destination": "/communityExtensions/editor/collisions"
+        },
+        {
+            "source": "/extensions/editor/collisions/basicCollisions",
+            "destination": "/communityExtensions/editor/collisions/basicCollisions"
+        },
+        {
+            "source": "/extensions/editor/collisions/advancedCollisions",
+            "destination": "/communityExtensions/editor/collisions/advancedCollisions"
+        },
+        {
+            "source": "/extensions/editor/troubleshooting",
+            "destination": "/communityExtensions/editor/troubleshooting"
+        },
+        {
+            "source": "/extensions/editor/troubleshooting/basicCollisions",
+            "destination": "/communityExtensions/editor/troubleshooting/basicCollisions"
+        },
+        {
+            "source": "/extensions/editor/troubleshooting/startup",
+            "destination": "/communityExtensions/editor/troubleshooting/startup"
+        },
+        {
+            "source": "/extensions/Unity",
+            "destination": "/communityExtensions/Unity"
+        },
+        {
+            "source": "/extensions/Unity/Intro",
+            "destination": "/communityExtensions/Unity/Intro"
+        },
+        {
+            "source": "/extensions/Unity/Exporter",
+            "destination": "/communityExtensions/Unity/Exporter"
+        },
+        {
+            "source": "/extensions/Unity/Projects",
+            "destination": "/communityExtensions/Unity/Projects"
+        },
+        {
+            "source": "/extensions/Unity/01_ScriptComponents",
+            "destination": "/communityExtensions/Unity/01_ScriptComponents"
+        },
+        {
+            "source": "/extensions/Unity/02_SceneManager",
+            "destination": "/communityExtensions/Unity/02_SceneManager"
+        },
+        {
+            "source": "/extensions/Unity/03_ShaderMaterials",
+            "destination": "/communityExtensions/Unity/03_ShaderMaterials"
+        },
+        {
+            "source": "/extensions/Unity/04_CollisionMeshes",
+            "destination": "/communityExtensions/Unity/04_CollisionMeshes"
+        },
+        {
+            "source": "/extensions/Unity/05_TerrainBuilder",
+            "destination": "/communityExtensions/Unity/05_TerrainBuilder"
+        },
+        {
+            "source": "/extensions/Unity/06_AnimationState",
+            "destination": "/communityExtensions/Unity/06_AnimationState"
+        },
+        {
+            "source": "/extensions/Unity/07_RuntimePrefabs",
+            "destination": "/communityExtensions/Unity/07_RuntimePrefabs"
+        },
+        {
+            "source": "/extensions/Unity/08_StaticBatching",
+            "destination": "/communityExtensions/Unity/08_StaticBatching"
+        },
+        {
+            "source": "/extensions/Unity/09_NavigationMesh",
+            "destination": "/communityExtensions/Unity/09_NavigationMesh"
+        },
+        {
+            "source": "/extensions/Unity/10_WindowsPlatform",
+            "destination": "/communityExtensions/Unity/10_WindowsPlatform"
+        },
+        {
+            "source": "/extensions/Unity/11_BabylonArtTools",
+            "destination": "/communityExtensions/Unity/11_BabylonArtTools"
+        },
+        {
+            "source": "/contribute/toBabylon/Prerequisits",
+            "destination": "/contribute/toBabylon/Prerequisites"
+        },
+        {
+            "source": "/how_to/progressively_load_gltf",
+            "destination": "/features/featuresDeepDive/importers/glTF/progressiveglTFLoad"
+        },
+        {
+            "source": "/features/es6_support",
+            "destination": "/setup/frameworkPackages/es6Support"
+        },
+        {
+            "source": "/how_to/node_material",
+            "destination": "/features/featuresDeepDive/materials/node_material"
+        }
+    ]
+}

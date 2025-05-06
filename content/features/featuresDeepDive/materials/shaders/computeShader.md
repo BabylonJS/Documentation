@@ -146,3 +146,11 @@ The implementation in WGSL is a little less pretty than the HLSL one because at 
 This is a port of the great project [FFT-Ocean](https://github.com/gasgiant/FFT-Ocean): all credits to Ivan Pensionerov (https://github.com/gasgiant)!
 
 This sample uses a lot of compute shader runs: there are around 200-250 compute shaders running each frame! Use F8 to show/hide the GUI (after you click anywhere in the rendering area to give focus to the canvas) and WASD to move.
+
+## FAQ
+
+### Reading from a storage buffer
+
+By default, `StorageBuffer.read` uses the `Engine.onEndFrameObservable` observable to get the data from the buffer. It means a render loop must be setup, else `Engine.onEndFrameObservable` will never be notified.
+
+Alternatively, you can pass true for the `noDelay` parameter (4th parameter) of `StorageBuffer.read` so that the buffer is read immediately, meaning you don’t need a render loop.

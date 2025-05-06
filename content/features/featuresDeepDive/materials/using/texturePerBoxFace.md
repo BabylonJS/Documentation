@@ -43,7 +43,7 @@ To map part of the image the bottom left coordinates and top right coordinates a
 
 ![Sprite Atlas with Grid](/img/how_to/Materials/spritesheet1.jpg)
 
-Consider the sprite in the grid space marked with a _. Counting the columns as `0, 1, 2, 3, 4, 5` and the rows as `0, 1, 2, 3` it is in column 2 and row 1 and so bottom left is `(2 _ 1/6, 1 _ 1/4) = (2/6, 1/4)`and top right is`((2 + 1) _ 1/6, (1 + 1) \* 1/4) = (3/6, 2/4)`.
+Consider the sprite in the grid space marked with a *. Counting the columns as `0, 1, 2, 3, 4, 5` and the rows as `0, 1, 2, 3` it is in column 2 and row 1 and so bottom left is `(2 * 1/6, 1 * 1/4) = (2/6, 1/4)`and top right is`((2 + 1) * 1/6, (1 + 1) * 1/4) = (3/6, 2/4)`.
 
 In general for this texture atlas a sprite in column `c` and row `r` will have coordinates bottom left `(c * 1/6, r * 1/4)` and top right `((c + 1) * 1/6, (r + 1) * 1/4)`. With faces of the mesh numbered from 0 when you want to map face f to the sprite at grid (c, r) take an array faceUV and put
 

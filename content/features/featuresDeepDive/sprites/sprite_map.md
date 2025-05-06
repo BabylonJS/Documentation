@@ -17,7 +17,7 @@ A  sprite map is displayed on a standard plane mesh in 3D space. and has the abi
 
 Since the plane is split into a grid of tiles of the same size the cells of the packed spritesheet should be of the same size.
 
-It uses the full JSON Array format of _TexturePacker_ and benefits from using the properties, rotation, extrude and padding.  *Soon the trim support will be functional as well*
+It uses the *Babylon.js (JSON Array for SpriteMap)* format of [TexturePacker](https://www.codeandweb.com/texturepacker) and benefits from using the properties, rotation, extrude and padding.  *Soon the trim support will be functional as well*
 
 **Note:** *SpritePackedManager* uses the JSON Hash format for packed spritesheets. JSON files are not interchangeable between *SpritePackedManager* and *SpritMap*.
 

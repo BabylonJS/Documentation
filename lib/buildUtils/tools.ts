@@ -13,7 +13,7 @@ import { getExampleImageUrl, getExampleLink } from "../frontendUtils/frontendToo
 
 export const markdownDirectory = "content/";
 
-import vercelConfig from "../../vercel.json";
+import vercelConfig from "../../redirects.json";
 
 const childPageData = {};
 
@@ -117,7 +117,7 @@ export const getExampleImagePath = (example: Partial<IExampleLink>) => {
     return join(process.cwd(), "public/img/playgroundsAndNMEs/", `${example.type}${example.id.replace(/#/g, "-")}.png`);
 };
 
-export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: string, optionalFilename?: string, engine?: "webgpu" | "webgl2") => {
+export const generateExampleImage = async (type: "pg" | "nme" | "nge" | "sfe" | "nrge", id: string, optionalFilename?: string, engine?: "webgpu" | "webgl2", snapshot?: string) => {
     const browser = await puppeteer.launch({
         headless: true,
     }); // opens a virtual browser
@@ -125,12 +125,19 @@ export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: strin
     try {
         const page = await browser.newPage(); // creates a new page
 
-        await page.setDefaultNavigationTimeout(60000);
+        page.setDefaultNavigationTimeout(60000);
+
+        page.on("dialog", async (dialog) => {
+            //on event listener trigger
+            await dialog.dismiss();
+        });
 
         // you can also set dimensions
         await page.setViewport({ width: 1200, height: 800 }); // sets it's  dimensions
-        const url = getExampleLink({ type, id, engine });
+        const url = getExampleLink({ type, id, engine, snapshot });
         await page.goto(url); // navigates to the url
+        // if the page has an alert, dismiss it
+
         if (type === "pg") {
             await page.waitForSelector("#renderCanvas", { visible: true });
             await page.waitForFunction(`typeof scene !== 'undefined' && scene.isLoading === false`, { timeout: 60000 });
@@ -138,13 +145,19 @@ export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: strin
         } else {
             await page.waitForSelector("#graph-canvas", { visible: true, timeout: 60000 });
         }
-        await new Promise((r) => setTimeout(r, 1000)); // wait for the page to load
+        await new Promise((r) => setTimeout(r, 1500)); // wait for the page to load
 
         const imageUrl = optionalFilename ? join(process.cwd(), "public", optionalFilename) : getExampleImagePath({ type, id });
-
-        await page.screenshot({ path: imageUrl, fullPage: true, type: imageUrl.endsWith("jpg") ? "jpeg" : "png" }); // takes a screenshot
-        console.log("screenshot created for", id);
+        if (type !== "pg") {
+            const element = await page.$("#graph-canvas");
+            await page.setViewport({ width: 1700, height: 800 });
+            await element.screenshot({ path: imageUrl, type: imageUrl.endsWith("jpg") ? "jpeg" : "png" }); // takes a screenshot
+        } else {
+            await page.screenshot({ path: imageUrl, fullPage: true, type: imageUrl.endsWith("jpg") ? "jpeg" : "png" }); // takes a screenshot
+        }
+        console.log("screenshot created for", id, "of type", type);
     } catch (e) {
+        console.log(e);
         console.log("## error", type, id /*, e*/);
     }
     await browser.close(); // closes the browser.
@@ -188,7 +201,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             if (!url) {
                 throw new Error("Error in md file, maybe used tab instead of space?");
             }
-            if (!url.startsWith("http") && !url.startsWith("/typedoc")) {
+            if (!url.startsWith("http") && !url.startsWith("/typedoc") && !url.startsWith("/packages")) {
                 const idArray = url.split("/");
                 if (idArray[0] === "") {
                     idArray.shift();
@@ -256,15 +269,16 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         addToSitemap(metadata.title, url, lastModified ? lastModified.toISOString() : "");
 
         // generate images to examples. Offline only at the moment
-        const matches = Array.from(content.matchAll(/(<(Playground|nme|nge|NME|NGE).*id="([A-Za-z0-9#]*)".*\/>)/g));
+        const matches = Array.from(content.matchAll(/(<(Playground|nme|nge|NME|NGE|NRGE|nrge|SFE|sfe).*id="([A-Za-z0-9#]*)".*\/>)/g));
         for (const [_, full, type, exampleId] of matches) {
             const typePlayground = type === "Playground" ? "pg" : (type.toLowerCase() as "nme" | "nge");
             const realType: "pg" | "nme" | "nge" = (typePlayground as "pg" | "nme" | "nge") || "pg";
             const imageUrl = /image="(.*?)"/.test(full) && /image="(.*?)"/.exec(full)[1];
             const engine = /engine="(.*?)"/.test(full) && (/engine="(.*?)"/.exec(full)[1] as any);
+            const snapshot = /snapshot="(.*?)"/.test(full) && /snapshot="(.*?)"/.exec(full)[1];
             const fileExists = imageUrl ? existsSync(join(process.cwd(), "public", imageUrl)) : existsSync(getExampleImagePath({ id: exampleId, type: realType }));
             if (exampleId && exampleId !== "nmeId" && exampleId !== "playgroundId" && !(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !fileExists) {
-                await generateExampleImage(realType, exampleId, imageUrl, engine);
+                await generateExampleImage(realType, exampleId, imageUrl, engine, snapshot);
             }
             if (realType === "pg") {
                 const title = (/title="(.*?)"/.test(full) && /title="(.*?)"/.exec(full)[1]) || `Playground for ${metadata.title}`;
@@ -301,7 +315,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                 .map((res) => {
                     return res[1].replace(/\)/g, "").split("#")[0].split(" ")[0];
                 })
-                .filter((link) => link.indexOf(".") === -1 && link.indexOf("/typedoc") === -1);
+                .filter((link) => link.indexOf(".") === -1 && link.indexOf("/typedoc") === -1 && link.indexOf("/packages") === -1);
 
             internalLinks.forEach((link) => {
                 const found = getElementByIdArray(link.split("/"), true);
@@ -340,6 +354,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         relatedExternalLinks,
         lastModified: lastModified ? lastModified.toUTCString() : "",
         gitHubUrl,
+        baseUrl: process.env.BASE_URL ?? "",
     } as IDocumentationPageProps;
 
     if (!fullPage) {

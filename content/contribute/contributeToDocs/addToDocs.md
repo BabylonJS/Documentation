@@ -30,6 +30,10 @@ You will need know how to Fork the [Documentation](https://github.com/BabylonJS/
 
 Using a CLI at the location of your local Documentation folder Run:
 
+`npm install`
+
+This will install the dependencies needed for the project. You can now Run:
+
 `npm run dev`
 
 This will launch the dev server on http://localhost:3000

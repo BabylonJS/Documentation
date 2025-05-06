@@ -18,15 +18,20 @@ Supported formats are :
 
 - .PLY https://en.wikipedia.org/wiki/PLY_(file_format)
 - .splat that is Javascript types serialized version of .PLY datas
+- Niantic Labs .spz format https://scaniverse.com/news/spz-gaussian-splat-open-source-file-format
 
 ## Loading a Gaussian Splatting
 
 Load asynchronously the splat or PLY file like any other supported file format:
 
 ```javascript
-BABYLON.SceneLoader.ImportMeshAsync(null, "https://assets.babylonjs.com/splats/", "gs_Skull.splat", scene).then((result) =>{
+BABYLON.ImportMeshAsync("https://assets.babylonjs.com/splats/gs_Skull.splat", scene).then((result) =>{
     const gaussianSplattingMesh = result.meshes[0]; });
 ```
+
+**Note: Gaussian splatting files do not have a standard on handness or orientation. No space change operation will happen. Some scene might appear updside down or mirrored.**
+
+<Playground id="#M05L0C#5" title="Nianticlabs .SPZ examples need a rotation." description="Nianticlabs .SPZ examples up is not the same as Babylon.js default."/>
 
 ## Updating datas of a Gaussian Splatting
 
@@ -70,8 +75,34 @@ uBuffer[24 + 3] = 255;
 gs.updateData(uBuffer);
 ```
 
+## Updating and downloading datas of a Gaussian Splatting
+
+An access to the kept in memory splats data allows to modify loaded splats and download it after.
+A simple call to `updateData` will show the change.
+
+```javascript
+function modifyMesh(gs) {
+    // Get GS data
+    const arrayBuffer = gs.splatsData;
+    // Make a float32 access. A splat is 32bytes (8floats)
+    var positions = new Float32Array(arrayBuffer);
+    // Do a change to the first 30000 splats
+    for (let i = 0; i < 30000; i++) {
+        // Translate splats a little. GS shown here is upside down
+        positions[i * 8 + 1] -= 2.0;
+    }
+    // Make that change visible
+    gs.updateData(arrayBuffer);
+    // Create a blob with array buffer and download it. It can be used directly with the sandbox
+    const blob = new Blob([arrayBuffer], { type: 'application/octet-stream' });
+    BABYLON.Tools.DownloadBlob(blob, "newGSplat.splat");
+}
+```
+
 <Playground id="#CID4NN#203" title="Simple Example of Gaussian Splatting" description="Simple example of setting a Gaussian Splatting."/>
 
 <Playground id="#45KYTJ#61" title="Loading and displaying different Gaussian Splatting scenes" description="Loading and displaying different Gaussian Splatting scenes."/>
 
 <Playground id="#EILZ5L#3" title="10000 splats updated" description="Creating and updating a Gaussian Splatting made of 10000 individual splats"/>
+
+<Playground id="#RKKCHG#0" title="Download and modify a GS" description="Download a Gaussian Splatting and modify a bunch splats. Then, downloads it."/>

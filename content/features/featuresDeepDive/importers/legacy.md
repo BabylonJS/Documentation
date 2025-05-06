@@ -5,28 +5,28 @@ Once the plugin is referenced, the SceneLoader class can be used which provides 
 Loads all babylon assets from the file and appends them to the scene
 
 ```javascript
-BABYLON.SceneLoader.Append("./", "duck.gltf", scene, function (scene) {
+BABYLON.AppendSceneAsync("duck.gltf", scene).then(function () {
   // do something with the scene
 });
 ```
 
-See an example here: <Playground id="#WGZLGJ" title="Append An Object" description="Simple example showing how append an object to your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport1.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#WGZLGJ#11155" title="Append An Object" description="Simple example showing how append an object to your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport1.jpg" isMain={true} category="Import"/>
 
 Loads all babylon assets from a string and appends them to the scene
 
 ```javascript
-BABYLON.SceneLoader.Append("", "data:" + gltfString, scene, function (scene) {
+BABYLON.AppendSceneAsync("data:" + gltfString, scene).then(function () {
   // do something with the scene
 });
 ```
 
-See an example here: <Playground id="#88CB6A#1" title="Append Assets From A String" description="Simple example showing how append objects from a string." image="/img/playgroundsAndNMEs/divingDeeperFileImport2.jpg"/>
+See an example here: <Playground id="#88CB6A#165" title="Append Assets From A String" description="Simple example showing how append objects from a string." image="/img/playgroundsAndNMEs/divingDeeperFileImport2.jpg"/>
 
 You can also load a .glb binary file from a data string as long as the binary data is base64 encoded:
 
 ```javascript
 const base64_model_content = "data:;base64,BASE 64 ENCODED DATA...";
-BABYLON.SceneLoader.Append("", base64_model_content, scene, function (scene) {
+BABYLON.AppendSceneAsync(base64_model_content, scene).then(function () {
   // do something with the scene
 });
 ```
@@ -38,19 +38,21 @@ const base64_model_content = "data:application/octet-stream;base64,-BASE 64 ENCO
 const base64_model_content = "data:model/gltf-binary;base64,-BASE 64 ENCODED DATA-";
 ```
 
-See an example here: <Playground id="#7F6S08#55" title="Load .glb From Binary Data" description="Simple example showing how to load an object from a data string that is base64 encoded." image="/img/playgroundsAndNMEs/divingDeeperFileImport3.jpg"/>
+See an example here: <Playground id="#7F6S08#386" title="Load .glb From Binary Data" description="Simple example showing how to load an object from a data string that is base64 encoded." image="/img/playgroundsAndNMEs/divingDeeperFileImport3.jpg"/>
 
-## SceneLoader.Load
+## LoadSceneAsync
 
 Loads all babylon assets from the file and creates a new scene
 
 ```javascript
-BABYLON.SceneLoader.Load("/assets/", "batman.obj", engine, function (scene) {
+BABYLON.LoadSceneAsync("/assets/", "batman.obj", engine).then(function (scene) {
   // do something with the scene
 });
 ```
 
 ## SceneLoader.ImportMesh
+
+<Alert severity="info">Note: This function is deprecated. Use the `ImportMeshAsync` function instead.</Alert>
 
 Loads the meshes from the file and appends them to the scene
 
@@ -64,36 +66,36 @@ BABYLON.SceneLoader.ImportMesh(["myMesh1", "myMesh2"], "./", "duck.gltf", scene,
 
 See an example here: <Playground id="#JUKXQD" title="Import Mesh" description="Simple example showing how to import an object into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
 
-### SceneLoader.ImportMeshAsync
+### ImportMeshAsync
 
 [Asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) version of the ImportMesh function. The result can be obtained by calling on the returned [Promise](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises) or by using the [await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await) keyword (note: to be able to use the await keyword in the `createScene` function, it has to be marked as async in its definition).
 
 ```javascript
 // The first parameter can be set to null to load all meshes and skeletons
-const importPromise = BABYLON.SceneLoader.ImportMeshAsync(["myMesh1", "myMesh2"], "./", "duck.gltf", scene);
+const importPromise = BABYLON.ImportMeshAsync("./duck.gltf", scene, { meshNames: ["myMesh1", "myMesh2"] });
 importPromise.then((result) => {
   //// Result has meshes, particleSystems, skeletons, animationGroups and transformNodes
 });
 ```
 
-See an example here: <Playground id="#TVHK90" title="Import Mesh Async with Promises" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#TVHK90#646" title="Import Mesh Async with Promises" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
 
 or
 
 ```javascript
 // The first parameter can be set to null to load all meshes and skeletons
-const result = await BABYLON.SceneLoader.ImportMeshAsync(["myMesh1", "myMesh2"], "./", "duck.gltf", scene);
+const result = await BABYLON.ImportMeshAsync("./duck.gltf", scene, { meshNames: ["myMesh1", "myMesh2"] });
 // Result has meshes, particleSystems, skeletons, animationGroups and transformNodes
 ```
 
-See an example here: <Playground id="#YAL1RN" title="Import Mesh Async with await" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#YAL1RN#307" title="Import Mesh Async with await" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
 
-## SceneLoader.LoadAssetContainer
+## LoadAssetContainerAsync
 
 Loads all babylon assets from the file and does not append them to the scene
 
 ```javascript
-BABYLON.SceneLoader.LoadAssetContainer("./", "duck.gltf", scene, function (container) {
+BABYLON.LoadAssetContainerAsync("./duck.gltf", scene).then(function (container) {
   const meshes = container.meshes;
   const materials = container.materials;
   //...
@@ -103,25 +105,25 @@ BABYLON.SceneLoader.LoadAssetContainer("./", "duck.gltf", scene, function (conta
 });
 ```
 
-See an example here: <Playground id="#JA1ND3#48" title="Asset Container Load Example" description="Simple example showing how to load assets into asset containers." image="/img/playgroundsAndNMEs/divingDeeperFileImport5.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#JA1ND3#1053" title="Asset Container Load Example" description="Simple example showing how to load assets into asset containers." image="/img/playgroundsAndNMEs/divingDeeperFileImport5.jpg" isMain={true} category="Import"/>
 
-## SceneLoader.ImportAnimations
+## ImportAnimationsAsync
 
 Loads the animations from the file and merges them to the scene
 You can customize the import process using options and callbacks
 
 ```javascript
-BABYLON.SceneLoader.ImportAnimations("./", "Elf_run.gltf", scene);
+BABYLON.ImportAnimationsAsync("./Elf_run.gltf", scene);
 ```
 
-See an example here: <Playground id="#UGD0Q0#62" title="Importing Animations" description="Simple example showing how to import animations into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport6.jpg"/>
+See an example here: <Playground id="#UGD0Q0#315" title="Importing Animations" description="Simple example showing how to import animations into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport6.jpg"/>
 
-## SceneLoader.AppendAsync
+## AppendSceneAsync
 
 There are also `Async` versions of these functions that return promises:
 
 ```javascript
-BABYLON.SceneLoader.AppendAsync("./", "duck.gltf", scene).then(function (scene) {
+BABYLON.AppendSceneAsync("./duck.gltf", scene).then(function (scene) {
   // do something with the scene
 });
 ```
@@ -142,18 +144,6 @@ BABYLON.SceneLoader.OnPluginActivatedObservable.add(function (loader) {
 });
 ```
 
-Alternatively, the static synchronous SceneLoader functions return the plugin.
-
-```javascript
-const loader = BABYLON.SceneLoader.Load("./", "duck.gltf", engine, function (scene) {
-  // do something with the scene
-});
-
-// do something with the loader
-// loader.<option1> = <...>
-// loader.<option2> = <...>
-```
-
 ## Loading multiple assets
 
 For assistance when load multiple assets the AssetsManager class can be used.
@@ -167,7 +157,7 @@ glb formats). The `pluginExtension` parameter should be set when using base64 da
 
 The format for a minimum base64 encoded model file is:
 
-```
+```javascript
 data:;base64,<base64_encoded_file_contents>
 ```
 

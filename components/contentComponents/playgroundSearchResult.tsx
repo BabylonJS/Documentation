@@ -1,15 +1,15 @@
 import { Typography,  Chip, Accordion, AccordionSummary, AccordionDetails, IconButton, Tooltip, Box, useTheme } from "@mui/material";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 
 import CodeIcon from "@mui/icons-material/Code";
 import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
 import LinkIcon from "@mui/icons-material/Link";
 
-import Highlight, { defaultProps } from "prism-react-renderer";
-import vsDark from "prism-react-renderer/themes/vsDark";
+import { Highlight, themes } from "prism-react-renderer";
 
 import Link from "next/link";
 import { IExampleLink } from "../../lib/content.interfaces";
+import { BaseUrlContext } from "../../pages/_app";
 
 export type SearchType = "code" | "name" | "tags" | "description" | "all";
 
@@ -79,6 +79,8 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
         });
     }, [searchResult]);
 
+    const baseUrl = useContext(BaseUrlContext);
+
     return (
         <Accordion
             id={searchResult.id}
@@ -124,7 +126,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                         >
                             {Array.from(tags).map((chip: string) => {
                                 return (
-                                    <Link key={chip} href={`/playground?q=${chip}&type=tags`}>
+                                    <Link key={chip} href={baseUrl + `/playground?q=${chip}&type=tags`}>
                                         <Chip size="small" color="primary" label={chip} />
                                     </Link>
                                 );
@@ -177,7 +179,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
             </AccordionSummary>
             <AccordionDetails>
                 <div style={{ width: "100%" }}>
-                    <Highlight {...defaultProps} theme={vsDark} code={codeToShow.code} language="jsx">
+                    <Highlight theme={themes.vsDark} code={codeToShow.code} language="jsx">
                         {({ className, style, tokens, getLineProps, getTokenProps }) => (
                             <pre className={className} style={style}>
                                 {tokens.map((line, i) => (

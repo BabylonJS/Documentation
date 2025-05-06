@@ -22,7 +22,7 @@ The `VertexAnimationBaker` class generates a texture for you given the animation
 let baker = null,
   mesh = null;
 const animationRanges = [{ from: 1, to: 20, name: "My animation" }];
-BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/RaggarDK/Baby/baby/", "arr.babylon", scene, undefined)
+BABYLON.ImportMeshAsync("https://raw.githubusercontent.com/RaggarDK/Baby/baby/arr.babylon", scene, undefined)
   .then((importResult) => {
     mesh = importResult.meshes[0];
     // create the baker helper, so we can generate the texture
@@ -58,7 +58,7 @@ BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/Ragga
 
 Here's an example for a single mesh:
 
-<Playground id="#CP2RN9#16" title="Vertex Texture Animations" description="An example of playing a vertex texture animation."/>
+<Playground id="#CP2RN9#235" title="Vertex Texture Animations" description="An example of playing a vertex texture animation."/>
 
 ## VATs for instances
 
@@ -99,6 +99,34 @@ Here's an example:
 
 <Playground id="#CP2RN9#20" title="Vertex Texture Animations on thin instances" description="An example of playing VATs on thin instances."/>
 
+### VATs offset
+
+When using VAT with thin instances, you might expect each instance to start its animation with a specific time
+offset. However, this is **not guaranteed by default**.
+
+This is because multiple instances often share the same `BakedVertexAnimationManager`, which internally handles the
+current animation frame globally. To ensure that a specific instance starts at its intended offset you can manually
+compute the correct offset using the following formula:
+
+```typescript
+function computeOffset(
+  fromFrame: number,
+  toFrame: number,
+  time: number,
+  fps: number = 60
+): number {
+  const totalFrames = toFrame - fromFrame + 1;
+  const t = time * fps / totalFrames;
+  const frame = Math.floor((t - Math.floor(t)) * totalFrames);
+  return totalFrames - frame;
+}
+```
+
+The `time` parameter can be retrieved directly from the used `BakedVertexAnimationManager` via `manager.time`.
+
+<Playground id="#3NIXCL#519" title="Vertex Texture Animations on thin instances at offset" description="An example of playing VATs on thin instances with specific offset."/>
+
+
 ## Serializing and loading VATs
 
 Baking the texture can be a slow process, and will play the entire animation visibly. In order to avoid this during run-time, it's better to bake the texture data at build time, and just load it at run-time. Here's a sample script to bake the vertex data and get the JSON file to save locally:
@@ -107,7 +135,7 @@ Baking the texture can be a slow process, and will play the entire animation vis
 let baker = null,
   mesh = null;
 const animationRanges = [{ from: 1, to: 20, name: "My animation" }];
-BABYLON.SceneLoader.ImportMeshAsync("", "http://example.com", "arr.babylon", scene, undefined)
+BABYLON.ImportMeshAsync("http://example.com/arr.babylon", scene, undefined)
   .then((importResult) => {
     mesh = importResult.meshes[0];
     // create the baker helper, so we can generate the texture
@@ -134,7 +162,7 @@ let baker = null,
 const animationRanges = [{ from: 1, to: 20, name: "My animation" }];
 
 // read your mesh like always
-BABYLON.SceneLoader.ImportMeshAsync("", "http://example.com", "arr.babylon", scene, undefined)
+BABYLON.ImportMeshAsync("http://example.com/arr.babylon", scene, undefined)
   .then((importResult) => {
     mesh = importResult.meshes[0];
     // read the vertex data file.

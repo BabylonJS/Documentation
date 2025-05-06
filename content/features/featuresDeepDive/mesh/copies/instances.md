@@ -20,8 +20,8 @@ Instances are built from a mesh with the following code:
 
 ```javascript
 // In this case we're loading our mesh from an external source.
-BABYLON.SceneLoader.ImportMesh("", "//www.babylonjs.com/assets/Tree/", "tree.babylon", scene, function (newMeshes) {
-  var mesh = newMeshes[0];
+BABYLON.ImportMeshAsync("https://www.babylonjs.com/assets/Tree/tree.babylon", scene).then(function (result) {
+  var mesh = result.meshes[0];
   // Make the "root" mesh not visible. The instanced versions of it that we
   // create below will be visible.
   mesh.isVisible = false;
@@ -112,14 +112,13 @@ Example: <Playground id="#YPABS1#183" title="Custom Buffers Example 2" descripti
 
 ## Using Custom Buffers with Node Material
 
-If you want to use custom buffers in conjunction with node materials, you can access the instanced buffers color with the mesh.color block. Make sure you have added the Instances block to your graph and then the mesh.color block will reference the instanced buffers color assigned to the instance.  
+If you want to use custom buffers in conjunction with node materials, you can access the instanced buffers color with the mesh.color block. Make sure you have added the Instances block to your graph and then the mesh.color block will reference the instanced buffers color assigned to the instance.
 
 ![Use Instanced Buffers Color with Node Material](/img/how_to/instances-node-meshColor.png)
 
 Example: <Playground id="#D6GB23" title="Custom Buffers in Node Material" description="Using custom buffers to drive texture offset in node material."/>
 
 There is a great article from Simon Trushkin, a Senior Technical Artist working at ClickON3D, on [using custom buffers with custom blocks in node material](https://www.linkedin.com/pulse/advanced-use-instance-buffers-node-materials-clickon-web3d-nmdme/). This technique is all about optimization and demonstrating how combining instances, custom buffers, and node material can result in a huge boost to the frame rate of the scene.
-
 
 ## Advanced Control
 

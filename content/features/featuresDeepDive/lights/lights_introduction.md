@@ -61,6 +61,18 @@ that the full effect is achieved.
 const light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 1, 0), scene);
 ```
 
+### The Rectangular Area Light
+
+A rectangular area light is defined by its position, width, and height. It emits light from the resulting surface towards the -Z direction. Even though the RectAreaLight class itself does not have a direction component, it can be attached to a transform node to be rotated and moved around.
+
+```javascript
+const light = new BABYLON.RectAreaLight("areaLight", new BABYLON.Vector3(0, 1, 0), 2, 2, scene);
+```
+
+One important thing to note is that, due to differences in implementation, StandardMaterial will reflect light based on its "roughness" value (instead of specular power, as with other lights). This difference in behavior is significant, and the scene should set the correct roughness value to achieve the desired look.
+
+Also, the current implementation for RectAreaLight does not cast shadows, but we have plans to have this implemented in the future.
+
 ## Color Properties
 
 There are three properties of lights that affect color. Two of these _diffuse_ and _specular_ apply to all four types of light, the third, _groundColor_, only applies to a Hemispheric Light.
@@ -77,6 +89,8 @@ In these playgrounds see how the specular color (green) is combined with the dif
 <Playground id="#20OAV9#3" title="Spot Light Example" description="Simple Example of adding a Spot Light to your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro3.jpg" isMain={true} category="Lights"/>
 
 <Playground id="#20OAV9#5" title="Hemispheric Light Example" description="Simple Example of adding a Hemispheric Light to your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro4.jpg" isMain={true} category="Lights"/>
+
+<Playground id="#T7FXR8#20" title="Rectangular Area Light Example" description="Simple Example of adding a Rectangular Area Light to your scene." image="/img/playgroundsAndNMEs/areaLightStandardExample.jpg" isMain={true} category="Lights"/>
 
 For a hemispheric light the _groundColor_ is the light in the opposite direction to the one specified during creation.
 You can think of the _diffuse_ and _specular_ light as coming from the centre of the object in the given direction and the _groundColor_ light in the opposite direction.
@@ -203,3 +217,17 @@ In order to control the projection orientation and range, you can also rely on t
 - `projectionTextureUpDirection` : helps defining the light space which is oriented towards the light direction and aligned with the up direction.
 
 The projected information is multiplied against the normal light values to better fit in the Babylon JS lighting. It also only impact the diffuse value. So it might be necessary to change the specular color of the light to better fit with the scene.
+
+## IES Profile
+
+Starting with Babylon v7.40.0, you can specify an [IES light](https://ieslibrary.com/) profile for your **SpotLight**.
+
+This will control (based on [IES specification](https://store.ies.org/product/lm-63-19-approved-method-ies-standard-file-format-for-the-electronic-transfer-of-photometric-data-and-related-information/?v=0b3b97fa6688)) how the light fall off is supposed to render.
+
+To do so, you have to set the `spotLight.iesProfileTexture` to a texture loaded from an .ies file.
+
+```
+light.iesProfileTexture = new BABYLON.Texture("https://assets.babylonjs.com/meshes/EXT_lights_ies/LightProfile.ies");
+```
+
+<Playground id="#UIAXAU#29" title="Projection Texture Example" description="Simple Example of using an IES profile."/>

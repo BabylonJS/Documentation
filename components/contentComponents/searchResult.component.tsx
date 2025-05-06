@@ -1,9 +1,10 @@
 import { Link as MaterialLink, useTheme, Box } from "@mui/material";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 
 import ChevronRight from "@mui/icons-material/ChevronRight";
 import Link from "next/link";
 import { IDocumentSearchResult } from "../../lib/frontendUtils/searchQuery.utils";
+import { BaseUrlContext } from "../../pages/_app";
 
 export const SearchResult: FunctionComponent<{ searchResult: IDocumentSearchResult }> = ({ searchResult }) => {
     const theme = useTheme();
@@ -21,7 +22,7 @@ export const SearchResult: FunctionComponent<{ searchResult: IDocumentSearchResu
                   url: searchResult.path,
               },
           ];
-
+          const baseUrl = useContext(BaseUrlContext);
     return (
         <Box
             sx={{
@@ -46,8 +47,8 @@ export const SearchResult: FunctionComponent<{ searchResult: IDocumentSearchResu
             },
         }}>
                     <span>
-                        <Link href={searchResult.path}>
-                            <MaterialLink href={searchResult.path}>
+                        <Link href={baseUrl + searchResult.path}>
+                            <MaterialLink href={baseUrl + searchResult.path}>
                                 <span>{searchResult.title}</span>
                             </MaterialLink>
                         </Link>
@@ -71,8 +72,8 @@ export const SearchResult: FunctionComponent<{ searchResult: IDocumentSearchResu
                         {path.map((result, idx) => {
                             return (
                                 <span key={idx}>
-                                    <Link key={result.url} href={result.url}>
-                                        <MaterialLink href={result.url} variant="caption" color="secondary">
+                                    <Link key={result.url} href={baseUrl + result.url}>
+                                        <MaterialLink href={baseUrl + result.url} variant="caption" color="secondary">
                                             <span>{result.name}</span>
                                         </MaterialLink>
                                     </Link>

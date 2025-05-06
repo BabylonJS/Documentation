@@ -29,12 +29,17 @@ const line = BABYLON.CreateGreasedLine("name", { points });
 <Playground id="#H1LRZ3#98" title="Basic usage" description="Basic scenarios with GreasedLine." />
 <Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
 
+## Dispose a GreasedLine
+
+Please note that the `dispose` function doesn't dispose the material created for the line by default. You have to set the `disposeMaterialAndTextures` parameter to `true` in the `dispose` function if you want to dispose the associated material and textures as well.
+
 ### GreasedLineMeshBuilderOptions
 
 You will find explanation of these options below this code snippet.
 
 ```javascript
 points: GreasedLinePoints;
+pointsOptions?: GreasedLinePointsOptions;
 widths?: number[];
 widthDistribution?: GreasedLineMeshWidthDistribution;
 instance?: GreasedLineMesh;
@@ -50,6 +55,10 @@ Points of the line specified as x, y, z coordinates. _All the points connected a
 `points` can be type of `number[]`, `number[][]`, `Vector3[]`, `Vector3[][]`, `Float32Array` or `Float32Array[]`.
 
 If you want to draw only one contiguous line you can use 1D arrays or `Float32Array`. If you want to draw multiple lines you have to use 2D arrays or `Float32Array[]`.
+
+To draw multiple disconnected lines using a flat `Float32Array` you can specify the `pointsOptions.stride` property in the `GreasedLineMeshBuilderOptions` object. This value sets how many entries from the `Float32Array`will be used to create one line. One entry = 3 float values.
+
+<Playground id="#TCURLI#3" title="Float32Array stride" description="How to create disconnected lines using a flat Float32Array." />
 
 ```javascript
 const points =
@@ -178,7 +187,7 @@ color?: Color3;
 colorMode?: GreasedLineMeshColorMode;
 colors?: Color3[];
 colorDistribution?: GreasedLineMeshColorDistribution;
-colorDistributioType?: GreasedLineMeshColorDistributionType;
+colorDistributionType?: GreasedLineMeshColorDistributionType;
 useColors?: boolean;
 colorsSampling?: number;
 useDash?: boolean;
@@ -293,8 +302,13 @@ The method used to distribute the colors along the line. You can use segment dis
 
 <Playground id="#H1LRZ3#258" title="Color distribution type" description="Shows how to use available color distribution types." />
 <Playground id="#H1LRZ3#55" title="Line colors using your own texture" description="Create your own color texture." />
+
+When running on WebGPU/WGSL you must use RGBA textures:
+<Playground id="#H1LRZ3#678" title="Line colors using your own texture - WebGPU/WGSL" description="Create your own color texture - WebGPU/WGSL." />
+
 <Playground id="#VUKIHZ#3" title="Animating line colors using your own texture" description="Animating colors on a line using your color texture." />
 <Playground id="#H1LRZ3#233" title="Setting color pointers manually" description="A loader circle created by modifying the color pointers. Also shows how to use gradients with GreasedLine." />
+
 
 #### **colorsSampling**
 
@@ -818,7 +832,7 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#241" title="Drawing text" description="You can also draw text with GreasedLine." />
 <Playground id="#H1LRZ3#121" title="GetPositionOnLineByVisibility tool function example" description="Finding the last visible position on the line when using the visibility option." />
 <Playground id="#H1LRZ3#136" title="Cloning" description="Cloning the GreasedLine mesh and it's material." />
-<Playground id="#H1LRZ3#127" title="Serialization and parsing" description="Serializing and parsing the GreasedLine mesh and it's material." />
+<Playground id="#H1LRZ3#655" title="Serialization and parsing" description="Serializing and parsing the GreasedLine mesh and it's material." />
 <Playground id="#H1LRZ3#542" title="Thin instances" description="How to deal with thin instances and instance colors." />
 <Playground id="#H1LRZ3#194" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />

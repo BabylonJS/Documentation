@@ -9,7 +9,8 @@ video-content:
 ---
 
 ## Clone
-This simply creates a deep copy of the original mesh and saves memory by sharing the geometry. Each clone can have its own material and transformation.
+This creates a deep copy of the original mesh and saves memory by sharing the geometry. Each clone can have its own material and transformation.  Operations that manipulate the vertex data will be applied to all shared geometries.  If you need to make independent changes to a clones geometry you must call a method like ```clone.makeGeometryUnique()``` which will disconect the shared geometry and allow you to treat the clone as its own mesh/geometry.
+
 ```javascript
 const box1 = BABYLON.MeshBuilder.CreateBox("box1", {height: 1, width: 0.75, depth: 0.25, updatable: true});
 const box2 = box1.clone("box2");

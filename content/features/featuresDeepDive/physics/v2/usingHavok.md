@@ -22,6 +22,7 @@ _To read about the babylon plugin directly, [skip to the next section](#the-baby
 
 Havok is now available for the web, using a WebAssembly version of the engine. It is available, free to use, under the MIT license.
 The engine is available on both [the npm package](https://www.npmjs.com/package/@babylonjs/havok) `@babylonjs/havok` and on our CDN under the URL `https://cdn.babylonjs.com/havok/HavokPhysics_umd.js` or `https://cdn.babylonjs.com/havok/HavokPhysics_es.js` when using the `module` script.
+Please note it requires Webassembly SIMD which is not supported on iOS < 16.4.
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 

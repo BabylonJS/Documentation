@@ -274,3 +274,15 @@ You can use multi picking for occlusion detection like demonstreted in the follo
 <Playground id="#GAB1RS#63" title="GPU Multipicking example" description="Demonstrates how can you use multipicking to get occlusion statuses of multiple meshes."/>
 
 Multi picking is optimized and always renders only a portion of the picking texture defined by the an area from min to max picking coordinates. If this are is too big you should consider calling `multiPickAsync` multiple times with smaller areas or perform `pickAsync` multiple times with a single coordinate. 
+
+### Important
+
+The following applies to meshes in the picking list. Due to performance reasons, checks are not performed. It is up to the user to ensure all pickable meshes follow simple rules.
+
+* All meshes in the picking list should always be enabled.
+* Mesh enabled states are not checked when picking. If you have a pickable mesh with `mesh.setEnabled(false)`, pick results will be fouled up. If you really need to disable a mesh, remove it from the picking list first, update the pick texure with `picker.setPickingList([...newList])`, then disable your mesh.
+* Any instances in the picking list must also be accompanied by its root mesh, even if its not meant to be picked.
+* Any instances added/removed from the picking list needs a `picker.setPickingList([...list])` to update the pick texture. If you have to dispose said instance, remove instance from the picking list first, dispose said instance and then call `picker.setPickingList([...newList])`.
+* For thin instances, if you make any changes to the matrix buffer, ie, add/remove thin instances, you have to call `picker.setPickingList([...list])` to update the pick texture after.
+* GPU picking works with `mesh.visibility = 0` and `mesh.material.alpha = 0` but not with `mesh.isVisible = false`.
+* `renderOverlay` does not work with GPU picking for meshes (no instances/thin instances) and cloned meshes.

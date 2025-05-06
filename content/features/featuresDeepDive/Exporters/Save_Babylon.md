@@ -31,15 +31,7 @@ function doDownload(filename, scene) {
 
   const blob = new Blob([strScene], { type: "octet/stream" });
 
-  // turn blob into an object URL; saved as a member, so can be cleaned out later
-  objectUrl = (window.webkitURL || window.URL).createObjectURL(blob);
-
-  const link = window.document.createElement("a");
-  link.href = objectUrl;
-  link.download = filename;
-  const click = document.createEvent("MouseEvents");
-  click.initEvent("click", true, false);
-  link.dispatchEvent(click);
+  BABYLON.Tools.Download(blob, filename);
 }
 ```
 
@@ -67,14 +59,6 @@ function doDownload(filename, mesh) {
 
   const blob = new Blob([strMesh], { type: "octet/stream" });
 
-  // turn blob into an object URL; saved as a member, so can be cleaned out later
-  objectUrl = (window.webkitURL || window.URL).createObjectURL(blob);
-
-  const link = window.document.createElement("a");
-  link.href = objectUrl;
-  link.download = filename;
-  const click = document.createEvent("MouseEvents");
-  click.initEvent("click", true, false);
-  link.dispatchEvent(click);
+  BABYLON.Tools.Download(blob, filename);
 }
 ```

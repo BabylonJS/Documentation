@@ -12,7 +12,7 @@ export interface IMenuItem {
 }
 
 export interface IExampleLink {
-    type?: "pg" | "nme" | "nge";
+    type?: "pg" | "nme" | "nge" | "sfe" | "nrge";
     id?: string; // both are accepted
     playgroundId?: string; // both are accepted. This one has priority
     title?: string;
@@ -23,6 +23,8 @@ export interface IExampleLink {
     category?: string;
     documentationPage?: string; // optional, only for examples coming from search results!
     engine?: "webgpu" | "webgl2" | "webgl1";
+    snapshot?: string; // optional snapshot
+    version?: string; // optional version of babylon to run the example with
 }
 
 export interface IMediaEmbed {
@@ -87,4 +89,5 @@ export interface IDocumentationPageProps extends IPageProps {
         [key: string]: IDocumentationPageProps;
     };
     relatedExternalLinks?: { url: string; title: string }[];
+    redirectTo?: string;
 }

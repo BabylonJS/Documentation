@@ -67,17 +67,15 @@ Skeletons and bones can be loaded from .babylon files.
 Here is a sample of how to load a boned mesh and how to launch skeleton animation:
 
 ```javascript
-BABYLON.SceneLoader.ImportMesh("him", "Scenes/Dude/", "Dude.babylon", scene, function (newMeshes, particleSystems, skeletons) {
-  const dude = newMeshes[0];
+BABYLON.ImportMeshAsync("scenes/Dude/Dude.babylon", scene, { meshNames: "him" }).then(function (result) {
+  scene.createDefaultCameraOrLight(true, true, true);
+  scene.createDefaultEnvironment();
 
-  dude.rotation.y = Math.PI;
-  dude.position = new BABYLON.Vector3(0, 0, -80);
-
-  scene.beginAnimation(skeletons[0], 0, 100, true, 1.0);
+  scene.beginAnimation(result.skeletons[0], 0, 100, true, 1.0);
 });
 ```
 
-A complete running example can be found here: <Playground id="#92Y727" title="Loading Bones" description="Simple example of loading bones." isMain={true} category="Mesh"/>
+A complete running example can be found here: <Playground id="#92Y727#462" title="Loading Bones" description="Simple example of loading bones." isMain={true} category="Mesh"/>
 
 ## Use Bones with Node Material
 
@@ -85,7 +83,7 @@ The [Node Material](/features/featuresDeepDive/materials/node_material) is a pow
 
 ![Use Instances with Node Material](/img/how_to/bones-node.png)
 
-<Playground id="#92Y727#302" title="Using Node Material with Bones" description="Use Bones node on the Node Material"/>
+<Playground id="#92Y727#463" title="Using Node Material with Bones" description="Use Bones node on the Node Material"/>
 
 ## Cloning bones
 
@@ -94,8 +92,8 @@ Bones and skeletons can be cloned (This is the case with the rabbits in the prev
 Here is a sample of how to load and clone a mesh and its skeleton:
 
 ```javascript
-BABYLON.SceneLoader.ImportMesh("Rabbit", "Scenes/Rabbit/", "Rabbit.babylon", scene, function (newMeshes, particleSystems, skeletons) {
-  const rabbit = newMeshes[1];
+BABYLON.ImportMeshAsync("Scenes/Rabbit/Rabbit.babylon", scene, { meshNames: "Rabbit" }).then(function (result) {
+  const rabbit = result.meshes[1];
 
   rabbit.scaling = new BABYLON.Vector3(0.4, 0.4, 0.4);
   shadowGenerator.getShadowMap().renderList.push(rabbit);
@@ -109,7 +107,7 @@ BABYLON.SceneLoader.ImportMesh("Rabbit", "Scenes/Rabbit/", "Rabbit.babylon", sce
   rabbit3.position = new BABYLON.Vector3(50, 0, -20);
   rabbit3.skeleton = rabbit.skeleton.clone("clonedSkeleton2");
 
-  scene.beginAnimation(skeletons[0], 0, 100, true, 0.8);
+  scene.beginAnimation(result.skeletons[0], 0, 100, true, 0.8);
   scene.beginAnimation(rabbit2.skeleton, 73, 100, true, 0.8);
   scene.beginAnimation(rabbit3.skeleton, 0, 72, true, 0.8);
 });
@@ -120,28 +118,28 @@ BABYLON.SceneLoader.ImportMesh("Rabbit", "Scenes/Rabbit/", "Rabbit.babylon", sce
 More complex models, such as the Dude, contain submeshes. When cloning you must iterate and clone the submeshes as well. Here is an example of how to clone a more complex model:
 
 ```javascript
-BABYLON.SceneLoader.ImportMesh("him", "Dude/", "dude.babylon", scene, function (newMeshes, particleSystems, skeletons) {
+BABYLON.ImportMeshAsync("Dude/dude.babylon", scene, { meshNames: "him" }).then(function (result) {
+  result.meshes[0].position = new BABYLON.Vector3(0, 0, 5); // The original dude
+  scene.beginAnimation(result.skeletons[0], 0, 120, 1.0, true);
 
-    newMeshes[0].position = new BABYLON.Vector3(0, 0, 5);  // The original dude
-    scene.beginAnimation(skeletons[0], 0, 120, 1.0, true);
+  dudes = [];
 
-    dudes = [];
+  for (i = 0; i < 10; i++) {
+    // 10 clones
+    const xrand = Math.floor(Math.random() * 501) - 250;
+    const zrand = Math.floor(Math.random() * 501) - 250;
 
-    for (i = 0; i < 10; i++) { // 10 clones
-        const xrand = Math.floor(Math.random() * 501) - 250;
-        const zrand = Math.floor(Math.random() * 501) - 250;
+    const c = [];
 
-        const c = [];
-
-        for (j = 1; j < newMeshes.length; j++) {
-            c[j] = newMeshes[j].clone("c" + j);
-            c[j].position = new BABYLON.Vector3(xrand, 0, zrand);
-            c[j].skeleton = newMeshes[j].skeleton.clone();
-            scene.beginAnimation(c[j].skeleton, 0, 120, 1.0, true);
-        }
-        dudes[i] = c;
+    for (j = 1; j < result.meshes.length; j++) {
+      c[j] = result.meshes[j].clone("c" + j);
+      c[j].position = new BABYLON.Vector3(xrand, 0, zrand);
+      c[j].skeleton = result.meshes[j].skeleton.clone();
+      scene.beginAnimation(c[j].skeleton, 0, 120, 1.0, true);
     }
-}
+    dudes[i] = c;
+  }
+});
 ```
 
 ## Picking a mesh attached to a skeleton
@@ -159,16 +157,15 @@ Please keep in mind that this operation is using the CPU so it has to be used wi
 
 That being said, starting with Babylon 7.12, you can now use a new class to use the GPU to compute complex meshes' bounding info:
 
-```
+```javascript
 var bbHelper = new BABYLON.BoundingInfoHelper(engine);
 await bbHelper.computeAsync(scene.meshes);
 ```
 
 That class will use Transform Feedbacks on WebGL2 and Compute Shaders on WebGPU to compute the bounding info.
- <Playground id="#BCNJD4#42" title="Computing Bounding Info with the GPU" description="Simple example of how to use BoundingInfoHelper."/>
+<Playground id="#BCNJD4#42" engine="webgpu" title="Computing Bounding Info with the GPU" description="Simple example of how to use BoundingInfoHelper."/>
 
 Please note that there is a limit to be aware of: The GPU will be faster only if the objects to scan are complex enough. Else the price to upload data to the GPU and prepare shaders will not be compensated.
-
 
 ## Attaching a mesh to a specific bone
 
@@ -393,7 +390,6 @@ The BoneIKController constructor takes the mesh of the character, the bone that 
 - bendAxis
 - maxAngle
 
-
 ```javascript
 const ikCtrl = new BABYLON.BoneIKController(characterMesh, forearmBone, { targetMesh: target, poleTargetMesh: poleTarget, poleAngle: Math.PI });
 ```
@@ -613,6 +609,6 @@ One of these will be the correct mesh to pass to the bone to get absolute transf
 Note that some engines (e.g., Unity3D) and glTF do not support sharing skeletons between skinned meshes with different transforms because the skinned mesh transforms are ignored in these cases. If nothing is modified after loading from a glTF, any of the filtered list of skinned meshes should work as the skinned mesh argument to a bone method for getting absolute transforms. In this case, selecting the first mesh of this filter works for glTF assets. See [this issue](https://github.com/KhronosGroup/glTF/issues/1285) and linked issues for more detailed analysis of shared skeletons in glTF and [glTF Skinning](/features/featuresDeepDive/importers/glTF/glTFSkinning) for more details about glTF skinning in Babylon.js.
 
 ## Skinning and Skeleton Tutorials
-This is a tutorial created by [Snowden](https://forum.babylonjs.com/u/snowden/summary) from our [forum](https://forum.babylonjs.com/) about customizing skinned characters by composing them from multiple meshes.   
-<Youtube id="bjBzns0KOws"/>
 
+This is a tutorial created by [Snowden](https://forum.babylonjs.com/u/snowden/summary) from our [forum](https://forum.babylonjs.com/) about customizing skinned characters by composing them from multiple meshes.  
+<Youtube id="bjBzns0KOws"/>

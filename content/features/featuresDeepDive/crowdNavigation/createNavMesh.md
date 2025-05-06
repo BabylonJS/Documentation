@@ -10,7 +10,7 @@ video-content:
 
 ## How to use the navigation mesh?
 
-There are many cases to use a navigation mesh: AI and path finding, replace physics for collision detection (only allow player to go where it's possible instead of using collision detection) and many more cases theBabylon.js users will find.
+There are many cases to use a navigation mesh: AI and path finding, replace physics for collision detection (only allow player to go where it's possible instead of using collision detection) and many more cases Babylon.js users will find.
 
 First, create the navigation plugin
 
@@ -44,9 +44,9 @@ Call the navigation mesh generation with the parameters and the list of meshes
 navigationPlugin.createNavMesh([groundMesh, wallMesh1, wallMesh2, stair1, stair2], parameters);
 ```
 
-And that's it! you can now use the navigation mesh with the crowd system or make queries.
+And that's it! You can now use the navigation mesh with the crowd system or make queries.
 
-Optionaly, you can get a display of the navmesh to ensure it corresponds to your space constraints
+Optionally, you can get a display of the navmesh to ensure it corresponds to your space constraints
 
 ```javascript
 navmeshdebug = navigationPlugin.createDebugNavMesh(scene);
@@ -60,13 +60,13 @@ navmeshdebug.material = matdebug;
 
 ## Parameters
 
-cs - The meshes are voxelized in order to compute walkable navmesh. This parameter in world unit define the width and depth of 1 voxel.
+cs - The meshes are voxelized in order to compute walkable navmesh. This parameter in world units defines the width and depth of 1 voxel.
 
 ch - Same as cs but for height of the voxel.
 
-walkableSlopeAngle - Angle in degree for the maximum walkable slop.
+walkableSlopeAngle - Angle in degrees for the maximum walkable slope.
 
-walkableHeight - The height in voxel units that is allowd to walk in.
+walkableHeight - The height in voxel units that is allowed to walk in.
 
 walkableClimb - The delta in voxel units that can be climbed.
 
@@ -137,6 +137,13 @@ To restore an UInt8Array to a navigation mesh:
 ```javascript
 navigationPlugin.buildFromNavmeshData(uint8array);
 ```
+## Using 3rd party tools
+3rd party tools like `navmesh-editor` can help create navmesh and bake result to a binary file that is directly useable (navmesh coordinate system is right handed) : https://navmesh-editor.babylonjs.xyz/
+Navmesh computation is run on drag and dropped gltf. The export can then be opened like in this Playground:
+
+<img src="/img/pageImages/navmesh-editor.jpg" title="Precomputing a navmesh with navmesh-editor"/>
+
+Loading a precomputed navmesh: <Playground id="#KVQP83#92" title="Loading a precomputed navmesh" description="Loading a precomputed navmesh"/>
 
 ## Web Worker
 

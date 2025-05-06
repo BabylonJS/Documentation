@@ -5,12 +5,14 @@ import { getExampleLink } from "../../lib/frontendUtils/frontendTools";
 
 import CloseIcon from "@mui/icons-material/Close";
 import { DocumentationContext } from "../../pages/[...id]";
+import { BaseUrlContext } from "../../pages/_app";
 
 export const InlineExampleComponent: FunctionComponent<IExampleLink> = (example) => {
     const context = useContext(DocumentationContext);
     const id = example && (example.playgroundId || example.id);
     const [show, setShow] = useState<boolean>(typeof id === "string");
     const link = show && getExampleLink(example);
+    const baseUrl = useContext(BaseUrlContext);
     const onCloseClicked = () => {
         context.setActiveExample(null);
         setShow(false);
@@ -70,7 +72,7 @@ export const InlineExampleComponent: FunctionComponent<IExampleLink> = (example)
                     >
                         Loading {example.title}...
                     </Typography>
-                    <iframe height="100%" width="100%" src={link}></iframe>
+                    <iframe height="100%" width="100%" src={baseUrl + link}></iframe>
                 </Box>
             )}
         </Box>

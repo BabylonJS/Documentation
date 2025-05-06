@@ -166,6 +166,13 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                         <option value="code">Code</option>
                     </Select>
                 </FormControl>
+                <FormControl margin="dense" variant="outlined">
+                    <Button sx={{
+                        margin: 1,
+                    }} type="submit" variant="contained">
+                        Search
+                    </Button>
+                </FormControl>
             </FormGroup>
         </form>
     );

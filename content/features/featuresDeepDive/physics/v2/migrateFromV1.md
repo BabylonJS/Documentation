@@ -53,7 +53,7 @@ sphereBody.setMassProperties({ mass: 1 });
 The advantage of this approach is that, if you have another mesh you want to use with the same collider shape and material, you can reuse the shape:
 
 ```javascript
-const complexModel = await BABYLON.SceneLoader.ImportMeshAsync(...);
+const complexModel = await BABYLON.ImportMeshAsync(...);
 const body = new BABYLON.PhysicsBody(complexModel, BABYLON.PhysicsMotionType.DYNAMIC, false, scene);
 body.shape = sphereShape;
 body.setMassProperties({mass: complexModelMass});

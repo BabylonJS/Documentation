@@ -33,32 +33,32 @@ export const addPlaygroundSearch: Plugin<[any?] | [Processor?, any?]> = (options
     const visitor: visit.Visitor<Node> = (node: any /*, index, parent*/) => {
         var props = node.properties as { [key: string]: any };
         const classes = (props.className || []) as string[];
-        if (node.tagName === "section" && (classes.indexOf('tsd-kind-method') !== -1 || classes.indexOf('tsd-kind-property') !== -1)) {
-            let methodName = '';
-            (node.children as any[]).forEach(child => {
-                if (child.tagName === 'h3') {
+        if (node.tagName === "section" && (classes.indexOf("tsd-kind-method") !== -1 || classes.indexOf("tsd-kind-property") !== -1)) {
+            let methodName = "";
+            (node.children as any[]).forEach((child) => {
+                if (child.tagName === "h3") {
                     (child.children as any[]).forEach((h3Child) => {
-                        if (h3Child.type === 'text') {
+                        if (h3Child.type === "text") {
                             methodName += h3Child.value;
                         }
                     });
                     const playgroundSearch = {
-                        tagName: 'a',
-                        type: 'element',
+                        tagName: "a",
+                        type: "element",
                         properties: {
-                            className: ['playground-search-link'],
-                            href: `/playground?type=code&q=${methodName}`
+                            className: ["playground-search-link"],
+                            href: `/playground?type=code&q=${methodName}`,
                         },
                         children: [
                             {
-                                type: 'text',
-                                value: `Search playground for ${methodName}`
-                            }
-                        ]
-                    }
-                    child.children.push(playgroundSearch)
+                                type: "text",
+                                value: `Search playground for ${methodName}`,
+                            },
+                        ],
+                    };
+                    child.children.push(playgroundSearch);
                 }
-            })
+            });
         }
         return;
     };
@@ -67,28 +67,30 @@ export const addPlaygroundSearch: Plugin<[any?] | [Processor?, any?]> = (options
     };
 };
 
-export const apiLinkParserPlugin: Plugin<[any?] | [Processor?, any?]> = (options) => {
-    const visitor: visit.Visitor<Node> = (node: any /*, index, parent*/) => {
-        var props = node.properties as { [key: string]: any };
-        if (node.tagName === "a" && props.href && !props.href.startsWith("http") && props.href.indexOf("/") !== -1 && props.href[0] !== ".") {
-            props.href = `/typedoc/${props.href}`;
-        }
-        if (node.tagName === "input") {
-            props.readonly = true;
-        }
-        return;
-    };
-    return (tree: Node /*, file , next*/) => {
-        visit(tree, "element", visitor);
+export const apiLinkParserPlugin: () => Plugin<[any?] | [Processor?, any?]> = (baseLocation = "typedoc") => {
+    return () => {
+        const visitor: visit.Visitor<Node> = (node: any /*, index, parent*/) => {
+            var props = node.properties as { [key: string]: any };
+            if (node.tagName === "a" && props.href && !props.href.startsWith("http") && props.href.indexOf("/") !== -1 && props.href[0] !== ".") {
+                props.href = `/${baseLocation}/${props.href}`;
+            }
+            if (node.tagName === "input") {
+                props.readonly = true;
+            }
+            return;
+        };
+        return (tree: Node /*, file , next*/) => {
+            visit(tree, "element", visitor);
+        };
     };
 };
 
-export const parseNode = (htmlContent: string) => {
+export const parseNode = (htmlContent: string, baseLocation = "typedoc") => {
     // const parsed = unified().use(html).stringify(node);
     var processor = unified()
         .use(parse)
         .use(highlight)
-        .use(apiLinkParserPlugin)
+        .use(apiLinkParserPlugin.call(null, baseLocation))
         .use(addPlaygroundSearch)
         .use(rehype2react, {
             createElement: createElement,

@@ -320,7 +320,12 @@
                                 "playingSoundsMusic": {
                                     "friendlyName": "Playing Sounds and Music",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/audio/playingSoundsMusic"
+                                    "content": "features/featuresDeepDive/audio/v2/playingSoundsMusic"
+                                },
+                                "migrate": {
+                                    "friendlyName": "Migrating From The Old Audio Engine",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/audio/v2/migrateFromV1"
                                 }
                             },
                             "content": "features/featuresDeepDive/audio"
@@ -562,6 +567,70 @@
                             },
                             "content": "features/featuresDeepDive/Exporters"
                         },
+                        "flowGraph": {
+                            "friendlyName": "Flow Graph",
+                            "children": {
+                                "flowGraphBasicConcepts": {
+                                    "friendlyName": "Basic concepts and getting started",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/flowGraph/flowGraphBasicConcepts"
+                                },
+                                "flowGraphBlocks": {
+                                    "friendlyName": "Flow Graph Blocks",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/flowGraph/flowGraphBlocks"
+                                },
+                                "flowGraphExamples": {
+                                    "friendlyName": "Write your first graph",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/flowGraph/flowGraphExamples"
+                                },
+                                "flowGraphAdvanced": {
+                                    "friendlyName": "Advanced concepts",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/flowGraph/flowGraphAdvancedUsage"
+                                }
+                            },
+                            "content": "features/featuresDeepDive/flowGraph"
+                        },
+                        "frameGraph": {
+                            "friendlyName": "Frame Graph",
+                            "children": {
+                                "frameGraphBasicConcepts": {
+                                    "friendlyName": "Basic concepts and getting started",
+                                    "children": {
+                                        "frameGraphReplaceRenderLoop": {
+                                            "friendlyName": "Frame Graph replacing the scene render loop",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts/frameGraphReplaceRenderLoop"
+                                        },
+                                        "frameGraphInAdditionToRenderLoop": {
+                                            "friendlyName": "Frame Graph in addition to the scene render loop",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts/frameGraphInAdditionToRenderLoop"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts"
+                                },
+                                "frameGraphBlocks": {
+                                    "friendlyName": "Render Graph Blocks",
+                                    "children": {
+                                        "frameGraphBlocksGeneralNotes": {
+                                            "friendlyName": "General notes about Render Graph Blocks",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksGeneralNotes"
+                                        },
+                                        "frameGraphBlocksDescription": {
+                                            "friendlyName": "Description of the Render Graph Blocks",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksDescription"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks"
+                                }
+                            },
+                            "content": "features/featuresDeepDive/frameGraph"
+                        },
                         "gui": {
                             "friendlyName": "GUI",
                             "children": {
@@ -687,6 +756,11 @@
                                     "friendlyName": "SceneLoader class (legacy)",
                                     "children": {},
                                     "content": "features/featuresDeepDive/importers/legacy"
+                                },
+                                "gaussianSplatting": {
+                                    "friendlyName": "Gaussian Splatting",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/importers/gaussianSplatting"
                                 }
                             },
                             "content": "features/featuresDeepDive/importers"
@@ -812,6 +886,11 @@
                                             "friendlyName": "Mastering Physically Based Rendering (PBR)",
                                             "children": {},
                                             "content": "features/featuresDeepDive/materials/using/masterPBR"
+                                        },
+                                        "OpenPBR": {
+                                            "friendlyName": "OpenPBR",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/materials/using/OpenPBR"
                                         },
                                         "proceduralTextures": {
                                             "friendlyName": "Procedural Textures",
@@ -1270,6 +1349,11 @@
                                                 }
                                             },
                                             "content": "features/featuresDeepDive/mesh/transforms/parent_pivot"
+                                        },
+                                        "lattice": {
+                                            "friendlyName": "Lattice",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/mesh/transforms/lattice"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/mesh/transforms"
@@ -1422,6 +1506,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/gaussianSplatting"
                                 },
+                                "hotspot": {
+                                    "friendlyName": "Hotspot",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/hotspot"
+                                },
                                 "meshExploder": {
                                     "friendlyName": "Exploding Meshes",
                                     "children": {},
@@ -1485,6 +1574,16 @@
                                             "friendlyName": "Color Ramps and Blends, and Billboard Mode",
                                             "children": {},
                                             "content": "features/featuresDeepDive/particles/particle_system/ramps_and_blends"
+                                        },
+                                        "attractors": {
+                                            "friendlyName": "Attractors",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/particle_system/attractors"
+                                        },
+                                        "flowMap": {
+                                            "friendlyName": "Flow Maps",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/particle_system/flowMap"
                                         },
                                         "subEmitters": {
                                             "friendlyName": "Sub Emitters",
@@ -1713,6 +1812,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/physics/v2/prestep"
                                 },
+                                "characterController": {
+                                    "friendlyName": "Character Controller",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/characterController"
+                                },
                                 "havokPlugin": {
                                     "friendlyName": "The Havok Physics Plugin",
                                     "children": {},
@@ -1754,6 +1858,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/postProcesses/dofLenseEffects"
                                 },
+                                "IBLShadowsRenderingPipeline": {
+                                    "friendlyName": "Using the IBL Shadows Rendering Pipeline",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/postProcesses/IBLShadowsRenderingPipeline"
+                                },
                                 "motionBlurPostProcess": {
                                     "friendlyName": "Motion Blur Post Process",
                                     "children": {},
@@ -1768,6 +1877,11 @@
                                     "friendlyName": "Screen Space Reflections (SSR) Post Process",
                                     "children": {},
                                     "content": "features/featuresDeepDive/postProcesses/screenSpaceReflectionsPostProcess"
+                                },
+                                "TAARenderingPipeline": {
+                                    "friendlyName": "Temporal Anti-Aliasing (TAA) rendering pipeline",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/postProcesses/taaRenderingPipeline"
                                 },
                                 "renderTargetTextureMultiPass": {
                                     "friendlyName": "Using RenderTargetTexture and Multiple Passes",
@@ -1873,6 +1987,32 @@
                             },
                             "content": "features/featuresDeepDive/scene"
                         },
+                        "smartFilters": {
+                            "friendlyName": "Smart Filters",
+                            "children": {
+                                "introductionToSmartFilters": {
+                                    "friendlyName": "Introduction To Smart Filters",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/introductionToSmartFilters"
+                                },
+                                "howToUseSmartFilters": {
+                                    "friendlyName": "How To Use Smart Filters",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/howToUseSmartFilters"
+                                },
+                                "howSmartFiltersWork": {
+                                    "friendlyName": "How Smart Filters Work",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/howSmartFiltersWork"
+                                },
+                                "creatingNewBlocks": {
+                                    "friendlyName": "Creating New Blocks",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/smartFilters/creatingNewBlocks"
+                                }
+                            },
+                            "content": "features/featuresDeepDive/smartFilters"
+                        },
                         "sprites": {
                             "friendlyName": "Sprites",
                             "children": {
@@ -1935,35 +2075,50 @@
                             "content": "features/featuresDeepDive/tags"
                         },
                         "babylonViewer": {
-                            "friendlyName": "Babylon.js Viewer",
+                            "friendlyName": "Viewer",
                             "children": {
-                                "configuringViewer": {
-                                    "friendlyName": "Configuring The Viewer",
+                                "cameraControls": {
+                                    "friendlyName": "Viewer Camera Controls",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/babylonViewer/configuringViewer"
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/cameraControls"
                                 },
-                                "viewerTemplatingSystem": {
-                                    "friendlyName": "The Viewer Templating System",
+                                "defaultUI": {
+                                    "friendlyName": "Viewer Default UI",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/babylonViewer/viewerTemplatingSystem"
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/defaultUI"
                                 },
-                                "defaultViewerConfig": {
-                                    "friendlyName": "Recreating The Default Viewer Configuration",
+                                "elementInterface": {
+                                    "friendlyName": "Viewer HTML Element Interface",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/babylonViewer/defaultViewerConfig"
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/elementInterface"
                                 },
-                                "advancedViewerUsage": {
-                                    "friendlyName": "Advanced Viewer Usage",
+                                "elementStyling": {
+                                    "friendlyName": "Viewer HTML Element Styling",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/babylonViewer/advancedViewerUsage"
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/elementStyling"
                                 },
-                                "viewerExamples": {
-                                    "friendlyName": "Viewer Examples",
+                                "hotspots": {
+                                    "friendlyName": "Viewer HotSpots & Annotations",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/babylonViewer/viewerExamples"
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/hotspots"
+                                },
+                                "advancedUsage": {
+                                    "friendlyName": "Viewer Advanced Usage",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/advancedUsage"
+                                },
+                                "react": {
+                                    "friendlyName": "Viewer & React",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/react"
+                                },
+                                "migrationGuide": {
+                                    "friendlyName": "Viewer Migration (V1 -> V2)",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/migrationGuide"
                                 }
                             },
-                            "content": "features/featuresDeepDive/babylonViewer"
+                            "content": "features/featuresDeepDive/babylonViewer.v2"
                         },
                         "webXR": {
                             "friendlyName": "WebXR",
@@ -2182,11 +2337,6 @@
                                     "children": {},
                                     "content": "setup/support/webGPU/webGPUWGSL"
                                 },
-                                "webGPULimitations": {
-                                    "friendlyName": "Limitations",
-                                    "children": {},
-                                    "content": "setup/support/webGPU/webGPULimitations"
-                                },
                                 "webGPUOptimization": {
                                     "friendlyName": "Optimizations",
                                     "children": {
@@ -2267,7 +2417,7 @@
                     "content": "toolsAndResources/accessibility"
                 },
                 "thePlayground": {
-                    "friendlyName": "The Playground",
+                    "friendlyName": "Playground",
                     "children": {
                         "externalPGAssets": {
                             "friendlyName": "Using External Assets In The Playground",
@@ -2291,6 +2441,10 @@
                         }
                     },
                     "content": "toolsAndResources/thePlayground"
+                },
+                "sandbox": {
+                    "friendlyName": "Sandbox",
+                    "content": "toolsAndResources/sandbox"
                 },
                 "inspector": {
                     "friendlyName": "Inspector",
@@ -2369,6 +2523,10 @@
                         }
                     },
                     "content": "toolsAndResources/nge"
+                },
+                "viewerConfigurator": {
+                    "friendlyName": "Viewer Configurator",
+                    "content": "toolsAndResources/viewerConfigurator"
                 },
                 "assetLibrarian": {
                     "friendlyName": "Asset Librarian",
@@ -2466,6 +2624,11 @@
                                     "friendlyName": "Digital Rain",
                                     "children": {},
                                     "content": "toolsAndResources/assetLibraries/postProcessLibrary/digitalRainPP"
+                                },
+                                "edgeDetectionPP": {
+                                    "friendlyName": "Edge Detection",
+                                    "children": {},
+                                    "content": "toolsAndResources/assetLibraries/postProcessLibrary/edgeDetectionPP"
                                 }
                             },
                             "content": "toolsAndResources/assetLibraries/postProcessLibrary"
@@ -2609,6 +2772,11 @@
                         }
                     },
                     "content": "toolsAndResources/utilities"
+                },
+                "sfe": {
+                    "friendlyName": "Smart Filter Editor",
+                    "children": {},
+                    "content": "toolsAndResources/sfe"
                 }
             },
             "content": "toolsAndResources"
@@ -2616,10 +2784,26 @@
         "preparingArtForBabylon": {
             "friendlyName": "Preparing Assets for Babylon.js",
             "children": {
-                "dccToGltf": { "friendlyName": "Exporting to glTF", "children": {}, "content": "preparingArtForBabylon/dccToGltf" },
-                "planningRealTimeAssets": { "friendlyName": "Planning Real-Time Assets", "children": {}, "content": "preparingArtForBabylon/planningRealTimeAssets" },
-                "planningMeshUVs": { "friendlyName": "Planning Mesh UVs", "children": {}, "content": "preparingArtForBabylon/planningMeshUVs" },
-                "controllingColorSpace": { "friendlyName": "Controlling Color Space", "children": {}, "content": "preparingArtForBabylon/controllingColorSpace" }
+                "dccToGltf": {
+                    "friendlyName": "Exporting to glTF",
+                    "children": {},
+                    "content": "preparingArtForBabylon/dccToGltf"
+                },
+                "planningRealTimeAssets": {
+                    "friendlyName": "Planning Real-Time Assets",
+                    "children": {},
+                    "content": "preparingArtForBabylon/planningRealTimeAssets"
+                },
+                "planningMeshUVs": {
+                    "friendlyName": "Planning Mesh UVs",
+                    "children": {},
+                    "content": "preparingArtForBabylon/planningMeshUVs"
+                },
+                "controllingColorSpace": {
+                    "friendlyName": "Controlling Color Space",
+                    "children": {},
+                    "content": "preparingArtForBabylon/controllingColorSpace"
+                }
             },
             "content": "preparingArtForBabylon/basicConcepts"
         },
@@ -2853,6 +3037,11 @@
                     "children": {},
                     "content": "guidedLearning/usingVite"
                 },
+                "lightmaps": {
+                    "friendlyName": "Level blocking with lightmaps",
+                    "children": {},
+                    "content": "guidedLearning/lightmaps"
+                },
                 "networking": {
                     "friendlyName": "Networking",
                     "children": {
@@ -2989,6 +3178,17 @@
             },
             "content": "guidedLearning"
         },
+        "addons": {
+            "friendlyName": "Official Add-ons",
+            "children": {
+                "htmlMesh": {
+                    "friendlyName": "HTML Mesh",
+                    "children": {},
+                    "content": "addons/htmlMesh"
+                }
+            },
+            "content": "addons"
+        },
         "communityExtensions": {
             "friendlyName": "Community Extensions",
             "children": {
@@ -3064,11 +3264,6 @@
                     "friendlyName": "Figma to BabylonJS",
                     "children": {},
                     "content": "communityExtensions/figmaToBabylonJS"
-                },
-                "htmlMesh": {
-                    "friendlyName": "HTML Mesh",
-                    "children": {},
-                    "content": "communityExtensions/htmlMesh"
                 },
                 "lottieTexture": {
                     "friendlyName": "Lottie Texture",
@@ -3257,6 +3452,11 @@
                 "Babylon.js+ExternalLibraries": {
                     "friendlyName": "Babylon.js + External Libraries",
                     "children": {
+                        "BabylonJS_and_heyVR": {
+                            "friendlyName": "BabylonJS and heyVR.io",
+                            "children": {},
+                            "content": "communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_heyVR"
+                        },
                         "BabylonJS_and_Instant_Games": {
                             "friendlyName": "BabylonJS and Instant Games",
                             "children": {},
@@ -3401,7 +3601,25 @@
                         }
                     },
                     "content": "communityExtensions/Unity"
-                }
+                },
+	            "WebXRExtension": {
+		            "friendlyName": "WebXR Extension",
+		            "content": "communityExtensions/WebXRExtension/webxrextension",
+		            "children": {
+			            "gestureRecognition": {
+				            "friendlyName": "Gesture recognition",
+				            "content": "communityExtensions/WebXRExtension/gestureRecognition"
+			            },
+			            "handsAnimation": {
+				            "friendlyName": "Hands animations",
+				            "content": "communityExtensions/WebXRExtension/handsAnimation"
+			            },
+			            "spaceMarkUp": {
+				            "friendlyName": "Space markup",
+				            "content": "communityExtensions/WebXRExtension/spaceMarkUp"
+			            }
+		            }
+	            }
             },
             "content": "communityExtensions"
         },
@@ -3409,6 +3627,11 @@
             "friendlyName": "Legacy",
             "content": "legacy",
             "children": {
+                "audio": {
+                    "friendlyName": "Audio",
+                    "children": {},
+                    "content": "features/featuresDeepDive/audio/v1/playingSoundsMusic"
+                },
                 "physics": {
                     "friendlyName": "Physics V1",
                     "children": {
@@ -3449,6 +3672,37 @@
                         }
                     },
                     "content": "features/featuresDeepDive/physics"
+                },
+                "babylonViewer": {
+                    "friendlyName": "Babylon.js Viewer V1",
+                    "children": {
+                        "configuringViewer": {
+                            "friendlyName": "Configuring The Viewer",
+                            "children": {},
+                            "content": "features/featuresDeepDive/babylonViewer/v1/configuringViewer"
+                        },
+                        "viewerTemplatingSystem": {
+                            "friendlyName": "The Viewer Templating System",
+                            "children": {},
+                            "content": "features/featuresDeepDive/babylonViewer/v1/viewerTemplatingSystem"
+                        },
+                        "defaultViewerConfig": {
+                            "friendlyName": "Recreating The Default Viewer Configuration",
+                            "children": {},
+                            "content": "features/featuresDeepDive/babylonViewer/v1/defaultViewerConfig"
+                        },
+                        "advancedViewerUsage": {
+                            "friendlyName": "Advanced Viewer Usage",
+                            "children": {},
+                            "content": "features/featuresDeepDive/babylonViewer/v1/advancedViewerUsage"
+                        },
+                        "viewerExamples": {
+                            "friendlyName": "Viewer Examples",
+                            "children": {},
+                            "content": "features/featuresDeepDive/babylonViewer/v1/viewerExamples"
+                        }
+                    },
+                    "content": "features/featuresDeepDive/babylonViewer.v1"
                 }
             }
         },

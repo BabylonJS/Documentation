@@ -2,7 +2,7 @@ import { ChangeEvent, FunctionComponent, useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import Layout from "../../components/layout.component";
 import { useRouter } from "next/dist/client/router";
-import { Box, Checkbox, FormControlLabel, FormGroup, InputAdornment, TextField, Typography, useTheme } from "@mui/material";
+import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, InputAdornment, TextField, Typography, useTheme } from "@mui/material";
 import { SearchResult } from "../../components/contentComponents/searchResult.component";
 
 import SearchIcon from "@mui/icons-material/Search";
@@ -95,6 +95,13 @@ export const SearchResults: FunctionComponent<{}> = () => {
                 />
                 <FormControlLabel control={<Checkbox checked={apiOnly} onChange={handleApiOnly} name="apiOnly" color="primary" />} label="API Only" />
                 <FormControlLabel control={<Checkbox checked={filterApi} onChange={handleFilterApi} name="filterApi" color="primary" />} label="Filter API" />
+                <FormControl margin="dense" variant="outlined">
+                    <Button sx={{
+                        margin: 1,
+                    }} type="submit" variant="contained">
+                        Search
+                    </Button>
+                </FormControl>
             </FormGroup>
         </form>
     );

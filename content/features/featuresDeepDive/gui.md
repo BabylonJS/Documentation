@@ -26,7 +26,7 @@ Other possible GUIs are:
 1. CastorGUI, a Babylon.js community extension which overlays the scene
 1. Dat.GUI, an external interface
 1. HTML GUI
-1. HtmlMesh, a Babylon.js community extension which allows HTML content to be included in the scene as a scene mesh or an overlay.
+1. HtmlMesh, a Babylon.js addon which allows HTML content to be included in the scene as a scene mesh or an overlay.
 
 ## CastorGUI
 
@@ -50,9 +50,9 @@ Since Babylon.js is in JavaScript it is possible to use HTML and CSS to overlay 
 
 ### HtmlMesh
 
-The [HtmlMesh](/communityExtensions/htmlMesh) extension for BabylonJS allows for HTML content to be incorporated into a scene either as a scene mesh that can occlude and be occluded by other meshes or as an overlay (similar to the HTML GUI example above, but using a mesh so it can be positioned using stadard transforms, parented to other meshes, dragged, and scaled using gizmos, etc...).
+The [HtmlMesh](/addons/htmlMesh) extension for BabylonJS allows for HTML content to be incorporated into a scene either as a scene mesh that can occlude and be occluded by other meshes or as an overlay (similar to the HTML GUI example above, but using a mesh so it can be positioned using stadard transforms, parented to other meshes, dragged, and scaled using gizmos, etc...).
 
-<Playground id="#Y2LIXI#44" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.png"/>
+<Playground id="#HVHYJC#5" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.png"/>
 
 ## Comparison of GUI Options
 
