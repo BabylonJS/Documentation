@@ -23,18 +23,9 @@ It is integrated within the playground. For your own projects it has to be loade
 
 Other possible GUIs are:
 
-1. CastorGUI, a Babylon.js community extension which overlays the scene
 1. Dat.GUI, an external interface
 1. HTML GUI
 1. HtmlMesh, a Babylon.js addon which allows HTML content to be included in the scene as a scene mesh or an overlay.
-
-## CastorGUI
-
-An alternative 2D GUI is the extension [CastorGUI](/communityExtensions/castorGUI). It has to be loaded both for the playground and for your own projects.
-
-It can be found on [Github](https://github.com/dad72/CastorGUI).
-
-<Playground id="#S34THY#14" title="CastorGUI Example" description="Simple example of using the CastorGUI system in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI2.jpg"/>
 
 ## Dat.GUI
 
