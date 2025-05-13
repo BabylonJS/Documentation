@@ -98,8 +98,8 @@ The following properties are also available to control all the rendering of a Te
 
 * color: Color4 used to define the color of the text
 * thicknessControl: a float indication how to change the overall default thickness (between -0.5 to 0.5 with 0 as the default value)
-* isBillboard: a boolean indicating you want the text to always face the camera
 * parent: A node entity used to attach to text to
+* isBillboard: a boolean indicating you want the text to always face the camera. ** Please note that in this case only the translation part of the parent world matrix will be considered **
 
 
 ## Examples
