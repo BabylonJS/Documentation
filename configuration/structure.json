@@ -3185,6 +3185,11 @@
                     "friendlyName": "HTML Mesh",
                     "children": {},
                     "content": "addons/htmlMesh"
+                },
+                "msdfText": {
+                    "friendlyName": "MSDF Text",
+                    "children": {},
+                    "content": "addons/msdfText"
                 }
             },
             "content": "addons"
