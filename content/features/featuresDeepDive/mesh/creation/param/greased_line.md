@@ -105,6 +105,10 @@ const points = [
 ];
 ```
 
+There is another option to avoid distortion when drawing thick, connected, long line segments: you need to duplicate each position, as demonstrated here:
+
+<Playground id="#H1LRZ3#750" title="Duplicating points" description="How to avoid distortion when drawing thick long line segments." />
+
 Please note that `points` property is not updatable unlike when using a `LineMesh`. You have to use the property `offsets` on the line instance to update the position of points without recreating the mesh. Updating the `offsets` doesn't involve any calulcations and updated only one vertex buffer. See below the Offsets section and the PG example Offsetting line vertices. 
 
 However there are two public methods available on the line instance for manipulating the points. Both of these functions will destroy the mesh and create a new one. This point manipulation method is slower but if you are not dealing with a lot of lines it should not cause FPS issues.
