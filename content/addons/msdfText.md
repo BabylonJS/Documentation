@@ -103,6 +103,7 @@ The following properties are also available to control all the rendering of a Te
 * strokeColor: Color4 used to define the color of the stroke around the text
 * strokeInsetWidth: Size of the stroke inset (inside the text)
 * strokeOutsetWidth: Size of the stroke outset (outside the text)
+* ignoreDepthBuffer: Will ignore depth buffer value and render the text on top of whatever is already in the frame buffer
 
 
 ## Examples
