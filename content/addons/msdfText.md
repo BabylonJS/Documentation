@@ -100,6 +100,7 @@ The following properties are also available to control all the rendering of a Te
 * thicknessControl: a float indication how to change the overall default thickness (between -0.5 to 0.5 with 0 as the default value)
 * parent: A node entity used to attach to text to
 * isBillboard: a boolean indicating you want the text to always face the camera. ** Please note that in this case only the translation part of the parent world matrix will be considered **
+* isBillboardScreenProjected: indicates whether billboard mode renders the text in screen-space. When set to true, the text keeps a constant on-screen size—its scale no longer changes with the camera’s distance.
 * strokeColor: Color4 used to define the color of the stroke around the text
 * strokeInsetWidth: Size of the stroke inset (inside the text)
 * strokeOutsetWidth: Size of the stroke outset (outside the text)
