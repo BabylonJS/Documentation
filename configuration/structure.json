@@ -627,6 +627,17 @@
                                         }
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks"
+                                },
+                                "frameGraphExamples": {
+                                    "friendlyName": "Examples",
+                                    "children": {
+                                        "frameGraphExampleTransmission": {
+                                            "friendlyName": "Rendering transmissive materials",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleTransmission"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphExamples"
                                 }
                             },
                             "content": "features/featuresDeepDive/frameGraph"
