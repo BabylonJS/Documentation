@@ -104,7 +104,17 @@ The following properties are also available to control all the rendering of a Te
 * strokeInsetWidth: Size of the stroke inset (inside the text)
 * strokeOutsetWidth: Size of the stroke outset (outside the text)
 * ignoreDepthBuffer: Will ignore depth buffer value and render the text on top of whatever is already in the frame buffer
+* transformMatrix: Matrix used to move the entire list of paragraphs as a whole
 
+## Positioning and scaling
+
+By default the text will be rendered at 0,0,0. Then we apply paragraph world matrix and then the transform matrix.
+
+You can control its position, rotation and scaling by setting a parent. If you opt to use the billboard mode then only position from the parent will be used.
+
+The overall location of the text will be computed as follow:
+
+Final world matrix = Parent World * Transform Matrix * Paragraph Matrix
 
 ## Examples
 
