@@ -27,6 +27,12 @@ This tool lets you visually construct and run Smart Filters using the provided b
 
 Read more about the Smart Filters Editor [here](../../../../toolsAndResources/sfe/)
 
+### In the Playground
+
+You can also experiment with Smart Filters in the Playground!
+
+<Playground id="#MU96WB#28" title="Smart Filter Camera" description="Demonstrates how a Smart Filter can be used to apply an effect to the camera in a scene." />
+
 ### With Code
 
 Clone [BabylonJS/SmartFilters](https://github.com/BabylonJS/SmartFilters), and you can see a small demo of how Smart Filters can be integrated into a web application.
