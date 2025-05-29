@@ -440,7 +440,7 @@ audioNode.start();
 await BABYLON.CreateSoundSourceAsync("sine", audioNode, { volume: 0.1 });
 ```
 
-Audio node input starts automatically and can be muted by setting its `volume` to 0, but it will continue streaming until disposed, even when it is muted.
+A sound source created for a WebAudio node starts automatically and can be muted by setting its `volume` to 0, but it will continue streaming until disposed, even when it is muted.
 
 <Playground id="#1BZK59#49" title="WebAudio node sound source" description="An example of using a WebAudio node as a sound source."/>
 
