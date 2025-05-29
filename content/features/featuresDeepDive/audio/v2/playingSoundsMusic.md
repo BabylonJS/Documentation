@@ -423,6 +423,34 @@ Note that the browser may show a microphone access request when this function is
 <br/>
 <br/>
 
+## WebAudio node sound sources
+
+To create a sound source from a WebAudio node, use the [`CreateSoundSourceAsync`](/typedoc/functions/BABYLON.CreateSoundSourceAsync) function.
+
+```javascript
+const audioContext = new AudioContext();
+const audioEngine = await BABYLON.CreateAudioEngineAsync({ audioContext });
+
+const audioNode = new OscillatorNode(audioContext, {
+    frequency: 440,
+    type: "sine",
+});
+audioNode.start();
+
+await BABYLON.CreateSoundSourceAsync("sine", audioNode, { volume: 0.1 });
+```
+
+A sound source created for a WebAudio node starts automatically and can be muted by setting its `volume` to 0, but it will continue streaming until disposed, even when it is muted.
+
+<Playground id="#1BZK59#49" title="WebAudio node sound source" description="An example of using a WebAudio node as a sound source."/>
+
+<br/>
+
+<Playground id="#QO4OTN#10" title="WebAudioModules synth sound source" description="An example of using a WebAudioModules synth as a sound source."/>
+
+<br/>
+<br/>
+
 ## Browser autoplay considerations
 
 When working with audio in the browser, [autoplay](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay) must be considered. Autoplay is generally disabled by default in most browsers and as a result, the Babylon audio engine can not play sounds until a user interaction has occurred on the page.
