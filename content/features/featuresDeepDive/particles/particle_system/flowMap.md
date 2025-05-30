@@ -36,7 +36,7 @@ const flowMapUrl = "https://assets.babylonjs.com/textures/particleMotion_flowmap
 particleSystem.flowMap = new BABYLON.Texture(flowMapUrl);
 ```
 
-Example using a GPU particle system:
-
-<Playground id="#5DM02T#12" title="Flow map" description="Complete example of a GPU particle flow map."/>
+Examples using various flow maps for both CPU and GPU particle systems:
+- <Playground id = "#2TXXS1" title="Sample CPU Flow Maps" description="Varied examples of flow maps demonstrating particle influences" image="/img/playgroundsAndNMEs/flowMapExamples.jpg"/>  
+- <Playground id="#5DM02T#12" title="GPU Flow map" description="Complete example of a GPU particle flow map."/>
 
