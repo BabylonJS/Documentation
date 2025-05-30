@@ -86,7 +86,6 @@ const shape = new BABYLON.PhysicsShapeMesh(
 
 A mesh shape is simply a collection of triangles. All the triangles in the input mesh will become triangles in the physics engine. This is a great choice for your static bodies, as generally, those static bodies represent highly concave objects, so this will give the closest match to your render geometry. Be aware that when two complex mesh shapes collide with each other, it might require the physics engine to calculate collisions between a huge number of triangles, which can slow down the simulation.
 
-
 ```javascript
 const shape = new BABYLON.PhysicsShapeContainer(
     scene   // scene of the shape
@@ -97,7 +96,7 @@ A container shape doesn't have any geometry by itself, however, it does allow an
 
 [The Container has its own page](/features/featuresDeepDive/physics/compounds) for more information.
 
-A height field is essentially a grid of height values (often stored in a 2D array) that define the elevation of a surface at each point on a regular grid. This creates a 3D surface that can be used for collision detection and physics simulations in a more efficient manner compared to using a high-resolution mesh of individual polygons.
+A height field is essentially a grid of height values (often stored in a 2D array) that define the elevation of a surface at each point on a regular grid. This creates a 3D surface that can be used for collision detection and physics simulations in a more efficient manner compared to using a high-resolution mesh of individual polygons. The example below constructs a height field from the `heightBuffer` returned by `CreateGroundFromHeightMap`:
 
 ```javascript
 var ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("g", "https://image.jpeg", {
@@ -108,14 +107,42 @@ var ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("g", "https://image.j
         passHeightBufferInCallback: true,
         onReady: (mesh, heightBuffer) => {
             var shape = new BABYLON.PhysicsShapeHeightField(
-                    size,
-                    size,
-                    subdivisions+1,
-                    subdivisions+1,
-                    heightBuffer
-                , scene);
+                size, // size of the heightfield on the X axis
+                size, // size of the heightfield on the Y axis
+                subdivisions + 1, // number of samples along the X axis
+                subdivisions + 1, // number of samples along the Y axis
+                heightBuffer, // data for the heightfield
+                scene);
         }
     });
+```
+
+If you want to construct a height field for a mesh which represents your "ground", but the mesh's vertices aren't evenly spaced, you could construct a height field with 10 subdivisions from x, z coordinates `(-50, -50)` to `(50, 50)` in your scene as follows:
+
+```
+const planeSize = 100;
+const subdivisions = 10;
+const stepSize = planeSize / subdivisions;
+const midPlane = Math.floor((planeSize / 2));
+var heightField = new Float32Array((subdivisions + 1) * (subdivisions + 1));
+for (var x = 0; x <= subdivisions; x++){
+    for (var z = 0; z <= subdivisions; z++){
+        var xCoord = (x * stepSize) - midPlane;
+        var zCoord = -1 * ((z * stepSize) - midPlane);
+        // getHeightAtCoordinates, which is not implemented here, would need
+        // to get the height of the mesh at x, z coordinates.
+        var height = getHeightAtCoordinates(xCoord, zCoord);
+        var index = z * (subdivisions + 1) + x;
+        heightField[index] = height;
+    }
+}
+var shape = new BABYLON.PhysicsShapeHeightField(
+    planeSize,
+    planeSize,
+    subdivisions + 1,
+    subdivisions + 1,
+    heightField,
+    scene);
 ```
 
 The following image shows a comparison of the Container, Mesh and Convex Hull shapes, from left to right:
