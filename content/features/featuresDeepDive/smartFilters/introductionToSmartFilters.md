@@ -31,7 +31,7 @@ Read more about the Smart Filters Editor [here](../../../../toolsAndResources/sf
 
 You can also experiment with Smart Filters in the Playground!
 
-<Playground id="#MU96WB#28" title="Smart Filter Camera" description="Demonstrates how a Smart Filter can be used to apply an effect to the camera in a scene." />
+<Playground id="#MU96WB#30" title="Smart Filter Camera" description="Demonstrates how a Smart Filter can be used to apply an effect to the camera in a scene." />
 
 ### With Code
 
