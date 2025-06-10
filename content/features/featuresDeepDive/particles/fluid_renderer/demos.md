@@ -118,9 +118,9 @@ Nothing really new in this demo except that it uses a cut hollow sphere (both fo
 
 ## Mesh SDF
 
-PG: <Playground id="#XMXDAA#117" title="Mesh SDF" description="Example of real fluid simulation collision with mesh SDF"/>
+PG: <Playground id="#XMXDAA#165" image="/img/playgroundsAndNMEs/pg-XMXDAA-117.png" title="Mesh SDF" description="Example of real fluid simulation collision with mesh SDF"/>
 
-Note: It may take a while to load, please be patient.
+Note: It may take a while to load, please be patient. Also, you must set `scene.useRightHandedSystem = true` for this demo to work (as of Babylon v6.49.0, due to changes made in https://github.com/BabylonJS/Babylon.js/pull/14884).
 
 This one demonstrates the use of a custom mesh as collision object (both meshes can be moved by dragging them with the mouse).
 

@@ -404,6 +404,53 @@ const sound = BABYLON.CreateSoundAsync("sound", [
 
 If needed, this behavior can be disabled by setting the [`skipCodecCheck`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#skipcodeccheck) option to `false` when creating a sound or sound buffer.
 
+## Microphone input
+
+To capture microphone input, use the [`CreateMicrophoneSoundSourceAsync`](/typedoc/functions/BABYLON.CreateMicrophoneSoundSourceAsync) function.
+
+```javascript
+const micInput = await CreateMicrophoneSoundSourceAsync("micInput");
+```
+
+Microphone input starts automatically and can be muted by setting its `volume` to 0, but it will continue streaming until disposed, even when it is muted.
+
+**Caution should be used when setting a microphone sound source's `outBus` property due to the potential for a loud feedback loop from the speakers back into the microphone.** To help prevent this, microphone sound sources do not automatically set the `outBus` property. It can be set after the microphone input is created, but be careful not to route the microphone output to speakers that will be picked up by the microphone and looped back into the speakers.
+
+Note that the browser may show a microphone access request when this function is called, in which case the promise returned by this function will resolve when the user responds to the request. An error is thrown if the request is denied.
+
+<Playground id="#JY5TDF#1" title="Microphone input" description="An example of using microphone input."/>
+
+<br/>
+<br/>
+
+## WebAudio node sound sources
+
+To create a sound source from a WebAudio node, use the [`CreateSoundSourceAsync`](/typedoc/functions/BABYLON.CreateSoundSourceAsync) function.
+
+```javascript
+const audioContext = new AudioContext();
+const audioEngine = await BABYLON.CreateAudioEngineAsync({ audioContext });
+
+const audioNode = new OscillatorNode(audioContext, {
+    frequency: 440,
+    type: "sine",
+});
+audioNode.start();
+
+await BABYLON.CreateSoundSourceAsync("sine", audioNode, { volume: 0.1 });
+```
+
+A sound source created for a WebAudio node starts automatically and can be muted by setting its `volume` to 0, but it will continue streaming until disposed, even when it is muted.
+
+<Playground id="#1BZK59#49" title="WebAudio node sound source" description="An example of using a WebAudio node as a sound source."/>
+
+<br/>
+
+<Playground id="#QO4OTN#10" title="WebAudioModules synth sound source" description="An example of using a WebAudioModules synth as a sound source."/>
+
+<br/>
+<br/>
+
 ## Browser autoplay considerations
 
 When working with audio in the browser, [autoplay](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay) must be considered. Autoplay is generally disabled by default in most browsers and as a result, the Babylon audio engine can not play sounds until a user interaction has occurred on the page.
@@ -447,6 +494,9 @@ document.head.appendChild(unmuteButtonStyle);
 ```
 
 <Playground id="#1BZK59#18" title="Unmute styling" description="An example of customizing the unmute button's CSS styling."/>
+
+<br/>
+<br/>
 
 ## Feature requests and bug fixes
 

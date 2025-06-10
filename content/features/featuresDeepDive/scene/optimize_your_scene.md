@@ -1,6 +1,6 @@
 ---
 title: Optimizing Your Scene
-image: 
+image:
 description: Learn how to optimize your scene in Babylon.js.
 keywords: diving deeper, scene, optimization, optimize
 further-reading:
@@ -38,7 +38,7 @@ material.unfreeze();
 ```
 
 ## Reducing World Matrices Computation
-Every mesh has a world matrix to specify its position / rotation / scaling. This matrix is evaluated on every frame. You can improve performances by freezing this matrix. Any subsequent changes to position / rotation / scaling will then be ignore:
+Every mesh has a world matrix to specify its position / rotation / scaling. This matrix is evaluated on every frame. You can improve performances by freezing this matrix. Any subsequent changes to position / rotation / scaling will then be ignored:
 
 ```
 mesh.freezeWorldMatrix();
@@ -72,14 +72,14 @@ camera.customRenderTargets.push(renderTargetTexture);
 ```
 
 ## Not updating the bounding info
-In conjonction with `mesh.alwaysSelectAsActiveMesh` you can also decide to turn off bounding info synchronization. This way the world matrix computation will be faster as the bounding info will not be updated (this could be a problem if you want to use picking or collisions):
+In conjunction with `mesh.alwaysSelectAsActiveMesh` you can also decide to turn off bounding info synchronization. This way the world matrix computation will be faster as the bounding info will not be updated (this could be a problem if you want to use picking or collisions):
 
 ```
 mesh.doNotSyncBoundingInfo = true;
 ```
 
 ## Not picking the scene on pointer move
-On every pointer move, the scene is browsing the list of meshes to see if a mesh under the pointer may need to have an associated action / event raised. 
+On every pointer move, the scene is browsing the list of meshes to see if a mesh under the pointer may need to have an associated action / event raised.
 To avoid this process, you can set `scene.skipPointerMovePicking = true`.
 
 Please note that by doing it, you will have no event over any mesh when the pointer will move (and `scene.meshUnderPointer` will not be updated even if `scene.constantlyUpdateMeshUnderPointer === true`).
@@ -119,7 +119,7 @@ When dealing with complex scenes, it could be useful to use depth pre-pass. This
 To enable a depth pre-pass for a mesh, just call `mesh.material.needDepthPrePass = true`.
 
 ## Using unindexed meshes
-By default Babylon.js uses indexed meshes where vertices can be reuse by faces. When vertex reuse is low and when vertex structure is fairly simple (like just a position and a normal) then you may want to unfold your vertices and stop using indices:
+By default Babylon.js uses indexed meshes where vertices can be reused by faces. When vertex reuse is low and when vertex structure is fairly simple (like just a position and a normal) then you may want to unfold your vertices and stop using indices:
 
 ```
 mesh.convertToUnIndexedMesh();
@@ -167,11 +167,11 @@ If you created resources that need to be rebuilt (like vertex buffers or index b
 
 ## Scene with large number of meshes
 If you have a large number of meshes in a scene, and need to reduce the time spent when adding/removing those meshes to/from the scene, There are several options of the `Scene` constructor that can help :
- - Setting the option `useGeometryIdsMap` to `true` will speed-up the addition and removal of `Geometry` in the scene.
+ - Setting the option `useGeometryUniqueIdsMap` to `true` will speed-up the addition and removal of `Geometry` in the scene.
  - Setting the option `useMaterialMeshMap` to `true` will speed-up the disposing of `Material` by reducing the time spent to look for bound meshes.
  - Setting the option `useClonedMeshMap` to `true` will speed-up the disposing of `Mesh` by reducing the time spent to look for associated cloned meshes.
 
-For each of this options turned on, Babylon.js will need an additional amount of memory.
+For each of these options turned on, Babylon.js will need an additional amount of memory.
 
 Also, If you are disposing a large number of meshes in a row, you can save unnecessary computation by turning the scene property `blockfreeActiveMeshesAndRenderingGroups` to true just before disposing the meshes, and set it back to `false` just after, like this :
 ````javascript
@@ -184,19 +184,19 @@ scene.blockfreeActiveMeshesAndRenderingGroups = false;
 
 ````
 ## Changing Mesh Culling Strategy
-The culling is the process to select whether a mesh must be passed to the GPU to be rendered or not. It's done CPU side.  
-If a mesh intersects the camera frustum in some way then it's passed to the GPU.  
-Depending on its accuracy (checking mesh bounding boxes or bounding spheres only, trying to include or to exclude fast the mesh from the frustum), this process can be time consuming.   
-In the other hand, reducing this process accuracy to make it faster can lead to some false positives : some meshes are passed to the GPU, are computed there and won't be finally visible in the viewport.   
-By default, BABYLON applies "Bounding Sphere Only" exclusion test to check if a mesh is in the camera frustum.  
-You can change this behaviour for any mesh of your scene at any time (and change it back then, if needed) this the property `mesh.cullingStrategy`.  
-```javascript 
+The culling is the process to select whether a mesh must be passed to the GPU to be rendered or not. It's done CPU side.
+If a mesh intersects the camera frustum in some way then it's passed to the GPU.
+Depending on its accuracy (checking mesh bounding boxes or bounding spheres only, trying to include or to exclude fast the mesh from the frustum), this process can be time consuming.
+In the other hand, reducing this process accuracy to make it faster can lead to some false positives : some meshes are passed to the GPU, are computed there and won't be finally visible in the viewport.
+By default, BABYLON applies "Bounding Sphere Only" exclusion test to check if a mesh is in the camera frustum.
+You can change this behaviour for any mesh of your scene at any time (and change it back then, if needed) this the property `mesh.cullingStrategy`.
+```javascript
 /**
-* Possible values : 
-         * - BABYLON.AbstractMesh.CULLINGSTRATEGY_STANDARD  
-         * - BABYLON.AbstractMesh.CULLINGSTRATEGY_BOUNDINGSPHERE_ONLY  
-         * - BABYLON.AbstractMesh.CULLINGSTRATEGY_OPTIMISTIC_INCLUSION  
-         * - BABYLON.AbstractMesh.CULLINGSTRATEGY_OPTIMISTIC_INCLUSION_THEN_BSPHERE_ONLY  
+* Possible values :
+         * - BABYLON.AbstractMesh.CULLINGSTRATEGY_STANDARD
+         * - BABYLON.AbstractMesh.CULLINGSTRATEGY_BOUNDINGSPHERE_ONLY
+         * - BABYLON.AbstractMesh.CULLINGSTRATEGY_OPTIMISTIC_INCLUSION
+         * - BABYLON.AbstractMesh.CULLINGSTRATEGY_OPTIMISTIC_INCLUSION_THEN_BSPHERE_ONLY
 */
 
 mesh.cullingStrategy = oneOfThePossibleValues;
@@ -215,20 +215,20 @@ mesh.cullingStrategy = oneOfThePossibleValues;
   *  Is the cullable object bounding sphere center in the frustum ?
   *  If not, apply the Bounding Sphere Only strategy. No Bounding Box is tested here.
 
-Optimistic Inclusion modes give a little gain. They keep the same accuracy as the basic mode on what they are applied (standard or bSphereOnly).  
-BoundingSphereOnly modes, because they reduce a lot the accuracy, give a good perf gain. These should not be used with high poly meshes while sending false positives to the GPU has a real rendering cost. These can be very interesting for numerous low poly meshes instead. *Really useful if you are CPU bound**.  
+Optimistic Inclusion modes give a little gain. They keep the same accuracy as the basic mode on what they are applied (standard or bSphereOnly).
+BoundingSphereOnly modes, because they reduce a lot the accuracy, give a good perf gain. These should not be used with high poly meshes while sending false positives to the GPU has a real rendering cost. These can be very interesting for numerous low poly meshes instead. *Really useful if you are CPU bound**.
 
 ## Performance Priority Modes
 
 Starting with Babylon.js 5.22, you can now change how the scene will treat performance regarding backward compatibility and ease of use.
 
-### Backward compatiblity mode (default)
+### Backward compatibility mode (default)
 By default, `scene.performancePriority` is set to `BABYLON.ScenePerformancePriority.BackwardCompatible`. In this mode, there is simply no change. The scene will keep prioritizing ease of use and backward compatibility.
 
 ### Intermediate mode
 If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Intermediate`, the scene will automatically:
 * Freeze materials when they are ready. If you need to change something on a material, you will have to call `material.markDirty(true)` after you did your changes
-* New meshes will have their `alwaysSelectAsActiveMesh` property set to true. The system will then skip frustrum clipping for the mesh and always set it to active (saving complex CPU operations). Keep in mind to turn it off if your scene is GPU bound
+* New meshes will have their `alwaysSelectAsActiveMesh` property set to true. The system will then skip frustum clipping for the mesh and always set it to active (saving complex CPU operations). Keep in mind to turn it off if your scene is GPU bound
 * New meshes will have their `isPickable ` property set to false. Picking and action managers will not work anymore. You can always turn that property back on if you need picking for a specific mesh
 * `scene.skipPointerMovePicking ` will be turned on (meaning that there will be no OnPointerMove events)
 * `scene.autoClear` will be turned off
@@ -240,7 +240,7 @@ If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Agg
 * New meshes will have their `doNotSyncBoundingInfo` set to true
 * The manager will not reset between frames (`scene.renderingManager.maintainStateBetweenFrames` is set to true). This means that if a mesh becomes invisible or transparent it will not be visible until this boolean is set to false again
 
- 
+
 
 ** Please note that the `Intermediate` and `Aggressive` modes will not be backward compatible, which means that we will probably add more features in these modes in the future to support performance first**
 
