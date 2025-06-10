@@ -635,6 +635,11 @@
                                             "friendlyName": "Rendering transmissive materials",
                                             "children": {},
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleTransmission"
+                                        },
+                                        "frameGraphExampleGeometryVAT": {
+                                            "friendlyName": "Generate geometry textures for VAT",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleGeometryVAT"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphExamples"
