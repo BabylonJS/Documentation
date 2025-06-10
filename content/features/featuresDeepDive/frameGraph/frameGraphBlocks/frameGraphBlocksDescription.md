@@ -82,7 +82,7 @@ You can modify the parameters of a post-process by clicking on it and changing t
 
 ![Parameters of DoF](/img/frameGraph/dof_parameters.jpg)
 
-You should refer to the post-process class in the Babylon framework if you need an explanation of what each parameter does for a given post-process block ([this page](https://doc.babylonjs.com/typedoc/classes/BABYLON.DepthOfFieldEffect) for depth of field, for example).
+You should refer to the post-process class in the Babylon framework if you need an explanation of what each parameter does for a given post-process block ([this page](/typedoc/classes/BABYLON.DepthOfFieldEffect) for depth of field, for example).
 
 In the rest of this section, we will focus on post-processes that have special features and will skip post-processes that should be self-explanatory (those for which you just need to connect the right inputs and define the right values for their parameters!).
 
@@ -136,7 +136,18 @@ The **shadowGenerators** input is optional and can be used if you want to genera
 
 <H3Image title="GeometryRenderer" image="/img/frameGraph/block_geometry_renderer.jpg" alt="GeometryRenderer node"/>
 
-This block is used to generate geometry textures, i.e. textures containing special data such as depths in view/screen space, normals in view/world space, reflectivity, etc.
+This block is used to generate geometry textures, i.e. textures containing special data such as depths in view/screen space, normals in view/world space, reflectivity, etc. Here is a list of all outputs that this block can generate:
+* **geomViewDepth**: depth in camera view space. This is the Z component of the vertex coordinate in the camera's view space and is a value between **near** and **far**, the camera's near and far clipping planes.
+* **geomNormViewDepth**: normalized depth in camera view space. Identical to the value above, but with values between 0 and 1, calculated using the formula `normViewDepth = (viewDepth - near) / (far - near)`.
+* **geomScreenDepth**: depth in screen space. This is the depth written to the depth buffer (`gl_FragCoord.z`) and is a value between 0 and 1.
+* **geomViewNormal**: normal in camera view space. This is the normal to the vertex in camera view space. The vector is normalized before being written to the texture.
+* **geomWorldNormal**: normal in world space. This is the normal at the vertex in world space. The vector is normalized before being written to the texture. It is also scaled and offset by 0.5 to generate components between 0 and 1.
+* **geomLocalPosition**: position in local space. This is the position of the vertex in the object model space, i.e., before any camera or world transformations.
+* **geomWorldPosition**: position in world space. This is the position of the vertex in world space.
+* **geomAlbedo**: albedo color. This is the albedo/diffuse color of the vertex.
+* **geomReflectivity**: reflectivity color. This is the reflectivity color of the vertex (used by SSR, for example).
+* **geomVelocity**: velocity vector in screen space. See [Motion blur by object](https://john-chapman-graphics.blogspot.com/2013/01/per-object-motion-blur.html) for more details on what a velocity texture is. **geomVelocity** is a texture constructed with the optimization described in the “Format and precision” section to improve accuracy when using an unsigned byte texture type.
+* **geomLinearVelocity**: linear velocity vector in screen space. It is identical to the one above, but without the optimization, so without the `pow()` call. The coordinates are multiplied by 0.5, so that they are between [-0.5, 0.5] instead of [-1, 1].
 
 To make these textures stand out, the corresponding outputs are all preceded by the prefix **geom**. The same goes for the blocks that are expecting one (or more) of these geometry textures as input. For example:
 
@@ -146,7 +157,9 @@ This makes it clear what kind of texture is expected for a given input and shoul
 
 <H3Image title="ShadowGenerator and CascadedShadowGenerator" image="/img/frameGraph/block_shadowgenerator.jpg" alt="ShadowGenerator and CascadedShadowGenerator nodes"/>
 
-Use this block when you want to generate shadows from a light. The light must be a “shadow light”, i.e. any light except area lights and hemispherical lights. The `CascadedShadowGenerator` block has the same inputs and outputs as the `ShadowGenerator` block, but with additional parameters (click on the block to access the list of parameters).
+Use this block when you want to generate shadows from a light. The light must be a “shadow light”, i.e. any light except area lights and hemispherical lights.
+
+The `CascadedShadowGenerator` block has additional parameters compared to the `ShadowGenerator` block (click on the block to access the list of parameters). It also has an additional (optional) input called **geomDepth**. You must connect a geometry depth (either “view,” “normalized view,” or “screen” - if possible, connect “normalized view,” or “screen” for best performance) to this input if you plan to use the [autoCalcDepthBounds](/typedoc/classes/babylon.cascadedshadowgenerator#autocalcdepthbounds) feature. If you do not, do not connect anything to the input to avoid generating a geometry texture when it is not needed.
 
 You may be surprised to see a **camera** input, because the scene is rendered from the point of view of the light to generate the shadow map, not from the point of view of a camera. This camera is necessary to:
 * split the camera frustum when using a `CascadedShadowGenerator` block

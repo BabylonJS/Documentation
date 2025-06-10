@@ -71,7 +71,7 @@ mesh.registerInstancedBuffer("bakedVertexAnimationSettingsInstanced", 4);
 mesh.instancedBuffers.bakedVertexAnimationSettingsInstanced = new BABYLON.Vector4(0, 0, 0, 0);
 ```
 
-<Playground id="#CP2RN9#18" title="Vertex Texture Animations on instances" description="An example of playing VATs on instances."/>
+<Playground id="#CP2RN9#290" title="Vertex Texture Animations on instances" description="An example of playing VATs on instances."/>
 
 ## VATs for thin instances
 
@@ -97,7 +97,7 @@ mesh.thinInstanceSetBuffer("bakedVertexAnimationSettingsInstanced", animParamete
 
 Here's an example:
 
-<Playground id="#CP2RN9#20" title="Vertex Texture Animations on thin instances" description="An example of playing VATs on thin instances."/>
+<Playground id="#CP2RN9#291" title="Vertex Texture Animations on thin instances" description="An example of playing VATs on thin instances."/>
 
 ### VATs offset
 
@@ -124,7 +124,7 @@ function computeOffset(
 
 The `time` parameter can be retrieved directly from the used `BakedVertexAnimationManager` via `manager.time`.
 
-<Playground id="#3NIXCL#519" title="Vertex Texture Animations on thin instances at offset" description="An example of playing VATs on thin instances with specific offset."/>
+<Playground id="#3NIXCL#707" title="Vertex Texture Animations on thin instances at offset" description="An example of playing VATs on thin instances with specific offset."/>
 
 
 ## Serializing and loading VATs
