@@ -18,6 +18,59 @@ A limitation of the current VAT implementation is that you cannot [blend animati
 
 The `VertexAnimationBaker` class generates a texture for you given the animation.
 
+## New Optimized Methods
+There is a new synchronous method for baking VAT in runtime on the VertexAnimationBaker called `bakeVertexDataSync`
+The existing methods for baking vertex data remain usable but this method will be much more efficient for runtime and offline baking.
+Additionally, for devices that support it, this method can return a `HalfFloat` which uses half the storage on disk and in memory.
+
+Here is the new API:
+
+```javascript
+const animationRanges = [
+    { from: 0, to: 33 },
+    { from: 33, to: 61 },
+    { from: 63, to: 91 },
+    { from: 93, to: 130 }
+];
+const importResult = await BABYLON.ImportMeshAsync(
+    "https://raw.githubusercontent.com/RaggarDK/Baby/baby/arr.babylon",
+    scene,
+    undefined
+);
+scene.onReadyObservable.add(() => {
+    const mesh = importResult.meshes[0];
+    const baker = new BABYLON.VertexAnimationBaker(scene, mesh);
+    // Check engine capabilities to use HalfFloat
+    const canUseFloat16 = engine.getCaps().textureHalfFloat;
+    // Bake the data synchronously
+    // If we can use HalfFloat, this will return a Uint16Array
+    const syncVertexData = baker.bakeVertexDataSync(animationRanges, canUseFloat16);
+    // textureFromBakedVertexData will now infer type from full floats or half floats
+    // and generate a raw texture based on the input
+    const vertexTexture = baker.textureFromBakedVertexData(syncVertexData);
+    const manager = new BABYLON.BakedVertexAnimationManager(scene);
+
+    manager.texture = vertexTexture;
+    manager.animationParameters = new BABYLON.Vector4(
+        animationRanges[0].from,
+        animationRanges[0].to,
+        0,
+        30
+    );
+
+    mesh.bakedVertexAnimationManager = manager;
+    scene.registerBeforeRender(() => {
+        manager.time += engine.getDeltaTime() / 1000.0;
+    });
+})
+```
+
+<Playground id="#CP2RN9#304" title="Vertex Texture Animations Sync Baking" description="Example of new sync baking methods"/>
+
+
+
+Here is the existing implementation running asynchronously:
+
 ```javascript
 let baker = null,
   mesh = null;
