@@ -1620,6 +1620,11 @@
                                             "friendlyName": "Load Particles from File",
                                             "children": {},
                                             "content": "features/featuresDeepDive/particles/particle_system/particles_loadFromFile"
+                                        },
+                                        "node_particle_editor": {
+                                            "friendlyName": "Node Particle Editor",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/particle_system/node_particle_editor"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/particles/particle_system"
