@@ -81,5 +81,22 @@ In this case, we use the AgeGradient contextual value (representing particle lif
 
 ## Triggers
 
-To add more complex behaviors, you can use triggers to link several particle systems. For instance to start a new particle system when a specific condition is met.
+To add more complex behaviors, you can use triggers to link multiple particle systems—for example, to start a new one when a specific condition is met.
+
+Here is a [pretty complex example](https://npe.babylonjs.com#K6F1ZB#1)
+
+And more precisely on the top right corner:
+![NPE screenshot](/img/tools/npe/09.jpg)
+
+Here, we’ve introduced a Trigger block. This block must be connected to another particle system—it’s designed to start a clone of that system when a specific condition is met.
+You can also limit the maximum number of simultaneous systems to avoid overloading the CPU.
+
+In our example, if a particle from the source system has a position.y greater than a random value between 0.5 and 1.5, it triggers a clone of the target system. However, this trigger will only fire once every 250ms, and no more than 5 instances can be active at the same time.
+
+Another option is to use the onStart and onEnd events on each particle system:
+![NPE screenshot](/img/tools/npe/10.jpg)
+
+In this example, the "Wave2" particle system will start when the "Wave" system ends. For this to work, "Wave" must have a target duration—otherwise, it would loop endlessly and never emit an onEnd event.
+
+Also note: "Wave2" is set to not start automatically.
 
