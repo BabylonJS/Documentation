@@ -20,7 +20,7 @@ Here’s a complete example you can try out:
 
 ## How To Use NPE
 
-To use NPE, head to [](https://npe.babylonjs.com).
+To use NPE, head to [npe.babylonjs.com](https://npe.babylonjs.com).
 
 The default setup matches the one we just showed. Let’s dive deeper.
 
@@ -41,7 +41,8 @@ This block defines the static properties of the system (like `capacity` or `emit
 
 ## Creation phase
 Every time a particle is created, this code runs. Each input is dynamic, meaning it’s evaluated per particle.
-![NPE screenshot](/img/tools/npe/03.jpg)
+
+![NPE screenshot](/img/tools/npe/03..jpg)
 
 In this example, each new particle is given a randomly chosen lifetime between 1 and 2.
 
