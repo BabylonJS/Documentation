@@ -108,25 +108,19 @@ BABYLON.ImportMeshAsync("url to the mesh parent directory/Mesh filename.fileexte
 
 Let's do a few more things:
 
-- 1. Replace "url to the mesh parent directory" (including quotes) with this:
+- 1. Replace "url to the mesh parent directory/Mesh filename.fileextension" (including quotes) with this:
 
 ```javascript
-Assets.meshes.Yeti.rootUrl;
+Assets.meshes.Yeti.rootUrl + Assets.meshes.Yeti.filename
 ```
 
-- 2. Replace the "Mesh filename.fileextension" (including quotes) with this:
+- 2. After the `BABYLON.ImportMeshAsync` line, but before the `"});"` add the following line:
 
 ```javascript
-Assets.meshes.Yeti.filename;
+  result.meshes[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
 ```
 
-- 3. After the `BABYLON.ImportMeshAsync` line, but before the `"});"` add the following line:
-
-```javascript
-result.meshes[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
-```
-
-- 4. Run the scene
+- 3. Run the scene
 
 <Playground id="#2KRNG9#3849" title="Playground 4" description="Yeti on the dance floor!"/>
 
