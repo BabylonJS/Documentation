@@ -188,8 +188,33 @@ const gunshot = await BABYLON.CreateSoundAsync("gunshot",
 await audioEngine.unlockAsync();
 
 gunshot.volume = 0.75;
-gunshot.play()
+gunshot.play();
 ```
+
+The volume can also fade in and out over time using [`AbstractSound.setVolume`](/typedoc/classes/BABYLON.AbstractSound#setvolume), which sets the volume to the given `value` with optional [`duration`](/typedoc/interfaces/BABYLON.IAudioParameterRampOptions#duration) and [`shape`](/typedoc/interfaces/BABYLON.IAudioParameterRampOptions#shape) options.
+
+```javascript
+const audioEngine = await BABYLON.CreateAudioEngineAsync();
+audioEngine.volume = 0.5;
+
+const tone = await BABYLON.CreateSoundAsync("tone",
+    "https://amf-ms.github.io/AudioAssets/samples/tones/sine-wave-440.wav"
+);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlockAsync();
+
+tone.volume = 0.2;
+tone.play({ loop: true });
+
+// Start a 3 second long fade to zero using a logarithmic shape.
+tone.setVolume(0, { duration: 3, shape: AudioParameterRampShape.Logarithmic });
+```
+
+See the [`AudioParameterRampShape`](/typedoc/enums/BABYLON.AudioParameterRampShape) enum for the list of available ramp shapes.
+
+To experiment with fading sound in and out using different ramp shapes, see this example playground:
+<Playground id="#HDPCXJ#6" title="Sound fade in and out" description="An example of fading sounds in and out with various ramp shapes."/>
 
 ## Stereo pan
 
