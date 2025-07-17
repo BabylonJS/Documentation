@@ -214,7 +214,11 @@ tone.setVolume(0, { duration: 3, shape: AudioParameterRampShape.Logarithmic });
 See the [`AudioParameterRampShape`](/typedoc/enums/BABYLON.AudioParameterRampShape) enum for the list of available ramp shapes.
 
 To experiment with fading sound in and out using different ramp shapes, see this example playground:
+
 <Playground id="#HDPCXJ#6" title="Sound fade in and out" description="An example of fading sounds in and out with various ramp shapes."/>
+
+<br/>
+<br/>
 
 ## Stereo pan
 
