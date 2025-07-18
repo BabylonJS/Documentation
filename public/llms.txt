@@ -1,0 +1,123 @@
+# Babylon.js Documentation
+
+> Babylon.js is a powerful, beautiful, simple, and open game and rendering engine packed into a friendly JavaScript framework.
+
+## About Babylon.js
+
+Babylon.js is a real-time 3D engine using a JavaScript library for displaying 3D graphics in a web browser via HTML5. The library provides several 3D model loaders, audio support, and other features for creating rich 3D experiences in web browsers.
+
+**Key Features:**
+- WebGL and WebGPU rendering support
+- Cross-platform compatibility (Web, Mobile, Desktop)
+- Rich ecosystem of tools and extensions
+- Physics engines integration
+- Audio engine with spatial audio support
+- Advanced materials and post-processing effects
+- Animation system
+- VR/AR/XR support
+- Node-based editors for materials and animation
+- TypeScript support with full IntelliSense
+- Open source (Apache 2.0 license)
+
+## Website Structure
+
+This documentation website covers:
+
+### Getting Started
+- **Setup & Installation**: Framework packages, NPM support, ES6 modules
+- **First Steps**: Creating scenes, basic meshes, cameras, lighting
+- **Templates**: Starter projects and boilerplates
+
+### Core Features
+- **Scene Management**: Multiple canvases, offscreen rendering, optimization
+- **Meshes & Geometry**: Primitive shapes, CSG operations, mesh manipulation
+- **Materials & Textures**: PBR materials, shaders, procedural textures
+- **Lighting**: Various light types, shadows, global illumination
+- **Cameras**: Arc rotate, free camera, VR cameras
+- **Animation**: Keyframe animation, skeletal animation, morph targets
+- **Physics**: Havok, Cannon.js, Ammo.js integration
+- **Audio**: 3D spatial audio, music playback, microphone input
+- **Particles**: GPU particles, particle systems, effects
+
+### Advanced Topics
+- **WebGPU Support**: Next-generation graphics API
+- **WebXR**: Virtual and Augmented Reality
+- **Post-Processing**: Screen effects, render pipelines
+- **Networking**: Multiplayer scenarios
+- **Performance**: Optimization techniques, profiling
+- **Custom Shaders**: GLSL programming, node materials
+
+### Tools & Extensions
+- **Babylon Viewer**: Embeddable 3D model viewer
+- **Inspector**: Visual debugging and scene editing
+- **Playground**: Online code editor and sharing
+- **Node Material Editor**: Visual shader creation
+- **GUI System**: 2D and 3D user interfaces
+- **Exporters**: 3ds Max, Maya, Blender plugins
+
+### Integrations
+- **React.js**: Component integration patterns
+- **Vue.js**: Framework binding examples
+- **Angular**: Service integration
+- **TypeScript**: Full type definitions
+- **Webpack**: Module bundling
+- **Electron**: Desktop applications
+
+### Community
+- **Extensions**: Third-party libraries and tools
+- **Examples**: Real-world use cases
+- **Forum**: Support and discussion
+- **GitHub**: Source code and contributions
+
+## Technical Information
+
+**Engine Architecture:**
+- Modular design with tree-shakable ES6 modules
+- TypeScript codebase with JavaScript distribution
+- Plugin system for extensibility
+- Scene graph with transform hierarchies
+- Render loop and frame management
+
+**Supported Formats:**
+- Models: glTF, OBJ, STL, Babylon (.babylon)
+- Textures: PNG, JPG, DDS, KTX, WEBP
+- Audio: MP3, WAV, OGG, M4A
+
+**Browser Compatibility:**
+- Modern browsers with WebGL 1.0/2.0 support
+- WebGPU support where available
+- Mobile browser optimization
+- Progressive enhancement
+
+**Development Tools:**
+- NPM packages for all modules
+- TypeScript definitions included
+- Webpack integration
+- Development server with hot reload
+- Visual debugging tools
+
+## Getting Help
+
+- **Documentation**: Comprehensive guides and API reference
+- **Playground**: Interactive examples at playground.babylonjs.com
+- **Forum**: Community support at forum.babylonjs.com
+- **GitHub**: Issues and contributions at github.com/BabylonJS/Babylon.js
+- **Discord**: Real-time chat support
+
+## Contributing
+
+Babylon.js is open source and welcomes contributions:
+- Code contributions via GitHub pull requests
+- Documentation improvements
+- Bug reports and feature requests
+- Community extensions and examples
+- Translation efforts
+
+The project follows standard open source practices with code review, testing, and continuous integration.
+
+---
+
+*Last updated: June 2025*
+*Website: https://doc.babylonjs.com*
+*GitHub: https://github.com/BabylonJS/Babylon.js*
+*License: Apache 2.0*
