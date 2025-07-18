@@ -117,7 +117,7 @@ The project follows standard open source practices with code review, testing, an
 
 ---
 
-*Last updated: 2025*
+*Last updated: June 2025*
 *Website: https://doc.babylonjs.com*
 *GitHub: https://github.com/BabylonJS/Babylon.js*
 *License: Apache 2.0*
