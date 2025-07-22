@@ -12,9 +12,14 @@ video-content:
 
 The Smart Filter Editor (SFE) is a visual tool, much like the Node Material Editor, designed to make it easy to rapidly build and preview Smart Filters.
 
-It is available at https://sfe.babylonjs.com and your can run it locally if you clone the [BabylonJS/SmartFilters](https://github.com/BabylonJS/SmartFilters) repo and run the `npm run start:sfe` command.
+It is available at https://sfe.babylonjs.com and your can run it locally if you clone the [BabylonJS/Babylon.js](https://github.com/BabylonJS/Babylon.js) repo then:
 
-It includes the blocks from the @babylonjs/smart-filters-blocks package (also in the [BabylonJS/SmartFilters](https://github.com/BabylonJS/SmartFilters)) repo, and can also use custom blocks you upload as JSON or GLSL files. These custom blocks are persisted in local storage, so you can load your own blocks once, then make use of them each time you return to SFE.
+- Run `npm install`
+- Choose one of these approaches to build the Smart Filter Editor:
+  - Select `Smart Filter Editor development (Edge)` or `Smart Filter Editor development (Chrome)` in Visual Studio Code's `Run and Debug` menu then hit F5
+  - Run `npm run watch:assets:smart-filters` in a terminal, then `npm run watch:source:smart-filters` in another terminal, and finally `npm run serve -w @tools/smart-filters-editor` in a third terminal
+
+It includes the blocks from the @babylonjs/smart-filters-blocks package (also in the [BabylonJS/Babylon.js](https://github.com/BabylonJS/Babylon.js)) repo, and can also use custom blocks you upload as JSON or GLSL files. These custom blocks are persisted in local storage, so you can load your own blocks once, then make use of them each time you return to SFE.
 
 You can save the Smart Filters you create with SFE as local JSON files or as custom URLs you can share with others.
 
