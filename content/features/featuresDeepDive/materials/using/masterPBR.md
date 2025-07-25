@@ -39,7 +39,7 @@ To switch from the PBRMetallicRoughnessMaterial to the bigger PBRMaterial, a few
 | environmentTexture           | reflectionTexture      |
 | normalTexture                | bumpTexture            |
 | occlusionTexture             | ambientTexture         |
-| occlusionTextureStrength     | ambientTextureStrength |
+| occlusionStrength            | ambientTextureStrength |
 
 As the channels used for metallic or roughness can be customized, in order to be setup as the simple material, you will need to add the following flags:
 
@@ -79,7 +79,7 @@ To switch from the PBRSpecularGlossinessMaterial to the richer PBRMaterial, a fe
 | glossiness                    | microSurface           |
 | normalTexture                 | bumpTexture            |
 | occlusionTexture              | ambientTexture         |
-| occlusionTextureStrength      | ambientTextureStrength |
+| occlusionStrength             | ambientTextureStrength |
 
 Also, as the channel used for glossiness can be customized, in order to be setup as the simple material, you will need to add the following flag:
 
