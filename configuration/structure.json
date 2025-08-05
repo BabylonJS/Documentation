@@ -813,6 +813,11 @@
                                     "friendlyName": "Depth metric when rendering shadows",
                                     "children": {},
                                     "content": "features/featuresDeepDive/lights/mathShadows"
+                                },
+                                "clusteredLighting": {
+                                    "friendlyName": "Clustered Lighting",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/lights/clusteredLighting"
                                 }
                             },
                             "content": "features/featuresDeepDive/lights"
