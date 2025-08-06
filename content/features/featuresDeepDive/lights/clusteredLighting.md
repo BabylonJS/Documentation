@@ -21,7 +21,7 @@ When a scene has alot of lights, the per-pixel lighting calculations can get qui
 
 In Babylon, clustered lighting is implemented as its own light type, in which other point or spot lights can be added to:
 ```javascript
-const clusteredLight = new ClusteredLight("clustered", [pointLight1, pointLight2], scene);
+const clusteredLight = new BABYLON.ClusteredLight("clustered", [pointLight1, pointLight2], scene);
 // More lights can be added or removed later
 clusteredLight.removeLight(pointLight1);
 clusteredLight.addLight(spotLight);
@@ -41,7 +41,7 @@ Babylon takes a slightly different apprach to clustered lighting, which is mainl
 
 This solution works on both WebGPU and WebGL 2 (if float color buffers are supported and blendable).
 
-TODO: playground
+<Playground id="http://localhost:1338/#CSCJO2#3" title="Sponza scene with 1000 lights" description="Example showing off the capabilities of clustered lighting by making the Sponza scene colorful" />
 
 ## Tiled Clustering
 
@@ -75,9 +75,13 @@ clusteredLight.proxyTesselation = 32;
 
 Yet again, this option is a balancing act between the light clustering performance and the per-pixel lighting performance. More triangles will make the clustering slower but will make the results more closely match the shape of the light.
 
-These light proxies then set a bit in a bitmask, which then gets iterated over during rendering. The way this bit is set differs between WebGL and WebGPU.
+The light proxies are scaled by the `range` parameter of the light. By default the range of lights is very large, so `ClusteredLight` will clamp all lights to a smaller (yet still quite large) range. If you wish to have lights with a larger range than the defualt max of 16383, this can be modified using the `maxRange` option:
+```javascript
+clusteredLight.maxRange = 30000;
+```
+It is recommended to adjust the ranges of your lights so they don't all end up as the max range (which cancels out any clustering attempts).
 
-TODO: talk about the `maxRange` option
+When These light proxies are rendered they set a bit in a bitmask, which then gets iterated over during rendering. The way this bit is set differs between WebGL and WebGPU.
 
 ### WebGPU
 
@@ -105,11 +109,80 @@ Our solution to this problem, partly inspired by [this GitHub project](https://g
 
 ## Depth Clustering
 
-TODO
+The depth clustering is alot more simple and can easily be done on the CPU since we're only dealing with a single dimension (depth) instead of two (screen X and Y). The depth range of the camera (from `minZ` to `maxZ`) is split into 16 slices by default, with each slice containing the minimum and maximum light index that intersects that slice. This provides a range of bitmasks (from the tiled clustering step) the fragment shader needs to check. For these minimum and maximum indices to efficiently represent the lights within the slice, the lights are sorted based on distance from the camera. Sorting is fast enough to be done each frame.
+
+![The Sponza scene with the screen covered in randomly-colored slices getting further and further away from the camera](/img/features/clusteredLighting/slices16.png)
+<font size="2">The Sponza scene with the default depth slicing options. Each slice is tinted a different color.</font>
+
+The number of slices can be tweaked using the `depthSlices` option. Additionally, the cameras `maxZ` property can be adjusted to bring the slices closer which is recommended for smaller scenes:
+```javascript
+camera.maxZ = 100;
+clusteredLight.depthSlices = 64;
+```
+
+![The Sponza scene with the screen covered in more, but thinner, randomly-colored slices](/img/features/clusteredLighting/slices64.png)
+<font size="2">The Sponza scene with a max depth of 100 split into 64 slices.</font>
+
+To find the intersection between the tiled clustering and the depth clustering, the lighting code in the fragment shader ends up looking along the lines of (overly simplified for the sake of demonstration):
+```glsl
+for (int i = firstBatch; i <= lastBatch; i += 1) {
+    uint mask = getBatchMask(i);
+    if (i == firstBatch) {
+        // clear starting bits depending on first light index
+    }
+    if (i == lastBatch) {
+        // clear ending bits depending on last light index
+    }
+
+    while (mask != 0u) {
+        int trailing = firstTrailingBit(mask);
+        // Clear the bit we found
+        mask ^= 1u << trailing;
+
+        SpotLight light = getClusteredSpotLight(
+            i * batchSize + trailing);
+        // Compute lighting contribution
+    }
+}
+```
 
 ## Limitations
 
-TODO
+In its current form, there are some limits to the clustered lighting implementation.
+
+### Only spot and point lights are supported
+
+Currently only spot and point lights are supported. Other lights will still need to be rendered separately using a non-clustered approach.
+
+### Lights with extra textures are not supported
+
+Some lights require binding extra textures per light. These include:
+- shadow-generating lights
+- spot lights with projection or IES textures
+
+Because we don't know which lights we need until render time, we'd effectively need to bind every single texture and dynmically index them too. This is usually done with a generated texture atlas, but thats quite a bit of complex work. So for now we just don't support clustering these lights.
+
+### Lights with a falloff other than `FALLOFF_DEFAULT` are not supported
+
+To reduce branching in the shader, all lights are assumed to use the default falloff method (which makes it dependent on the material).
+
+### Materials with a physical falloff may cause artefacts
+
+The physical falloff is the only falloff method that ignores the `range` parameter on lights. This means that the range the light proxy is rendered at might be shorter than the lights actual range of influence. This falloff is still supported, just be sure to adjust the `range` of your lights accordingly so they reach a point where the physical falloff is not very noticeable anymore.
+
+![The Sponza scene covered in lights but there are block artefacts where the lights end](/img/features/clusteredLighting/physicalFalloff.png)
+<font size="2">The artefacts that can occur from incorrect range parameters when using a physical falloff.</font>
+
+The physical falloff can be disabled on all PBR meterials using:
+```javascript
+for (const material of scene.meterials) {
+    if (meterial instanceof BABYLON.PBRMaterial) {
+        material.usePhysicalLightFalloff = false;
+        // ... or alternatively ...
+        material.useGLTFLightFalloff = true;
+    }
+}
+```
 
 ---
 ### Footnotes
