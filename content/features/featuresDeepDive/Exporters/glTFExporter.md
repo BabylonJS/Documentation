@@ -140,6 +140,7 @@ Key:
 - ✔️ Draco Compression Extension [KHR_draco_mesh_compression](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_draco_mesh_compression)
   - There is currently no built-in support for roundtripping Draco-compressed glTF assets.
 - ❌ Meshopt Compression Extension [EXT_meshopt_compression](https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Vendor/EXT_meshopt_compression/README.md)
+- ❌ Pivot points
 
 ##### Materials
 

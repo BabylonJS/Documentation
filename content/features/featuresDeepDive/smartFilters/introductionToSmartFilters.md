@@ -31,24 +31,23 @@ Read more about the Smart Filters Editor [here](../../../../toolsAndResources/sf
 
 You can also experiment with Smart Filters in the Playground!
 
-<Playground id="#MU96WB#30" title="Smart Filter Camera" description="Demonstrates how a Smart Filter can be used to apply an effect to the camera in a scene." />
+<Playground id="#N7VSE6" title="Smart Filter Camera" description="Demonstrates how a Smart Filter can be used to apply an effect to the camera in a scene." />
+<Playground id="#1VIWKL#2" title="Smart Filter Camera from SFE" description="Demonstrates how a Smart Filter saved from the Smart Filter Editor can be used to apply an effect to the camera in a scene." />
 
 ### With Code
 
-Clone [BabylonJS/SmartFilters](https://github.com/BabylonJS/SmartFilters), and you can see a small demo of how Smart Filters can be integrated into a web application.
+Clone [BabylonJS/Babylon.js](https://github.com/BabylonJS/Babylon.js), and you can see how the Smart Filters Editor application uses Smart Filters
 
-Once you've cloned, simply run these commands to see the demo application:
+Once you've cloned, run `npm install` then choose one of these approaches to build the Smart Filter Editor:
 
-- npm install
-- npm start
+- Select `Smart Filter Editor development (Edge)` or `Smart Filter Editor development (Chrome)` in Visual Studio Code's `Run and Debug` menu then hit F5
+- Run `npm run watch:assets:smart-filters` in a terminal, then `npm run watch:source:smart-filters` in another terminal, and finally `npm run serve -w @tools/smart-filters-editor` in a third terminal
 
 #### Key Files
 
-- demo/src/app.ts
-  - The main file for the demo app - responsible for creating all of the helpers, wiring up to the UI, and connecting them all together
-- demo/src/smartFilterLoader.ts
-  - Loads a `SmartFilter` from a "Manifest" (either a hardcoded or serialized Smart Filter)
-- demo/src/smartFilterRenderer.ts
-  - Takes a `SmartFilter`, creates the `SmartFilterRuntime`, loads any test assets (e.g. images or videos), and starts rendering
-- demo/src/configuration/smartFilters/\*.ts
-  - The hardcoded and serialized example Smart Filters
+- [app.ts](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/smartFiltersEditor/src/app.ts)
+  - The main file for the Smart Filter Editor - it handles loading and saving Smart Filters and launching the editor control
+- [smartFilterLoader.ts](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/smartFiltersEditor/src/smartFilterLoader.ts)
+  - The helper which takes a deserializer and uses it to load Smart Filters
+- [smartFilterRenderer.ts](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/smartFiltersEditor/src/smartFilterRenderer.ts)
+  - The helper that takes a loaded Smart Filter and begins rendering it

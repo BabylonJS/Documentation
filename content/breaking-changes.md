@@ -9,6 +9,12 @@ video-content:
 toc-levels: 2
 ---
 
+## 8.10.1
+
+### Fix target camera orientation issues when using right-handed scenes
+
+When using right-handed scenes, setting and getting the `rotation` or `rotationQuaternion` properties of a target camera was 180-rotated on the Y-axis when compared to the view or world matrix of the camera. This is confusing and caused problems when exporting glTF. Any code that previously set the `rotation` or `rotationQuaternion` properties of a camera derived from `TargetCamera` (`FreeCamera` or `ArcRotateCamera` for example) when using right-handed scenes will now be wrong. The default orientation of a target camera still faces +Z as before to maintain backwards compatibility. Left-handed scenes are also unaffected. See [PR](https://github.com/BabylonJS/Babylon.js/pull/16691) for more information.
+
 ## 8.2.0
 
 ### PBR: Add flag to calculate legacy translucency

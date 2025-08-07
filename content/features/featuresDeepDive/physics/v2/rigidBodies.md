@@ -145,7 +145,7 @@ The Shape types supported by the V2 Plugin are:
 | CONVEX_HULL | A convex hull is the smallest convex shape containing points.| ![convex_hull Shape](/img/features/physics/convex_hull_shape_viewer.png) | ✅ |
 | MESH | Mesh used for rendering or a simpler version | ![mesh Shape](/img/features/physics/mesh_shape_viewer.png) | ✅ |
 | CONTAINER | Holder of other shapes | ![container Shape](/img/features/physics/compound_shape_viewer.png) | ✅ |
-| HEIGHTFIELD | A height field mesh is a 2D surface with height data. | | 🟥 |
+| HEIGHTFIELD | A height field mesh is a 2D surface with height data. | ![heightfield Shape](/img/features/physics/heightfield_shape_viewer.png) | ✅ |
 
 [This page contains more detail about shapes and their parameters.](/features/featuresDeepDive/physics/shapes)
 
