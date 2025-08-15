@@ -21,15 +21,10 @@ When a scene has alot of lights, the per-pixel lighting calculations can get qui
 
 In Babylon, clustered lighting is implemented as its own light type, in which other point or spot lights can be added to:
 ```javascript
-const clusteredLight = new BABYLON.ClusteredLight("clustered", [pointLight1, pointLight2], scene);
+const lightContainer = new BABYLON.ClusteredLightContainer("clustered", [pointLight1, pointLight2], scene);
 // More lights can be added or removed later
-clusteredLight.removeLight(pointLight1);
-clusteredLight.addLight(spotLight);
-```
-
-Alternatively, if you want all compatible point and spot lights to be automatically clustered, `clusteredLighting` can be enabled on the scene level:
-```javascript
-scene.clusteredLighting = true;
+lightContainer.removeLight(pointLight1);
+lightContainer.addLight(spotLight);
 ```
 
 Clustered lighting usually follows a three-step approach along the lines of:
@@ -41,7 +36,7 @@ Babylon takes a slightly different apprach to clustered lighting, which is mainl
 
 This solution works on both WebGPU and WebGL 2 (if float color buffers are supported and blendable).
 
-<Playground id="http://localhost:1338/#CSCJO2#3" title="Sponza scene with 1000 lights" description="Example showing off the capabilities of clustered lighting by making the Sponza scene colorful" />
+<Playground id="#CSCJO2#16" title="Sponza scene with 1000 lights" description="Example showing off the capabilities of clustered lighting by making the Sponza scene colorful" />
 
 ## Tiled Clustering
 
@@ -52,8 +47,8 @@ By the default the screen is split into 64 tiles accross and 64 tiles down for a
 
 The amount of tiles can be changed using the `verticalTiles` and `horizontalTiles` options:
 ```javascript
-clusteredLight.verticalTiles = 16;
-clusteredLight.horizontalTiles = 9;
+lightContainer.verticalTiles = 16;
+lightContainer.horizontalTiles = 9;
 ```
 
 ![The Sponza scene with the screen covered in less, but larger, randomly-colored tiles](/img/features/clusteredLighting/tiles16x9.png)
@@ -61,23 +56,13 @@ clusteredLight.horizontalTiles = 9;
 
 Configuring the total tile count is a balancing act between keeping the light clustering fast by reducing the amount of tiles, while keeping the per-pixel lighting fast by keeping the tiles small<sup>[1](#footnotes)</sup>, which makes the light list for that pixel more accurate. Increasing the tile count will also increase the GPU memory usage.
 
-To cluster the lights into the tiles we render each light against the configured tile layout using a "light proxy" (or light mesh). In Babylon this light proxy is a disc:
-![The lion face from the Sponza scene with a single light and the wireframe of a disc overtop the light](/img/features/clusteredLighting/proxy8.png)
-<font size="2">The default light proxy disc.</font>
+To cluster the lights into the tiles we render each light against the configured tile layout using a "light proxy" (or light mesh). In Babylon this light proxy is a simple square:
+![The lion face from the Sponza scene with a single light and the wireframe of a square overtop the light](/img/features/clusteredLighting/proxy.png)
+<font size="2">The light proxy square.</font>
 
-By default the disc is split into 8 triangles, but this can be tweaked using the `proxyTesselation` option:
+The light proxies are scaled by the `range` parameter of the light. By default the range of lights is very large, so `ClusteredLightContainer` will clamp all lights to a smaller (yet still quite large) range. If you wish to have lights with a larger range than the defualt max of 16383, this can be modified using the `maxRange` option:
 ```javascript
-clusteredLight.proxyTesselation = 32;
-```
-
-![The lion face from the Sponza scene with a single light and the wireframe of a disc overtop the light](/img/features/clusteredLighting/proxy32.png)
-<font size="2">The light proxy disc with 32 triangles.</font>
-
-Yet again, this option is a balancing act between the light clustering performance and the per-pixel lighting performance. More triangles will make the clustering slower but will make the results more closely match the shape of the light.
-
-The light proxies are scaled by the `range` parameter of the light. By default the range of lights is very large, so `ClusteredLight` will clamp all lights to a smaller (yet still quite large) range. If you wish to have lights with a larger range than the defualt max of 16383, this can be modified using the `maxRange` option:
-```javascript
-clusteredLight.maxRange = 30000;
+lightContainer.maxRange = 30000;
 ```
 It is recommended to adjust the ranges of your lights so they don't all end up as the max range (which cancels out any clustering attempts).
 
@@ -102,10 +87,7 @@ As one final note before going onto depth clustering, its worth talking about a 
 
 Infinity Ward also faced this issue with Call of Duty, and their solution presented in the slides is to render the light proxies at screen resolution. This works fine when writing out bits using atomic OR since multiple fragment shaders can set the same bit without issue<sup>[2](#footnotes)</sup>. For this to work in WebGL we'd have to post-process the results by reducing the full resolution down to a single pixel per tile.
 
-Our solution to this problem, partly inspired by [this GitHub project](https://github.com/wizgrav/cl2), is to round the mesh vertices to the nearest corner away from the center (round down for vertices left of the center, round up for vertices right of the center). This is the cause of the wobblyness you may have noticed with the images of the proxies above.
-
-![A very far away light with a square mesh overtop it](/img/features/clusteredLighting/proxyFar.png)
-<font size="2">This rounding causes the proxies to become more square as you get further away from the light. At some point it will just be a square covering a single tile.</font>
+Our solution to this problem, partly inspired by [this GitHub project](https://github.com/wizgrav/cl2), is to round the mesh vertices to the nearest corner away from the center (round down for vertices left of the center, round up for vertices right of the center). This means that no matter how far away from a light you are, its proxy will always render to atleast one tile on the screen.
 
 ## Depth Clustering
 
@@ -117,7 +99,7 @@ The depth clustering is alot more simple and can easily be done on the CPU since
 The number of slices can be tweaked using the `depthSlices` option. Additionally, the cameras `maxZ` property can be adjusted to bring the slices closer which is recommended for smaller scenes:
 ```javascript
 camera.maxZ = 100;
-clusteredLight.depthSlices = 64;
+lightContainer.depthSlices = 64;
 ```
 
 ![The Sponza scene with the screen covered in more, but thinner, randomly-colored slices](/img/features/clusteredLighting/slices64.png)
