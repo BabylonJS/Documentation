@@ -569,6 +569,7 @@ TOOLS_PORT=1338 # port for tools like the playground or the node editor
 CDN_PORT=1337 # port for the Babylon server
 CDN_BASE_URL="https://cdn.babylonjs.com" # base URL for the CDN. Defaults to localhost:1337. Useful if you want to test against a snapshot or the stable nightly
 ENABLE_HTTPS=true # enable HTTPS for the Babylon server. USeful for WebXR
+DISABLE_DEV_OVERLAY=true # hides the react dev overlay
 ```
 
 Note that the .env file should never be updated on the repository. It is ignored by git.
@@ -1134,3 +1135,4 @@ Commit files you have added or edited but not those built.
 ### Push Pull-Request Check
 
 ![Pull-Request](/img/contribute/summary3.jpg)
+
