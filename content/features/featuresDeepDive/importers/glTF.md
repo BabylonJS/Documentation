@@ -159,7 +159,7 @@ Though deprecated, Babylon maintains a dedicated glTF loader plugin for glTF 1.0
 
 ### Properties
 
-#### IncrementalLoading
+##### IncrementalLoading
 
 Set this property to false to disable incremental loading which delays the loader from calling the success callback until after loading the meshes and shaders. Textures always loads asynchronously. For example, the success callback can compute the bounding information of the loaded meshes when incremental loading is disabled. Defaults to true.
 
@@ -167,7 +167,7 @@ Set this property to false to disable incremental loading which delays the loade
 BABYLON.GLTFFileLoader.IncrementalLoading = false;
 ```
 
-#### HomogeneousCoordinates
+##### HomogeneousCoordinates
 
 Set this property to true in order to work with homogeneous coordinates, available with some converters and exporters. Defaults to false.
 
