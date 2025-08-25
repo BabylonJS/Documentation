@@ -59,7 +59,7 @@ This behavior can lead to issues like GDPR compliance concerns or CSP violations
 
 How you do this depends on your setup. In general, there are two approaches.
 
-##### 1. Via URL Configuration
+#### Via URL Configuration
 
 1. Obtain the decoder files. You can either:
    - Download them directly from the Babylon CDN at `https://cdn.babylonjs.com/[FILENAME]`, or
@@ -90,7 +90,7 @@ KhronosTextureContainer2.URLConfig = {
 };
 ```
 
-##### 2. Via Resource Injection
+#### Via Resource Injection
 
 Alternatively, you can inject the decoder modules directly (or workers preloaded with them) instead of relying on Babylon to fetch them.
 Follow the steps in the [ESM/NPM Support docs](https://doc.babylonjs.com/setup/frameworkPackages/es6Support/#ktx2-decoder-packages) to set this up with the KTX2 and Draco decoders. (_Note: Meshopt compression does not yet support injection._)
@@ -159,7 +159,7 @@ Though deprecated, Babylon maintains a dedicated glTF loader plugin for glTF 1.0
 
 ### Properties
 
-##### IncrementalLoading
+#### IncrementalLoading
 
 Set this property to false to disable incremental loading which delays the loader from calling the success callback until after loading the meshes and shaders. Textures always loads asynchronously. For example, the success callback can compute the bounding information of the loaded meshes when incremental loading is disabled. Defaults to true.
 
@@ -167,7 +167,7 @@ Set this property to false to disable incremental loading which delays the loade
 BABYLON.GLTFFileLoader.IncrementalLoading = false;
 ```
 
-##### HomogeneousCoordinates
+#### HomogeneousCoordinates
 
 Set this property to true in order to work with homogeneous coordinates, available with some converters and exporters. Defaults to false.
 
