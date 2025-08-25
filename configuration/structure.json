@@ -2530,6 +2530,11 @@
                             "friendlyName": "Custom Blocks",
                             "children": {},
                             "content": "toolsAndResources/nme/customBlocks"
+                        },
+                        "nmeToSfe": {
+                            "friendlyName": "Usage with the Smart Filter Editor",
+                            "children": {},
+                            "content": "toolsAndResources/nme/nmeToSfe"
                         }
                     },
                     "content": "toolsAndResources/nme"
@@ -3628,24 +3633,24 @@
                     },
                     "content": "communityExtensions/Unity"
                 },
-	            "WebXRExtension": {
-		            "friendlyName": "WebXR Extension",
-		            "content": "communityExtensions/WebXRExtension/webxrextension",
-		            "children": {
-			            "gestureRecognition": {
-				            "friendlyName": "Gesture recognition",
-				            "content": "communityExtensions/WebXRExtension/gestureRecognition"
-			            },
-			            "handsAnimation": {
-				            "friendlyName": "Hands animations",
-				            "content": "communityExtensions/WebXRExtension/handsAnimation"
-			            },
-			            "spaceMarkUp": {
-				            "friendlyName": "Space markup",
-				            "content": "communityExtensions/WebXRExtension/spaceMarkUp"
-			            }
-		            }
-	            }
+                "WebXRExtension": {
+                    "friendlyName": "WebXR Extension",
+                    "content": "communityExtensions/WebXRExtension/webxrextension",
+                    "children": {
+                        "gestureRecognition": {
+                            "friendlyName": "Gesture recognition",
+                            "content": "communityExtensions/WebXRExtension/gestureRecognition"
+                        },
+                        "handsAnimation": {
+                            "friendlyName": "Hands animations",
+                            "content": "communityExtensions/WebXRExtension/handsAnimation"
+                        },
+                        "spaceMarkUp": {
+                            "friendlyName": "Space markup",
+                            "content": "communityExtensions/WebXRExtension/spaceMarkUp"
+                        }
+                    }
+                }
             },
             "content": "communityExtensions"
         },
