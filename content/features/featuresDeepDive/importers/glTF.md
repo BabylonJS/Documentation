@@ -110,7 +110,7 @@ You can also [create your own extensions](/features/featuresDeepDive/importers/g
 
 ## Options
 
-Each of the scene loader functions accepts an options object, where you can customize the behavior of the glTF loader plugin. See the [full list of available glTF options](typedoc/classes/BABYLON.GLTFLoaderOptions) from the API documentation.
+Each of the scene loader functions accepts an options object, where you can customize the behavior of the glTF loader plugin. See the [full list of available glTF options](/typedoc/classes/BABYLON.GLTFLoaderOptions) from the API documentation.
 
 ### Disabling Extensions
 
