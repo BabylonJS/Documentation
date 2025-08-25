@@ -16,11 +16,21 @@ The .glTF File Loader Plugin works in conjunction with Babylon's scene loader fu
 
 ## Setup
 
-### ES6
+The recommended way to use the .glTF file loader plugin is via the `@babylonjs/loaders` ES6 NPM package. Please read [Loading Any File Type](/features/featuresDeepDive/importers/loadingFileTypes#npm) for more information about installing and using the loader package in your own build.
 
-The recommended way to use the .glTF file loader plugin is via the `@babylonjs/loaders` ES6 NPM package. Please read [Loading Any File Type](/features/featuresDeepDive/importers/loadingFileTypes#npm) for more information about installing and using this package in your own build.
+<Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-When using this package, it is preferable to register the glTF file importer via the top level dynamic loader registration function `registerBuiltInLoaders`.
+But for testing purposes, the following compiled JS files are offered on the public CDN, at https://preview.babylonjs.com/loaders/:
+
+- `babylon.glTF2FileLoader.js` - Only glTF 2.0
+- `babylon.glTF1FileLoader.js` - Only glTF 1.0
+- `babylon.glTFFileLoader.js` - Both glTF 2.0 and 1.0
+- `babylonjs.loaders.js` - The full Babylon loaders package
+- `babylonjs.loaders.min.js` - The full Babylon loaders package, minified
+
+### Usage
+
+When using the `@babylonjs/loaders` package, it is preferable to register the glTF file importer via the top level dynamic loader registration function `registerBuiltInLoaders`.
 
 If you want to import the glTF file importer statically (not recommended), you can do so via:
 
@@ -30,19 +40,19 @@ import "@babylonjs/loaders/glTF/2.0";
 
 You can read more about [NPM support](/setup/frameworkPackages/npmSupport).
 
-### UMD
+### Loading codecs locally
 
-<Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
+By default, the glTF loader will request additional files for [draco compression](https://google.github.io/draco/) from _cdn.babylonjs.com_. In case you want to deliver these files locally (e.g. for GDPR compliance), you can set the [DracoDecoder.DefaultConfiguration](https://doc.babylonjs.com/typedoc/classes/BABYLON.DracoDecoder) object to use local files:
 
-The following compiled JS files are offered on the public CDN, at https://preview.babylonjs.com/loaders/:
+```typescript
+DracoDecoder.DefaultConfiguration = {
+  wasmUrl: "/babylon-draco-files/draco_wasm_wrapper_gltf.js",
+  wasmBinaryUrl: "/babylon-draco-files/draco_decoder_gltf.wasm",
+  fallbackUrl: "/babylon-draco-files/draco_decoder_gltf.js",
+};
+```
 
-- `babylon.glTF2FileLoader.js` - Only glTF 2.0
-- `babylon.glTF1FileLoader.js` - Only glTF 1.0
-- `babylon.glTFFileLoader.js` - Both glTF 2.0 and 1.0
-- `babylonjs.loaders.js` - All Babylon file loaders
-- `babylonjs.loaders.min.js` - All Babylon file loaders, minified
-
-Alternatively, there is a UMD version of our loaders package on NPM, `babylonjs-loaders`.
+Be sure to download the files first (from `https://cdn.babylonjs.com/[FILENAME]`) and put them in a local path (`public/babylon-draco-files`, in this case).
 
 ## Loading the Scene
 
@@ -57,11 +67,11 @@ See the built in [extensions](/typedoc/modules/babylon.gltf2.loader.extensions) 
 
 You can also [create your own extensions](/features/featuresDeepDive/importers/glTF/createExtensions).
 
-### Options
+## Options
 
 Each of the scene loader functions accepts an options object, where you can customize the behavior of the glTF loader plugin. See the [full list of available glTF options](typedoc/classes/BABYLON.GLTFLoaderOptions) from the API documentation.
 
-#### Disabling Extensions
+### Disabling Extensions
 
 To disable an extension on load, set its `enabled` option:
 
@@ -81,20 +91,6 @@ LoadAssetContainerAsync("asset.glb", scene, {
   },
 });
 ```
-
-## Loading files locally
-
-By default, the glTF loader will request additional files for [draco compression](https://google.github.io/draco/) from _cdn.babylonjs.com_. In case you want to deliver these files locally (e.g. for GDPR compliance), you can set the [DracoDecoder.DefaultConfiguration](https://doc.babylonjs.com/typedoc/classes/BABYLON.DracoDecoder) object to use local files:
-
-```typescript
-DracoDecoder.DefaultConfiguration = {
-  wasmUrl: "/babylon-draco-files/draco_wasm_wrapper_gltf.js",
-  wasmBinaryUrl: "/babylon-draco-files/draco_decoder_gltf.wasm",
-  fallbackUrl: "/babylon-draco-files/draco_decoder_gltf.js",
-};
-```
-
-Be sure to download the files first (from `https://cdn.babylonjs.com/[FILENAME]`) and put them in a local path (`public/babylon-draco-files`, in this case).
 
 ## Behavior
 
