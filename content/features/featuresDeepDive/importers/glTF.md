@@ -67,7 +67,7 @@ You can provide a different base URL (or a full URL) for all decoders, or for ea
 #### Via Resource Injection
 
 Alternatively, you can inject the decoder modules directly (or workers preloaded with them) instead of relying on Babylon to fetch them.
-Follow the steps in the [ESM/NPM Support docs](https://doc.babylonjs.com/setup/frameworkPackages/es6Support/#ktx2-decoder-packages) to set this up with the KTX2 and Draco decoders. (_Note: Meshopt compression does not yet support injection._)
+Follow the steps in the [ESM/NPM Support docs](/setup/frameworkPackages/es6Support#ktx2-decoder-packages) to set this up with the KTX2 and Draco decoders. (_Note: Meshopt compression does not yet support injection._)
 
 ## Loading the Scene
 
