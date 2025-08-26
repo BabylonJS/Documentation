@@ -61,34 +61,8 @@ How you do this depends on your setup. In general, there are two approaches.
 
 #### Via URL Configuration
 
-1. Obtain the decoder files. You can either:
-   - Download them directly from the Babylon CDN at `https://cdn.babylonjs.com/[FILENAME]`, or
-   - (Draco only) Copy them from @babylonjs/core/assets/Draco/\[FILENAME\] during your build process.
-2. Host these files from your own app (for example, in a /public folder).
-3. Configure the URLs so Babylon loads them from your server instead of the CDN.
-
-```typescript
-DracoDecoder.DefaultConfiguration = {
-  wasmUrl: localPath + "/draco_wasm_wrapper_gltf.js",
-  wasmBinaryUrl: localPath + "/draco_decoder_gltf.wasm",
-  fallbackUrl: localPath + "/draco_decoder_gltf.js",
-};
-
-MeshoptCompression.Configuration.decoder = {
-  url: localPath + "/meshopt_decoder.js",
-};
-
-KhronosTextureContainer2.URLConfig = {
-  jsDecoderModule: localPath + "/babylon.ktx2Decoder.js",
-  wasmUASTCToASTC: localPath + "/ktx2Transcoders/1/uastc_astc.wasm",
-  wasmUASTCToBC7: localPath + "/ktx2Transcoders/1/uastc_bc7.wasm",
-  wasmUASTCToRGBA_UNORM: localPath + "/ktx2Transcoders/1/uastc_rgba8_unorm_v2.wasm",
-  wasmUASTCToRGBA_SRGB: localPath + "/ktx2Transcoders/1/uastc_rgba8_srgb_v2.wasm",
-  jsMSCTranscoder: localPath + "/ktx2Transcoders/1/msc_basis_transcoder.js",
-  wasmMSCTranscoder: localPath + "/ktx2Transcoders/1/msc_basis_transcoder.wasm",
-  wasmZSTDDecoder: localPath + "/zstddec.wasm",
-};
-```
+You can provide a different base URL (or a full URL) for all decoders, or for each decoder individually. This way, Babylon loads them from your server instead of the CDN. Read how to do this in the
+[CDN Support docs](/setup/frameworkPackages/CDN#deploying-your-own-version-of-the-resources).
 
 #### Via Resource Injection
 
