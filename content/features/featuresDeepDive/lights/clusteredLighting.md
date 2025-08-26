@@ -66,7 +66,7 @@ lightContainer.maxRange = 30000;
 ```
 It is recommended to adjust the ranges of your lights so they don't all end up as the max range (which cancels out any clustering attempts).
 
-When These light proxies are rendered they set a bit in a bitmask, which then gets iterated over during rendering. The way this bit is set differs between WebGL and WebGPU.
+When these light proxies are rendered they set a bit in a bitmask, which then gets iterated over during rendering. The way this bit is set differs between WebGL and WebGPU.
 
 ### WebGPU
 
