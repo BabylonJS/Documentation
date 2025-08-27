@@ -8,62 +8,62 @@ video-overview:
 video-content:
 ---
 
-TODO:
-
-- Add image with full example showcasing NME and SFE side-by-side
-- Add crosslinks
-
 ## Overview
 
-The Smart Filters Editor (SFE) is a node editor for composing shader passes. The Node Material Editor (NME) is used to create shaders. Naturally, these two tools can work together: NME can generate SFE-ready shader blocks, which you can then chain together inside SFE. The special SFE mode in NME enables this workflow.
+The [Smart Filters Editor](/toolsAndResources/sfe) (SFE) is used to compose shaders. The [Node Material Editor](/toolsAndResources/nme) (NME) is used to create shaders. Naturally, these two tools can work together: NME can generate SFE-ready shader blocks, which can then be chained together inside SFE. The special "Smart Filters" mode in NME enables this workflow.
 
-If you’re new to either editor, start with the introductions first: Node Material Editor · Smart Filters Editor.
+Using NME with SFE follows a three-step process.
 
-## Creating an SFE block using NME
+1. Build shader in NME
+2. Export [the annotated GLSL code](/features/featuresDeepDive/smartFilters/creatingNewBlocks#using-annotated-glsl-code)
+3. Import the GLSL code into SFE
 
-### Fragment Shaders Only
+<br/>
+If you're new to either, start by reading more about [Node Materials](/features/featuresDeepDive/materials/node_material/nodeMaterial) and [Smart Filters](/features/featuresDeepDive/smartFilters/introductionToSmartFilters).
 
-The SFE mode is designed exclusively for fragment shaders. This is because a Smart Filter is designed to apply a set of screen-space optimizations— ones that don’t easily allow for customizing the vertex shader. As a result, SFE mode does not support the usual vertex shader capabilities of NME.
+## Example
 
-### New NME Blocks
+![NME](/img/how_to/Materials/nmeToSfe.png)
+Source: <NME id="#QYN8UY#5" title="Halftone Shader" description="An example demonstrating how to create a Smart Filter-ready shader." />
 
-Alongside the standard 2D-compatible NME blocks, SFE introduces a few specialized blocks:
+## New NME Blocks
 
-#### SmartFilterFragmentOutputBlock
+<Alert severity="info" title="Only Fragment Shader Support">Smart Filters are designed to support a set of screen-space optimizations— ones that don’t easily allow for customizing vertex shaders. As a result, "Smart Filters" mode does not support the usual vertex shader capabilities of NME.</Alert>
 
-_Required._ Receives the final color output of the SFE block. Similar to a regular fragment output block, but distinct— since a SmartFilter composes multiple shaders together, this block doesn’t directly write to the final frame color.
+Alongside the standard 2D-compatible NME blocks, the Smart Filters mode introduces a few specialized blocks:
 
-#### ScreenUVBlock
+### SmartFilterFragmentOutput
 
-_Optional._ Provides the screen quad’s UV coordinates. This is a preconfigured input block for use with Smart Filter’s UV system. Use it like any other UV.
+_Required._ Receives the final color output of the SFE block. Similar to a regular fragment output block, but distinct: since a SmartFilter composes multiple shaders together, this block doesn’t directly write to the final frame color.
 
-#### SmartFilterTextureBlock
+### ScreenUV
 
-_Optional._ Represents a texture input, as well as its sampling, in an SFE graph.
+_Optional._ Provides the screen quad’s UV coordinates in the range of 0-1. This is a preconfigured input block for use with Smart Filter’s UV system. 
 
-Textures assigned to this act as placeholders only; they are not exported with the shader block. The textures must be reassigned when using the block in SFE.
+### SmartFilterTexture
 
-In the properties pane, you can optionally mark a texture as the main input (used by Smart Filter’s disable strategy)
+_Optional._ Represents a texture input, as well as its sampling, in a Smart Filter.
 
-### Naming
+Textures assigned to this are placeholders; they are not exported with the final shader block. The textures must be reassigned when using the block in SFE.
 
-To name the exported SFE shader block, rename the Node Material itself in NME.
+In the "Properties" property tab, you can optionally toggle its `Is Main Input` flag (used by Smart Filter’s disable strategy).
 
-To name inputs for an exported block:
+## Input Connection Points
 
-- For textures: rename the corresponding SmartFilterTextureBlock.
-- For all other inputs: rename their corresponding InputBlock.
+By default, each InputBlock (and SmartFilterTextureBlock) is exposed as an input connection point in the exported SFE block. The value you assign to an InputBlock in NME becomes the default for that connection point.
 
-### InputBlock Behavior
+<Alert severity="info" title="Constants">To keep an InputBlock from appearing as an input connection, set the `Type` field to `Constant` under its "Properties" tab.</Alert>
 
-By default, every InputBlock in NME becomes an input connection point in the exported SFE block.
+## Naming
 
-#### Default Values
+To name the exported shader block, modify the `Name` of the Node Material. This field is located under the graph's "General" property tab.
 
-The value you assign to an InputBlock in NME becomes its default value in the exported SFE block.
+To name the input connection points for the shader block, repeat the same steps as above for each of:
 
-> Exception: SmartFilterTextureBlock values are placeholders only.
+- Textures: rename the corresponding SmartFilterTextureBlock.
+- All other inputs: rename their corresponding InputBlocks.
 
-#### Constants
+## Exporting
 
-To keep an InputBlock from appearing as an input connection, set its type to Constant.
+Once finished, use the `Export shaders for SFE` button under the graph's "File" property tab. This will download an annotated GLSL block definition file with the suffix `.block.glsl`. To import this into your SFE project, read about [using custom blocks in SFE](/toolsAndResources/sfe#custom-blocks).
+
