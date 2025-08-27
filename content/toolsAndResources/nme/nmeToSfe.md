@@ -10,7 +10,7 @@ video-content:
 
 ## Overview
 
-The [Smart Filters Editor](/toolsAndResources/sfe) (SFE) is used to compose shaders. The [Node Material Editor](/toolsAndResources/nme) (NME) is used to create shaders. Naturally, these two tools can work together: NME can generate SFE-ready shader blocks, which can then be chained together inside SFE. The special "Smart Filters" mode in NME enables this workflow.
+The [Smart Filters Editor](/toolsAndResources/sfe) (SFE) is used to compose multiple shaders into complex effects, while the [Node Material Editor](/toolsAndResources/nme) (NME) is used to create shaders. Naturally, these two tools can work together: NME can generate SFE-ready shaders, which can then be chained together inside SFE. The special "Smart Filters" mode in NME enables this workflow.
 
 Using NME with SFE follows a three-step process.
 
@@ -38,7 +38,7 @@ _Required._ Receives the final color output of the SFE block. Similar to a regul
 
 ### ScreenUV
 
-_Optional._ Provides the screen quad’s UV coordinates in the range of 0-1. This is a preconfigured input block for use with Smart Filter’s UV system. 
+_Optional._ Provides the screen quad’s UV coordinates in the range of 0-1. This is a preconfigured input block for use with Smart Filter’s UV system.
 
 ### SmartFilterTexture
 
@@ -66,4 +66,3 @@ To name the input connection points for the shader block, repeat the same steps 
 ## Exporting
 
 Once finished, use the `Export shaders for SFE` button under the graph's "File" property tab. This will download an annotated GLSL block definition file with the suffix `.block.glsl`. To import this into your SFE project, read about [using custom blocks in SFE](/toolsAndResources/sfe#custom-blocks).
-
