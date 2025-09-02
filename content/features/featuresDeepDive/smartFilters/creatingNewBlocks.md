@@ -22,6 +22,41 @@ There are two ways you can make and use blocks for Smart Filters:
 | Can load directly in the Smart Filters Editor (SFE)                                                         | Yes            | No        |
 | Can do custom logic in your bind function <br/>(e.g. math or packing multiple inputs into a single uniform) | No             | Yes       |
 
+## Important GLSL Coding Requirements
+
+<Alert severity="info">
+Regardless of which approach you use for building your blocks, you need to be sure that the GLSL code for the block follows these requirements so that it is compatible with the Smart Filter optimizer. 
+</Alert>
+
+These requirements ensure the optimizer can collapse sections of the Smart Filter into a single draw call while minimizing code size and ensuring correctness:
+
+1. Helper functions (any function in the fragment shader other than the main function) must not directly access uniforms
+   - Instead, pass uniform values into the helper function
+   - Note: Helper functions may access const and define values
+1. Only read from textures in the main function, do not pass a sampler2D into a helper function for it to read from
+1. Reduce the texture2D() calls when possible
+   - For example, instead of:
+   ```GLSL
+   if (mode == 1.) {
+     color = texture2D(input, vUV);
+   } else {
+     color = texture2D(input, 1 - vUV);
+   }
+   ```
+   - do this:
+   ```GLSL
+   if (mode == 1.) {
+     uvToUse = vUV;
+   } else {
+     uvToUse = 1 - vUV;
+   }
+   color = texture2D(input, uvToUse);
+   ```
+
+### Testing Optimizer Compatibility
+
+If you use the Annotated GLSL Code method, you can easily test that your block is optimizer-compatible by adding it to a Smart Filter in the Smart Filter Editor and then turning on the "Optimize Smart Filter" toggle in the Options pane on the right. Any errors will be displayed in the console at the bottom. See the following sections for more details.
+
 ## Using Annotated GLSL Code
 
 This approach doesn't support custom vertex shaders or custom binding logic, but is the easiest to get started with and you can load these blocks directly into the [Smart Filters Editor](https://sfe.babylonjs.com).
