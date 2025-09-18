@@ -4,6 +4,8 @@ Starting from Babylon.js v8.14, you can design complex and intricate particle sy
 
 ![NPE screenshot](/img/tools/npe/01.jpg)
 
+[[Introducing NPE - YouTube](https://www.youtube.com/watch?v=oATijHvVfek&ab_channel=SLCCUniversalAccess)
+
 ## NPE
 
 NPE lets you define one or multiple particle systems. It creates a [ParticleSystemSet](/features/featuresDeepDive/particles/particle_system/particleHelper#ParticleSystemSet) that can be used directly.
@@ -100,4 +102,5 @@ Another option is to use the onStart and onEnd events on each particle system:
 In this example, the "Wave2" particle system will start when the "Wave" system ends. For this to work, "Wave" must have a target duration—otherwise, it would loop endlessly and never emit an onEnd event.
 
 Also note: "Wave2" is set to not start automatically.
+
 
