@@ -110,7 +110,10 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                 }
                 
                 if (codeFound) {
-                    setName(`${searchResult.name ? searchResult.name : searchResult.id} - ${foundFile}`);
+                    if (foundFile !== "default") {
+                        setName(name + ` - ${foundFile}`);
+                    }
+
                     setCodeToShow({
                         code: codeLines.slice(startingLine, startingLine + 10).join("\n"),
                         startingLine,
