@@ -39,7 +39,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
         }
     });
 
-    const name = searchResult.name ? `${searchResult.name} (${searchResult.id})` : searchResult.id;
+    const [name, setName] = useState<string>(searchResult.name ? `${searchResult.name} (${searchResult.id})` : searchResult.id);
 
     useEffect(() => {
         if (type === "code") {
@@ -54,27 +54,76 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
         fetch(`https://snippet.babylonjs.com/${searchResult.snippetIdentifier}/${searchResult.version}`).then((response) => {
             response.text().then((text) => {
                 const parsed = JSON.parse(JSON.parse(text).jsonPayload);
-                const { code } = parsed;
-                const codeLines: Array<string> = (code || "").split("\n");
+                let filesCode: [string, string][] = [];
+
+                let v2Manifest = { files: { default: "" } };
+                try {
+                    v2Manifest = JSON.parse(parsed.code);
+                } catch (e) {
+                    // This was not a V2 PG manifest, use as is
+                    v2Manifest.files.default = parsed.code;
+                }
+
+                for (const [filename, code] of Object.entries(v2Manifest.files)) {
+                    if (code && typeof code === 'string') {
+                        filesCode.push([filename, code]);
+                    }
+                }
+
+                // When not searching for code, just show the first 10 lines of the first file
+                if (type !== "code") {
+                    setCodeToShow({
+                        code: filesCode.length ? filesCode[0][1].split("\n").slice(0, 10).join("\n") : "",
+                        startingLine: 0,
+                        foundLine: -1,
+                    });
+
+                    return;
+                }
+
+                // Searching inside the code files, we will stop on the first file we find the term
+                let codeLines: Array<string> = [];
                 let startingLine = 0;
                 let foundLine = -1;
-                const lowerTerm = term.toLowerCase();
-                if (type === "code") {
+                let foundFile = "";
+                let codeFound = false;
+
+                for (const [filename, code] of filesCode) {
+                    codeFound = false;
+                    codeLines = (code || "").split("\n");
+                    startingLine = 0;
+                    foundLine = -1;
+                    const lowerTerm = term.toLowerCase();
+                    
                     for (foundLine = 0; foundLine < codeLines.length; ++foundLine) {
-                        if (codeLines[foundLine].length > 100) {
-                            codeLines[foundLine] = `${codeLines[foundLine].substring(0, 100)}...`;
-                        }
                         if (codeLines[foundLine].toLowerCase().indexOf(lowerTerm) !== -1) {
+                            codeFound = true;
                             startingLine = Math.max(foundLine - 5, 0);
+                            foundFile = filename;
                             break;
                         }
                     }
+
+                    if (codeFound) {
+                        break;
+                    }
                 }
-                setCodeToShow({
-                    code: codeLines.slice(startingLine, startingLine + 10).join("\n"),
-                    startingLine,
-                    foundLine,
-                });
+                
+                if (codeFound) {
+                    setName(`${searchResult.name ? searchResult.name : searchResult.id} - ${foundFile}`);
+                    setCodeToShow({
+                        code: codeLines.slice(startingLine, startingLine + 10).join("\n"),
+                        startingLine,
+                        foundLine,
+                    });
+                } else {
+                    // Couldn't find the exact code, still show the first 10 lines of the first file
+                    setCodeToShow({
+                        code: filesCode.length ? filesCode[0][1].split("\n").slice(0, 10).join("\n") : "",
+                        startingLine: 0,
+                        foundLine: -1,
+                    });
+                }
             });
         });
     }, [searchResult]);
