@@ -26,6 +26,9 @@ export interface IPlaygroundSearchResult {
     version: number;
 }
 
+const MaxLineLength = 200;
+const NumberOfLinesToShow = 10;
+
 export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygroundSearchResult; type: SearchType; term?: string; setActiveExample: (example: IExampleLink) => void }> = ({ searchResult, type, term, setActiveExample }) => {
     const theme = useTheme();
     const [expanded, setExpanded] = useState<boolean>(false);
@@ -53,6 +56,28 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
         // get the snippet code
         fetch(`https://snippet.babylonjs.com/${searchResult.snippetIdentifier}/${searchResult.version}`).then((response) => {
             response.text().then((text) => {
+                const TrimLinesAndShow = (allLines: string[], start: number, found: number) => {
+                    // Clamp indexes
+                    const clampedStart = Math.max(0, start);
+                    const clampedEnd = Math.min(clampedStart + NumberOfLinesToShow, allLines.length);
+
+                    // Only pass to the highlighter what we need to show
+                    const visible: string[] = [];
+                    for (let i = clampedStart; i < clampedEnd; ++i) {
+                        let line = allLines[i] ?? "";
+                        if (line.length > MaxLineLength) {
+                            line = line.substring(0, MaxLineLength) + " ...";
+                        }
+                        visible.push(line);
+                    }
+
+                    setCodeToShow({
+                        code: visible.join("\n"),
+                        startingLine: clampedStart,
+                        foundLine: found,
+                    });
+                };
+
                 const parsed = JSON.parse(JSON.parse(text).jsonPayload);
                 let filesCode: [string, string][] = [];
 
@@ -72,19 +97,12 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
 
                 // Put the files and their code into a list for easier access
                 for (const [filename, code] of Object.entries(v2Manifest.files)) {
-                    if (code && typeof code === 'string') {
-                        filesCode.push([filename, code]);
-                    }
+                    filesCode.push([filename, code]);
                 }
 
-                // When not searching for code, just show the first 10 lines of the first file
+                // When not searching for code, just show the beginning of the first file
                 if (type !== "code") {
-                    setCodeToShow({
-                        code: filesCode.length ? filesCode[0][1].split("\n").slice(0, 10).join("\n") : "",
-                        startingLine: 0,
-                        foundLine: -1,
-                    });
-
+                    TrimLinesAndShow(filesCode.length ? filesCode[0][1].split("\n") : [], 0, -1);
                     return;
                 }
 
@@ -118,22 +136,14 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                 
                 if (codeFound) {
                     if (foundFile !== "default") {
-                        setName(name + ` - ${foundFile}`);
+                        setName(`${name} - ${foundFile}`);
                     }
 
-                    setCodeToShow({
-                        code: codeLines.slice(startingLine, startingLine + 10).join("\n"),
-                        startingLine,
-                        foundLine,
-                    });
+                    TrimLinesAndShow(codeLines, startingLine, foundLine);
                 } else {
                     // Couldn't find the exact code in the snippet, but search thought it was relevant,
-                    // so we still show the first 10 lines of the first file
-                    setCodeToShow({
-                        code: filesCode.length ? filesCode[0][1].split("\n").slice(0, 10).join("\n") : "",
-                        startingLine: 0,
-                        foundLine: -1,
-                    });
+                    // so we still show the beginning of the first file
+                    TrimLinesAndShow(filesCode.length ? filesCode[0][1].split("\n") : [], 0, -1);
                 }
             });
         });
