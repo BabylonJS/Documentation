@@ -58,12 +58,15 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
 
                 let v2Manifest = { files: { default: "" } };
                 try {
+                    // With the PG V2, instead of just having code as with PG V1, we have a list of file names
+                    // and the code associated with it, which are also JSON stringified
                     v2Manifest = JSON.parse(parsed.code);
                 } catch (e) {
-                    // This was not a V2 PG manifest, use as is
+                    // If parsing the JSON failed, it means it's a PG V1 snippet, so we just read the code directly
                     v2Manifest.files.default = parsed.code;
                 }
 
+                // Put the files and their code into a list for easier access
                 for (const [filename, code] of Object.entries(v2Manifest.files)) {
                     if (code && typeof code === 'string') {
                         filesCode.push([filename, code]);
@@ -120,7 +123,8 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                         foundLine,
                     });
                 } else {
-                    // Couldn't find the exact code, still show the first 10 lines of the first file
+                    // Couldn't find the exact code in the snippet, but search thought it was relevant,
+                    // so we still show the first 10 lines of the first file
                     setCodeToShow({
                         code: filesCode.length ? filesCode[0][1].split("\n").slice(0, 10).join("\n") : "",
                         startingLine: 0,
