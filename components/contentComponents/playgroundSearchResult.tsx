@@ -58,11 +58,15 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
 
                 let v2Manifest = { files: { default: "" } };
                 try {
-                    // With the PG V2, instead of just having code as with PG V1, we have a list of file names
-                    // and the code associated with it, which are also JSON stringified
-                    v2Manifest = JSON.parse(parsed.code);
+                    // Starting with PG V2, the manifest contains now a version and a list of files
+                    // instead of just having code as with PG V1
+                    if (parsed.version) {
+                        v2Manifest = JSON.parse(parsed.code);
+                    } else { // PG V1
+                        v2Manifest.files.default = parsed.code;
+                    }
                 } catch (e) {
-                    // If parsing the JSON failed, it means it's a PG V1 snippet, so we just read the code directly
+                    // If parsing the JSON failed, treat it as code just in case
                     v2Manifest.files.default = parsed.code;
                 }
 
