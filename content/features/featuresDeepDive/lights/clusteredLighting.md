@@ -128,7 +128,7 @@ for (int i = firstBatch; i <= lastBatch; i += 1) {
 }
 ```
 
-## Limitations
+## Limitations / Additional remarks
 
 In its current form, there are some limits to the clustered lighting implementation.
 
@@ -164,6 +164,19 @@ for (const material of scene.meterials) {
         material.useGLTFLightFalloff = true;
     }
 }
+```
+
+### Support for clustered lights in node materials
+
+In order for your node material to support clustered lights, you must connect the **view** matrix to the **view** input of `LightBlock` / `PBRMetallicRoughnessBlock`. This input is mandatory for the latter, so you cannot miss it. However, it is optional for `LightBlock`. If you leave the **view** input unconnected and your scene has clustered lights, you will get an error such as `“vViewDepth”: undeclared identifier` (WebGL) or `error: structure member vViewDepth not found` (WebGPU).
+
+If the engine is WebGPU and you are using a node material with clustered lights, the node material must be created with the `shaderLanguage: BABYLON.ShaderLanguage.WGSL` option to force native WGSL code generation. This is because converting the GLSL code used by WebGL to WGSL will not work, as the WebGPU implementation uses a storage buffer, which is not supported by WebGL. If you do not set this option, you will get an error such as `Sampler ‘tileMaskTexture0Sampler’ not found in the material context` and `Texture ‘tileMaskTexture0’ not found in the material context.`
+
+When using `ParseFromSnippetAsync` to load your node material, you can pass the shader language via the 8th parameter:
+```typescript
+const mat = await BABYLON.NodeMaterial.ParseFromSnippetAsync("D7OZ4C#5", scene, undefined, undefined, undefined, undefined, undefined, {
+    shaderLanguage: engine.isWebGPU ? BABYLON.ShaderLanguage.WGSL : BABYLON.ShaderLanguage.GLSL
+});
 ```
 
 ---
