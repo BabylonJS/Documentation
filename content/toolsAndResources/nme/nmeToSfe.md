@@ -10,13 +10,13 @@ video-content:
 
 ## Overview
 
-The [Smart Filters Editor](/toolsAndResources/sfe) (SFE) is used to compose multiple shaders into complex effects, while the [Node Material Editor](/toolsAndResources/nme) (NME) is used to create shaders. Naturally, these two tools can work together: NME can generate SFE-ready shaders, which can then be chained together inside SFE. The special "Smart Filters" mode in NME enables this workflow.
+The [Smart Filters Editor](/toolsAndResources/sfe) (SFE) is used to compose multiple shaders into complex effects, while the [Node Material Editor](/toolsAndResources/nme) (NME) is used to create shaders. These tools can complement each other: NME can export static shader files that you can import into SFE and chain like any other block. To enable this, NME offers a special "Smart Filters" mode.
 
-Using NME with SFE follows a three-step process.
+The workflow is file-based and follows three steps:
 
-1. Build shader in NME
-2. Export [the annotated GLSL code](/features/featuresDeepDive/smartFilters/creatingNewBlocks#using-annotated-glsl-code)
-3. Import the GLSL code into SFE
+1. Build a shader in NME
+2. Export the shader as an [annotated GLSL file](/features/featuresDeepDive/smartFilters/creatingNewBlocks#using-annotated-glsl-code)
+3. Import the GLSL file into SFE
 
 <br/>
 If you're new to either, start by reading more about [Node Materials](/features/featuresDeepDive/materials/node_material/nodeMaterial) and [Smart Filters](/features/featuresDeepDive/smartFilters/introductionToSmartFilters).
@@ -24,7 +24,7 @@ If you're new to either, start by reading more about [Node Materials](/features/
 ## Example
 
 ![NME](/img/how_to/Materials/nmeToSfe.png)
-Source: <NME id="#QYN8UY#5" title="Halftone Shader" description="An example demonstrating how to create a Smart Filter-ready shader." />
+NME Source: <NME id="#QYN8UY#5" title="Halftone Shader" description="An example demonstrating how to create a Smart Filter-ready shader." />
 
 ## New NME Blocks
 
