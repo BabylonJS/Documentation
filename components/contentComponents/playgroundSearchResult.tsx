@@ -28,6 +28,7 @@ export interface IPlaygroundSearchResult {
 
 const MaxLineLength = 200;
 const NumberOfLinesToShow = 10;
+const CodeNotFound = -1;
 
 export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygroundSearchResult; type: SearchType; term?: string; setActiveExample: (example: IExampleLink) => void }> = ({ searchResult, type, term, setActiveExample }) => {
     const theme = useTheme();
@@ -102,7 +103,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
 
                 // When not searching for code, just show the beginning of the first file
                 if (type !== "code") {
-                    TrimLinesAndShow(filesCode.length ? filesCode[0][1].split("\n") : [], 0, -1);
+                    TrimLinesAndShow(filesCode.length ? filesCode[0][1].split("\n") : [], 0, CodeNotFound);
                     return;
                 }
 
@@ -123,7 +124,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                     for (foundLine = 0; foundLine < codeLines.length; ++foundLine) {
                         if (codeLines[foundLine].toLowerCase().indexOf(lowerTerm) !== -1) {
                             codeFound = true;
-                            startingLine = Math.max(foundLine - 5, 0);
+                            startingLine = Math.max(foundLine - Math.round(NumberOfLinesToShow / 2), 0);
                             foundFile = filename;
                             break;
                         }
@@ -143,7 +144,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                 } else {
                     // Couldn't find the exact code in the snippet, but search thought it was relevant,
                     // so we still show the beginning of the first file
-                    TrimLinesAndShow(filesCode.length ? filesCode[0][1].split("\n") : [], 0, -1);
+                    TrimLinesAndShow(filesCode.length ? filesCode[0][1].split("\n") : [], 0, CodeNotFound);
                 }
             });
         });
