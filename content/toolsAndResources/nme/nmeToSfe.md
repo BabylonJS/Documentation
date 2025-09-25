@@ -42,15 +42,13 @@ _Optional._ Provides the screen quad’s UV coordinates in the range of 0-1. Thi
 
 ### SmartFilterTexture
 
-_Optional._ Represents a texture input, as well as its sampling, in a Smart Filter.
+_Optional._ Represents the sampling of a texture in a Smart Filter. If no `source` connection is provided, then this block also represents the texture itself.
 
-Textures assigned to this are placeholders; they are not exported with the final shader block. The textures must be reassigned when using the block in SFE.
-
-In the "Properties" property tab, you can optionally toggle its `Is Main Input` flag (used by Smart Filter’s disable strategy).
+Textures used in the Node Material graph are placeholders; they are not serialized on export. They will need to be reassigned after loading the block in SFE.
 
 ## Input Connection Points
 
-By default, each InputBlock (and SmartFilterTextureBlock) is exposed as an input connection point in the exported SFE block. The value you assign to an InputBlock in NME becomes the default for that connection point.
+By default, each InputBlock (and blocks with texture sources) is exposed as an input connection point in the exported SFE block. The value you assign to an InputBlock in NME becomes the default for that connection point.
 
 <Alert severity="info" title="Constants">To keep an InputBlock from appearing as an input connection, set the `Type` field to `Constant` under its "Properties" tab.</Alert>
 
@@ -60,7 +58,7 @@ To name the exported shader block, modify the `Name` of the Node Material. This 
 
 To name the input connection points for the shader block, repeat the same steps as above for each of:
 
-- Textures: rename the corresponding SmartFilterTextureBlock.
+- Textures: rename the corresponding SmartFilterTextureBlock or, if its `source` point is connected, the ImageSourceBlock.
 - All other inputs: rename their corresponding InputBlocks.
 
 ## Exporting
