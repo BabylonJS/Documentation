@@ -66,6 +66,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                     const visible: string[] = [];
                     for (let i = clampedStart; i < clampedEnd; ++i) {
                         let line = allLines[i] ?? "";
+                        // Long lines get trimmed because some playgrounds contain base64 strings textures and other objects
                         if (line.length > MaxLineLength) {
                             line = line.substring(0, MaxLineLength) + " ...";
                         }
@@ -122,6 +123,11 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                     const lowerTerm = term.toLowerCase();
                     
                     for (foundLine = 0; foundLine < codeLines.length; ++foundLine) {
+                        // Long lines get trimmed because some playgrounds contain base64 strings textures and other objects
+                        if (codeLines[foundLine].length > MaxLineLength) {
+                            codeLines[foundLine] = `${codeLines[foundLine].substring(0, MaxLineLength)}...`;
+                        }
+
                         if (codeLines[foundLine].toLowerCase().indexOf(lowerTerm) !== -1) {
                             codeFound = true;
                             startingLine = Math.max(foundLine - Math.round(NumberOfLinesToShow / 2), 0);
