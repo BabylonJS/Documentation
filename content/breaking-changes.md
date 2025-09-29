@@ -9,6 +9,31 @@ video-content:
 toc-levels: 2
 ---
 
+## 8.10.1
+
+### Fix target camera orientation issues when using right-handed scenes
+
+When using right-handed scenes, setting and getting the `rotation` or `rotationQuaternion` properties of a target camera was 180-rotated on the Y-axis when compared to the view or world matrix of the camera. This is confusing and caused problems when exporting glTF. Any code that previously set the `rotation` or `rotationQuaternion` properties of a camera derived from `TargetCamera` (`FreeCamera` or `ArcRotateCamera` for example) when using right-handed scenes will now be wrong. The default orientation of a target camera still faces +Z as before to maintain backwards compatibility. Left-handed scenes are also unaffected. See [PR](https://github.com/BabylonJS/Babylon.js/pull/16691) for more information.
+
+## 8.2.0
+
+### PBR: Add flag to calculate legacy translucency
+
+In previous PRs (https://github.com/BabylonJS/Babylon.js/pull/16337, https://github.com/BabylonJS/Babylon.js/pull/16214), we corrected the way translucency/transmission is calculated.
+However, we failed to add a flag to allow you to render your scene exactly as it was before these changes. We have therefore added a property `mat.subSurface.legacyTranslucency` (default: false), in case your scene does not render as expected with the new code and you want an easy way to do it. You can also set `PBRSubSurfaceConfiguration.DEFAULT_LEGACY_TRANSLUCENCY` to true to automatically apply the back compat behavior to all materials.
+
+PR: https://github.com/BabylonJS/Babylon.js/pull/16446
+
+## 7.54.0
+
+### PBR: Fix calculation of diffuse transmission in PBR materials
+
+This is a bug fix, but it may have an impact on the rendering of your scene. Previously, we incorrectly applied the albedo color when outputting the subsurface block calculation.
+However, if you need to restore the old behavior for some reason, you can do `mat.subSurface.applyAlbedoAfterSubSurface = true`. Note that from 8.0.2 and forward you can also set `PBRSubSurfaceConfiguration.DEFAULT_APPLY_ALBEDO_AFTERSUBSURFACE` to true to automatically apply the back compat behavior to all materials.
+Note that you can probably make your assets compatible with the new code without needing to set `applyAlbedoAfterSubSurface = true` by setting the correct texture in the `translucencyColorTexture` property.
+
+PR: https://github.com/BabylonJS/Babylon.js/pull/16337
+
 ## 7.52.0
 
 ### Deprecation of legacy audio engine

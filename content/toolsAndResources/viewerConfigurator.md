@@ -12,7 +12,7 @@ video-content:
 
 ## Overview
 
-The [Viewer Configurator](https://viewerconfig.babylonjs.com) is a tool that simplifies configuring the [Babylon Viewer](/features/featuresDeepDive/babylonViewer). Rather than relying on documentation and setting the html attributes of the `<babylon-viewer>` directly in your code editor, the Viewer Configurator gives you an interactive visual interface to configure every aspect of the Viewer. The output is a block of html that you can copy and paste into your web app.
+The [Viewer Configurator](https://viewerconfig.babylonjs.com) is a tool that simplifies configuring the [Babylon Viewer](/features/featuresDeepDive/babylonViewer). Rather than relying on documentation and setting the html attributes of the `<babylon-viewer>` directly in your code editor, the Viewer Configurator gives you an interactive visual interface to configure every aspect of the Viewer. The output is a block of [html](#output-format) that you can copy and paste into your web app, or [json](#output-format) that you can use as the `ViewerOptions`.
 
 ## Accessing the Viewer Configurator
 
@@ -64,6 +64,63 @@ Creating and configuration [hot spots](/features/featuresDeepDive/babylonViewer/
 1. Optional: Rotate the camera around the hot spot to a desired camera pose and then click the camera button to the right of the hot spot name text input. This establishes a custom camera pose relative to the hot spot position.
 
 When hot spots are added, they will immediately show up in the Viewer toolbar. Hot spots can be re-ordered by clicking and dragging the handle to the left of the hot spot name text input.
+
+## Output Format
+
+By default, the Viewer Configurator outputs html that can be copied and pasted into a web page. The output format can also be changed to json. In this case, the json can be parsed and directly used as `ViewerOptions` in any of the Viewer layers:
+
+```ts
+const configuration: string = "the copied and pasted output of the Viewer Configurator goes here";
+const options: ViewerOptions = JSON.parse(configuration);
+```
+
+### `ConfigureCustomViewerElement`
+
+The `ConfigureCustomViewerElement` function creates a configured `HTML3DElement` (`<babylon-viewer>`). For example, if you know you want the same skybox for multiple instances of the Babylon Viewer, this could be configured in the Configurator and the parsed `ViewerOptions` (as described above) could be used like this:
+
+```ts
+ConfigureCustomViewerElement("my-babylon-viewer", options);
+```
+
+```html
+<!-- Each of these Viewer instances will use the same configured environment. -->
+<my-babylon-viewer source="model1.glb"></my-babylon-viewer>
+<my-babylon-viewer source="model2.glb"></my-babylon-viewer>
+<my-babylon-viewer source="model3.glb"></my-babylon-viewer>
+```
+
+### `HTML3DElement` Constructor
+
+If the Viewer element is being constructed in code, the same options can be passed to the constructor:
+
+```ts
+const viewerElement = new HTML3DElement(options);
+document.body.appendChild(viewerElement);
+```
+
+### `CreateViewerForCanvas`
+
+If a `Viewer` is being created without the html layer but from a `Canvas`, the options can be passed to the factory function:
+
+```ts
+const viewer = await CreateViewerForCanvas(canvas, options);
+```
+
+### `Viewer` Constructor
+
+If a `Viewer` is being instantiated directly, the options can be passed to the constructor:
+
+```ts
+const viewer = new Viewer(engine, options);
+```
+
+## Saving & Loading
+
+After the Viewer has been configured, you can also save the current state of the Viewer Configurator and restore this state later. This works the same as other Babylon tools: clicking the save button will save a "snippet" and encode the snippet id into the url. If you reload this url later, it will restore the currently configured state.
+
+<Alert severity="info">
+Note that if you have loaded a local model, that model is not saved with the snippet. You will have to reload the same local model after reloading the url.
+</Alert>
 
 ## Testing
 

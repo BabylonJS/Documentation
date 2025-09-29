@@ -11,3 +11,7 @@ video-content:
 This is a community written template for Vite and Babylon.js using Typescript. maintenance is the responsibility of the repository owners.
 
 https://github.com/paganaye/babylonjs-vite-boilerplate
+
+Babylon 8 Vite 6 Typescript Template with Havok Physics
+
+https://github.com/eldinor/bp800

@@ -12,7 +12,7 @@ video-content:
 
 ## Creating GUIs With Ease
 
-Introduced in Babylon.js 5.0, the GUI Editor is a visual editor for building complex and beautiful graphical user interfaces. Traditionally, Babylon GUIs has to be constructed using code, which could be a tedious and confusing process. The GUI Editor lets you see the interface as you're assembling it, and makes it easy to manipulate all the parameters of each control.
+Introduced in Babylon.js 5.0, the GUI Editor is a visual editor for building complex and beautiful graphical user interfaces. Traditionally, Babylon GUIs had to be constructed using code, which could be a tedious and confusing process. The GUI Editor lets you see the interface as you're assembling it, and makes it easy to manipulate all the parameters of each control.
 
 You can access the GUI Editor here: https://gui.babylonjs.com/. The GUI editor can also be opened in a pop-up window from the inspector, allowing you to edit a GUI inside a scene and see your changes propagate back instantly!
 
@@ -223,7 +223,7 @@ let loadedGUI = await advancedTexture.parseFromSnippetAsync("#MMWSUI");
 
 #### Load in Fullscreen Mode
 
-You can load your saved GUI as a fullscreen GUI that's overlayed on top of your entire scene like this:
+You can load your saved GUI as a fullscreen GUI that's overlaid on top of your entire scene like this:
 
 ```javascript
 let advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("GUI", true, scene);

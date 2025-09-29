@@ -37,7 +37,7 @@ The [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync
     // Create sounds here, but don't call `play()` on them, yet ...
 
     // Wait until audio engine is ready to play sounds.
-    await audioEngine.unlock();
+    await audioEngine.unlockAsync();
 
     // Start sound playback ...
 })();
@@ -57,12 +57,12 @@ const gunshot = await BABYLON.CreateSoundAsync("gunshot",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 gunshot.play()
 ```
 
-<Playground id="#1BZK59" title="Playing a sound" description="A simple example of playing a sound."/>
+<Playground id="#1BZK59#10" title="Playing a sound" description="A simple example of playing a sound."/>
 
 <br/>
 <br/>
@@ -83,12 +83,12 @@ const narration = await BABYLON.CreateStreamingSoundAsync("narration",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 narration.play()
 ```
 
-<Playground id="#1BZK59#1" title="Streaming a sound" description="A simple example of playing a streaming sound."/>
+<Playground id="#1BZK59#11" title="Streaming a sound" description="A simple example of playing a streaming sound."/>
 
 <br/>
 <br/>
@@ -110,7 +110,7 @@ const sound = await BABYLON.CreateSoundAsync("sound",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 sound.play(); // Instance #1.
 
@@ -122,7 +122,7 @@ setTimeout(() => {
 }, 4000);
 ```
 
-<Playground id="#1BZK59#2" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
+<Playground id="#1BZK59#12" title="Sound instances" description="An example of limiting the number of sound playback instances."/>
 
 <br/>
 <br/>
@@ -165,7 +165,7 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 bounce.play({ loop: true });
 ```
 
-<Playground id="#1BZK59#3" title="Looping playback" description="An example of looping sound playback three different ways."/>
+<Playground id="#1BZK59#13" title="Looping playback" description="An example of looping sound playback three different ways."/>
 
 <br/>
 <br/>
@@ -185,11 +185,40 @@ const gunshot = await BABYLON.CreateSoundAsync("gunshot",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 gunshot.volume = 0.75;
-gunshot.play()
+gunshot.play();
 ```
+
+The volume can also fade in and out over time using [`AbstractSound.setVolume`](/typedoc/classes/BABYLON.AbstractSound#setvolume), which sets the volume to the given `value` with optional [`duration`](/typedoc/interfaces/BABYLON.IAudioParameterRampOptions#duration) and [`shape`](/typedoc/interfaces/BABYLON.IAudioParameterRampOptions#shape) options.
+
+```javascript
+const audioEngine = await BABYLON.CreateAudioEngineAsync();
+audioEngine.volume = 0.5;
+
+const tone = await BABYLON.CreateSoundAsync("tone",
+    "https://amf-ms.github.io/AudioAssets/samples/tones/sine-wave-440.wav"
+);
+
+// Wait until audio engine is ready to play sounds.
+await audioEngine.unlockAsync();
+
+tone.volume = 0.2;
+tone.play({ loop: true });
+
+// Start a 3 second long fade to zero using a logarithmic shape.
+tone.setVolume(0, { duration: 3, shape: AudioParameterRampShape.Logarithmic });
+```
+
+See the [`AudioParameterRampShape`](/typedoc/enums/BABYLON.AudioParameterRampShape) enum for the list of available ramp shapes.
+
+To experiment with fading sound in and out using different ramp shapes, see this example playground:
+
+<Playground id="#HDPCXJ#6" title="Sound fade in and out" description="An example of fading sounds in and out with various ramp shapes."/>
+
+<br/>
+<br/>
 
 ## Stereo pan
 
@@ -209,7 +238,7 @@ const gunshot = await BABYLON.CreateSoundAsync("gunshot",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 gunshot.stereo.pan = -1;
 gunshot.play()
@@ -238,21 +267,21 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 bounce.spatial.attach(mesh);
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 bounce.play({ loop: true });
 ```
 
 Note that this example creates the sound with the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option set to `true`. This is done because the underlying `spatial` property is not enabled by default, so a small delay occurs when enabling it for the first time. Setting the [`spatialEnabled`](/typedoc/interfaces/BABYLON.IAbstractSoundOptions#spatialenabled) option to `true` avoids this delay, as does setting any of the spatial audio options when the sound is created.
 
-<Playground id="#1BZK59#4" title="Attaching meshes" description="An example of attaching a spatial sound source to a mesh."/>
+<Playground id="#1BZK59#14" title="Attaching meshes" description="An example of attaching a spatial sound source to a mesh."/>
 
 <br/>
 <br/>
 
 To experiment with the available [spatial sound source settings](/typedoc/classes/BABYLON.AbstractSpatialAudio), a spatial audio visualizer playground is provided:
 
-<Playground id="#1BZK59#5" title="Spatial audio visualizer" description="A spatial audio settings visualizer."/>
+<Playground id="#A9NDNJ" title="Spatial audio visualizer" description="A spatial audio settings visualizer."/>
 
 <br/>
 <br/>
@@ -295,12 +324,12 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 bounce.outBus = bus;
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 bounce.play({ loop: true });
 ```
 
-<Playground id="#1BZK59#6" title="Audio buses" description="An example of chaining audio buses."/>
+<Playground id="#1BZK59#16" title="Audio buses" description="An example of chaining audio buses."/>
 
 <br/>
 <br/>
@@ -316,7 +345,7 @@ const bounce = await BABYLON.CreateSoundAsync("bounce",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 bounce.play({ loop: true });
 
@@ -333,7 +362,7 @@ Note that this example creates the sound with the [`analyzerEnabled`](/typedoc/i
 
 Here is an example playground that uses the analyzer to animate frequency-based shader.
 
-<Playground id="#1BZK59#7" title="Audio analyzer" description="An example of using the audio analyzer."/>
+<Playground id="#1BZK59#17" title="Audio analyzer" description="An example of using the audio analyzer."/>
 
 <br/>
 <br/>
@@ -355,7 +384,7 @@ const bounce2 = await BABYLON.CreateSoundAsync("bounce2",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 bounce1.play();
 bounce2.play();
@@ -380,7 +409,7 @@ const bounce2 = await BABYLON.CreateSoundAsync("bounce2",
 );
 
 // Wait until audio engine is ready to play sounds.
-await audioEngine.unlock();
+await audioEngine.unlockAsync();
 
 bounce1.play();
 bounce2.play();
@@ -403,6 +432,53 @@ const sound = BABYLON.CreateSoundAsync("sound", [
 ```
 
 If needed, this behavior can be disabled by setting the [`skipCodecCheck`](/typedoc/interfaces/BABYLON.IStaticSoundOptions#skipcodeccheck) option to `false` when creating a sound or sound buffer.
+
+## Microphone input
+
+To capture microphone input, use the [`CreateMicrophoneSoundSourceAsync`](/typedoc/functions/BABYLON.CreateMicrophoneSoundSourceAsync) function.
+
+```javascript
+const micInput = await CreateMicrophoneSoundSourceAsync("micInput");
+```
+
+Microphone input starts automatically and can be muted by setting its `volume` to 0, but it will continue streaming until disposed, even when it is muted.
+
+**Caution should be used when setting a microphone sound source's `outBus` property due to the potential for a loud feedback loop from the speakers back into the microphone.** To help prevent this, microphone sound sources do not automatically set the `outBus` property. It can be set after the microphone input is created, but be careful not to route the microphone output to speakers that will be picked up by the microphone and looped back into the speakers.
+
+Note that the browser may show a microphone access request when this function is called, in which case the promise returned by this function will resolve when the user responds to the request. An error is thrown if the request is denied.
+
+<Playground id="#JY5TDF#1" title="Microphone input" description="An example of using microphone input."/>
+
+<br/>
+<br/>
+
+## WebAudio node sound sources
+
+To create a sound source from a WebAudio node, use the [`CreateSoundSourceAsync`](/typedoc/functions/BABYLON.CreateSoundSourceAsync) function.
+
+```javascript
+const audioContext = new AudioContext();
+const audioEngine = await BABYLON.CreateAudioEngineAsync({ audioContext });
+
+const audioNode = new OscillatorNode(audioContext, {
+    frequency: 440,
+    type: "sine",
+});
+audioNode.start();
+
+await BABYLON.CreateSoundSourceAsync("sine", audioNode, { volume: 0.1 });
+```
+
+A sound source created for a WebAudio node starts automatically and can be muted by setting its `volume` to 0, but it will continue streaming until disposed, even when it is muted.
+
+<Playground id="#1BZK59#49" title="WebAudio node sound source" description="An example of using a WebAudio node as a sound source."/>
+
+<br/>
+
+<Playground id="#QO4OTN#10" title="WebAudioModules synth sound source" description="An example of using a WebAudioModules synth as a sound source."/>
+
+<br/>
+<br/>
 
 ## Browser autoplay considerations
 
@@ -446,7 +522,10 @@ unmuteButtonStyle.appendChild(
 document.head.appendChild(unmuteButtonStyle);
 ```
 
-<Playground id="#1BZK59#8" title="Unmute styling" description="An example of customizing the unmute button's CSS styling."/>
+<Playground id="#1BZK59#18" title="Unmute styling" description="An example of customizing the unmute button's CSS styling."/>
+
+<br/>
+<br/>
 
 ## Feature requests and bug fixes
 

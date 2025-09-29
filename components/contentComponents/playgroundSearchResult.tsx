@@ -5,8 +5,7 @@ import CodeIcon from "@mui/icons-material/Code";
 import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
 import LinkIcon from "@mui/icons-material/Link";
 
-import Highlight, { defaultProps } from "prism-react-renderer";
-import vsDark from "prism-react-renderer/themes/vsDark";
+import { Highlight, themes } from "prism-react-renderer";
 
 import Link from "next/link";
 import { IExampleLink } from "../../lib/content.interfaces";
@@ -27,6 +26,10 @@ export interface IPlaygroundSearchResult {
     version: number;
 }
 
+const MaxLineLength = 200;
+const NumberOfLinesToShow = 10;
+const CodeNotFound = -1;
+
 export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygroundSearchResult; type: SearchType; term?: string; setActiveExample: (example: IExampleLink) => void }> = ({ searchResult, type, term, setActiveExample }) => {
     const theme = useTheme();
     const [expanded, setExpanded] = useState<boolean>(false);
@@ -40,7 +43,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
         }
     });
 
-    const name = searchResult.name ? `${searchResult.name} (${searchResult.id})` : searchResult.id;
+    const [name, setName] = useState<string>(searchResult.name ? `${searchResult.name} (${searchResult.id})` : searchResult.id);
 
     useEffect(() => {
         if (type === "code") {
@@ -54,28 +57,101 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
         // get the snippet code
         fetch(`https://snippet.babylonjs.com/${searchResult.snippetIdentifier}/${searchResult.version}`).then((response) => {
             response.text().then((text) => {
+                const TrimLinesAndShow = (allLines: string[], start: number, found: number) => {
+                    // Clamp indexes
+                    const clampedStart = Math.max(0, start);
+                    const clampedEnd = Math.min(clampedStart + NumberOfLinesToShow, allLines.length);
+
+                    // Only pass to the highlighter what we need to show
+                    const visible: string[] = [];
+                    for (let i = clampedStart; i < clampedEnd; ++i) {
+                        let line = allLines[i] ?? "";
+                        // Long lines get trimmed because some playgrounds contain base64 strings textures and other objects
+                        if (line.length > MaxLineLength) {
+                            line = line.substring(0, MaxLineLength) + " ...";
+                        }
+                        visible.push(line);
+                    }
+
+                    setCodeToShow({
+                        code: visible.join("\n"),
+                        startingLine: clampedStart,
+                        foundLine: found,
+                    });
+                };
+
                 const parsed = JSON.parse(JSON.parse(text).jsonPayload);
-                const { code } = parsed;
-                const codeLines: Array<string> = (code || "").split("\n");
+                let filesCode: [string, string][] = [];
+
+                let v2Manifest = { files: { default: "" } };
+                try {
+                    // Starting with PG V2, the manifest contains now a version and a list of files
+                    // instead of just having code as with PG V1
+                    if (parsed.version) {
+                        v2Manifest = JSON.parse(parsed.code);
+                    } else { // PG V1
+                        v2Manifest.files.default = parsed.code;
+                    }
+                } catch (e) {
+                    // If parsing the JSON failed, treat it as code just in case
+                    v2Manifest.files.default = parsed.code;
+                }
+
+                // Put the files and their code into a list for easier access
+                for (const [filename, code] of Object.entries(v2Manifest.files)) {
+                    filesCode.push([filename, code]);
+                }
+
+                // When not searching for code, just show the beginning of the first file
+                if (type !== "code") {
+                    TrimLinesAndShow(filesCode.length ? filesCode[0][1].split("\n") : [], 0, CodeNotFound);
+                    return;
+                }
+
+                // Searching inside the code files, we will stop on the first file we find the term
+                let codeLines: Array<string> = [];
                 let startingLine = 0;
                 let foundLine = -1;
-                const lowerTerm = term.toLowerCase();
-                if (type === "code") {
+                let foundFile = "";
+                let codeFound = false;
+
+                for (const [filename, code] of filesCode) {
+                    codeFound = false;
+                    codeLines = (code || "").split("\n");
+                    startingLine = 0;
+                    foundLine = -1;
+                    const lowerTerm = term.toLowerCase();
+                    
                     for (foundLine = 0; foundLine < codeLines.length; ++foundLine) {
-                        if (codeLines[foundLine].length > 100) {
-                            codeLines[foundLine] = `${codeLines[foundLine].substring(0, 100)}...`;
+                        // Long lines get trimmed because some playgrounds contain base64 strings textures and other objects
+                        if (codeLines[foundLine].length > MaxLineLength) {
+                            codeLines[foundLine] = `${codeLines[foundLine].substring(0, MaxLineLength)}...`;
                         }
+
                         if (codeLines[foundLine].toLowerCase().indexOf(lowerTerm) !== -1) {
-                            startingLine = Math.max(foundLine - 5, 0);
+                            codeFound = true;
+                            startingLine = Math.max(foundLine - Math.round(NumberOfLinesToShow / 2), 0);
+                            foundFile = filename;
                             break;
                         }
                     }
+
+                    if (codeFound) {
+                        break;
+                    }
                 }
-                setCodeToShow({
-                    code: codeLines.slice(startingLine, startingLine + 10).join("\n"),
-                    startingLine,
-                    foundLine,
-                });
+                
+                if (codeFound) {
+                    if (foundFile !== "default") {
+                        setName(`${name} - ${foundFile}`);
+                    }
+
+                    TrimLinesAndShow(codeLines, startingLine, foundLine);
+                } else {
+                    // Couldn't find the exact code in the snippet, but search thought it was relevant,
+                    // so we still show the beginning of the first file
+                    TrimLinesAndShow(filesCode.length ? filesCode[0][1].split("\n") : [], 0, CodeNotFound);
+                }
             });
         });
     }, [searchResult]);
@@ -180,7 +256,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
             </AccordionSummary>
             <AccordionDetails>
                 <div style={{ width: "100%" }}>
-                    <Highlight {...defaultProps} theme={vsDark} code={codeToShow.code} language="jsx">
+                    <Highlight theme={themes.vsDark} code={codeToShow.code} language="jsx">
                         {({ className, style, tokens, getLineProps, getTokenProps }) => (
                             <pre className={className} style={style}>
                                 {tokens.map((line, i) => (

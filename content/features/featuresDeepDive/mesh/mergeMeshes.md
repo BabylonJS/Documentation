@@ -44,82 +44,154 @@ Note: Careful, when you merge cloned mesh, you need to update the world matrix o
 **Note: This article covers the internal merging process. You can also use `BABYLON.VertexData` object and its `merge()` function for a simpler solution.**
 
 ```javascript
-const mergeMeshes = function (meshName, arrayObj, scene) {
-  const arrayPos = [];
-  const arrayNormal = [];
-  const arrayUv = [];
-  const arrayUv2 = [];
-  const arrayColor = [];
-  const arrayMatricesIndices = [];
-  const arrayMatricesWeights = [];
-  const arrayIndice = [];
-  const savedPosition = [];
-  const savedNormal = [];
-  const newMesh = new BABYLON.Mesh(meshName, scene);
-  const UVKind = true;
-  const UV2Kind = true;
-  const ColorKind = true;
-  const MatricesIndicesKind = true;
-  const MatricesWeightsKind = true;
-
-  for (let i = 0; i != arrayObj.length; i++) {
-    if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.UVKind])) UVKind = false;
-    if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.UV2Kind])) UV2Kind = false;
-    if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.ColorKind])) ColorKind = false;
-    if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.MatricesIndicesKind])) MatricesIndicesKind = false;
-    if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.MatricesWeightsKind])) MatricesWeightsKind = false;
-  }
-
-  for (let i = 0; i != arrayObj.length; i++) {
-    const ite = 0;
-    const iter = 0;
-    arrayPos[i] = arrayObj[i].getVerticesData(BABYLON.VertexBuffer.PositionKind);
-    arrayNormal[i] = arrayObj[i].getVerticesData(BABYLON.VertexBuffer.NormalKind);
-    if (UVKind) arrayUv = arrayUv.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.UVKind));
-    if (UV2Kind) arrayUv2 = arrayUv2.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.UV2Kind));
-    if (ColorKind) arrayColor = arrayColor.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.ColorKind));
-    if (MatricesIndicesKind) arrayMatricesIndices = arrayMatricesIndices.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind));
-    if (MatricesWeightsKind) arrayMatricesWeights = arrayMatricesWeights.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind));
-
-    const maxValue = savedPosition.length / 3;
-
-    arrayObj[i].computeWorldMatrix(true);
-    const worldMatrix = arrayObj[i].getWorldMatrix();
-
-    for (let ite = 0; ite != arrayPos[i].length; ite += 3) {
-      const vertex = BABYLON.Vector3.TransformCoordinates(new BABYLON.Vector3(arrayPos[i][ite], arrayPos[i][ite + 1], arrayPos[i][ite + 2]), worldMatrix);
-      savedPosition.push(vertex.x);
-      savedPosition.push(vertex.y);
-      savedPosition.push(vertex.z);
+function mergeMeshes(meshes, disposeSource) {
+    if (!meshes || meshes.length === 0) {
+        return null;
     }
 
-    for (let iter = 0; iter != arrayNormal[i].length; iter += 3) {
-      const vertex = BABYLON.Vector3.TransformNormal(new BABYLON.Vector3(arrayNormal[i][iter], arrayNormal[i][iter + 1], arrayNormal[i][iter + 2]), worldMatrix);
-      savedNormal.push(vertex.x);
-      savedNormal.push(vertex.y);
-      savedNormal.push(vertex.z);
+    const validMeshes = [];
+    let totalVertices = 0;
+    let totalIndices = 0;
+    
+    const has = {
+        normals: false,
+        uvs: false,
+        uv2s: false,
+        colors: false,
+        matricesIndices: false,
+        matricesWeights: false,
+    };
+
+    for (const mesh of meshes) {
+        const vd = mesh.getVertexBuffer(BABYLON.VertexBuffer.PositionKind);
+        if (!vd) continue;
+        
+        const vertCount = mesh.getTotalVertices();
+        if (!vertCount) continue;
+        
+        const indices = mesh.getIndices();
+        if (!indices) continue;
+
+        validMeshes.push(mesh);
+        totalVertices += vertCount;
+        totalIndices += indices.length;
+
+        if (!has.normals && mesh.getVertexBuffer(BABYLON.VertexBuffer.NormalKind)) has.normals = true;
+        if (!has.uvs && mesh.getVertexBuffer(BABYLON.VertexBuffer.UVKind)) has.uvs = true;
+        if (!has.uv2s && mesh.getVertexBuffer(BABYLON.VertexBuffer.UV2Kind)) has.uv2s = true;
+        if (!has.colors && mesh.getVertexBuffer(BABYLON.VertexBuffer.ColorKind)) has.colors = true;
+        if (!has.matricesIndices && mesh.getVertexBuffer(BABYLON.VertexBuffer.MatricesIndicesKind)) has.matricesIndices = true;
+        if (!has.matricesWeights && mesh.getVertexBuffer(BABYLON.VertexBuffer.MatricesWeightsKind)) has.matricesWeights = true;
     }
 
-    const tmp = arrayObj[i].getIndices();
-    for (let it = 0; it != tmp.length; it++) {
-      arrayIndice.push(tmp[it] + maxValue);
+    if (validMeshes.length === 0) {
+        return null;
     }
-    arrayIndice = arrayIndice.concat(tmp);
 
-    arrayObj[i].dispose(false);
-  }
+    const positions = new Float32Array(totalVertices * 3);
+    const normals = has.normals ? new Float32Array(totalVertices * 3) : null;
+    const uvs = has.uvs ? new Float32Array(totalVertices * 2) : null;
+    const uv2s = has.uv2s ? new Float32Array(totalVertices * 2) : null;
+    const colors = has.colors ? new Float32Array(totalVertices * 4) : null;
+    const matricesIndices = has.matricesIndices ? new Float32Array(totalVertices * 4) : null;
+    const matricesWeights = has.matricesWeights ? new Float32Array(totalVertices * 4) : null;
+    const indices = new Uint32Array(totalIndices);
 
-  newMesh.setVerticesData(BABYLON.VertexBuffer.PositionKind, savedPosition, false);
-  newMesh.setVerticesData(BABYLON.VertexBuffer.NormalKind, savedNormal, false);
-  if (arrayUv.length > 0) newMesh.setVerticesData(BABYLON.VertexBuffer.UVKind, arrayUv, false);
-  if (arrayUv2.length > 0) newMesh.setVerticesData(BABYLON.VertexBuffer.UV2Kind, arrayUv, false);
-  if (arrayColor.length > 0) newMesh.setVerticesData(BABYLON.VertexBuffer.ColorKind, arrayUv, false);
-  if (arrayMatricesIndices.length > 0) newMesh.setVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind, arrayUv, false);
-  if (arrayMatricesWeights.length > 0) newMesh.setVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind, arrayUv, false);
+    let vertexOffset = 0;
+    let indexOffset = 0;
 
-  newMesh.setIndices(arrayIndice);
-  return newMesh;
-};
+    const vec3tmp1 = new BABYLON.Vector3();
+    const vec3tmp2 = new BABYLON.Vector3();
+
+    for (const mesh of validMeshes) {
+        const wm = mesh.computeWorldMatrix(true);
+        const vertCount = mesh.getTotalVertices();
+
+        const pos = mesh.getVerticesData(BABYLON.VertexBuffer.PositionKind);
+        const nor = has.normals ? mesh.getVerticesData(BABYLON.VertexBuffer.NormalKind) : null;
+        const uv = has.uvs ? mesh.getVerticesData(BABYLON.VertexBuffer.UVKind) : null;
+        const uv2 = has.uv2s ? mesh.getVerticesData(BABYLON.VertexBuffer.UV2Kind) : null;
+        const col = has.colors ? mesh.getVerticesData(BABYLON.VertexBuffer.ColorKind) : null;
+        const matInd = has.matricesIndices ? mesh.getVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind) : null;
+        const matWgt = has.matricesWeights ? mesh.getVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind) : null;
+        const ind = mesh.getIndices();
+
+        disposeSource && mesh.dispose();
+
+        if (pos) {
+            const posOffset = vertexOffset * 3;
+            for (let i = 0; i < vertCount; i++) {
+                const i3 = i * 3;
+                vec3tmp1.set(pos[i3], pos[i3 + 1], pos[i3 + 2]);
+                BABYLON.Vector3.TransformCoordinatesToRef(vec3tmp1, wm, vec3tmp2);
+                
+                const targetIndex = posOffset + i3;
+                positions[targetIndex] = vec3tmp2.x;
+                positions[targetIndex + 1] = vec3tmp2.y;
+                positions[targetIndex + 2] = vec3tmp2.z;
+            }
+        }
+
+        if (nor && normals) {
+            const norOffset = vertexOffset * 3;
+            for (let i = 0; i < vertCount; i++) {
+                const i3 = i * 3;
+                vec3tmp1.set(nor[i3], nor[i3 + 1], nor[i3 + 2]);
+                BABYLON.Vector3.TransformNormalToRef(vec3tmp1, wm, vec3tmp2);
+                vec3tmp2.normalizeToRef(vec3tmp2);
+                
+                const targetIndex = norOffset + i3;
+                normals[targetIndex] = vec3tmp2.x;
+                normals[targetIndex + 1] = vec3tmp2.y;
+                normals[targetIndex + 2] = vec3tmp2.z;
+            }
+        }
+
+        if (uv && uvs) {
+            uvs.set(uv, vertexOffset * 2);
+        }
+
+        if (uv2 && uv2s) {
+            uv2s.set(uv2, vertexOffset * 2);
+        }
+
+        if (col && colors) {
+            colors.set(col, vertexOffset * 4);
+        }
+
+        if (matInd && matricesIndices) {
+            matricesIndices.set(matInd, vertexOffset * 4);
+        }
+
+        if (matWgt && matricesWeights) {
+            matricesWeights.set(matWgt, vertexOffset * 4);
+        }
+
+        if (ind) {
+            for (let i = 0; i < ind.length; i++) {
+                indices[indexOffset + i] = ind[i] + vertexOffset;
+            }
+            indexOffset += ind.length;
+        }
+
+        vertexOffset += vertCount;
+    }
+    
+    const vd = new BABYLON.VertexData();
+    vd.positions = positions;
+    if (normals) vd.normals = normals;
+    if (uvs) vd.uvs = uvs;
+    if (uv2s) vd.uv2s = uv2s;
+    if (colors) vd.colors = colors;
+    if (matricesIndices) vd.matricesIndices = matricesIndices;
+    if (matricesWeights) vd.matricesWeights = matricesWeights;
+    vd.indices = indices;
+
+    const merged = new BABYLON.Mesh("merged");
+    vd.applyToMesh(merged);
+    
+    return merged;
+}
 ```
 
 ## Merging Meshes with Constructive Solid Geometry

@@ -20,7 +20,7 @@ Here is a comparison of the rendering with and without the activation of the IBL
 
 Here is the playground that generated the above images:
 
-- <Playground id="#8R5SSE#481" title="IBL Shadows Pipeline Example" description="Boombox scene with IBL shadows" isMain={true} category="Post-processing"/>
+- <Playground id="#8R5SSE#665" title="IBL Shadows Pipeline Example" description="Boombox scene with IBL shadows" isMain={true} category="Post-processing"/>
 
 ## Important Usage Notes
 

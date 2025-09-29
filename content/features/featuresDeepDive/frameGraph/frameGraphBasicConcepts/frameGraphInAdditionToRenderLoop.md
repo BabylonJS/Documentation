@@ -85,12 +85,13 @@ const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("#FAPQIH#1", sce
 
 const frameGraph = nrg.frameGraph;
 
-engine.onResizeObservable.add(() => {
+passPostProcess.onSizeChangedObservable.add(() => {
     nrg.getBlockByName("Texture").value = passPostProcess.inputTexture.texture;
     nrg.build();
 });
 
 nrg.getBlockByName("Texture").value = passPostProcess.inputTexture.texture;
+
 nrg.build();
 
 await nrg.whenReadyAsync();
@@ -105,4 +106,4 @@ Note that we have deactivated the automatic building of the graph when resizing 
 
 The rest of the code should be simple to understand.
 
-The full PG: <Playground id="#RM56RY#14" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (node render graph)"/>
+The full PG: <Playground id="#RM56RY#21" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (node render graph)"/>

@@ -134,7 +134,7 @@ navigationPlugin.buildFromNavmeshData(uint8array);
 
 Navmesh computation is run on drag and dropped gltf. The export can then be opened like in this Playground:
 
-<img src="/img/pageImages/navmesh-editor.jpg" title="Precomputing a navmesh with navmesh-editor"/>
+<img src="/img/pageImages/navmesh-editor.jpg" title="Precomputing a navmesh with navmesh-generator"/>
 
 Loading a precomputed navmesh: <Playground id="#KVQP83#92" title="Loading a precomputed navmesh" description="Loading a precomputed navmesh"/>
 

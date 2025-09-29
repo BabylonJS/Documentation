@@ -652,7 +652,7 @@ depthSensing.onGetDepthInMetersAvailable.add((getDepthInMeters) => {
 });
 ```
 
-<Playground id="#KDWCZY" title="Placing A Mesh In Space with depth sensing" description="See how depth sensing works when adding models to the real world" image="/img/playgroundsAndNMEs/vrglasses.png"/>
+<Playground id="#KDWCZY#601" title="Placing A Mesh In Space with depth sensing" description="See how depth sensing works when adding models to the real world" image="/img/playgroundsAndNMEs/vrglasses.png"/>
 
 ## Demos
 

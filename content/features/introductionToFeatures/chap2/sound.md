@@ -19,7 +19,7 @@ First, create an audio engine and unlock it. Note that we're using `await` to wa
 ```javascript
 async function initAudio() {
   const audioEngine = await BABYLON.CreateAudioEngineAsync();
-  await audioEngine.unlock();
+  await audioEngine.unlockAsync();
 
   // Audio engine is ready to play sounds ...
 }

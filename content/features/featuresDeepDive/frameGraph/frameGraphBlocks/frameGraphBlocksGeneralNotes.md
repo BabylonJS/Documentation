@@ -70,7 +70,7 @@ However, it is not always possible to describe the order of execution in this wa
 
 `CustomRendering` renders the exterior view in a texture. Without the connection to the **dependencies** entry of the `MainRendering` block, you could not make `CustomRendering` part of the graph and execute it before `MainRendering`.
 
-Note that this **dependencies** input is specific to the node render graph framework: frame graph tasks do not have this property! If you use the frame graph framework yourself (see [Frame Graph Usage](/features/featuresDeepDive/frameGraph/frameGraphBasicConcepts#frame-graph-usage)), it is your responsibility to add tasks in a frame graph in the correct order and to ensure that if a task depends on another task, the latter is added first.
+Note that this **dependencies** input is not specific to the node render graph framework, it exists at the `FrameGraphTask` level. If you use the frame graph framework yourself (see [Frame Graph Usage](/features/featuresDeepDive/frameGraph/frameGraphBasicConcepts#frame-graph-usage)), **dependencies** is not used for task ordering: it is your responsibility to add tasks in a frame graph in the correct order and to ensure that if a task depends on another task, the latter is added first. However, you can add a texture to a tasks's **dependencies** to indicate that a texture must retain its content at least until that task before the texture optimizer can reuse it for subsequent tasks. If you do not do this, a texture may be reused too early and the output of the frame graph may not match your expectations.
 
 ### Connection types
 

@@ -77,10 +77,12 @@ Just drag &amp; drop your .hdr file, wait a bit, and save the .env wherever you 
 
 ## Directly use .hdr files
 
-In case you want to directly use a .hdr file and are not able to prefilter it to a .env or a .dds from the sandbox or an external tool, you can do it at the moment your texture is loaded.
+In case you want to directly use a .hdr or .exr file and are not able to prefilter it to a .env or a .dds from the sandbox or an external tool, you can do it at the moment your texture is loaded.
 
 ```javascript
-const reflectionTexture = new BABYLON.HDRCubeTexture("./textures/environment.hdr", scene, 128, false, true, false, true);
+const hdrReflectionTexture = new BABYLON.HDRCubeTexture("./textures/environment.hdr", scene, 128, false, true, false, true);
+
+const exrReflectionTexture = new BABYLON.EXRCubeTexture("./textures/environment.exr", scene, 128, false, true, false, true);
 ```
 
 This method will involve a small delay in the loading of the texture, due to the prefiltering being achieved on-the-fly. Therefore it is preferable to use .env or .dds files for optimal performance.
