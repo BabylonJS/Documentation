@@ -130,7 +130,8 @@ navigationPlugin.buildFromNavmeshData(uint8array);
 
 ## Using 3rd party tools
 
-3rd party tools like `navmesh-editor` can help create navmesh and bake result to a binary file that is directly useable (navmesh coordinate system is right handed) : <https://navmesh-editor.babylonjs.xyz/>
+3rd party tools like `navmesh-generator` can help create navmesh and bake result to a binary file that is directly useable (navmesh coordinate system is right handed) : [Link to navmesh-generator](https://navmesh-gene.babylonjs.xyz/)
+
 Navmesh computation is run on drag and dropped gltf. The export can then be opened like in this Playground:
 
 <img src="/img/pageImages/navmesh-editor.jpg" title="Precomputing a navmesh with navmesh-editor"/>
@@ -148,7 +149,7 @@ let navigationPlugin = new BABYLON.RecastJSPlugin();
 navigationPlugin.setWorkerURL("workers/navMeshWorker.js");
 ```
 
-A default web worker is provided at this URL : <https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/playground/public/workers/navMeshWorker.js>
+A default web worker is provided [at this URL](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/playground/public/workers/navMeshWorker.js)
 
 Then, provide a completion callback to `createNavMesh` method. This callback will be called when the navigation mesh is computed and ready to use by the plugin.
 
