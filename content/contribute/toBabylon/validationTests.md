@@ -8,4 +8,4 @@ video-overview:
 video-content:
 ---
 
-Please refer to the guide here: [Visualization tests](/contribute/toBabylon/HowToContribute/#visualization-tests)
+Please refer to the guide here: [Visualization tests](../HowToContribute/#visualization-tests)
