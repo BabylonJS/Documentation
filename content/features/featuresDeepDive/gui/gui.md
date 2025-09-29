@@ -677,11 +677,12 @@ You can also define which part of the source image you want to use with the foll
 Here is an example of an image: <Playground id="#XCPP9Y#7" title="Image Example" description="Simple example showing how to add an Image control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI33.jpg"/>
 
 You can use animation sheet in the image using properties `image.cellId`, `image.cellWidth`, `image.cellHeight`. <Playground id="#K60448#10" title="Image With Sprite Sheet Example" description="Simple example showing how to add an Image with a sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI34.jpg"/>
+
 You can also apply stretch to animation sheet using `image.stretch` property.
 
-<Playground id="#K60448#1" title="Image With Stetched Sprite Sheet Example 1" description="Simple example showing how to add an Image with a stretched sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI35.jpg"/>
+<Playground id="#K60448#1" title="Image With Stretched Sprite Sheet Example 1" description="Simple example showing how to add an Image with a stretched sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI35.jpg"/>
 
-<Playground id="#K60448#2" title="Image With Stetched Sprite Sheet Example 2" description="Simple example showing how to add an Image with a stretched sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI36.jpg"/>
+<Playground id="#K60448#2" title="Image With Stretched Sprite Sheet Example 2" description="Simple example showing how to add an Image with a stretched sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI36.jpg"/>
 
 ### Pointer events
 

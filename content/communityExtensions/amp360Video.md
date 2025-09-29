@@ -18,7 +18,7 @@ The [Azure media player](http://amp.azure.net/libs/amp/latest/docs/index.html) 3
 
 The plugin natively supports VR headsets (Windows Mixed Reality, etc.).
 
-[Online Demo of the plugin](https://www.babylonjs.com/Demos/Amp360Video/)
+{/* [Online Demo of the plugin](https://www.babylonjs.com/Demos/Amp360Video/) */}
 
 ## How to Run Locally
 

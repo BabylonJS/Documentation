@@ -28,3 +28,18 @@ value|Type
 7 | BILLBOARDMODE_ALL
 
 <Playground id="#ANE052#1" title="Simple Example of Mesh Billboard Mode" description="Simple example of setting a mesh to use Billboard Mode."/>
+
+# Integrating with parent hierarchy
+
+The things get a bit more complex when your billboard object has a parent because then you may or may not want to integrate parent rotation in the mix.
+
+If you set nothing but the billboardMode, the mesh will ignore its parent rotation:
+
+<Playground id="#PDO1L6#2" title="Simple Example of Mesh Billboard Mode with a parent" description="Simple Example of Mesh Billboard Mode with a parent."/>
+
+You can decide to force all the billboards to take the parent rotation in account without messing up with the billboard orientation with `BABYLON.TransformNode.BillboardUseParentOrientation = true;`:
+
+<Playground id="#PDO1L6#3" title="Simple Example of Mesh Billboard Mode with a parent" description="Simple Example of Mesh Billboard Mode with a parent."/>
+
+
+

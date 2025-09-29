@@ -65,3 +65,14 @@ understand ellipsoid and ellipsoid offset properties on meshes.
 ## Using The ".moveWithCollisions" Method In Code
 The Babylon.JS API provides a method named `.moveWithCollisions` on `Mesh` class. This method will work like for cameras without any,
 extra configuration. It'll check collisions on all meshes that have collisions enabled in the scene.
+
+NOTE: If you try calling moveWithCollisions twice within a single frame, you will receive unexpected results as the collision detection logic is based off the mesh's position at the start of the frame, not based on the mesh's position after the first call to `moveWithCollisions`. See [this playground](https://playground.babylonjs.com/#T5JJ6Z#1) demonstrating that behavior. 
+
+This is by design, as re-computing the world matrix is an expensive operation and not something we want to do multiple times per-frame. If you must call move with collisions more than once within a single frame, you can force the world matrix recomputation on the mesh using `mesh.computeWorldMatrix(true)`. See the updated playground [here](https://playground.babylonjs.com/#T5JJ6Z#2).
+
+Please use this approach with caution, as it is not cheap. Calling `computeWorldMatrix(true)` on NodeN will have the following impact
+
+- In current frame it will recompute the world matrix on current node and all of its parents, so the complexity is O(d), where d is the depth of NodeN (this aligns with your analysis above)
+- On the next frame, when computeWorldMatrix is called default by the render loop, all the children of NodeN will see that the node is not synchronized with its parent, which will force a recomputation of that node (and thus their children will also not be synchronized with their parent. - Note that if we hadn’t called computeWorldMatrix(true) on NodeN, then its children would skip the recalculation because theyd be syncronized with parent.
+
+So the complexity of forcing recalculation on NodeN increases by # of ancestors (for current frame) and # of descendants (for next frame).

@@ -99,6 +99,6 @@ new BABYLON.Viewport(x, y, w, h);
 - x + w must be &lt;= 1
 - y + h must be &lt;= 1
 
-If you still want to use out-of-bounds values, you can use a material plugin like in this PG: <Playground id="#IIBY03#31" engine="webgpu" title="Viewport out-of-bounds values" description="Demonstrate how to support a viewport with out-of-bounds values in WebGPU"/>
+If you still want to use out-of-bounds values, you can use a material plugin like in this PG: <Playground id="#IIBY03#33" engine="webgpu" title="Viewport out-of-bounds values" description="Demonstrate how to support a viewport with out-of-bounds values in WebGPU"/>
 
 The `TEXTUREFORMAT_LUMINANCE` format is not supported in WebGPU.

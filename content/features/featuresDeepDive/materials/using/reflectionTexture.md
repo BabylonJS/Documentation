@@ -86,6 +86,14 @@ High Dynamic Range ([wikipedia](https://en.wikipedia.org/wiki/High-dynamic-range
 
 <Playground id="#114YPX#5" title="HDR Skybox" description="An HDR equirectangular skybox panorama." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction6.jpg"/>
 
+### EXRCubeTexture
+
+EXR Images ([wikipedia](https://en.wikipedia.org/wiki/OpenEXR)) like hdr textures can be useful for environment mapping even if the final output uses standard dynamic range.
+
+[EXRCubeTexture](/typedoc/classes/babylon.exrcubetexture) instances (Babylon.js v8.27+) loads a EXR equirectangular panorama image into a CubeTexture-compatible environment map.
+
+This follows the exact same code than the HDRCubeTexture section.
+
 ### Flat textures as environment maps
 
 Wraparound cubemaps work well for environment mapping, but ordinary flat Texture instances can be used for [.reflectionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) and [.refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) as well. The texture's .coordinatesMode must be set to define how the flat image should be "wrapped around" as an environment ([see "Coordinate Modes"](#coordinate-modes)).

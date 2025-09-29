@@ -64,7 +64,7 @@ Size increases then decreases over lifetime: <Playground id="#0K3AQ2#19" title="
 
 ## Change Color Over Lifetime
 
-To change size over the lifetime of the particle use
+To change color over the lifetime of the particle use
 
 ```javascript
 particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, 0)); //color at start of particle lifetime

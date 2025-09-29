@@ -674,6 +674,22 @@
                                         }
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks"
+                                },
+                                "frameGraphExamples": {
+                                    "friendlyName": "Examples",
+                                    "children": {
+                                        "frameGraphExampleTransmission": {
+                                            "friendlyName": "Rendering transmissive materials",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleTransmission"
+                                        },
+                                        "frameGraphExampleGeometryVAT": {
+                                            "friendlyName": "Generate geometry textures for VAT",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleGeometryVAT"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphExamples"
                                 }
                             },
                             "content": "features/featuresDeepDive/frameGraph"
@@ -844,6 +860,11 @@
                                     "friendlyName": "Depth metric when rendering shadows",
                                     "children": {},
                                     "content": "features/featuresDeepDive/lights/mathShadows"
+                                },
+                                "clusteredLighting": {
+                                    "friendlyName": "Clustered Lighting",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/lights/clusteredLighting"
                                 }
                             },
                             "content": "features/featuresDeepDive/lights"
@@ -1622,6 +1643,16 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/particles/particle_system/ramps_and_blends"
                                         },
+                                        "attractors": {
+                                            "friendlyName": "Attractors",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/particle_system/attractors"
+                                        },
+                                        "flowMap": {
+                                            "friendlyName": "Flow Maps",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/particle_system/flowMap"
+                                        },
                                         "subEmitters": {
                                             "friendlyName": "Sub Emitters",
                                             "children": {},
@@ -1641,6 +1672,11 @@
                                             "friendlyName": "Load Particles from File",
                                             "children": {},
                                             "content": "features/featuresDeepDive/particles/particle_system/particles_loadFromFile"
+                                        },
+                                        "node_particle_editor": {
+                                            "friendlyName": "Node Particle Editor",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/particle_system/node_particle_editor"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/particles/particle_system"
@@ -2546,6 +2582,11 @@
                             "friendlyName": "Custom Blocks",
                             "children": {},
                             "content": "toolsAndResources/nme/customBlocks"
+                        },
+                        "nmeToSfe": {
+                            "friendlyName": "Usage with the Smart Filter Editor",
+                            "children": {},
+                            "content": "toolsAndResources/nme/nmeToSfe"
                         }
                     },
                     "content": "toolsAndResources/nme"
@@ -3222,6 +3263,11 @@
                     "friendlyName": "HTML Mesh",
                     "children": {},
                     "content": "addons/htmlMesh"
+                },
+                "msdfText": {
+                    "friendlyName": "MSDF Text",
+                    "children": {},
+                    "content": "addons/msdfText"
                 }
             },
             "content": "addons"
@@ -3249,112 +3295,6 @@
                     "friendlyName": "Buffered Interpolation",
                     "children": {},
                     "content": "communityExtensions/bufferedInterpolation"
-                },
-                "castorGUI": {
-                    "friendlyName": "Castor GUI",
-                    "children": {
-                        "guiButton": {
-                            "friendlyName": "GUIButton",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiButton"
-                        },
-                        "guiCheckbox": {
-                            "friendlyName": "GUICheckbox",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiCheckbox"
-                        },
-                        "guiColor": {
-                            "friendlyName": "GUIColor",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiColor"
-                        },
-                        "guiDialog": {
-                            "friendlyName": "GUIDialog",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiDialog"
-                        },
-                        "guiFieldset": {
-                            "friendlyName": "GUIFieldset",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiFieldset"
-                        },
-                        "guiGroup": {
-                            "friendlyName": "GUIGroup",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiGroup"
-                        },
-                        "guiLabel": {
-                            "friendlyName": "GUILabel",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiLabel"
-                        },
-                        "guiManager": {
-                            "friendlyName": "GUIManager",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiManager"
-                        },
-                        "guiMeter": {
-                            "friendlyName": "GUIMeter",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiMeter"
-                        },
-                        "guiPanel": {
-                            "friendlyName": "GUIPanel",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiPanel"
-                        },
-                        "guiProgress": {
-                            "friendlyName": "GUIProgress",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiProgress"
-                        },
-                        "guiRadio": {
-                            "friendlyName": "GUIRadio",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiRadio"
-                        },
-                        "guiSelect": {
-                            "friendlyName": "GUISelect",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiSelect"
-                        },
-                        "guiSlider": {
-                            "friendlyName": "GUISlider",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiSlider"
-                        },
-                        "guiSpinner": {
-                            "friendlyName": "GUISpinner",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiSpinner"
-                        },
-                        "guiText": {
-                            "friendlyName": "GUIText",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiText"
-                        },
-                        "guiTextarea": {
-                            "friendlyName": "GUITextarea",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiTextarea"
-                        },
-                        "guiTextfield": {
-                            "friendlyName": "GUITextfield",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiTextfield"
-                        },
-                        "guiTextures": {
-                            "friendlyName": "GUITextures",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiTextures"
-                        },
-                        "guiWindow": {
-                            "friendlyName": "GUIWindow",
-                            "children": {},
-                            "content": "communityExtensions/castorGUI/guiWindow"
-                        }
-                    },
-                    "content": "communityExtensions/castorGUI"
                 },
                 "clonerSystem": {
                     "friendlyName": "Cloner System",
@@ -3744,6 +3684,24 @@
                         }
                     },
                     "content": "communityExtensions/Unity"
+                },
+                "WebXRExtension": {
+                    "friendlyName": "WebXR Extension",
+                    "content": "communityExtensions/WebXRExtension/webxrextension",
+                    "children": {
+                        "gestureRecognition": {
+                            "friendlyName": "Gesture recognition",
+                            "content": "communityExtensions/WebXRExtension/gestureRecognition"
+                        },
+                        "handsAnimation": {
+                            "friendlyName": "Hands animations",
+                            "content": "communityExtensions/WebXRExtension/handsAnimation"
+                        },
+                        "spaceMarkUp": {
+                            "friendlyName": "Space markup",
+                            "content": "communityExtensions/WebXRExtension/spaceMarkUp"
+                        }
+                    }
                 }
             },
             "content": "communityExtensions"
