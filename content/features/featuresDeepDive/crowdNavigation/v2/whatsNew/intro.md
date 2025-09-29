@@ -87,6 +87,31 @@ export type CreateNavMeshResult = Nullable<{
 
 so you can directly access these objects. These objects are exposed via getters on the `navigationPlugin` object as well.
 
+### navMeshQuery
+
+The `navMeshQuery` object provides pathfinding and spatial queries on a built navigation mesh.
+It is the primary interface for working with agents and movement once the navmesh has been created.
+
+#### What is it good for?
+
+A NavMeshQuery is mainly used to:
+
+- Find paths between two positions on the navmesh.
+- Clamp positions to the nearest valid polygon (e.g., snap a point onto the navmesh).
+- Check reachability and test whether a position lies on the navmesh.
+- Perform raycasts across the navmesh to simulate line-of-sight or bullet traces.
+- Query random positions on the navmesh (useful for AI wandering).
+- Handle multiple agents via QueryFilter (define which areas they can walk on, and how costly each area is).
+- etc.
+
+### tileCache
+
+[Read more](v2TileCache)
+
+### intermediates
+
+[Read more](v2Debugger)
+
 ## The Navigation Debugger
 
 It provides an interactive overlay for developers to better understand why agents behave the way they do, and makes tuning navmesh parameters much easier.
@@ -101,7 +126,7 @@ You can use **Navigation Debugger** to inspect:
 
 ## Raycasting
 
-You can use `navigationPlugin.raycast(startPoint, endPoint)` to use ray casting through a navigation mesh.
+You can use `navigationPlugin.raycast(startPoint, endPoint)` from now to use ray casting through a navigation mesh.
 
 ## New Utility Functions
 
