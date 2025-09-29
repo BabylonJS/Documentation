@@ -60,31 +60,21 @@ navmeshdebug.material = matdebug;
 
 ## Parameters
 
-cs - The meshes are voxelized in order to compute walkable navmesh. This parameter in world units defines the width and depth of 1 voxel.
-
-ch - Same as cs but for height of the voxel.
-
-walkableSlopeAngle - Angle in degrees for the maximum walkable slope.
-
-walkableHeight - The height in voxel units that is allowed to walk in.
-
-walkableClimb - The delta in voxel units that can be climbed.
-
-walkableRadius - the radius in voxel units of the agents.
-
-maxEdgeLen - The maximum allowed length for contour edges along the border of the mesh. Voxel units.
-
-maxSimplificationError - The maximum distance a simplified contour's border edges should deviate the original raw contour. Voxel units.
-
-minRegionArea - The minimum number of cells allowed to form isolated island areas. Voxel units.
-
-mergeRegionArea - Any regions with a span count smaller than this value will, if possible, be merged with larger regions. Voxel units.
-
-maxVertsPerPoly - The maximum number of vertices allowed for polygons generated during the contour to polygon conversion process. Must be > 3.
-
-detailSampleDist - Sets the sampling distance to use when generating the detail mesh. World units.
-
-detailSampleMaxError - The maximum distance the detail mesh surface should deviate from heightfield data. World Units.
+| Parameter                | Description                                                                                                                             | Units       |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `cs`                     | The meshes are voxelized in order to compute a walkable navmesh. Defines the width and depth of 1 voxel.                                | World units |
+| `ch`                     | Same as `cs`, but for the height of the voxel.                                                                                          | World units |
+| `walkableSlopeAngle`     | Angle in degrees for the maximum walkable slope.                                                                                        | Degrees     |
+| `walkableHeight`         | The height in voxel units that is allowed to walk in.                                                                                   | Voxel units |
+| `walkableClimb`          | The delta in voxel units that can be climbed.                                                                                           | Voxel units |
+| `walkableRadius`         | The radius in voxel units of the agents.                                                                                                | Voxel units |
+| `maxEdgeLen`             | The maximum allowed length for contour edges along the border of the mesh.                                                              | Voxel units |
+| `maxSimplificationError` | The maximum distance a simplified contour’s border edges should deviate from the original raw contour.                                  | Voxel units |
+| `minRegionArea`          | The minimum number of cells allowed to form isolated island areas.                                                                      | Voxel units |
+| `mergeRegionArea`        | Any regions with a span count smaller than this value will, if possible, be merged with larger regions.                                 | Voxel units |
+| `maxVertsPerPoly`        | The maximum number of vertices allowed for polygons generated during the contour-to-polygon conversion process. Must be greater than 3. | Count       |
+| `detailSampleDist`       | Sets the sampling distance to use when generating the detail mesh.                                                                      | World units |
+| `detailSampleMaxError`   | The maximum distance the detail mesh surface should deviate from heightfield data.                                                      | World units |
 
 You can find more information about those parameters on the [Recast documentation](https://recastnav.com/structrcConfig.html).
 
@@ -137,8 +127,10 @@ To restore an UInt8Array to a navigation mesh:
 ```javascript
 navigationPlugin.buildFromNavmeshData(uint8array);
 ```
+
 ## Using 3rd party tools
-3rd party tools like `navmesh-editor` can help create navmesh and bake result to a binary file that is directly useable (navmesh coordinate system is right handed) : https://navmesh-editor.babylonjs.xyz/
+
+3rd party tools like `navmesh-editor` can help create navmesh and bake result to a binary file that is directly useable (navmesh coordinate system is right handed) : <https://navmesh-editor.babylonjs.xyz/>
 Navmesh computation is run on drag and dropped gltf. The export can then be opened like in this Playground:
 
 <img src="/img/pageImages/navmesh-editor.jpg" title="Precomputing a navmesh with navmesh-editor"/>
@@ -156,7 +148,7 @@ let navigationPlugin = new BABYLON.RecastJSPlugin();
 navigationPlugin.setWorkerURL("workers/navMeshWorker.js");
 ```
 
-A default web worker is provided at this URL : https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/playground/public/workers/navMeshWorker.js
+A default web worker is provided at this URL : <https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/playground/public/workers/navMeshWorker.js>
 
 Then, provide a completion callback to `createNavMesh` method. This callback will be called when the navigation mesh is computed and ready to use by the plugin.
 
