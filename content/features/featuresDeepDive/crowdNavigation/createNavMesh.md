@@ -130,7 +130,7 @@ navigationPlugin.buildFromNavmeshData(uint8array);
 
 ## Using 3rd party tools
 
-3rd party tools like `navmesh-generator` can help create navmesh and bake result to a binary file that is directly useable (navmesh coordinate system is right handed) : [Link to navmesh-generator](https://navmesh-gene.babylonjs.xyz/)
+3rd party tools like `navmesh-generator` can help create navmesh and bake result to a binary file that is directly useable (navmesh coordinate system is right handed) : [Link to navmesh-generator](https://navmesh-generator.babylonjs.xyz/)
 
 Navmesh computation is run on drag and dropped gltf. The export can then be opened like in this Playground:
 
