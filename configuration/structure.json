@@ -416,6 +416,53 @@
                         "crowdNavigation": {
                             "friendlyName": "Crowd Navigation System",
                             "children": {
+                                "v2Intro": {
+                                    "friendlyName": "Crowd Navigation System v2",
+                                    "children": {
+                                        "v2WhatsNew": {
+                                            "friendlyName": "What's new in v2",
+                                            "children": {
+                                                "v2NavParameters": {
+                                                    "friendlyName": "New navigation mesh parameters",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/navParameters"
+                                                },
+                                                "v2Options": {
+                                                    "friendlyName": "The options parameter",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/options"
+                                                },
+                                                "v2OffMeshConnections": {
+                                                    "friendlyName": "OffMesh Connection aka Teleports",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/offMeshConnections"
+                                                },
+                                                "v2TileCache": {
+                                                    "friendlyName": "TileCache and TileCacheMeshProcess",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/tileCache"
+                                                },
+                                                "v2Debugger": {
+                                                    "friendlyName": "Navigation Debugger",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/debugger"
+                                                },
+                                                "v2UtilFunctions": {
+                                                    "friendlyName": "Utility Functions",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/utility"
+                                                },
+                                                "v2Examples": {
+                                                    "friendlyName": "Example Playgrounds",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/examples"
+                                                }
+                                            },
+                                            "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/intro"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/crowdNavigation/v2/intro"
+                                },
                                 "createNavMesh": {
                                     "friendlyName": "Creating A Navigation Mesh",
                                     "children": {},
