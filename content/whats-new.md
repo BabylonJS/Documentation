@@ -9063,7 +9063,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Shader files (fragment and vertex) can now be specified via direct URL ([vouskprod](https://github.com/vousk))
 - Added `Animatable.goToFrame()` ([deltakosh](https://github.com/deltakosh))
 - Fixed behavior or `Animation.CreateAndStartAnimation` and added `Animation.CreateMergeAndStartAnimation` to reproduce previous behavior ([deltakosh](https://github.com/deltakosh))
-- Adding `StandardMaterial.linkEmissiveWithDiffuse` to, well, link emissive with diffuse value. (With)[ https://www.babylonjs-playground.com/#2FPUCS#2] and (without)[ https://www.babylonjs-playground.com/#2FPUCS#1] ([deltakosh](https://github.com/deltakosh))
+- Adding `StandardMaterial.linkEmissiveWithDiffuse` to, well, link emissive with diffuse value. [With](https://www.babylonjs-playground.com/#2FPUCS#2) and [without](https://www.babylonjs-playground.com/#2FPUCS#1) ([deltakosh](https://github.com/deltakosh))
 - Adding support for equi-rectangular mapping. See [demo here](https://www.babylonjs-playground.com/#27FN5R#12) ([deltakosh](https://github.com/deltakosh))
 - Sprites and particles scheduler updated to be resolved before transparent objects ([deltakosh](https://github.com/deltakosh))
 - Added ability to deactivate ArcRotateCamera panning mechanism (by setting panningSensibility to 0) ([vouskprod](https://github.com/vousk))
