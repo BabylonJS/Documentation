@@ -974,6 +974,11 @@ This will run all tests that have the word "material" in their name.
 
 ### Visualization tests
 
+Before running the visualization tests, you'll need to start the local server:
+```shell
+npm start
+``` 
+
 Run all visualization tests (WebGL1, WebGL2 and WebGPU) using `npm run test:visualization` in the main directory.
 
 #### Before your first test run
