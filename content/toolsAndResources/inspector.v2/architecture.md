@@ -210,4 +210,62 @@ Unlike "static extensions," "dynamic extensions" must be explicitly installed by
 - The extension adds scenario specific UI that is not useful in all cases and would otherwise contribute to making the UI overwhelming.
 - The extension is large (either directly, or in that it pulls in a lot of dependencies) and it is preferable to defer downloading it until the user opts into it.
 
-TODO: API example using extension feed
+The simplest way to add dynamic extensions is to use the `BuiltInsExtensionFeed`, which allows dynamically importing extensions so they can be code split into separate chunks by your bundler and only downloaded the first time they are installed. Continuing with our previous example, we'd first move "My Service" into a separate file/module so it can by dynamically imported:
+
+```ts
+export const MyServiceIdentity = Symbol("My Service");
+export interface IMyService extends IService<MyServiceIdentity> {
+    showAlert(message: string): void;
+}
+
+MyServiceDefinition: ServiceDefinition<[IMyService], [IOtherService]> = {
+    // Helpful for debugging, and sometimes used in UI.
+    friendlyName: "My Service",
+
+    // The runtime identity of the consumed services.
+    consumes: [OtherServiceIdentity],
+
+    // The runtime identity of the produced services.
+    produces: [MyServiceIdentity],
+
+    // The factory function is responsible for instantiating a service.
+    // Now this factory function must return an object that implements IMyService.
+    factory: (otherService) => {
+        console.log("My Service was instantiated!");
+        otherService.doSomethingAmazing();
+        return {
+            showAlert: (message: string) => alert(message),
+            dispose: () => console.log("My Service was disposed!"),
+        };
+    },
+};
+
+// The module should have a default export that provides a collection of ServiceDefinitions.
+export default {
+    // Just one ServiceDefinition for this example, but this could be a set of services that collectively compose the "extension."
+    serviceDefinitions: [MyServiceDefinition],
+} as const;
+```
+
+Notice the new default export at the very bottom of the file/module.
+
+Now we can setup our `BuiltInsExtensionFeed` that will dynamically import this module:
+
+```ts
+ShowInspector(scene, {
+    // Just one additional extension feed, but you can add as many feeds as you want.
+    extensionFeeds: [
+        // Here we use BuiltInsExtensionFeed as a simple way of introducing a dynamic extension.
+        new BuiltInsExtensionFeed("My Extension Feed", [
+            {
+                name: "My Service",
+                description: "Does something nifty.",
+                keywords: ["something", "nifty"],
+                getExtensionModuleAsync: async () => await import("./myService"),
+            },
+        ]),
+    ],
+});
+```
+
+Now when the user presses the extensions button in the Inspector, the extensions dialog will show this new "My Service" extension and allow it to be dynamically installed.
