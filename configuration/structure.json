@@ -2519,6 +2519,32 @@
                     "friendlyName": "Sandbox",
                     "content": "toolsAndResources/sandbox"
                 },
+                "inspectorv2": {
+                    "friendlyName": "Inspector V2 (Preview)",
+                    "children": {
+                        "quickStart": {
+                            "friendlyName": "Quick Start",
+                            "children": {},
+                            "content": "toolsAndResources/inspector.v2/quickStart"
+                        },
+                        "architecture": {
+                            "friendlyName": "Architecture",
+                            "children": {},
+                            "content": "toolsAndResources/inspector.v2/architecture"
+                        },
+                        "extensibilityAPI": {
+                            "friendlyName": "Extensibility API",
+                            "children": {},
+                            "content": "toolsAndResources/inspector.v2/extensibilityAPI"
+                        },
+                        "examples": {
+                            "friendlyName": "Examples",
+                            "children": {},
+                            "content": "toolsAndResources/inspector.v2/examples"
+                        }
+                    },
+                    "content": "toolsAndResources/inspector.v2"
+                },
                 "inspector": {
                     "friendlyName": "Inspector",
                     "children": {
