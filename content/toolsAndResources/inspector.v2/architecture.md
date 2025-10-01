@@ -4,11 +4,18 @@ image:
 description: An overview of the Inspector V2 architecture.
 keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
+    - title: Extensibility API
+      url: /toolsAndResources/inspectorv2/extensibilityAPI
 video-overview:
 video-content:
 ---
 
-The most important things to know about the Inspector architecture are that it uses React for all the UI, and that is it uses a modular architecture, meaning it is composed of a graph of loosely coupled "services." You can add new "services" that consume other services to add new features. This allows for things like adding new panes alongside scene explorer and the properties pane, or adding new toolbar items. Each of these features are themselves a "service."
+The most important things to know about the Inspector architecture are:
+
+1. It uses React for all the UI, and specifically uses React function components and React hooks.
+2. It uses a modular architecture, meaning it is composed of a graph of loosely coupled "services."
+
+You can add new "services" that consume other services to add new features. This allows for things like adding new panes alongside scene explorer and the properties pane, or adding new toolbar items. Each of these features are themselves a "service." This is what enables extensibility of Inspector.
 
 ## Service Definitions
 
