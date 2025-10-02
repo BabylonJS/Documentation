@@ -61,7 +61,7 @@ const navigationPlugin = await CreateNavigationPluginAsync({
 });
 ```
 
-Since you are injecting the `ecast-navigation` libraries yourself, you can also use the plugin with the `NullEngine` on a server, because when an instance is injected this way, the libraries will not be loaded using an HTML <script> tag.
+Since you are injecting the `recast-navigation` libraries yourself, you can also use the plugin with the `NullEngine` on a server, because when an instance is injected this way, the libraries will not be loaded using an HTML <script> tag.
 
 ## Recommended links not just for first time users
 
@@ -70,5 +70,6 @@ Most of the functions in the navigation plugin interface are self-explanatory ev
 Since the navigation plugin V2 acts as a facade around `recast-navigation-js` it's recommended to visit recast-navigation-js [GitHub repo](https://github.com/isaac-mason/recast-navigation-js) as well.
 
 To easily generate your NavMesh and/or TileCache use the [NavMesh generator](https://navmesh-generator.babylonjs.xyz/)
+
 
 
