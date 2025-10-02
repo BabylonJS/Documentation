@@ -12,7 +12,7 @@ interface CodeSandboxProps {
 }
 
 export const CodeSandboxComponent: FunctionComponent<CodeSandboxProps> = (props) => {
-    const { id, module = "%2Fsrc%2Findex.tsx", title, height = "400px" } = props;
+    const { id, module = "/src/index.tsx", title, height = "600px" } = props;
 
     const view = useMemo(() => {
         let { editor, preview } = props;
@@ -21,19 +21,21 @@ export const CodeSandboxComponent: FunctionComponent<CodeSandboxProps> = (props)
             preview = true;
         }
 
-        if (editor && preview) {
-            return "editor+%2B+preview";
-        } else if (editor) {
-            return "editor";
-        } else if (preview) {
-            return "preview";
+        let views: string[] = [];
+        if (editor) {
+            views.push("editor");
         }
+        if (preview) {
+            views.push("preview");
+        }
+
+        return views.join("|");
     }, [props.editor, props.preview]);
 
     return (
         <div className="codesandbox-component">
             <iframe
-                src={`https://codesandbox.io/embed/${id}?view=${view}&module=${module}&hidenavigation=1&fontsize=12`}
+                src={encodeURI(`https://codesandbox.io/embed/${id}?view=${view}&module=${module}&hidenavigation=1&fontsize=12&runonclick=1`)}
                 style={{ width: "100%", height, border: "0", borderRadius: "4px", overflow: "hidden" }}
                 title={title}
                 allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
