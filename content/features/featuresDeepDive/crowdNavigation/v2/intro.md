@@ -44,7 +44,7 @@ navigationPlugin.buildFromTileCacheData(tileCacheData: Uint8Array, tileCacheMesh
 ## ES6 example
 
 ```
-npm i @babylonjs/addons @recast-navigation/core @recast-navigation/generatos
+npm i @babylonjs/addons @recast-navigation/core @recast-navigation/generators
 ```
 
 ```ts
@@ -70,4 +70,5 @@ Most of the functions in the navigation plugin interface are self-explanatory ev
 Since the navigation plugin V2 acts as a facade around `recast-navigation-js` it's recommended to visit recast-navigation-js [GitHub repo](https://github.com/isaac-mason/recast-navigation-js) as well.
 
 To easily generate your NavMesh and/or TileCache use the [NavMesh generator](https://navmesh-generator.babylonjs.xyz/)
+
 
