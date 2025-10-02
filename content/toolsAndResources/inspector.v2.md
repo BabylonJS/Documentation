@@ -4,6 +4,8 @@ image:
 description: Learn all about the incredibly powerful debug layer called "The Inspector" in Babylon.js.
 keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
+    - title: Inspector V1
+      url: /toolsAndResources/inspector
 video-overview:
 video-content:
 ---
@@ -20,8 +22,12 @@ Currently Inspector V2 is in preview, and so you must view and install a `@previ
 
 Following is a basic example showing how to attach Inspector to a Babylon scene.
 
-<CodeSandbox id="msdvk8" title="Inspector V2 Intro" height="600px" />
+<CodeSandbox id="msdvk8" title="Inspector V2 - Intro" height="600px" />
 
 ## Extensibility
 
 Inspector V2 is highly extensible. When using the API, you can easily add new features that are unique to your Babylon project. Additionally, Inspector supports dynamically installed extensions that are scenario specific. This helps keep the core Inspector small and prevents the UI from being overwhelming. You can think of this just like Visual Studio Code (for example), where you only install the extensions that add optional features for the scenarios that are important to you. You can learn more in the [Examples](/toolsAndResources/inspectorv2/examples) section.
+
+## Backward Compatibility
+
+Inspector V2 aims to be backward compatible with Inspector V1, and also have feature parity with Inspector V1, except in a few cases where APIs or features are mostly unused in Inspector V1. This also means that much of the [Inspector V1 documentation](/toolsAndResources/inspector) is still valid and useful, though for screenshots and videos you may have to map older UX to newer UX.
