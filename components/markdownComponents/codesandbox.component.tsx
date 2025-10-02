@@ -4,7 +4,8 @@ import { useMemo, useState } from "react";
 
 interface CodeSandboxProps {
     id: string;
-    module?: string;
+    // This can be a comma separated list of file paths.
+    files?: string;
     title: string;
     editor?: boolean;
     preview?: boolean;
@@ -12,7 +13,7 @@ interface CodeSandboxProps {
 }
 
 export const CodeSandboxComponent: FunctionComponent<CodeSandboxProps> = (props) => {
-    const { id, module = "/src/index.tsx", title, height = "600px" } = props;
+    const { id, files = "/src/index.tsx", title, height = "600px" } = props;
 
     const view = useMemo(() => {
         let { editor, preview } = props;
@@ -35,7 +36,7 @@ export const CodeSandboxComponent: FunctionComponent<CodeSandboxProps> = (props)
     return (
         <div className="codesandbox-component">
             <iframe
-                src={encodeURI(`https://codesandbox.io/embed/${id}?view=${view}&module=${module}&hidenavigation=1&fontsize=12&runonclick=1`)}
+                src={encodeURI(`https://codesandbox.io/embed/${id}?view=${view}&module=${files}&hidenavigation=1&fontsize=12&runonclick=1`)}
                 style={{ width: "100%", height, border: "0", borderRadius: "4px", overflow: "hidden" }}
                 title={title}
                 allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
