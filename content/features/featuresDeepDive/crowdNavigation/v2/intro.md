@@ -27,12 +27,41 @@ const navigationPlugin = await ADDONS.CreateNavigationPluginWorkerAsync(); // un
 
 This call will dynamically load the `recast-navigation-js` library and will initialize it.
 
+### The new async createNavMeshAsync function
+
+You can create a navmesh by calling the new async function:
+```ts
+const result = createNavMeshAsync(meshes: Array<Mesh>, parameters: INavMeshParametersV2): Promise<CreateNavMeshResult>;
+```
+
 Important! A worker version is not supported yet, we are working on it! In production environment you would use a pregenerated nav mesh so this should not be a issue. You can use [NavMesh generator](https://navmesh-generator.babylonjs.xyz/) to generate your nav meshes or use the `navigationPlugin.getNavmeshData(): Uint8Array` (present in V1 as well) or `navigationPlugin.getTileCacheData(): Uint8Array` (new) functions to get the nav mesh binary data. You can import the exported data using:
 
 ```ts
 navigationPlugin.buildFromNavmeshData(data: Uint8Array): void
 navigationPlugin.buildFromTileCacheData(tileCacheData: Uint8Array, tileCacheMeshProcess?: TileCacheMeshProcess): void
 ```
+
+## ES6 example
+
+```
+npm i @babylonjs/addons @recast-navigation/core @recast-navigation/generators
+```
+
+```ts
+import { CreateNavigationPluginAsync } from "@babylonjs/addons";
+import * as RecastCore from "@recast-navigation/core";
+import * as RecastGenerators from "@recast-navigation/generators";
+
+await RecastCore.init();
+const navigationPlugin = await CreateNavigationPluginAsync({
+    instance: {
+        ...RecastCore,
+        ...RecastGenerators,
+    },
+});
+```
+
+Since you are injecting the `recast-navigation` libraries yourself, you can also use the plugin with the `NullEngine` on a server, because when an instance is injected this way, the libraries will not be loaded using an HTML &lt;script&gt; tag.
 
 ## Recommended links not just for first time users
 
@@ -41,3 +70,7 @@ Most of the functions in the navigation plugin interface are self-explanatory ev
 Since the navigation plugin V2 acts as a facade around `recast-navigation-js` it's recommended to visit recast-navigation-js [GitHub repo](https://github.com/isaac-mason/recast-navigation-js) as well.
 
 To easily generate your NavMesh and/or TileCache use the [NavMesh generator](https://navmesh-generator.babylonjs.xyz/)
+
+
+
+
