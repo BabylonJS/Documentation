@@ -18,9 +18,9 @@ The code is shown by default for each example, but you can **drag the divider on
 
 This example demonstrates how to add an entirely new side pane (along side Scene Explorer, Properties, etc.).
 
-In this example, the new left side pane intercepts messages from Babylon's `Logger` class and displays them in the side pane. Look for a new tab icon that looks like a document next to the Scene Explorer tab icon in the upper left.
+In this example, the new side pane displays a treemap chart of mesh vertex counts. When a node of the treemap is clicked, it selects the corresponding mesh and you can see which one it is in Scene Explorer. Look for a new tab icon that looks like a treemap in the right pane toolbar area.
 
-<CodeSandbox id="5r44gx" title="Inspector V2 - Adding a Side Pane" />
+<CodeSandbox id="7wll3y" title="Inspector V2 - Adding a Side Pane" />
 
 ## Toolbar Items
 
