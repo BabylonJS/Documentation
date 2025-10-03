@@ -26,7 +26,7 @@ Following is a basic example showing how to attach Inspector to a Babylon scene.
 
 ## Extensibility
 
-Inspector V2 is highly extensible. When using the API, you can easily add new features that are unique to your Babylon project. Additionally, Inspector supports dynamically installed extensions that are scenario specific. This helps keep the core Inspector small and prevents the UI from being overwhelming. You can think of this just like Visual Studio Code (for example), where you only install the extensions that add optional features for the scenarios that are important to you. You can learn more in the [Examples](/toolsAndResources/inspectorv2/examples) section.
+Inspector V2 is highly extensible. When using the API, you can easily add new features that are unique to your Babylon project. Additionally, Inspector supports dynamically installed extensions that are scenario specific. This helps keep the core Inspector small and prevents the UI from being overwhelming. You can think of this just like Visual Studio Code (for example), where you only install the extensions that add optional features for the scenarios that are important to you. You can learn more in the [Extensibility API](/toolsAndResources/inspectorv2/extensibilityAPI) and [Examples](/toolsAndResources/inspectorv2/examples) sections.
 
 ## Backward Compatibility
 

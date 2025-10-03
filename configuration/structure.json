@@ -2522,11 +2522,6 @@
                 "inspectorv2": {
                     "friendlyName": "Inspector V2 (Preview)",
                     "children": {
-                        "quickStart": {
-                            "friendlyName": "Quick Start",
-                            "children": {},
-                            "content": "toolsAndResources/inspector.v2/quickStart"
-                        },
                         "architecture": {
                             "friendlyName": "Architecture",
                             "children": {},
