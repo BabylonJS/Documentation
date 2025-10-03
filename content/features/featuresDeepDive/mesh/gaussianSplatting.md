@@ -19,6 +19,7 @@ Supported formats are :
 - .PLY https://en.wikipedia.org/wiki/PLY_(file_format)
 - .splat that is Javascript types serialized version of .PLY datas
 - Niantic Labs .spz format https://scaniverse.com/news/spz-gaussian-splat-open-source-file-format
+- .SOG/SOGS Self-Organizing Gaussian https://github.com/fraunhoferhhi/Self-Organizing-Gaussians
 
 ## Loading a Gaussian Splatting
 
@@ -106,3 +107,11 @@ function modifyMesh(gs) {
 <Playground id="#EILZ5L#3" title="10000 splats updated" description="Creating and updating a Gaussian Splatting made of 10000 individual splats"/>
 
 <Playground id="#RKKCHG#0" title="Download and modify a GS" description="Download a Gaussian Splatting and modify a bunch splats. Then, downloads it."/>
+
+<Playground id="#QA2662#12" title="SOG Gaussian splats" description="SOG Gaussian splats with Spherical Harmonics."/>
+
+## File format conversion
+
+SplatTransform is a CLI tool for converting and editing Gaussian splats: https://github.com/playcanvas/splat-transform
+
+Check the project page for features and file import/export formats.
