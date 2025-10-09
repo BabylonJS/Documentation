@@ -307,3 +307,49 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 Notice that you can't define the mass. that is because the tracked joints will always have mass `0` to prevent them from constantly "falling down" towards the center of gravity.
 
 <Playground id="#X7Y4H8#73" title="Hand tracking with legacy physics" description="A simple example of a hands-enabled legacy physics playground" image="/img/how_to/xr/handTrackingSpheres.jpg"/>
+
+
+### Microgestures
+
+The Oculus Quest Browser includes support for hand tracking microgestures through a Meta OpenXR [extension](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XR_META_hand_tracking_microgestures), compatible with Quest 2, Quest Pro, Quest 3, and Quest 3S.
+
+This extension introduces five boolean input states per hand (`menu` - only left hand, `swipe-left`, `swipe-right`, `swipe-forward`, `swipe-backward`, `tap-thumb`), enabling fine-grained interaction detection. The image below shows how to perform each microgesture:
+
+<img src="/img/how_to/xr/hand-tracking-microgestures.png" title="Hand tracking microgestures" alt="Hand tracking microgestures" width="500" height="900" />
+<br/><br/>
+
+To enable this functionality, the online repository must be disabled until the `oculus-hand` profile becomes available through the WebXR controller profiles repository.
+With the online repository disabled, the profile will be loaded locally, allowing applications to access the Oculus hand input definitions.
+
+```typescript
+scene.createDefaultXRExperienceAsync({
+    inputOptions: {
+      disableOnlineControllerRepository: true
+    }
+ })
+ ```
+
+If you're using ES6 modules with tree-shaking, make sure to import the controller to ensure its initialization.
+
+ ```ts
+import "@babylonjs/core/XR/motionController/webXROculusHandController";
+ ```
+
+Finally, you can subscribe to events just like with any other input controller. For example, to subscribe to the `swipe-left` microgesture event:
+
+ ```ts
+xr.input.onControllerAddedObservable.add((xrController) => {
+        xrController.onMotionControllerInitObservable.add((motionController) => {
+            const swipeLeftComponent = motionController.getComponent('swipe-left');
+            swipeLeftComponent?.onButtonStateChangedObservable.add(() => {
+                if (swipeLeftComponent.pressed) {
+                    // do something here...
+                }
+            });
+        })
+    });
+ ```
+
+In the playground below, you can find subscriptions for all available events.
+
+<Playground id="#F41V6N#2277" title="Hand tracking microgestures" description="A simple example of a hand tracking microgestures" />
