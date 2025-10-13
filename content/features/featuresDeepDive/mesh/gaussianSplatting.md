@@ -21,6 +21,21 @@ Supported formats are :
 - Niantic Labs .spz format https://scaniverse.com/news/spz-gaussian-splat-open-source-file-format
 - .SOG/SOGS Self-Organizing Gaussian https://github.com/fraunhoferhhi/Self-Organizing-Gaussians
 
+**Note: Triangular meshes stored in .PLY are also supported and used by Triangular Splatting**
+
+## Triangular Splatting
+
+Triangular splatting produces opaque geometry that can be used like a regular mesh. By default, triangulated geometry is lit. To Make the TriSplat mesh to be rendered correctly, it must use only the vertex color. Apply the following material to get the expected rendering:
+
+```javascript
+const material = new BABYLON.StandardMaterial("unlitVertexColorMat", scene);
+material.disableLighting = true;              
+material.emissiveColor = new BABYLON.Color3(1, 1, 1);
+material.diffuseColor = new BABYLON.Color3(1, 1, 1);
+material.backFaceCulling = false;
+plyTriangularSplatmesh.material = material;
+```
+
 ## Loading a Gaussian Splatting
 
 Load asynchronously the splat or PLY file like any other supported file format:
