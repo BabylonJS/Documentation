@@ -165,6 +165,8 @@ When _backFaceCulling_ is false the back faces are not removed during rendering,
 
 <Playground id="#YDO1F#20" title="Backface Culling Example" description="Simple example of using backface culling." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro7.jpg"/>
 
+Note that backface culling is one aspect of face culling: you can also perform frontface culling if you wish! Backface culling is much more commonly used than frontface culling, but in some cases you may want to enable frontface culling. To do so, set the material property _cullBackFaces_ to **false**. Note that you must always set _backFaceCulling_ to **true** to enable culling! _backFaceCulling_ is misnamed for historical reasons, and in order to maintain backward compatibility, we cannot rename it to _faceCulling_.
+
 ## WireFrame
 
 Every material has the capacity to display as a wireframe by setting the wireframe accessor of the material to true.
@@ -198,3 +200,4 @@ This enables scenarios where blending materials and wireframes is necessary. In 
 ## Local File Access
 
 An important thing to remember, is that for security reasons, web browsers don't allow local files to be accessed for web pages. This includes any texture files you are using. You can use a local server or an image hosting service that is CORS enabled.
+
