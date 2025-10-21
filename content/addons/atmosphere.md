@@ -76,6 +76,7 @@ Typically, a -Y light direction can be used to simulate a directly overhead sun,
 <Playground id="#K1Y1Q8#7" title="Day-Night Animation" description="Simulating different times of day by animating the sun position." />
 
 ```javascript
+// Assuming +Y is up
 light.direction = new Vector3(0, -1, 0); // Day
 light.direction = new Vector3(0, 1, 0); // Night
 light.direction = new Vector3(1, 0, 0); // Sunrise/Sunset
