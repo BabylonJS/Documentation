@@ -76,15 +76,15 @@ Typically, a -Y light direction can be used to simulate a directly overhead sun,
 <Playground id="#K1Y1Q8#7" title="Day-Night Animation" description="Simulating different times of day by animating the sun position." />
 
 ```javascript
-atmosphere.sunPosition = new Vector3(0, 1, 0); // Day
-atmosphere.sunPosition = new Vector3(0, -1, 0); // Night
-atmosphere.sunPosition = new Vector3(1, 0, 0); // Sunrise/Sunset
+light.direction = new Vector3(0, -1, 0); // Day
+light.direction = new Vector3(0, 1, 0); // Night
+light.direction = new Vector3(1, 0, 0); // Sunrise/Sunset
 ```
 
 To simulate night, a minimum multiple scattering intensity can be set. This maintains some ambient light in the atmosphere even when the sun is below the horizon.
 
 ```javascript
-atmosphere.multiScatteringIntensity = 0.1;
+atmosphere.minimumMultiScatteringIntensity = 0.1;
 ```
 
 ## Illuminating Objects: PBRMaterial Integration
