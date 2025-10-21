@@ -14,6 +14,7 @@ Babylon.js supports multiple Gaussian splatting file formats:
 - .Splat
 - .compressed.PLY
 - Niantic .SPZ
+- .SOG/SOGS Self-Organizing Gaussian https://github.com/fraunhoferhhi/Self-Organizing-Gaussians
 
 To use it you just have to reference it after Babylon.js:
 

@@ -19,6 +19,22 @@ Supported formats are :
 - .PLY https://en.wikipedia.org/wiki/PLY_(file_format)
 - .splat that is Javascript types serialized version of .PLY datas
 - Niantic Labs .spz format https://scaniverse.com/news/spz-gaussian-splat-open-source-file-format
+- .SOG/SOGS Self-Organizing Gaussian https://github.com/fraunhoferhhi/Self-Organizing-Gaussians
+
+**Note: Triangular meshes stored in .PLY are also supported and used by Triangular Splatting**
+
+## Triangular Splatting
+
+Triangular splatting produces opaque geometry that can be used like a regular mesh. By default, triangulated geometry is lit. To Make the TriSplat mesh to be rendered correctly, it must use only the vertex color. Apply the following material to get the expected rendering:
+
+```javascript
+const material = new BABYLON.StandardMaterial("unlitVertexColorMat", scene);
+material.disableLighting = true;              
+material.emissiveColor = new BABYLON.Color3(1, 1, 1);
+material.diffuseColor = new BABYLON.Color3(1, 1, 1);
+material.backFaceCulling = false;
+plyTriangularSplatmesh.material = material;
+```
 
 ## Loading a Gaussian Splatting
 
@@ -101,8 +117,31 @@ function modifyMesh(gs) {
 
 <Playground id="#CID4NN#203" title="Simple Example of Gaussian Splatting" description="Simple example of setting a Gaussian Splatting."/>
 
-<Playground id="#45KYTJ#61" title="Loading and displaying different Gaussian Splatting scenes" description="Loading and displaying different Gaussian Splatting scenes."/>
+<Playground id="#45KYTJ#123" title="Loading and displaying different Gaussian Splatting scenes" description="Loading and displaying different Gaussian Splatting scenes."/>
 
 <Playground id="#EILZ5L#3" title="10000 splats updated" description="Creating and updating a Gaussian Splatting made of 10000 individual splats"/>
 
 <Playground id="#RKKCHG#0" title="Download and modify a GS" description="Download a Gaussian Splatting and modify a bunch splats. Then, downloads it."/>
+
+<Playground id="#QA2662#12" title="SOG Gaussian splats" description="SOG Gaussian splats with Spherical Harmonics."/>
+
+## Shadows
+
+Gaussian splatting supports shadow casting. Because they are rendered using alpha blending, the shadow generator needs to have transparency shadow enabled:
+
+```javascript
+var shadowGenerator = new BABYLON.ShadowGenerator(1024, light);
+light.shadowMaxZ = 10;
+light.shadowMinZ = 1;
+shadowGenerator.useContactHardeningShadow = true;
+shadowGenerator.setDarkness(0.2);
+shadowGenerator.setTransparencyShadow(true); // This call is necessary to render GS
+```
+
+<Playground id="#OE54M5#15" title="Spotlight shadow" description="Gaussian Splatting cast shadows from a spotlight light source."/>
+
+## File format conversion
+
+SplatTransform is a CLI tool for converting and editing Gaussian splats: https://github.com/playcanvas/splat-transform
+
+Check the project page for features and file import/export formats.

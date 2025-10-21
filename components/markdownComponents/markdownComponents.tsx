@@ -5,6 +5,7 @@ import { YoutubeComponent, MediaFileComponent } from "./media.component";
 import { AlertMarkdownComponent, SyntaxHighlighting } from "./syntaxHighlight.component";
 import { H1MarkdownComponent, H2MarkdownComponent, H3MarkdownComponent, H4MarkdownComponent } from "./tableOfContentItem.component";
 import { CodePenComponent } from "./codepen.component";
+import { CodeSandboxComponent } from "./codesandbox.component";
 
 export const markdownComponents = {
     Alert: AlertMarkdownComponent,
@@ -12,6 +13,7 @@ export const markdownComponents = {
     Media: MediaFileComponent,
     Playground: PlaygroundMarkdownComponent,
     CodePen: CodePenComponent,
+    CodeSandbox: CodeSandboxComponent,
     nme: NMEMarkdownComponent,
     NME: NMEMarkdownComponent,
     nge: NGEMarkdownComponent,

@@ -416,6 +416,53 @@
                         "crowdNavigation": {
                             "friendlyName": "Crowd Navigation System",
                             "children": {
+                                "v2Intro": {
+                                    "friendlyName": "Crowd Navigation System v2",
+                                    "children": {
+                                        "v2WhatsNew": {
+                                            "friendlyName": "What's new in v2",
+                                            "children": {
+                                                "v2NavParameters": {
+                                                    "friendlyName": "New navigation mesh parameters",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/navParameters"
+                                                },
+                                                "v2Options": {
+                                                    "friendlyName": "The options parameter",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/options"
+                                                },
+                                                "v2OffMeshConnections": {
+                                                    "friendlyName": "OffMesh Connection aka Teleports",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/offMeshConnections"
+                                                },
+                                                "v2TileCache": {
+                                                    "friendlyName": "TileCache and TileCacheMeshProcess",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/tileCache"
+                                                },
+                                                "v2Debugger": {
+                                                    "friendlyName": "Navigation Debugger",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/debugger"
+                                                },
+                                                "v2UtilFunctions": {
+                                                    "friendlyName": "Utility Functions",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/utility"
+                                                },
+                                                "v2Examples": {
+                                                    "friendlyName": "Example Playgrounds",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/examples"
+                                                }
+                                            },
+                                            "content": "features/featuresDeepDive/crowdNavigation/v2/whatsNew/intro"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/crowdNavigation/v2/intro"
+                                },
                                 "createNavMesh": {
                                     "friendlyName": "Creating A Navigation Mesh",
                                     "children": {},
@@ -813,6 +860,11 @@
                                     "friendlyName": "Depth metric when rendering shadows",
                                     "children": {},
                                     "content": "features/featuresDeepDive/lights/mathShadows"
+                                },
+                                "clusteredLighting": {
+                                    "friendlyName": "Clustered Lighting",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/lights/clusteredLighting"
                                 }
                             },
                             "content": "features/featuresDeepDive/lights"
@@ -1620,6 +1672,11 @@
                                             "friendlyName": "Load Particles from File",
                                             "children": {},
                                             "content": "features/featuresDeepDive/particles/particle_system/particles_loadFromFile"
+                                        },
+                                        "node_particle_editor": {
+                                            "friendlyName": "Node Particle Editor",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/particle_system/node_particle_editor"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/particles/particle_system"
@@ -2462,6 +2519,27 @@
                     "friendlyName": "Sandbox",
                     "content": "toolsAndResources/sandbox"
                 },
+                "inspectorv2": {
+                    "friendlyName": "Inspector V2 (Preview)",
+                    "children": {
+                        "architecture": {
+                            "friendlyName": "Architecture",
+                            "children": {},
+                            "content": "toolsAndResources/inspector.v2/architecture"
+                        },
+                        "extensibilityAPI": {
+                            "friendlyName": "Extensibility API",
+                            "children": {},
+                            "content": "toolsAndResources/inspector.v2/extensibilityAPI"
+                        },
+                        "examples": {
+                            "friendlyName": "Examples",
+                            "children": {},
+                            "content": "toolsAndResources/inspector.v2/examples"
+                        }
+                    },
+                    "content": "toolsAndResources/inspector.v2"
+                },
                 "inspector": {
                     "friendlyName": "Inspector",
                     "children": {
@@ -2525,6 +2603,11 @@
                             "friendlyName": "Custom Blocks",
                             "children": {},
                             "content": "toolsAndResources/nme/customBlocks"
+                        },
+                        "nmeToSfe": {
+                            "friendlyName": "Usage with the Smart Filter Editor",
+                            "children": {},
+                            "content": "toolsAndResources/nme/nmeToSfe"
                         }
                     },
                     "content": "toolsAndResources/nme"
@@ -3623,24 +3706,24 @@
                     },
                     "content": "communityExtensions/Unity"
                 },
-	            "WebXRExtension": {
-		            "friendlyName": "WebXR Extension",
-		            "content": "communityExtensions/WebXRExtension/webxrextension",
-		            "children": {
-			            "gestureRecognition": {
-				            "friendlyName": "Gesture recognition",
-				            "content": "communityExtensions/WebXRExtension/gestureRecognition"
-			            },
-			            "handsAnimation": {
-				            "friendlyName": "Hands animations",
-				            "content": "communityExtensions/WebXRExtension/handsAnimation"
-			            },
-			            "spaceMarkUp": {
-				            "friendlyName": "Space markup",
-				            "content": "communityExtensions/WebXRExtension/spaceMarkUp"
-			            }
-		            }
-	            }
+                "WebXRExtension": {
+                    "friendlyName": "WebXR Extension",
+                    "content": "communityExtensions/WebXRExtension/webxrextension",
+                    "children": {
+                        "gestureRecognition": {
+                            "friendlyName": "Gesture recognition",
+                            "content": "communityExtensions/WebXRExtension/gestureRecognition"
+                        },
+                        "handsAnimation": {
+                            "friendlyName": "Hands animations",
+                            "content": "communityExtensions/WebXRExtension/handsAnimation"
+                        },
+                        "spaceMarkUp": {
+                            "friendlyName": "Space markup",
+                            "content": "communityExtensions/WebXRExtension/spaceMarkUp"
+                        }
+                    }
+                }
             },
             "content": "communityExtensions"
         },

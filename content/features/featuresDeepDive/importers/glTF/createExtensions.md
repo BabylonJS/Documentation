@@ -35,7 +35,7 @@ class MyCustomExtension implements IGLTFLoaderExtension {
 
 ## Extension Factories
 
-When you register a loader extension, you register an extension factory. The factory is a function that takes the glTF loader and returns an extension instance synchronously or asynchronously. This allows you to dynamically import your extension to avoid loading it until it is needed. A simple example might look something like this:
+When you register a loader extension, you register an extension factory. The factory is a function that takes the glTF loader and returns an extension instance synchronously or asynchronously. It is invoked each time a glTF is loaded. Using the factory allows you to dynamically import your extension to avoid loading it until it is needed. A simple example might look something like this:
 
 ```typescript
 import { registerGLTFExtension } from "@babylonjs/loaders/glTF/2.0";
@@ -88,3 +88,4 @@ await LoadAssetContainerAsync("path/to/model", scene, {
   },
 });
 ```
+
