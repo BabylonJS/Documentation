@@ -120,6 +120,18 @@ Note that the `Geometry renderer back faces` block has been configured with **Re
 
 You will see in this PG that we are rebuilding the graph (see line 67) because we have set the `ssr.blurDispersionStrength` property to 0. As the SSR block has a non-zero value in NRGE, we are in the case explained above where the graph must be rebuilt.
 
+<H3Image title="TAA (Temporal Anti-Aliasing)" image="/img/frameGraph/block_taaobjectrenderer.jpg" alt="TAA node"/>
+
+This block is slightly different from other post-process blocks, as the **source** input is mandatory and the **target** input is not (yet) used.
+In addition, this block must instrument the rendering of objects, which is why you must connect the **objectRenderer** output of an [ObjectRenderer](#objectrenderer) block to the **objectRenderer** input.
+
+If you are using the [reprojectHistory](/features/featuresDeepDive/postProcesses/TAARenderingPipeline#reproject-history) option, you must provide a **geomVelocity** texture. You can generate this texture using the [GeometryRenderer](#geometryrenderer) block.
+Notes:
+* you must connect the **geomLinearVelocity** output to the **geomVelocity** input (you will get an error if you connect the wrong output)!
+* You should not connect anything to the **geomVelocity** input if you are not using the reprojection history option, otherwise you may get rendering artifacts (and affect performance).
+
+Refer to [Temporal Anti-Aliasing (TAA) Rendering Pipeline](/features/featuresDeepDive/postProcesses/TAARenderingPipeline) for more information on TAA and the parameters you can use to adjust the effect.
+
 ## Rendering blocks
 
 <H3Image title="ObjectRenderer" image="/img/frameGraph/block_objectrenderer.jpg" alt="ObjectRenderer node"/>
@@ -166,10 +178,6 @@ You may be surprised to see a **camera** input, because the scene is rendered fr
 * calculate the LOD of the meshes. The LOD of the meshes is defined according to the distance from a camera, not from a light.
 
 The **generator** output is what you need to connect to the **ObjectRenderer.shadowGenerators** input, to render meshes with shadows. This is because the `ObjectRenderer` block needs more than access to the shadow map texture; it needs access to the shadow generator object itself. The **output** is the texture of the shadow map, in case you need it in other parts of the graph.
-
-<H3Image title="TAAObjectRenderer" image="/img/frameGraph/block_taaobjectrenderer.jpg" alt="TAAObjectRenderer node"/>
-
-This block is similar to the `ObjectRenderer` block, except that it applies a temporal anti-aliasing effect to the rendering. Refer to [Temporal Anti-Aliasing (TAA) Rendering Pipeline](/features/featuresDeepDive/postProcesses/TAARenderingPipeline) for more information on TAA and the parameters you can use to adjust the effect.
 
 <H3Image title="UtilityLayerRenderer" image="/img/frameGraph/block_utilitylayerrenderer.jpg" alt="UtilityLayerRenderer node"/>
 
