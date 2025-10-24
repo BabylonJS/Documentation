@@ -687,6 +687,11 @@
                                             "friendlyName": "Generate geometry textures for VAT",
                                             "children": {},
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleGeometryVAT"
+                                        },
+                                        "frameGraphExampleCustomPostProcess": {
+                                            "friendlyName": "Create a custom post-process",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleCustomPostProcess"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphExamples"
