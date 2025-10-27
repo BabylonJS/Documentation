@@ -3285,6 +3285,11 @@
         "addons": {
             "friendlyName": "Official Add-ons",
             "children": {
+                "atmosphere": {
+                    "friendlyName": "Atmosphere",
+                    "children": {},
+                    "content": "addons/atmosphere"
+                },
                 "htmlMesh": {
                     "friendlyName": "HTML Mesh",
                     "children": {},
