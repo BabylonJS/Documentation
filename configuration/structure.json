@@ -659,6 +659,11 @@
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts"
                                 },
+                                "frameGraphClassFramework": {
+                                    "friendlyName": "Description of the class framework",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework"
+                                },
                                 "frameGraphBlocks": {
                                     "friendlyName": "Render Graph Blocks",
                                     "children": {
