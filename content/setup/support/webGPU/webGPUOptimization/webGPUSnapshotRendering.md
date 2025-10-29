@@ -59,7 +59,7 @@ eCommerce sites may greatly benefit from this feature as the scene is normally q
 Make sure everything is ready in your scene to be rendered the next frame after you set `engine.snapshotRendering = true`! Indeed, once you set the `snapshotRendering` to `true`, the next frame is recorded and replayed afterwards. If some textures (for eg) were not ready at that time, the mesh won't be rendered in the frame that is recorded and so it will never be visible. You should probably always set `engine.snapshotRendering = true` inside a `scene.executeWhenReady(...)` callback.
 
 ## Examples
-Here's a PG that demonstrates using the snapshot rendering feature: <Playground id="#SYQW69#1092" engine="webgpu" title="Snapshot rendering" description="Demonstrate how to use the snapshot rendering modes"/>
+Here's a PG that demonstrates using the snapshot rendering feature: <Playground image="/img/playgroundsAndNMEs/pg-SYQW69-1092.png" id="#SYQW69#1354" engine="webgpu" title="Snapshot rendering" description="Demonstrate how to use the snapshot rendering modes"/>
 
 You can choose to disable or enable standard / fast SR mode. Depending on the mode, you will see the javascript time it takes to render a frame (**Frame total**) and the virtual fps (the fps you would have if there was no GPU rendering / the fps was not capped by the browser - it is simply `1000/Frame total`).
 
