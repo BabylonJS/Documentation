@@ -19,12 +19,9 @@ Note that the performance improvement is on the javascript side only: the GPU pe
 
 The perf improvements can be quite large, especially when using the fast SR mode (see below for explanations regarding the SR modes). Here are some figures collected with the first PG listed in the **Examples** section:
 
-| SR disabled | Standard mode | Fast mode | 
+| WebGL 2 version | SR - Standard mode | SR - Fast mode | 
 |-------------|---------------|-----------|
-| ![SR disabled](/img/resources/snapshot_rendering/sr_disabled.png) | ![SR disabled](/img/resources/snapshot_rendering/sr_standard.png!241x247) | ![SR disabled](/img/resources/snapshot_rendering/sr_fast.png!245x243) |
-
-For comparison, here are the figures for WebGL2:
-![WebGL2](/img/resources/snapshot_rendering/webl2_comparison.png)
+| ![WebGL2 ](/img/resources/snapshot_rendering/webl2_comparison.png) | ![Standard mode](/img/resources/snapshot_rendering/sr_standard.png!241x247) | ![Fast mode](/img/resources/snapshot_rendering/sr_fast.png!245x243) |
 
 ## Enabling snapshot rendering mode
 The snapshot rendering mode is enabled by setting:
@@ -140,4 +137,5 @@ If you create/add news meshes later on, call `fixMeshes()` to make sure new mesh
 * Using the glow layer: <Playground id="#LRFB2D#852" engine="webgpu" title="Use glow layer in fast SR mode with snapshot helper class" description="Demonstrates how to make the glow layer work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-LRFB2D-218.png"/>
 * Animating bones: <Playground id="#WGZLGJ#10670" engine="webgpu" title="Use bones in fast SR mode with snapshot helper class" description="Demonstrates how to make bones work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-WGZLGJ-4072.png"/>
 * Using a default skybox: <Playground id="#WGZLGJ#10671" engine="webgpu" title="Use default skybox in fast SR mode with snapshot helper class" description="Demonstrates how to make default skyboxes work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-WGZLGJ-10606.png"/>
+
 
