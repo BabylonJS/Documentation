@@ -661,7 +661,13 @@
                                 },
                                 "frameGraphClassFramework": {
                                     "friendlyName": "Description of the class framework",
-                                    "children": {},
+                                    "children": {
+                                        "frameGraphTaskList": {
+                                            "friendlyName": "Frame Graph Task List",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList"
+                                        }
+                                    },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework"
                                 },
                                 "frameGraphBlocks": {
