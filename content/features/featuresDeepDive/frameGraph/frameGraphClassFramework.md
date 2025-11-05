@@ -21,6 +21,21 @@ This is the main class, whose purpose is to allow you to build and execute a fra
 * `execute()`. Traverses all tasks in the graph and executes the passes for each of them.
 * **textureManager**. This property gives you access to the frame graph's [Texture manager](#framegraphtexturemanager).
 * **optimizeTextureAllocation**. This property indicates that texture allocation should be optimized (i.e., reuse existing textures when possible to limit GPU memory usage).
+* **pausedExecution**. Indicates whether the execution of the frame graph is paused (default is false).
+
+You should generally disable frame graph execution before calling `await FrameGraph.whenReadyAsync()`, so that the frame graph is not executed by the main rendering loop before everything is ready, which could cause errors.
+So, as a general rule, you should always do:
+```typescript
+frameGraph.pausedExecution = true;
+
+await frameGraph.whenReadyAsync();
+
+frameGraph.pausedExecution = false;
+```
+We didn't want to impose this usage when you're directly manipulating the frame graph class, to give you maximum flexibility, but since the frame graph is managed for you when you're using a node render graph, these two lines are executed for you when you call `NodeRenderGraph.whenReadyAsync`. This means that in the case of a node render graph, you can simply do:
+```typescript
+await nodeRenderGraph.whenReadyAsync();
+```
 
 ### List of tasks
 The graph itself is stored as a list (array) of tasks: explicit connections between task inputs and outputs are not stored in this class, it is up to the user to add tasks to the graph in the correct order, so that a task T2 that requires the result of another task T1 is added after T1.
