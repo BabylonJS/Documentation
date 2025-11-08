@@ -119,7 +119,7 @@ function modifyMesh(gs) {
 
 <Playground id="#45KYTJ#123" title="Loading and displaying different Gaussian Splatting scenes" description="Loading and displaying different Gaussian Splatting scenes."/>
 
-<Playground id="#EILZ5L#3" title="10000 splats updated" description="Creating and updating a Gaussian Splatting made of 10000 individual splats"/>
+<Playground id="#EILZ5L#27" title="10000 splats updated" description="Creating and updating a Gaussian Splatting made of 10000 individual splats"/>
 
 <Playground id="#RKKCHG#0" title="Download and modify a GS" description="Download a Gaussian Splatting and modify a bunch splats. Then, downloads it."/>
 
