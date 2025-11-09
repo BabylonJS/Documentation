@@ -651,6 +651,7 @@ This block is used to generate geometry textures, i.e. textures containing speci
 Task used to generate shadows from a list of objects.
 
 [Link to the class](/typedoc/classes/babylon.framegraphshadowgeneratortask)
+
 [Link to the class (CSM)](/typedoc/classes/babylon.framegraphcascadedshadowgeneratortask)
 
 <Playground id="#JWKDME#175" title="Shadow generator task" description="Example of a frame graph using the shadow generator task" isMain={true}/>
