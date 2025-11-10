@@ -615,8 +615,8 @@ Properties:
 * **forceLayerMaskCheck**. Force checking the layerMask property even if a custom list of meshes is provided (ie. if renderList is not undefined). Default is true.
 <br/>
 Methods:
-* **excludeSkinnedMeshFromVelocityTexture(skinnedMesh: AbstractMesh)**. Excludes the given skinned mesh from computing bones velocities. Computing bones velocities can have a cost. The cost can be saved by calling this function and by passing the skinned mesh to ignore.
-* **removeExcludedSkinnedMeshFromVelocityTexture(skinnedMesh: AbstractMesh)**. Removes the given skinned mesh from the excluded meshes list.
+* `excludeSkinnedMeshFromVelocityTexture(skinnedMesh: AbstractMesh)`. Excludes the given skinned mesh from computing bones velocities. Computing bones velocities can have a cost. The cost can be saved by calling this function and by passing the skinned mesh to ignore.
+* `removeExcludedSkinnedMeshFromVelocityTexture(skinnedMesh: AbstractMesh)`. Removes the given skinned mesh from the excluded meshes list.
 <br/>
 Outputs:
 * **outputDepthTexture**. The output depth texture attachment texture. This texture will point to the same texture than the **depthTexture** property if it is set. Note, however, that the handle itself will be different!

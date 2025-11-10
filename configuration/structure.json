@@ -662,6 +662,11 @@
                                 "frameGraphClassFramework": {
                                     "friendlyName": "Description of the class framework",
                                     "children": {
+                                        "frameGraphClassOverview": {
+                                            "friendlyName": "Introduction to Frame Graph classes",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview"
+                                        },
                                         "frameGraphTaskList": {
                                             "friendlyName": "Frame Graph Task List",
                                             "children": {},
