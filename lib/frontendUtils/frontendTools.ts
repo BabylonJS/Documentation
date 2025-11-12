@@ -22,7 +22,8 @@ export const getExampleLink = (example: Partial<IExampleLink>, full: boolean = t
             return `https://nrge.babylonjs.com/${id}`;
         case "pg":
         default:
-            return `https://playground.babylonjs.com/${full ? "full.html" : ""}${params}${id}`;
+            return `http://localhost:1338/${full ? "full.html" : ""}${params}${id}`;
+            //return `https://playground.babylonjs.com/${full ? "full.html" : ""}${params}${id}`;
     }
 };
 

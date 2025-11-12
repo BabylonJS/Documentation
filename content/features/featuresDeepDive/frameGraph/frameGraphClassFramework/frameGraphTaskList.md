@@ -578,6 +578,8 @@ Properties:
 * **forceLayerMaskCheck**. Forces checking the layerMask property even if a custom list of meshes is provided (ie. if renderList is not undefined). Default is true.
 * **enableBoundingBoxRendering**. Enables the rendering of bounding boxes for meshes (still subject to `Mesh.showBoundingBox` or `scene.forceShowBoundingBoxes`). Default is true.
 * **enableOutlineRendering**. Enables the rendering of outlines/overlays for meshes (still subject to `Mesh.renderOutline` / `Mesh.renderOverlay`). Default is true.
+* **resolveMSAAColors**. If true, targetTexture will be resolved at the end of the render pass, if this/these texture(s) is/are MSAA (default: true).
+* **resolveMSAADepth**. If true, **depthTexture** will be resolved at the end of the render pass, if this texture is provided and is MSAA (default: false).
 * **objectRenderer**. The object renderer used to render the objects.
 <br/>
 Outputs:
@@ -613,6 +615,8 @@ Properties:
 * **textureDescriptions**. The list of texture descriptions used by the geometry renderer task. Only geometry textures described in this array will be generated. See below for more information.
 * **objectRenderer**. The object renderer used by the geometry renderer task.
 * **forceLayerMaskCheck**. Force checking the layerMask property even if a custom list of meshes is provided (ie. if renderList is not undefined). Default is true.
+* **resolveMSAAColors**. If true, the output geometry texture(s) will be resolved at the end of the render pass, if **samples** is greater than 1 (default: true)
+* **resolveMSAADepth**. If true, **depthTexture** will be resolved at the end of the render pass, if this texture is provided and **samples** is greater than 1 (default: true)
 <br/>
 Methods:
 * `excludeSkinnedMeshFromVelocityTexture(skinnedMesh: AbstractMesh)`. Excludes the given skinned mesh from computing bones velocities. Computing bones velocities can have a cost. The cost can be saved by calling this function and by passing the skinned mesh to ignore.
