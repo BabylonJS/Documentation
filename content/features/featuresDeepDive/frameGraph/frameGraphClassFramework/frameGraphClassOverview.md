@@ -16,7 +16,7 @@ This is the main class, whose purpose is to allow you to build and execute a fra
 * `build()`. Traverses all tasks in the graph and calls their `record()` method, which in turn will create the task's passes. This is also when the actual textures are allocated and linked to the texture handles created in the frame graph.
 * `execute()`. Traverses all tasks in the graph and executes the passes for each of them.
 * **textureManager**. This property gives you access to the frame graph's [Texture manager](#framegraphtexturemanager).
-* **optimizeTextureAllocation**. This property indicates that texture allocation should be optimized (i.e., reuse existing textures when possible to limit GPU memory usage).
+* **optimizeTextureAllocation**. Boolean that determines whether texture allocation should be optimized (i.e., reuse existing textures when possible to limit GPU memory usage).
 * **pausedExecution**. Indicates whether the execution of the frame graph is paused (default is false).
 
 You should generally disable frame graph execution before calling `await FrameGraph.whenReadyAsync()`, so that the frame graph is not executed by the main rendering loop before everything is ready, which could cause errors.
@@ -81,6 +81,9 @@ frameGraph.execute();
 // Alternatively, if you set the graph at scene level, execute() will be called automatically every frame
 scene.frameGraph = frameGraph;
 ```
+This code corresponds to this graph:
+![Basic graph](/img/frameGraph/graph_skeleton.jpg)
+
 
 ## [FrameGraphTask](/typedoc/classes/babylon.framegraphtask)
 This is the base class for a task in a frame graph. A task is usually a rendering process, but it may also be unrelated to rendering (for example, we have a culling task in the frame graph to cull objects relative to a camera).
