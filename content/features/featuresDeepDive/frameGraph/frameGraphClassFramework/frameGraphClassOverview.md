@@ -1,5 +1,5 @@
 ---
-title: Overview of the frame graph framework
+title: Introduction to Frame Graph classes
 image:
 description: Learn all about the Babylon.js Frame Graph system.
 keywords: diving deeper, frame graph, rendering, node editor, overview

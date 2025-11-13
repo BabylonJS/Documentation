@@ -1,5 +1,5 @@
 ---
-title: List of task classes in the frame graph framework
+title: Frame Graph Task List
 image:
 description: Learn all about the tasks implemented in the Frame Graph system.
 keywords: diving deeper, frame graph, rendering, task

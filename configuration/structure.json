@@ -660,7 +660,7 @@
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts"
                                 },
                                 "frameGraphClassFramework": {
-                                    "friendlyName": "Description of the class framework",
+                                    "friendlyName": "Frame Graph Framework Description",
                                     "children": {
                                         "frameGraphClassOverview": {
                                             "friendlyName": "Introduction to Frame Graph classes",
@@ -676,7 +676,7 @@
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework"
                                 },
                                 "frameGraphBlocks": {
-                                    "friendlyName": "Render Graph Blocks",
+                                    "friendlyName": "Node Render Graph Blocks",
                                     "children": {
                                         "frameGraphBlocksGeneralNotes": {
                                             "friendlyName": "General notes about Render Graph Blocks",
@@ -684,7 +684,7 @@
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksGeneralNotes"
                                         },
                                         "frameGraphBlocksDescription": {
-                                            "friendlyName": "Description of the Render Graph Blocks",
+                                            "friendlyName": "Render Graph Blocks Description",
                                             "children": {},
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksDescription"
                                         }
