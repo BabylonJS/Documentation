@@ -54,7 +54,7 @@ pipeline.imageProcessing.ditheringEnabled = true;
 
 Tonemapping can be enabled to better handle the high dynamic range of the atmosphere, and dithering will help reduce color banding in the sky.
 
-## Atmosphere
+## Customizing the Atmosphere
 
 The atmosphere is created by specifying the directional light.
 
