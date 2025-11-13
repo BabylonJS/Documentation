@@ -12,7 +12,7 @@ This is the main class, whose purpose is to allow you to build and execute a fra
 
 ### Main methods and properties
 * `addTask(task)`. Adds a task to the graph.
-* `addPass(name, whenTaskDisabled)`, `addRenderPass(name, whenTaskDisabled)`, `addCullPass(name, whenTaskDisabled)`. Methods that create a new pass for the currently processed task and return that pass. These methods can only be called from a `FrameGraphTask.record()` method, which is the method responsible for creating the passes of a task.
+* `addPass(name, whenTaskDisabled)`, `addRenderPass(name, whenTaskDisabled)`, `addObjectListPass(name, whenTaskDisabled)`. Methods that create a new pass for the currently processed task and return that pass. These methods can only be called from a `FrameGraphTask.record()` method, which is the method responsible for creating the passes of a task.
 * `build()`. Traverses all tasks in the graph and calls their `record()` method, which in turn will create the task's passes. This is also when the actual textures are allocated and linked to the texture handles created in the frame graph.
 * `execute()`. Traverses all tasks in the graph and executes the passes for each of them.
 * **textureManager**. This property gives you access to the frame graph's [Texture manager](#framegraphtexturemanager).
@@ -93,10 +93,10 @@ This is the base class for a task in a frame graph. A task is usually a renderin
 ### Passes
 The main purpose of a task is to manage a list of passes: these passes are executed when the `execute()` method of the frame graph is called (which in turn calls the `_execute()` method of each task).
 
-Passes are created by the `record()` method, which is the main method of a task, and must be implemented by classes extending `FrameGraphTask` (`record()` is abstract in `FrameGraphTask`). Different types of passes can be created (normal passes, rendering passes, and culling passes). The type of pass you create (by calling the appropriate method of `FrameGraph`) determines the type of context that the callback passed to `Pass.setExecuteFunc(func: (context: T) => void)` receives, which is the function executed when the pass is executed:
+Passes are created by the `record()` method, which is the main method of a task, and must be implemented by classes extending `FrameGraphTask` (`record()` is abstract in `FrameGraphTask`). Different types of passes can be created (normal passes, rendering passes, and object list passes). The type of pass you create (by calling the appropriate method of `FrameGraph`) determines the type of context that the callback passed to `Pass.setExecuteFunc(func: (context: T) => void)` receives, which is the function executed when the pass is executed:
 * [FrameGraphContext](/typedoc/classes/babylon.framegraphcontext) for normal passes
 * [FrameGraphRenderContext](/typedoc/classes/babylon.framegraphrendercontext) for render passes
-* [FrameGraphContext](/typedoc/classes/babylon.framegraphcontext) for culling passes (there is no special context class for culling passes yet, but this may change in the future)
+* [FrameGraphContext](/typedoc/classes/babylon.framegraphcontext) for object list passes (there is no special context class for object list passes yet, but this may change in the future)
 
 In turn, the context determines what you can do during the execution of the pass (the `FrameGraphContext` class does not have any rendering-related methods, for example, contrary to `FrameGraphRenderContext`).
 
@@ -249,7 +249,7 @@ pass.setExecuteFunc((context) => {
 ```
 You can see that the ping-pong texture is used in read mode by the TAA shader and is bound under the name “historySampler”. This means that it is the other texture of the ping-pong texture that will be bound to the shader during this frame (i.e., the texture we wrote to in the previous frame), not the texture we are writing to.
 
-## [Pass](/typedoc/classes/babylon.framegraphpass), [RenderPass](/typedoc/classes/babylon.framegraphrenderpass), [CullPass](/typedoc/classes/babylon.framegraphcullpass)
+## [Pass](/typedoc/classes/babylon.framegraphpass), [RenderPass](/typedoc/classes/babylon.framegraphrenderpass), [ObjectListPass](/typedoc/classes/babylon.framegraphobjectlistpass)
 These classes are used to create different types of passes within a task.
 
 ### Main methods and properties
@@ -261,13 +261,13 @@ Render passes:
 * `setRenderTargetDepth(renderTargetHandle?)`. Sets the depth attachment texture to use during pass execution.
 * `addDependencies(dependencies)`. Adds a texture dependency to this pass.
 
-Cull passes:
+Object list passes:
 * `setObjectList(objectList)`. Sets the list of objects output by the pass.
 
 ### Working with passes
-Passes must not be created directly (their constructor is marked as “internal”), but by calling `FrameGraph.addPass(name, whenTaskDisabled)`, `FrameGraph.addRenderPass(name, whenTaskDisabled)`, or `FrameGraph.addCullPass(name, whenTaskDisabled)`. Furthermore, these methods will check that they are called from a `FrameGraphTask.record()` method, as you are not allowed to create passes from any other location. This is necessary for the frame graph class to manage the graph correctly.
+Passes must not be created directly (their constructor is marked as “internal”), but by calling `FrameGraph.addPass(name, whenTaskDisabled)`, `FrameGraph.addRenderPass(name, whenTaskDisabled)`, or `FrameGraph.addObjectListPass(name, whenTaskDisabled)`. Furthermore, these methods will check that they are called from a `FrameGraphTask.record()` method, as you are not allowed to create passes from any other location. This is necessary for the frame graph class to manage the graph correctly.
 
-Depending on the type of pass you are creating, the callback method you provide when calling `setExecuteFunc(callback)` will be called by the system with an appropriate context: `FrameGraphContext` for normal and cull passes, and `FrameGraphRenderContext` for a render pass. You can use this context in your callback function to implement the runtime of the pass.
+Depending on the type of pass you are creating, the callback method you provide when calling `setExecuteFunc(callback)` will be called by the system with an appropriate context: `FrameGraphContext` for normal and object list passes, and `FrameGraphRenderContext` for a render pass. You can use this context in your callback function to implement the runtime of the pass.
 
 As explained above, you can also create tasks to be executed when the task is disabled: simply pass **true** as the second parameter for the various methods for creating passes. If no passes have been created for the disabled state of a task, the normal passes will be used when the task is disabled.
 
