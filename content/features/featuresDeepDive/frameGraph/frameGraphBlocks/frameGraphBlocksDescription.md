@@ -228,6 +228,10 @@ Once again, the inputs and outputs are self-explanatory: **target** is the textu
 
 ## Misc blocks
 
+<H3Image title="ComputeShader" image="/img/frameGraph/block_computeshader.jpg" alt="ComputeShader node"/>
+
+This block allows you to execute a compute shader (WebGPU only - doesn't do anything in WebGL). The compute shader must be configured programmatically. See the NRG playground in [FrameGraphComputeShaderTask](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList#framegraphcomputeshadertask) for an example of how to use this block.
+
 <H3Image title="Cull" image="/img/frameGraph/block_cull.jpg" alt="Cull node"/>
 
 This block allows you to cull a list of objects against a camera frustum: you must provide the camera via the **camera** input, and the list of objects via the **objects** input. The result of this block is provided by the **output**: the list of objects that are (at least partially) inside the camera frustum.
@@ -243,8 +247,6 @@ executeBlock.task.func = (_context) => {
     // Code to execute when the task is executed
 };
 ```
-
-In WebGPU, you can use this block to execute a compute shader at a specific moment in the execution of the frame graph, for example.
 
 <H3Image title="GUI" image="/img/frameGraph/block_gui.jpg" alt="GUI node"/>
 

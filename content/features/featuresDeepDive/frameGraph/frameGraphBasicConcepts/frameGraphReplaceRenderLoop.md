@@ -100,16 +100,24 @@ You can also call `await FrameGraph.whenReadyAsync()` to make sure that all the 
 
 Finally, you must manage the resizing of the screen, so simply call `frameGraph.build()` when the engine resizes:
 ```javascript
-engine.onResizeObservable.add(() => {
+const buildGraph = async () => {
     frameGraph.build();
+
+    frameGraph.pausedExecution = true;
+    await frameGraph.whenReadyAsync();
+    frameGraph.pausedExecution = false;
+};
+
+engine.onResizeObservable.add(async () => {
+    await buildGraph();
 });
 
-frameGraph.build();
-
-await frameGraph.whenReadyAsync();
+await buildGraph();
 ```
 
-Here's the PG corresponding to this example: <Playground id="#9YU4C5#12" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (manual use of the frame graph classes)"/>
+Here's the PG corresponding to this example: <Playground id="#9YU4C5#109" image="/img/playgroundsAndNMEs/pg-9YU4C5-12.png" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (manual use of the frame graph classes)"/>
+
+Note that we pause the execution of the frame graph before calling `whenReadyAsync()` and then resume it, because this call is asynchronous, which means that the scene rendering loop will potentially be executed several times before the frame graph is ready. Since we don't want the graph to run before it is fully ready, we need to pause it by setting the **pausedExecution** property to *true*.
 
 ## Using a node render graph
 
@@ -131,6 +139,8 @@ scene.frameGraph = nrg.frameGraph;
 That's all you need to make it work with a node render graph!
 
 The full PG: <Playground id="#9YU4C5#11" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (node render graph)"/>
+
+Note that this time, we don't have to manage the **pausedExecution** property ourselves, as it is managed automatically by `NodeRenderGraph.whenReadyAsync`.
 
 For more complicated examples, you may need to pass a third parameter to `NodeRenderGraph.ParseFromSnippetAsync()` to configure the node render graph:
 ```javascript

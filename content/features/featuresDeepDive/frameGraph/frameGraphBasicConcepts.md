@@ -23,13 +23,22 @@ Each task declares its input and output resources.
 
 The resources can be textures, a list of renderable meshes, cameras, lights. As for the textures, they are allocated and managed by the frame graph subsystem and not directly by the tasks. This allows us to optimize the allocation of textures and reuse them during the execution of a graph, thus saving GPU memory.
 
-By default, there is no persistence of resources between each execution of a rendering graph, unless a resource is specifically labeled as “persistent” (think of a texture that must be reused from one frame to the next). In our implementation, persistent textures are used to implement “ping-pong” textures, where we change the read and write textures with each frame (used to implement the temporal antialiasing task, for example).
+By default, there is no persistence of resources between each execution of a render graph, unless a resource is specifically labeled as “persistent” (think of a texture that must be reused from one frame to the next). In our implementation, persistent textures are used to implement “ping-pong” textures, where we change the read and write textures with each frame (used to implement the temporal antialiasing task, for example).
 
 To clarify the ideas, here is a simple graph:
 
 ![Basic graph](/img/frameGraph/basic_graph.jpg)
 
 The “Color Texture”, “Depth Texture”, “Camera” and “Object List” nodes are input resources (respectively, of the texture, depth texture, camera and object list type). “Clear” and “Main Rendering” are two tasks, the first clears a texture/depth texture and the second renders objects in a texture. “Output” is the output buffer (think of it as the screen output).
+
+As a user, the process of creating and using a frame graph is as follows:
+* Create a frame graph, either by using the `FrameGraphXXX` classes (see [Frame Graph Framework Description](/features/featuresDeepDive/frameGraph/frameGraphClassFramework)), or by loading a node render graph (see [Node Render Graph Blocks](/features/featuresDeepDive/frameGraph/frameGraphBlocks)).
+* Build the frame graph (`FrameGraph.build()` or `NodeRenderGraph.build()`).
+* Wait until all frame graph tasks + internal states are ready: `await FrameGraph.whenReadyAsync()` or `await NodeRenderGraph.whenReadyAsync()`.
+<br/>
+At this point, the frame graph can be safely executed: call `FrameGraph.execute()`, or simply set `scene.frameGraph = myFrameGraph`, in which case the call to `execute` will be performed by the scene's rendering loop.
+
+Note that in this scenario, you never have to manage passes: you will only need to create passes when you create your own tasks. As a user, you simply use the existing tasks (see [Frame Graph Task List](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList) for the list of existing tasks in the framework), creating an instance of the task, setting its input parameters to reasonable values, and adding the task to the frame graph. See [Introduction to Frame Graph classes](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview) for more information.
 
 ### Benefits
 
