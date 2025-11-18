@@ -399,7 +399,7 @@ Task which applies a motion blur post-process.
 [Link to the class](/typedoc/classes/babylon.framegraphmotionblurtask)
 
 <Playground id="#YB006J#781" image="/img/playgroundsAndNMEs/pg-YB006J-746.png" title="Motion blur task (screen based)" description="Example of a frame graph using the motion blur task (screen based)" isMain={false}/>
-<Playground id="#YB006J#782" image="/img/playgroundsAndNMEs/pg-YB006J-749.png" title="Motion blur task (object based)" description="Example of a frame graph using the motion blur task (object based)" isMain={true}/>
+<Playground id="#YB006J#785" image="/img/playgroundsAndNMEs/pg-YB006J-749.png" title="Motion blur task (object based)" description="Example of a frame graph using the motion blur task (object based)" isMain={true}/>
 <Playground id="#YB006J#753" title="Motion blur task (NRG)" description="Example of a node render graph using the motion blur block" isMain={true}/>
 
 Inputs:
