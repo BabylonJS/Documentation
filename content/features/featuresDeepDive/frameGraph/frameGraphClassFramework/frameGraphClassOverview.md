@@ -13,25 +13,25 @@ This is the main class, whose purpose is to allow you to build and execute a fra
 ### Main methods and properties
 * `addTask(task)`. Adds a task to the graph.
 * `addPass(name, whenTaskDisabled)`, `addRenderPass(name, whenTaskDisabled)`, `addObjectListPass(name, whenTaskDisabled)`. Methods that create a new pass for the currently processed task and return that pass. These methods can only be called from a `FrameGraphTask.record()` method, which is the method responsible for creating the passes of a task.
-* `build()`. Traverses all tasks in the graph and calls their `record()` method, which in turn will create the task's passes. This is also when the actual textures are allocated and linked to the texture handles created in the frame graph.
+* `buildAsync(waitForReadiness = true)`. Traverses all tasks in the graph and calls their `record()` method, which in turn will create the task's passes. This is also when the actual textures are allocated and linked to the texture handles created in the frame graph.
+* `whenReadyAsync(timeStep = 16, maxTimeout = 10000)`. Returns a promise that resolves when the frame graph is ready to be executed. In general, calling `await buildAsync()` should suffice, as this function also waits for readiness by default.
 * `execute()`. Traverses all tasks in the graph and executes the passes for each of them.
 * **textureManager**. This property gives you access to the frame graph's [Texture manager](#framegraphtexturemanager).
 * **optimizeTextureAllocation**. Boolean that determines whether texture allocation should be optimized (i.e., reuse existing textures when possible to limit GPU memory usage).
 * **pausedExecution**. Indicates whether the execution of the frame graph is paused (default is false).
+<br/>
 
-You should generally disable frame graph execution before calling `await FrameGraph.whenReadyAsync()`, so that the frame graph is not executed by the main rendering loop before everything is ready, which could cause errors.
-So, as a general rule, you should always do:
+You should not have to call `whenReadyAsync()`, as `buildAsync()` already calls this function by default. However, if you disable this feature, your code should look like this:
 ```typescript
+await frameGraph.buildAsync(false);
+
 frameGraph.pausedExecution = true;
 
 await frameGraph.whenReadyAsync();
 
 frameGraph.pausedExecution = false;
 ```
-We didn't want to impose this usage when you're directly manipulating the frame graph class, to give you maximum flexibility, but since the frame graph is managed for you when you're using a node render graph, these two lines are executed for you when you call `NodeRenderGraph.whenReadyAsync`. This means that in the case of a node render graph, you can simply do:
-```typescript
-await nodeRenderGraph.whenReadyAsync();
-```
+You should generally disable frame graph execution before calling `await FrameGraph.whenReadyAsync()`, so that the frame graph is not executed by the main rendering loop before everything is ready, which could cause errors.
 
 ### List of tasks
 The graph itself is stored as a list (array) of tasks: explicit connections between task inputs and outputs are not stored in this class, it is up to the user to add tasks to the graph in the correct order, so that a task T2 that requires the result of another task T1 is added after T1.
@@ -69,11 +69,8 @@ frameGraph.addTask(renderTask);
 
 ...adds other tasks...
 
-// Builds the graph when all tasks have been added
-frameGraph.build();
-
-// Wait until everything is ready to be run / executed
-await frameGraph.whenReadyAsync();
+// Builds the graph when all tasks have been added and wait until everything is ready to be run / executed
+await frameGraph.buildAsync();
 
 // When you want to render the graph, calls:
 frameGraph.execute();
@@ -89,9 +86,14 @@ This code corresponds to this graph:
 This is the base class for a task in a frame graph. A task is usually a rendering process, but it may also be unrelated to rendering (for example, we have a culling task in the frame graph to cull objects relative to a camera).
 
 ### Main methods and properties
+* `initAsync()`. This function is called once after the task has been added to the frame graph and before the frame graph is built for the first time. This allows you to initialize asynchronous resources, which is not possible in the constructor.
 * `record()`. Called by `FrameGraph` at build time, it is responsible for creating passes for the task.
+* `isReady()`. Checks if the task is ready to be executed.
 * **disabled**. Property that allows you to enable/disable a task.
 * **dependencies**. Property that allows you to define the dependencies (texture) of the task.
+<br/>
+
+Note that as a user of a frame graph (as opposed to creating new tasks), you do not need to concern yourself with the methods outlined above: these methods are automatically called by the framework when you use it.
 
 ### Passes
 The main purpose of a task is to manage a list of passes: these passes are executed when the `execute()` method of the frame graph is called (which in turn calls the `_execute()` method of each task).

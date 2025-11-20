@@ -33,8 +33,7 @@ The “Color Texture”, “Depth Texture”, “Camera” and “Object List”
 
 As a user, the process of creating and using a frame graph is as follows:
 * Create a frame graph, either by using the `FrameGraphXXX` classes (see [Frame Graph Framework Description](/features/featuresDeepDive/frameGraph/frameGraphClassFramework)), or by loading a node render graph (see [Node Render Graph Blocks](/features/featuresDeepDive/frameGraph/frameGraphBlocks)).
-* Build the frame graph (`FrameGraph.build()` or `NodeRenderGraph.build()`).
-* Wait until all frame graph tasks + internal states are ready: `await FrameGraph.whenReadyAsync()` or `await NodeRenderGraph.whenReadyAsync()`.
+* Build the frame graph (`await FrameGraph.buildAsync()` or `await NodeRenderGraph.buildAsync()`). Calling these functions will also wait until the graph is ready to be displayed (it waits until all tasks + all internal states are ready).
 <br/>
 At this point, the frame graph can be safely executed: call `FrameGraph.execute()`, or simply set `scene.frameGraph = myFrameGraph`, in which case the call to `execute` will be performed by the scene's rendering loop.
 
@@ -48,7 +47,7 @@ A frame graph allows a high-level knowledge of the whole frame to be acquired, w
 * simplifies asynchronous computation and resource barriers. This is an advantage for native implementations, but for the web, we don't (yet?) have asynchronous computation and we don't have to manage resource barriers ourselves.
 * allows for autonomous and efficient rendering modules
 * overcomes some of the limitations of our hard-coded pipeline.
-
+<br/>
 The last advantage is particularly important, as it allows things that are not possible in our current fixed pipeline, which can be described as follows (this is what the existing `Scene.render` method does):
 1. Animate
 1. Update cameras
@@ -59,7 +58,7 @@ The last advantage is particularly important, as it allows things that are not p
     1. Rendering of RTT declared at camera level
     1. Rendering of active meshes
     1. Apply post-processing to the camera
-
+<br/>
 We have a number of observables that allow you to inject code between these stages, and internal components that add functionality at key points (such as shadows, layers, effect layers, etc.), but the order of tasks is always fixed and strongly centered on the camera, as you can see.
 
 With a frame graph, nothing is defined in advance; you simply create tasks and their interconnections. The camera has no particular status; it is a resource that you can use to construct the graph, in the same way that you can use textures or lists of objects.
@@ -83,7 +82,7 @@ In this mode, the execution of a frame graph largely replaces the flow of operat
 * You must define `Scene.cameraToUseForPointers` for the camera to be used for pointer operations. By default, if nothing is defined in this property, `Scene.activeCamera` is used. But since this last property is now `null` most of the time, pointer operations will not work as expected if you do not define `Scene.cameraToUseForPointers`.
 * You will not be able to define the parameters of a certain number of components via the inspector (such as rendering pipelines, effect layers, post-processing) because these are now simple tasks within a frame graph. As a workaround, if you use a node render graph to generate the frame graph, you will be able to set parameters in the node render graph editor. We will also look at how to update the inspector (when possible), so that we can adjust the settings from this tool.
 * Most of the existing observables notified by `Scene.render` are no longer notified. As explained above, the execution of the frame graph replaces much of `Scene.render` (see below), so a lot of code is no longer executed.
-
+<br/>
 Regarding the last point, this is what `Scene.render` does when `Scene.frameGraph` is defined:
 1. Notifies `Scene.onBeforeAnimationsObservable`
 1. Calls `Scene.animate`
@@ -93,7 +92,7 @@ Regarding the last point, this is what `Scene.render` does when `Scene.frameGrap
 1. Animates the particle systems
 1. Executes the frame graph
 1. Notifies `Scene.onAfterRenderObservable`
-
+<br/>
 As you can see, only 3 observables are notified in this case.
 
 ### Use a frame graph in addition to the existing scene render loop

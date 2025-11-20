@@ -54,7 +54,7 @@ const task = new BABYLON.FrameGraphCustomPostProcessTask("edgeDetection", frameG
 
 Here is a simple PG that illustrates the two code paths (update line 21 to use the standard or frame graph path):
 
-<Playground id="#ZC3Y12#2" title="Custom post-process in frame graph" description="Using a custom post-process in frame graph with FrameGraphCustomPostProcessTask" isMain={true}/>
+<Playground id="#F1RSBM" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Custom post-process in frame graph" description="Using a custom post-process in frame graph with FrameGraphCustomPostProcessTask" isMain={true}/>
 
 ## Making the task available in NRGE
 
@@ -202,7 +202,7 @@ scene.frameGraph = nrg.frameGraph;
 await nrg.whenReadyAsync();
 ```
 
-<Playground id="#ZC3Y12#7" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Load node render graph with custom post-process" description="Loading a node render graph from the snippet server with custom post-process" isMain={true}/>
+<Playground id="#ZC3Y12#10" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Load node render graph with custom post-process" description="Loading a node render graph from the snippet server with custom post-process" isMain={true}/>
 
 **Important**: editing the node render graph with the standalone NRGE (https://nrge.babylonjs.com) will not work!
 

@@ -16,6 +16,8 @@ scene.cameraToUseForPointers = camera;
 ```
 The second parameter of the `FrameGraph` constructor instructs the framework to create debugging textures for the textures created by the frame graph, which you can browse in the inspector. This can help debug / understand what's going on in your code!
 
+We set `scene.frameGraph = frameGraph` so that the frame graph is used instead of the usual scene rendering loop.
+
 Let's create a color and depth texture, which will be used to render the meshes:
 ```javascript
 const colorTexture = frameGraph.textureManager.createRenderTargetTexture("color", {
@@ -50,6 +52,8 @@ You can see that we create the textures through the `frameGraph.textureManager` 
 
 This is why `frameGraph.textureManager.createRenderTargetTexture` returns a texture handle (a number) and not a real texture object: most of the frame graph framework methods that deal with textures use texture handles!
 
+Refer to [Introduction to Frame Graph classes](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview#texture-handles) for more information about texture handles.
+
 Note that you can import an existing texture into a frame graph by calling `frameGraph.textureManager.importTexture()`, and this method will return a texture handle that you can use as input for frame graph tasks. There is also the inverse method `frameGraph.textureManager.getTextureFromHandle()` which allows you to obtain the real texture object from a texture handle (useful when you use a frame graph at the same time as the scene render loop - see the following section for more information).
 
 An important property of the object passed to the `createRenderTargetTexture` method is `sizeIsPercentage`: if it is `true`, it means that the size values are percentages instead of fixed pixel sizes. These percentages are related to the size of the output screen. If you set `width=height=100`, this means that the texture will be created with the same size as the output screen. If you set these values to `50`, the texture will be created with half the size of the screen. Most of the time, you will want to set `sizeIsPercentage=true` to keep your frame graph independent of the output size.
@@ -66,6 +70,8 @@ clearTask.depthTexture = depthTexture;
 frameGraph.addTask(clearTask);
 ```
 This code creates a "clear" task, configures it and adds it to the frame graph.
+
+Refer to [Frame Graph Task List](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList) for detailed explanations of the various frame graph tasks used in the code snippets on this page.
 
 The main task is the rendering of the meshes:
 ```javascript
@@ -94,30 +100,18 @@ copyToBackbufferTask.sourceTexture = renderTask.outputTexture;
 
 frameGraph.addTask(copyToBackbufferTask);
 ```
-Once all the tasks have been added to the frame graph, you must build the graph by calling `FrameGraph.build()`. This ensures that everything is ready before the graph can be executed (among other things, it allocates the textures).
+Once all tasks have been added to the frame graph, you must build the graph by calling `await FrameGraph.buildAsync()`. This creates the various passes that will be executed when `FrameGraph.execute()` is called and ensures that everything is ready before the graph can be executed (among other things, it allocates textures).
 
-You can also call `await FrameGraph.whenReadyAsync()` to make sure that all the resources are ready and that the next call to `FrameGraph.execute()` (which is done automatically at the appropriate moment by the framework when `Scene.frameGraph` is defined) will render something and will not be delayed.
-
-Finally, you must manage the resizing of the screen, so simply call `frameGraph.build()` when the engine resizes:
+Finally, don't forget to handle screen resizing:
 ```javascript
-const buildGraph = async () => {
-    frameGraph.build();
-
-    frameGraph.pausedExecution = true;
-    await frameGraph.whenReadyAsync();
-    frameGraph.pausedExecution = false;
-};
-
 engine.onResizeObservable.add(async () => {
-    await buildGraph();
+    await frameGraph.buildAsync();
 });
 
-await buildGraph();
+await frameGraph.buildAsync();
 ```
 
-Here's the PG corresponding to this example: <Playground id="#9YU4C5#109" image="/img/playgroundsAndNMEs/pg-9YU4C5-12.png" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (manual use of the frame graph classes)"/>
-
-Note that we pause the execution of the frame graph before calling `whenReadyAsync()` and then resume it, because this call is asynchronous, which means that the scene rendering loop will potentially be executed several times before the frame graph is ready. Since we don't want the graph to run before it is fully ready, we need to pause it by setting the **pausedExecution** property to *true*.
+Here's the PG corresponding to this example: <Playground id="#6HFJ0J" image="/img/playgroundsAndNMEs/pg-9YU4C5-12.png" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (manual use of the frame graph classes)"/>
 
 ## Using a node render graph
 
@@ -130,17 +124,13 @@ The javascript code:
 ```javascript
 const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("#CCDXLX", scene);
 
-nrg.build();
-
-await nrg.whenReadyAsync();
-
-scene.frameGraph = nrg.frameGraph;
+await nrg.buildAsync();
 ```
 That's all you need to make it work with a node render graph!
 
-The full PG: <Playground id="#9YU4C5#11" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (node render graph)"/>
+The full PG: <Playground id="#9YU4C5#113" image="/img/playgroundsAndNMEs/pg-9YU4C5-11.png" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (node render graph)"/>
 
-Note that this time, we don't have to manage the **pausedExecution** property ourselves, as it is managed automatically by `NodeRenderGraph.whenReadyAsync`.
+By default, calling `nrg.buildAsync()` will also assign the frame graph to `scene.frameGraph`.
 
 For more complicated examples, you may need to pass a third parameter to `NodeRenderGraph.ParseFromSnippetAsync()` to configure the node render graph:
 ```javascript
