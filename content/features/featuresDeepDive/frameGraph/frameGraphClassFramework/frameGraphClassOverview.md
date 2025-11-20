@@ -89,6 +89,8 @@ This is the base class for a task in a frame graph. A task is usually a renderin
 * `initAsync()`. This function is called once after the task has been added to the frame graph and before the frame graph is built for the first time. This allows you to initialize asynchronous resources, which is not possible in the constructor.
 * `record()`. Called by `FrameGraph` at build time, it is responsible for creating passes for the task.
 * `isReady()`. Checks if the task is ready to be executed.
+* **onBeforeTaskExecute**. An observable that is triggered before the task is executed.
+* **onAfterTaskExecute**. An observable that is triggered after the task is executed.
 * **disabled**. Property that allows you to enable/disable a task.
 * **dependencies**. Property that allows you to define the dependencies (texture) of the task.
 <br/>
