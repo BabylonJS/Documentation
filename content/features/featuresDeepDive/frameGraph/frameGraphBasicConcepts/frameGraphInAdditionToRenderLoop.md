@@ -22,17 +22,13 @@ We now create the frame graph and import the post-process texture into it, so th
 ```javascript
 const frameGraph = new BABYLON.FrameGraph(scene, true);
 
-engine.onResizeObservable.add(() => {
-    frameGraph.build();
-});
-
 const passPostProcessHandle = frameGraph.textureManager.importTexture("pass post-process", passPostProcess.inputTexture.texture);
 
 passPostProcess.onSizeChangedObservable.add(() => {
     frameGraph.textureManager.importTexture("pass post-process", passPostProcess.inputTexture.texture, passPostProcessHandle);
 });
 ```
-Note that when the size of the post-process changes (due to a resizing of the window, for example), the texture will be recreated, and we will therefore have to re-import it into the frame graph. We can pass a texture handle to `importTexture` so that the texture passed as the first parameter replaces the texture associated with this handle. This way, we won't have to update the frame graph, the post-process pass texture always remains associated with `passPostProcessHandle`.
+Note that when the size of the post-process changes (due to a resizing of the window, for example), the texture will be recreated, and we will therefore have to re-import it into the frame graph. We can pass a texture handle to `importTexture()` so that the texture passed as the second parameter replaces the texture associated with this handle. This way, we won't have to update the frame graph, the post-process pass texture always remains associated with `passPostProcessHandle`.
 
 The next step is to create the bloom, black and white and copy to back buffer tasks, add them to the frame graph and build the graph:
 ```javascript
@@ -48,11 +44,15 @@ const copyToBackbufferTask = new BABYLON.FrameGraphCopyToBackbufferColorTask("co
 copyToBackbufferTask.sourceTexture = bnwTask.outputTexture;
 frameGraph.addTask(copyToBackbufferTask);
 
-frameGraph.build();
+engine.onResizeObservable.add(async () => {
+    await frameGraph.buildAsync();
+});
 
-await frameGraph.whenReadyAsync();
+await frameGraph.buildAsync();
 ```
 There is not much to say here, the code should be self-explanatory.
+
+Refer to [Frame Graph Task List](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList) for detailed explanations of the various frame graph tasks used in the code snippet above.
 
 Finally, we need to execute the frame graph at each frame. As we use the regular rendering output of the scene, the best place is inside a `Scene.onAfterRenderObservable` observer:
 ```javascript
@@ -61,7 +61,7 @@ scene.onAfterRenderObservable.add(() => {
 });
 ```
 
-The full PG: <Playground id="#RM56RY#12" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (manual use of the frame graph classes)"/>
+The full PG: <Playground id="#RM56RY#27" image="/img/playgroundsAndNMEs/pg-RM56RY-12.png" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (manual use of the frame graph classes)"/>
 
 ## Using a node render graph
 
@@ -85,16 +85,16 @@ const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("#FAPQIH#1", sce
 
 const frameGraph = nrg.frameGraph;
 
-passPostProcess.onSizeChangedObservable.add(() => {
+const setExternalTexture = async () => {
     nrg.getBlockByName("Texture").value = passPostProcess.inputTexture.texture;
-    nrg.build();
+    await nrg.buildAsync(false, true, false);
+};
+
+passPostProcess.onSizeChangedObservable.add(async () => {
+    await setExternalTexture();
 });
 
-nrg.getBlockByName("Texture").value = passPostProcess.inputTexture.texture;
-
-nrg.build();
-
-await nrg.whenReadyAsync();
+await setExternalTexture();
 
 scene.onAfterRenderObservable.add(() => {
     frameGraph.execute();
@@ -102,8 +102,8 @@ scene.onAfterRenderObservable.add(() => {
 ```
 As above, we create a "pass" post-process, so that the scene is rendered in a texture. This texture is set as the value of the block named “Texture”, which is our input texture in the graph.
 
-Note that we have deactivated the automatic building of the graph when resizing the engine, because when the screen is resized, we must first update the texture of the “Texture” block before rebuilding the graph.
+Note that we have deactivated the automatic building of the graph when resizing the engine (parameter **rebuildGraphOnEngineResize** in the call to `ParseFromSnippetAsync()`), because when the screen is resized, we must first update the texture of the “Texture” block before rebuilding the graph: `passPostProcess.onSizeChangedObservable` replaces `engine.onResizeObservable`.
 
-The rest of the code should be simple to understand.
+Also note the parameters passed to `nrg.buildAsync(dontBuildFrameGraph = false, waitForReadiness = true, setAsSceneFrameGraph = false)`: the first two parameters have their default values, but the third is set to *false* so that the frame graph is not defined at the scene level!
 
-The full PG: <Playground id="#RM56RY#21" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (node render graph)"/>
+The full PG: <Playground id="#RM56RY#28" image="/img/playgroundsAndNMEs/pg-RM56RY-21.png" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (node render graph)"/>
