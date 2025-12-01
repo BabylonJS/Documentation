@@ -26,6 +26,31 @@ let characterPosition = new BABYLON.Vector3(3, 0.3, -8);
 let characterController = new BABYLON.PhysicsCharacterController(characterPosition, { capsuleHeight: h, capsuleRadius: r }, scene);
 ```
 
+## moveWithCollisions
+
+`moveWithCollisions` is a sync function that move the character to the targeted position taking care of collision along the way.
+
+<Playground id="WO0H1U#165" title="Character Controller moveWithCollisions" description="Character Controller moveWithCollisions" />
+
+## Kinematic platforms
+
+Physics bodies of `PhysicsMotionType.ANIMATED` can interact with the character. This allows the creation of lift, platforms,...
+
+<Playground id="WO0H1U#166" title="Character Controller animated platform" description="Character Controller animated platform" />
+
+## Observable
+
+Custom collision observable allows to get specific to the character controller collision information.
+
+```javascript
+characterController.onTriggerCollisionObservable.add((event)=>{
+    console.log(`Character collision : ${event.collider.transformNode.name} at ${event.impulsePosition.toString()} `);
+});
+```
+Here, event type is `ICharacterControllerCollisionEvent` and contains informations about the collider, position and impulse.
+
+<Playground id="WO0H1U#169" title="Character Controller collision observer" description="Character Controller collision observer" />
+
 ## The loop
 
 There are 3 major steps:
