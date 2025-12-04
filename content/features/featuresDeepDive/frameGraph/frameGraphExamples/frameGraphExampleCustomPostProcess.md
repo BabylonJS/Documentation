@@ -36,7 +36,7 @@ const task = new BABYLON.FrameGraphCustomPostProcessTask("edgeDetection", frameG
     uniforms: ["escale", "threshold"],
 });
 
-this.task.onApplyObservable.add((effect) => {
+task.onApplyObservable.add((effect) => {
     effect.setFloat("escale", 3);
     effect.setFloat("threshold", 0.1);
 });
@@ -54,7 +54,7 @@ const task = new BABYLON.FrameGraphCustomPostProcessTask("edgeDetection", frameG
 
 Here is a simple PG that illustrates the two code paths (update line 21 to use the standard or frame graph path):
 
-<Playground id="#ZC3Y12#2" title="Custom post-process in frame graph" description="Using a custom post-process in frame graph with FrameGraphCustomPostProcessTask" isMain={true}/>
+<Playground id="#F1RSBM" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Custom post-process in frame graph" description="Using a custom post-process in frame graph with FrameGraphCustomPostProcessTask" isMain={true}/>
 
 ## Making the task available in NRGE
 
@@ -87,10 +87,10 @@ Note: **EdgeDetectionFragment** is the shader code of the post-process.
 
 This is the same code as above, but it allows you to easily modify the **escale** and **threshold** properties.
 
-As for the implementation of the node graph rendering block `NodeRenderGraphEdgePostProcessBlock`, it is quite simple thanks to the use of `NodeRenderGraphBasePostProcessBlock`:
+As for the implementation of the node graph rendering block `NodeRenderGraphEdgePostProcessBlock`, it is quite simple thanks to the use of `NodeRenderGraphBaseWithPropertiesPostProcessBlock`:
 * First, we declare a private variable to contain the wrapper class and initialize it in the constructor:
 ```typescript
-export class NodeRenderGraphEdgePostProcessBlock extends BABYLON.NodeRenderGraphBasePostProcessBlock {
+export class NodeRenderGraphEdgePostProcessBlock extends BABYLON.NodeRenderGraphBaseWithPropertiesPostProcessBlock {
     protected override _frameGraphTask: BABYLON.FrameGraphCustomPostProcessTask;
 
     public override get task() {
@@ -178,7 +178,7 @@ Note: Since a playground can be launched multiple times, we first check whether 
 
 You can use this PG to test it:
 
-<Playground id="#ZC3Y12#4" title="Custom post-process in NRGE" description="Making a custom post-process available in NRGE" isMain={true}/>
+<Playground id="#ZC3Y12#8" image="/img/playgroundsAndNMEs/pg-ZC3Y12-4.png" title="Custom post-process in NRGE" description="Making a custom post-process available in NRGE" isMain={true}/>
 
 The scene is displayed normally. To use a frame graph with the edge detection post-process, proceed as follows:
 * Open the inspector
@@ -202,7 +202,7 @@ scene.frameGraph = nrg.frameGraph;
 await nrg.whenReadyAsync();
 ```
 
-<Playground id="#ZC3Y12#5" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Load node render graph with custom post-process" description="Loading a node render graph from the snippet server with custom post-process" isMain={true}/>
+<Playground id="#ZC3Y12#10" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Load node render graph with custom post-process" description="Loading a node render graph from the snippet server with custom post-process" isMain={true}/>
 
 **Important**: editing the node render graph with the standalone NRGE (https://nrge.babylonjs.com) will not work!
 
@@ -212,7 +212,7 @@ This is because the implementation of the block node for the edge detection post
 
 Note that you can also open NRGE using a code:
 ```typescript
-const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("XQF0ML#1", scene);
+const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("XQF0ML", scene);
 
 nrg.build();
 nrg.edit();
