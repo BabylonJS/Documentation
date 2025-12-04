@@ -107,7 +107,7 @@ What are the simplest way to get the resources structured? Let's dive in.
 Whereas our CDN base directory always holds our nightlies, we do deploy specific versions of the framework on every release. Every release is available at `https://cdn.babylonjs.com/vX.X.X` . So, for example, if you want to use version 6.30.0 for your resources, you can change the base URL to this:
 
 ```javascript
-BABYLON.Tools.CDNBaseUrl = "https://cdn.babylonjs.com/v6.30.0";
+BABYLON.Tools.ScriptBaseUrl = "https://cdn.babylonjs.com/v6.30.0";
 ```
 
 The CDN structure is guaranteed to be correct.
@@ -182,3 +182,4 @@ const options = {
 const engine = new BABYLON.WebGPUEngine(window.canvas, options);
 await engine.initAsync(glslangOptions, twgslOptions);
 ```
+

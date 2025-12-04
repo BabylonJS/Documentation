@@ -215,7 +215,7 @@ See the [`AudioParameterRampShape`](/typedoc/enums/BABYLON.AudioParameterRampSha
 
 To experiment with fading sound in and out using different ramp shapes, see this example playground:
 
-<Playground id="#HDPCXJ#6" title="Sound fade in and out" description="An example of fading sounds in and out with various ramp shapes."/>
+<Playground id="#BFWABZ#1" title="Sound fade in and out" description="An example of fading sounds in and out with various ramp shapes."/>
 
 <br/>
 <br/>

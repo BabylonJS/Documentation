@@ -13,7 +13,7 @@ The flow graph system is being controlled by a flow graph coordinator, which in 
 
 Here is a deeper dive into the basic concepts of the flow graph system. Some concepts might be referenced at first without explanation, but they are explained at a later point in the documentation.
 
-Note that we might use "blocks" and "blocks" interchangeably. The official name for the component is "block", but "block" is more common in the programming world.
+Note that we might use "block" and "blocks" interchangeably. The official name for the component is "block", but "block" is more common in the programming world.
 
 ![Base concepts relations](/img/flowGraph/flowGraphBaseConcepts.png)
 
