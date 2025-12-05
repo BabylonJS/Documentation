@@ -31,9 +31,11 @@ Inputs:
 * **objectRendererTask**. The object renderer task used to render the objects in the texture to which the layer will be applied. This is needed because the layer may have to inject code in the rendering manager used by object renderer task.
 * **layerTexture** (optional). The layer texture to render the effect into. If not provided, a default texture will be created, based on **targetTexture** size, type and format.
 <br/>
+
 Properties:
 * **layer**. Let's you access the configuration of the glow layer itself.
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture of the task (same underlying texture as **targetTexture**, but the handle will be different).
 
@@ -51,12 +53,15 @@ Inputs:
 * **objectRendererTask**. The object renderer task used to render the objects in the texture to which the layer will be applied. This is needed because the layer may have to inject code in the rendering manager used by object renderer task.
 * **layerTexture** (optional). The layer texture to render the effect into. If not provided, a default texture will be created, based on **targetTexture** size, type and format.
 <br/>
+
 Properties:
 * **layer**. Let's you access the configuration of the glow layer itself.
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture of the task (same underlying texture as **targetTexture**, but the handle will be different).
 <br/>
+
 Note that the **objectRendererTask** you define for the corresponding property must use a depth texture with a stencil aspect. An exception will be thrown if this is not the case.
 
 ## Miscellaneous tasks
@@ -75,6 +80,7 @@ Inputs:
 * **indirectDispatch** (optional). Defines an indirect dispatch buffer and offset. If set, this will be used instead of the **dispatchSize** property and an indirect dispatch will be performed.
 * **execute** (optional). An optional execute function that will be called at the beginning of the task execution.
 <br/>
+
 You can use the **execute** function to apply additional settings (uniform parameters, textures, etc.) before executing the compute shader: see the example above.
 
 The compute shader created by the class is accessible via the **computeShader** getter. For ease of use, all methods of the original [ComputeShader](/typedoc/classes/babylon.computeshader) class (such as `setTexture`, `setInternalTexture`, etc.) are available directly in the `FrameGraphComputeShaderTask` class.
@@ -94,9 +100,11 @@ Inputs:
 * **objectList**. The object list to cull.
 * **camera**. The camera to use for culling.
 <br/>
+
 Outputs:
 * **outputObjectList**. The output object list containing the culled objects.
 <br/>
+
 Notes:
 * Only meshes are culled, not particle systems
 * If meshes are frozen, culling is not performed and the last culling result before switching to frozen mode is reused
@@ -116,13 +124,14 @@ Inputs:
 * **funcDisabled** (optional). The function to execute when the task is disabled. If not provided, **func** is also used when the task is disabled.
 * **customIsReady** (optional). Custom readiness check.
 <br/>
+
 You can use this task for any custom process you want to run during the execution of the frame graph. In the PG example above, we use it to increment a counter each time the task is executed.
 
 <H3Image title="FrameGraphGUITask" image="/img/frameGraph/task_gui.jpg" alt="GUI"/>
 
 Task that renders a GUI texture.
 
-[Link to the class](/typedoc/classes/babylon.framegraphguitask)
+[Link to the class](/typedoc/classes/babylon.gui.framegraphguitask)
 
 <Playground id="#SUEU9U#111" image="/img/playgroundsAndNMEs/pg-SUEU9U-77.png" title="GUI task" description="Example of a frame graph using the gui task" isMain={true}/>
 <Playground id="#SUEU9U#134" image="/img/playgroundsAndNMEs/pg-SUEU9U-78.png" title="GUI task (NRG)" description="Example of a node render graph using the gui block" isMain={true}/>
@@ -130,13 +139,39 @@ Task that renders a GUI texture.
 Inputs:
 * **targetTexture**. The target texture to render the GUI to.
 <br/>
+
 Properties:
 * **gui**. Gets the underlying advanced dynamic texture.
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture of the task. This is the same texture as the target texture, but the handles are different!
 <br/>
+
 Note that you can provide an existing instance of `AdvancedDynamicTexture` at construction time (third parameter of the constructor), but you must ensure that the **useStandalone** property is set to *true*, as this is required for correct use in frame graphs!
+
+<H3Image title="FrameGraphLightingVolumeTask" image="/img/frameGraph/task_lightingvolume.jpg" alt="Lighting volume"/>
+
+Task used to create a lighting volume from a directional light's shadow generator.
+
+[Link to the class](/typedoc/classes/babylon.framegraphlightingvolumetask)
+
+<Playground engine="webgpu" id="#3VH0AC#13" title="Lighting volume task" description="Example of a frame graph using the lighting volume task" isMain={false}/>
+<Playground engine="webgpu" id="#3VH0AC#15" image="/img/playgroundsAndNMEs/pg-3VH0AC-13.png" title="Lighting volume task (NRG)" description="Example of a node render graph using the lighting volume block" isMain={false}/>
+
+Inputs:
+* **shadowGenerator**. The shadow generator used to create the lighting volume.
+<br/>
+
+Properties:
+* **lightingVolume**. The lighting volume created by this task.
+<br/>
+
+Outputs:
+* **outputMeshLightingVolume**. The output object list containing the lighting volume mesh. You can get the mesh by doing  `outputMeshLightingVolume.meshes[0]`.
+<br/>
+
+This task is typically used in conjunction with [FrameGraphVolumetricLightingTask](#framegraphvolumetriclightingtask) to generate volumetric lighting for a directional light.
 
 ## Post-process tasks
 
@@ -149,6 +184,7 @@ Inputs:
 * **stencilState** (optional). The stencil state to use for the post process.
 * **depthAttachmentTexture** (optional). The depth attachment texture to use for the post process. Note that a post-process task never writes to the depth buffer: attaching a depth texture is only useful if you want to test against the depth/stencil aspect or write to the stencil buffer.
 <br/>
+
 Properties:
 * **depthReadOnly**. If *true*, the depth attachment will be read-only. This means that the post process will not write to the depth/stencil buffer. Setting **depthReadOnly** and **stencilReadOnly** to *true* is useful when you want to also be able to bind this same depth/stencil attachment to a shader. Note that it will only work in WebGPU, as WebGL does not support read-only depth/stencil attachments.
 * **stencilReadOnly**. If *true*, the stencil attachment will be read-only. This means that the post process will not write to the stencil buffer. See above for further explanation.
@@ -157,10 +193,12 @@ Properties:
 * **depthTest**. If depth testing should be enabled.
 * **viewport** (optional). The viewport to use when applying the post process. If set to *null*, the currently active viewport is used. If *undefined* (default), the viewport is reset to a full screen viewport before applying the post process.
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture of the post process. Same texture than **targetTexture**, but with a different handle.
 * **outputDepthAttachmentTexture**. The output depth attachment texture. This texture will point to the same texture than the **depthAttachmentTexture** property if it is set. Note, however, that the handle itself will be different!
 <br/>
+
 Since these properties are common to all post-process tasks, we will not repeat their description in the following sections.
 
 In addition, all these tasks are wrappers around existing post-process classes. You should therefore refer to the documentation for these classes (for each task in the following sections, we provide a link to the corresponding post-process class) to find out which specific properties are available for each task: you can access these properties via **postProcessTask.postProcess**.
@@ -206,13 +244,16 @@ Inputs:
 * **sourceSamplingMode**. The sampling mode to use for the source texture.
 * **targetTexture** (optional). The target texture to render the bloom effect to. If not supplied, a texture with the same configuration as the source texture will be created.
 <br/>
+
 Properties:
 * **hdr** (read only). Whether the bloom effect is HDR. When *true*, the bloom effect will use a higher precision texture format (half float or float). Else, it will use unsigned byte.
 * [bloom](/typedoc/classes/babylon.thinbloomeffect). The properties of the post-process.
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture of the bloom effect.
 <br/>
+
 Note that you can set **weight**, **kernel**, **threshold**, and **hdr** at construction time (these are constructor parameters). You can change these values later via the **bloom** property, except for **hdr**, which is only a construction parameter.
 
 <H3Image title="FrameGraphBlurTask" image="/img/frameGraph/task_blur.jpg" alt="Blur post-process"/>
@@ -255,6 +296,7 @@ Inputs:
 * **depthSamplingMode**. The sampling mode to use for the depth texture.
 * **camera**. The camera to use for the circle of confusion effect.
 <br/>
+
 Properties:
 * [postProcess](/typedoc/classes/babylon.thincircleofconfusionpostprocess). The properties of the post-process.
 <br/>
@@ -316,13 +358,16 @@ Inputs:
 * **camera**. The camera used to render the scene.
 * **targetTexture** (optional). The target texture to render the depth of field effect to. If not supplied, a texture with the same configuration as the source texture will be created.
 <br/>
+
 Properties:
 * **hdr** (read only). Whether the depth of field effect is applied on HDR textures. When true, the depth of field effect will use a higher precision texture format (half float or float). Else, it will use unsigned byte.
 * [depthOfField](/typedoc/classes/babylon.thindepthoffieldeffect). The properties of the post-process.
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture of the depth of field effect.
 <br/>
+
 Note that **hdr** can only be set at construction time (it is a constructor parameter).
 
 <H3Image title="FrameGraphExtractHighlightsTask" image="/img/frameGraph/task_extracthighlights.jpg" alt="Extract highlights post-process"/>
@@ -389,6 +434,7 @@ Task which applies a image processing post-process.
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinimageprocessingpostprocess). The properties of the post-process.
 <br/>
+
 If you use this post-process, you will probably want to set **disableImageProcessing = true** on the object render that renders the texture to which the image processing is applied.
 Alternatively, you can also set `FrameGraphImageProcessingTask.postProcess.fromLinearSpace = false` to indicate that the source texture is in gamma space.
 
@@ -406,9 +452,11 @@ Inputs:
 * **velocityTexture** (optional). The velocity texture to use for the motion blur effect. Needed for object-based motion blur.
 * **depthTexture** (optional). The (view) depth texture to use for the motion blur effect. Needed for screen-based motion blur.
 <br/>
+
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinmotionblurpostprocess). The properties of the post-process.
 <br/>
+
 This task requires a geometry texture as input, which depends on the type of motion blur you want to use:
 * for object-based motion blur, you need to connect a **geometry velocity** texture
 * for screen-based motion blur, you need to connect a **geometry view depth** texture
@@ -429,6 +477,7 @@ Task which applies a screen space curvature post-process.
 Inputs:
 * **normalTexture**. The normal texture to use for the screen space curvature effect. It must store normals in camera view space.
 <br/>
+
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinscreenspacecurvaturepostprocess). The properties of the post-process.
 <br/>
@@ -465,15 +514,18 @@ Inputs:
 * **camera**. The camera used to render the scene.
 * **targetTexture** (optional). The target texture to render the SSAO2 effect to. If not supplied, a texture with the same configuration as the source texture will be created.
 <br/>
+
 Properties:
 * **ratioSSAO** (read only). The ratio between the SSAO texture size and the source texture size.
 * **ratioBlur** (read only). The ratio between the SSAO blur texture size and the source texture size.
 * **textureType** (read only). The texture type used by the different post processes created by SSAO2. It's a read-only property. If you want to change it, you must recreate the task and pass the appropriate texture type to the constructor.
 * [ssao](/typedoc/classes/babylon.thinssao2renderingpipeline). The properties of the post-process.
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture of the ssao effect.
 <br/>
+
 Note that you can set **ratioSSAO**, **ratioBlur** and **textureType** only at construction time (these are constructor parameters).
 
 <H3Image title="FrameGraphSSRRenderingPipelineTask" image="/img/frameGraph/task_ssr.jpg" alt="SSR post-process"/>
@@ -497,13 +549,16 @@ Inputs:
 * **camera**. The camera used to render the scene.
 * **targetTexture** (optional). The target texture to render the SSR effect to. If not supplied, a texture with the same configuration as the source texture will be created.
 <br/>
+
 Properties:
 * **textureType** (read only). The texture type used by the different post processes created by SSR. It's a read-only property. If you want to change it, you must recreate the task and pass the appropriate texture type to the constructor.
 * [ssr](/typedoc/classes/babylon.thinssrrenderingpipeline). The properties of the post-process.
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture of the ssr effect.
 <br/>
+
 Note that you can set **textureType** only at construction time (this is a constructor parameter).
 
 If you programmatically change the blur strength value (the `FrameGraphSSRRenderingPipelineTask.ssr.blurDispersionStrength` property) from 0 to a non-zero value, or vice versa, you must call the `FrameGraph.build()` function again to rebuild the graph! This is because the frame graph task of the SSR rendering pipeline generates blur tasks when this parameter is non-zero, and does not generate them when it is zero (for performance reasons). This means that the rendering passes generated are not the same depending on this parameter, which is why you need to call `build()` again when you change it.
@@ -524,9 +579,11 @@ Inputs:
 * **objectRendererTask**. The object renderer task used to render the scene objects.
 * **velocityTexture**. The handle to the velocity texture. Only needed if **postProcess.reprojectHistory** is enabled. Note that you must use the linear velocity texture!
 <br/>
+
 Properties:
 * [postProcess](/typedoc/classes/babylon.thintaapostprocess). The properties of the post-process.
 <br/>
+
 This task is slightly different from other post-process tasks, as the **source** input is mandatory and the **target** input is not (yet) used.
 In addition, this task must instrument the rendering of objects, which is why you must connect a [FrameGraphObjectRendererTask](#framegraphobjectrenderertask) instance  to the **objectRendererTask** input.
 
@@ -549,6 +606,39 @@ Properties:
 * [postProcess](/typedoc/classes/babylon.thintonemappostprocess). The properties of the post-process.
 <br/>
 
+<H3Image title="FrameGraphVolumetricLightingTask" image="/img/frameGraph/task_volumetriclighting.jpg" alt="Volumetric lighting post-process"/>
+
+A frame graph task that performs volumetric lighting.
+
+[Link to the class](/typedoc/classes/babylon.framegraphvolumetriclightingtask)
+
+<Playground engine="webgpu" id="#WLGEJB#4" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task" isMain={true}/>
+<Playground engine="webgpu" id="#WLGEJB#7" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting (NRG)" description="Example of a node render graph using the volumetric lighting block" isMain={true}/>
+
+This post-process **doesn't share** the common properties of post-processes!
+
+Inputs:
+* **targetTexture**. The target texture to which the volumetric lighting will be applied.
+* **sourceSamplingMode**. The sampling mode to use when blending the volumetric lighting texture with **targetTexture**.
+* **depthTexture**. The depth texture used for volumetric lighting calculations. It must be the depth (attachment) texture used to generate **targetTexture**.
+* **camera**. The camera used for volumetric lighting calculations.
+* **lightingVolumeMesh**. The mesh representing the lighting volume. This is the mesh that will be rendered to create the volumetric lighting effect.
+* **light**. The directional light used for volumetric lighting.
+* **lightingVolumeTexture** (optional). The lighting volume texture (optional). If not provided, a new texture will be created, which the same size, format and type as **targetTexture**. This is the texture that will store the volumetric lighting information, before being blended to **targetTexture**.
+<br/>
+
+Properties:
+* **phaseG**. The phase G parameter for the volumetric lighting effect (default: 0). This parameter controls the anisotropy of the scattering. A value of 0 means isotropic scattering, while a value of 1 means forward scattering and -1 means backward scattering.
+* **extinction**. The extinction coefficient for the volumetric lighting effect (default: (0, 0, 0) - no extinction). This parameter controls how much light is absorbed and scattered as it travels through the medium. Will only have an effect if **enableExtinction** is set to true in the constructor!
+* **lightPower**. The light power/color for the volumetric lighting effect (default: (1, 1, 1)). This parameter controls the intensity and color of the light used for volumetric lighting.
+<br/>
+
+Outputs:
+* **outputTexture**. The output texture of the task. It will be the same as **targetTexture**.
+<br/>
+
+The **extinction** property will only work if **enableExtinction** is set to *true* in the constructor when creating the `FrameGraphVolumetricLightingTask` instance. If you don't plan to set extinction to something different than (0, 0, 0), you can disable this to save some performance.
+
 ## Rendering tasks
 
 <H3Image title="FrameGraphObjectRendererTask" image="/img/frameGraph/task_objectrenderer.jpg" alt="Object renderer"/>
@@ -567,6 +657,7 @@ Inputs:
 * **camera**. Camera used to render the objects.
 * **objectList**. The list of objects to render.
 <br/>
+
 Properties:
 * **depthTest**. If depth testing should be enabled (default is true).
 * **depthWrite**. If depth writing should be enabled (default is true).
@@ -582,10 +673,12 @@ Properties:
 * **resolveMSAADepth**. If true, **depthTexture** will be resolved at the end of the render pass, if this texture is provided and is MSAA (default: false).
 * **objectRenderer**. The object renderer used to render the objects.
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture. This texture will point to the same texture than the **targetTexture** property. Note, however, that the handle itself will be different!
 * **outputDepthTexture**. The output depth attachment texture. This texture will point to the same texture than the depthTexture property if it is set. Note, however, that the handle itself will be different!
 <br/>
+
 This is the main task used to render objects on a texture. You can consider it as the equivalent of [RenderTargetTexture](/typedoc/classes/babylon.rendertargettexture) when you want to create a render pass programmatically.
 
 The **shadowGenerators** input is optional and can be used if you want to generate shadows at the same time as you render objects. This input expects an array of [FrameGraphShadowGeneratorTask](#framegraphshadowgeneratortask) instances. This way, you can generate shadows from multiple lights at once.
@@ -604,6 +697,7 @@ Inputs:
 * **camera**. Camera used to render the objects.
 * **objectList**. The object list used for rendering.
 <br/>
+
 Properties:
 * **depthTest**. Whether depth testing is enabled (default is true).
 * **depthWrite**. Whether depth writing is enabled (default is true).
@@ -618,10 +712,12 @@ Properties:
 * **resolveMSAAColors**. If true, the output geometry texture(s) will be resolved at the end of the render pass, if **samples** is greater than 1 (default: true)
 * **resolveMSAADepth**. If true, **depthTexture** will be resolved at the end of the render pass, if this texture is provided and **samples** is greater than 1 (default: true)
 <br/>
+
 Methods:
 * `excludeSkinnedMeshFromVelocityTexture(skinnedMesh: AbstractMesh)`. Excludes the given skinned mesh from computing bones velocities. Computing bones velocities can have a cost. The cost can be saved by calling this function and by passing the skinned mesh to ignore.
 * `removeExcludedSkinnedMeshFromVelocityTexture(skinnedMesh: AbstractMesh)`. Removes the given skinned mesh from the excluded meshes list.
 <br/>
+
 Outputs:
 * **outputDepthTexture**. The output depth texture attachment texture. This texture will point to the same texture than the **depthTexture** property if it is set. Note, however, that the handle itself will be different!
 * **geometryViewDepthTexture**. The depth (in view space) output texture. Will point to a valid texture only if that texture has been requested in textureDescriptions!
@@ -667,9 +763,11 @@ Inputs:
 * **light**. The light to generate shadows from.
 * **camera**. The camera used to generate the shadows.
 <br/>
+
 Inputs (specific to cascaded shadow maps):
 * **depthTexture** (optional). The depth texture used by the **autoCalcDepthBounds** feature (optional if **autoCalcDepthBounds** is set to *false*). This texture is used to compute the min/max depth bounds of the scene to setup the cascaded shadow generator. The texture should contain either “view,” “normalized view,” or “screen” depth values - if possible, connect “normalized view,” or “screen” for best performance. **Warning**: Do not set a texture if you are not using the **autoCalcDepthBounds** feature, to avoid generating a depth texture that will not be used.
 <br/>
+
 Properties:
 * **mapSize**. The size of the shadow map.
 * **useFloat32TextureType**. If true, the shadow map will use a 32 bits float texture type (else, 16 bits float is used if supported).
@@ -684,6 +782,7 @@ Properties:
 * **filteringQuality**. The filtering quality to apply to the filter.
 * **shadowGenerator** (read only). The shadow generator.
 <br/>
+
 Properties (specific to cascaded shadow maps):
 * **numCascades**. The number of cascades.
 * **debug**. Indicates whether the shadow generator should display the cascades.
@@ -695,15 +794,18 @@ Properties (specific to cascaded shadow maps):
 * **autoCalcDepthBoundsRefreshRate**. Defines the refresh rate of the min/max computation used when **autoCalcDepthBounds** is set to true. Use 0 to compute just once, 1 to compute on every frame, 2 to compute every two frames and so on...
 * **shadowMaxZ**. Maximum shadow Z value. If 0, will use **camera.maxZ**.
 <br/>
+
 Outputs:
 * **outputTexture**. The shadow map texture.
 <br/>
+
 Use this task when you want to generate shadows from a light. The light must be a “shadow light”, i.e. any light except area lights and hemispherical lights.
 
 You may be surprised to see a **camera** input, because the scene is rendered from the point of view of the light to generate the shadow map, not from the point of view of a camera. This camera is necessary to:
 * split the camera frustum when using a `FrameGraphCascadedShadowGeneratorTask` block
 * calculate the LOD of the meshes. The LOD of the meshes is defined according to the distance from a camera, not from a light.
 <br/>
+
 Refer to [Shadows](/features/featuresDeepDive/lights/shadows) for general information about shadows, and [Cascaded Shadow Maps](/features/featuresDeepDive/lights/shadows_csm) for specific information about cascaded shadow maps.
 
 <H3Image title="FrameGraphUtilityLayerRendererTask" image="/img/frameGraph/task_utilitylayerrenderer.jpg" alt="Utility layer renderer"/>
@@ -719,12 +821,15 @@ Inputs:
 * **targetTexture**. The target texture of the task.
 * **camera**. The camera used to render the utility layer.
 <br/>
+
 Properties:
 * **layer**. The utility layer renderer.
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture of the task. This is the same texture as the target texture, but the handles are different!
 <br/>
+
 This class is a wrapper around [UtilityLayerRenderer](/typedoc/classes/babylon.utilitylayerrenderer) and allows you to use gizmos with frame graphs: see the PGs above for some examples.
 
 ## Texture tasks
@@ -741,6 +846,7 @@ Inputs:
 * **targetTexture** (optional). The color texture to clear.
 * **depthTexture** (optional). The depth attachment texture to clear.
 <br/>
+
 Properties:
 * **color**. The color to clear the texture with.
 * **clearColor**. If the color should be cleared.
@@ -749,10 +855,12 @@ Properties:
 * **clearStencil**. If the stencil should be cleared.
 * **stencilValue**. The value to use to clear the stencil buffer (default: 0).
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture (same as **targetTexture**, but the handle will be different).
 * **outputDepthTexture**. The output depth texture (same as **depthTexture**, but the handle will be different).
 <br/>
+
 The inputs **target** and **depth** are optional, but you must provide at least one of them (otherwise there is no reason to use a clear task!).
 
 ### FrameGraphCopyToBackbufferColorTask
@@ -779,10 +887,12 @@ Inputs:
 * **sourceTexture**. The source texture to copy from.
 * **targetTexture**. The target texture to copy to.
 <br/>
+
 Properties:
 * **viewport** (optional). The viewport to use when doing the copy.If set to *null*, the currently active viewport is used. If *undefined* (default), the viewport is reset to a full screen viewport before performing the copy.
 * **lodLevel**. The LOD level to copy from the source texture (default: 0).
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture (same as **targetTexture**, but the handle may be different).
 <br/>
@@ -799,7 +909,9 @@ Task which generates mipmaps for a texture.
 Inputs:
 * **targetTexture**. The texture to generate mipmaps for.
 <br/>
+
 Outputs:
 * **outputTexture**. The output texture (same as **targetTexture**, but the handle may be different).
 <br/>
+
 Note that in a frame graph, mipmaps are not generated automatically; you must use a `FrameGraphGenerateMipMapsTask` task to do so.
