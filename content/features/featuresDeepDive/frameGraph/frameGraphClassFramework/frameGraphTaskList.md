@@ -289,7 +289,7 @@ Task which applies a circle of confusion post-process.
 [Link to the class](/typedoc/classes/babylon.framegraphcircleofconfusiontask)
 
 <Playground id="#SUEU9U#117" image="/img/playgroundsAndNMEs/pg-SUEU9U-25.png" title="Circle of confusion task" description="Example of a frame graph using the circle of confusion task" isMain={false}/>
-<Playground id="#SUEU9U#140" image="/img/playgroundsAndNMEs/pg-SUEU9U-24.png" title="Circle of confusion task (NRG)" description="Example of a node render graph using the circle of confusion block" isMain={false}/>
+<Playground id="#SUEU9U#154" image="/img/playgroundsAndNMEs/pg-SUEU9U-24.png" title="Circle of confusion task (NRG)" description="Example of a node render graph using the circle of confusion block" isMain={false}/>
 
 Inputs:
 * **depthTexture**. The depth texture to use for the circle of confusion effect. It must store camera space depth (Z coordinate).
@@ -346,7 +346,7 @@ Task which applies a depth of field post-process.
 [Link to the class](/typedoc/classes/babylon.framegraphdepthoffieldtask)
 
 <Playground id="#SUEU9U#120" image="/img/playgroundsAndNMEs/pg-SUEU9U-31.png" title="Depth of field task" description="Example of a frame graph using the depth of field task" isMain={true}/>
-<Playground id="#SUEU9U#143" image="/img/playgroundsAndNMEs/pg-SUEU9U-32.png" title="Depth of field task (NRG)" description="Example of a node render graph using the depth of field block" isMain={true}/>
+<Playground id="#SUEU9U#155" image="/img/playgroundsAndNMEs/pg-SUEU9U-32.png" title="Depth of field task (NRG)" description="Example of a node render graph using the depth of field block" isMain={true}/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -446,7 +446,7 @@ Task which applies a motion blur post-process.
 
 <Playground id="#YB006J#790" image="/img/playgroundsAndNMEs/pg-YB006J-746.png" title="Motion blur task (screen based)" description="Example of a frame graph using the motion blur task (screen based)" isMain={false}/>
 <Playground id="#YB006J#791" image="/img/playgroundsAndNMEs/pg-YB006J-749.png" title="Motion blur task (object based)" description="Example of a frame graph using the motion blur task (object based)" isMain={true}/>
-<Playground id="#YB006J#792" image="/img/playgroundsAndNMEs/pg-YB006J-753.png" title="Motion blur task (NRG)" description="Example of a node render graph using the motion blur block" isMain={true}/>
+<Playground id="#YB006J#794" image="/img/playgroundsAndNMEs/pg-YB006J-753.png" title="Motion blur task (NRG)" description="Example of a node render graph using the motion blur block" isMain={true}/>
 
 Inputs:
 * **velocityTexture** (optional). The velocity texture to use for the motion blur effect. Needed for object-based motion blur.
@@ -502,7 +502,7 @@ Task which applies a screen-space ambient occlusion post-process.
 [Link to the class](/typedoc/classes/babylon.framegraphssao2renderingpipelinetask)
 
 <Playground id="#SUEU9U#128" image="/img/playgroundsAndNMEs/pg-SUEU9U-51.png" title="SSAO2 task" description="Example of a frame graph using the SSAO2 task" isMain={true}/>
-<Playground id="#SUEU9U#151" image="/img/playgroundsAndNMEs/pg-SUEU9U-52.png" title="SSAO2 task (NRG)" description="Example of a node render graph using the SSAO2 block" isMain={true}/>
+<Playground id="#SUEU9U#156" image="/img/playgroundsAndNMEs/pg-SUEU9U-52.png" title="SSAO2 task (NRG)" description="Example of a node render graph using the SSAO2 block" isMain={true}/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -535,7 +535,7 @@ Task which applies a screen-space reflection post-process.
 [Link to the class](/typedoc/classes/babylon.framegraphssrrenderingpipelinetask)
 
 <Playground id="#SUEU9U#129" image="/img/playgroundsAndNMEs/pg-SUEU9U-54.png" title="SSR task" description="Example of a frame graph using the SSR task" isMain={true}/>
-<Playground id="#PIZ1GK#2382" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2373.png" title="SSR task (NRG)" description="Example of a node render graph using the SSR block" isMain={true}/>
+<Playground id="#PIZ1GK#2388" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2373.png" title="SSR task (NRG)" description="Example of a node render graph using the SSR block" isMain={true}/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -664,6 +664,7 @@ Properties:
 * **disableShadows**. If shadows should be disabled (default is false).
 * **disableImageProcessing**. If image processing should be disabled (default is false). *false* means that the default image processing configuration will be applied (the one from the scene).
 * **isMainObjectRenderer**. Sets this property to *true* if this task is the main object renderer of the frame graph. It will help to locate the main object renderer in the frame graph when multiple object renderers are used. This is useful for the inspector to know which object renderer to use for additional rendering features like wireframe rendering or frustum light debugging. It is also used to determine the main camera used by the frame graph: this is the camera used by the main object renderer.
+* **renderMeshes**. Defines if meshes should be rendered (default is true).
 * **renderParticles**. Defines if particles should be rendered (default is true).
 * **renderSprites**. Defines if sprites should be rendered (default is true).
 * **forceLayerMaskCheck**. Forces checking the layerMask property even if a custom list of meshes is provided (ie. if renderList is not undefined). Default is true.
@@ -690,27 +691,21 @@ Task used to render geometry to a set of textures.
 [Link to the class](/typedoc/classes/babylon.framegraphgeometryrenderertask)
 
 <Playground id="#ARI9J5#6" image="/img/playgroundsAndNMEs/pg-ARI9J5-1.png" title="Geometry renderer task" description="Example of a frame graph using the geometry renderer task" isMain={true}/>
-<Playground id="#SUEU9U#153" image="/img/playgroundsAndNMEs/pg-SUEU9U-74.png" title="Geometry renderer task (NRG)" description="Example of a node render graph using the geometry renderer block" isMain={true}/>
+<Playground id="#SUEU9U#157" image="/img/playgroundsAndNMEs/pg-SUEU9U-74.png" title="Geometry renderer task (NRG)" description="Example of a node render graph using the geometry renderer block" isMain={true}/>
 
-Inputs:
-* **depthTexture** (optional). The depth texture attachment to use for rendering.
-* **camera**. Camera used to render the objects.
-* **objectList**. The object list used for rendering.
-<br/>
+<br/><br/>
+
+This class is a superset of [FrameGraphObjectRendererTask](#framegraphobjectrenderertask): it can render a scene (with some restrictions, see below) and generate geometry textures.
+This means that all inputs, properties, and outputs described above are supported, as well as:<br/>
 
 Properties:
-* **depthTest**. Whether depth testing is enabled (default is true).
-* **depthWrite**. Whether depth writing is enabled (default is true).
 * **size**. The size of the output textures (default is 100% of the back buffer texture size).
 * **sizeIsPercentage**. Whether the size is a percentage of the back buffer size (default is true).
 * **samples**. The number of samples to use for the output textures (default is 1).
 * **reverseCulling**. Whether to reverse culling (default is false).
 * **dontRenderWhenMaterialDepthWriteIsDisabled**. Indicates if a mesh shouldn't be rendered when its material has depth write disabled (default is true).
+* **disableDepthPrePass**. Indicates whether the depth pre-pass is disabled (default is true). Materials that require depth pre-pass (`Material.needDepthPrePass == true`) don't work with the geometry renderer, that's why this setting is *true* by default. However, if the geometry renderer doesn't generate any geometry textures but only renders to the main target texture, then depth pre-pass can be enabled.
 * **textureDescriptions**. The list of texture descriptions used by the geometry renderer task. Only geometry textures described in this array will be generated. See below for more information.
-* **objectRenderer**. The object renderer used by the geometry renderer task.
-* **forceLayerMaskCheck**. Force checking the layerMask property even if a custom list of meshes is provided (ie. if renderList is not undefined). Default is true.
-* **resolveMSAAColors**. If true, the output geometry texture(s) will be resolved at the end of the render pass, if **samples** is greater than 1 (default: true)
-* **resolveMSAADepth**. If true, **depthTexture** will be resolved at the end of the render pass, if this texture is provided and **samples** is greater than 1 (default: true)
 <br/>
 
 Methods:
@@ -719,7 +714,6 @@ Methods:
 <br/>
 
 Outputs:
-* **outputDepthTexture**. The output depth texture attachment texture. This texture will point to the same texture than the **depthTexture** property if it is set. Note, however, that the handle itself will be different!
 * **geometryViewDepthTexture**. The depth (in view space) output texture. Will point to a valid texture only if that texture has been requested in textureDescriptions!
 * **geometryNormViewDepthTexture**. The normalized depth (in view space) output texture. Will point to a valid texture only if that texture has been requested in textureDescriptions! The normalization is `(d - near) / (far - near)`, where **d** is the depth value in view space and **near** and **far** are the near and far planes of the camera.
 * **geometryScreenDepthTexture**. The depth (in screen space) output texture. Will point to a valid texture only if that texture has been requested in textureDescriptions!
@@ -733,7 +727,7 @@ Outputs:
 * **geometryLinearVelocityTexture**. The linear velocity output texture. Will point to a valid texture only if that texture has been requested in textureDescriptions!
 <br/>
 
-This block is used to generate geometry textures, i.e. textures containing special data such as depths in view/screen space, normals in view/world space, reflectivity, etc. Here is a list of all outputs that this block can generate:
+This task is primarily used to generate geometry textures, i.e. textures containing special data such as depths in view/screen space, normals in view/world space, reflectivity, etc. Here is a list of all outputs that this task can generate:
 * **geometryViewDepthTexture**: depth in camera view space. This is the Z component of the vertex coordinate in the camera's view space and is a value between **near** and **far**, the camera's near and far clipping planes.
 * **geometryNormViewDepthTexture**: normalized depth in camera view space. Identical to the value above, but with values between 0 and 1, calculated using the formula `normViewDepth = (viewDepth - near) / (far - near)`.
 * **geometryScreenDepthTexture**: depth in screen space. This is the depth written to the depth buffer (`gl_FragCoord.z`) and is a value between 0 and 1.
@@ -745,6 +739,15 @@ This block is used to generate geometry textures, i.e. textures containing speci
 * **geometryReflectivityTexture**: reflectivity color. This is the reflectivity color of the vertex (used by SSR, for example).
 * **geometryVelocityTexture**: velocity vector in screen space. See [Motion blur by object](https://john-chapman-graphics.blogspot.com/2013/01/per-object-motion-blur.html) for more details on what a velocity texture is. **geometryVelocityTexture** is a texture constructed with the optimization described in the “Format and precision” section to improve accuracy when using an unsigned byte texture type.
 * **geometryLinearVelocityTexture**: linear velocity vector in screen space. It is identical to the one above, but without the optimization, so without the `pow()` call. The coordinates are multiplied by 0.5, so that they are between [-0.5, 0.5] instead of [-1, 1].
+<br/>
+
+However, this task can also render a scene, similar to how `FrameGraphObjectRendererTask` does. There are some limitations when geometry textures and the normal texture scene (**outputTexture** property) are generated by `FrameGraphGeometryRendererTask`:
+* Sprites, particles, bounding boxes, and outline rendering are not supported by geometry textures, so you must disable these features. If you need to enable one or more of these features for the normal texture scene, you must use a separate `FrameGraphObjectRendererTask` instance to generate the texture instead of using a `FrameGraphGeometryRendererTask` instance to generate everything at once.
+* You must set **disableDepthPrePass** to *false* if any of your materials use **needDepthPrePass**, in order to avoid artifacts/errors with geometry textures, but this means you may get artifacts in the normal texture scene. Again, if you need this to work, use a separate `FrameGraphObjectRendererTask` to generate the normal scene texture.
+* You must use the same number of MSAA samples for all textures (**targetTexture**, **depthTexture**, and **FrameGraphObjectRendererTask.samples**). Using MSAA textures is more demanding in terms of performance. If you don't need MSAA for geometry textures, you can use the geometry renderer only for geometry textures and use a `FrameGraphObjectRendererTask` instance to generate the normal texture scene.
+<br/>
+
+**Important**: If you do not plan to use **outputTexture**, do not set anything in the **targetTexture** input property! If you connect something to **targetTexture**, the texture will be generated, even if it is not used via **outputTexture**.
 
 <H3Image title="FrameGraphShadowGeneratorTask" image="/img/frameGraph/task_shadowgenerator.jpg" alt="Shadow generator"/>
 
