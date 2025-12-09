@@ -72,8 +72,8 @@ updateFunction = function (particles) {
 
       particle.angle += particle.angularSpeed * this._scaledUpdateSpeed;
 
-      particle.direction.scaleToRef(this._scaledUpdateSpeed, this._scaledDirection);
-      particle.position.addInPlace(this._scaledDirection);
+      particle.direction.scaleToRef(this._scaledUpdateSpeed, particle._scaledDirection);
+      particle.position.addInPlace(particle._scaledDirection);
 
       this.gravity.scaleToRef(this._scaledUpdateSpeed, this._scaledGravity);
       particle.direction.addInPlace(this._scaledGravity);
@@ -92,7 +92,7 @@ Add the line in the `else` section
 particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), 1);
 ```
 
-<Playground id="#MRRGXL#6" title="Random Colored Particles" description="Simple example of creating random colored particles."/>
+<Playground id="#MRRGXL#950" title="Random Colored Particles" description="Simple example of creating random colored particles."/>
 
 **Grow Particles from Size 0 to a Final Size**
 
@@ -115,7 +115,7 @@ if (particle.age < particle.lifeTime * 0.35) {
 }
 ```
 
-<Playground id="#WJBZQH#2" title="Growing Particles" description="Simple example of creating growing particles."/>
+<Playground id="#WJBZQH#104" title="Growing Particles" description="Simple example of creating growing particles."/>
 
 ### Particle Emitter Type
 
