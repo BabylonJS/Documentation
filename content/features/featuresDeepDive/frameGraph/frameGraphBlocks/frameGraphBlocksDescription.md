@@ -142,6 +142,8 @@ You will always get the same texture at the **output** output as the texture con
 
 The **shadowGenerators** input is optional and can be used if you want to generate shadows at the same time as you render the objects. This input expects a connection from a **ShadowGenerator.generator** output. If you want to render objects with shadows from multiple lights, you can use a `ResourceContainer` block to gather multiple shadow generators, and connect the container to the **shadowGenerators** input:
 
+Note that if you enable Order Independent Transparency (OIT - **Use OIT for transparent meshes** property in the property list of the block), the target/depth texture(s) must **NOT** use MSAA! So, number of samples must be 1 for these textures. If you want to get rid of anti-aliasing artifacts, you can use a FXAA or TAA post-process after the rendering pass.
+
 <NRGE id="#PSA9PS#161" title="Multiple shadow generators example (NRGE)" description="Using multiple shadow generators with an ObjectRenderer block" isMain={true} category="NodeRenderGraph"/>
 
 <Playground id="#JWKDME#30" title="Multiple shadow generators example (PG)" description="Using multiple shadow generators with a ObjectRenderer block" isMain={true}/>

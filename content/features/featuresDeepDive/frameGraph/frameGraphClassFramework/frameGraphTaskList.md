@@ -665,6 +665,12 @@ Properties:
 * **disableImageProcessing**. If image processing should be disabled (default is false). *false* means that the default image processing configuration will be applied (the one from the scene).
 * **isMainObjectRenderer**. Sets this property to *true* if this task is the main object renderer of the frame graph. It will help to locate the main object renderer in the frame graph when multiple object renderers are used. This is useful for the inspector to know which object renderer to use for additional rendering features like wireframe rendering or frustum light debugging. It is also used to determine the main camera used by the frame graph: this is the camera used by the main object renderer.
 * **renderMeshes**. Defines if meshes should be rendered (default is true).
+* **renderDepthOnlyMeshes**. Defines if depth only meshes should be rendered (default is true). Always subject to the renderMeshes property, though.
+* **renderOpaqueMeshes**. Defines if opaque meshes should be rendered (default is true). Always subject to the renderMeshes property, though.
+* **renderAlphaTestMeshes**. Defines if alpha test meshes should be rendered (default is true). Always subject to the renderMeshes property, though.
+* **renderTransparentMeshes**. Defines if transparent meshes should be rendered (default is true). Always subject to the renderMeshes property, though.
+* **useOITForTransparentMeshes**. Defines if Order Independent Transparency should be used for transparent meshes (default is false).
+* **oitPassCount**. Defines the number of passes to use for Order Independent Transparency (default is 5).
 * **renderParticles**. Defines if particles should be rendered (default is true).
 * **renderSprites**. Defines if sprites should be rendered (default is true).
 * **forceLayerMaskCheck**. Forces checking the layerMask property even if a custom list of meshes is provided (ie. if renderList is not undefined). Default is true.
@@ -683,6 +689,8 @@ Outputs:
 This is the main task used to render objects on a texture. You can consider it as the equivalent of [RenderTargetTexture](/typedoc/classes/babylon.rendertargettexture) when you want to create a render pass programmatically.
 
 The **shadowGenerators** input is optional and can be used if you want to generate shadows at the same time as you render objects. This input expects an array of [FrameGraphShadowGeneratorTask](#framegraphshadowgeneratortask) instances. This way, you can generate shadows from multiple lights at once.
+
+If you enable Order Independent Transparency (OIT - **useOITForTransparentMeshes = true**), the target/depth texture(s) must **NOT** use MSAA! So, number of samples must be 1 for these textures. If you want to get rid of anti-aliasing artifacts, you can use a [FXAA](#framegraphfxaatask) or [TAA](#framegraphtaatask) post-process after the rendering pass.
 
 <H3Image title="FrameGraphGeometryRendererTask" image="/img/frameGraph/task_geometryrenderer.jpg" alt="Geometry renderer"/>
 
