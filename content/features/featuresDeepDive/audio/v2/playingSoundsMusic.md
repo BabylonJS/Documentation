@@ -475,7 +475,7 @@ A sound source created for a WebAudio node starts automatically and can be muted
 
 <br/>
 
-<Playground id="#QO4OTN#10" title="WebAudioModules synth sound source" description="An example of using a WebAudioModules synth as a sound source."/>
+<Playground id="#QO4OTN#15" title="WebAudioModules synth sound source" description="An example of using a WebAudioModules synth as a sound source."/>
 
 <br/>
 <br/>
