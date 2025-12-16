@@ -70,6 +70,11 @@ These requirements ensure the optimizer can collapse sections of the Smart Filte
    }
    color = texture2D(input, uvToUse);
    ```
+1. Be sure your fragment shaders return values in the 0-1 range
+
+   - <b>Why:</b> You can't rely on intermediate textures for clamping your values, because when your block is included in a Smart Filter and run through the optimizer, it
+     will return its value directly to the next block in the Smart Filter instead of writing to an intermediate texture.
+   - <b>Debugging tip:</b> If you see visual differences in the Smart Filter Editor when testing a Smart Filter and toggling the optimizer on and off, you can enable the "Clamp Return Values" debug mode (directly below the Optimize Smart Filter toggle) to have it inject clamps for you when it connects blocks. If that removes the inconsistency when toggling the optimizer on and off, that indicates you have a block that needs to clamp its output to be compatible with the optimizer.
 
 ### Testing Optimizer Compatibility
 
