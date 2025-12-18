@@ -108,7 +108,7 @@ function modifyMesh(gs) {
         positions[i * 8 + 1] -= 2.0;
     }
     // Make that change visible
-    gs.updateData(arrayBuffer);
+    gs.updateData(arrayBuffer, undefined, { flipY: false });
     // Create a blob with array buffer and download it. It can be used directly with the sandbox
     const blob = new Blob([arrayBuffer], { type: 'application/octet-stream' });
     BABYLON.Tools.DownloadBlob(blob, "newGSplat.splat");
@@ -121,7 +121,7 @@ function modifyMesh(gs) {
 
 <Playground id="#EILZ5L#3" title="10000 splats updated" description="Creating and updating a Gaussian Splatting made of 10000 individual splats"/>
 
-<Playground id="#RKKCHG#0" title="Download and modify a GS" description="Download a Gaussian Splatting and modify a bunch splats. Then, downloads it."/>
+<Playground id="#RKKCHG#15" title="Download and modify a GS" description="Download a Gaussian Splatting and modify a bunch splats. Then, downloads it."/>
 
 <Playground id="#QA2662#12" title="SOG Gaussian splats" description="SOG Gaussian splats with Spherical Harmonics."/>
 
