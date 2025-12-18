@@ -659,8 +659,24 @@
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts"
                                 },
+                                "frameGraphClassFramework": {
+                                    "friendlyName": "Frame Graph Framework Description",
+                                    "children": {
+                                        "frameGraphClassOverview": {
+                                            "friendlyName": "Introduction to Frame Graph classes",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview"
+                                        },
+                                        "frameGraphTaskList": {
+                                            "friendlyName": "Frame Graph Task List",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework"
+                                },
                                 "frameGraphBlocks": {
-                                    "friendlyName": "Render Graph Blocks",
+                                    "friendlyName": "Node Render Graph Blocks",
                                     "children": {
                                         "frameGraphBlocksGeneralNotes": {
                                             "friendlyName": "General notes about Render Graph Blocks",
@@ -668,7 +684,7 @@
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksGeneralNotes"
                                         },
                                         "frameGraphBlocksDescription": {
-                                            "friendlyName": "Description of the Render Graph Blocks",
+                                            "friendlyName": "Render Graph Blocks Description",
                                             "children": {},
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksDescription"
                                         }
@@ -3285,6 +3301,11 @@
         "addons": {
             "friendlyName": "Official Add-ons",
             "children": {
+                "atmosphere": {
+                    "friendlyName": "Atmosphere",
+                    "children": {},
+                    "content": "addons/atmosphere"
+                },
                 "htmlMesh": {
                     "friendlyName": "HTML Mesh",
                     "children": {},

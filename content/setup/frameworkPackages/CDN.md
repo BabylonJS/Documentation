@@ -83,19 +83,26 @@ Babylon allows you to either load the module yourself and inject it to the compo
 
 ### Simple - Changing base URL for external resources
 
-To change the base URL for all resources loaded by Babylon use the static member of tools:
+To change the base URL for all resources loaded by Babylon, use the static member of tools:
 
 ```javascript
-BABYLON.Tools.ScriptBaseUrl = "https://my.wonderfull.server";
+BABYLON.Tools.CDNBaseUrl = "https://my.wonderfull.server";
 ```
 
-Of course, this can be done in ES6 by importing `Tools` and setting the `ScriptBaseUrl`.
+Of course, this can be done in ES6 by importing `Tools` and setting the `CDNBaseUrl`.
 
 Any resources loaded in our core library will be loaded from this URL instead of `https://cdn.babylonjs.com`. The structure needs to remain the structure of our CDN.
 
+For finer control, the following properties can be configured individually. Setting both has the same effect as setting `CDNBaseUrl`:
+
+```javascript
+BABYLON.Tools.ScriptBaseUrl = "https://my.wonderfull.server";
+BABYLON.Tools.AssetBaseUrl = "https://my.wonderfull.server";
+```
+
 What are the simplest way to get the resources structured? Let's dive in.
 
-1. Using the CDN but with a fixed version
+#### 1. Using the CDN but with a fixed version
 
 Whereas our CDN base directory always holds our nightlies, we do deploy specific versions of the framework on every release. Every release is available at `https://cdn.babylonjs.com/vX.X.X` . So, for example, if you want to use version 6.30.0 for your resources, you can change the base URL to this:
 
@@ -105,7 +112,7 @@ BABYLON.Tools.ScriptBaseUrl = "https://cdn.babylonjs.com/v6.30.0";
 
 The CDN structure is guaranteed to be correct.
 
-2. Downloading the resources and deploy them on your own CDN
+#### 2. Downloading the resources and deploy them on your own CDN
 
 This option is the best for you, as you are in full control of the resources. To get the resources in the CDN structure you can download a Github release at [Github Babylon.js releases](https://github.com/BabylonJS/Babylon.js/releases).
 
@@ -115,9 +122,7 @@ Make sure that your Server/CDN supports CORS, at least from your own Babylon exp
 
 ### A bit more complex - deploy and configure specific resources
 
-Instead of downloading and deploying our entire CDN structure, you can do that specifically for resources you are using. Each resource's URL in Babylon can be configured individually.
-
-This is a list of URLs that can be configured individually:
+Instead of downloading and deploying our entire CDN structure, you can do that specifically for the **script** resources you are using. Each of these URLs in Babylon can be configured individually:
 
 ```javascript
 const baseUrl = "https://foo.bar";
@@ -127,14 +132,16 @@ BABYLON.DracoDecoder.DefaultConfiguration = {
     wasmBinaryUrl: baseUrl + "/draco_decoder_gltf.wasm",
     fallbackUrl: baseUrl + "/draco_decoder_gltf.js",
 };
+
 BABYLON.MeshoptCompression.Configuration.decoder = {
     url: baseUrl + "/meshopt_decoder.js",
 };
-(BABYLON as any).GLTFValidation.Configuration = {
+
+BABYLON.GLTFValidation.Configuration = {
     url: baseUrl + "/gltf_validator.js",
 };
 
-(BABYLON.KhronosTextureContainer2.URLConfig as any) = {
+BABYLON.KhronosTextureContainer2.URLConfig = {
     jsDecoderModule: baseUrl + "/babylon.ktx2Decoder.js",
     wasmUASTCToASTC: baseUrl + "/ktx2Transcoders/1/uastc_astc.wasm",
     wasmUASTCToBC7: baseUrl + "/ktx2Transcoders/1/uastc_bc7.wasm",
@@ -175,3 +182,4 @@ const options = {
 const engine = new BABYLON.WebGPUEngine(window.canvas, options);
 await engine.initAsync(glslangOptions, twgslOptions);
 ```
+
