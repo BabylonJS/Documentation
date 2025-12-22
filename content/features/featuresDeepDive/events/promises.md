@@ -23,7 +23,7 @@ Regarding portability, Babylon.js provides a custom polyfill for browsers where 
 ### Basic usage
 
 ```javascript
-BABYLON.LoadAssetContainerAsync("https://playground.babylonjs.com/scenes/skull.babylon", scene).then(function (container) {
+BABYLON.LoadAssetContainerAsync("https://playground.babylonjs.com/scenes/", "skull.babylon", scene).then(function (container) {
   container.addAllToScene();
 });
 ```
@@ -37,7 +37,7 @@ const scene = new BABYLON.Scene(engine);
 const xrPromise = scene.createDefaultXRExperienceAsync();
 xrPromise
   .then((xrExperience) => {
-    return BABYLON.AppendSceneAsync("https://playground.babylonjs.com/scenes/skull.babylon", scene);
+    return BABYLON.AppendSceneAsync("https://playground.babylonjs.com/scenes/", "skull.babylon", scene);
   })
   .then(function () {
     // xr resolved, skull added to the scene
@@ -52,7 +52,7 @@ Note: This is not supported in all browsers
 const main = async function () {
   const scene = new BABYLON.Scene(engine);
   const xrPromise = await scene.createDefaultXRExperienceAsync();
-  return BABYLON.AppendSceneAsync("https://playground.babylonjs.com/scenes/skull.babylon", scene);
+  return BABYLON.AppendSceneAsync("https://playground.babylonjs.com/scenes/", "skull.babylon", scene);
 };
 ```
 
@@ -79,3 +79,4 @@ Promise.all([
 ```
 
 <Playground id="#U2KKMK#308" title="Load 2 Asset At Once" description="Simple example of loading 2 assets at once inside of a promise." image="/img/playgroundsAndNMEs/divingDeeperPromises2.jpg"/>
+
