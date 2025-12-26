@@ -7,7 +7,8 @@ keywords: diving deeper, frame graph, rendering, node editor, overview
 
 The frame graph class framework consists of several main classes, described below.
 
-## [FrameGraph](/typedoc/classes/babylon.framegraph)
+## FrameGraph
+[Link to class](/typedoc/classes/babylon.framegraph).<br/><br/>
 This is the main class, whose purpose is to allow you to build and execute a frame graph.
 
 ### Main methods and properties
@@ -82,7 +83,8 @@ This code corresponds to this graph:
 ![Basic graph](/img/frameGraph/graph_skeleton.jpg)
 
 
-## [FrameGraphTask](/typedoc/classes/babylon.framegraphtask)
+## FrameGraphTask
+[Link to class](/typedoc/classes/babylon.framegraphtask).<br/><br/>
 This is the base class for a task in a frame graph. A task is usually a rendering process, but it may also be unrelated to rendering (for example, we have a culling task in the frame graph to cull objects relative to a camera).
 
 ### Main methods and properties
@@ -156,7 +158,22 @@ Notes:
 * For a render pass, you must specify which texture the pass should be rendered to by calling the `RenderPass.setRenderTarget(textureHandle)` method.
 * To create a render pass that is used when the task is disabled, simply pass *true* as the second parameter to `FrameGraph.addXXXPass(name, whenTaskDisabled)`.
 
-## [FrameGraphTextureManager](/typedoc/classes/babylon.framegraphtexturemanager)
+## FrameGraphTaskMultiRenderTarget
+[Link to class](/typedoc/classes/babylon.framegraphtaskmultirendertarget).<br/><br/>
+This is the base class for frame graph tasks that involve multi-target rendering.
+
+### Main methods and properties
+* `setOutputLayerAndFaceIndices(indices: LayerAndFaceIndex[])`. Sets the output layer and face indices for multi-target rendering.
+* `_updateLayerAndFaceIndices(pass: FrameGraphRenderPass)`.
+<br/>
+If you are implementing a task that needs to support multi-target rendering, you should extend this class rather than `FrameGraphTask`:
+* The user can use the `setOutputLayerAndFaceIndices()` method to set the layer and face indices of the textures they want to render, in case they render to a 2D texture array, a 3D texture or a Cube texture.
+* In your implementation of the rendering pass, call `_updateLayerAndFaceIndices()` to ensure that the user's choices are correctly applied.
+<br/>
+You can refer to the code of the [FrameGraphClearTextureTask](/typedoc/classes/babylon.framegraphcleartexturetask) and [FrameGraphObjectRendererTask](/typedoc/classes/babylon.framegraphobjectrenderertask) classes, both of which support multi-target rendering.
+
+## FrameGraphTextureManager
+[Link to class](/typedoc/classes/babylon.framegraphtexturemanager).<br/><br/>
 This class is responsible for managing textures (rendering target textures, i.e., the textures we render) in a frame graph.
 
 ### Main methods and properties
@@ -256,7 +273,10 @@ pass.setExecuteFunc((context) => {
 ```
 You can see that the ping-pong texture is used in read mode by the TAA shader and is bound under the name “historySampler”. This means that it is the other texture of the ping-pong texture that will be bound to the shader during this frame (i.e., the texture we wrote to in the previous frame), not the texture we are writing to.
 
-## [Pass](/typedoc/classes/babylon.framegraphpass), [RenderPass](/typedoc/classes/babylon.framegraphrenderpass), [ObjectListPass](/typedoc/classes/babylon.framegraphobjectlistpass)
+## Pass, RenderPass, ObjectListPass
+[Link to Pass class](/typedoc/classes/babylon.framegraphpass).<br/>
+[Link to RenderPass class](/typedoc/classes/babylon.framegraphrenderpass).<br/>
+[Link to ObjectListPass class](/typedoc/classes/babylon.framegraphobjectlistpass).<br/><br/>
 These classes are used to create different types of passes within a task.
 
 ### Main methods and properties
