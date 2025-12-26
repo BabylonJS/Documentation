@@ -95,5 +95,4 @@ Here is the same scene using the unmodified asset:
 
 <Playground id="#SYQW69#1301" title="TransmissionHelper for rendering transmissive materials" description="Rendering transmissive materials with transmission helper" isMain={true}/>
 
-
 If you open both playgrounds in two different tabs and switch between them, you will see that the renders are identical. However, if you check a frame with [Spector](https://spector.babylonjs.com/), you will see that we are performing fewer render passes in the node render graph version.
