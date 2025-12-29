@@ -85,7 +85,7 @@ Key points to highlight from this graph:
 
 Here is a playground that uses the node render graph described above to render a scene with transmissive materials:
 
-<Playground id="#JWKDME#188" image="/img/playgroundsAndNMEs/pg-JWKDME-70.png" title="Node render graph for rendering transmissive materials" description="Rendering transmissive materials with a node render graph" isMain={true}/>
+<Playground id="#JWKDME#196" image="/img/playgroundsAndNMEs/pg-JWKDME-70.png" title="Node render graph for rendering transmissive materials" description="Rendering transmissive materials with a node render graph" isMain={true}/>
 
 We have created a separate class `RenderWithTransmission`, which takes care of loading and configuring the graph for you. This should make it easier to reuse the code in your own projects, but feel free to use this code as a starting point for your own experiments!
 
