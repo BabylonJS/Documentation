@@ -651,7 +651,7 @@ Task used to render objects to a texture.
 <Playground id="#IG8NRC#89" image="/img/playgroundsAndNMEs/pg-IG8NRC-81.png" title="Object renderer task (NRG)" description="Example of a node render graph using the object renderer block" isMain={true}/>
 
 Inputs:
-* **targetTexture**. The target texture where the objects will be rendered.
+* **targetTexture**. The target texture(s) where the objects will be rendered. Define an array of handles if you want to use multi-target rendering (see below for more details).
 * **depthTexture** (optional). The depth attachment texture where the objects will be rendered.
 * **shadowGenerators** (optional). The shadow generators used to render the objects.
 * **camera**. Camera used to render the objects.
@@ -691,6 +691,13 @@ This is the main task used to render objects on a texture. You can consider it a
 The **shadowGenerators** input is optional and can be used if you want to generate shadows at the same time as you render objects. This input expects an array of [FrameGraphShadowGeneratorTask](#framegraphshadowgeneratortask) instances. This way, you can generate shadows from multiple lights at once.
 
 If you enable Order Independent Transparency (OIT - **useOITForTransparentMeshes = true**), the target/depth texture(s) must **NOT** use MSAA! So, number of samples must be 1 for these textures. If you want to get rid of anti-aliasing artifacts, you can use a [FXAA](#framegraphfxaatask) or [TAA](#framegraphtaatask) post-process after the rendering pass.
+
+Note that this class supports multi-target rendering, which means you can render to multiple textures at once. To enable it, simply provide an array of texture handles for the **targetTexture** property instead of a single handle. For this mode to work, all textures must have the same dimensions and the same number of MSAA samples (if applicable). In this mode, **outputTexture** remains a single texture handle: it is the first texture in the array that you passed to **targetTexture**.
+<br/><br/>
+To illustrate the use of this mode, here are two playgrounds:
+
+<Playground id="#XSNYAU#164" image="/img/playgroundsAndNMEs/pg-XSNYAU-160.png" title="Object renderer task (multi RTT)" description="Example of a frame graph using the object renderer task (multi RTT)" isMain={false}/>
+<Playground id="#XSNYAU#160" image="/img/playgroundsAndNMEs/pg-XSNYAU-160.png" title="Object renderer task (multi RTT) (NRG)" description="Example of a node render graph using the object renderer block (multi RTT)" isMain={false}/>
 
 <H3Image title="FrameGraphGeometryRendererTask" image="/img/frameGraph/task_geometryrenderer.jpg" alt="Geometry renderer"/>
 

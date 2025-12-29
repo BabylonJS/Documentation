@@ -140,7 +140,9 @@ This is the main block used to render objects on a texture. You can consider it 
 
 You will always get the same texture at the **output** output as the texture connected to the **target** input. The same goes for **outputDeth** and **depth** (in case you connect something to the **depth** input, which is optional).
 
-The **shadowGenerators** input is optional and can be used if you want to generate shadows at the same time as you render the objects. This input expects a connection from a **ShadowGenerator.generator** output. If you want to render objects with shadows from multiple lights, you can use a `ResourceContainer` block to gather multiple shadow generators, and connect the container to the **shadowGenerators** input:
+Note that this block supports multi-target rendering, which means you can render to multiple textures at once. To enable this, simply connect the textures to a [ResourceContainer](#resourcecontainer) block and connect the output of that block to the **target** input. For this mode to work, all textures must have the same dimensions and the same number of MSAA samples (if applicable). In this mode, **output** remains a single texture: it is the first texture connected to the `ResourceContainer` block.
+
+The **shadowGenerators** input is optional and can be used if you want to generate shadows at the same time as you render the objects. This input expects a connection from a **ShadowGenerator.generator** output. If you want to render objects with shadows from multiple lights, you can use a [ResourceContainer](#resourcecontainer) block to gather multiple shadow generators, and connect the container to the **shadowGenerators** input:
 
 Note that if you enable Order Independent Transparency (OIT - **Use OIT for transparent meshes** property in the property list of the block), the target/depth texture(s) must **NOT** use MSAA! So, number of samples must be 1 for these textures. If you want to get rid of anti-aliasing artifacts, you can use a FXAA or TAA post-process after the rendering pass.
 
@@ -225,7 +227,7 @@ Note that this graph renders two glow layers in two different textures, with dif
 
 This block allows you to clear a color and/or a depth/stencil texture. The inputs **target** and **depth** are optional, but you must provide at least one of them (otherwise there is no reason to use a `Clear` block!).
 
-The **output** output is identical to **target**, and **outputDepth** is identical to **depth**.
+The **output** output is identical to **target**, and **outputDepth** is identical to **depth**. As for the [ObjectRenderer](#objectrenderer) block, it supports multi-target rendering (clearing): use a [ResourceContainer](#resourcecontainer) block to gather several textures and erase them all at once.
 
 <H3Image title="CopyTexture" image="/img/frameGraph/block_copytexture.jpg" alt="CopyTexture node"/>
 
