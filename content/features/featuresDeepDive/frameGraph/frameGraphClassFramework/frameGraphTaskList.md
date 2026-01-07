@@ -774,7 +774,7 @@ Task used to generate shadows from a list of objects.
 
 <Playground id="#JWKDME#189" image="/img/playgroundsAndNMEs/pg-JWKDME-175.png" title="Shadow generator task" description="Example of a frame graph using the shadow generator task" isMain={true}/>
 <Playground id="#JWKDME#190" image="/img/playgroundsAndNMEs/pg-JWKDME-174.png" title="Shadow generator task (NRG)" description="Example of a node render graph using the shadow generator block" isMain={true}/>
-<Playground id="#JWKDME#191" image="/img/playgroundsAndNMEs/pg-JWKDME-176.png" title="Cascaded shadow generator task (NRG)" description="Example of a node render graph using the cascaded shadow generator block" isMain={true}/>
+<Playground id="#JWKDME#198" image="/img/playgroundsAndNMEs/pg-JWKDME-176.png" title="Cascaded shadow generator task (NRG)" description="Example of a node render graph using the cascaded shadow generator block" isMain={true}/>
 
 Inputs:
 * **objectList**. The object list that generates shadows.
