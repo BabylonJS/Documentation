@@ -622,7 +622,7 @@ Inputs:
 * **sourceSamplingMode**. The sampling mode to use when blending the volumetric lighting texture with **targetTexture**.
 * **depthTexture**. The depth texture used for volumetric lighting calculations. It must be the depth (attachment) texture used to generate **targetTexture**.
 * **camera**. The camera used for volumetric lighting calculations.
-* **lightingVolumeMesh**. The mesh representing the lighting volume. This is the mesh that will be rendered to create the volumetric lighting effect.
+* **lightingVolumeMesh**. The mesh representing the lighting volume. This is the mesh that will be rendered to create the volumetric lighting effect. A common use case is to use the output of the [FrameGraphLightingVolumeTask](#framegraphlightingvolumetask) task for this mesh.
 * **light**. The directional light used for volumetric lighting.
 * **lightingVolumeTexture** (optional). The lighting volume texture (optional). If not provided, a new texture will be created, which the same size, format and type as **targetTexture**. This is the texture that will store the volumetric lighting information, before being blended to **targetTexture**.
 <br/>
