@@ -708,6 +708,11 @@
                                             "friendlyName": "Create a custom post-process",
                                             "children": {},
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleCustomPostProcess"
+                                        },
+                                        "frameGraphExampleVolumetricLighting": {
+                                            "friendlyName": "Implement volumetric lighting",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleVolumetricLighting"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphExamples"
