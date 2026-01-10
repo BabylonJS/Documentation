@@ -678,7 +678,7 @@ Note: Since a playground can be launched multiple times, we first check whether 
 
 This PG uses the classes described on this page:
 
-<Playground id="#U9RNJ9#1" title="Implementing volumetric lighting" description="Implementing volumetric lighting with frame graphs" isMain={false}/>
+<Playground id="#U9RNJ9#5" image="/img/playgroundsAndNMEs/pg-U9RNJ9-1.png" title="Implementing volumetric lighting" description="Implementing volumetric lighting with frame graphs" isMain={false}/>
 <br/><br/>
 
 You can choose to run the NRG version by setting **useNodeRenderGraph** to *true* in the **index.ts** page.
