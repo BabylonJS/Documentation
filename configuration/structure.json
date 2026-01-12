@@ -716,6 +716,11 @@
                                         }
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphExamples"
+                                },
+                                "frameGraphFAQ": {
+                                    "friendlyName": "Best practices and FAQ",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphFAQ"
                                 }
                             },
                             "content": "features/featuresDeepDive/frameGraph"
