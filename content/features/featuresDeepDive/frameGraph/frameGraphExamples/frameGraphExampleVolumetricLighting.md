@@ -7,6 +7,8 @@ keywords: diving deeper, frame graph, rendering, node editor, examples, volumetr
 
 ## Introduction
 
+![Volumetric Lighting in Frame Graphs](/img/frameGraph/task_volumetriclighting.jpg)
+
 This page aims to implement volumetric lighting post-processing “manually,” so you can see how to create custom frame graph tasks and custom nodes for use in a node render graph.
 
 The resulting code/graphs are not intended for direct use: if you want to use volumetric lighting, it is already integrated into the [FrameGraphVolumetricLightingTask](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList#framegraphvolumetriclightingtask) task. Please refer to [this page](/features/featuresDeepDive/lights/volumetricLightScattering#the-volumetric-lighting-task) for more information on how to integrate this effect into your project.

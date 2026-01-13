@@ -709,6 +709,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleCustomPostProcess"
                                         },
+                                        "frameGraphExampleHistoryTexture": {
+                                            "friendlyName": "Implement an onion-skin renderer",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleHistoryTexture"
+                                        },
                                         "frameGraphExampleVolumetricLighting": {
                                             "friendlyName": "Implement volumetric lighting",
                                             "children": {},
