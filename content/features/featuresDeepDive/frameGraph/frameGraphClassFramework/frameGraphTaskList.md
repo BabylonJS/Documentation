@@ -472,7 +472,7 @@ Task which applies a screen space curvature post-process.
 [Link to the class](/typedoc/classes/babylon.framegraphscreenspacecurvaturetask)
 
 <Playground id="#SUEU9U#126" image="/img/playgroundsAndNMEs/pg-SUEU9U-47.png" title="Screen space curvature task" description="Example of a frame graph using the screen space curvature task" isMain={false}/>
-<Playground id="#SUEU9U#149" image="/img/playgroundsAndNMEs/pg-SUEU9U-48.png" title="Screen space curvature task (NRG)" description="Example of a node render graph using the screen space curvature block" isMain={false}/>
+<Playground id="#SUEU9U#158" image="/img/playgroundsAndNMEs/pg-SUEU9U-48.png" title="Screen space curvature task (NRG)" description="Example of a node render graph using the screen space curvature block" isMain={false}/>
 
 Inputs:
 * **normalTexture**. The normal texture to use for the screen space curvature effect. It must store normals in camera view space.
@@ -933,3 +933,4 @@ Outputs:
 <br/>
 
 Note that in a frame graph, mipmaps are not generated automatically; you must use a `FrameGraphGenerateMipMapsTask` task to do so.
+
