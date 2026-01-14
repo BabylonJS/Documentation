@@ -17,7 +17,7 @@ The implementation is based on the article “Participating media using extruded
 
 ## Creating the volumetric lighting task
 
-You can refer to [Introduction to Frame Graph classes](features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview) for general information about the different classes of the frame graph framework.
+You can refer to [Introduction to Frame Graph classes](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview) for general information about the different classes of the frame graph framework.
 
 ### Class structure
 
@@ -684,3 +684,4 @@ This PG uses the classes described on this page:
 <br/><br/>
 
 You can choose to run the NRG version by setting **useNodeRenderGraph** to *true* in the **index.ts** page.
+
