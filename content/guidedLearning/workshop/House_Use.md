@@ -731,4 +731,4 @@ PG: <Playground id="#4GBWI5#265" title="House From Floorplan" description="Examp
 PG: <Playground id="#1Z71FW#103" title="Wall From Floorplan 1" description="Example of None Enclosing Wall."/>  
 PG: <Playground id="#1Z71FW#102" title="Wall From Floorplan 2" description="Example of None Enclosing Wall with texture."/>  
 PG: <Playground id="#1Z71FW#45" title="House and Interior Walls" description="Example of House with interior walls."/>
-
+PG: <Playground id="#1Z71FW#1068" title="House With Orthographic View" description="Example of House with orthographic camera and grid."/>
