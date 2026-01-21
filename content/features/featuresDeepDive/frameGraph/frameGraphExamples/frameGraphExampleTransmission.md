@@ -65,9 +65,9 @@ Here is the node render graph corresponding to the description in the previous s
 <NRGE id="#3MVLQ7#9" title="Implementation of the node render graph" description="Rendering of transmissive materials with a node render graph" isMain={true} category="NodeRenderGraph"/>
 
 It closely follows the operations described above:
-* `RenderNonTransmissiveObjects` renders the objects in the *NonTransmissiveObjectsList* list in the **Color Texture** texture
+* `RenderNonTransmissiveObjects` renders the objects from the *NonTransmissiveObjectsList* list in the **Color Texture** texture
 * `Copy texture` copies **Color Texture** to **Refraction Texture**
-* `RenderTransmissiveObjects` renders the objects in the *TransmissiveObjectsList* list in the **Color Texture** texture
+* `RenderTransmissiveObjects` renders the objects from the *TransmissiveObjectsList* list in the **Color Texture** texture
 * `Image Processing` applies a linear to gamma space conversion to **Color Texture** and generates the result in the color backbuffer
 
 An additional task that has not yet been described is the `Gen refraction texture mipmaps` block. This block simply generates the mipmaps for the **Refraction texture**, which are necessary to simulate the glossiness of the refracted part of the scene.
@@ -77,7 +77,7 @@ Key points to highlight from this graph:
 ![Rendered in linear space](/img/frameGraph/example_transmission_prop_linearspace_render.jpg)
 * The same applies to the clear color of the `Clear` block:
 ![Rendered in linear space](/img/frameGraph/example_transmission_prop_linearspace_clearcolor.jpg)
-* The **Create mipmaps** option is checked in the `Refraction Texture` block so that the texture is created with mipmaps. Note that this does not mean that mipmaps are *generated*, but only that additional GPU memory will be allocated for mipmaps! Mipmaps are generated using the `GenerateMipmaps` block. We have also defined specific dimensions for this texture (1024x1024), as we do not need the full final screen resolution:
+* The **Create mipmaps** option is checked in the `Refraction Texture` block so that the texture is created with mipmaps. Note that this does not mean that mipmaps are *generated*, but only that additional GPU memory will be allocated for mipmaps! Mipmaps are generated using the `GenerateMipmaps` block. We have also defined specific dimensions for this texture (1024x1024), as we do not need the full final screen resolution. Also, we don't need MSAA for this texture, so **Samples** is set to 1:
 ![Refraction texture properties](/img/frameGraph/example_transmission_prop_refractiontexture.jpg)
 * The output of the `Gen refraction texture mipmaps` block is connected to the **dependencies** input of the `RenderTransmissiveObjects` block: this ensures that the texture is copied and the mipmaps are generated before this block is processed, as we will need the refraction texture during rendering.
 
@@ -85,11 +85,11 @@ Key points to highlight from this graph:
 
 Here is a playground that uses the node render graph described above to render a scene with transmissive materials:
 
-<Playground id="#JWKDME#188" image="/img/playgroundsAndNMEs/pg-JWKDME-70.png" title="Node render graph for rendering transmissive materials" description="Rendering transmissive materials with a node render graph" isMain={true}/>
+<Playground id="#7FZ6P6#1" image="/img/playgroundsAndNMEs/pg-JWKDME-70.png" title="Node render graph for rendering transmissive materials" description="Rendering transmissive materials with a node render graph" isMain={true}/>
 
 We have created a separate class `RenderWithTransmission`, which takes care of loading and configuring the graph for you. This should make it easier to reuse the code in your own projects, but feel free to use this code as a starting point for your own experiments!
 
-Note that we load a .glb file that normally contains the `KHR_materials_transmission` extension, but we have created a version of the asset without this extension. The goal is to be able to compare the same scene using the existing support for transmissive materials in Babylon.js with the node render graph implementation.
+Note that we disable the use/creation of the `TransmissionHelper` class by setting the **dontUseTransmissionHelper** option to *true*, as we do not need it when using frame graphs.
 
 Here is the same scene using the unmodified asset:
 

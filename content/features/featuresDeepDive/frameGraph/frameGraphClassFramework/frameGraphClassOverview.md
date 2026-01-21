@@ -7,7 +7,8 @@ keywords: diving deeper, frame graph, rendering, node editor, overview
 
 The frame graph class framework consists of several main classes, described below.
 
-## [FrameGraph](/typedoc/classes/babylon.framegraph)
+## FrameGraph
+[Link to class](/typedoc/classes/babylon.framegraph).<br/><br/>
 This is the main class, whose purpose is to allow you to build and execute a frame graph.
 
 ### Main methods and properties
@@ -82,7 +83,8 @@ This code corresponds to this graph:
 ![Basic graph](/img/frameGraph/graph_skeleton.jpg)
 
 
-## [FrameGraphTask](/typedoc/classes/babylon.framegraphtask)
+## FrameGraphTask
+[Link to class](/typedoc/classes/babylon.framegraphtask).<br/><br/>
 This is the base class for a task in a frame graph. A task is usually a rendering process, but it may also be unrelated to rendering (for example, we have a culling task in the frame graph to cull objects relative to a camera).
 
 ### Main methods and properties
@@ -118,7 +120,7 @@ You can add a texture to a task's dependencies to indicate that a texture must r
 
 Note that this can only happen if you retrieve a texture from the frame graph to use it in external code. For example, if you generate a texture in the frame graph and then later use that texture as a diffuse texture for a material that will be used to render a mesh in another task in the graph, the texture optimizer could potentially reuse this texture for other purposes, as it does not know that the texture must retain its content even after it has been generated (we are assuming that this texture is not explicitly reused by another task in the graph afterwards, which would extend its lifetime).
 
-Babylon.js already implements a number of tasks (see [Frame Graph Task List](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList)), but you can also implement your own tasks (see TODOLINK).
+Babylon.js already implements a number of tasks (see [Frame Graph Task List](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList)), but you can also implement your own tasks (see the example [Implementing volumetric lighting with frame graphs](/features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleVolumetricLighting), which explains in detail how to implement a custom task).
 
 ### Code example
 As an illustration, here is the complete implementation of a simple task, the “copy to back buffer color” task (the class [FrameGraphCopyToBackbufferColorTask](/typedoc/classes/babylon.framegraphcopytobackbuffercolortask)):
@@ -156,7 +158,22 @@ Notes:
 * For a render pass, you must specify which texture the pass should be rendered to by calling the `RenderPass.setRenderTarget(textureHandle)` method.
 * To create a render pass that is used when the task is disabled, simply pass *true* as the second parameter to `FrameGraph.addXXXPass(name, whenTaskDisabled)`.
 
-## [FrameGraphTextureManager](/typedoc/classes/babylon.framegraphtexturemanager)
+## FrameGraphTaskMultiRenderTarget
+[Link to class](/typedoc/classes/babylon.framegraphtaskmultirendertarget).<br/><br/>
+This is the base class for frame graph tasks that involve multi-target rendering.
+
+### Main methods and properties
+* `setOutputLayerAndFaceIndices(indices: LayerAndFaceIndex[])`. Sets the output layer and face indices for multi-target rendering.
+* `_updateLayerAndFaceIndices(pass: FrameGraphRenderPass)`.
+<br/>
+If you are implementing a task that needs to support multi-target rendering, you should extend this class rather than `FrameGraphTask`:
+* The user can use the `setOutputLayerAndFaceIndices()` method to set the layer and face indices of the textures they want to render, in case they render to a 2D texture array, a 3D texture or a Cube texture.
+* In your implementation of the rendering pass, call `_updateLayerAndFaceIndices()` to ensure that the user's choices are correctly applied.
+<br/>
+You can refer to the code of the [FrameGraphClearTextureTask](/typedoc/classes/babylon.framegraphcleartexturetask) and [FrameGraphObjectRendererTask](/typedoc/classes/babylon.framegraphobjectrenderertask) classes, both of which support multi-target rendering.
+
+## FrameGraphTextureManager
+[Link to class](/typedoc/classes/babylon.framegraphtexturemanager).<br/><br/>
 This class is responsible for managing textures (rendering target textures, i.e., the textures we render) in a frame graph.
 
 ### Main methods and properties
@@ -256,7 +273,10 @@ pass.setExecuteFunc((context) => {
 ```
 You can see that the ping-pong texture is used in read mode by the TAA shader and is bound under the name “historySampler”. This means that it is the other texture of the ping-pong texture that will be bound to the shader during this frame (i.e., the texture we wrote to in the previous frame), not the texture we are writing to.
 
-## [Pass](/typedoc/classes/babylon.framegraphpass), [RenderPass](/typedoc/classes/babylon.framegraphrenderpass), [ObjectListPass](/typedoc/classes/babylon.framegraphobjectlistpass)
+## Pass, RenderPass, ObjectListPass
+[Link to Pass class](/typedoc/classes/babylon.framegraphpass).<br/>
+[Link to RenderPass class](/typedoc/classes/babylon.framegraphrenderpass).<br/>
+[Link to ObjectListPass class](/typedoc/classes/babylon.framegraphobjectlistpass).<br/><br/>
 These classes are used to create different types of passes within a task.
 
 ### Main methods and properties

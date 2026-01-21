@@ -708,9 +708,24 @@
                                             "friendlyName": "Create a custom post-process",
                                             "children": {},
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleCustomPostProcess"
+                                        },
+                                        "frameGraphExampleHistoryTexture": {
+                                            "friendlyName": "Implement an onion-skin renderer",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleHistoryTexture"
+                                        },
+                                        "frameGraphExampleVolumetricLighting": {
+                                            "friendlyName": "Implement volumetric lighting",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleVolumetricLighting"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphExamples"
+                                },
+                                "frameGraphFAQ": {
+                                    "friendlyName": "Best practices and FAQ",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphFAQ"
                                 }
                             },
                             "content": "features/featuresDeepDive/frameGraph"

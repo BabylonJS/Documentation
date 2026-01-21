@@ -105,9 +105,9 @@ For whole image
 const img = new Image();
 img.src = 'PATH TO IMAGE';
 img.onload = function() {
-
-ctx.drawImage(this, 0, 0);
-myDynamicTexture.update();
+  ctx.drawImage(this, 0, 0);
+  myDynamicTexture.update();
+}
 ```
 
 For part of the image scaled onto part of the canvas
@@ -116,9 +116,9 @@ For part of the image scaled onto part of the canvas
 const img = new Image();
 img.src = 'PATH TO IMAGE';
 img.onload = function() {
-
-ctx.drawImage(this, image start x, image start y, image width, image height, canvas to x, canvas to y, destination width, destination height);
-myDynamicTexture.update();
+  ctx.drawImage(this, image start x, image start y, image width, image height, canvas to x, canvas to y, destination width, destination height);
+  myDynamicTexture.update();
+}
 ```
 
 <Playground id="#5ZCGRM#4" title="Adding An Image" description="Simple example of adding an image with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture3.jpg"/>
@@ -269,4 +269,5 @@ This playground demonstrates serializing a dynamic texture associated with a mat
 This playground example incorporates a user-manipulated dynamic texture allowing the customization of an asset. This scene demonstrates many of the previous concepts and shows why dynamic textures are a great way to provide users with interactive scene materials.
 
 <Playground id="#XMEL56#7" title="Product Customization" description="Customize the graphics of a skateboard deck." isMain={true} category="Dynamic Texture"/>
+
 

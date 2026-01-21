@@ -54,7 +54,7 @@ const task = new BABYLON.FrameGraphCustomPostProcessTask("edgeDetection", frameG
 
 Here is a simple PG that illustrates the two code paths (update line 21 to use the standard or frame graph path):
 
-<Playground id="#F1RSBM" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Custom post-process in frame graph" description="Using a custom post-process in frame graph with FrameGraphCustomPostProcessTask" isMain={true}/>
+<Playground id="#F494TC" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Custom post-process in frame graph" description="Using a custom post-process in frame graph with FrameGraphCustomPostProcessTask" isMain={true}/>
 
 ## Making the task available in NRGE
 
@@ -204,16 +204,17 @@ await nrg.whenReadyAsync();
 
 <Playground id="#ZC3Y12#10" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Load node render graph with custom post-process" description="Loading a node render graph from the snippet server with custom post-process" isMain={true}/>
 
-**Important**: editing the node render graph with the standalone NRGE (https://nrge.babylonjs.com) will not work!
+**Important**: editing the node render graph with the [standalone NRGE](https://nrge.babylonjs.com) will not work!
 
 This means that this URL will not work: https://nrge.babylonjs.com/#XQF0ML. The edge detection block cannot be created by NRGE because it does not know it.
 
 This is because the implementation of the block node for the edge detection post-process is not available in the standalone version of NRGE. You must edit the graph by first opening the playground where the class is defined and access it through the inspector.
 
-Note that you can also open NRGE using a code:
+Note that you can also open NRGE using this code:
 ```typescript
 const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("XQF0ML", scene);
 
 nrg.build();
 nrg.edit();
 ```
+

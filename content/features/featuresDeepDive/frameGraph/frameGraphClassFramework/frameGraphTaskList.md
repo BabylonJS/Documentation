@@ -472,7 +472,7 @@ Task which applies a screen space curvature post-process.
 [Link to the class](/typedoc/classes/babylon.framegraphscreenspacecurvaturetask)
 
 <Playground id="#SUEU9U#126" image="/img/playgroundsAndNMEs/pg-SUEU9U-47.png" title="Screen space curvature task" description="Example of a frame graph using the screen space curvature task" isMain={false}/>
-<Playground id="#SUEU9U#149" image="/img/playgroundsAndNMEs/pg-SUEU9U-48.png" title="Screen space curvature task (NRG)" description="Example of a node render graph using the screen space curvature block" isMain={false}/>
+<Playground id="#SUEU9U#158" image="/img/playgroundsAndNMEs/pg-SUEU9U-48.png" title="Screen space curvature task (NRG)" description="Example of a node render graph using the screen space curvature block" isMain={false}/>
 
 Inputs:
 * **normalTexture**. The normal texture to use for the screen space curvature effect. It must store normals in camera view space.
@@ -622,7 +622,7 @@ Inputs:
 * **sourceSamplingMode**. The sampling mode to use when blending the volumetric lighting texture with **targetTexture**.
 * **depthTexture**. The depth texture used for volumetric lighting calculations. It must be the depth (attachment) texture used to generate **targetTexture**.
 * **camera**. The camera used for volumetric lighting calculations.
-* **lightingVolumeMesh**. The mesh representing the lighting volume. This is the mesh that will be rendered to create the volumetric lighting effect.
+* **lightingVolumeMesh**. The mesh representing the lighting volume. This is the mesh that will be rendered to create the volumetric lighting effect. A common use case is to use the output of the [FrameGraphLightingVolumeTask](#framegraphlightingvolumetask) task for this mesh.
 * **light**. The directional light used for volumetric lighting.
 * **lightingVolumeTexture** (optional). The lighting volume texture (optional). If not provided, a new texture will be created, which the same size, format and type as **targetTexture**. This is the texture that will store the volumetric lighting information, before being blended to **targetTexture**.
 <br/>
@@ -651,7 +651,7 @@ Task used to render objects to a texture.
 <Playground id="#IG8NRC#89" image="/img/playgroundsAndNMEs/pg-IG8NRC-81.png" title="Object renderer task (NRG)" description="Example of a node render graph using the object renderer block" isMain={true}/>
 
 Inputs:
-* **targetTexture**. The target texture where the objects will be rendered.
+* **targetTexture**. The target texture(s) where the objects will be rendered. Define an array of handles if you want to use multi-target rendering (see below for more details).
 * **depthTexture** (optional). The depth attachment texture where the objects will be rendered.
 * **shadowGenerators** (optional). The shadow generators used to render the objects.
 * **camera**. Camera used to render the objects.
@@ -691,6 +691,13 @@ This is the main task used to render objects on a texture. You can consider it a
 The **shadowGenerators** input is optional and can be used if you want to generate shadows at the same time as you render objects. This input expects an array of [FrameGraphShadowGeneratorTask](#framegraphshadowgeneratortask) instances. This way, you can generate shadows from multiple lights at once.
 
 If you enable Order Independent Transparency (OIT - **useOITForTransparentMeshes = true**), the target/depth texture(s) must **NOT** use MSAA! So, number of samples must be 1 for these textures. If you want to get rid of anti-aliasing artifacts, you can use a [FXAA](#framegraphfxaatask) or [TAA](#framegraphtaatask) post-process after the rendering pass.
+
+Note that this class supports multi-target rendering, which means you can render to multiple textures at once. To enable it, simply provide an array of texture handles for the **targetTexture** property instead of a single handle. For this mode to work, all textures must have the same dimensions and the same number of MSAA samples (if applicable). In this mode, **outputTexture** remains a single texture handle: it is the first texture in the array that you passed to **targetTexture**.
+<br/><br/>
+To illustrate the use of this mode, here are two playgrounds:
+
+<Playground id="#XSNYAU#164" image="/img/playgroundsAndNMEs/pg-XSNYAU-160.png" title="Object renderer task (multi RTT)" description="Example of a frame graph using the object renderer task (multi RTT)" isMain={false}/>
+<Playground id="#XSNYAU#160" image="/img/playgroundsAndNMEs/pg-XSNYAU-160.png" title="Object renderer task (multi RTT) (NRG)" description="Example of a node render graph using the object renderer block (multi RTT)" isMain={false}/>
 
 <H3Image title="FrameGraphGeometryRendererTask" image="/img/frameGraph/task_geometryrenderer.jpg" alt="Geometry renderer"/>
 
@@ -767,7 +774,7 @@ Task used to generate shadows from a list of objects.
 
 <Playground id="#JWKDME#189" image="/img/playgroundsAndNMEs/pg-JWKDME-175.png" title="Shadow generator task" description="Example of a frame graph using the shadow generator task" isMain={true}/>
 <Playground id="#JWKDME#190" image="/img/playgroundsAndNMEs/pg-JWKDME-174.png" title="Shadow generator task (NRG)" description="Example of a node render graph using the shadow generator block" isMain={true}/>
-<Playground id="#JWKDME#191" image="/img/playgroundsAndNMEs/pg-JWKDME-176.png" title="Cascaded shadow generator task (NRG)" description="Example of a node render graph using the cascaded shadow generator block" isMain={true}/>
+<Playground id="#JWKDME#198" image="/img/playgroundsAndNMEs/pg-JWKDME-176.png" title="Cascaded shadow generator task (NRG)" description="Example of a node render graph using the cascaded shadow generator block" isMain={true}/>
 
 Inputs:
 * **objectList**. The object list that generates shadows.
@@ -926,3 +933,4 @@ Outputs:
 <br/>
 
 Note that in a frame graph, mipmaps are not generated automatically; you must use a `FrameGraphGenerateMipMapsTask` task to do so.
+

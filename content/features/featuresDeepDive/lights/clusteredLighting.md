@@ -36,7 +36,11 @@ Babylon takes a slightly different apprach to clustered lighting, which is mainl
 
 This solution works on both WebGPU and WebGL 2 (if float color buffers are supported and blendable).
 
-<Playground id="#CSCJO2#16" title="Sponza scene with 1000 lights" description="Example showing off the capabilities of clustered lighting by making the Sponza scene colorful" />
+<Playground id="#CSCJO2#75" title="Sponza scene with 1000 lights" description="Example showing off the capabilities of clustered lighting by making the Sponza scene colorful" />
+
+**Important**:
+* For best performance, when creating a light intended for use in a clustered light container, do not add it to the scene! To do this, pass the value *true* for the **dontAddToScene** parameter of the light constructor.
+* This can make a huge difference when you create all the lights in advance and pass them all at once to the clustered light container constructor (compared to creating the lights one by one and calling `ClusteredLightContainer.addLight()` for each one)!
 
 ## Tiled Clustering
 
