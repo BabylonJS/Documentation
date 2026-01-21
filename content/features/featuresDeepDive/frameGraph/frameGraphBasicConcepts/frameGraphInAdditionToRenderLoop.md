@@ -85,16 +85,15 @@ const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("#FAPQIH#1", sce
 
 const frameGraph = nrg.frameGraph;
 
-const setExternalTexture = async () => {
+nrg.onBeforeBuildObservable.add(() => {
     nrg.getBlockByName("Texture").value = passPostProcess.inputTexture.texture;
-    await nrg.buildAsync(false, true, false);
-};
-
-passPostProcess.onSizeChangedObservable.add(async () => {
-    await setExternalTexture();
 });
 
-await setExternalTexture();
+passPostProcess.onSizeChangedObservable.add(async () => {
+    await nrg.buildAsync(false, true, false);
+});
+
+await nrg.buildAsync(false, true, false);
 
 scene.onAfterRenderObservable.add(() => {
     frameGraph.execute();
@@ -102,8 +101,8 @@ scene.onAfterRenderObservable.add(() => {
 ```
 As above, we create a "pass" post-process, so that the scene is rendered in a texture. This texture is set as the value of the block named “Texture”, which is our input texture in the graph.
 
-Note that we have deactivated the automatic building of the graph when resizing the engine (parameter **rebuildGraphOnEngineResize** in the call to `ParseFromSnippetAsync()`), because when the screen is resized, we must first update the texture of the “Texture” block before rebuilding the graph: `passPostProcess.onSizeChangedObservable` replaces `engine.onResizeObservable`.
+Note that we have deactivated the automatic building of the graph when resizing the engine (parameter **rebuildGraphOnEngineResize** in the call to `ParseFromSnippetAsync()`), because when the screen is resized, we must first update the texture of the “Texture” block before rebuilding the graph (this is done in a `nrg.onBeforeBuildObservable` observer): `passPostProcess.onSizeChangedObservable` replaces `engine.onResizeObservable`.
 
 Also note the parameters passed to `nrg.buildAsync(dontBuildFrameGraph = false, waitForReadiness = true, setAsSceneFrameGraph = false)`: the first two parameters have their default values, but the third is set to *false* so that the frame graph is not defined at the scene level!
 
-The full PG: <Playground id="#RM56RY#28" image="/img/playgroundsAndNMEs/pg-RM56RY-21.png" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (node render graph)"/>
+The full PG: <Playground id="#RM56RY#29" image="/img/playgroundsAndNMEs/pg-RM56RY-21.png" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (node render graph)"/>
