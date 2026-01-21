@@ -195,11 +195,7 @@ Note that you can save the frame graph to the snippet server and reload it with 
 ```typescript
 const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("XQF0ML", scene);
 
-nrg.build();
-
-scene.frameGraph = nrg.frameGraph;
-
-await nrg.whenReadyAsync();
+await nrg.buildAsync();
 ```
 
 <Playground id="#ZC3Y12#10" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Load node render graph with custom post-process" description="Loading a node render graph from the snippet server with custom post-process" isMain={true}/>
@@ -214,7 +210,8 @@ Note that you can also open NRGE using this code:
 ```typescript
 const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("XQF0ML", scene);
 
-nrg.build();
+await nrg.buildAsync();
 nrg.edit();
 ```
+
 
