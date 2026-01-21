@@ -116,7 +116,7 @@ A typical configuration when using the **Automatic thickness computation** optio
 
 Note that the `Geometry renderer back faces` block has been configured with **Reverse culling** checked, because we need the depth of the back faces! You will get an error message in the window log if you forget to check this option for the `GeometryRenderer` connected to the **geomBackDepth** input (but only if **Automatic calculation of thickness** is checked!).
 
-<Playground id="#PIZ1GK#2094" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2391.png" title="Using SSR in a node render graph" description="Example of a node render graph using SSR with automatic thickness computation" isMain={true}/>
+<Playground id="#PIZ1GK#2391" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2094.png" title="Using SSR in a node render graph" description="Example of a node render graph using SSR with automatic thickness computation" isMain={true}/>
 
 You will see in this PG that we are rebuilding the graph (see line 67) because we have set the `ssr.blurDispersionStrength` property to 0. As the SSR block has a non-zero value in NRGE, we are in the case explained above where the graph must be rebuilt.
 
