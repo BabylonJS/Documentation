@@ -26,7 +26,7 @@ The simplest usage is:
 const line = BABYLON.CreateGreasedLine("name", { points });
 ```
 
-<Playground id="#H1LRZ3#98" title="Basic usage" description="Basic scenarios with GreasedLine." />
+<Playground id="#H1LRZ3#796" title="Basic usage" description="Basic scenarios with GreasedLine." />
 <Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
 
 ## Dispose a GreasedLine
