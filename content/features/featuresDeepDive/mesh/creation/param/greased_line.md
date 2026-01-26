@@ -222,7 +222,7 @@ All lines created after setting this value and not providing a `width` option wi
 
 If true then line will width be always the same regardless the distance from the line. The upper line has constant with no matter how far from the camera it is. This PG also demonstrates how to use default values:
 
-<Playground id="#FJRQ8N#149" title="Size attenuation and GreasedLineMaterialDefaults" description="Shows the difference between attenuated and not attenuated lines and how to set default width and color." />
+<Playground id="#FJRQ8N#176" title="Size attenuation and GreasedLineMaterialDefaults" description="Shows the difference between attenuated and not attenuated lines and how to set default width and color." />
 
 #### **materialType**
 
@@ -311,7 +311,7 @@ When running on WebGPU/WGSL you must use RGBA textures:
 <Playground id="#H1LRZ3#678" title="Line colors using your own texture - WebGPU/WGSL" description="Create your own color texture - WebGPU/WGSL." />
 
 <Playground id="#VUKIHZ#3" title="Animating line colors using your own texture" description="Animating colors on a line using your color texture." />
-<Playground id="#H1LRZ3#233" title="Setting color pointers manually" description="A loader circle created by modifying the color pointers. Also shows how to use gradients with GreasedLine." />
+<Playground id="#H1LRZ3#797" title="Setting color pointers manually" description="A loader circle created by modifying the color pointers. Also shows how to use gradients with GreasedLine." />
 
 
 #### **colorsSampling**
