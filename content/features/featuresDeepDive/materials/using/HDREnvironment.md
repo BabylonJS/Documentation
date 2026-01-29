@@ -71,7 +71,7 @@ See [What is a .env (Tech Deep Dive)](#what-is-a-env-tech-deep-dive) part at the
 
 ## IBL Texture tool
 
-In case you have a .hdr texture, you're able to use the [IBL Texture Tool](https://www.babylonjs.com/tools/ibl/) to convert it in an easy way to .env.
+In case you have a .hdr texture, you're able to use the [IBL Texture Tool](https://www.babylonjs.com/tools/textures/) to convert it in an easy way to .env.
 
 Just drag &amp; drop your .hdr file, wait a bit, and save the .env wherever you want.
 
