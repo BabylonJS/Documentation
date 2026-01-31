@@ -17,7 +17,7 @@ The Babylon.js Sandbox is a powerful, web-based 3D asset viewer and debugging to
 ## Features
 
 - **Model Preview**: View and interact with 3D models in real-time.
-- **Supported File Formats**: `.gltf`, `.glb`, `.obj`, `.stl`, `.babylon`
+- **Supported File Formats**: `.gltf`, `.glb`, `.obj`, `.stl`, `.babylon`, `.bvh`, `.ply`, `.sog`, `.splat`, `.spz`
 - **Animation Playback**: Play, pause, and scrub through animations.
 - **Environment Map Support**: Select built-in or load custom environment textures for realistic lighting.
 - **Inspector Integration**: Explore detailed object properties like meshes, lights, cameras, and more.
@@ -25,6 +25,21 @@ The Babylon.js Sandbox is a powerful, web-based 3D asset viewer and debugging to
 ## Accessing the Sandbox
 1. Open a web browser.
 2. Visit the Sandbox at [sandbox.babylonjs.com](https://sandbox.babylonjs.com).
+
+## Installing as a Desktop App
+The Sandbox can be installed as a Progressive Web App (PWA) for a native desktop experience. Once installed, the Sandbox also registers itself as a file handler for supported file formats, allowing you to open 3D assets directly from your file system. The PWA also supports offline mode, so you can view and inspect your 3D assets without an internet connection.
+
+### Installation
+1. Visit [sandbox.babylonjs.com](https://sandbox.babylonjs.com) in a supported browser (e.g., Chrome, Edge).
+2. Click the install icon in the browser's address bar or use the browser menu to install the app.
+3. The Sandbox will be available as a standalone application on your desktop.
+
+### File Handler
+After installation, the Sandbox registers as a handler for supported file formats (`.gltf`, `.glb`, `.obj`, `.stl`, `.babylon`, etc.). This enables:
+- **Double-click to open**: Double-click a supported 3D file to open it directly in the Sandbox.
+- **Open with**: Right-click a file and select the Sandbox from the "Open with" menu.
+
+This integration provides a seamless workflow for quickly previewing 3D assets without needing to manually drag and drop files into a browser window.
 
 ## Loading Assets
 Load assets into the Sandbox using one of the following methods:
