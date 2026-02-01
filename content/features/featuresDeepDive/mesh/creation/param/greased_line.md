@@ -26,7 +26,7 @@ The simplest usage is:
 const line = BABYLON.CreateGreasedLine("name", { points });
 ```
 
-<Playground id="#H1LRZ3#98" title="Basic usage" description="Basic scenarios with GreasedLine." />
+<Playground id="#H1LRZ3#796" title="Basic usage" description="Basic scenarios with GreasedLine." />
 <Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
 
 ## Dispose a GreasedLine
@@ -222,7 +222,7 @@ All lines created after setting this value and not providing a `width` option wi
 
 If true then line will width be always the same regardless the distance from the line. The upper line has constant with no matter how far from the camera it is. This PG also demonstrates how to use default values:
 
-<Playground id="#FJRQ8N#149" title="Size attenuation and GreasedLineMaterialDefaults" description="Shows the difference between attenuated and not attenuated lines and how to set default width and color." />
+<Playground id="#FJRQ8N#176" title="Size attenuation and GreasedLineMaterialDefaults" description="Shows the difference between attenuated and not attenuated lines and how to set default width and color." />
 
 #### **materialType**
 
@@ -311,7 +311,7 @@ When running on WebGPU/WGSL you must use RGBA textures:
 <Playground id="#H1LRZ3#678" title="Line colors using your own texture - WebGPU/WGSL" description="Create your own color texture - WebGPU/WGSL." />
 
 <Playground id="#VUKIHZ#3" title="Animating line colors using your own texture" description="Animating colors on a line using your color texture." />
-<Playground id="#H1LRZ3#233" title="Setting color pointers manually" description="A loader circle created by modifying the color pointers. Also shows how to use gradients with GreasedLine." />
+<Playground id="#H1LRZ3#797" title="Setting color pointers manually" description="A loader circle created by modifying the color pointers. Also shows how to use gradients with GreasedLine." />
 
 
 #### **colorsSampling**
@@ -842,4 +842,4 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#193" title="PBR sphere demo" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
 <Playground id="#H1LRZ3#130" title="PBR sphere demo with a mesh to line predicate" description="Example of using GreasedLineTools mesh to lines function with PBR material and a predicate which you can use to modify the lines or omit them." />
-<Playground id="#H1LRZ3#123" title="Mesh to 'opaque' lines example with PBR" description="Another example of using GreasedLineTools mesh to lines function with PBR material with a trick to make the wireframe mesh opaque." />
+<Playground id="#H1LRZ3#798" title="Mesh to 'opaque' lines example with PBR" description="Another example of using GreasedLineTools mesh to lines function with PBR material with a trick to make the wireframe mesh opaque." />
