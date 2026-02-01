@@ -180,6 +180,7 @@ Unless otherwise specified, all post-process tasks share certain common properti
 Inputs:
 * **sourceTexture**. The source texture to apply the post process on. It's allowed to be `undefined` if the post process does not require a source texture. In that case, `targetTexture` must be provided.
 * **sourceSamplingMode**. The sampling mode to use for the source texture.
+* **alphaMode**. The alpha mode to use when applying the post process (default is ALPHA_DISABLE).
 * **targetTexture** (optional). The target texture to render the post process to. If not supplied, a texture with the same configuration as the source texture will be created.
 * **stencilState** (optional). The stencil state to use for the post process.
 * **depthAttachmentTexture** (optional). The depth attachment texture to use for the post process. Note that a post-process task never writes to the depth buffer: attaching a depth texture is only useful if you want to test against the depth/stencil aspect or write to the stencil buffer.
@@ -242,6 +243,7 @@ This post-process **doesn't share** the common properties of post-processes!
 Inputs:
 * **sourceTexture**. The source texture to apply the bloom effect on.
 * **sourceSamplingMode**. The sampling mode to use for the source texture.
+* **alphaMode**. The alpha mode to use when applying the bloom post process (default is ALPHA_DISABLE).
 * **targetTexture** (optional). The target texture to render the bloom effect to. If not supplied, a texture with the same configuration as the source texture will be created.
 <br/>
 
@@ -353,6 +355,7 @@ This post-process **doesn't share** the common properties of post-processes!
 Inputs:
 * **sourceTexture**. The source texture to apply the depth of field effect on.
 * **sourceSamplingMode**. The sampling mode to use for the source texture.
+* **alphaMode**. The alpha mode to use when applying the depth of field post process (default is ALPHA_DISABLE).
 * **depthTexture**. The depth texture to use for the depth of field effect. Should store camera space depth (Z coordinate).
 * **depthSamplingMode**. The sampling mode to use for the depth texture.
 * **camera**. The camera used to render the scene.
@@ -509,6 +512,7 @@ This post-process **doesn't share** the common properties of post-processes!
 Inputs:
 * **sourceTexture**. The source texture to apply the SSAO2 effect on.
 * **sourceSamplingMode**. The sampling mode to use for the source texture.
+* **alphaMode**. The alpha mode to use when applying the SSAO post process (default is ALPHA_DISABLE).
 * **depthTexture**. The depth texture used by the SSAO2 effect (Z coordinate in camera view space).
 * **normalTexture**. The normal texture used by the SSAO2 effect (normal vector in camera view space).
 * **camera**. The camera used to render the scene.
@@ -542,6 +546,7 @@ This post-process **doesn't share** the common properties of post-processes!
 Inputs:
 * **sourceTexture**. The source texture to apply the SSR effect on.
 * **sourceSamplingMode**. The sampling mode to use for the source texture.
+* **alphaMode**. The alpha mode to use when applying the SSR post process (default is ALPHA_DISABLE).
 * **depthTexture**. The depth texture used by the SSR effect. Can be a view or screen space depth texture.
 * **normalTexture**. The normal texture used by the SSR effect. Can be a view or world space normal texture.
 * **backDepthTexture** (optional). The back depth texture used by the SSR effect. Can be a view or screen space depth texture. This is used when automatic thickness computation is enabled. The back depth texture is the depth texture of the scene rendered for the back side of the objects (that is, front faces are culled).
