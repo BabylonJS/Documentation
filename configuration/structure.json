@@ -1534,6 +1534,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/glowLayer"
                                 },
+                                "selectionOutlineLayer": {
+                                    "friendlyName": "Selection Outline",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/selectionOutlineLayer"
+                                },
                                 "mergeMeshes": {
                                     "friendlyName": "Merging Meshes",
                                     "children": {},
