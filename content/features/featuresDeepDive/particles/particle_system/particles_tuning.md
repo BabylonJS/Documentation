@@ -18,7 +18,7 @@ Each example will show you a regular particle system, and also a [node based par
 
 ## Size
 
-The size of the particles can be varied randomly within a given range,
+The size of the particles can be varied randomly within a given range:
 
 ```javascript
 particleSystem.minSize = 0.1;
@@ -73,7 +73,7 @@ particleSystem.minAngularSpeed = 0;
 particleSystem.maxAngularSpeed = Math.PI;
 ```
 
-You can also define a particle's initial rotation angle with
+You can also define a particle's initial rotation angle:
 
 ```javascript
 particleSystem.minInitialRotation = 0;
@@ -85,7 +85,7 @@ Rotating with set initial angle: <Playground id="#0K3AQ2#3807" title="Rotating P
 
 ## Translation Pivot
 
-By default the center of transformation for a particle is at the middle of its plane. You are able to set it to a different point relative to its middle. To change the pivot position use
+By default, a particle's transformation center is at the middle of its plane. You can move it to a different point relative to the center:
 
 ```javascript
 particleSystem.translationPivot = new BABYLON.Vector2(2, 2); // across and up the containing plane
@@ -106,7 +106,7 @@ Direction range: <Playground id="#0K3AQ2#3815" title="Particle Direction Range E
 
 ## Gravity
 
-A value for gravity can be applied as a vector3 in any direction. For example if negative in the Y direction the particles will slowly be pulled downwards.
+Gravity can be applied as a Vector3 in any direction. For example, a negative Y value pulls particles downward.
 
 ```javascript
 particleSystem.gravity = new BABYLON.Vector3(0, -9.81, 0);
@@ -130,7 +130,7 @@ You can stop the continuous emission of particles by setting a manual emit count
 particleSystem.manualEmitCount = 300;
 ```
 
-In this case, the number of particles given by the count are emitted and there are no further emissions of particles.
+In this case, the specified number of particles are emitted once and there are no further emissions.
 
 Slow emit rate: <Playground id="#0K3AQ2#3822" title="Slow Emission Rate" description="Simple example showing how to set a slow emission rate of a particle system."/>  
 Fast emit rate: <Playground id="#0K3AQ2#3824" title="Fast Emission Rate" description="Simple example showing how to set a fast emission rate of a particle system."/>  
