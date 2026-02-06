@@ -12,7 +12,9 @@ video-content:
 
 There are a wide range of properties to tune the behavior of the particles in the system including their lifetime, size, color, emission rates, speed, direction of travel, orientation and application of gravity.
 
-On this page we will consider them and how to set a range of values for them. On the next we will show how these settings can be changed either over a particles lifetime or the duration of the system when it is set.
+This page covers setting initial property values when creating a particle system. The next page shows how to animate these properties over time.
+
+Each example will show you a regular particle system, and also a [node based particle system](/features/featuresDeepDive/particles/particle_system/node_particle_editor).
 
 ## Size
 
@@ -27,7 +29,7 @@ Size range: <Playground id="#0K3AQ2#3797" title="Particle Size Range Example" de
 
 ## Scale
 
-When you want to change the particle base shape from square to rectangular scale x and y values using
+When you want to change the particle base shape from square to rectangular, scale the x and y values:
 
 ```javascript
 particleSystem.minScaleX = 0.1;
@@ -41,7 +43,7 @@ Scale range: <Playground id="#0K3AQ2#3798" title="Particle Scale Range Example" 
 
 ## Color
 
-There are three colors that can be set for the particle system, two which are combined (or blended) during the lifetime of the particle and a third that it takes on just before the end of its lifetime.
+There are three colors that can be set for the particle system, two of which are combined (or blended) during the lifetime of the particle and a third that it takes on just before the end of its lifetime.
 
 ```javascript
 particleSystem.color1 = new BABYLON.Color4(0.7, 0.8, 1.0, 1.0);
@@ -53,7 +55,7 @@ Color: <Playground id="#0K3AQ2#3799" title="Particle Color Example" description=
 
 ## Speed
 
-The speed of a particle is governed by the amount of power applied to a particle when emitted. The more power the faster it goes. The emission power, and hence the speed, of the particles can be varied randomly within a given range,
+The speed of a particle is governed by the amount of power applied to a particle when emitted. The more power, the faster it goes. The emission power, and hence the speed, of the particles can be varied randomly within a given range:
 
 ```javascript
 particleSystem.minEmitPower = 1;
@@ -93,7 +95,7 @@ Rotation with translation pivot: <Playground id="#0K3AQ2#3811" title="Changing P
 
 ## Direction
 
-Two directions can be specified. If you specify just *direction1* the particles will travel randomly in the general direction given. When both directions are given the particles will travel in a direction between the two. In practice the vectors act as giving a velocity (direction and speed) to the particles; i.e. particles with direction (10, -10, 10) travel 10 times faster than those with direction (1, -1, 1).
+Two directions can be specified. If you specify just *direction1*, the particles will travel randomly in the general direction given. When both directions are given, the particles will travel in a direction between the two. In practice, these vectors define the velocity (direction and speed) of the particles; i.e. particles with direction (10, -10, 10) travel 10 times faster than those with direction (1, -1, 1).
 
 ```javascript
 particleSystem.direction1 = new BABYLON.Vector3(-7, 8, 3);
@@ -114,7 +116,7 @@ Direction and gravity: <Playground id="#0K3AQ2#3820" title="Direction And Gravit
 
 ## Emit Rate
 
-The emit rate determines the number of particles emitted per second. The larger the number the more dense appears the emitted cloud of particles. As particles die they are recycled to be emitted again. If their lifetime is long enough and their emission rate fast enough it is possible for there to be a gap in the emission of particles.
+The emit rate determines the number of particles emitted per second. The larger the number, the denser the emitted particle cloud appears. As particles die, they are recycled to be emitted again. If their lifetime is long enough and their emission rate is fast enough, it is possible for there to be a gap in the emission of particles.
 
 ![emitRate](/img/how_to/Particles/12-3.png)
 
@@ -128,7 +130,7 @@ You can stop the continuous emission of particles by setting a manual emit count
 particleSystem.manualEmitCount = 300;
 ```
 
-In this case the number of particles given by the count are emitted and there is no further emissions of particles.
+In this case, the number of particles given by the count are emitted and there are no further emissions of particles.
 
 Slow emit rate: <Playground id="#0K3AQ2#3822" title="Slow Emission Rate" description="Simple example showing how to set a slow emission rate of a particle system."/>  
 Fast emit rate: <Playground id="#0K3AQ2#3824" title="Fast Emission Rate" description="Simple example showing how to set a fast emission rate of a particle system."/>  
@@ -136,7 +138,7 @@ Emit just 10: <Playground id="#0K3AQ2#3828" title="Emission Limits" description=
 
 ## Lifetime
 
-The time taken for particles to disappear (or die) after being emitted can be varied within a chosen range. A particle's lifetime is set as a random value between a minimum and maximum
+The time taken for particles to disappear (or die) after being emitted can be varied within a chosen range. A particle's lifetime is set as a random value between a minimum and maximum.
 
 ```javascript
 particleSystem.minLifeTime = 0.3;
