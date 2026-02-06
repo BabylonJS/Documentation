@@ -92,12 +92,12 @@ const sol = new BABYLON.SelectionOutlineLayer("outliner", scene, {
 
 You can choose between two outline sampling strategies:
 
-- `OUTLINE_METHOD_OPTIMIZED_BRUTE_FORCE_3DIRECTIONAL_SAMPLING` (default): faster, may show artifacts with thick outlines.
-- `OUTLINE_METHOD_BRUTE_FORCE_8DIRECTIONAL_SAMPLING`: more accurate, slower.
+- `OUTLINELAYER_SAMPLING_TRIDIRECTIONAL` (default): faster, may show artifacts with thick outlines.
+- `OUTLINELAYER_SAMPLING_OCTADIRECTIONAL`: more accurate, slower.
 
 ```javascript
 const sol = new BABYLON.SelectionOutlineLayer("outliner", scene, {
-  outlineMethod: BABYLON.ThinSelectionOutlineLayer.OUTLINE_METHOD_BRUTE_FORCE_8DIRECTIONAL_SAMPLING,
+  outlineMethod: BABYLON.Constants.OUTLINELAYER_SAMPLING_OCTADIRECTIONAL,
 });
 ```
 
@@ -111,9 +111,15 @@ const sol = new BABYLON.SelectionOutlineLayer("outliner", scene, {
 });
 ```
 
+When `storeCameraSpaceZ` is enabled, the layer compares **camera-space Z** (linear depth) instead of the usual non-linear depth buffer values **normalized by the camera near/far range**. Because the linear depth range spreads precision more evenly, you may need to use a **relatively higher** `occlusionThreshold` to achieve the same occlusion sensitivity as the default mode.
+
 ## Works with instances
 
-Selection Outline Layer supports instanced and thin-instanced meshes. When selecting instances, the layer uses per-instance selection IDs so that outlines remain correct across many instances.
+Selection Outline Layer supports instanced and thin-instanced meshes.
+
+When selecting instances, the layer uses per-instance selection IDs so that outlines remain correct across many instances.
+
+Currently, per-thin-instance selection is not supported, so selecting a thin-instanced mesh outlines all instances.
 
 ## Example: shift-click selection
 
