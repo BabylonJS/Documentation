@@ -55,7 +55,7 @@ Inputs:
 <br/>
 
 Properties:
-* **layer**. Let's you access the configuration of the glow layer itself.
+* **layer**. Let's you access the configuration of the highlight layer itself.
 <br/>
 
 Outputs:
@@ -63,6 +63,30 @@ Outputs:
 <br/>
 
 Note that the **objectRendererTask** you define for the corresponding property must use a depth texture with a stencil aspect. An exception will be thrown if this is not the case.
+
+<H3Image title="FrameGraphSelectionOutlineLayerTask" image="/img/frameGraph/task_selectionoutline.jpg" alt="Selection Outline layer"/>
+
+Provides the same functionalities as the [Selection outline layer](/features/featuresDeepDive/mesh/selectionOutlineLayer) class.
+
+[Link to the class](/typedoc/classes/babylon.framegraphselectionoutlinelayertask)
+
+<Playground id="#E1F0GP#4" title="Selection outline layer" description="Example of a frame graph using the Selection outline layer task" isMain={true}/>
+<Playground id="#ADUC74#1" title="Selection outline layer (NRG)" description="Example of a node render graph using the Selection outline layer block" isMain={true}/>
+
+Inputs:
+* **targetTexture**. The target texture to apply the effect layer to. The effect will be blended with the contents of this texture.
+* **objectRendererTask**. The object renderer task used to render the objects in the texture to which the layer will be applied. This is needed because the layer may have to inject code in the rendering manager used by object renderer task.
+* **depthTexture**. The depth texture to use when rendering the selection outline layer. It must store the scene depth in camera view space Z, normalized or not. If not normalized, the **storeCameraSpaceZ** option must be passed to the constructor.
+* **layerTexture** (optional). The layer texture to render the effect into. If not provided, a default texture will be created, based on **targetTexture** size, type and format.
+<br/>
+
+Properties:
+* **layer**. Let's you access the configuration of the selection outline layer itself.
+<br/>
+
+Outputs:
+* **outputTexture**. The output texture of the task (same underlying texture as **targetTexture**, but the handle will be different).
+<br/>
 
 ## Miscellaneous tasks
 
