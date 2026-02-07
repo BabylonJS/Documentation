@@ -10,7 +10,7 @@ video-content:
 
 # Basic Particle Properties
 
-There are a wide range of properties to tune the behavior of the particles in the system including their lifetime, size, color, emission rates, speed, direction of travel, orientation and application of gravity.
+There is a wide range of properties to tune the behavior of particles, including their lifetime, size, color, emission rate, speed, direction of travel, orientation, and gravity.
 
 This page covers setting initial property values when creating a particle system. The next page shows how to animate these properties over time.
 
@@ -43,7 +43,7 @@ Scale range: <Playground id="#0K3AQ2#3798" title="Particle Scale Range Example" 
 
 ## Color
 
-There are three colors that can be set for the particle system, two of which are combined (or blended) during the lifetime of the particle and a third that it takes on just before the end of its lifetime.
+There are three colors that can be set for a particle system. Two of them (`color1` and `color2`) are blended during the particle's lifetime, and a third (`colorDead`) is applied just before the particle expires.
 
 ```javascript
 particleSystem.color1 = new BABYLON.Color4(0.7, 0.8, 1.0, 1.0);
@@ -55,7 +55,7 @@ Color: <Playground id="#0K3AQ2#3799" title="Particle Color Example" description=
 
 ## Speed
 
-The speed of a particle is governed by the amount of power applied to a particle when emitted. The more power, the faster it goes. The emission power, and hence the speed, of the particles can be varied randomly within a given range:
+The speed of a particle is determined by the amount of power applied when it is emitted. Higher power means faster movement. The emission power can be varied randomly within a given range:
 
 ```javascript
 particleSystem.minEmitPower = 1;
@@ -95,7 +95,9 @@ Rotation with translation pivot: <Playground id="#0K3AQ2#3811" title="Changing P
 
 ## Direction
 
-Two directions can be specified. If you specify just *direction1*, the particles will travel randomly in the general direction given. When both directions are given, the particles will travel in a direction between the two. In practice, these vectors define the velocity (direction and speed) of the particles; i.e. particles with direction (10, -10, 10) travel 10 times faster than those with direction (1, -1, 1).
+Two directions can be specified. If you specify just *direction1*, the particles will travel randomly in the general direction given. When both directions are given, the particles will travel in a random direction between the two.
+
+Note that these vectors also affect speed — their magnitude acts as a multiplier. For example, particles with direction `(10, -10, 10)` will travel 10 times faster than those with direction `(1, -1, 1)`.
 
 ```javascript
 particleSystem.direction1 = new BABYLON.Vector3(-7, 8, 3);
@@ -116,7 +118,7 @@ Direction and gravity: <Playground id="#0K3AQ2#3820" title="Direction And Gravit
 
 ## Emit Rate
 
-The emit rate determines the number of particles emitted per second. The larger the number, the denser the emitted particle cloud appears. As particles die, they are recycled to be emitted again. If their lifetime is long enough and their emission rate is fast enough, it is possible for there to be a gap in the emission of particles.
+The emit rate determines the number of particles emitted per second. The larger the number, the denser the particle cloud. As particles die, they are recycled to be emitted again. If their lifetime is long enough and the emission rate is fast enough, there may be a visible gap in the emission of particles.
 
 ![emitRate](/img/how_to/Particles/12-3.png)
 
@@ -138,7 +140,7 @@ Emit just 10: <Playground id="#0K3AQ2#3828" title="Emission Limits" description=
 
 ## Lifetime
 
-The time taken for particles to disappear (or die) after being emitted can be varied within a chosen range. A particle's lifetime is set as a random value between a minimum and maximum.
+The time it takes for a particle to die after being emitted can be varied within a chosen range. Each particle's lifetime is set as a random value between a minimum and maximum.
 
 ```javascript
 particleSystem.minLifeTime = 0.3;
