@@ -20,7 +20,7 @@ Here is a comparison of the rendering with and without the activation of the IBL
 
 Here is the playground that generated the above images:
 
-- <Playground id="#8R5SSE#665" title="IBL Shadows Pipeline Example" description="Boombox scene with IBL shadows" isMain={true} category="Post-processing"/>
+- <Playground id="#3DGAC3#31" title="IBL Shadows Pipeline Example" description="Boombox scene with IBL shadows" isMain={true} category="Post-processing"/>
 
 ## Important Usage Notes
 
@@ -190,3 +190,4 @@ Each frame, the time taken to compute shadows is primarily affected by two thing
 - `sampleDirections` - The number of sample directions determines the number of voxel traces and the number of screen-space traces done for shadows. These are the primary computations done each frame so lowering this number will help performance.
 
 - `shadowRenderSizeFactor` - Since the shadow computations are done per fragment, lowering the resolution of the shadow buffers can have a significant impact on performance. Try setting `shadowRenderSizeFactor` below 1.0.
+
