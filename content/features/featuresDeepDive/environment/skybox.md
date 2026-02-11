@@ -26,6 +26,13 @@ CubeTexture images need to be .jpg format (unless the suffixes are customized) a
 
 Note, despite being a "Texture", CubeTexture can ONLY be used with [reflectionTexture and refractionTexture](/features/featuresDeepDive/materials/using/reflectionTexture), NOT other Material properties like diffuseTexture. [See below](#makingtheskybox) for the appropriate settings for a skybox.
 
+### Using Equirectangular Images
+
+Normally, Babylon.js skyboxes require six separate cube faces. However, if you only have a single equirectangular image (like an HDR 360 panorama), you can convert it efficiently using GPU acceleration.
+
+See the [Single-Draw Equirectangular to Cubemap Converter](https://forum.babylonjs.com/t/single-draw-equirectangular-to-cubemap-converter/62329) community project for a demo and implementation details.
+
+
 ## Making or Finding Skybox Images
 
 This is an example set of skybox images:
@@ -169,3 +176,4 @@ Next, we apply our special sky texture to it. This texture must have been prepar
 ```javascript
 sky.reflectionTexture = new BABYLON.CubeTexture("textures/skybox", scene);
 ```
+
