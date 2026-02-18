@@ -17,28 +17,17 @@ This page is a breakdown of each block available in the Node Particle Editor. Th
 
 The System block is unique and required for every particle system graph. It serves as the final output node that configures and manages the entire particle system.
 
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: System block node in the graph
-> 
-> **Filename**: `/img/tools/npe/systemNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a System block to the graph
-> 2. Capture showing the block with its input/output ports visible
-> 3. Show it in a simple graph context (connected to at least one emitter)
-
-### System Block
+<H3Image title="Particle System" image="/img/tools/npe/systemNode.png" alt="Particle System node"/>
 
 This is the core block that finalizes the particle system configuration. Every particle system graph must have exactly one System block, and it must be the last block in the chain. It manages particle capacity, rendering settings, blend modes, and emission rates.
 
 #### Properties
 
 - **blendMode** - Defines how particles blend with the scene background. Options: ONEONE (default), STANDARD, ADD, MULTIPLY, MULTIPLYADD
-- **capacity** - Maximum number of particles that can exist simultaneously [default: 1000, range: 0-10000]
+- **capacity** - Maximum number of particles that can exist simultaneously [default: 1000]
 - **manualEmitCount** - Override the automatic particle emission count. Set to -1 to disable manual control [default: -1]
 - **startDelay** - Delay in milliseconds before the particle system starts emitting [default: 0]
-- **updateSpeed** - Frequency of particle updates in seconds [default: 0.0167, range: 0-0.1]
+- **updateSpeed** - Frequency of particle updates in seconds [default: 0.0167 (60FPS), range: 0-0.1]
 - **preWarmCycles** - Number of update cycles to run before rendering begins, useful for having particles already visible when the system starts [default: 0]
 - **preWarmStepOffset** - Time step multiplier for pre-warm cycles [default: 0]
 - **isBillboardBased** - Whether particles should face the camera [default: true]
@@ -54,7 +43,7 @@ This is the core block that finalizes the particle system configuration. Every p
 
 - **particle** (Particle) - **Required**. The particle stream from emitter and update blocks
 - **emitRate** (Int) - Number of particles emitted per second [default: 10]
-- **texture** (Texture) - The sprite texture applied to particles
+- **texture** (Texture) - **Required**. The sprite texture applied to particles
 - **translationPivot** (Vector2) - Texture pivot point for rotation [default: (0,0)]
 - **textureMask** (Color4) - Color mask applied to the texture [default: (1,1,1,1)]
 - **targetStopDuration** (Float) - Duration in seconds for the system to fade out when stopped [default: 0]
@@ -76,20 +65,9 @@ Emitter blocks are responsible for creating particles and setting their initial 
 
 All emitter blocks output a Particle type that flows through the graph to update blocks and eventually to the System block.
 
-### Create Particle Block
+<H3Image title="Create Particle" image="/img/tools/npe/createParticleNode.png" alt="Create Particle node"/>
 
 This block creates new particles and initializes their properties. It's typically the first block in an emission chain before shape emitters.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Create Particle block node
-> 
-> **Filename**: `/img/tools/npe/createParticleNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a CreateParticle block to the graph
-> 2. Show the block with all input ports visible
-> 3. Capture in context with at least one connected input
 
 #### Inputs
 
@@ -107,22 +85,11 @@ This block creates new particles and initializes their properties. It's typicall
 
 #### Special Considerations
 
-This block creates the underlying ParticleSystem and initializes particle properties. It manages color interpolation from the initial color to the colorDead value over the particle's lifetime. Must be used as the first block in an emission chain before shape emitters.
+Must be used as the first block in an emission chain before shape emitters.
 
-### Box Shape Block
+<H3Image title="Box Shape" image="/img/tools/npe/boxShapeNode.png" alt="Box Shape node"/>
 
 This emitter creates particles at random positions within a box volume with customizable directional vectors.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Box Shape block node
-> 
-> **Filename**: `/img/tools/npe/boxShapeNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a BoxShape block to the graph
-> 2. Show the block with input/output ports visible
-> 3. Include parameter panel showing properties if any are exposed
 
 #### Inputs
 
@@ -140,20 +107,9 @@ This emitter creates particles at random positions within a box volume with cust
 
 Particles spawn at random positions within the box defined by minEmitBox and maxEmitBox. Initial velocity directions are randomized between direction1 and direction2 vectors. Supports both local and world space positioning and respects the emitter's world matrix.
 
-### Cone Shape Block
+<H3Image title="Cone Shape" image="/img/tools/npe/coneShapeNode.png" alt="Cone Shape node"/>
 
 This emitter creates particles from a cone shape with customizable spread angle and radius range.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Cone Shape block node
-> 
-> **Filename**: `/img/tools/npe/coneShapeNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a ConeShape block to the graph
-> 2. Show the block with all ports visible
-> 3. Show properties panel if emitFromSpawnPointOnly property is visible
 
 #### Properties
 
@@ -178,19 +134,9 @@ This emitter creates particles from a cone shape with customizable spread angle 
 
 When emitFromSpawnPointOnly is false, particles spawn along the cone surface. The directionRandomizer is automatically used unless both direction1 and direction2 inputs are connected, which override the automatic direction calculation.
 
-### Cylinder Shape Block
+<H3Image title="Cylinder Shape" image="/img/tools/npe/cylinderShapeNode.png" alt="Cylinder Shape node"/>
 
 This emitter creates particles from a cylinder surface with proper circular distribution.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Cylinder Shape block node
-> 
-> **Filename**: `/img/tools/npe/cylinderShapeNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a CylinderShape block to the graph
-> 2. Capture showing the block with ports visible
 
 #### Inputs
 
@@ -210,19 +156,9 @@ This emitter creates particles from a cylinder surface with proper circular dist
 
 Uses a proper spherical distribution algorithm for circular positioning to avoid clustering. Direction is based on surface normals unless custom direction inputs are connected.
 
-### Sphere Shape Block
+<H3Image title="Sphere Shape" image="/img/tools/npe/sphereShapeNode.png" alt="Sphere Shape node"/>
 
 This emitter creates particles from a spherical surface with optional hemispheric mode.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Sphere Shape block node
-> 
-> **Filename**: `/img/tools/npe/sphereShapeNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a SphereShape block to the graph
-> 2. Show properties panel with isHemispheric option visible
 
 #### Properties
 
@@ -245,19 +181,9 @@ This emitter creates particles from a spherical surface with optional hemispheri
 
 Uses proper spherical distribution with polar coordinates (theta/phi) to ensure even particle distribution across the sphere surface. When isHemispheric is enabled, the Y coordinate is forced to absolute value.
 
-### Point Shape Block
+<H3Image title="Point Shape" image="/img/tools/npe/pointShapeNode.png" alt="Point Shape node"/>
 
 This emitter creates particles from a single point with customizable initial direction.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Point Shape block node
-> 
-> **Filename**: `/img/tools/npe/pointShapeNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a PointShape block to the graph
-> 2. Capture showing the minimal block with input/output ports
 
 #### Inputs
 
@@ -273,19 +199,9 @@ This emitter creates particles from a single point with customizable initial dir
 
 This is the simplest emitter block. All particles spawn at the emitter origin (position is always at emitter's position). Only controls initial direction which is randomized between direction1 and direction2.
 
-### Mesh Shape Block
+<H3Image title="Mesh Shape" image="/img/tools/npe/meshShapeNode.png" alt="Mesh Shape node"/>
 
 This emitter creates particles from a mesh surface using random triangles with barycentric interpolation.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Mesh Shape block node
-> 
-> **Filename**: `/img/tools/npe/meshShapeNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a MeshShape block to the graph
-> 2. Show properties panel with mesh-related options visible
 
 #### Properties
 
@@ -306,21 +222,11 @@ This emitter creates particles from a mesh surface using random triangles with b
 
 #### Special Considerations
 
-Caches vertex positions, normals, and color data from the source mesh for efficient sampling. Uses barycentric coordinates to smoothly distribute particles across triangle surfaces. The cached data can be serialized for offline use. Call `cleanData()` method to remove cached mesh data when no longer needed.
+Caches vertex positions, normals, and color data from the source mesh for efficient sampling. Uses barycentric coordinates to smoothly distribute particles across triangle surfaces. The cached data can be serialized for offline use.
 
-### Custom Shape Block
+<H3Image title="Custom Shape" image="/img/tools/npe/customShapeNode.png" alt="Custom Shape node"/>
 
 This emitter allows complete control over particle emission using custom user-defined generator functions.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Custom Shape block node
-> 
-> **Filename**: `/img/tools/npe/customShapeNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a CustomShape block to the graph
-> 2. Capture the block showing it's ready for custom code
 
 #### Properties (Assignable Functions)
 
@@ -345,19 +251,9 @@ These properties are assigned via code, not through the UI:
 
 Provides maximum flexibility for custom emission behavior. If particleDestinationGenerator is provided without particleDirectionGenerator, particle direction is automatically calculated from the destination and lifetime. These functions must be assigned programmatically in your code.
 
-### Setup Sprite Sheet Block
+<H3Image title="Setup Sprite Sheet" image="/img/tools/npe/setupSpriteSheetNode.png" alt="Setup Sprite Sheet node"/>
 
 This block configures sprite sheet animation for particles, enabling animated sprite effects.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Setup Sprite Sheet block node
-> 
-> **Filename**: `/img/tools/npe/setupSpriteSheetNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a SetupSpriteSheet block to the graph
-> 2. Show the block with visible input ports for sprite configuration
 
 #### Inputs
 
