@@ -140,6 +140,23 @@ shadowGenerator.setTransparencyShadow(true); // This call is necessary to render
 
 <Playground id="#OE54M5#15" title="Spotlight shadow" description="Gaussian Splatting cast shadows from a spotlight light source."/>
 
+## Parts and Scene construction
+
+It is possible to combine multiple Gaussian Splatting assets into a single scene while maintaining a global splat sorting order.
+
+To enable this workflow:
+
+- Create an empty Gaussian Splatting container :
+    Initialize an empty Gaussian Splatting object that will act as the root container for the scene.
+- Populate the container :
+    Add content to this container, either procedurally generated or loaded from external assets.
+- Add parts to the main mesh :
+    Each Gaussian Splatting component is attached to the main mesh using the addPart method.
+
+The addPart method returns a mesh instance, which can then be independently transformed or otherwise manipulated (e.g., positioning, scaling, animation) while still participating in the global splat sorting.
+
+<Playground id="#PUWLG4#0" title="Manipulate Splats" description="Two Gaussian Splatting elements in a single scene."/>
+
 ## File format conversion
 
 SplatTransform is a CLI tool for converting and editing Gaussian splats: https://github.com/playcanvas/splat-transform
