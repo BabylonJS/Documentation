@@ -21,6 +21,30 @@ The `ShowInspector` function is used to show Inspector. It returns an `Inspector
 | `ShowInspector`  | Attaches Inspector to the given Babylon scene and makes it visible. Pass in options to further configure Inspector, including defining new [static](/toolsAndResources/inspectorv2/architecture#static-extensions) or [dynamic](/toolsAndResources/inspectorv2/architecture#dynamic-extensions). Returns an `InspectorToken` that can be used to hide Inspector and check its current visibility. |
 | `InspectorToken` | Returned by `ShowInspector`. Call `dispose()` to hide Inspector and tear down all its resources. The `isDisposed` property can be used to check whether Inspector is currently visible, and `onDisposed` can be observed to react to Inspector being hidden.                                                                                                                                      |
 
+### Options
+
+`ShowInspector` accepts an optional `InspectorOptions` object as its second argument. The following options are available:
+
+| Option                      | Type                                | Default     | Description                                                                                                                                                                                                   |
+| --------------------------- | ----------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `layoutMode`                | `"overlay"` \| `"inline"`           | `"overlay"` | In overlay mode, Inspector floats on top of the canvas. In inline mode, Inspector replaces the canvas in the DOM, making the canvas the central content within the Inspector shell.                           |
+| `autoResizeEngine`          | `boolean`                           | `true`      | When enabled, automatically resizes the Babylon engine when Inspector is shown or hidden.                                                                                                                     |
+| `containerElement`          | `HTMLElement`                       | *(auto)*    | The DOM element to host Inspector. If not provided, Inspector automatically walks up the DOM tree from the engine's rendering canvas and uses the nearest suitable ancestor, falling back to `document.body`. |
+| `themeMode`                 | `"system"` \| `"light"` \| `"dark"` | `"system"`  | Sets the initial theme. When set to `"system"`, the theme automatically matches the user's OS-level preference and updates when it changes.                                                                   |
+| `showThemeSelector`         | `boolean`                           | `true`      | When enabled, a theme toggle button is displayed in the toolbar, allowing users to switch between light and dark themes.                                                                                      |
+| `serviceDefinitions`        | `ServiceDefinition[]`               | `[]`        | An array of [static extension](/toolsAndResources/inspectorv2/architecture#static-extensions) service definitions to load immediately when Inspector is shown.                                                |
+| `extensionFeeds`            | `IExtensionFeed[]`                  | `[]`        | An array of extension feeds that provide [dynamic extensions](/toolsAndResources/inspectorv2/architecture#dynamic-extensions) users can install through the extensions dialog.                                |
+| `leftPaneDefaultWidth`      | `number`                            | *(auto)*    | Default width in pixels for the left side pane.                                                                                                                                                               |
+| `rightPaneDefaultWidth`     | `number`                            | *(auto)*    | Default width in pixels for the right side pane.                                                                                                                                                              |
+| `leftPaneMinWidth`          | `number`                            | *(auto)*    | Minimum width in pixels for the left side pane.                                                                                                                                                               |
+| `rightPaneMinWidth`         | `number`                            | *(auto)*    | Minimum width in pixels for the right side pane.                                                                                                                                                              |
+| `leftPaneDefaultCollapsed`  | `boolean`                           | `false`     | Whether the left side pane starts collapsed.                                                                                                                                                                  |
+| `rightPaneDefaultCollapsed` | `boolean`                           | `false`     | Whether the right side pane starts collapsed.                                                                                                                                                                 |
+
+<Alert severity="info">
+Inspector persists certain settings (such as theme preference and pane widths) to localStorage. These settings are scoped by an internal namespace to avoid conflicts with the host app (including other Babylon tools).
+</Alert>
+
 ## Core Services
 
 There are several core services that provide the main extensibility points.
