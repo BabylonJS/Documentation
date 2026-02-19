@@ -280,19 +280,7 @@ Update blocks modify particle properties during their lifetime. They are placed 
 
 Multiple update blocks can be chained together to create complex behaviors. The order matters - blocks execute in the order they are connected.
 
-### Update Age Block
-
-Updates the age of particles during simulation.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Age block node
-> 
-> **Filename**: `/img/tools/npe/updateAgeNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdateAge block to the graph
-> 2. Capture showing the block with input/output ports
+<H3Image title="Update Age" image="/img/tools/npe/updateAgeNode.png" alt="Update Age node"/>
 
 #### Inputs
 
@@ -307,20 +295,9 @@ Updates the age of particles during simulation.
 
 This block only executes if the age input is connected. It allows manual control over particle age, which can be used to create custom lifetime behaviors or synchronize particles with external timers.
 
-### Update Color Block
+<H3Image title="Update Color" image="/img/tools/npe/updateColorNode.png" alt="Update Color node"/>
 
 Dynamically updates particle color during simulation, overriding the default color interpolation.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Color block node
-> 
-> **Filename**: `/img/tools/npe/updateColorNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdateColor block to the graph
-> 2. Show it connected to a gradient or other color source
-> 3. Capture showing the block in context with color flow
 
 #### Inputs
 
@@ -335,19 +312,7 @@ Dynamically updates particle color during simulation, overriding the default col
 
 Bypasses the default color interpolation between color and colorDead set in the CreateParticle block. Useful for creating dynamic color effects based on gradients, noise, or other procedural sources. Only executes if the color input is connected.
 
-### Update Position Block
-
-Updates particle position during simulation, allowing complete control over particle motion.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Position block node
-> 
-> **Filename**: `/img/tools/npe/updatePositionNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdatePosition block to the graph
-> 2. Capture showing input/output ports
+<H3Image title="Update Position" image="/img/tools/npe/updatePositionNode.png" alt="Update Position node"/>
 
 #### Inputs
 
@@ -362,19 +327,9 @@ Updates particle position during simulation, allowing complete control over part
 
 Directly overwrites particle position, bypassing default velocity-based movement. Only executes if the position input is connected. Can be used for completely custom particle paths or to constrain particles to specific surfaces.
 
-### Update Size Block
+<H3Image title="Update Size" image="/img/tools/npe/updateSizeNode.png" alt="Update Size node"/>
 
 Updates particle size during simulation for dynamic scaling effects.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Size block node
-> 
-> **Filename**: `/img/tools/npe/updateSizeNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdateSize block to the graph
-> 2. Capture showing the block
 
 #### Inputs
 
@@ -389,19 +344,9 @@ Updates particle size during simulation for dynamic scaling effects.
 
 Scalar size adjustment that affects particle scale uniformly. Only executes if the size input is connected. Commonly used with gradients to fade particles in/out or pulse based on lifetime.
 
-### Update Angle Block
+<H3Image title="Update Angle" image="/img/tools/npe/updateAngleNode.png" alt="Update Angle node"/>
 
 Updates particle rotation angle during simulation.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Angle block node
-> 
-> **Filename**: `/img/tools/npe/updateAngleNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdateAngle block to the graph
-> 2. Capture showing the block
 
 #### Inputs
 
@@ -416,19 +361,9 @@ Updates particle rotation angle during simulation.
 
 Controls 2D sprite rotation around the billboard axis. Only executes if the angle input is connected. Useful for spinning particles or aligning particles with their direction of motion.
 
-### Update Direction Block
+<H3Image title="Update Direction" image="/img/tools/npe/updateDirectionNode.png" alt="Update Direction node"/>
 
 Updates particle direction/velocity during simulation.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Direction block node
-> 
-> **Filename**: `/img/tools/npe/updateDirectionNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdateDirection block to the graph
-> 2. Capture showing the block
 
 #### Inputs
 
@@ -443,19 +378,9 @@ Updates particle direction/velocity during simulation.
 
 Overwrites particle velocity direction. Only executes if the direction input is connected. Can be used to create wind effects, vortices, or attraction/repulsion behaviors when combined with math blocks.
 
-### Update Scale Block
+<H3Image title="Update Scale" image="/img/tools/npe/updateScaleNode.png" alt="Update Scale node"/>
 
 Updates particle scale with separate control over X and Y dimensions.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Scale block node
-> 
-> **Filename**: `/img/tools/npe/updateScaleNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdateScale block to the graph
-> 2. Capture showing the block with Vector2 or separate scalar inputs
 
 #### Inputs
 
@@ -470,19 +395,9 @@ Updates particle scale with separate control over X and Y dimensions.
 
 Provides independent control over horizontal and vertical scaling, allowing particles to stretch or squash. Useful for creating motion blur effects or non-uniform particle shapes.
 
-### Update Sprite Cell Index Block
+<H3Image title="Update Sprite Cell Index" image="/img/tools/npe/updateSpriteCellIndexNode.png" alt="Update Sprite Cell Index node"/>
 
 Updates which sprite cell is displayed for particles with sprite sheet textures.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Sprite Cell Index block node
-> 
-> **Filename**: `/img/tools/npe/updateSpriteCellIndexNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdateSpriteCellIndex block to the graph
-> 2. Capture showing the block
 
 #### Inputs
 
@@ -497,19 +412,9 @@ Updates which sprite cell is displayed for particles with sprite sheet textures.
 
 Overrides the automatic sprite animation from SetupSpriteSheet block, allowing manual control over which sprite frame is displayed. Useful for creating custom animation patterns or synchronizing sprite animation with other particle properties.
 
-### Update Attractor Block
+<H3Image title="Update Attractor" image="/img/tools/npe/updateAttractorNode.png" alt="Update Attractor node"/>
 
 Applies attraction or repulsion forces to particles toward/away from a target point.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Attractor block node
-> 
-> **Filename**: `/img/tools/npe/updateAttractorNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdateAttractor block to the graph
-> 2. Show properties panel with attractor settings
 
 #### Inputs
 
@@ -525,25 +430,15 @@ Applies attraction or repulsion forces to particles toward/away from a target po
 
 Creates gravitational-like effects where particles are pulled toward or pushed away from a point. Strength can be negative for repulsion. Combines with existing particle velocity rather than replacing it.
 
-### Update Noise Block
+<H3Image title="Update Noise" image="/img/tools/npe/updateNoiseNode.png" alt="Update Noise node"/>
 
 Applies procedural noise to particle positions or velocities for organic randomness.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Noise block node
-> 
-> **Filename**: `/img/tools/npe/updateNoiseNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdateNoise block to the graph
-> 2. Show properties panel with noise parameters
 
 #### Inputs
 
 - **particle** (Particle) - **Required**. The particle stream to update
+- **noiseTexture** (Texture) - Procedural noise texture
 - **strength** (Float) - Noise intensity [default: 1]
-- **frequency** (Float) - Noise frequency/scale [default: 1]
 
 #### Outputs
 
@@ -551,21 +446,11 @@ Applies procedural noise to particle positions or velocities for organic randomn
 
 #### Special Considerations
 
-Uses procedural noise algorithms to add natural-looking randomness to particle motion. Higher frequency creates more chaotic movement, while higher strength increases displacement magnitude. Useful for smoke, fire, and magical effects.
+Uses procedural noise texture algorithms to add natural-looking randomness to particle motion. Higher higher strength increases displacement magnitude. Useful for smoke, fire, and magical effects.
 
-### Update Flow Map Block
+<H3Image title="Update Flow Map" image="/img/tools/npe/updateFlowMapNode.png" alt="Update Flow Map node"/>
 
 Applies a flow map texture to control particle movement, creating flowing or swirling patterns.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Flow Map block node
-> 
-> **Filename**: `/img/tools/npe/updateFlowMapNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdateFlowMap block to the graph
-> 2. Show with texture input connected
 
 #### Inputs
 
@@ -579,30 +464,17 @@ Applies a flow map texture to control particle movement, creating flowing or swi
 
 #### Special Considerations
 
-Reads RGB values from the flow map texture to determine particle movement direction. Red and Green channels typically encode XY direction, Blue can encode Z direction or strength. Useful for creating water flow, wind fields, or guided particle paths.
+Reads RGB values from the flow map texture to determine particle movement direction. Red, Green, Blue channels typically encode XYZ direction, Alpha encodes strength. Useful for creating water flow, wind fields, or guided particle paths.
 
-### Update Remap Block
+<H3Image title="Update Remap" image="/img/tools/npe/updateRemapNode.png" alt="Update Remap node"/>
 
-Remaps particle properties from one value range to another, useful for normalizing or scaling values.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Update Remap block node
-> 
-> **Filename**: `/img/tools/npe/updateRemapNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an UpdateRemap block to the graph
-> 2. Show properties panel with input/output ranges
+Controls which portion of the ramp gradient texture a particle uses.
 
 #### Inputs
 
 - **particle** (Particle) - **Required**. The particle stream to update
-- **input** (Float) - Value to remap
-- **inputMin** (Float) - Input range minimum [default: 0]
-- **inputMax** (Float) - Input range maximum [default: 1]
-- **outputMin** (Float) - Output range minimum [default: 0]
-- **outputMax** (Float) - Output range maximum [default: 1]
+- **remapColor** (Vector2) - Input to select the color from the texture.
+- **remapAlpha** (Vector2) - Input to select the alpha from the texture.
 
 #### Outputs
 
@@ -610,21 +482,11 @@ Remaps particle properties from one value range to another, useful for normalizi
 
 #### Special Considerations
 
-Linear interpolation from input range to output range. Commonly used to convert normalized values (0-1) to specific ranges needed by other blocks, or to invert ranges. Can be chained with other update blocks for complex value transformations.
+Color and alpha are driven by the ramp texture.
 
-### Basic Color Update Block
+<H3Image title="Basic Color Update" image="/img/tools/npe/basicColorUpdateNode.png" alt="Basic Color Update node"/>
 
 Simplified color update with basic interpolation support.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Basic Color Update block node
-> 
-> **Filename**: `/img/tools/npe/basicColorUpdateNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a BasicColorUpdate block to the graph
-> 2. Capture showing the block
 
 #### Inputs
 
@@ -639,19 +501,9 @@ Simplified color update with basic interpolation support.
 
 Simpler alternative to UpdateColor block for basic color changes. Provides straightforward color assignment without complex logic.
 
-### Basic Position Update Block
+<H3Image title="Basic Position Update" image="/img/tools/npe/basicPositionUpdateNode.png" alt="Basic Position Update node"/>
 
 Simplified position update for basic motion control.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Basic Position Update block node
-> 
-> **Filename**: `/img/tools/npe/basicPositionUpdateNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a BasicPositionUpdate block to the graph
-> 2. Capture showing the block
 
 #### Inputs
 
@@ -666,19 +518,9 @@ Simplified position update for basic motion control.
 
 Simpler alternative to UpdatePosition block for basic position changes without complex calculations.
 
-### Basic Sprite Update Block
+<H3Image title="Basic Sprite Update" image="/img/tools/npe/basicSpriteUpdateNode.png" alt="Basic Sprite Update node"/>
 
 Simplified sprite animation control.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Basic Sprite Update block node
-> 
-> **Filename**: `/img/tools/npe/basicSpriteUpdateNode.jpg`
-> 
-> **Instructions**:
-> 1. Add a BasicSpriteUpdate block to the graph
-> 2. Capture showing the block
 
 #### Inputs
 
@@ -693,19 +535,9 @@ Simplified sprite animation control.
 
 Simplified sprite cell control for basic sprite sheet animation without complex timing logic.
 
-### Align Angle Block
+<H3Image title="Align Angle" image="/img/tools/npe/alignAngleNode.png" alt="Align Angle node"/>
 
 Automatically aligns particle rotation to match their direction of movement.
-
-> **[SCREENSHOT PLACEHOLDER]**
-> 
-> **What to capture**: Align Angle block node
-> 
-> **Filename**: `/img/tools/npe/alignAngleNode.jpg`
-> 
-> **Instructions**:
-> 1. Add an AlignAngle block to the graph
-> 2. Capture showing the block
 
 #### Inputs
 
