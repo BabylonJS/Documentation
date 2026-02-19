@@ -13,21 +13,21 @@ The Node Particle Editor will be familiar for anyone who has already used the No
 
 The tool is available as a stand alone experience by visiting [Node Particle Editor](https://npe.babylonjs.com) and can also be opened from the inspector when selecting any Node Particle System in the scene.
 
-![Node Geometry Editor Edit Button](/img/tools/npe/npeButton1.png)
+![Node Particle Editor Edit Button](/img/tools/npe/npeButton1.png)
 
 Additionally, when you select a regular particle system in the scene, you will have the option to view its representation as a Node Particle System.
 
-![Node Geometry Editor View As Button](/img/tools/npe/npeButton2.png)
+![Node Particle Editor View As Button](/img/tools/npe/npeButton2.png)
 
 ## Interface
 
 The interface for the editor is broken into 4 main sections as can be seen below. The node list is the entire list of available blocks that can be dragged onto the graph. At the top of the list is a search box to help narrow the list. The graph is the workspace for arranging the blocks to create the particle system flow. There is a panel for parameters and controls on the right side of the window which displays any parameters available to the currently selected block. If nothing on the graph is selected, this panel shows controls for the tool itself to load, save, or change default settings. In the bottom right is the preview window which displays the current particle system output in real-time. Lastly, at the bottom of the window is the console log panel which gives information about the build status of the current graph.
 
-![Babylon.js Node Geometry Editor](/img/tools/npe/npeWindow.png)
+![Babylon.js Node Particle Editor](/img/tools/npe/npeWindow.png)
 
 The image above shows several types of blocks available in the graph. At minimum, all particle system graphs need exactly one **System** block and at least one **Emitter** block that creates particles. The System block is the core of every particle system, defining properties like particle capacity, blend modes, and billboard settings. Note that the inputs and outputs on the blocks share colors that give hints on what can be connected. 
 
-Emitters are just one type of several block categories such as Update, Math, Input, Conditions, Triggers, and more. Connecting these different block types creates an almost limitless variety of particle effects.
+Shapes are just one type of several block categories such as Updates, Inputs, Logical, Math, Interpolation, Triggers, and more. Connecting these different block types creates an almost limitless variety of particle effects.
 
 ## Adding Nodes
 
@@ -47,9 +47,9 @@ Blocks usually have one or more inputs and one or more outputs, though there are
 
 ![Input type iconography](/img/tools/npe/inputTypes.png)
 
-The most common data types are **Float**, **Vector3**, **Color3**, and **Color4** which are used for numeric values, positions/directions, and colors respectively. The **Particle** type is specific to the Node Particle Editor and represents the particle data stream that flows from emitters through update blocks to the system output.
+The most common data types are **Float**, **Vector3**, and **Color4** which are used for numeric values, positions/directions, and colors respectively. The **Particle** type is specific to the Node Particle Editor and represents the particle data stream that flows from emitters through update blocks to the system output.
 
-**Auto-detect** is not really a data type, but a prompt to let us know that the block supports multiple data types. If a supported data type is connected to an Auto-detect type port, the block will convert all Auto-detect ports to the connected type. In this way, Auto-detect type ports will only appear on a block that does not have any connections.
+**AutoDetect** is not really a data type, but a prompt to let us know that the block supports multiple data types. If a supported data type is connected to an AutoDetect type port, the block will convert all AutoDetect ports to the connected type. In this way, AutoDetect type ports will only appear on a block that does not have any connections.
 
 Anytime a block requires a specific input to be wired, the console log will display an error saying the graph cannot be evaluated until all required inputs have been connected.
 
@@ -126,9 +126,12 @@ When clicking on an empty portion of the graph, the parameters panel will displa
 - **Grid size** will change the spacing of the grid lines in the graph.
 - **Show grid** will toggle the display of the grid in the editor.
 - **Undo/Redo** will toggle the undo/redo functionality in the editor.
+- **Rebuild** will rebuild the graph within the tool, which will update the particle system in the preview window. While the graph automatically rebuilds with every change, the rebuild button is useful when the graph includes blocks that produce procedurally generated output like `Random`. Pressing the rebuild button will allow testing of the graph to see different output generated by procedural blocks without needing to make a change to the graph itself.
 - **Load** will load a particle system graph from a local JSON file. This will replace whatever blocks have been placed on the graph with the loaded particle system graph.
 - **Save** will save the current particle system graph to a local JSON file. For production projects, saving local JSON files is preferable to using the snippet server to ensure that the JSON is always available to the project from the local server.
-- **Save as unique URL** will save the current particle system graph to the snippet server and generate a snippet ID that can be parsed into an experience with only the snippet ID. This is a great option for sharing graphs or for prototyping, but isn't a good choice for production as the snippet server exists outside a project's local infrastructure and should not be relied upon for uptime when a project is live.
+- **Load Frame** will load a previously exported custom frame from a local JSON file and add it to the block list for reuse.
+- **Load from snippet server** will load a particle system graph from the snippet server using a snippet ID.
+- **Save to snippet server** will save the current particle system graph to the snippet server and generate a snippet ID that can be parsed into an experience with only the snippet ID. This is a great option for sharing graphs or for prototyping, but isn't a good choice for production as the snippet server exists outside a project's local infrastructure and should not be relied upon for uptime when a project is live.
 
 ![Options for the graph color, grid, and zoom including save and load actions](/img/tools/npe/npeOptions.png)
 
@@ -175,7 +178,7 @@ Multiple emitters and update chains can feed into a single System block, allowin
 
 When creating a Node Particle System in a scene, it can always be edited simply by launching the Node Particle Editor with the particle system selected in the inspector. The **Edit** button to launch the Node Particle Editor can be found under the particle system properties which appear when the system is selected.
 
-![Node Geometry Editor Edit Button](/img/tools/npe/npeButton1.png)
+![Node Particle Editor Edit Button](/img/tools/npe/npeButton1.png)
 
 Launching the editor from here will connect the editor to the scene allowing changes to the graph to be reflected in the scene. The Node Particle Editor will automatically update the particle system in the scene whenever there is a change to the graph, providing immediate visual feedback.
 
