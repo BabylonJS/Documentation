@@ -16,10 +16,6 @@ The Inspector is included in Babylon tools like [Playground](/toolsAndResources/
 
 The Inspector is also available as an API to be used in your own projects, which can be found in the [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) package.
 
-<Alert severity="warning">
-Currently Inspector V2 is in preview, and so you must view and install a `@preview` version of the package to try V2 (otherwise you will be using the legacy V1). For example: https://www.npmjs.com/package/@babylonjs/inspector/v/8.29.0-preview
-</Alert>
-
 Following is a basic example showing how to attach Inspector to a Babylon scene.
 
 <CodeSandbox id="msdvk8" title="Inspector V2 - Intro" height="600px" />
