@@ -1,7 +1,7 @@
 ---
 title: Extensibility API
 image:
-description: Hight level information about the Inspector V2 extensibility API.
+description: High level information about the Inspector V2 extensibility API.
 keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
     - title: Examples
@@ -55,7 +55,7 @@ There are a number of React components that can be used to simplify extension im
 
 | Component                                         | Description                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BoundProperty`                                   | This is a wrapper component that can be used with the components listed below but takes care of "binding" to a property of an entity (meaning it observes changes to that property in real time). Use this whenever you can for side panes like the properties pane, the deubg pane, etc. Internally `BoundProperty` uses the [`useProperty` hook](#react-hooks) described later. |
+| `BoundProperty`                                   | This is a wrapper component that can be used with the components listed below but takes care of "binding" to a property of an entity (meaning it observes changes to that property in real time). Use this whenever you can for side panes like the properties pane, the debug pane, etc. Internally `BoundProperty` uses the [`useProperty` hook](#react-hooks) described later. |
 | `Vector3PropertyLine`, `SwitchPropertyLine`, etc. | Any component that is suffixed with `PropertyLine` is intended to be used in the properties pane, debug pane, etc., and can be wrapped in `BoundProperty`.                                                                                                                                                                                                                        |
 | `ButtonLine`, `FileUploadLine`, etc.              | Any component that is suffixed with just `Line` is intended to be used in the properties pane, debug pane, etc., but is used standalone (not wrapped in `BoundProperty`).                                                                                                                                                                                                         |
 | `Button`, `Switch`, `DropDown`, etc.              | There are many other "primitive" components that can be used for building UI that is more custom than what is seen in the properties pane (and other similar panes).                                                                                                                                                                                                              |
@@ -78,7 +78,7 @@ There are a number of React hooks that make it easy to re-use much of the behavi
 
 ## Helpers
 
-There are a number of helpers that also make it easy o re-use much of the behavior you might see in the core Inspector features.
+There are a number of helpers that also make it easy to re-use much of the behavior you might see in the core Inspector features.
 
 | Helper                 | Description                                                                                                                                                                                                                                                                                                                                    |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

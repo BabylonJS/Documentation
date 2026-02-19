@@ -16,7 +16,7 @@ The code is shown by default for each example, but you can **drag the divider on
 
 ## Side Panes
 
-This example demonstrates how to add an entirely new side pane (along side Scene Explorer, Properties, etc.).
+This example demonstrates how to add an entirely new side pane (alongside Scene Explorer, Properties, etc.).
 
 In this example, the new side pane displays a treemap chart of mesh vertex counts. When a node of the treemap is clicked, it selects the corresponding mesh and you can see which one it is in Scene Explorer. Look for a new tab icon that looks like a treemap in the right pane toolbar area.
 
