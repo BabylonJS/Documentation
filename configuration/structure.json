@@ -2561,7 +2561,7 @@
                     "content": "toolsAndResources/sandbox"
                 },
                 "inspectorv2": {
-                    "friendlyName": "Inspector V2 (Preview)",
+                    "friendlyName": "Inspector V2",
                     "children": {
                         "architecture": {
                             "friendlyName": "Architecture",
@@ -2582,7 +2582,7 @@
                     "content": "toolsAndResources/inspector.v2"
                 },
                 "inspector": {
-                    "friendlyName": "Inspector",
+                    "friendlyName": "Inspector V1 (Legacy)",
                     "children": {
                         "inspectorVideoOverview": {
                             "friendlyName": "Intro to the Inspector Video Series",
