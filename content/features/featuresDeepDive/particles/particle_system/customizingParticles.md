@@ -18,7 +18,7 @@ There are three methods you can customize:
 
 - `startDirectionFunction`: specifies the direction for each new particle;
 - `startPositionFunction`: specifies the start position for each new particle;
-- `updateFunction`: provides an update to each particle on each frame and can affect position, color, age, size etc. Try to keep it simple and fast.
+- `updateFunction`: provides an update to each particle on each frame and can affect position, color, age, size, etc. Try to keep it simple and fast.
 
 You can directly attach all these functions to the `particleSystem`.
 
@@ -96,7 +96,7 @@ particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(),
 
 ### Grow Particles from Size 0 to a Final Size
 
-This is a little trickier since the particles start from size 0 — both `minSize` and `maxSize` must be set to 0, and a new property is added to store the final size.
+This is a little trickier, since the particles start from size 0 — both `minSize` and `maxSize` must be set to 0, and a new property is added to store the final size.
 
 Add in the main body of code:
 
@@ -107,7 +107,7 @@ particleSystem.maxSize = 0;
 particleSystem.finalSize = 1;
 ```
 
-And in the `else` section, to grow the particle to its final size by 35% of its lifetime, add:
+In the `else` section, to grow the particle to its final size by 35% of its lifetime, add:
 
 ```javascript
 if (particle.age < particle.lifeTime * 0.35) {
@@ -123,11 +123,11 @@ Starting from Babylon.js v3.2, you can create a new object of type `IParticleEmi
 
 These objects are assigned to the `particleEmitterType` property of the particle system.
 
-You use the `startDirectionFunction` and `startPositionFunction` as methods for objects of this type to determine the region of space that the particles are emitted from and their direction of travel.
+You use `startDirectionFunction` and `startPositionFunction` as methods on objects of this type to determine the region of space that the particles are emitted from and their direction of travel.
 
 You can create your own particle emitter type by implementing `IParticleEmitterType` and assigning it to `particleEmitterType`, overriding the default `startDirectionFunction` and `startPositionFunction` methods.
 
-Below is an example to create a new spray emitter which will send streams of particles out of the top, bottom and sides of a cylindrical region.
+Below is an example that creates a new spray emitter, which sends streams of particles out of the top, bottom, and sides of a cylindrical region.
 
 #### Create Spray Emitter
 
@@ -137,7 +137,7 @@ In order to determine where a particle is emitted from, the cylinder is divided 
 
 Any particle with a start position inside the red region is emitted in the direction from the center to the particle. Any particle with a start position inside the blue region is emitted horizontally.
 
-The `createSprayEmitter` method sets the radius and height of the cylinder, creates a new `SprayParticleEmitter` object which is assigned to the `particleEmitterType` property.
+The `createSprayEmitter` method sets the radius and height of the cylinder and creates a new `SprayParticleEmitter` object, which is assigned to the `particleEmitterType` property.
 
 ```javascript
 BABYLON.ParticleSystem.prototype.createSprayEmitter = function (radius, height) {
@@ -153,7 +153,7 @@ BABYLON.ParticleSystem.prototype.createSprayEmitter = function (radius, height) 
 };
 ```
 
-The `SprayParticleEmitter` class implements two methods, `startDirectionFunction` and `startPositionFunction`, and Babylon.js takes care of the rest.
+The `SprayParticleEmitter` class implements two methods — `startDirectionFunction` and `startPositionFunction` — and Babylon.js takes care of the rest.
 
 ```javascript
 var SprayParticleEmitter = (function () {
@@ -215,7 +215,7 @@ A custom effect is achieved via a fourth parameter when creating a new particle 
 var particleSystem = new BABYLON.ParticleSystem("particles", 2000, scene, customEffect);
 ```
 
-The customEffect is a type of BABYLON.Effect used to target a valid shader program and is created with the `createEffectForParticles` method of the `engine` object.
+The customEffect is a type of `BABYLON.Effect` used to target a valid shader program and is created with the `createEffectForParticles` method of the `engine` object.
 
 This method takes three parameters:
 
@@ -223,13 +223,13 @@ This method takes three parameters:
 var customEffect = engine.createEffectForParticles(fragment, uniforms, samplers);
 ```
 
-- fragment: string, the name of the fragment shader which can be in the [shaders store](/features/featuresDeepDive/materials/advanced/custom_procedural_textures#using-a-shaderstore-for-shader-storage) or the [id of a DOM element](/features/featuresDeepDive/materials/shaders/shaderCodeInBjs#shader-code-in-script-tags);
-- uniforms: [strings], array of additional uniforms used in the shader;
-- samplers: [strings], array of names of samplers for additional textures.
+- fragment: string — the name of the fragment shader, which can be in the [shaders store](/features/featuresDeepDive/materials/advanced/custom_procedural_textures#using-a-shaderstore-for-shader-storage) or the [id of a DOM element](/features/featuresDeepDive/materials/shaders/shaderCodeInBjs#shader-code-in-script-tags)
+- uniforms: [strings] — array of additional uniforms used in the shader
+- samplers: [strings] — array of names of samplers for additional textures
 
 ### Fragment Shader Assignment
 
-When assigning a fragment shader to the shader store, the name should have `FragmentShader` appended. For example, creating a custom effect with the fragment name `myParticle` requires a `myParticleFragmentShader` entry in the shader store:
+When assigning a fragment shader to the shader store, the name should have `FragmentShader` appended to it. For example, creating a custom effect with the fragment name `myParticle` requires a `myParticleFragmentShader` entry in the shader store:
 
 ```javascript
 BABYLON.Effect.ShadersStore["myParticleFragmentShader"] = [...]
@@ -241,15 +241,15 @@ var customEffect = engine.createEffectForParticles("myParticle", [...]);
 
 ### Uniforms Assignment
 
-By default, Babylon.js provides a `vUV` and a `vColor` varying parameter, and also passes the particle texture.
+By default, Babylon.js provides `vUV` and `vColor` varying parameters and also passes the particle texture.
 
-You can add further uniform variables. For example, to pass a `uniform` variable such as `time`, include it in the uniforms array:
+You can add further uniform variables. For example, to pass a uniform variable such as `time`, include it in the uniforms array:
 
 ```javascript
 var customEffect = engine.createEffectForParticles("myParticle", [time]);
 ```
 
-then pass it using `setFloat` with an `onBind` callback for `customEffect`:
+Then pass it using `setFloat` with an `onBind` callback for `customEffect`:
 
 ```javascript
 var time = 0;
@@ -266,11 +266,11 @@ customEffect.onBind = function () {
 };
 ```
 
-You can see an example of the above in this playground  
-<Playground id="#1ASENS#43" title="Custom Effect using Shader Store" description="Simple example of a custom effect using shader store."/>  
-You can see a similar example with node based particles
-<Playground id="#0K3AQ2#3943" title="Custom Effect using Shader Store with NPE" description="Simple example of a custom effect using shader store with NPE."/>
+You can see an example of the above in this playground:  
+<Playground id="#1ASENS#43" title="Custom Effect Using Shader Store" description="Simple example of a custom effect using the shader store."/>  
+You can see a similar example with node-based particles:
+<Playground id="#0K3AQ2#3943" title="Custom Effect Using Shader Store With NPE" description="Simple example of a custom effect using the shader store with NPE."/>
 
 ### Particle Effect Object
 
-The particle effect object is a slightly modified [Babylon Effect Object](/typedoc/classes/babylon.effect). Also notice that the `ShadersStore` is a namespace upon this special-effect object.
+The particle effect object is a slightly modified [Babylon Effect Object](/typedoc/classes/babylon.effect). Also note that the `ShadersStore` is a namespace on this special effect object.

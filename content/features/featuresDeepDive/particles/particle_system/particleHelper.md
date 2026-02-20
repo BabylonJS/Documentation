@@ -38,40 +38,40 @@ BABYLON.ParticleHelper.CreateAsync("sun", scene, true).then((set) => {
 });
 ```
 
-You can find a demo here: <Playground id="#1VGT5D#2" title="Particle Helper Example" description="Simple example of creating a particle system with the particle helper." isMain={true} category="Particles"/>
+You can find a demo here: <Playground id="#MX2Z99#172" title="Particle Helper Example" description="Simple example of creating a particle system with the particle helper." isMain={true} category="Particles"/>
 
 ## ParticleSystemSet
 
-When calling `BABYLON.ParticleHelper.CreateAsync()`, you will get a Promise that will resolve returning a `ParticleSystemSet`.
+When calling `BABYLON.ParticleHelper.CreateAsync()`, you will get a Promise that resolves with a `ParticleSystemSet`.
 This class can be used with the following properties and functions:
 
-- `emitterNode`: Use this property to get the transform node used as emitter by the particle systems
-- `start(emitter)`: Call this function to start all particle systems associated with the current set. You can use the optional parameter to overwrite the emitter
-- `dispose()`: Call this function to stop and clear all particle systems
+- `emitterNode`: Use this property to get the transform node used as the emitter by the particle systems.
+- `start(emitter)`: Call this function to start all particle systems associated with the current set. You can use the optional parameter to overwrite the emitter.
+- `dispose()`: Call this function to stop and clear all particle systems.
 
 You can also get the list of particle systems used by the set with `set.systems`.
 
-## Available effects
+## Available Effects
 
-Each effect can be described using a json file like this one: https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json
+Each effect can be described using a JSON file [like this one](https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json).
 
 List of available effects:
 
 | Effect name   | Image                                             | Playground                                                                                          |
 | ------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| **sun**       | ![sun](/img/how_to/Particles/sun.jpg)             | <Playground id="#1VGT5D#2" title="Particle Sun Demo" description="Particle Sun Demo."/>             |
-| **smoke**     | ![smoke](/img/how_to/Particles/smoke.jpg)         | <Playground id="#HT18SF#0" title="Particle Smoke Demo" description="Particle Smoke Demo."/>         |
-| **rain**      | ![rain](/img/how_to/Particles/rain.jpg)           | <Playground id="#XQ8H3C#0" title="Particle Rain Demo" description="Particle Rain Demo."/>           |
-| **fire**      | ![fire](/img/how_to/Particles/fire.jpg)           | <Playground id="#7IM02G#0" title="Particle Fire Demo" description="Particle Fire Demo."/>           |
-| **explosion** | ![explosion](/img/how_to/Particles/explosion.jpg) | <Playground id="#X37LS1#3" title="Particle Explosion Demo" description="Particle Explosion Demo."/> |
+| **sun**       | ![sun](/img/how_to/Particles/sun.jpg)             | <Playground id="#MX2Z99#172" title="Particle Sun Demo" description="Particle Sun Demo."/>             |
+| **smoke**     | ![smoke](/img/how_to/Particles/smoke.jpg)         | <Playground id="#MX2Z99#173" title="Particle Smoke Demo" description="Particle Smoke Demo."/>         |
+| **rain**      | ![rain](/img/how_to/Particles/rain.jpg)           | <Playground id="#MX2Z99#175" title="Particle Rain Demo" description="Particle Rain Demo."/>           |
+| **fire**      | ![fire](/img/how_to/Particles/fire.jpg)           | <Playground id="#MX2Z99#174" title="Particle Fire Demo" description="Particle Fire Demo."/>           |
+| **explosion** | ![explosion](/img/how_to/Particles/explosion.jpg) | <Playground id="#MX2Z99#177" title="Particle Explosion Demo" description="Particle Explosion Demo."/> |
 
 ## Custom ParticleSets
 
-It is reasonably simple to create your own custom particleSet. Each of the particleSets listed above... is stored in aBabylon.js folder currently located [**here**](https://github.com/BabylonJS/Assets/tree/master/particles/systems). For instance, when you use “sun” as the particleSet _type_, the particleHelper will pick [**this json**](https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json) (which defines the 'sun' particleSet _type_).
+It is reasonably simple to create your own custom particleSet. Each of the particleSets listed above is stored in a Babylon.js folder currently located [**in this URL**](https://github.com/BabylonJS/Assets/tree/master/particles/systems). For instance, when you use "sun" as the particleSet _type_, the particleHelper will pick [**this JSON**](https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json) (which defines the "sun" particleSet _type_).
 
 You may store these custom JSON particleSets anywhere you wish. You can set the base URL for the particleHelper with: `BABYLON.ParticleHelper.BaseAssetsUrl = “https://yourBaseUrl”;`
 
-This must be done BEFORE you execute the CreateAsync call which loads your particleSet json file:
+This must be done BEFORE you execute the `CreateAsync` call, which loads your particleSet JSON file:
 
 ```javascript
 var myParticleSet = new BABYLON.ParticleHelper.CreateAsync("tornado", scene).then(function(set) {
@@ -79,20 +79,18 @@ var myParticleSet = new BABYLON.ParticleHelper.CreateAsync("tornado", scene).the
 });
 ```
 
-In the above example, 'tornado' is NOT the _name_ of a particle system. It is the name of a particleSet _TYPE_. In a moment, we will see how the _type_ string is used.
+In the above example, "tornado" is NOT the _name_ of a particle system. It is the name of a particleSet _type_. In a moment, we will see how the _type_ string is used.
 
-Let's look at the code-line that loads JSON particleSets into the particleHelper:
+Let's look at the line of code that loads JSON particleSets into the particleHelper:
 
 `` Tools.LoadFile(`${ParticleHelper.BaseAssetsUrl}/systems/${type}.json`, (data) => { ``
 
 Notice the _type_ is used as the name of the JSON file. Using the previous example, your complete filename would be `tornado.json`.
 
-Also notice the /systems/ subFolder hierarchy. Your custom particleSet JSON file needs to be located in a subFolder called /systems/. So, `yourDomain/systems/tornado.json` is where your file should be located and how it should be named (for our example).
+Also notice the `/systems/` subfolder hierarchy. Your custom particleSet JSON file needs to be located in a subfolder called `/systems/`. So, `yourDomain/systems/tornado.json` is where your file should be located and how it should be named (for our example).
 
 ## Generate Custom ParticleSets
 
-You can automatically generate a new JSON particleSet (into a variable) by creatively configuring your particles systems, and then using the ExportSet option.
-
-https://doc.babylonjs.com/api/classes/babylon.particlehelper#exportset
+You can automatically generate a new JSON particleSet (into a variable) by creatively configuring your particle systems and then using the [ExportSet option](https://doc.babylonjs.com/api/classes/babylon.particlehelper#exportset).
 
 Usage: `var mySet = BABYLON.ParticleHelper.ExportSet( [includedPS1, includedPS2, includedPS3...] );`
