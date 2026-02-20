@@ -2063,6 +2063,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/scene/floating_origin"
                                 },
+                                "large_world": {
+                                    "friendlyName": "Large World Rendering",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/scene/large_world"
+                                },
                                 "reducingMemoryUsage": {
                                     "friendlyName": "Reducing Memory Footprint",
                                     "children": {},

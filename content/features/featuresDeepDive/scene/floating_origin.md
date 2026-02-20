@@ -9,6 +9,9 @@ further-reading:
 video-overview:
 video-content:
 ---
+# New: FloatingOriginMode
+Since the authoring of this page, we have introduced floatingOriginMode to the scene (and useLargeWorldRendering to the engine). See [Large World Rendering / Floating Origin](/features/featuresDeepDive/scene/large_world).
+
 
 ## How floating-origin works
 
