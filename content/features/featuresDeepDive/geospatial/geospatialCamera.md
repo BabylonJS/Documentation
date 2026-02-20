@@ -38,12 +38,12 @@ This creates a camera orbiting a sphere of the given radius. By default:
 
 The geospatial camera describes its orientation using four properties:
 
-| Property | Type      | Description                                                                               |
-| -------- | --------- | ----------------------------------------------------------------------------------------- |
-| `center` | `Vector3` | The point on the globe the camera is anchored to (in ECEF world coordinates). This will be a point along the lookat vector that is pickable using the provided 'pick predicate' (or any mesh if no pickpredicate is provided)             |
-| `radius` | `number`  | The distance from the camera to the center point.                                         |
-| `yaw`    | `number`  | Rotation around the geocentric normal (radians). 0 = north, π/2 = east.                   |
-| `pitch`  | `number`  | Angle from looking straight at planet center. 0 = looking down, π/2 = looking at horizon. |
+| Property | Type      | Description                                                                                                                                                                                    |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `center` | `Vector3` | The point on the globe the camera is anchored to (in ECEF world coordinates). This will be a point along the lookat vector that is pickable using the provided 'pick predicate' (or any mesh if no pickpredicate is provided) |
+| `radius` | `number`  | The distance from the camera to the center point.                                                                                                                                              |
+| `yaw`    | `number`  | Rotation around the geocentric normal (radians). 0 = north, π/2 = east.                                                                                                                       |
+| `pitch`  | `number`  | Angle from looking straight at planet center. 0 = looking down, π/2 = looking at horizon.                                                                                                     |
 
 All four properties are readable and writable. Setting any of them immediately recomputes the camera's position, look-at direction, and up vector while respecting limits.
 
@@ -119,27 +119,27 @@ keyboardInput.zoomSensitivity = 1.0;
 
 User input flows through a layered pipeline: **input sensitivity** (per-device scaling) → **velocity & inertia** (frame-rate-independent smoothing) → **speed × multiplier** (conversion to world-space movement). All configurable values are listed below.
 
-| Property | Location | Default | Description | When to modify |
-| --- | --- | --- | --- | --- |
-| **Input Sensitivity** | | | | |
-| `pitchSensitivity` | Pointer input | `1.0` | Scales pointer Y delta for pitch | Mouse/touch tilt feels too fast or slow |
-| `yawSensitivity` | Pointer input | `1.0` | Scales pointer X delta for yaw | Mouse/touch yaw feels too fast or slow |
-| `pinchToPanMax` | Pointer input | `20` | Pixel threshold: pinch vs pan | Touch gestures are being confused |
-| `rotationSensitivity` | Keyboard input | `1.0` | Pixel delta per key for rotation | Keyboard tilt feels too fast or slow |
-| `panSensitivity` | Keyboard input | `1.0` | Pixel offset per key for panning | Keyboard pan feels too fast or slow |
-| `zoomSensitivity` | Keyboard input | `1.0` | Scroll delta per key for zoom | Keyboard zoom feels too fast or slow |
-| **Speed** | | | | |
-| `zoomSpeed` | `movement` | `2` | Base zoom rate (all devices) | All zoom feels too fast or slow |
-| `panSpeed` | `movement` | `1` | Base pan rate (all devices) | All panning feels too fast or slow |
-| `rotationXSpeed` | `movement` | `π/500` | Radians of pitch per velocity unit | All pitch rotation feels too fast or slow |
-| `rotationYSpeed` | `movement` | `π/500` | Radians of yaw per velocity unit | All yaw rotation feels too fast or slow |
-| **Multipliers** | | | | |
-| `_zoomSpeedMultiplier` | `movement` | Auto | Applied to zoom each frame. Override per-frame to implement custom zoom behavior (e.g. radius-based speed, altitude curves) | You want full control over how zoom scales with context |
-| `_panSpeedMultiplier` | `movement` | Auto | Applied to pan each frame. Override per-frame to implement custom pan behavior (e.g. latitude dampening, terrain-aware speed) | You want full control over how pan scales with context |
-| **Inertia** | | | | |
-| `zoomInertia` | `movement` | `0.9` | Zoom velocity decay (`0` = instant stop, `0.95` = long glide) | Zoom coasting feels too long or abrupt |
-| `panInertia` | `movement` | `0` | Pan velocity decay | You want the globe to drift after drag |
-| `rotationInertia` | `movement` | `0` | Rotation velocity decay | You want tilt to coast after releasing |
+| Property               | Location       | Default | Description                                                                                                                    | When to modify                                           |
+| ---------------------- | -------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| **Input Sensitivity**  |                |         |                                                                                                                                |                                                          |
+| `pitchSensitivity`     | Pointer input  | `1.0`   | Scales pointer Y delta for pitch                                                                                               | Mouse/touch tilt feels too fast or slow                  |
+| `yawSensitivity`       | Pointer input  | `1.0`   | Scales pointer X delta for yaw                                                                                                 | Mouse/touch yaw feels too fast or slow                   |
+| `pinchToPanMax`        | Pointer input  | `20`    | Pixel threshold: pinch vs pan                                                                                                  | Touch gestures are being confused                        |
+| `rotationSensitivity`  | Keyboard input | `1.0`   | Pixel delta per key for rotation                                                                                               | Keyboard tilt feels too fast or slow                     |
+| `panSensitivity`       | Keyboard input | `1.0`   | Pixel offset per key for panning                                                                                               | Keyboard pan feels too fast or slow                      |
+| `zoomSensitivity`      | Keyboard input | `1.0`   | Scroll delta per key for zoom                                                                                                  | Keyboard zoom feels too fast or slow                     |
+| **Speed**              |                |         |                                                                                                                                |                                                          |
+| `zoomSpeed`            | `movement`     | `2`     | Base zoom rate (all devices)                                                                                                   | All zoom feels too fast or slow                          |
+| `panSpeed`             | `movement`     | `1`     | Base pan rate (all devices)                                                                                                    | All panning feels too fast or slow                       |
+| `rotationXSpeed`       | `movement`     | `π/500` | Radians of pitch per velocity unit                                                                                             | All pitch rotation feels too fast or slow                |
+| `rotationYSpeed`       | `movement`     | `π/500` | Radians of yaw per velocity unit                                                                                               | All yaw rotation feels too fast or slow                  |
+| **Multipliers**        |                |         |                                                                                                                                |                                                          |
+| `_zoomSpeedMultiplier` | `movement`     | Auto    | Applied to zoom each frame. Override per-frame to implement custom zoom behavior (e.g. radius-based speed, altitude curves)    | You want full control over how zoom scales with context  |
+| `_panSpeedMultiplier`  | `movement`     | Auto    | Applied to pan each frame. Override per-frame to implement custom pan behavior (e.g. latitude dampening, terrain-aware speed)   | You want full control over how pan scales with context   |
+| **Inertia**            |                |         |                                                                                                                                |                                                          |
+| `zoomInertia`          | `movement`     | `0.9`   | Zoom velocity decay (`0` = instant stop, `0.95` = long glide)                                                                 | Zoom coasting feels too long or abrupt                   |
+| `panInertia`           | `movement`     | `0`     | Pan velocity decay                                                                                                             | You want the globe to drift after drag                   |
+| `rotationInertia`      | `movement`     | `0`     | Rotation velocity decay                                                                                                        | You want tilt to coast after releasing                   |
 
 ```javascript
 // Per-device: make mouse tilt twice as fast
@@ -299,18 +299,18 @@ The behavior calculates:
 
 The geospatial camera is composed of several classes that work together:
 
-| Class                                 | Responsibility                                                                                                                                      |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`GeospatialCamera`**                | Core camera. Manages yaw/pitch/radius/center, computes view matrix, applies inputs each frame, handles flyTo animations.                            |
-| **`GeospatialCameraMovement`**        | Extends `CameraMovement`. Globe drag-plane raycasting, latitude-based pan dampening, altitude-aware zoom scaling, zoom-to-cursor picking.           |
-| **`CameraMovement`**                  | Base movement class. Converts pixel deltas into frame-rate-independent movement deltas with configurable speed, inertia, and per-frame multipliers. |
-| **`GeospatialLimits`**                | Enforces radius, pitch, and yaw constraints. Provides altitude-based pitch dampening.                                                               |
-| **`GeospatialCameraInputsManager`**   | Input manager that wires up pointer, mouse wheel, and keyboard inputs.                                                                              |
+| Class                                 | Responsibility                                                                                                                                       |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`GeospatialCamera`**                | Core camera. Manages yaw/pitch/radius/center, computes view matrix, applies inputs each frame, handles flyTo animations.                             |
+| **`GeospatialCameraMovement`**        | Extends `CameraMovement`. Globe drag-plane raycasting, latitude-based pan dampening, altitude-aware zoom scaling, zoom-to-cursor picking.            |
+| **`CameraMovement`**                  | Base movement class. Converts pixel deltas into frame-rate-independent movement deltas with configurable speed, inertia, and per-frame multipliers.  |
+| **`GeospatialLimits`**                | Enforces radius, pitch, and yaw constraints. Provides altitude-based pitch dampening.                                                                |
+| **`GeospatialCameraInputsManager`**   | Input manager that wires up pointer, mouse wheel, and keyboard inputs.                                                                               |
 | **`GeospatialCameraPointersInput`**   | Mouse/touch input: drag globe, tilt, pinch-to-zoom, double-tap to fly.                                                                              |
-| **`GeospatialCameraMouseWheelInput`** | Mouse wheel zoom input.                                                                                                                             |
-| **`GeospatialCameraKeyboardInput`**   | Arrow keys for pan/rotate, +/- for zoom.                                                                                                            |
-| **`GeospatialClippingBehavior`**      | Behavior that auto-adjusts near/far clip planes based on altitude for optimal depth precision.                                                      |
-| **`InterpolatingBehavior`**           | Behavior that powers `flyToAsync` animations. Automatically interrupted by user input.                                                              |
+| **`GeospatialCameraMouseWheelInput`** | Mouse wheel zoom input.                                                                                                                              |
+| **`GeospatialCameraKeyboardInput`**   | Arrow keys for pan/rotate, +/- for zoom.                                                                                                             |
+| **`GeospatialClippingBehavior`**      | Behavior that auto-adjusts near/far clip planes based on altitude for optimal depth precision.                                                       |
+| **`InterpolatingBehavior`**           | Behavior that powers `flyToAsync` animations. Automatically interrupted by user input.                                                               |
 
 ## API Reference
 
@@ -322,32 +322,32 @@ new GeospatialCamera(name: string, scene: Scene, options: GeospatialCameraOption
 
 #### `GeospatialCameraOptions`
 
-| Property        | Type            | Required | Description                                                                         |
-| --------------- | --------------- | -------- | ----------------------------------------------------------------------------------- |
-| `planetRadius`  | `number`        | Yes      | Radius of the planet being orbited.                                                 |
-| `pickPredicate` | `MeshPredicate` | No       | Predicate for raycasting. Can be updated later via `camera.movement.pickPredicate`. |
+| Property        | Type            | Required | Description                                                                          |
+| --------------- | --------------- | -------- | ------------------------------------------------------------------------------------ |
+| `planetRadius`  | `number`        | Yes      | Radius of the planet being orbited.                                                  |
+| `pickPredicate` | `MeshPredicate` | No       | Predicate for raycasting. Can be updated later via `camera.movement.pickPredicate`.  |
 
 ### Properties
 
-| Property                  | Type                       | Description                                               |
-| ------------------------- | -------------------------- | --------------------------------------------------------- |
-| `center`                  | `Vector3`                  | The anchor point on the globe (get/set).                  |
-| `yaw`                     | `number`                   | Rotation around geocentric normal in radians (get/set).   |
-| `pitch`                   | `number`                   | Angle from looking at planet center in radians (get/set). |
-| `radius`                  | `number`                   | Distance from camera to center (get/set).                 |
-| `limits`                  | `GeospatialLimits`         | The limits object (readonly).                             |
-| `movement`                | `GeospatialCameraMovement` | The movement controller (readonly).                       |
-| `checkCollisions`         | `boolean`                  | Enable/disable collision detection. Default `false`.      |
-| `perFrameCollisionOffset` | `Vector3`                  | Custom collision offset applied each frame.               |
+| Property                  | Type                       | Description                                                |
+| ------------------------- | -------------------------- | ---------------------------------------------------------- |
+| `center`                  | `Vector3`                  | The anchor point on the globe (get/set).                   |
+| `yaw`                     | `number`                   | Rotation around geocentric normal in radians (get/set).    |
+| `pitch`                   | `number`                   | Angle from looking at planet center in radians (get/set).  |
+| `radius`                  | `number`                   | Distance from camera to center (get/set).                  |
+| `limits`                  | `GeospatialLimits`         | The limits object (readonly).                              |
+| `movement`                | `GeospatialCameraMovement` | The movement controller (readonly).                        |
+| `checkCollisions`         | `boolean`                  | Enable/disable collision detection. Default `false`.       |
+| `perFrameCollisionOffset` | `Vector3`                  | Custom collision offset applied each frame.                |
 
-### Methods
+### Functions
 
-| Method                                                                                  | Description                                                     |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `flyToAsync(yaw?, pitch?, radius?, center?, durationMs?, easingFn?, centerHopScale?)`   | Animate camera to target properties. Returns a `Promise<void>`. |
-| `flyToPointAsync(destination, distanceScale?, durationMs?, easingFn?, centerHopScale?)` | Fly toward a world-space point by a fraction of the distance.   |
-| `updateFlyToDestination(yaw?, pitch?, radius?, center?)`                                | Redirect an in-progress flight animation.                       |
-| `zoomToPoint(targetPoint, distance)`                                                    | Zoom toward a specific point by a given distance.               |
-| `zoomAlongLookAt(distance)`                                                             | Zoom along the look-at vector by a given distance.              |
-| `attachControl(noPreventDefault?)`                                                      | Attach all input handlers.                                      |
-| `detachControl()`                                                                       | Detach all input handlers.                                      |
+| Function                                                                                | Description                                                      |
+| --------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `flyToAsync(yaw?, pitch?, radius?, center?, durationMs?, easingFn?, centerHopScale?)`   | Animate camera to target properties. Returns a `Promise<void>`.  |
+| `flyToPointAsync(destination, distanceScale?, durationMs?, easingFn?, centerHopScale?)` | Fly toward a world-space point by a fraction of the distance.    |
+| `updateFlyToDestination(yaw?, pitch?, radius?, center?)`                                | Redirect an in-progress flight animation.                        |
+| `zoomToPoint(targetPoint, distance)`                                                    | Zoom toward a specific point by a given distance.                |
+| `zoomAlongLookAt(distance)`                                                             | Zoom along the look-at vector by a given distance.               |
+| `attachControl(noPreventDefault?)`                                                      | Attach all input handlers.                                       |
+| `detachControl()`                                                                       | Detach all input handlers.                                       |

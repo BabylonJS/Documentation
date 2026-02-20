@@ -33,8 +33,7 @@ From the perspective of your application code, nothing changes — meshes are st
 
 ## Examples
 
-<Playground id="#P3E9YP#256" title="Large World Rendering Demo" description="Side-by-side comparison of rendering with and without large world rendering enabled. Move the camera to see jitter eliminated." />
-
+<Playground id="#5U0N0Q" title="Large World Rendering Demo" description="Side-by-side comparison of rendering with and without floating origin enabled. Move the camera to see jitter" image="/img/playgroundsAndNMEs/floatingOriginMain.png" />
 ## Quick Start
 
 The simplest way to enable floating origin is at the engine level:
@@ -204,15 +203,8 @@ When called without a position, `setGravity` and `getGravity` operate on all reg
 
 ## Physics Examples
 
-<Playground id="#7N17MT#26" title="Havok Multi-Region with Dynamic Re-Regioning" description="Demonstrates multi-region physics with dynamic re-regioning. Use 'Launch Ball' to test physics drift collision across regions, and 'Move Box' to test teleporting bodies between regions." />
+<Playground id="#9NRVWK" title="Havok+FloatingOrigin Stacked Boxes" description="Side-by-side view of havok physics far from world origin, with floatingorigin mode enabled/disabled" image="/img/playgroundsAndNMEs/havokFloatingOriginStacked.png"/>
 
-<Playground id="#7N17MT#25" title="Havok Multi-Region with Multi-Viewport" description="Multi-region physics tested with multiple viewports and a fixed timestep." />
+<Playground id="#24ZAQP" title="Havok+FloatingOrigin BoomBox" description="Side by side of havok physics with floating origin enabled / disabled" image="/img/playgroundsAndNMEs/havokBoombox.png" />
 
-<Playground id="#KJ0945#9" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
-
-<Playground id="#TOVMEA#7" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
-
-
-<Playground id="#MZCQC4#97" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
-
-<Playground id="#JVZAFL#18" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
+<Playground id="#7N17MT#26" title="Havok Multi-Region with Dynamic Re-Regioning" description="Demonstrates multi-region physics with dynamic re-regioning. Use 'Launch Ball' to test physics drift collision across regions, and 'Move Box' to test teleporting bodies between regions." image="/img/playgroundsAndNMEs/havokFloatingOrigin.png" />
