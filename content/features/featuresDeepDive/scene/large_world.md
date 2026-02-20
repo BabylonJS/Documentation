@@ -23,13 +23,13 @@ Babylon.js provides a **floating origin** system that eliminates precision issue
 The system has two complementary parts:
 
 1. **`useLargeWorldRendering`** — an engine option that sets both `useHighPrecisionMatrices` on the engine and enables `floatingOriginMode` on all scenes
+    - `useHighPrecisionMatrices` forces **high precision (64-bit) matrix computations** on the CPU, so intermediate math remains accurate.
+    - `floatingOriginMode` **Offsets all matrix uniforms**(`world`, `view`, `viewProjection`, `worldViewProjection`, etc.) to treat camera at world origin and **offsets position-related values** (`eye position`, `clip planes`, etc.) by camera's actual position, all performed at the last mile before passing the values to the shader.
 2. **`useFloatingOrigin`** — a scene option that enables `floatingOriginMode`, in the case where not all scenes are large worlds. If only some scenes useFloatingOrigin, you must also instantiate the engine with `useHighPrecisionMatrices` to get full large-world rendering capabilities.
 
-- `useHighPrecisionMatrices` forces **high precision (64-bit) matrix computations** on the CPU, so intermediate math remains accurate.
-- `floatingOriginMode` **Offsets all matrix uniforms** sent to shaders (`world`, `view`, `viewProjection`, `worldViewProjection`, etc.) so the camera is at the origin.
-- Offsets **eye position**, **clip planes**, and other position-dependent values accordingly.
 
-From the perspective of your application code, nothing changes — meshes are still positioned at their world coordinates, the camera moves normally, and all existing APIs work as before. The offsetting happens transparently at the rendering layer.
+
+From the perspective of your application code, nothing changes — meshes are still positioned at their world coordinates, the camera moves normally, and all existing APIs work as before. The offsetting happens at the rendering layer, not detectable by the user.
 
 ## Examples
 
@@ -128,6 +128,9 @@ The following Babylon.js subsystems are floating-origin-aware and require no add
 - Atmosphere addon
 - Utility layers (gizmos, overlays, etc.)
 
+### **A note about Custom shaders.** 
+If you have custom shaders that use position-based uniforms, ensure they use standard uniform names (`world`, `view`, `viewProjection`, `worldViewProjection`) so the floating origin system can intercept and offset them automatically. For Node Materials, block uniforms prefixed with `u_` are handled automatically.
+
 ## Physics: Havok Multi-Region Support
 
 ### The Physics Precision Problem
@@ -192,17 +195,12 @@ const gravity = havokPlugin.getGravity(new BABYLON.Vector3(500000, 0, 0));
 
 When called without a position, `setGravity` and `getGravity` operate on all regions or return the default gravity.
 
-## Best Practices
 
-1. **Use `useLargeWorldRendering` unless you have a reason not to.** It is the simplest setup and ensures all scenes are consistent.
 
-2. **Keep your coordinate system in mind.** Floating origin solves GPU precision, but your application logic still uses the original world coordinates. If you are doing math with very large numbers on the CPU in JavaScript, consider using high-precision libraries or relative coordinates.
 
-3. **Test at large distances.** Place your camera at coordinates like `(1000000, 0, 1000000)` and verify that rendering, shadows, and physics behave correctly.
 
-4. **Tune `floatingOriginWorldRadius` for your use case.** The default works well for most scenarios, but if your world is extremely large or your objects are very small, you may benefit from a smaller radius.
 
-5. **Custom shaders and materials.** If you have custom shaders that use position-based uniforms, ensure they use standard uniform names (`world`, `view`, `viewProjection`, `worldViewProjection`) so the floating origin system can intercept and offset them automatically. For Node Materials, block uniforms prefixed with `u_` are handled automatically.
+
 
 ## Physics Examples
 
@@ -214,7 +212,6 @@ When called without a position, `setGravity` and `getGravity` operate on all reg
 
 <Playground id="#TOVMEA#7" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
 
-<Playground id="#RQIZD3#102" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
 
 <Playground id="#MZCQC4#97" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
 
