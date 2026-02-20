@@ -133,7 +133,7 @@ pcs.addSurfacePoints(model, 10000, BABYLON.PointColor.Color, 1);
 pcs.addVolumePoints(model, 10000, BABYLON.PointColor.Color, 3);
 ```
 
-Of course when you import a model you may not know how many child meshes the model is made up off nor the order of textures for each mesh. Using the [inspector](/toolsAndResources/inspector) you can check the loaded textures and see if their names give you a clue. If not then use trial and error from 0 to the number of textures. Alternatively you can check out meshes and textures once loaded along the lines of
+Of course when you import a model you may not know how many child meshes the model is made up off nor the order of textures for each mesh. Using the [inspector](/toolsAndResources/inspectorv2) you can check the loaded textures and see if their names give you a clue. If not then use trial and error from 0 to the number of textures. Alternatively you can check out meshes and textures once loaded along the lines of
 
 ```javascript
 BABYLON.ImportMeshAsync("location" + "file", scene).then(function ({ meshes }) {

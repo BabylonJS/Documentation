@@ -1603,39 +1603,75 @@
         },
         {
             "source": "/toolsAndResources/tools/inspector",
-            "destination": "/toolsAndResources/inspector"
+            "destination": "/legacy/inspector"
         },
         {
             "source": "/toolsAndResources/tools/inspector/inspectorVideoOverview",
-            "destination": "/toolsAndResources/inspector/inspectorVideoOverview"
+            "destination": "/legacy/inspector/inspectorVideoOverview"
         },
         {
             "source": "/toolsAndResources/tools/animationCurveEditor",
-            "destination": "/toolsAndResources/inspector/animationCurveEditor"
+            "destination": "/legacy/inspector/animationCurveEditor"
         },
         {
             "source": "/toolsAndResources/tools/particleEditor",
-            "destination": "/toolsAndResources/inspector/particleEditor"
+            "destination": "/legacy/inspector/particleEditor"
         },
         {
             "source": "/toolsAndResources/tools/spriteEditor",
-            "destination": "/toolsAndResources/inspector/spriteEditor"
+            "destination": "/legacy/inspector/spriteEditor"
         },
         {
             "source": "/toolsAndResources/tools/textureInspector",
-            "destination": "/toolsAndResources/inspector/textureInspector"
+            "destination": "/legacy/inspector/textureInspector"
         },
         {
             "source": "/toolsAndResources/tools/skeletonViewer",
-            "destination": "/toolsAndResources/inspector/skeletonViewer"
+            "destination": "/legacy/inspector/skeletonViewer"
         },
         {
             "source": "/toolsAndResources/tools/performanceProfiler",
-            "destination": "/toolsAndResources/inspector/performanceProfiler"
+            "destination": "/legacy/inspector/performanceProfiler"
         },
         {
             "source": "/toolsAndResources/tools/inspector/reflector",
-            "destination": "/toolsAndResources/inspector/reflector"
+            "destination": "/legacy/inspector/reflector"
+        },
+        {
+            "source": "/toolsAndResources/inspector",
+            "destination": "/legacy/inspector"
+        },
+        {
+            "source": "/toolsAndResources/inspector/inspectorVideoOverview",
+            "destination": "/legacy/inspector/inspectorVideoOverview"
+        },
+        {
+            "source": "/toolsAndResources/inspector/animationCurveEditor",
+            "destination": "/legacy/inspector/animationCurveEditor"
+        },
+        {
+            "source": "/toolsAndResources/inspector/particleEditor",
+            "destination": "/legacy/inspector/particleEditor"
+        },
+        {
+            "source": "/toolsAndResources/inspector/spriteEditor",
+            "destination": "/legacy/inspector/spriteEditor"
+        },
+        {
+            "source": "/toolsAndResources/inspector/textureInspector",
+            "destination": "/legacy/inspector/textureInspector"
+        },
+        {
+            "source": "/toolsAndResources/inspector/skeletonViewer",
+            "destination": "/legacy/inspector/skeletonViewer"
+        },
+        {
+            "source": "/toolsAndResources/inspector/performanceProfiler",
+            "destination": "/legacy/inspector/performanceProfiler"
+        },
+        {
+            "source": "/toolsAndResources/inspector/reflector",
+            "destination": "/legacy/inspector/reflector"
         },
         {
             "source": "/toolsAndResources/tools/guiEditor",

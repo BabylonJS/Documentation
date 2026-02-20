@@ -5,7 +5,7 @@ description: Learn about the incredibly powerful sandbox, an asset viewer and de
 keywords: babylon.js, tools, resources, sandbox
 further-reading:
   - title: How to Use The Inspector in Projects
-    url: /toolsAndResources/inspector
+    url: /toolsAndResources/inspectorv2
 video-overview:
 video-content:
 ---

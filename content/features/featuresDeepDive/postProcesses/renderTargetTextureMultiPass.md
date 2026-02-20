@@ -200,4 +200,4 @@ void main() {
 
 Testing passes in separate and then adding them one at a time to the composer will make it easier to debug any issues. You can use the technique from the playgrounds above, splitting the screen on columns, each with a different pass, as well.
 
-Finally you can also check RT textures with the [Babylon inspector](/toolsAndResources/inspector).
+Finally you can also check RT textures with the [Babylon inspector](/toolsAndResources/inspectorv2).

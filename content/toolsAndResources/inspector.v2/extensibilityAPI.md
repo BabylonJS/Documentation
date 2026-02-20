@@ -1,7 +1,7 @@
 ---
 title: Extensibility API
 image:
-description: Hight level information about the Inspector V2 extensibility API.
+description: High level information about the Inspector V2 extensibility API.
 keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
     - title: Examples
@@ -14,13 +14,36 @@ This document is intended to provide a high level overview of the different type
 
 ## Showing and Hiding Inspector
 
-There are a few module level functions that can be used to show/hide Inspector.
+The `ShowInspector` function is used to show Inspector. It returns an `InspectorToken` that can be used to hide Inspector and check its visibility.
 
-| API                  | Description                                                                                                                                                                                                                                                                                      |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ShowInspector`      | Attaches Inspector to the given Babylon scene and makes it visible. Pass in options to further configure Inspector, including defining new [static](/toolsAndResources/inspectorv2/architecture#static-extensions) or [dynamic](/toolsAndResources/inspectorv2/architecture#dynamic-extensions). |
-| `HideInspector`      | Hides Inspector if it is currently visible. This tears down all the Inspector resources.                                                                                                                                                                                                         |
-| `IsInspectorVisible` | Used to determine whether Inspector is currently visible.                                                                                                                                                                                                                                        |
+| API              | Description                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ShowInspector`  | Attaches Inspector to the given Babylon scene and makes it visible. Pass in options to further configure Inspector, including defining new [static](/toolsAndResources/inspectorv2/architecture#static-extensions) or [dynamic](/toolsAndResources/inspectorv2/architecture#dynamic-extensions). Returns an `InspectorToken` that can be used to hide Inspector and check its current visibility. |
+| `InspectorToken` | Returned by `ShowInspector`. Call `dispose()` to hide Inspector and tear down all its resources. The `isDisposed` property can be used to check whether Inspector is currently visible, and `onDisposed` can be observed to react to Inspector being hidden.                                                                                                                                      |
+
+### Options
+
+`ShowInspector` accepts an optional `InspectorOptions` object as its second argument. The following options are available:
+
+| Option                      | Type                                | Default     | Description                                                                                                                                                                                                   |
+| --------------------------- | ----------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `layoutMode`                | `"overlay"` \| `"inline"`           | `"overlay"` | In overlay mode, Inspector floats on top of the canvas. In inline mode, Inspector replaces the canvas in the DOM, making the canvas the central content within the Inspector shell.                           |
+| `autoResizeEngine`          | `boolean`                           | `true`      | When enabled, automatically resizes the Babylon engine when Inspector is shown or hidden.                                                                                                                     |
+| `containerElement`          | `HTMLElement`                       | *(auto)*    | The DOM element to host Inspector. If not provided, Inspector automatically walks up the DOM tree from the engine's rendering canvas and uses the nearest suitable ancestor, falling back to `document.body`. |
+| `themeMode`                 | `"system"` \| `"light"` \| `"dark"` | `"system"`  | Sets the initial theme. When set to `"system"`, the theme automatically matches the user's OS-level preference and updates when it changes.                                                                   |
+| `showThemeSelector`         | `boolean`                           | `true`      | When enabled, a theme toggle button is displayed in the toolbar, allowing users to switch between light and dark themes.                                                                                      |
+| `serviceDefinitions`        | `ServiceDefinition[]`               | `[]`        | An array of [static extension](/toolsAndResources/inspectorv2/architecture#static-extensions) service definitions to load immediately when Inspector is shown.                                                |
+| `extensionFeeds`            | `IExtensionFeed[]`                  | `[]`        | An array of extension feeds that provide [dynamic extensions](/toolsAndResources/inspectorv2/architecture#dynamic-extensions) users can install through the extensions dialog.                                |
+| `leftPaneDefaultWidth`      | `number`                            | *(auto)*    | Default width in pixels for the left side pane.                                                                                                                                                               |
+| `rightPaneDefaultWidth`     | `number`                            | *(auto)*    | Default width in pixels for the right side pane.                                                                                                                                                              |
+| `leftPaneMinWidth`          | `number`                            | *(auto)*    | Minimum width in pixels for the left side pane.                                                                                                                                                               |
+| `rightPaneMinWidth`         | `number`                            | *(auto)*    | Minimum width in pixels for the right side pane.                                                                                                                                                              |
+| `leftPaneDefaultCollapsed`  | `boolean`                           | `false`     | Whether the left side pane starts collapsed.                                                                                                                                                                  |
+| `rightPaneDefaultCollapsed` | `boolean`                           | `false`     | Whether the right side pane starts collapsed.                                                                                                                                                                 |
+
+<Alert severity="info">
+Inspector persists certain settings (such as theme preference and pane widths) to localStorage. These settings are scoped by an internal namespace to avoid conflicts with the host app (including other Babylon tools).
+</Alert>
 
 ## Core Services
 
@@ -37,7 +60,8 @@ There are several core services that provide the main extensibility points.
 | `IToolsService`         | Allows adding content to sections of the tools pane (which itself uses `IShellService` to add a side pane).                                                                                                                                                      |
 | `ISceneContext`         | Provides access to the scene that Inspector is attached to.                                                                                                                                                                                                      |
 | `ISelectionService`     | Provides access to the currently selected entity, and allows changing the currently selected entity. The selected entity is for example what is shown as selected in Scene Explorer, for the properties shown in the properties pane, etc.                       |
-| `ISettingsContext`      | Provides access to the default Inspector settings that are configured in the settings pane.                                                                                                                                                                      |
+| `ISettingsStore`        | Provides access to persisted Inspector settings with change notifications. Use the `useSetting` hook for convenient read/write/reset of settings within React components.                                                                                        |
+| `IWatcherService`       | Allows watching for changes to properties of entities (Meshes, Materials, Textures, etc.).                                                                                                                                                                       |
 
 ## Custom Services (Extensions)
 
@@ -55,11 +79,12 @@ There are a number of React components that can be used to simplify extension im
 
 | Component                                         | Description                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BoundProperty`                                   | This is a wrapper component that can be used with the components listed below but takes care of "binding" to a property of an entity (meaning it observes changes to that property in real time). Use this whenever you can for side panes like the properties pane, the deubg pane, etc. Internally `BoundProperty` uses the [`useProperty` hook](#react-hooks) described later. |
+| `BoundProperty`                                   | This is a wrapper component that can be used with the components listed below but takes care of "binding" to a property of an entity (meaning it observes changes to that property in real time). Use this whenever you can for side panes like the properties pane, the debug pane, etc. Internally `BoundProperty` uses the [`useProperty` hook](#react-hooks) described later. |
+| `Property`                                        | A lightweight wrapper similar to `BoundProperty` but without automatic data binding. It provides copy-to-clipboard support for properties but requires the caller to manage value and onChange handling directly. Use this when you need custom value/onChange handling.                                                                                                            |
 | `Vector3PropertyLine`, `SwitchPropertyLine`, etc. | Any component that is suffixed with `PropertyLine` is intended to be used in the properties pane, debug pane, etc., and can be wrapped in `BoundProperty`.                                                                                                                                                                                                                        |
 | `ButtonLine`, `FileUploadLine`, etc.              | Any component that is suffixed with just `Line` is intended to be used in the properties pane, debug pane, etc., but is used standalone (not wrapped in `BoundProperty`).                                                                                                                                                                                                         |
 | `Button`, `Switch`, `DropDown`, etc.              | There are many other "primitive" components that can be used for building UI that is more custom than what is seen in the properties pane (and other similar panes).                                                                                                                                                                                                              |
-| `PaneContainer`                                   | This is a container component that can be used for side panes and provides default standard margins. You should *usually* use this when adding a new side pane.                                                                                                                                                                                                                   |
+| `SidePaneContainer`                               | This is a container component that can be used for side panes and provides default standard layout. You should *usually* use this when adding a new side pane.                                                                                                                                                                                                                    |
 
 ## React Hooks
 
@@ -74,11 +99,12 @@ There are a number of React hooks that make it easy to re-use much of the behavi
 | `useObservableState`                            | Causes the containing React component to re-render and a value to be recomputed when any of the specified `Observable`s fire.                                                                                                                                                                                                                              |
 | `useObservableCollection`                       | Pass in an `ObservableCollection` (described below under [helpers](#helpers)) and it returns an array. The containing React component is re-rendered whenever an item is added/removed to/from the `ObservableCollection`.                                                                                                                                 |
 | `useResource`, `useAsyncResource`               | These hooks help manage the lifetime of an `IDisposable` within a React component, ensuring the resource is disposed at the right time.                                                                                                                                                                                                                    |
+| `useSetting`                                    | A hook for managing reactive settings with read/write/reset capabilities. Returns a tuple of the current value, a setter function, and a reset function. The containing React component re-renders when the specified setting changes.                                                                                                                     |
 | `useAngleConverters`                            | Consume `ISettingsService` in your own service and pass it to this hook to convert angles based on user's preferred angle unit (degrees or radians) as specified in the Inspector settings UI.                                                                                                                                                             |
 
 ## Helpers
 
-There are a number of helpers that also make it easy o re-use much of the behavior you might see in the core Inspector features.
+There are a number of helpers that also make it easy to re-use much of the behavior you might see in the core Inspector features.
 
 | Helper                 | Description                                                                                                                                                                                                                                                                                                                                    |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
