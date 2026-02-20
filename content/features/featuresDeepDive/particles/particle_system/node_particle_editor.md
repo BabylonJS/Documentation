@@ -30,7 +30,7 @@ The default setup matches the one we just showed. Let’s dive deeper.
 
 To set up a particle system, you’ll need three core components:
 
-- The particle system itself, defined by a ParticleSystem block
+- The particle system itself, defined by a System block
 
 - The creation logic, using at least a Create Particle block and a Shape block
 
@@ -38,17 +38,17 @@ To set up a particle system, you’ll need three core components:
 
 **Note: For now, NPE only generates CPU-based particle systems.**
 
-## The particle system block
-This block defines the static properties of the system (like `capacity` or `emitRate`). You must provide, at a minimum, a particle input and a texture input.
+## The System Block
+This block defines the core properties of the system (like `capacity`) and accepts inputs such as `emitRate` and `texture`. You must provide, at a minimum, a particle input and a texture input.
 
 ## Creation phase
 Every time a particle is created, this code runs. Each input is dynamic, meaning it’s evaluated per particle.
 
-![NPE screenshot](/img/tools/npe/03..jpg)
+![NPE screenshot](/img/tools/npe/03.jpg)
 
 In this example, each new particle is given a randomly chosen lifetime between 1 and 2.
 
-The shape blocks are how you define [shape emitters](/features/featuresDeepDive/particles/particle_system/shape_emitters)
+The shape blocks are how you define [shape emitters](/features/featuresDeepDive/particles/particle_system/shape_emitters).
 
 ## Update phase
 
@@ -72,7 +72,7 @@ A core feature of any particle system is randomness. To support this, we provide
 
 ### Random
 
-The basic node for generating random values. It can generate values per particle, per system, or on every call.
+The basic block for generating random values. It can generate values per particle, per system, or on every call.
 ![NPE screenshot](/img/tools/npe/07.jpg)
 
 ### Gradient
@@ -103,5 +103,7 @@ In this example, the "Wave2" particle system will start when the "Wave" system e
 
 Also note: "Wave2" is set to not start automatically.
 
+## Learn More
 
+For a complete reference of all available blocks and their inputs, outputs, and properties, see the [Node Particle Editor Blocks](/toolsAndResources/npe/npeBlocks) page. For details on the editor interface, shortcuts, and organization features, see the [Node Particle Editor](/toolsAndResources/npe) tool page.
 

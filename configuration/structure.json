@@ -2618,6 +2618,17 @@
                     },
                     "content": "toolsAndResources/nge"
                 },
+                "npe": {
+                    "friendlyName": "Node Particle Editor",
+                    "children": {
+                        "npeBlocks": {
+                            "friendlyName": "Available Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/npe/npeBlocks"
+                        }
+                    },
+                    "content": "toolsAndResources/npe"
+                },
                 "viewerConfigurator": {
                     "friendlyName": "Viewer Configurator",
                     "content": "toolsAndResources/viewerConfigurator"
