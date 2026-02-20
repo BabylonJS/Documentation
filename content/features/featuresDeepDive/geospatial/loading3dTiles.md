@@ -30,4 +30,5 @@ The recommended solution for loading 3D Tiles in Babylon.js is the [3DTilesRende
 
 - **[Google Map Tiles with GeospatialCamera](https://codesandbox.io/p/sandbox/t9f52p)** — Loads Google Map 3D Tiles and uses the `GeospatialCamera` for globe-style navigation. This example requires a Google Maps API token or a Cesium ion token to access the map tile data. They are easy to obtain and instructions for doing so are in the sandbox.
 <img src="/img/playgroundsAndNMES/3dTiles.png" title="3D Tiles Loader using NASA/AMMOS 3DTilesRenderer/babylonjs"/>
+
 - **[Simple 3D Tiles with ArcRotateCamera](https://codesandbox.io/p/sandbox/6znjxf)** — Loads a freely available 3D Tiles dataset and uses an `ArcRotateCamera` to orbit and navigate around the model. No API token required.
