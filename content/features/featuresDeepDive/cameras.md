@@ -18,6 +18,7 @@ There are a wide range of cameras to use with Babylon.js, Probably the two most 
 * _Anaglyph Camera_ - extending the use of the Universal and Arc Rotate Cameras for use with red and cyan 3D glasses. 
 * _Device Orientation Cameras_ - this is a designed to react to a device being tilted forward or back and left or right. 
 * _Virtual Joysticks Camera_ - on-screen 2D graphics that are used to control the camera or other scene items. 
+* _[Geospatial Camera](/features/featuresDeepDive/geospatial/geospatialCamera)_ - a camera designed for map-like navigation around a spherical planet.
 
 * _Virtual Reality Camera_ a range of cameras for VR devices
 
