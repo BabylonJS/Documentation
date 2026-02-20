@@ -5,7 +5,7 @@ description: Learn all about the incredibly powerful debug layer called "The Ins
 keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
     - title: Inspector V1
-      url: /toolsAndResources/inspector
+      url: /legacy/inspector
 video-overview:
 video-content:
 ---
@@ -26,7 +26,7 @@ Inspector V2 is highly extensible. When using the API, you can easily add new fe
 
 ## Backward Compatibility
 
-Inspector V2 aims to be backward compatible with Inspector V1, and also have feature parity with Inspector V1, except in a few cases where APIs or features are mostly unused in Inspector V1. This also means that much of the [Inspector V1 documentation](/toolsAndResources/inspector) is still valid and useful, though for screenshots and videos you may have to map older UX to newer UX.
+Inspector V2 aims to be backward compatible with Inspector V1, and also have feature parity with Inspector V1, except in a few cases where APIs or features are mostly unused in Inspector V1. This also means that much of the [Inspector V1 documentation](/legacy/inspector) is still valid and useful, though for screenshots and videos you may have to map older UX to newer UX.
 
 ### Migrating from V1 to V2
 

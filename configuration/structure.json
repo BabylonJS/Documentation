@@ -2581,52 +2581,6 @@
                     },
                     "content": "toolsAndResources/inspector.v2"
                 },
-                "inspector": {
-                    "friendlyName": "Inspector V1 (Legacy)",
-                    "children": {
-                        "inspectorVideoOverview": {
-                            "friendlyName": "Intro to the Inspector Video Series",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/inspectorVideoOverview"
-                        },
-                        "animationCurveEditor": {
-                            "friendlyName": "Animation Curve Editor",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/animationCurveEditor"
-                        },
-                        "particleEditor": {
-                            "friendlyName": "Particle Editor",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/particleEditor"
-                        },
-                        "spriteEditor": {
-                            "friendlyName": "Sprite Editor",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/spriteEditor"
-                        },
-                        "textureInspector": {
-                            "friendlyName": "Texture Inspector",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/textureInspector"
-                        },
-                        "skeletonViewer": {
-                            "friendlyName": "Skeleton Viewer",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/skeletonViewer"
-                        },
-                        "performanceProfiler": {
-                            "friendlyName": "Performance Profiler",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/performanceProfiler"
-                        },
-                        "reflector": {
-                            "friendlyName": "Debug Scenes Remotely Using the Reflector",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/reflector"
-                        }
-                    },
-                    "content": "toolsAndResources/inspector"
-                },
                 "guiEditor": {
                     "friendlyName": "GUI Editor",
                     "children": {},
@@ -3853,6 +3807,52 @@
                         }
                     },
                     "content": "features/featuresDeepDive/babylonViewer.v1"
+                },
+                "inspector": {
+                    "friendlyName": "Inspector V1",
+                    "children": {
+                        "inspectorVideoOverview": {
+                            "friendlyName": "Intro to the Inspector Video Series",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/inspectorVideoOverview"
+                        },
+                        "animationCurveEditor": {
+                            "friendlyName": "Animation Curve Editor",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/animationCurveEditor"
+                        },
+                        "particleEditor": {
+                            "friendlyName": "Particle Editor",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/particleEditor"
+                        },
+                        "spriteEditor": {
+                            "friendlyName": "Sprite Editor",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/spriteEditor"
+                        },
+                        "textureInspector": {
+                            "friendlyName": "Texture Inspector",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/textureInspector"
+                        },
+                        "skeletonViewer": {
+                            "friendlyName": "Skeleton Viewer",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/skeletonViewer"
+                        },
+                        "performanceProfiler": {
+                            "friendlyName": "Performance Profiler",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/performanceProfiler"
+                        },
+                        "reflector": {
+                            "friendlyName": "Debug Scenes Remotely Using the Reflector",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/reflector"
+                        }
+                    },
+                    "content": "toolsAndResources/inspector"
                 }
             }
         },
