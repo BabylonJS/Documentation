@@ -787,6 +787,22 @@
                             },
                             "content": "features/featuresDeepDive/input"
                         },
+                        "geospatial": {
+                            "friendlyName": "Geospatial",
+                            "children": {
+                                "geospatialCamera": {
+                                    "friendlyName": "Geospatial Camera",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/geospatial/geospatialCamera"
+                                },
+                                "loading3dTiles": {
+                                    "friendlyName": "Loading 3D Tiles",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/geospatial/loading3dTiles"
+                                }
+                            },
+                            "content": "features/featuresDeepDive/geospatial"
+                        },
                         "importers": {
                             "friendlyName": "Importing Assets",
                             "children": {
