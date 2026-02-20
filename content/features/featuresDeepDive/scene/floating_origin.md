@@ -1,130 +1,221 @@
 ---
-title: Floating Origin (Huge Scenes Support)
-image: 
-description: Learn how to manage huge scenes using floating-origin trick
-keywords: diving deeper, huge spaces, floating-origin
+title: Large World Rendering / Floating Origin
+image:
+description: Learn how to use Babylon.js's floating origin system to render large worlds without floating point precision issues.
+keywords: floating origin, large world, precision, jitter, rendering, physics, havok
 further-reading:
-  - title: Original floating-origin research page
-    url: https://www.researchgate.net/publication/331628217_Using_a_Floating_Origin_to_Improve_Fidelity_and_Performance_of_Large_Distributed_Virtual_Worlds
 video-overview:
 video-content:
 ---
 
-## How floating-origin works
+# Large World Rendering / Floating Origin
 
-On traditional 3D rendering, objects will pass three stages until they're displayed on screen:
+## The Problem
 
-- World matrix: places, scales and rotates the object on the world;
-- View matrix: will translate and rotate relative to camera;
-- Projection matrix: will project vertices to screen.
+When working with very large world coordinates, 32-bit floating point numbers lose precision. A float32 value can represent roughly 7 significant decimal digits, which means that at a world position of 1,000,000 units from the origin, the smallest representable step is about 0.06 units. This loss of precision causes visible **jittering** — meshes wobble, shadows flicker, and animations stutter — even though the objects themselves are not moving.
 
+This is a well-known problem in flight simulators, space games, open-world titles, and any application where the camera can be very far from the world origin.
 
-This is well known and works perfectly.
+## The Solution: Floating Origin and HighPrecisionMatrices
 
-Only problem is that our GPU's are still limited to 32 bits floating-point,
-so when we have big coordinates -- objects and/or cameras very far from the world's origin,
-for example at (10000000, 0, 10000000) -- we will notice jittering because the big numbers inside matrices will cause 32 bits floating-point imprecision on the GPU.
+Babylon.js provides a **floating origin** system that eliminates precision issues by keeping the active camera conceptually at the world origin and offsetting all geometry and shader uniforms by the camera's position. This means that no matter how far you travel from the original world origin, the values sent to the GPU are always small and precise.
 
-![Pic01](/img/how_to/floating_origin/pic01.jpg)
+The system has two complementary parts:
 
-But there is a trick which is good to mitigate that problem: floating-origin, first described by Chris Thorne [^1].
+1. **`useLargeWorldRendering`** — an engine option that sets both `useHighPrecisionMatrices` on the engine and enables `floatingOriginMode` on all scenes
+2. **`useFloatingOrigin`** — a scene option that enables `floatingOriginMode`, in the case where not all scenes are large worlds. If only some scenes useFloatingOrigin, you must also instantiate the engine with `useHighPrecisionMatrices` to get full large-world rendering capabilities.
 
-The idea of floating-origin is very simple: we just keep the camera always fixed at world's origin
-(0, 0, 0) and move the objects instead.
+- `useHighPrecisionMatrices` forces **high precision (64-bit) matrix computations** on the CPU, so intermediate math remains accurate.
+- `floatingOriginMode` **Offsets all matrix uniforms** sent to shaders (`world`, `view`, `viewProjection`, `worldViewProjection`, etc.) so the camera is at the origin.
+- Offsets **eye position**, **clip planes**, and other position-dependent values accordingly.
 
-This does not mean that the camera cannot move, though! It "moves", but not directly. Here is
-where lies the trick: instead of changing the real camera position, we use a separate, double precision [^*]
-Vector3 which stores the camera position. The real camera position is kept always at origin (0, 0, 0).
+From the perspective of your application code, nothing changes — meshes are still positioned at their world coordinates, the camera moves normally, and all existing APIs work as before. The offsetting happens transparently at the rendering layer.
 
-We do the same for the objects: all of them get a separate, double precision Vector3 to store their coordinates. We don't set their real position directly; instead, we also set their separate coordinates.
+## Examples
 
-Then, on a loop which happens every frame just before rendering, we subtract the double camera position from each object's double position, and that difference is copied to that object's real position.
+<Playground id="#P3E9YP#256" title="Large World Rendering Demo" description="Side-by-side comparison of rendering with and without large world rendering enabled. Move the camera to see jitter eliminated." />
 
-The result is that the camera is indeed kept always at origin, and the objects float around, removing
-huge coordinates from the objects that are close to the camera. That is, imprecision only happens very far
-from the camera, and as they are very far anyway, we cannot see the jittering. =)
+## Quick Start
 
-![Pic02](/img/how_to/floating_origin/pic02.jpg)
-
-Let's use an example:
-
-On a solar system, we have an asteroid located at (10000000, 0, 10000000).
-Our camera is close to the asteroid, at (10000000, 0, 10000500).
-
-Normally, that would certainly cause jittering, because both objects are very far from the world's origin. But with
-our trick, the jittering does not happen -- remember, we subtract camera double position from the object double position
-and then set the object real position at that offset, keeping the camera always at (0, 0, 0):
-
-Object Position: (10000000, 0, 10000000)  
-Camera Position: (10000000, 0, 10000500)  
-Offset: (0, 0, -500)
-
-The offset is small enough to be absolutely precise even with only 32 bits floating-point. The GPU is very happy with that
-and we don't see any jittering.
-
-We just need to set the object at (0, 0, -500) and it will have the same visual effect as if we used their real coordinates,
-but with no jittering.
-
-## Floating-origin examples
-
-You can find a working playground example with OriginCamera and Entity classes here:  
-
-<Playground id="#LHI514#66" title="Floating-Origin" description="A simple example of huge scene far from world's origin using floating-origin trick." image="/img/playgroundsAndNMEs/divingDeeperFloatingOrigin.jpg"/>
-
-
-If you decide to use floating-origin, all your objects will have to use the same trick,
-or your game won't work properly. You will need to create one instance of OriginCamera
-and at least one instance of Entity.
-
-OriginCamera is a special camera which has a separate position control stored as doublepos (and its target as doubletgt). 
-You must stop using position and target from camera, and use their double precision counterparts doublepos and doubletgt.
-
-All objects from scene must then be parented to an Entity instance. Entity also has doublepos property which is double precision coordinate. 
-You must use its doublepos to set object position instead of position directly.
-
-So, let's say that we want a sphere with double precision:
+The simplest way to enable floating origin is at the engine level:
 
 ```javascript
-// Create the OriginCamera
-let camera = new OriginCamera("camera", new BABYLON.Vector3(10000000, 0, 10000500), scene);
-camera.doubletgt = new BABYLON.Vector3(10000000, 0, 10000000);
-camera.touchAngularSensibility = 10000;
-camera.inertia = 0;
-camera.speed = 1;
-camera.keysUp.push(87);    		// W
-camera.keysDown.push(83)   		// D
-camera.keysLeft.push(65);  		// A
-camera.keysRight.push(68); 		// S
-camera.keysUpward.push(69);		// E
-camera.keysDownward.push(81);     // Q
-camera.minZ = 0.5;
-camera.maxZ = 50000000;
-camera.fov = 1;
-camera.attachControl(canvas, true);
+const engine = new BABYLON.Engine(canvas, true, {
+    useLargeWorldRendering: true,
+});
 
-// Create an Entity for the sphere
-let entSphere = new Entity("entSphere", scene);
-camera.add(entSphere);
+// All scenes created from this engine will automatically use floating origin
+const scene = new BABYLON.Scene(engine);
+```
 
-// Create the sphere and parent it to its Entity
-let sphere = BABYLON.CreateSphere("sphere", {diameter:256});
-sphere.parent = entSphere;
+Setting `useLargeWorldRendering: true` does two things:
 
-// Position the Entity
-entSphere.doublepos = new BABYLON.Vector3(10000000, 0, 10000000);
-```  
+1. Enables `useHighPrecisionMatrix` — all `Matrix` computations use 64-bit doubles internally.
+2. Enables `floatingOriginMode` on every scene created by this engine.
 
-The OriginCamera extends UniversalCamera, so you can use the same features of that.
+### Per-Scene Control
 
-Finally, even on huge scenes you commonly will have objects spread into separate regions, so you 
-most probably would not need one Entity instance for each object. If you think carefully, you
-can have one Entity instance for each region of your scene, a region which does not extend for more
-than let's say 10,000 units to avoid imprecision again. Then, you can add many objects that are
-always in that region to just one Entity. Doing that, you can even move those objects by using
-their positions directly, as you would do normally. And still, no imprecision will be seen anymore.
+If you only want floating origin on specific scenes (for example, your main world scene but not a UI scene), you can enable it per-scene instead. In this case, you must also enable high precision matrices on the engine:
 
-Article and code written by Vander R. N. Dias
+```javascript
+const engine = new BABYLON.Engine(canvas, true, {
+    useHighPrecisionMatrix: true,
+});
 
-[^1]: Chris Thorne, 2005. Using a Floating Origin to Improve Fidelity and Performance of Large Distributed Virtual Worlds
-[^*]: The original article by Chris Thorne uses single-precision floats.
+// Only this scene will use floating origin
+const worldScene = new BABYLON.Scene(engine, { useFloatingOrigin: true });
 
+// This scene will NOT use floating origin
+const uiScene = new BABYLON.Scene(engine);
+```
+
+## API Reference
+
+### Engine Options (`AbstractEngineOptions`)
+
+| Option                   | Type      | Default | Description                                                                                                                              |
+| ------------------------ | --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `useLargeWorldRendering` | `boolean` | `false` | Enables both high precision matrices and floating origin mode on all scenes.                                                             |
+| `useHighPrecisionMatrix` | `boolean` | `false` | Forces 64-bit matrix computations. Required for proper large world rendering. Automatically set when `useLargeWorldRendering` is `true`. |
+
+### Scene Properties
+
+| Property                     | Type                 | Description                                                                                                                             |
+| ---------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `scene.floatingOriginMode`   | `boolean` (readonly) | `true` if floating origin is active on this scene.                                                                                      |
+| `scene.floatingOriginOffset` | `Vector3` (readonly) | The current offset applied to all rendering. Equal to the active camera's eye position when enabled, or `Vector3.Zero()` when disabled. |
+
+### Scene Options (`ISceneOptions`)
+
+| Option              | Type      | Default | Description                                      |
+| ------------------- | --------- | ------- | ------------------------------------------------ |
+| `useFloatingOrigin` | `boolean` | `false` | Enables floating origin for this specific scene. |
+
+## How It Works
+
+### Matrix Interception
+
+When floating origin mode is active, Babylon.js monkey-patches `Effect.setMatrix` and `UniformBuffer._updateMatrixForUniform` to intercept every matrix being sent to shaders. Based on the uniform name, the system applies the appropriate offset:
+
+- **`world`** — The world matrix translation is shifted by subtracting the camera position.
+- **`view`** — The view matrix translation is zeroed out (since the camera is conceptually at the origin).
+- **`worldView`** — Decomposed into world and view, each offset separately, then recomposed.
+- **`viewProjection`** — The view is offset and remultiplied with the projection matrix.
+- **`worldViewProjection`** — Fully decomposed, offset, and recomposed.
+
+This also works with **Node Material** custom blocks, where uniform names are prefixed with `u_` (e.g., `u_World`, `u_ViewProjection`).
+
+### Additional Offsets
+
+Beyond matrices, the system also offsets:
+
+- **Eye position** (`vEyePosition`) — Shifted so lighting and reflections compute correctly relative to the offset geometry.
+- **Clip planes** — Adjusted using the formula `d' = d + normal · offset` so clipping works at the correct world-space boundaries.
+
+### What Is Handled Automatically
+
+The following Babylon.js subsystems are floating-origin-aware and require no additional work:
+
+- Standard and PBR materials
+- Node Materials
+- Shadow generators (including cascaded shadow maps)
+- Particles (GPU and CPU)
+- Sprites
+- Lights (point, spot, area, clustered)
+- Bounding box and edge renderers
+- Background and sky materials
+- Water material
+- Atmosphere addon
+- Utility layers (gizmos, overlays, etc.)
+
+## Physics: Havok Multi-Region Support
+
+### The Physics Precision Problem
+
+The floating origin system keeps rendering precise by offsetting values before they reach the GPU. However, the **Havok physics engine** also uses 32-bit floats internally. If physics bodies are positioned at large world coordinates, the same precision loss occurs in the physics simulation — bodies jitter, collisions become unreliable, and constraints break down.
+
+### Multi-Region Worlds
+
+To solve this, the Havok plugin implements a **multi-region** architecture. Instead of simulating all bodies in a single physics world, bodies are distributed across multiple Havok world instances, each with its own **fixed floating origin**. Bodies within a region are simulated using coordinates relative to that region's origin, keeping all values small and precise.
+
+This happens automatically when `floatingOriginMode` is enabled on the scene. You don't need to manually manage regions — the plugin handles creation, assignment, and cleanup.
+
+### How It Works
+
+1. **Region creation**: When a physics body is created, the plugin checks if an existing world region contains its world position (within the configured radius). If not, a new region is created centered at that position.
+
+2. **Body simulation**: Each body stores its transform relative to its region's floating origin. From the body's perspective, it is always near the origin of its local physics world.
+
+3. **Region migration**: During each physics step, bodies that have moved outside their current region's boundary (with a 20% hysteresis margin to prevent oscillation) are automatically migrated to the correct region. Linear and angular velocity are preserved across the transition.
+
+4. **Velocity-based look-ahead**: When a body leaves its region, the plugin projects its position forward by one second of travel to find the best target region. This prevents creating unnecessary intermediate regions for fast-moving bodies heading toward existing regions.
+
+5. **Garbage collection**: Empty non-default regions are automatically cleaned up when all their bodies have migrated elsewhere.
+
+6. **Per-region gravity**: Each world region can have its own gravity vector, enabling scenarios like planetary bodies with different gravitational fields.
+
+### Configuration
+
+The Havok plugin accepts an optional `floatingOriginWorldRadius` parameter:
+
+```javascript
+const havokInstance = await HavokPhysics();
+const havokPlugin = new BABYLON.HavokPlugin(true, havokInstance, {
+    floatingOriginWorldRadius: 100000, // default: 100,000 units
+});
+
+scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), havokPlugin);
+```
+
+| Parameter                   | Type     | Default  | Description                                                                                                                                                                                   |
+| --------------------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `floatingOriginWorldRadius` | `number` | `100000` | The radius of each physics world region. Bodies within this distance of a region's origin are simulated in that region. Bodies outside all existing regions trigger creation of a new region. |
+
+Choose a radius that balances precision with the number of regions:
+
+- **Larger radius** = fewer regions, but bodies farther from region origins may still lose some precision.
+- **Smaller radius** = more regions and better precision, but more overhead from region management and body migration.
+
+For most applications, the default of 100,000 units provides a good balance.
+
+### Per-Region Gravity
+
+You can set gravity for a specific world region by passing a world position to `setGravity`:
+
+```javascript
+// Set gravity for the region containing this position
+havokPlugin.setGravity(new BABYLON.Vector3(0, -1.62, 0), new BABYLON.Vector3(500000, 0, 0));
+
+// Get gravity for a specific region
+const gravity = havokPlugin.getGravity(new BABYLON.Vector3(500000, 0, 0));
+```
+
+When called without a position, `setGravity` and `getGravity` operate on all regions or return the default gravity.
+
+## Best Practices
+
+1. **Use `useLargeWorldRendering` unless you have a reason not to.** It is the simplest setup and ensures all scenes are consistent.
+
+2. **Keep your coordinate system in mind.** Floating origin solves GPU precision, but your application logic still uses the original world coordinates. If you are doing math with very large numbers on the CPU in JavaScript, consider using high-precision libraries or relative coordinates.
+
+3. **Test at large distances.** Place your camera at coordinates like `(1000000, 0, 1000000)` and verify that rendering, shadows, and physics behave correctly.
+
+4. **Tune `floatingOriginWorldRadius` for your use case.** The default works well for most scenarios, but if your world is extremely large or your objects are very small, you may benefit from a smaller radius.
+
+5. **Custom shaders and materials.** If you have custom shaders that use position-based uniforms, ensure they use standard uniform names (`world`, `view`, `viewProjection`, `worldViewProjection`) so the floating origin system can intercept and offset them automatically. For Node Materials, block uniforms prefixed with `u_` are handled automatically.
+
+## Physics Examples
+
+<Playground id="#7N17MT#20" title="Havok Multi-Region with Dynamic Re-Regioning" description="Demonstrates multi-region physics with dynamic re-regioning. Use 'Launch Ball' to test physics drift collision across regions, and 'Move Box' to test teleporting bodies between regions." />
+
+<Playground id="#7N17MT#13" title="Havok Multi-Region with Multi-Viewport" description="Multi-region physics tested with multiple viewports and a fixed timestep." />
+
+<Playground id="#KJ0945#9" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
+
+<Playground id="#TOVMEA#7" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
+
+<Playground id="#RQIZD3#102" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
+
+<Playground id="#MZCQC4#97" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
+
+<Playground id="#JVZAFL#18" title="Havok Floating Origin Physics" description="Floating origin physics example with Havok." />
