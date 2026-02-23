@@ -18,7 +18,7 @@ The easiest way to try the Babylon Viewer is to reference the distribution scrip
 ```html
 <html lang="en">
     <body>
-        <script type="module" src="https://cdn.jsdelivr.net/npm/@babylonjs/viewer@preview/dist/babylon-viewer.esm.min.js"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@babylonjs/viewer/dist/babylon-viewer.esm.min.js"></script>
         <babylon-viewer source="https://playground.babylonjs.com/scenes/BoomBox.glb"></babylon-viewer>
     </body>
 </html>
