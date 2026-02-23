@@ -310,6 +310,11 @@
                                     "friendlyName": "Baked Texture Animations",
                                     "children": {},
                                     "content": "features/featuresDeepDive/animation/baked_texture_animations"
+                                },
+                                "animationRetargeting": {
+                                    "friendlyName": "Animation Retargeting",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/animation/animationRetargeting"
                                 }
                             },
                             "content": "features/featuresDeepDive/animation"
