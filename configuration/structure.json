@@ -735,7 +735,7 @@
                             },
                             "content": "features/featuresDeepDive/frameGraph"
                         },
-                          "geospatial": {
+                        "geospatial": {
                             "friendlyName": "Geospatial",
                             "children": {
                                 "geospatialCamera": {
