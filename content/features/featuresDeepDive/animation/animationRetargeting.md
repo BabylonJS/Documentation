@@ -137,7 +137,7 @@ This PG shows a concrete example of retargeting:
 
 ![Animation Retargeting Tool](/img/animationRetargeting/tool.jpg)
 
-Link to the tool: <Playground id="#RJQC3F#9" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true}/>
+Link to the tool: <Playground id="#RJQC3F#13" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true}/>
 
 The Animation Retargeting Tool is an interactive playground that lets you experiment with retargeting without writing any code. The scene is split into two viewports: the left half shows the **avatar** (the target character that will be animated), and the right half shows the **reference skeleton** derived from the source animation file. A panel on the right side of the screen groups all the controls.
 
