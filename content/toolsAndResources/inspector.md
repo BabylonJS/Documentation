@@ -5,13 +5,13 @@ description: Learn all about the incredibly powerful debug layer called "The Ins
 keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
   - title: Introduction to the Inspector - video series
-    url: /toolsAndResources/inspector/inspectorVideoOverview
+    url: /legacy/inspector/inspectorVideoOverview
   - title: How To Use The Inspector in Projects
-    url: /toolsAndResources/inspector
+    url: /legacy/inspector
   - title: Dev blog about the inspector
     url: https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205
   - title: Using the Texture Inspector
-    url: /toolsAndResources/inspector/textureInspector
+    url: /legacy/inspector/textureInspector
 video-overview:
 video-content:
 ---
@@ -20,7 +20,7 @@ video-content:
 
 Babylon.js inspector is a visual debugging tool created to help pinpoint issues you may have with a scene.
 
-For a video overview of the inspector, check out [Introduction to the inspector - video series](/toolsAndResources/inspector/inspectorVideoOverview).
+For a video overview of the inspector, check out [Introduction to the inspector - video series](/legacy/inspector/inspectorVideoOverview).
 
 The inspector offers multiple tools like:
 
@@ -174,7 +174,7 @@ There are occassions when opening the inspector in a child window is preferable.
 
 ![popup](/img/features/debuglayer/popup.jpg)
 
-This will pop out the selected pane - either Scene Explorer or Inspector - into a child window. If the panes have been opened in [embedded mode](/toolsAndResources/inspector#embedded-mode), the embedded inspector will open into a single child window. Additionally, the inspector can be opened by default as a popup. The individual Scene Explorer and Inspector panes can be opened as popups with the following code:
+This will pop out the selected pane - either Scene Explorer or Inspector - into a child window. If the panes have been opened in [embedded mode](/legacy/inspector#embedded-mode), the embedded inspector will open into a single child window. Additionally, the inspector can be opened by default as a popup. The individual Scene Explorer and Inspector panes can be opened as popups with the following code:
 
 ``` javascript
 var debugLayer = await scene.debugLayer.show();
