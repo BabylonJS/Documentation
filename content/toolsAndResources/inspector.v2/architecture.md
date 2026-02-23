@@ -22,7 +22,7 @@ You can add new "services" that consume other services to add new features. This
 A service is defined via the `ServiceDefinition` type. For example, an absolutely minimal service definition could look like this:
 
 ```ts
-export MyServiceDefinition: ServiceDefinition<[], []> = {
+export const MyServiceDefinition: ServiceDefinition<[], []> = {
     // Helpful for debugging, and sometimes used in UI.
     friendlyName: "My Service",
 
@@ -33,7 +33,7 @@ export MyServiceDefinition: ServiceDefinition<[], []> = {
 };
 ```
 
-This service can then be added to the Inspector via the options as a [static extension]():
+This service can then be added to the Inspector via the options as a [static extension](#static-extensions):
 
 ```ts
 ShowInspector(scene, {
@@ -43,10 +43,10 @@ ShowInspector(scene, {
 
 When Inspector is shown, the service factory function is called and in the example above, a message is logged to the console.
 
-A service factory function can return an object, and this object can optionally implement `IDisposable`. If it does, the `dispose` function will be called when the service is being removed. This would happen when the Inspector is hidden, but could also happen when a [dynamic extension]() is uninstalled. For example:
+A service factory function can return an object, and this object can optionally implement `IDisposable`. If it does, the `dispose` function will be called when the service is being removed. This would happen when the Inspector is hidden, but could also happen when a [dynamic extension](#dynamic-extensions) is uninstalled. For example:
 
 ```ts
-export MyServiceDefinition: ServiceDefinition<[], []> = {
+export const MyServiceDefinition: ServiceDefinition<[], []> = {
     // Helpful for debugging, and sometimes used in UI.
     friendlyName: "My Service",
 
@@ -81,10 +81,10 @@ export interface IOtherService extends IService<OtherServiceIdentity> {
 
 This allows for strong type checking at compile time to prevent mistakes where there are mismatches between service contracts (compile time) and service identities (runtime).
 
-"Other Service" would have its own `ServiceDefintion` similar to the example above for "My Service." We can modify the "My Service" `ServiceDefinition` to consume "Other Service" as follows:
+"Other Service" would have its own `ServiceDefinition` similar to the example above for "My Service." We can modify the "My Service" `ServiceDefinition` to consume "Other Service" as follows:
 
 ```ts
-export MyServiceDefinition: ServiceDefinition<[], [IOtherService]> = {
+export const MyServiceDefinition: ServiceDefinition<[], [IOtherService]> = {
     // Helpful for debugging, and sometimes used in UI.
     friendlyName: "My Service",
 
@@ -105,18 +105,18 @@ export MyServiceDefinition: ServiceDefinition<[], [IOtherService]> = {
 Notice the following from the example above:
 
 1. `IOtherService` was added to the second tuple type parameter on the first line:
-   `export MyServiceDefinition: ServiceDefinition<[], [IOtherService]>`
+   `export const MyServiceDefinition: ServiceDefinition<[], [IOtherService]>`
 2. A `consumes` property was added with a tuple containing the runtime identity of "Other Service."
-3. The "Other Service" instance was added as an parameter to the factory function.
+3. The "Other Service" instance was added as a parameter to the factory function.
 4. The factory function uses the `otherService` argument to call the `doSomethingAmazing` function from "Other Service."
 
-To consume multiple other services, the tuples simply have multiple entries and the factory function has multiple parameters. The orders must all match, and the `ServiceDefintion` will type check this. If there is a mistake, you will see a compile time error.
+To consume multiple other services, the tuples simply have multiple entries and the factory function has multiple parameters. The orders must all match, and the `ServiceDefinition` will type check this. If there is a mistake, you will see a compile time error.
 
 ## Producing Services
 
-When configuring a `ServiceDefinition`, in addition to consuming services, you can also *produce* services, which makes them available to be consumed by other services. A concrete example of this is Solution Explorer, which consumes the "shell service" to insert a side pane, and also produces a service that makes it possible for other services/extensions to insert additional sections into Scene Explorer.
+When configuring a `ServiceDefinition`, in addition to consuming services, you can also *produce* services, which makes them available to be consumed by other services. A concrete example of this is Scene Explorer, which consumes the "shell service" to insert a side pane, and also produces a service that makes it possible for other services/extensions to insert additional sections into Scene Explorer.
 
-We can add a new service contract and identity for "My Service," and then update its `ServiceDefintion` to produce this new service contract as follows:
+We can add a new service contract and identity for "My Service," and then update its `ServiceDefinition` to produce this new service contract as follows:
 
 ```ts
 export const MyServiceIdentity = Symbol("My Service");
@@ -124,7 +124,7 @@ export interface IMyService extends IService<MyServiceIdentity> {
     showAlert(message: string): void;
 }
 
-export MyServiceDefinition: ServiceDefinition<[IMyService], [IOtherService]> = {
+export const MyServiceDefinition: ServiceDefinition<[IMyService], [IOtherService]> = {
     // Helpful for debugging, and sometimes used in UI.
     friendlyName: "My Service",
 
@@ -151,9 +151,9 @@ Notice the following from the example above:
 
 1. A unique runtime service identity symbol (`MyServiceIdentity`) was added and exported.
 2. An interface (`IMyService`) for "My Service" was added that exposes one function.
-3. `IMyService` was added to the first tuple type parameter on the first line: `export MyServiceDefinition: ServiceDefinition<[IMyService], [IOtherService]>`
+3. `IMyService` was added to the first tuple type parameter on the first line: `export const MyServiceDefinition: ServiceDefinition<[IMyService], [IOtherService]>`
 4. A `produces` property was added with a tuple containing the runtime identity of "My Service."
-5. The factory function now returns an object that implements the `IMyService` interface, and the `ServiceDefintion` will type check this. If the returned object does not implement *all* produced service contracts, you will see a compile time error.
+5. The factory function now returns an object that implements the `IMyService` interface, and the `ServiceDefinition` will type check this. If the returned object does not implement *all* produced service contracts, you will see a compile time error.
 
 ## Anonymous Objects vs. Classes
 
@@ -180,7 +180,7 @@ class MyService implements IMyService, IDisposable {
     }
 }
 
-export MyServiceDefinition: ServiceDefinition<[IMyService], [IOtherService]> = {
+export const MyServiceDefinition: ServiceDefinition<[IMyService], [IOtherService]> = {
     // Helpful for debugging, and sometimes used in UI.
     friendlyName: "My Service",
 
@@ -225,7 +225,7 @@ export interface IMyService extends IService<MyServiceIdentity> {
     showAlert(message: string): void;
 }
 
-MyServiceDefinition: ServiceDefinition<[IMyService], [IOtherService]> = {
+const MyServiceDefinition: ServiceDefinition<[IMyService], [IOtherService]> = {
     // Helpful for debugging, and sometimes used in UI.
     friendlyName: "My Service",
 

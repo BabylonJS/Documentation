@@ -433,7 +433,7 @@ In this configuration, bones will be applied on the GPU but using a static bone 
 
 ## Debugging
 
-Starting with Babylon.js v4.0, you can use the Inspector to turn [skeleton viewer](/toolsAndResources/inspector#bones-viewer) on and off.
+Starting with Babylon.js v4.0, you can use the Inspector to turn [skeleton viewer](/toolsAndResources/inspectorv2) on and off.
 
 ### Debugging Extras
 

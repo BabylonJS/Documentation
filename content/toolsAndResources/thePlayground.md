@@ -11,7 +11,7 @@ further-reading:
   - title: Using External Assets in the Playground
     url: /toolsAndResources/thePlayground/externalPGAssets
   - title: How to Use The Inspector in Projects
-    url: /toolsAndResources/inspector
+    url: /toolsAndResources/inspectorv2
   - title: Make your own Snippet Server
     url: /toolsAndResources/thePlayground/yourOwnSnippetServer
 video-overview:
