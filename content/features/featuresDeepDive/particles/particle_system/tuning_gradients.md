@@ -39,8 +39,6 @@ particleSystem.removePropertyGradient(fraction);
 
 Replace `Property` with the actual property name (e.g., `addSizeGradient`, `removeColorGradient`). See the sections below for each supported property.
 
-The examples below will show you a regular particle system, and also a [node based particle system](/features/featuresDeepDive/particles/particle_system/node_particle_editor).
-
 ## Change Size Over Lifetime
 
 To change size over the lifetime of the particle:

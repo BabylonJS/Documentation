@@ -14,8 +14,6 @@ There is a wide range of properties to tune the behavior of particles, including
 
 This page covers setting initial property values when creating a particle system. The next page shows how to animate these properties over time.
 
-Each example will show you a regular particle system, and also a [node based particle system](/features/featuresDeepDive/particles/particle_system/node_particle_editor).
-
 ## Size
 
 The size of the particles can be varied randomly within a given range:
@@ -132,7 +130,7 @@ You can stop the continuous emission of particles by setting a manual emit count
 particleSystem.manualEmitCount = 300;
 ```
 
-In this case, the specified number of particles are emitted once and there are no further emissions.
+In this case, the specified number of particles are emitted once, and there are no further emissions.
 
 Slow emit rate: <Playground id="#0K3AQ2#3822" title="Slow Emission Rate" description="Simple example showing how to set a slow emission rate of a particle system."/>  
 Fast emit rate: <Playground id="#0K3AQ2#3824" title="Fast Emission Rate" description="Simple example showing how to set a fast emission rate of a particle system."/>  
