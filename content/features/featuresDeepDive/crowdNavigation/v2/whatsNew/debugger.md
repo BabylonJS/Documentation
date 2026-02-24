@@ -27,30 +27,30 @@ You have to set `keepIntermediates: true` in the nav mesh parameters to retain t
 First you need to create `NavigationDebugger` instance and pass a babylon.js scene and optional parameters to the `NavigationDebugger.constructor`:
 
 ```ts
-    constructor(
-        private _scene: Scene,
-        options?: {
-            parent?: {
-                node?: TransformNode | string;
-            };
-            primitiveTypes?: DebugDrawerPrimitiveType[];
-            materials?: {
-                triMaterial?: StandardMaterial;
-                pointMaterial?: StandardMaterial;
-                lineMaterialOptions: {
-                    greasedLineMaterialOptions: Partial<GreasedLineMaterialOptions>;
-                    greasedLineMeshOptions: Partial<GreasedLineMeshOptions>;
-                };
-            };
-        }
-    )
+constructor(
+  scene: Scene,
+  options?: {
+    parent?: {
+      node?: TransformNode | string;
+    };
+    primitiveTypes?: DebugDrawerPrimitiveType[];
+    materials?: {
+      triMaterial?: StandardMaterial;
+      pointMaterial?: StandardMaterial;
+      lineMaterialOptions: {
+        greasedLineMaterialOptions: Partial<GreasedLineMaterialOptions>;
+        greasedLineMeshOptions: Partial<GreasedLineMeshOptions>;
+      };
+    };
+  }
+)
 ```
 
 #### Parameters
 
 | Parameter | Type                | Description                                                                                   |
 | --------- | ------------------- | --------------------------------------------------------------------------------------------- |
-| `_scene`  | `Scene`             | The Babylon.js scene where the debug drawer will be created.                                  |
+| `scene`   | `Scene`             | The Babylon.js scene where the debug drawer will be created.                                  |
 | `options` | `object` (optional) | Additional configuration options for customizing parent node, primitive types, and materials. |
 
 #### Options parameter
@@ -64,8 +64,10 @@ First you need to create `NavigationDebugger` instance and pass a babylon.js sce
 | `materials.lineMaterialOptions.greasedLineMaterialOptions` | `Partial<GreasedLineMaterialOptions>` | Configuration for the **GreasedLineMaterial** used when rendering debug lines.            |
 | `materials.lineMaterialOptions.greasedLineMeshOptions`     | `Partial<GreasedLineMeshOptions>`     | Configuration for the **GreasedLineMesh** geometry options                                |
 
+<br/>
+
 ```ts
-export type DebugDrawerPrimitiveType = "lines" | "tris" | "quads" | "points";
+type DebugDrawerPrimitiveType = "lines" | "tris" | "quads" | "points";
 ```
 
 You can then call the `draw` function to visualize the required layers:
