@@ -45,9 +45,9 @@ This will make the main commands quicker to access. Do not hesitate to adapt the
 
 ## Debugging code
 
-Also, in VSCode there is a `Run and Debug` tab on the left pane. Select project to launch and press `Start Debugging` (F5) button.
+Also, in VSCode there is a `Run and Debug` tab on the left pane. Select launch configuration to launch and press `Start Debugging` (F5) button.
 
-With the test task running from the VSCode debug tab, choose the section you want to debug and launch the debugger.
+With the test task running from the VSCode `Run and Debug` tab, choose the section you want to debug and launch the debugger.
 
 The debug session will debug all the TypeScript and JavaScript in Chrome and stop on your breakpoints set up in files in VSCode. It debugs all the code from src, materialsLibrary, proceduralTexturesLibrary, postprocessLibrary, etc.
 
