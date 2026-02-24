@@ -280,7 +280,7 @@ Those counters are all reset to 0 at the beginning of each frame. Therefore it i
 
 ## Inspector
 
-Starting with Babylon.js v4.0 you can use the Inspector to [analyze your scene](/toolsAndResources/inspector#inspector-pane) or turn on/off features or [debugging tools](/toolsAndResources/inspector#specific-debug-tools).
+Starting with Babylon.js v4.0 you can use the Inspector to [analyze your scene](/toolsAndResources/inspectorv2) or turn on/off features or [debugging tools](/toolsAndResources/inspectorv2).
 
 ## VR/XR scenarios
 

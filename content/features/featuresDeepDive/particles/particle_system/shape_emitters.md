@@ -21,8 +21,6 @@ Starting from Babylon.js 3.2, you can shape the region particles are emitted fro
 * Mesh
 * Custom
 
-Each example will show you a regular particle system, and also a [node based particle system](/features/featuresDeepDive/particles/particle_system/node_particle_editor).
-
 ## Point Emitter
 
 To create a point emitter, you can run this code:
@@ -33,7 +31,7 @@ var pointEmitter = particleSystem.createPointEmitter(new BABYLON.Vector3(-7, 8, 
 
 The `createPointEmitter` method takes two parameters in the following order:
 
-* direction1: Vector3,
+* direction1: Vector3
 * direction2: Vector3
 
 The returned `pointEmitter` object can be used to change the values of these properties:
@@ -47,7 +45,7 @@ pointEmitter.direction2 = new BABYLON.Vector3(5, 2, 1);
 
 ## Box Emitter
 
-To create a box emitter you use, for example:
+To create a box emitter, you use, for example:
 
 ```javascript
 var boxEmitter = particleSystem.createBoxEmitter(new BABYLON.Vector3(-7, 8, 3), new BABYLON.Vector3(7, 8, -3), new BABYLON.Vector3(-1, 0, 0), new BABYLON.Vector3(1, 0, 0));
@@ -55,9 +53,9 @@ var boxEmitter = particleSystem.createBoxEmitter(new BABYLON.Vector3(-7, 8, 3), 
 
 The `createBoxEmitter` method takes four parameters in the following order:
 
-* direction1: Vector3,
-* direction2: Vector3,
-* minEmitBox: Vector3,
+* direction1: Vector3
+* direction2: Vector3
+* minEmitBox: Vector3
 * maxEmitBox: Vector3
 
 The returned `boxEmitter` object can be used to change the values of these properties:
@@ -85,7 +83,7 @@ The particles are emitted in the direction of the surface normals, i.e. the line
 
 <Playground id="#0K3AQ2#3916" title="Sphere Emitter" description="Simple example of a particle sphere emitter."/>
 
-With `sphereEmitter.radiusRange` you can define where along the radius the particles should be emitted. A value of 0 means only on the surface, while a value of 1 means all along the radius.
+With `sphereEmitter.radiusRange`, you can define where along the radius the particles should be emitted. A value of 0 means only on the surface, while a value of 1 means all along the radius.
 
 If you prefer to choose the emission direction, you can create a directed sphere emitter:
 
@@ -95,9 +93,9 @@ var sphereEmitter = particleSystem.createDirectedSphereEmitter(1.2, new BABYLON.
 
 The `createDirectedSphereEmitter` method takes three parameters in the following order:
 
-* radius: Number,
-* direction1: Vector3,
-* direction2: Vector3,
+* radius: Number
+* direction1: Vector3
+* direction2: Vector3
 
 The returned `sphereEmitter` object can be used to change the values of these properties:
 
@@ -125,7 +123,7 @@ The particles are emitted in the direction of the surface normals, i.e. the line
 
 <Playground id="#0K3AQ2#3915" title="Hemispheric Emitter" description="Simple example of a particle hemispheric emitter."/>
 
-With `hemisphericEmitter.radiusRange` you can define where along the radius the particles should be emitted. A value of 0 means only on the surface, while a value of 1 means all along the radius.
+With `hemisphericEmitter.radiusRange`, you can define where along the radius the particles should be emitted. A value of 0 means only on the surface, while a value of 1 means all along the radius.
 
 ## Cylinder Emitter
 
@@ -141,16 +139,16 @@ The particles are emitted in the direction of the surface normals, i.e. outward 
 
 <Playground id="#0K3AQ2#3921" title="Cylinder Emitter" description="Simple example of a particle cylinder emitter."/>
 
-With `cylinderEmitter.radiusRange` you can define where along the radius the particles should be emitted. A value of 0 means only on the surface, while a value of 1 means all along the radius.
-With `cylinderEmitter.directionRandomizer` you can change how much to randomize the particle's direction.
+With `cylinderEmitter.radiusRange`, you can define where along the radius the particles should be emitted. A value of 0 means only on the surface, while a value of 1 means all along the radius.
+With `cylinderEmitter.directionRandomizer`, you can change how much to randomize the particle's direction.
 
 If you prefer to choose the emission direction, you can create a directed cylinder emitter. The `createDirectedCylinderEmitter` method takes five parameters in the following order:
 
-* radius: Number,
-* height: Number,
-* radiusRange: Number,
-* direction1: Vector3,
-* direction2: Vector3,
+* radius: Number
+* height: Number
+* radiusRange: Number
+* direction1: Vector3
+* direction2: Vector3
 
 The returned `cylinderEmitter` object can be used to change the values of these properties:
 
@@ -174,12 +172,12 @@ var coneEmitter = particleSystem.createConeEmitter(2, Math.PI / 3);
 
 The `createConeEmitter` method takes two parameters in the following order:
 
-* radius: Number;
-* angle: Number, measured in radians, the vertex angle of the cone.
+* radius: Number
+* angle: Number — measured in radians; the vertex angle of the cone
 
 The cone is created with its axis along the Y-axis and its vertex at the bottom.
 
-With `coneEmitter.radiusRange` you can define where along the radius the particles should be emitted. A value of 0 means only on the surface, while a value of 1 means all along the radius.
+With `coneEmitter.radiusRange`, you can define where along the radius the particles should be emitted. A value of 0 means only on the surface, while a value of 1 means all along the radius.
 
 The same applies to `coneEmitter.heightRange`: you can define where along the height the particles should be emitted. A value of 0 means only on the top surface, while a value of 1 means all along the height.
 
@@ -190,10 +188,10 @@ coneEmitter.radius = 3.4;
 coneEmitter.angle = Math.PI / 2;    
 ```
 
-With `coneEmitter.emitFromSpawnPointOnly = true` you can force the emitter to only emit particles from the spawn point (the start of the cone).
+With `coneEmitter.emitFromSpawnPointOnly = true`, you can force the emitter to only emit particles from the spawn point (the start of the cone).
 
 <Playground id="#0K3AQ2#3925" title="Cone Emitter" description="Simple example of a particle cone emitter."/>
-<Playground id="#0K3AQ2#3935" title="Cone Emitter from spawn point" description="Simple example of a particle cone emitter from the spawn point."/>
+<Playground id="#0K3AQ2#3935" title="Cone Emitter From Spawn Point" description="Simple example of a particle cone emitter from the spawn point."/>
 
 ## Mesh Emitter
 

@@ -86,6 +86,6 @@ ufo.glb | 17 MB | ![ufo](/img/resources/meshes/ufo.png) | <Playground id="#058SE
 
 ## Finding Camera Values
 
-To check the distance of the camera from the displayed mesh find the radius value by accessing the camera menu from the [playground scene inspector](/toolsAndResources/inspector) tool bar. Other useful values are angles, position and minZ and maxZ ranges.
+To check the distance of the camera from the displayed mesh find the radius value by accessing the camera menu from the [playground scene inspector](/toolsAndResources/inspectorv2) tool bar. Other useful values are angles, position and minZ and maxZ ranges.
 
 ![values](/img/resources/meshes/values.png)
