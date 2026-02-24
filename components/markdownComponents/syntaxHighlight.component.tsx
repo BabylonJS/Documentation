@@ -65,11 +65,10 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
                 sx={{
                     display: "flex",
                     flexDirection: "row",
-                    justifyContent: "space-between",
+                    justifyContent: "flex-end",
                     padding: "0.3rem",
                 }}
             >
-                <i>{language}</i>
                 {copyPasteIcon}
             </Box>
             <Highlight theme={themes.vsDark} code={props.children.trim()} language={language}>
