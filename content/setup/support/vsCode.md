@@ -16,7 +16,7 @@ You can install VSCode from their site: [https://code.visualstudio.com/](https:/
 
 ## Useful plugins
 
-Once installed, a few plugins will help you have the best experience. You can search for them in the extension tab (Ctrl+Shift+d):
+Once installed, a few plugins will help you have the best experience. You can search for them in the Extensions view (default shortcut: Ctrl+Shift+X on Windows/Linux, Cmd+Shift+X on macOS):
 
 1. [Shader languages support for VSCode](https://marketplace.visualstudio.com/items?itemName=slevesque.shader) for syntax highlighting and autocompletion in GLSL shaders
 2. [Babylon.js file viewer](https://marketplace.visualstudio.com/items?itemName=julianchen.babylon-js-viewer) can be used to display the content of a .babylon file directly in VSCode. It can be useful if you want to quickly check if your artist did a good job with an object and their names :)
