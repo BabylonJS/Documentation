@@ -91,7 +91,7 @@ debug.draw(navigationPlugin.navMesh, navigationPlugin.intermediates, scene, debu
 | `NAVMESH`                      | Displays the final navigation mesh used for pathfinding.                       |
 | `NAVMESH_BV_TREE`              | Shows the bounding volume tree (BVTree) used for fast spatial queries.         |
 
-Note: You can also use the specific `draw` functions from the `NavigationDebugger`. [Refere to the NavigationDebugger API](API)
+Note: You can also use the specific `draw` functions from the `NavigationDebugger`. [Refer to the NavigationDebugger API](API)
 
 Drawing a debug nav mesh where `polyFlags` are set to `1` (default value) with `blue` color:
 
@@ -140,4 +140,4 @@ debug.draw(navigationPlugin.navMesh, navigationPlugin.intermediates, scene, ADDO
 
 ### The createDebugNavMesh function
 
-The function `navigationPlugin.createDebugNavMesh` is available in V2 to maintain backwards compatiblity.
+The function `navigationPlugin.createDebugNavMesh` is available in V2 to maintain backwards compatibility.
