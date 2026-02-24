@@ -1746,19 +1746,6 @@ This block stores and reuses a value to avoid redundant calculations and improve
 
 - **output** is the stored value in the same type as the input.
 
-<H3Image title="Fresnel" image="/img/tools/npe/fresnelNode.png" alt="Fresnel node"/>
-
-This block computes the Fresnel term using the Schlick approximation based on view and normal vectors. It returns higher values at glancing angles and lower values when the surface faces the camera directly using a base reflectance of 0.04 for dielectric materials. It guards against zero-length input vectors and is useful for rim lighting effects, edge glow, or view-angle-based transparency.
-
-#### Inputs
-
-- **view** is a Vector3 value providing the view direction vector and is required.
-- **normal** is a Vector3 value providing the surface normal vector and is required.
-
-#### Outputs
-
-- **output** is the Fresnel value as a Float between 0 and 1.
-
 ## Triggers
 
 Trigger blocks enable sub-emitter functionality, allowing particle systems to spawn other particle systems based on conditions.
