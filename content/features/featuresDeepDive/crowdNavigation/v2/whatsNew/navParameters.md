@@ -20,7 +20,8 @@ V2 adds a few parameters to help tune navmesh generation and runtime behavior:
 | `expectedLayersPerTile` | `number`               | `32`    |
 | `tileCacheMeshProcess`  | `TileCacheMeshProcess` | —       |
 
-### Descriptions
+<br/>
+
 - **`offMeshConnections`** — Custom connections between two points on/near the mesh (teleports, jumps, one-way links).
 - **`keepIntermediates`** — Preserve intermediate Recast build data (heightfields, contours, detail meshes) for visualization or incremental rebuilds.
 - **`maxObstacles`** — Max number of dynamic obstacles supported. If > 0, plugin uses a tile cache for dynamic obstacle updating.
