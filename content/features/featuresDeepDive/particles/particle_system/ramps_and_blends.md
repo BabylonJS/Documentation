@@ -12,6 +12,8 @@ video-content:
 
 ## Ramp Gradients
 
+> **Note:** Ramp gradients and color/alpha remaps are not supported for node particle systems.
+
 Ramp gradients produce a gradient color texture by assigning a color to an index between 0 and 1.
 
 ![ramp gradient](/img/how_to/Particles/rampgrad.png)
@@ -42,7 +44,7 @@ particleSystem.useRampGradients = true;
 
 By default, the alpha value of the particle (built from `textureAlpha * particleColorAlpha`) is used as the index to get the ramp color from the ramp gradient using this formula: `finalColor = textureColor * particleColor * rampColor`.
 
-Ramp gradient: <Playground id="#0K3AQ2#3944" title="Ramp Gradient Example" description="Simple example of using ramp gradients."/>
+Ramp gradient: <Playground id="#I2D9MM#17" title="Ramp Gradient Example" description="Simple example of using ramp gradients."/>
 
 To give you more control, you can use a remap function to change the index over time with:
 
@@ -62,7 +64,7 @@ particleSystem.addColorRemapGradient(1.0, 0.95, 1.0);
 
 The color remap gradients define a min and max that will vary over the particle lifetime. The index is then remapped from [min, max] to [0, 1] with this formula: `finalIndex = clamp((index - min) / (max - min), 0.0, 1.0)`.
 
-With remap over lifetime of particle: <Playground id="#0K3AQ2#3945" title="Ramp Gradient With Remap Over Lifetime" description="Simple example of using ramp gradients with a remap over the lifetime of the particle."/>
+With remap over lifetime of particle: <Playground id="#E3VU3R#1" title="Ramp Gradient With Remap Over Lifetime" description="Simple example of using ramp gradients with a remap over the lifetime of the particle."/>
 
 Ultimately, you can also remap the alpha value generated per pixel with:
 
@@ -117,4 +119,4 @@ Billboard mode Y - steam: <Playground id="#B9HKG0#28" title="Billboard Mode Y" d
 Billboard false - spherical: <Playground id="#EV0SEQ#39" title="Billboard Mode False" description="Simple example of setting billboard mode to false."/>  
 Multiply blend mode - smoke pillar: <Playground id="#KUDH9F#46" title="Multiply Blend Mode" description="Simple example of setting particle blend mode to multiply."/>  
 Add blend mode and billboard mode stretched - sparks (select scene, press space): <Playground id="#M1HYFH#10" title="Add Blend Mode And Stretched Billboard Mode" description="Simple example of setting particle blend mode to add and billboard mode to stretched."/>  
-Ramp and blend - explosion (select scene, press space): <Playground id="#XPVJMM#3" title="Ramp and Blend" description="Simple example of a ramp and blend."/>
+Ramp and blend - explosion (select scene, press space): <Playground id="#XPVJMM#5" title="Ramp and Blend" description="Simple example of a ramp and blend."/>
