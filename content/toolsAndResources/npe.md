@@ -166,9 +166,10 @@ All emitter and update flows must eventually connect to the System block for the
 The typical flow in a particle system graph follows this pattern:
 
 1. **Input Blocks** provide values (constants, random, gradients)
-2. **Emitter Blocks** create particles with initial properties (position from shapes like box, sphere, cone)
-3. **Update Blocks** modify particle properties each frame (color fade, gravity, rotation)
-4. **System Block** receives the complete particle definition and manages the system
+1. **Create Particle Block** initializes each particle's properties (lifetime, color, size, scale, angle, emit power)
+1. **Emitter Blocks** create particles with initial properties (position from shapes like box, sphere, cone)
+1. **Update Blocks** modify particle properties each frame (color fade, gravity, rotation)
+1. **System Block** receives the complete particle definition and manages the system
 
 Multiple emitters and update chains can feed into a single System block, allowing complex particle behaviors to be composed from simple building blocks.
 
