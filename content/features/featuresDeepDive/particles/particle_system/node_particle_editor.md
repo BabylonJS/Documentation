@@ -87,9 +87,8 @@ In this case, we use the AgeGradient contextual value (representing particle lif
 
 To add more complex behaviors, you can use triggers to link multiple particle systems — for example, to start a new one when a specific condition is met.
 
-Here is a [pretty complex example](https://npe.babylonjs.com#K6F1ZB#1).
+Here is a [pretty complex example](https://npe.babylonjs.com#K6F1ZB#1). More precisely, on the top-right corner:
 
-More precisely, on the top-right corner:
 ![NPE screenshot](/img/tools/npe/09.jpg)
 
 Here, we've introduced a Trigger block. This block must be connected to another particle system — it's designed to start a clone of that system when a specific condition is met.
