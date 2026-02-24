@@ -108,7 +108,7 @@ export const clearPlaygroundIndex = async () => {
             method: "POST",
             
             body: JSON.stringify({
-                filter: `isMain eq true`,
+                // filter: `isMain eq true`,
                 top: 10000,
                 ...params
             }),
@@ -146,7 +146,7 @@ export const clearPlaygroundIndex = async () => {
 
     const filtered = values && (values as Array<ISearchResult>);
     while (filtered.length) {
-        const toDelete = filtered.splice(0, 50);
+        const toDelete = filtered.splice(0, 1000);
         const httpResult = await removeDocuments(toDelete.map((item) => item.id));
         console.log("Removed playground - ", toDelete.length);
         if (!httpResult.ok) {
@@ -210,7 +210,7 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
     values.push(...result.value);
     const filtered = values && (values as Array<IDocumentSearchResult>).filter((res) => !doNotDelete.includes(res.path));
     while (filtered.length) {
-        const toDelete = filtered.splice(0, 50);
+        const toDelete = filtered.splice(0, 1000);
         const httpResult = await removeDocuments(toDelete.map((item) => item.id));
         console.log("Removed documents - ", toDelete.length, "api - ", isApi);
         if (!httpResult.ok) {
