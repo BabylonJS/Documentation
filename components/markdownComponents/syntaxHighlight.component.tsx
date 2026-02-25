@@ -24,7 +24,7 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
     };
     const copyPasteIcon = !isCopy ? (
         <Tooltip title="Copy">
-            <IconButton size="small" color="inherit" onClick={copyPaste}>
+            <IconButton size="small" color="inherit" onClick={copyPaste} sx={{ "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.08)" } }}>
                 <LinkIcon width="24" height="24"></LinkIcon>
             </IconButton>
         </Tooltip>
@@ -45,7 +45,7 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
             >
                 Copied!
             </Box>
-            <IconButton size="small" color="inherit" onClick={copyPaste}>
+            <IconButton size="small" color="inherit" onClick={copyPaste} sx={{ "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.08)" } }}>
                 <Tooltip title={"Copied"}>
                     <LinkIcon width="24" height="24"></LinkIcon>
                 </Tooltip>
@@ -75,6 +75,7 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
                     zIndex: 1,
                     opacity: 0.3,
                     transition: "opacity 0.2s ease",
+                    color: "#DFDFDF",
                 }}
             >
                 {copyPasteIcon}
