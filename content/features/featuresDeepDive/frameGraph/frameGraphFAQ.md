@@ -131,7 +131,7 @@ frameGraph.addTask(renderTask); // <-- Don't forget!
 
 ### Why isn't my skybox showing up?
 
-You must set **camera.ignoreCameraMaxZ** to *true* for skyboxes to work as expected with frame graphics. See the comment in [FrameGraph: adding a new task + several fixes](https://github.com/BabylonJS/Babylon.js/pull/17381) for more details.
+You must set **camera.ignoreCameraMaxZ** to *true* for skyboxes to work as expected with frame graphs. See the comment in [FrameGraph: adding a new task + several fixes](https://github.com/BabylonJS/Babylon.js/pull/17381) for more details.
 
 Reproduction: <Playground id="#HBLXYO" title="Skybox not showing up" description="Frame graph with a skybox mesh not showing up" isMain={false}/>
 
@@ -163,3 +163,25 @@ await nrg.whenReadyAsync();
 Note that due to texture reuse, it is possible that a texture may be used by multiple tasks!
 
 For this reason, when debugging a frame graph, you can disable texture reuse by setting `frameGraph.optimizeTextureAllocation = false`.
+
+### Why isn't the environment helper working?
+
+In order for the environment helper to work correctly with frame graphs (such as the mirror effect, for example), you must define the frame graph in the scene **before** creating the environment helper:
+```typescript
+...
+scene.frameGraph = <your_frame_graph>;
+...
+const helper = scene.createDefaultEnvironment(options);
+```
+
+Example: <Playground id="#MJNICE#1759" title="Environment helper with frame graphs" description="Making the environment helper work with frame graphs" isMain={false}/>
+
+### Why don't MirrorTexture, RefractionTexture or ReflectionProbe work?
+
+In order for `MirrorTexture`, `RefractionTexture` and `ProbeTexture` to work as expected with frame graphs, you must add them to the **scene.customRenderTargets** array after creating them. If the texture is to be rendered with a specific camera, set **activeCamera** correctly.
+
+`MirrorTexture` example: <Playground id="#LVTTQX#359" title="Mirror texture with frame graphs" description="Making the MirrorTexture work with frame graphs" isMain={false}/>
+
+`RefractionTexture` example: <Playground id="#22KZUW#752" title="Refraction texture with frame graphs" description="Making the RefractionTexture work with frame graphs" isMain={false}/>
+
+`ProbeTexture` example: <Playground id="#KA93U#1722" title="Probe texture with frame graphs" description="Making the ProbeTexture work with frame graphs" isMain={false}/>
