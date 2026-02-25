@@ -696,6 +696,14 @@ pre.prism-code {
         padding: 0.25em;
     }
 
+    [data-theme="dark"] .responsiveTable thead tr {
+        border-bottom: 2px solid #666;
+    }
+
+    [data-theme="dark"] .responsiveTable tbody tr {
+        border: 1px solid #666;
+    }
+
     .responsiveTable td.pivoted {
         /* Behave like a "row" */
         border: none !important;
