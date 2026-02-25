@@ -232,8 +232,8 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     const rehypeKatex = (await import("rehype-katex")).default;
     props.mdxContent = await serialize(props.content, {
         mdxOptions: {
-            remarkPlugins: [remarkSlug, /*remarkLint, */ remarkGfm, remarkMath] as any,
-            rehypePlugins: [rehypeKatex] as any,
+            remarkPlugins: [remarkSlug, /*remarkLint, */ remarkGfm, remarkMath],
+            rehypePlugins: [rehypeKatex],
         },
     });
     return {

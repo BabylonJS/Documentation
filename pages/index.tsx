@@ -124,7 +124,7 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     props.mdxContent = await serialize(props.content, {
         // components: markdownComponents,
         mdxOptions: {
-            remarkPlugins: [remarkSlug, remarkGfm] as any,
+            remarkPlugins: [remarkSlug, remarkGfm],
         },
     });
     return {
