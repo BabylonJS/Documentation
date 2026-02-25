@@ -636,13 +636,13 @@ pre.prism-code {
 /* inspired by: https://css-tricks.com/responsive-data-tables/ */
 .responsiveTable {
     width: 100%;
-    border: 1px solid #444;
+    border: 1px solid #888;
     border-collapse: collapse;
 
     td,
     tr,
     th {
-        border: 1px solid #444;
+        border: 1px solid #888;
         border-collapse: collapse;
         min-width: 100px;
     }
@@ -688,11 +688,11 @@ pre.prism-code {
         position: absolute;
         top: -9999px;
         left: -9999px;
-        border-bottom: 2px solid #444;
+        border-bottom: 2px solid #888;
     }
 
     .responsiveTable tbody tr {
-        border: 1px solid #444;
+        border: 1px solid #888;
         padding: 0.25em;
     }
 
