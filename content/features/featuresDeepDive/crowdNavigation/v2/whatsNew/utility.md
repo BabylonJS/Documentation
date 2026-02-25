@@ -19,7 +19,7 @@ Applies Chaikin's corner-cutting algorithm to smooth a series of 3D points.
 This algorithm iteratively refines the path by replacing each line segment with two new points closer to the segment ends, resulting in a smoother curve.
 
 ```ts
-export function GetChaikinSmoothPath(points: IVector3Like[], iterations = 1): IVector3Like[];
+function GetChaikinSmoothPath(points: IVector3Like[], iterations = 1): IVector3Like[];
 ```
 
 | Parameter    | Type             | Description                                                                        |
@@ -33,7 +33,7 @@ Generates a rectilinear (L-shaped) path between consecutive points of a navigati
 Instead of directly connecting points with a straight line, it inserts an intermediate corner point, creating a turn that is either horizontal-then-vertical or vertical-then-horizontal, depending on which direction is shorter.
 
 ```ts
-export function GetLShapedPath(navSegment: Vector3[]): Vector3[];
+function GetLShapedPath(navSegment: Vector3[]): Vector3[];
 ```
 
 | Parameter    | Type        | Description                                                                       |
