@@ -22,10 +22,10 @@ This algorithm iteratively refines the path by replacing each line segment with 
 export function GetChaikinSmoothPath(points: IVector3Like[], iterations = 1): IVector3Like[];
 ```
 
-| Parameter    | Type             | Default | Description                                                                        |
-| ------------ | ---------------- | ------- | ---------------------------------------------------------------------------------- |
-| `points`     | `IVector3Like[]` | —       | Array of path points (`{x, y, z}` objects) to be smoothed.                         |
-| `iterations` | `number`         | `1`     | Number of smoothing iterations. More iterations = smoother curve, but more points. |
+| Parameter    | Type             | Description                                                                        |
+| ------------ | ---------------- | ---------------------------------------------------------------------------------- |
+| `points`     | `IVector3Like[]` | Array of path points (`{x, y, z}` objects) to be smoothed.                         |
+| `iterations` | `number`         | Number of smoothing iterations. More iterations = smoother curve, but more points. |
 
 ### Get L-Shaped Path
 

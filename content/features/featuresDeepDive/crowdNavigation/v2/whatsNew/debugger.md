@@ -55,20 +55,27 @@ constructor(
 
 #### Options parameter
 
-| Property                                                   | Type                                  | Description                                                                               |
-| ---------------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `parent.node`                                              | `TransformNode \| string`             | Optional parent node (or its name) to which the debug drawer should be attached.          |
-| `primitiveTypes`                                           | `DebugDrawerPrimitiveType[]`          | List of primitive types (triangles, lines, points) to enable for debugging visualization. |
-| `materials.triMaterial`                                    | `StandardMaterial`                    | Custom material for drawing triangle primitives.                                          |
-| `materials.pointMaterial`                                  | `StandardMaterial`                    | Custom material for drawing point primitives.                                             |
-| `materials.lineMaterialOptions.greasedLineMaterialOptions` | `Partial<GreasedLineMaterialOptions>` | Configuration for the **GreasedLineMaterial** used when rendering debug lines.            |
-| `materials.lineMaterialOptions.greasedLineMeshOptions`     | `Partial<GreasedLineMeshOptions>`     | Configuration for the **GreasedLineMesh** geometry options                                |
+| Property                                                                      | Type                                  |
+| ----------------------------------------------------------------------------- | ------------------------------------- |
+| `parent.node`                                                                 | `TransformNode \| string`             |
+| `primitiveTypes`                                                              | `DebugDrawerPrimitiveType[]`          |
+| `materials.triMaterial`                                                       | `StandardMaterial`                    |
+| `materials.pointMaterial`                                                     | `StandardMaterial`                    |
+| `materials.lineMaterialOptions`<br/>&nbsp;&nbsp;`.greasedLineMaterialOptions` | `Partial<GreasedLineMaterialOptions>` |
+| `materials.lineMaterialOptions`<br/>&nbsp;&nbsp;`.greasedLineMeshOptions`     | `Partial<GreasedLineMeshOptions>`     |
 
 <br/>
 
 ```ts
 type DebugDrawerPrimitiveType = "lines" | "tris" | "quads" | "points";
 ```
+
+- `parent.node` — Optional parent node (or its name) to which the debug drawer should be attached.
+- `primitiveTypes` — List of primitive types (triangles, lines, points) to enable for debugging visualization.
+- `materials.triMaterial` — Custom material for drawing triangle primitives.
+- `materials.pointMaterial` — Custom material for drawing point primitives.
+- `materials.lineMaterialOptions.greasedLineMaterialOptions` — Configuration for the **GreasedLineMaterial** used when rendering debug lines.
+- `materials.lineMaterialOptions.greasedLineMeshOptions` — Configuration for the **GreasedLineMesh** geometry options.
 
 You can then call the `draw` function to visualize the required layers:
 
