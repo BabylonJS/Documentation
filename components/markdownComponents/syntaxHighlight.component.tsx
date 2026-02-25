@@ -46,9 +46,7 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
                 Copied!
             </Box>
             <IconButton size="small" color="inherit" onClick={copyPaste} sx={{ "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.08)" } }}>
-                <Tooltip title={"Copied"}>
-                    <LinkIcon width="24" height="24"></LinkIcon>
-                </Tooltip>
+                <LinkIcon width="24" height="24"></LinkIcon>
             </IconButton>
         </Box>
     );
