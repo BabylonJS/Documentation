@@ -42,7 +42,7 @@ Nodes usually have one or more inputs and one or more outputs, though there are 
 
 ![Input type iconography](/img/tools/nge/inputTypes.png)
 
-The first six types are self-explanatory and are the most common data types that will be seen on nodes. The next two - Geometry and Subnode - are special data types that are narrowly defined. The Geometry type is used exclusively in Node Geometry Editor and refers to the actual mesh that the node affects. The Geometry type is also the only available input for the `GeometryOutput` node which is the output for the graph which makes a geometry source - one of our simple shapes or an imported mesh - a requirement for the graph. 
+The first six types are self-explanatory and are the most common data types that will be seen on nodes. The next two - Geometry and Subnode - are special data types that are narrowly defined. The Geometry type is used exclusively in Node Geometry Editor and refers to the actual mesh that the node affects. The Geometry type is also the only available input for the `GeometryOutput` node which is the output for the graph which makes a geometry source - one of our simple shapes or an imported mesh - a requirement for the graph.
 
 Subnode is rarely found on nodes and it refers to nodes that have exactly one other node they can be connected to. Mostly this is used to reduce complexity on a large node moving optional operations or parameters to another node. While they are not commonly found on nodes, seeing the subnode icon is a good indication to look for another node that can take this node as an input.
 
