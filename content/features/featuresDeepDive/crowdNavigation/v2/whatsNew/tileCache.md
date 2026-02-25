@@ -20,7 +20,7 @@ WaitForFullTileCacheUpdate(navMesh: NavMesh, tileCache: TileCache)
 
 If you are altering multiple obstacles at once set `doNotWaitForCacheUpdate = true` and call `WaitForFullTileCacheUpdate(navMesh: NavMesh, tileCache: TileCache)` at the end of the batch operation. If it's set to `false` every obstacle operation returns only after the `TileCache` has been fully updated.
 
-_Note: If you are not dealing with a lot of obstacle updated you can wait for the `TileCache` update in the render loop._
+_Note: If you are not dealing with a lot of obstacle updates, you can wait for the `TileCache` update in the render loop._
 
 ## TileCacheMeshProcess
 

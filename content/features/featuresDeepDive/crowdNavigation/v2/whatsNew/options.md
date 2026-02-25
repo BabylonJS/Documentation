@@ -38,7 +38,7 @@ interface QueryFilter {
 
 **How it works**
 
-`includeFlags/excludeFlag`s filter polygons by flag bits assigned when the navmesh was generated (via `tileCacheMeshProcess` or default config).
+`includeFlags`/`excludeFlags` filter polygons by flag bits assigned when the navmesh was generated (via `tileCacheMeshProcess` or default config).
 
 `areaCost` adjusts the traversal cost for polygons with a given area id — higher cost discourages the pathfinder from using that area unless needed.
 

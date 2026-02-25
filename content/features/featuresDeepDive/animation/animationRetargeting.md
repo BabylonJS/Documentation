@@ -38,9 +38,11 @@ $$r = \frac{d_{target}}{d_{source}}$$
 
 where $d_{source}$ and $d_{target}$ are the distances along the vertical axis from the root bone to the ground reference bone in their respective reference poses, and then writes the scaled position into the corresponding retargeted keyframe. This ensures that a shorter or taller character travels the same apparent distance per step.
 
-### Ground reference correction (`fixGroundReference`)
+### Ground reference correction (`fixGroundReference`, `fixGroundReferenceDynamicRefNode`)
 
 When the foot-to-hip height of the target avatar differs from that of the source even after proportional scaling, the character can still float or sink. The ground reference pass corrects this by iterating over the root position keyframes again. At each frame it advances both animations, reads the world-space positions of the ground reference bones in both skeletons, and subtracts the vertical difference from the retargeted root position keyframe. This pins the ground reference bone to the same vertical world position as its source counterpart at every frame.
+
+When `fixGroundReferenceDynamicRefNode` is also `true`, the pass does not assume that the configured ground reference bone is always the lowest point of the character. At each frame it scans all retargeted bones and, if any bone is further below the root than the ground reference bone at that frame, it uses that lower bone as the effective ground reference for that keyframe instead. This makes the correction robust to animations where the configured reference bone (e.g. a toe) is temporarily lifted off the ground while another part of the skeleton is lower (e.g. during a kick or a crouch).
 
 ### Animation fix-up (`fixAnimations`)
 
@@ -88,6 +90,9 @@ When `true`, the root bone's positional animation is scaled to account for propo
 **fixGroundReference** _(boolean, default: `false`)_
 When `true`, the root position animation is corrected for any vertical offset caused by differences in the ground contact height between the source and target avatars. This prevents the character from floating above or sinking into the ground when the source and target rigs have different foot-to-hip distances in their reference pose. Requires `groundReferenceNodeName` to be set. This option is independent of `fixRootPosition`; either or both can be enabled.
 
+**fixGroundReferenceDynamicRefNode** _(boolean, default: `false`)_
+When `true` (and `fixGroundReference` is also `true`), the ground reference correction no longer assumes that the configured reference bone is always the lowest point of the character. At each keyframe the system scans all retargeted bones and selects whichever bone is furthest below the root in the vertical direction as the effective ground reference for that frame. This makes the ground correction work correctly for animations where the configured reference bone is temporarily lifted off the ground while another part of the skeleton is lower (e.g. walking, running, or kicking). Has no effect if `fixGroundReference` is `false`.
+
 **rootNodeName** _(string, default: auto-detect)_
 The name of the transform node in the source animation that represents the root of the skeleton hierarchy, typically `"Hips"`. If not provided, the system automatically selects the first bone without a parent. Specifying this explicitly is recommended when the source skeleton has an unusual structure or when auto-detection picks the wrong node.
 
@@ -132,7 +137,7 @@ This PG shows a concrete example of retargeting:
 
 ![Animation Retargeting Tool](/img/animationRetargeting/tool.jpg)
 
-Link to the tool: <Playground id="#RJQC3F#9" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true}/>
+Link to the tool: <Playground id="#RJQC3F#13" image="/img/playgroundsAndNMEs/pg-RJQC3F-9.png" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true}/>
 
 The Animation Retargeting Tool is an interactive playground that lets you experiment with retargeting without writing any code. The scene is split into two viewports: the left half shows the **avatar** (the target character that will be animated), and the right half shows the **reference skeleton** derived from the source animation file. A panel on the right side of the screen groups all the controls.
 
@@ -194,7 +199,9 @@ The **Retarget** section exposes all the parameters of `IRetargetOptions` descri
   |:---:|:---:|
   | ![Fix ground reference disabled](/img/animationRetargeting/fixGroundRef_disabled.webp) | ![Fix ground reference enabled](/img/animationRetargeting/fixGroundRef_enabled.webp) |
 
-     **Note:** **Fix ground reference** may not be appropriate for animations where the ground reference bone is not always the lowest point during the animation (e.g. walking or running animations), as it can cause unwanted vertical corrections.
+     **Note:** **Fix ground reference** alone may not be appropriate for animations where the ground reference bone is not always the lowest point during the animation (e.g. walking or running animations), as it can cause unwanted vertical corrections. In this case, also try enabling **Fix ground ref. dynamic** and see if that improves things.
+
+- **Fix ground ref. dynamic** — corresponds to `fixGroundReferenceDynamicRefNode`. Only has an effect when **Fix ground reference** is also enabled. When enabled, the ground reference correction no longer assumes that the configured ground reference bone is always the lowest point: at each frame the system scans all retargeted bones and uses whichever bone is furthest below the root as the effective ground reference for that keyframe. This makes the correction work correctly for animations where the reference bone is temporarily lifted (e.g. walking, running, kicking).
 
 - **Root node** — corresponds to `rootNodeName`. The list is populated with the transform nodes of the source animation; the first entry is **Auto** (automatic detection). Only enabled when **Fix root position** or **Fix ground reference** is on.
 - **Ground ref. node** — corresponds to `groundReferenceNodeName`. The list is pre-populated with the transform node names from the source animation. The tool automatically pre-selects the node whose name contains "LeftToe_End" or "LeftToeBase" as a sensible default. Only enabled when **Fix root position** or **Fix ground reference** is on.
@@ -247,3 +254,4 @@ The optional **restPoseUpdate** array contains a list of bone (or transform node
 [Animation Retargeting in the Wicked Engine](https://wickedengine.net/2022/09/animation-retargeting/)<br/>
 [Animation Retargeting Algorithm](https://github.com/upf-gti/retargeting-threejs/blob/main/docs/Algorithm.md)<br/>
 [WebGL2 : 132 : Animation Retargeting](https://www.youtube.com/watch?v=c9qBhFsAIIg)
+

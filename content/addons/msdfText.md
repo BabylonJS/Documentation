@@ -121,7 +121,7 @@ Final world matrix = Parent World * Transform Matrix * Paragraph Matrix
 
 Setting a parent:
 
-<Playground id="#6RLCWP#39" title="TextRenderer" description="Setting a parent"/>
+<Playground id="#6RLCWP#72" title="TextRenderer" description="Setting a parent"/>
 
 A Star Wars scroller:
 

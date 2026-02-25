@@ -61,9 +61,9 @@ Caveat: intermediate data increases memory usage — keep it disabled in product
 
 The maximum number of dynamic obstacles (e.g. barrels, boxes, temporary walls) that can be added to the navmesh. If > 0, the navmesh will be built with a tile cache.
 
-V1 sets this value to 128 so V2 does for backwards compatibility. In V2 you can set this value lower to preserve memory or you can turn off tile cache generation by setting this values to `0`.
+V1 sets this value to 128 and so does V2 for backwards compatibility. In V2 you can set this value lower to preserve memory or you can turn off tile cache generation by setting this value to `0`.
 
-If you use obstacled there will be always a `TileCache` generated.
+If you use obstacles, there will always be a `TileCache` generated.
 
 ### Adding/removing obstacles
 
@@ -81,7 +81,7 @@ Important! [Read more about the doNotWaitForCacheUpdate parameter and how to han
 
 ### expectedLayersPerTile
 
-Defines how many layers are expected to be defined per tile when tile cache is used. It's used for tuning memory/performance when tiles stack multiple walkable layers.
+Defines how many layers are expected per tile when tile cache is used. It's used for tuning memory/performance when tiles stack multiple walkable layers.
 
 ### tileCacheMeshProcess
 

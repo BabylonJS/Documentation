@@ -52,7 +52,7 @@ Defines custom connections between points on the mesh. These can represent **tel
 
 [Read more about OffMeshConnections](v2OffMeshConnections)
 
-## Exposed tileCache, navMeshQuery and itermediates
+## Exposed tileCache, navMeshQuery and intermediates
 
 `await navigationPlugin.createNavMeshAsync()` returns
 
@@ -126,15 +126,15 @@ You can use **Navigation Debugger** to inspect:
 
 ## Raycasting
 
-You can use `navigationPlugin.raycast(startPoint, endPoint)` from now to use ray casting through a navigation mesh.
+You can now use `navigationPlugin.raycast(startPoint, endPoint)` to perform raycasting through a navigation mesh.
 
 Examples of usage:
-- Line of sights check/shooting check: is there and obstacle between the player and an enemy for example, can it see the player, can the player shoot at it, etc…
-- Smoth steering: you can start to steer your agents even before they reach a non-navigatable part of the navmesh
-- NPCs moving randomly can avoid to start to walk into walls
+- Line-of-sight check/shooting check: is there an obstacle between the player and an enemy for example, can it see the player, can the player shoot at it, etc.
+- Smooth steering: you can start to steer your agents even before they reach a non-navigable part of the navmesh.
+- NPCs moving randomly can avoid starting to walk into walls.
 
 ## New Utility Functions
 
-V2 adds helper utility functions to post-process paths. You can use these function to L-Shape or smooth the curves of a path.
+V2 adds helper utility functions to post-process paths. You can use these functions to L-shape or smooth the curves of a path.
 
 [Read more about the new utility functions](v2UtilFunctions)
