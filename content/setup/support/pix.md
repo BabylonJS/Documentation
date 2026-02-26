@@ -50,6 +50,8 @@ Enable Developer Mode in Windows Settings:
 
 **Command Line Args:** `--incognito --disable-gpu-sandbox --disable-gpu-watchdog --disable-direct-composition --enable-dawn-features=emit_hlsl_debug_symbols,disable_symbol_renaming https://playground.babylonjs.com/?inspectorv2=true&engine=webgpu#DR9MT2#35`
 
+<Alert severity="warning" title="Security and Stability Warning" description="This Chrome command line disables the GPU sandbox and GPU watchdog, which weakens browser security and can impact stability. Use these flags only with trusted content."/>
+
 <Alert severity="info" title="WebGPU Engine" description="The URL includes the query parameter engine=webgpu, which forces the Babylon.js Playground to use the WebGPU engine instead of the default WebGL. This is required for PIX to capture DirectX-level GPU activity."/>
 
 | Chrome option used to launch | Description |
@@ -70,15 +72,15 @@ A GPU capture records a single frame of rendering activity, letting you inspect 
 
 A timing capture profiles GPU and CPU activity over a span of multiple frames, giving you a timeline view of how work is distributed. Unlike a GPU capture, a timing capture requires you to manually attach to the correct Chrome process. Launch the process as described above, then use **Attach to Process**:
 
-![PIX Timing Capture](/img/pix/pix-timing-capture.png)
+![PIX Timing Capture Configuration Windows](/img/pix/pix-timing-capture.png)
 
 Select the Chrome process whose command line contains `--type=gpu-process`.
 
-![PIX Timing Capture](/img/pix/pix-attach.png)
+![PIX Attach To Process Dialog](/img/pix/pix-attach.png)
 
 Once attached, click the **Timing Capture** button (stopwatch icon) on the PIX toolbar to begin recording, let the scene run for the desired duration, then click the button again to stop. The resulting timeline shows GPU queue utilization, command list execution, and hardware counter data, making it straightforward to identify bottlenecks such as GPU-bound passes, excessive state changes, or pipeline stalls.
 
-![PIX Timing Capture](/img/pix/pix-start-capture.png)
+![PIX Toolbar With Timing Capture](/img/pix/pix-start-capture.png)
 
 ## Additional Resources
 
