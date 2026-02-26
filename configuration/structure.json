@@ -2536,6 +2536,11 @@
                             "friendlyName": "Async-loading packages and Chunks using known bundlers",
                             "children": {},
                             "content": "setup/support/asyncChunks"
+                        },
+                        "pix": {
+                            "friendlyName": "Debugging and Profiling with PIX",
+                            "children": {},
+                            "content": "setup/support/pix"
                         }
                     }
                 }
