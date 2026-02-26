@@ -105,4 +105,4 @@ Note that we have deactivated the automatic building of the graph when resizing 
 
 Also note the parameters passed to `nrg.buildAsync(dontBuildFrameGraph = false, waitForReadiness = true, setAsSceneFrameGraph = false)`: the first two parameters have their default values, but the third is set to *false* so that the frame graph is not defined at the scene level!
 
-The full PG: <Playground id="#RM56RY#29" image="/img/playgroundsAndNMEs/pg-RM56RY-21.png" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (node render graph)"/>
+The full PG: <Playground id="#RM56RY#29" image="/img/playgroundsAndNMEs/pg-RM56RY-21.png" title="Node Render Graph basic example" description="Basic node render graph example in addition to the scene render loop"/>
