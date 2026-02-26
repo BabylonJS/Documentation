@@ -26,6 +26,8 @@ https://devblogs.microsoft.com/pix/download/
 Download the WinPixEventRuntime NuGet package, unzip `winpixeventruntime.*.nupkg`, and copy the `bin\x64\*.dll` files into your `<Chrome Installation Directory>` (usually `C:\Program Files\Google\Chrome\Application\`):  
 https://www.nuget.org/packages/WinPixEventRuntime
 
+<Alert severity="warning" title="Modifying Chrome Installation" description="This step requires administrator permissions. The DLLs must be recopied after each Chrome update, as updates replace the installation directory contents. Remove them when PIX is no longer needed."/>
+
 ## Setting Up the Environment
 
 Enable developer settings in the NVIDIA Control Panel:
@@ -42,6 +44,12 @@ Enable Developer Mode in Windows Settings:
 
 ## Launching the Process
 
+Launch PIX with **administrator privileges** (right-click and select "Run as administrator"). This is required for PIX to access GPU hardware counters and inject into the Chrome GPU process.
+
+![PIX As Administrator](/img/pix/pix-as-admin.png)
+
+In PIX, select **Launch Process** from the home screen and configure it with the following settings:
+
 ![PIX Launch Process](/img/pix/pix-launch-process.png)
 
 **Executable Path:** `<Chrome Installation Directory>/chrome.exe`
@@ -53,6 +61,8 @@ Enable Developer Mode in Windows Settings:
 <Alert severity="warning" title="Security and Stability Warning" description="This Chrome command line disables the GPU sandbox and GPU watchdog, which weakens browser security and can impact stability. Use these flags only with trusted content."/>
 
 <Alert severity="info" title="WebGPU Engine" description="The URL includes the query parameter engine=webgpu, which forces the Babylon.js Playground to use the WebGPU engine instead of the default WebGL. This is required for PIX to capture DirectX-level GPU activity."/>
+
+<Alert severity="info" title="WebGL Engine" description="If you need to debug the WebGL engine instead, enable the Force D3D11On12 option in PIX's launch settings to route DirectX 11 calls through DirectX 12, making them visible to PIX."/>
 
 | Chrome option used to launch | Description |
 | --- | --- |
