@@ -24,10 +24,8 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
     };
     const copyPasteIcon = !isCopy ? (
         <Tooltip title="Copy">
-            <IconButton size="small" color="inherit" onClick={copyPaste}>
-                <Tooltip title={"copy"}>
-                    <LinkIcon width="24" height="24"></LinkIcon>
-                </Tooltip>
+            <IconButton size="small" color="inherit" onClick={copyPaste} sx={{ "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.08)" } }}>
+                <LinkIcon width="24" height="24"></LinkIcon>
             </IconButton>
         </Tooltip>
     ) : (
@@ -47,29 +45,37 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
             >
                 Copied!
             </Box>
-            <IconButton size="small" color="inherit" onClick={copyPaste}>
-                <Tooltip title={"Copied"}>
-                    <LinkIcon width="24" height="24"></LinkIcon>
-                </Tooltip>
+            <IconButton size="small" color="inherit" onClick={copyPaste} sx={{ "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.08)" } }}>
+                <LinkIcon width="24" height="24"></LinkIcon>
             </IconButton>
         </Box>
     );
     return (
         <Box
             sx={{
-                display: "flex",
-                flexDirection: "column",
+                position: "relative",
+                "&:hover .copy-button": {
+                    opacity: 1,
+                },
+                "@media (hover: none)": {
+                    "& .copy-button": {
+                        opacity: 0.7,
+                    },
+                },
             }}
         >
             <Box
+                className="copy-button"
                 sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    padding: "0.3rem",
+                    position: "absolute",
+                    top: "0.5rem",
+                    right: "0.5rem",
+                    zIndex: 1,
+                    opacity: 0.3,
+                    transition: "opacity 0.2s ease",
+                    color: "#DFDFDF",
                 }}
             >
-                <i>{language}</i>
                 {copyPasteIcon}
             </Box>
             <Highlight theme={themes.vsDark} code={props.children.trim()} language={language}>
