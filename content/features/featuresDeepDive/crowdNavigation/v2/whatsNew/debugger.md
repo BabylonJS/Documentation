@@ -64,8 +64,6 @@ constructor(
 | `materials.lineMaterialOptions`<br/>&nbsp;&nbsp;`.greasedLineMaterialOptions` | `Partial<GreasedLineMaterialOptions>` |
 | `materials.lineMaterialOptions`<br/>&nbsp;&nbsp;`.greasedLineMeshOptions`     | `Partial<GreasedLineMeshOptions>`     |
 
-<br/>
-
 ```ts
 type DebugDrawerPrimitiveType = "lines" | "tris" | "quads" | "points";
 ```
