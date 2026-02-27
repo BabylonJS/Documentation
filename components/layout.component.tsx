@@ -37,7 +37,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
     const computeVisibleBreadcrumbs = useCallback(() => {
         const container = breadcrumbContainerRef.current;
         const measure = measureRef.current;
-        if (!container || !measure || breadcrumbs.length === 0) return;
+        if (!container || !measure) return;
         const availableWidth = container.offsetWidth;
         const ellipsisWidth = ellipsisRef.current?.offsetWidth ?? 0;
         const items = measure.children;
@@ -318,7 +318,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         >
                             {breadcrumbs.map((link, idx) => (
                                 <div key={`bc-measure-${idx}`} style={{ display: "flex", alignItems: "center" }}>
-                                    <span>{link.name}</span>
+                                    <span><Link href={baseDomain + link.url}>{link.name}</Link></span>
                                     <span>{idx !== breadcrumbs.length - 1 ? "|" : ""}</span>
                                 </div>
                             ))}
