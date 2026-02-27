@@ -10,7 +10,7 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Toolbar, Tooltip, Typography } from "@mui/material";
 import Box from "@mui/system/Box";
 import { useTheme } from "@mui/material/styles";
-import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useState } from "react";
+import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useCallback, useEffect, useRef, useState } from "react";
 import { generateMenuStructure } from "../lib/buildUtils/content.utils";
 import { getImageUrl } from "../lib/frontendUtils/frontendTools";
 import { IPageProps } from "../lib/content.interfaces";
@@ -29,6 +29,46 @@ const menuStructure = generateMenuStructure();
 export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const breadcrumbContainerRef = useRef<HTMLDivElement>(null);
+    const measureRef = useRef<HTMLDivElement>(null);
+    const ellipsisRef = useRef<HTMLDivElement>(null);
+    const [visibleStartIndex, setVisibleStartIndex] = useState(0);
+
+    const computeVisibleBreadcrumbs = useCallback(() => {
+        const container = breadcrumbContainerRef.current;
+        const measure = measureRef.current;
+        if (!container || !measure || breadcrumbs.length === 0) return;
+        const availableWidth = container.offsetWidth;
+        const ellipsisWidth = ellipsisRef.current?.offsetWidth ?? 0;
+        const items = measure.children;
+        let totalWidth = 0;
+        let startIdx = breadcrumbs.length;
+        for (let i = breadcrumbs.length - 1; i >= 0; i--) {
+            const el = items[i] as HTMLElement;
+            if (!el) continue;
+            const itemWidth = el.offsetWidth;
+            const neededForEllipsis = i > 0 ? ellipsisWidth : 0;
+            if (totalWidth + itemWidth + neededForEllipsis <= availableWidth) {
+                totalWidth += itemWidth;
+                startIdx = i;
+            } else {
+                break;
+            }
+        }
+        // Always show at least the last item, even if it doesn't fit
+        if (startIdx >= breadcrumbs.length) {
+            startIdx = breadcrumbs.length - 1;
+        }
+        setVisibleStartIndex(startIdx);
+    }, [breadcrumbs]);
+
+    useEffect(() => {
+        const observer = new ResizeObserver(computeVisibleBreadcrumbs);
+        if (breadcrumbContainerRef.current) {
+            observer.observe(breadcrumbContainerRef.current);
+        }
+        return () => observer.disconnect();
+    }, [breadcrumbs, computeVisibleBreadcrumbs]);
     const handleDrawerToggle = (event: MouseEvent | KeyboardEvent) => {
         if (!mobileOpen || (event.target as HTMLElement).tagName === "SPAN" || (event.target as HTMLElement).tagName === "DIV") {
             setMobileOpen(!mobileOpen);
@@ -207,6 +247,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         display: "flex",
                         overflow: "hidden",
                         fontSize: 14,
+                        flexWrap: "nowrap",
+                        alignItems: "center",
                         [theme.breakpoints.up("md")]: {
                             paddingLeft: "300px",
                         },
@@ -215,6 +257,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             borderRight: "1px solid #707070",
                             display: "flex",
                             alignItems: "center",
+                            flexShrink: 0,
                         },
                         "& > a:first-child": {
                             padding: theme.spacing(1, 2),
@@ -242,26 +285,78 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         </Link>
                     )}
                     <Box
+                        ref={breadcrumbContainerRef}
                         sx={{
                             display: "flex",
                             alignItems: "center",
-                            flexWrap: "wrap",
+                            flexWrap: "nowrap",
                             margin: theme.spacing(1, 2),
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            minWidth: 0,
+                            flex: 1,
+                            position: "relative",
                             "& span": {
                                 marginRight: theme.spacing(1),
                             },
                         }}
                     >
-                        {breadcrumbs.map((link, idx) => {
-                            return (
-                                <div key={`bc-${idx}`}>
-                                    <span>
-                                        <Link href={baseDomain + link.url}>{link.name}</Link>
-                                    </span>
+                        {/* Hidden measuring container - renders all items offscreen to get real widths */}
+                        <Box
+                            ref={measureRef}
+                            aria-hidden="true"
+                            sx={{
+                                display: "flex",
+                                position: "absolute",
+                                visibility: "hidden",
+                                pointerEvents: "none",
+                                whiteSpace: "nowrap",
+                                "& span": {
+                                    marginRight: theme.spacing(1),
+                                },
+                            }}
+                        >
+                            {breadcrumbs.map((link, idx) => (
+                                <div key={`bc-measure-${idx}`} style={{ display: "flex", alignItems: "center" }}>
+                                    <span>{link.name}</span>
                                     <span>{idx !== breadcrumbs.length - 1 ? "|" : ""}</span>
                                 </div>
-                            );
-                        })}
+                            ))}
+                            {/* Measure ellipsis width */}
+                            <div ref={ellipsisRef} style={{ display: "flex", alignItems: "center" }}>
+                                <span>…</span>
+                                <span>|</span>
+                            </div>
+                        </Box>
+                        {/* Visible breadcrumbs */}
+                        {visibleStartIndex > 0 && visibleStartIndex < breadcrumbs.length - 1 && (
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    flexShrink: 0,
+                                }}
+                            >
+                                <span>…</span>
+                                <span>|</span>
+                            </Box>
+                        )}
+                        {breadcrumbs.map((link, idx) => (
+                            <Box
+                                key={`bc-${idx}`}
+                                sx={{
+                                    alignItems: "center",
+                                    flexShrink: idx === breadcrumbs.length - 1 && visibleStartIndex === breadcrumbs.length - 1 ? 1 : 0,
+                                    minWidth: 0,
+                                    display: idx >= visibleStartIndex ? "flex" : "none",
+                                }}
+                            >
+                                <span style={{ overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis", display: "block" }}>
+                                    <Link href={baseDomain + link.url}>{link.name}</Link>
+                                </span>
+                                <span>{idx !== breadcrumbs.length - 1 ? "|" : ""}</span>
+                            </Box>
+                        ))}
                     </Box>
                 </Box>
             </AppBar>
