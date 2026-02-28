@@ -59,7 +59,9 @@ For retargeting to work correctly, the source animation must be at its **rest po
 For the target skeleton, the retargeting code internally derives the reference matrices from its recorded rest pose (the one obtained by `skeleton.returnToRest()`). You do not need to call `returnToRest()` yourself, but you must ensure that the rest pose recorded in the skeleton is the correct reference pose for your character.
 </Alert>
 
-**Note:** The current implementation only supports source animation groups that animate `TransformNode` objects, not bones directly. This is the standard case for glTF assets, where animations always target transform nodes.
+<Alert severity="info">
+The current implementation only supports source animation groups that animate `TransformNode` objects, not bones directly. This is the standard case for glTF assets, where animations always target transform nodes.
+</Alert>
 
 The `AnimatorAvatar` class exposes a **showWarnings** property (boolean, default `true`) that controls whether warnings are emitted during retargeting. When `true`, various diagnostic messages may be logged via `Logger.Warn` throughout the retargeting process. Set it to `false` to suppress these messages in production.
 
@@ -158,8 +160,8 @@ The following options affect how the mesh is loaded and displayed:
 
   | Update rest pose **enabled** | Update rest pose **disabled** |
   |---|---|
-  | ![Dude with update rest pose enabled](/img/animationRetargeting/updateRestPose_enabled.jpg) | ![Dude with update rest pose disabled](/img/animationRetargeting/updateRestPose_disabled.jpg) |
-  | ![Walking animation, update rest pose enabled](/img/animationRetargeting/updateRestPose_enabled_walk.webp) | ![Walking animation, update rest pose disabled](/img/animationRetargeting/updateRestPose_disabled_walk.webp) |
+  | ![Dude with update rest pose enabled](/img/animationRetargeting/updateRestPose_enabled.jpg!400) | ![Dude with update rest pose disabled](/img/animationRetargeting/updateRestPose_disabled.jpg!400) |
+  | ![Walking animation, update rest pose enabled](/img/animationRetargeting/updateRestPose_enabled_walk.webp!400) | ![Walking animation, update rest pose disabled](/img/animationRetargeting/updateRestPose_disabled_walk.webp!400) |
 
 - **Rescale** — when enabled, the character is scaled down to fit the viewport if it is larger than a reference size. Useful for assets that use real-world units.
 - **Show skeleton** — overlays the skeleton visualisation on the avatar mesh. The **Show skel. local axes** sub-option draws the local coordinate frame of every bone.
@@ -198,15 +200,17 @@ The **Retarget** section exposes all the parameters of `IRetargetOptions` descri
 
   | Fix root position OFF | Fix root position ON |
   |:---:|:---:|
-  | ![Fix root position disabled](/img/animationRetargeting/fixRootPos_disabled.webp) | ![Fix root position enabled](/img/animationRetargeting/fixRootPos_enabled.webp) |
+  | ![Fix root position disabled](/img/animationRetargeting/fixRootPos_disabled.webp!400) | ![Fix root position enabled](/img/animationRetargeting/fixRootPos_enabled.webp!400) |
 
 - **Fix ground reference** — corresponds to `fixGroundReference`. When enabled, a reference bone (typically a toe or foot bone) is used to anchor the character to the ground plane, preventing the character from floating or sinking. Note that even with **Fix root position** enabled, the character may still not be properly grounded without this flag. The videos below show the Big Vegas character retargeted with the Praying animation, with **Fix root position** ON in both cases but **Fix ground reference** disabled (left) and enabled (right):
 
   | Fix ground reference OFF | Fix ground reference ON |
   |:---:|:---:|
-  | ![Fix ground reference disabled](/img/animationRetargeting/fixGroundRef_disabled.webp) | ![Fix ground reference enabled](/img/animationRetargeting/fixGroundRef_enabled.webp) |
+  | ![Fix ground reference disabled](/img/animationRetargeting/fixGroundRef_disabled.webp!400) | ![Fix ground reference enabled](/img/animationRetargeting/fixGroundRef_enabled.webp!400) |
 
-     **Note:** **Fix ground reference** alone may not be appropriate for animations where the ground reference bone is not always the lowest point during the animation (e.g. walking or running animations), as it can cause unwanted vertical corrections. In this case, also try enabling **Fix ground ref. dynamic** and see if that improves things.
+<Alert severity="info">
+     **Fix ground reference** alone may not be appropriate for animations where the ground reference bone is not always the lowest point during the animation (e.g. walking or running animations), as it can cause unwanted vertical corrections. In this case, also try enabling **Fix ground ref. dynamic** and see if that improves things.
+</Alert>
 
 - **Fix ground ref. dynamic** — corresponds to `fixGroundReferenceDynamicRefNode`. Only has an effect when **Fix ground reference** is also enabled. When enabled, the ground reference correction no longer assumes that the configured ground reference bone is always the lowest point: at each frame the system scans all retargeted bones and uses whichever bone is furthest below the root as the effective ground reference for that keyframe. This makes the correction work correctly for animations where the reference bone is temporarily lifted (e.g. walking, running, kicking).
 
