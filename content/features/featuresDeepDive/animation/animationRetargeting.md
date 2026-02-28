@@ -52,6 +52,13 @@ As a final optional pass, the method inspects every pair of consecutive quaterni
 
 Available since Babylon.js v9.0, the `AnimatorAvatar` class provides the `retargetAnimationGroup` method to retarget a source animation group so that it drives the bones of the avatar's skeleton(s) and the morph targets of its morph target manager(s). Retargeting is name-based: the method matches the names of the `TransformNode` targets in the source animation against the names of the bones (matched either by their linked transform node name or directly by the bone name) and morph targets in the avatar. Any targeted animation whose name has no corresponding bone or morph target in the avatar is removed from the resulting group. The method returns a **new** `AnimationGroup`; the source group is not modified.
 
+<Alert severity="warning" title="Source and target rest pose">
+<br/>
+For retargeting to work correctly, the source animation must be at its **rest pose** when `retargetAnimationGroup` is called. If the animation has been played for any reason — or is still playing — every transform node in the source hierarchy must be restored to its **rest pose** before calling this method. Failing to do so will produce incorrect keyframe compensation because the reference pose matrices are sampled from the current transform node transforms. The rest pose may or may not correspond to frame 0 of the animation: if it does, calling `sourceAnimationGroup.goToFrame(0)` is sufficient to restore it; otherwise you will need to reset the transforms manually.
+
+For the target skeleton, the retargeting code internally derives the reference matrices from its recorded rest pose (the one obtained by `skeleton.returnToRest()`). You do not need to call `returnToRest()` yourself, but you must ensure that the rest pose recorded in the skeleton is the correct reference pose for your character.
+</Alert>
+
 **Note:** The current implementation only supports source animation groups that animate `TransformNode` objects, not bones directly. This is the standard case for glTF assets, where animations always target transform nodes.
 
 The `AnimatorAvatar` class exposes a **showWarnings** property (boolean, default `true`) that controls whether warnings are emitted during retargeting. When `true`, various diagnostic messages may be logged via `Logger.Warn` throughout the retargeting process. Set it to `false` to suppress these messages in production.
