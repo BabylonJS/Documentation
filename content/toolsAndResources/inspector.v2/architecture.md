@@ -84,6 +84,9 @@ This allows for strong type checking at compile time to prevent mistakes where t
 "Other Service" would have its own `ServiceDefinition` similar to the example above for "My Service." We can modify the "My Service" `ServiceDefinition` to consume "Other Service" as follows:
 
 ```ts
+// ServiceDefinition<Produced, Consumed>
+// The first tuple lists service contracts this service produces (empty here — it produces nothing yet).
+// The second tuple lists service contracts this service consumes (depends on).
 export const MyServiceDefinition: ServiceDefinition<[], [IOtherService]> = {
     // Helpful for debugging, and sometimes used in UI.
     friendlyName: "My Service",

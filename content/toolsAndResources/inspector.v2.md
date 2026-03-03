@@ -14,7 +14,7 @@ The Babylon.js Inspector is a diagnostic tool that makes it possible to inspect 
 
 The Inspector is included in Babylon tools like [Playground](/toolsAndResources/thePlayground) and [Sandbox](/toolsAndResources/sandbox) and can be toggled on or off with buttons in their toolbars.
 
-The Inspector is also available as an API to be used in your own projects, which can be found in the [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) package.
+The Inspector is also available as an API to be used in your own projects, which can be found in the [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) package (the same package now ships V2).
 
 Following is a basic example showing how to attach Inspector to a Babylon scene.
 
@@ -36,7 +36,7 @@ The following V1 options are automatically mapped:
 
 | V1 Option                        | V2 Equivalent                                                               |
 | -------------------------------- | --------------------------------------------------------------------------- |
-| `overlay`                        | `layoutMode: "overlay"` or `"inline"`                                       |
+| `overlay`                        | `layoutMode: "overlay"` (when `true`) or `"inline"` (when `false`)          |
 | `handleResize`                   | `autoResizeEngine`                                                          |
 | `globalRoot`                     | `containerElement`                                                          |
 | `initialTab`                     | A service definition that selects the corresponding pane                    |
