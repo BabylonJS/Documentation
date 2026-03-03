@@ -11,9 +11,33 @@ video-content:
 
 ## Introduction
 
-The atmosphere addon provides physically based sky and aerial perspective, supporting views from ground to space.
+The atmosphere addon provides physically based sky and aerial perspective rendering, supporting views from ground to space.
 
 <Playground id="#K1Y1Q8#40" title="Default Atmosphere" description="The default atmosphere with Earth-like scattering parameters." />
+
+## Installation
+
+The atmosphere addon is available as an ES6 NPM package:
+
+```shell
+npm install @babylonjs/addons --save
+```
+
+and as a UMD NPM package:
+
+```shell
+npm install babylonjs-addons --save
+```
+
+When using the ES6 package, import the `Atmosphere` class directly from its subpath:
+
+```javascript
+import { Atmosphere } from "@babylonjs/addons/atmosphere";
+```
+
+<Alert severity="info">
+The atmosphere requires WebGPU or WebGL2. Call `Atmosphere.IsSupported(engine)` before creating an instance to verify the engine is compatible.
+</Alert>
 
 ## Scene Setup
 
@@ -60,7 +84,7 @@ The atmosphere is created by specifying the directional light.
 
 ```javascript
 const atmosphere = new Atmosphere("atmosphere", scene, [ light ]);
-// True if rendering to a linear target (e.g. DefaultRenderingPipeline)
+// True if rendering to an HDR target (e.g. DefaultRenderingPipeline with hdr: true)
 atmosphere.isLinearSpaceComposition = true;
 // True if light value in the scene is expected to be linear (e.g. PBRMaterials)
 atmosphere.isLinearSpaceLight = true;
@@ -74,7 +98,7 @@ Rayleigh scattering can have a strong effect on the overall color of the atmosph
 
 <Playground id="#K1Y1Q8#39" title="Green Rayleigh Scattering" description="Create a green sky by increasing Rayleigh scattering in the green channel." />
 
-```
+```javascript
 atmosphere.physicalProperties.peakRayleighScattering =
     new Vector3(0.001, 0.034, 0.001); // r, g, b
 ```
@@ -140,4 +164,12 @@ To simulate night, a minimum multiple scattering intensity can be set. This main
 
 ```javascript
 atmosphere.minimumMultiScatteringIntensity = 0.1;
+```
+
+## Disposal
+
+When the atmosphere is no longer needed, call `dispose()` to release all GPU resources and remove it from the scene:
+
+```javascript
+atmosphere.dispose();
 ```
