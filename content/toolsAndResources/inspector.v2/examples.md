@@ -11,6 +11,12 @@ video-content:
 Following are a number of concrete examples showing how to extend Inspector V2.
 
 <Alert severity="info">
+Most of the examples are implemented in [CodeSandbox.io](https://codesandbox.io/) rather than Babylon's [Playground](https://playground.babylonjs.com/) since Playground uses the Inspector UMD bundle which has extensibility limitations due to React and other dependencies being bundled and not re-exported. Additionally, many of the Inspector examples pull in OSS packages to better demonstrate extension possibilities, and this generally requires bundling, which Playground does not do.
+
+That said, you can test certain aspects of the Inspector API directly in Playground, including some basic extensibility. See https://playground.babylonjs.com/#UV17TL for an example.
+</Alert>
+
+<Alert severity="info">
 The code is shown by default for each example, but you can **drag the divider on the right towards the left to reveal a live demo of the example**. Be patient as it will take a few seconds for the live demo to load!
 </Alert>
 
