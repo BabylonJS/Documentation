@@ -74,7 +74,7 @@ From a typing standpoint (compile time), a Service Contract is associated with a
 
 ```ts
 export const OtherServiceIdentity = Symbol("Other Service");
-export interface IOtherService extends IService<OtherServiceIdentity> {
+export interface IOtherService extends IService<typeof OtherServiceIdentity> {
     doSomethingAmazing(): void;
 }
 ```
@@ -123,7 +123,7 @@ We can add a new service contract and identity for "My Service," and then update
 
 ```ts
 export const MyServiceIdentity = Symbol("My Service");
-export interface IMyService extends IService<MyServiceIdentity> {
+export interface IMyService extends IService<typeof MyServiceIdentity> {
     showAlert(message: string): void;
 }
 
@@ -164,7 +164,7 @@ In the example above, the service instance returned from the service factory fun
 
 ```ts
 export const MyServiceIdentity = Symbol("My Service");
-export interface IMyService extends IService<MyServiceIdentity> {
+export interface IMyService extends IService<typeof MyServiceIdentity> {
     showAlert(message: string): void;
 }
 
@@ -224,7 +224,7 @@ The simplest way to add dynamic extensions is to use the `BuiltInsExtensionFeed`
 
 ```ts
 export const MyServiceIdentity = Symbol("My Service");
-export interface IMyService extends IService<MyServiceIdentity> {
+export interface IMyService extends IService<typeof MyServiceIdentity> {
     showAlert(message: string): void;
 }
 
