@@ -146,7 +146,7 @@ This PG shows a concrete example of retargeting:
 
 ![Animation Retargeting Tool](/img/animationRetargeting/tool.jpg)
 
-Link to the tool: <Playground id="#RJQC3F#13" image="/img/playgroundsAndNMEs/pg-RJQC3F-9.png" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true}/>
+Link to the tool: <Playground id="#RJQC3F#15" image="/img/playgroundsAndNMEs/pg-RJQC3F-9.png" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true}/>
 
 The Animation Retargeting Tool is an interactive playground that lets you experiment with retargeting without writing any code. The scene is split into two viewports: the left half shows the **avatar** (the target character that will be animated), and the right half shows the **reference skeleton** derived from the source animation file. A panel on the right side of the screen groups all the controls.
 
@@ -265,4 +265,5 @@ The optional **restPoseUpdate** array contains a list of bone (or transform node
 [Animation Retargeting in the Wicked Engine](https://wickedengine.net/2022/09/animation-retargeting/)<br/>
 [Animation Retargeting Algorithm](https://github.com/upf-gti/retargeting-threejs/blob/main/docs/Algorithm.md)<br/>
 [WebGL2 : 132 : Animation Retargeting](https://www.youtube.com/watch?v=c9qBhFsAIIg)
+
 
