@@ -48,3 +48,11 @@ The following V1 options are automatically mapped:
 | `contextMenu`                    | A service definition that adds section commands to Scene Explorer           |
 
 For new code, use the V2 API (`ShowInspector`) directly, which returns an `InspectorToken` for controlling Inspector visibility. See the [Extensibility API](/toolsAndResources/inspectorv2/extensibilityAPI) for details.
+
+## Inspector in Playground
+
+As mentioned, Inspector is already included as a feature of [Playground](/toolsAndResources/thePlayground). However, you can also use the Inspector V2 API directly in the Playground if you want to have programmatic control of Inspector, you want to experiment with the Inspector API, or you want to extend the functionality of Inspector just for one specific Playground.
+
+Here is a simple example showing how to use Inspector programmatically in a Playground:
+
+<Playground id="#6RBWKC" title="Inspector V2" description="Example of calling the API for showing Inspector V2"/>
