@@ -92,7 +92,7 @@ Add the following line in the `else` section:
 particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), 1);
 ```
 
-<Playground id="#MRRGXL#950" title="Random Colored Particles" description="Simple example of creating random colored particles."/>
+<Playground id="#MRRGXL#955" image="/img/playgroundsAndNMEs/pg-MRRGXL-950.png" title="Random Colored Particles" description="Simple example of creating random colored particles."/>
 
 ### Grow Particles from Size 0 to a Final Size
 
@@ -115,7 +115,7 @@ if (particle.age < particle.lifeTime * 0.35) {
 }
 ```
 
-<Playground id="#WJBZQH#104" title="Growing Particles" description="Simple example of creating growing particles."/>
+<Playground id="#WJBZQH#108" image="/img/playgroundsAndNMEs/pg-WJBZQH-104.png" title="Growing Particles" description="Simple example of creating growing particles."/>
 
 ### Particle Emitter Type
 
@@ -274,3 +274,4 @@ You can see a similar example with node-based particles:
 ### Particle Effect Object
 
 The particle effect object is a slightly modified [Babylon Effect Object](/typedoc/classes/babylon.effect). Also note that the `ShadersStore` is a namespace on this special effect object.
+
