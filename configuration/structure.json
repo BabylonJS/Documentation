@@ -615,6 +615,11 @@
                                     "friendlyName": "Save Babylon",
                                     "children": {},
                                     "content": "features/featuresDeepDive/Exporters/Save_Babylon"
+                                },
+                                "3MFExporter": {
+                                    "friendlyName": "3MF Exporter",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/Exporters/exportingTo3MF"
                                 }
                             },
                             "content": "features/featuresDeepDive/Exporters"
