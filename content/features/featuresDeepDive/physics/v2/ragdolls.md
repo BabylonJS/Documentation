@@ -63,6 +63,20 @@ Get the aggregate associated with a bone with `getAggregate` function. The retur
 ```javascript
 ragdoll.getAggregate(0)?.body.applyImpulse(new BABYLON.Vector3(200,200,200), BABYLON.Vector3.ZeroReadOnly);
 ```
+## Interactions
+
+Few steps are needed to physicalize a bone:
+
+```javascript
+// attach sphere to a bone
+sph.attachToBone(scene.getBoneByName("bone52"), result.meshes[0]);
+// physics sphere is moved to a target (and not teleported) 
+boxAggregate2.body.setPrestepType(BABYLON.PhysicsPrestepType.ACTION);
+// no feedback from physics to transform
+boxAggregate2.body.disableSync = true;
+```
+
+<Playground id="#HLZE74#0" title="Physicalized bone" description="Playground that loads an animated character and physicalize one bone" category="Physics"/>
 
 ## Limitations
 

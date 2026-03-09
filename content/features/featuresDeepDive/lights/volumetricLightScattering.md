@@ -8,11 +8,11 @@ video-overview:
 video-content:
 ---
 
-## How To Use the Volumetric LightScattering post-process
+## The Volumetric LightScattering post-process
 
 BABYLON.VolumetricLightScatteringPostProcess is a post-process that will compute the light scattering according to a light source mesh.
 
-## How to use it? Easy!
+### How to use it? Easy!
 
 ```javascript
 const vls = new BABYLON.VolumetricLightScatteringPostProcess("vls", 1.0, camera, lightSourceMesh, samplesNum, BABYLON.Texture.BILINEAR_SAMPLINGMODE, engine, false);
@@ -95,7 +95,7 @@ vls.useDiffuseColor = false; // False as default
 vls.mesh.material.diffuseTexture= new BABYLON.Texture(...);
 ```
 
-## And now, it's time to play
+### And now, it's time to play
 
 Feel free to tour some examples of Volumetric LightScattering in the playground :
 
@@ -104,3 +104,47 @@ Feel free to tour some examples of Volumetric LightScattering in the playground 
 - <Playground id="#UUXLX#37" title="VLS through CSG-created slots" description="Simple example of adding a light scattering post process through CSG-created slots." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP3.jpg"/>
 
 Have fun !
+
+## The Volumetric Lighting Task
+
+Starting with Babylon 9.0, you can use a new volumetric lighting effect, but it is only available with frame graphs: the [FrameGraphVolumetricLightingTask](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList#framegraphvolumetriclightingtask).
+
+The implementation is based on the article “Participating media using extruded light volumes” that you can find in [GPU Zen 1](https://www.amazon.com/GPU-Zen-Advanced-Rendering-Techniques/dp/0998822892). You can also find information in the [GDC slides](https://d29g4g2dyqv443.cloudfront.net/sites/default/files/akamai/gameworks/downloads/papers/NVVL/Fast_Flexible_Physically-Based_Volumetric_Light_Scattering.pdf).
+
+The `FrameGraphVolumetricLightingTask` task renders a mesh using the technique described in the links above. In general, you will want this mesh to represent the volume that a light can reach in your scene: use the [FrameGraphLightingVolumeTask](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList#framegraphlightingvolumetask) to generate such a mesh:
+
+```typescript
+// Create first a shadowGeneratorTask and a renderTask instance [...]
+// Then
+const lightingVolumeTask = new BABYLON.FrameGraphLightingVolumeTask("lightingVolume", frameGraph);
+
+lightingVolumeTask.shadowGenerator = shadowGeneratorTask;
+
+const lightVolume = lightingVolumeTask.lightingVolume;
+
+lightVolume.frequency = isWebGPU ? 1 : 4;
+lightVolume.tesselation = isWebGPU ? 1024 : 256;
+
+frameGraph.addTask(lightingVolumeTask);
+
+const volumetricLightingTask = new BABYLON.FrameGraphVolumetricLightingTask("volumetricLighting", frameGraph, true /*enableExtinction*/);
+
+volumetricLightingTask.targetTexture = renderTask.outputTexture;
+volumetricLightingTask.depthTexture = renderTask.outputDepthTexture;
+volumetricLightingTask.camera = camera;
+volumetricLightingTask.lightingVolumeMesh = lightingVolumeTask.outputMeshLightingVolume;
+volumetricLightingTask.light = light;
+volumetricLightingTask.lightPower = new BABYLON.Color3(0.8, 0.8, 0.8);
+volumetricLightingTask.extinction = new BABYLON.Vector3(0.01, 0.01, 0.03);
+volumetricLightingTask.phaseG = 0.05;
+
+frameGraph.addTask(volumetricLightingTask);
+```
+
+This effect works best in WebGPU because we can use a compute shader to update the lighting volume, whereas in WebGL, we have to read back the shadow map texture and update the volume on the CPU side.
+
+That's why you can see in the code above that we reduce the **frequency** of volume updates when using WebGL (4 means we update every 4 frames) and use a lower **tessellation** value (i.e., fewer triangles) for the mesh to improve performance.
+
+Please refer to the [FrameGraphVolumetricLightingTask](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList#framegraphvolumetriclightingtask) page for detailed information on task parameters and PG examples.
+
+<Playground engine="webgpu" id="#WLGEJB#4" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task"/>

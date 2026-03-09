@@ -215,7 +215,7 @@ See the [`AudioParameterRampShape`](/typedoc/enums/BABYLON.AudioParameterRampSha
 
 To experiment with fading sound in and out using different ramp shapes, see this example playground:
 
-<Playground id="#HDPCXJ#6" title="Sound fade in and out" description="An example of fading sounds in and out with various ramp shapes."/>
+<Playground id="#BFWABZ#1" title="Sound fade in and out" description="An example of fading sounds in and out with various ramp shapes."/>
 
 <br/>
 <br/>
@@ -475,7 +475,7 @@ A sound source created for a WebAudio node starts automatically and can be muted
 
 <br/>
 
-<Playground id="#QO4OTN#10" title="WebAudioModules synth sound source" description="An example of using a WebAudioModules synth as a sound source."/>
+<Playground id="#QO4OTN#15" title="WebAudioModules synth sound source" description="An example of using a WebAudioModules synth as a sound source."/>
 
 <br/>
 <br/>

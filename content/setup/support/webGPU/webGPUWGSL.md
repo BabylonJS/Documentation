@@ -74,6 +74,8 @@ fn main(input : FragmentInputs) -> FragmentOutputs {
 }
 ```
 
+<Alert severity="warning">Even though the entry point parameter is named `input`, do **not** access shader variables through `input.XXX`. Always use `vertexInputs.XXX` (vertex shader) or `fragmentInputs.XXX` (fragment shader) instead. The engine may apply transformations to certain input variables — for example, attributes stored as integers (such as `position` when using an integer vertex buffer) are automatically converted to their float equivalent, so accessing them via `input.XXX` would give the raw unconverted value and produce incorrect results.</Alert>
+
 ### Using pre-defined uniforms
 To use the pre-defined uniforms of the scene (`view`, `viewProjection`, `projection`, `vEyePosition`) and mesh (`world`, `visibility`), you must include the appropriate file(s) in the shader code:
 ```wgsl
@@ -174,10 +176,11 @@ On the javascript side, you have the corresponding methods to set a value to the
 The [normalized device coordinates](https://gpuweb.github.io/gpuweb/#coordinate-systems) (NDC) in WebGPU is slightly different from WebGL's. In GLSL, NDC for the z-axis lies in the -1.0 ≤ z ≤ 1.0 range. In WGSL, NDC for the z-axis lies in the 0.0 ≤ z ≤ 1.0 range. If you are using NDC in your shader, please ensure you make the necessary adjustments for the z-axis. There are no differences for the xy axes.
 
 ## Examples
-This playground is a basic example of using WGSL in a `ShaderMaterial`: <Playground id="#6GFJNR#178" image="/img/playgroundsAndNMEs/pg-6GFJNR-164.png" engine="webgpu" title="Basic example of WGSL with ShaderMaterial" description="Demonstrate how to write WGSL code with the ShaderMaterial class"/>
+This playground is a basic example of using WGSL in a `ShaderMaterial`: <Playground id="#6GFJNR#345" image="/img/playgroundsAndNMEs/pg-6GFJNR-164.png" engine="webgpu" title="Basic example of WGSL with ShaderMaterial" description="Demonstrate how to write WGSL code with the ShaderMaterial class"/>
 
 As when using [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language), `ShaderMaterial` supports morphs, bones and instancing in WGSL. You will need to add the appropriate includes in your code to support these features. See how it is done in this playground (this example also demonstrates how to use a storage texture and a storage buffer): <Playground id="#8RU8Q3#155" image="/img/playgroundsAndNMEs/pg-8RU8Q3-126.png" engine="webgpu" title="Advanced usage of the ShaderMaterial class" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support bones, morphs and instances"/>
 
 You can also use the new in 5.0 baked vertex animation feature as well as clip planes. See: <Playground id="#8RU8Q3#156" image="/img/playgroundsAndNMEs/pg-8RU8Q3-106.png" engine="webgpu" title="Using BVA and clip planes in WGSL" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support baked vertex animations and clip planes"/>
 
 WebGPU uses a special texture object for fast video playback (an "external texture"). Our [VideoTexture](/typedoc/classes/babylon.videotexture) class takes advantage of this, but if you want to do it yourself, this playground shows how to use the `ShaderMaterial` class to implement video playback with `texture_external`: <Playground id="#6GFJNR#179" image="/img/playgroundsAndNMEs/pg-6GFJNR-163.png" engine="webgpu" title="Video playing with the ShaderMaterial class" description="Demonstrate how to play videos using external texture in WGSL"/>
+

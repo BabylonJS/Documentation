@@ -35,7 +35,7 @@ const aggregate2 = new BABYLON.PhysicsAggregate(sphere2, aggregate.shape, { mass
 ```
 
 
-<Playground id="#4Y813L#1" title="Reuse shapes with Aggregates" description="Reuse shapes with Aggregates"/>
+<Playground id="#4Y813L#40" title="Reuse shapes with Aggregates" description="Reuse shapes with Aggregates"/>
 
 <Playground id="#Z8HTUN" title="Simple scene with Aggregate" description="Simple falling sphere created with an aggregate"/>
 
@@ -51,3 +51,4 @@ aggregate.body.setMassProperties({mass: 10});
 ## Disposing of an Aggregate
 
 You can dispose of an aggregate by using the `dispose` method. This will dispose of the body and shape that were created by it, in case the shape was created by the aggregate. If the shape was passed as a parameter, then it will not be disposed, as it could still be in use by another body.
+

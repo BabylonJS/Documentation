@@ -11,12 +11,18 @@ video-content:
 Following are a number of concrete examples showing how to extend Inspector V2.
 
 <Alert severity="info">
+Most of the examples are implemented in [CodeSandbox.io](https://codesandbox.io/) rather than Babylon's [Playground](https://playground.babylonjs.com/) since Playground uses the Inspector UMD bundle which has extensibility limitations due to React and other dependencies being bundled and not re-exported. Additionally, many of the Inspector examples pull in OSS packages to better demonstrate extension possibilities, and this generally requires bundling, which Playground does not do.
+
+That said, you can test certain aspects of the Inspector API directly in Playground, including some basic extensibility. See https://playground.babylonjs.com/#UV17TL for an example.
+</Alert>
+
+<Alert severity="info">
 The code is shown by default for each example, but you can **drag the divider on the right towards the left to reveal a live demo of the example**. Be patient as it will take a few seconds for the live demo to load!
 </Alert>
 
 ## Side Panes
 
-This example demonstrates how to add an entirely new side pane (along side Scene Explorer, Properties, etc.).
+This example demonstrates how to add an entirely new side pane (alongside Scene Explorer, Properties, etc.).
 
 In this example, the new side pane displays a treemap chart of mesh vertex counts. When a node of the treemap is clicked, it selects the corresponding mesh and you can see which one it is in Scene Explorer. Look for a new tab icon that looks like a treemap in the right pane toolbar area.
 
@@ -56,14 +62,14 @@ All of the examples so far only *consume* other services to add new functionalit
 
 This example demonstrates how to produce a new service that can be consumed by other services.
 
-Specifically, it builds on the earlier example showing the draw call count in the bottom toolbar by making the warning/danger thresholds configurable in the Settings pane. A second `ServiceDefintion` is added that adds a new section to the Settings pane, and the *produces* a service (`IGraphicsBudgetService`) that simply exposes these thresholds and an `Observable` that fires when they change. Then, the draw calls toolbar item service consumes this new `IGraphicsBudgetService` to determine when it should show the warning/danger colors for the draw call count. You could imagine other services (e.g. other parts of the UI) also consuming the `IGraphicsBudgetService` (for example, you could have the properties pane show a warning/danger indicator for a `Mesh` if it exceeds a vertex count threshold).
+Specifically, it defines a "favorites" service that adds a side pane, and *produces* a service that exposes a function for adding favorites. Then two additional services *consume* the favorites service to add a scene explorer command to add an entity to favorites, as well as a properties pane button to add an entity to favorites.
 
-<CodeSandbox id="hvmtjn" title="Inspector V2 - Producing a Service" />
+<CodeSandbox id="rpky55" title="Inspector V2 - Producing a Service" />
 
 ## Dynamic Extensions
 
 All of the examples so far have demonstrated [static](/toolsAndResources/inspectorv2/architecture#static-extensions) extensions where new `ServiceDefinition`s are loaded immediately upon the call to `ShowInspector`. It's also possible to defer loading of an extension until a user explicitly installs it via Inspector's extensions dialog. These are called [dynamic](/toolsAndResources/inspectorv2/architecture#dynamic-extensions) extensions.
 
-This example modifies the previous example by making the graphics budget service and draw call toolbar item collectively a dynamic extension that must be installed before it is loaded. Notice in the example below there is a second tab, `graphicsBudgetService.tsx`. This contains the default export that is needed for the `getExtensionModuleAsync` function to work correctly.
+This example modifies the [Toolbar Items](#toolbar-items) example above by making the graphics budget service and draw call toolbar item collectively a dynamic extension that must be installed before it is loaded. Notice in the example below there is a second tab, `graphicsBudgetService.tsx`. This contains the default export that is needed for the `getExtensionModuleAsync` function to work correctly.
 
 <CodeSandbox id="98pthf" title="Inspector V2 - Dynamic Extension" files="/src/index.tsx,/src/graphicsBudgetService.tsx" />

@@ -310,6 +310,11 @@
                                     "friendlyName": "Baked Texture Animations",
                                     "children": {},
                                     "content": "features/featuresDeepDive/animation/baked_texture_animations"
+                                },
+                                "animationRetargeting": {
+                                    "friendlyName": "Animation Retargeting",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/animation/animationRetargeting"
                                 }
                             },
                             "content": "features/featuresDeepDive/animation"
@@ -659,8 +664,24 @@
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphBasicConcepts"
                                 },
+                                "frameGraphClassFramework": {
+                                    "friendlyName": "Frame Graph Framework Description",
+                                    "children": {
+                                        "frameGraphClassOverview": {
+                                            "friendlyName": "Introduction to Frame Graph classes",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview"
+                                        },
+                                        "frameGraphTaskList": {
+                                            "friendlyName": "Frame Graph Task List",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework"
+                                },
                                 "frameGraphBlocks": {
-                                    "friendlyName": "Render Graph Blocks",
+                                    "friendlyName": "Node Render Graph Blocks",
                                     "children": {
                                         "frameGraphBlocksGeneralNotes": {
                                             "friendlyName": "General notes about Render Graph Blocks",
@@ -668,7 +689,7 @@
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksGeneralNotes"
                                         },
                                         "frameGraphBlocksDescription": {
-                                            "friendlyName": "Description of the Render Graph Blocks",
+                                            "friendlyName": "Render Graph Blocks Description",
                                             "children": {},
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksDescription"
                                         }
@@ -687,12 +708,48 @@
                                             "friendlyName": "Generate geometry textures for VAT",
                                             "children": {},
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleGeometryVAT"
+                                        },
+                                        "frameGraphExampleCustomPostProcess": {
+                                            "friendlyName": "Create a custom post-process",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleCustomPostProcess"
+                                        },
+                                        "frameGraphExampleHistoryTexture": {
+                                            "friendlyName": "Implement an onion-skin renderer",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleHistoryTexture"
+                                        },
+                                        "frameGraphExampleVolumetricLighting": {
+                                            "friendlyName": "Implement volumetric lighting",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphExamples/frameGraphExampleVolumetricLighting"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/frameGraph/frameGraphExamples"
+                                },
+                                "frameGraphFAQ": {
+                                    "friendlyName": "Best practices and FAQ",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/frameGraph/frameGraphFAQ"
                                 }
                             },
                             "content": "features/featuresDeepDive/frameGraph"
+                        },
+                        "geospatial": {
+                            "friendlyName": "Geospatial",
+                            "children": {
+                                "geospatialCamera": {
+                                    "friendlyName": "Geospatial Camera",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/geospatial/geospatialCamera"
+                                },
+                                "loading3dTiles": {
+                                    "friendlyName": "Loading 3D Tiles",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/geospatial/loading3dTiles"
+                                }
+                            },
+                            "content": "features/featuresDeepDive/geospatial"
                         },
                         "gui": {
                             "friendlyName": "GUI",
@@ -1498,6 +1555,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/glowLayer"
                                 },
+                                "selectionOutlineLayer": {
+                                    "friendlyName": "Selection Outline",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/selectionOutlineLayer"
+                                },
                                 "mergeMeshes": {
                                     "friendlyName": "Merging Meshes",
                                     "children": {},
@@ -2022,6 +2084,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/scene/floating_origin"
                                 },
+                                "large_world": {
+                                    "friendlyName": "Large World Rendering",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/scene/large_world"
+                                },
                                 "reducingMemoryUsage": {
                                     "friendlyName": "Reducing Memory Footprint",
                                     "children": {},
@@ -2469,6 +2536,11 @@
                             "friendlyName": "Async-loading packages and Chunks using known bundlers",
                             "children": {},
                             "content": "setup/support/asyncChunks"
+                        },
+                        "pix": {
+                            "friendlyName": "Debugging and Profiling with PIX",
+                            "children": {},
+                            "content": "setup/support/pix"
                         }
                     }
                 }
@@ -2520,7 +2592,7 @@
                     "content": "toolsAndResources/sandbox"
                 },
                 "inspectorv2": {
-                    "friendlyName": "Inspector V2 (Preview)",
+                    "friendlyName": "Inspector V2",
                     "children": {
                         "architecture": {
                             "friendlyName": "Architecture",
@@ -2539,52 +2611,6 @@
                         }
                     },
                     "content": "toolsAndResources/inspector.v2"
-                },
-                "inspector": {
-                    "friendlyName": "Inspector",
-                    "children": {
-                        "inspectorVideoOverview": {
-                            "friendlyName": "Intro to the Inspector Video Series",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/inspectorVideoOverview"
-                        },
-                        "animationCurveEditor": {
-                            "friendlyName": "Animation Curve Editor",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/animationCurveEditor"
-                        },
-                        "particleEditor": {
-                            "friendlyName": "Particle Editor",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/particleEditor"
-                        },
-                        "spriteEditor": {
-                            "friendlyName": "Sprite Editor",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/spriteEditor"
-                        },
-                        "textureInspector": {
-                            "friendlyName": "Texture Inspector",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/textureInspector"
-                        },
-                        "skeletonViewer": {
-                            "friendlyName": "Skeleton Viewer",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/skeletonViewer"
-                        },
-                        "performanceProfiler": {
-                            "friendlyName": "Performance Profiler",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/performanceProfiler"
-                        },
-                        "reflector": {
-                            "friendlyName": "Debug Scenes Remotely Using the Reflector",
-                            "children": {},
-                            "content": "toolsAndResources/inspector/reflector"
-                        }
-                    },
-                    "content": "toolsAndResources/inspector"
                 },
                 "guiEditor": {
                     "friendlyName": "GUI Editor",
@@ -2622,6 +2648,17 @@
                         }
                     },
                     "content": "toolsAndResources/nge"
+                },
+                "npe": {
+                    "friendlyName": "Node Particle Editor",
+                    "children": {
+                        "npeBlocks": {
+                            "friendlyName": "Available Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/npe/npeBlocks"
+                        }
+                    },
+                    "content": "toolsAndResources/npe"
                 },
                 "viewerConfigurator": {
                     "friendlyName": "Viewer Configurator",
@@ -3812,6 +3849,52 @@
                         }
                     },
                     "content": "features/featuresDeepDive/babylonViewer.v1"
+                },
+                "inspector": {
+                    "friendlyName": "Inspector V1",
+                    "children": {
+                        "inspectorVideoOverview": {
+                            "friendlyName": "Intro to the Inspector Video Series",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/inspectorVideoOverview"
+                        },
+                        "animationCurveEditor": {
+                            "friendlyName": "Animation Curve Editor",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/animationCurveEditor"
+                        },
+                        "particleEditor": {
+                            "friendlyName": "Particle Editor",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/particleEditor"
+                        },
+                        "spriteEditor": {
+                            "friendlyName": "Sprite Editor",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/spriteEditor"
+                        },
+                        "textureInspector": {
+                            "friendlyName": "Texture Inspector",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/textureInspector"
+                        },
+                        "skeletonViewer": {
+                            "friendlyName": "Skeleton Viewer",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/skeletonViewer"
+                        },
+                        "performanceProfiler": {
+                            "friendlyName": "Performance Profiler",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/performanceProfiler"
+                        },
+                        "reflector": {
+                            "friendlyName": "Debug Scenes Remotely Using the Reflector",
+                            "children": {},
+                            "content": "toolsAndResources/inspector/reflector"
+                        }
+                    },
+                    "content": "toolsAndResources/inspector"
                 }
             }
         },

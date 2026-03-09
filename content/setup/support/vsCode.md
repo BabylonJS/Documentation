@@ -16,11 +16,10 @@ You can install VSCode from their site: [https://code.visualstudio.com/](https:/
 
 ## Useful plugins
 
-Once installed, a few plugins will help you have the best experience. You can search for them in the extension tab (Ctrl+Shift+d):
+Once installed, a few plugins will help you have the best experience. You can search for them in the Extensions view (default shortcut: Ctrl+Shift+X on Windows/Linux, Cmd+Shift+X on macOS):
 
-1. [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) as well as the chrome browser
-2. [Shader languages support for VSCode](https://marketplace.visualstudio.com/items?itemName=slevesque.shader) for syntax highlighting and autocompletion in glsl shader
-3. [Babylon.js file viewer](https://marketplace.visualstudio.com/items?itemName=julianchen.babylon-js-viewer) can be used to display the content of a .babylon file directly in VSCode. It can be useful if you want to quickly check if your artist did a good job with an object and their names :)
+1. [Shader languages support for VSCode](https://marketplace.visualstudio.com/items?itemName=slevesque.shader) for syntax highlighting and autocompletion in GLSL shaders
+2. [Babylon.js file viewer](https://marketplace.visualstudio.com/items?itemName=julianchen.babylon-js-viewer) can be used to display the content of a .babylon file directly in VSCode. It can be useful if you want to quickly check if your artist did a good job with an object and their names :)
 
 ## Keybindings setup
 
@@ -46,11 +45,10 @@ This will make the main commands quicker to access. Do not hesitate to adapt the
 
 ## Debugging code
 
-Also, in VSCode there is a `Debug` tab on the menu. To use it with Babylon.js you need to install an extension, find out more from [Debugger for Chrome](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code).
+Also, in VSCode there is a `Run and Debug` tab on the left pane. Select launch configuration to launch and press `Start Debugging` (F5) button.
 
-With the test task running from the VSCode debug tab, chose the section you want to debug and launch the debugger.
-![debug](/img/how_to/howToStart/debug.png)
+With the test task running from the VSCode `Run and Debug` tab, choose the section you want to debug and launch the debugger.
 
-Debug session will debug all the Typescript and JavaScript in Chrome and stop on your breakpoints set up in files in VSCode. It debugs all the code from src, materialsLibrary, proceduralTexturesLibrary, postprocessLibrary, etc.
+The debug session will debug all the TypeScript and JavaScript in Chrome and stop on your breakpoints set up in files in VSCode. It debugs all the code from src, materialsLibrary, proceduralTexturesLibrary, postprocessLibrary, etc.
 
-_Hint_: If another chrome session is already running on remote debug on port 9222 the debugger will fail to attach as the port is already open. You will have to close the other remote debug first.
+_Hint_: If another Chrome session is already running with remote debugging on port 9222, the debugger will fail to attach as the port is already open. You will have to close the other remote debug first.

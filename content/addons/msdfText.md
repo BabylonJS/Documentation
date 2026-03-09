@@ -37,6 +37,10 @@ and as an ES6 package:
 
 ## Initialization
 
+Two assets are needed to initialize an MSDF `TextRenderer`:
+1. A texture that contains the MSDF glyphs.
+2. A json file that describes the bounds of each glyph within the texture, as well as other per-glyph information.
+
 Because we need to load the correct shaders (either webgl or webgpu), the creation of a TextRenderer is async:
 
 ```
@@ -54,6 +58,15 @@ You can check the following free tools to generate font assets for your project:
 
 * https://msdf-bmfont.donmccurdy.com/
 * https://github.com/Chlumsky/msdfgen#using-a-multi-channel-distance-field
+
+These tools generate the required json and texture image (e.g. png). You will need to provide as an input the set of characters that you need in your app. For example, if you wanted to support typical alpha-numeric English characters along with other common characters, your input string might be:
+```text
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 `~!@#$%^&*()-_=+[{]}\|;:'",<.>/?
+```
+
+After generating custom font assets, you might find this Playground useful for testing:
+
+<Playground id="#Y20U5M#3" title="TextRenderer Test" description="Helpful PG for testing custom MSDF font assets"/>
 
 ## Usage
 
@@ -121,7 +134,7 @@ Final world matrix = Parent World * Transform Matrix * Paragraph Matrix
 
 Setting a parent:
 
-<Playground id="#6RLCWP#39" title="TextRenderer" description="Setting a parent"/>
+<Playground id="#6RLCWP#72" title="TextRenderer" description="Setting a parent"/>
 
 A Star Wars scroller:
 

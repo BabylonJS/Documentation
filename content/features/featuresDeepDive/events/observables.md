@@ -146,8 +146,6 @@ TheBabylon.js Scene Object has over 20 observables that 'fire' under various con
 - [onAfterActiveMeshesEvaluationObservable](/typedoc/classes/babylon.scene#onafteractivemeshesevaluationobservable)
 - [onBeforeParticlesRenderingObservable](/typedoc/classes/babylon.scene#onbeforeparticlesrenderingobservable)
 - [onAfterParticlesRenderingObservable](/typedoc/classes/babylon.scene#onafterparticlesrenderingobservable)
-- [onBeforeRenderTargetsRenderObservable](/typedoc/classes/babylon.scene#onbeforerendertargetsrenderobservable)
-- [onAfterRenderTargetsRenderObservable](/typedoc/classes/babylon.scene#onafterrendertargetsrenderobservable)
 - [onBeforeDrawPhaseObservable](/typedoc/classes/babylon.scene#onbeforedrawphaseobservable)
 - [onAfterDrawPhaseObservable](/typedoc/classes/babylon.scene#onafterdrawphaseobservable)
 - [onAfterCameraRenderObservable](/typedoc/classes/babylon.scene#onaftercamerarenderobservable)
@@ -338,3 +336,4 @@ export function fromBabylonObservable<T>(bjsObservable: BJSObservable<T>): Obser
   });
 }
 ````
+

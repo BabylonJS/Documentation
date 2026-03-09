@@ -73,6 +73,33 @@ One important thing to note is that, due to differences in implementation, Stand
 
 Also, the current implementation for RectAreaLight does not cast shadows, but we have plans to have this implemented in the future.
 
+### Using emission textures with RectAreaLight
+
+Emission textures can be used as light sources for RectAreaLight by assigning them to the `.emissionTexture` property. However, these textures require pre-processing to work properly.
+
+Pre-processing can be done offline (recommended) or at runtime using `AreaLightTextureTools`. Runtime processing takes several seconds for typical texture sizes (1024 or 2048), so offline processing is preferred for production use. The runtime tool is provided for prototyping and experimentation.
+
+Here's how to use an emission texture at runtime:
+
+```javascript
+// AreaLightTextureTools can be created once and reused for processing multiple textures. 
+const textureProcessor = new BABYLON.AreaLightTextureTools(engine);
+
+// Create your RectAreaLight
+const light = new BABYLON.RectAreaLight("areaLight", new BABYLON.Vector3(0, 1, 0), 2, 2, scene);
+
+// Image that you want to use as emission.
+const emissionTexture = new BABYLON.Texture(textureURL, scene);
+
+// Preprocess the texture to get the one that should be used by RectAreaLight
+light.emissionTexture = await textureProcessor.processAsync(emissionTexture);
+```
+
+We also provide an offline tool that can directly pre-process emission textures: [Babylon Texture Tools](https://babylonjs.com/tools/textures/index.html). By going to the "Area Light" tab, users can drag and drop a PNG into the tool and use the "Render" button to generate the pre-processed texture. The resulting texture can be directly assigned to `light.emissionTexture` without any additional steps.
+
+<Playground id="#T7FXR8#104" title="Area Light with Emission" description="Area Light using emission texture." image="/img/playgroundsAndNMEs/areaLightEmissionSample.jpg" isMain={true} category="Lights"/>
+
+
 ## Color Properties
 
 There are three properties of lights that affect color. Two of these _diffuse_ and _specular_ apply to all four types of light, the third, _groundColor_, only applies to a Hemispheric Light.

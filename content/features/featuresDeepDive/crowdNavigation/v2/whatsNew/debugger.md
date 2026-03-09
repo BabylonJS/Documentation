@@ -27,46 +27,53 @@ You have to set `keepIntermediates: true` in the nav mesh parameters to retain t
 First you need to create `NavigationDebugger` instance and pass a babylon.js scene and optional parameters to the `NavigationDebugger.constructor`:
 
 ```ts
-    constructor(
-        private _scene: Scene,
-        options?: {
-            parent?: {
-                node?: TransformNode | string;
-            };
-            primitiveTypes?: DebugDrawerPrimitiveType[];
-            materials?: {
-                triMaterial?: StandardMaterial;
-                pointMaterial?: StandardMaterial;
-                lineMaterialOptions: {
-                    greasedLineMaterialOptions: Partial<GreasedLineMaterialOptions>;
-                    greasedLineMeshOptions: Partial<GreasedLineMeshOptions>;
-                };
-            };
-        }
-    )
+constructor(
+  scene: Scene,
+  options?: {
+    parent?: {
+      node?: TransformNode | string;
+    };
+    primitiveTypes?: DebugDrawerPrimitiveType[];
+    materials?: {
+      triMaterial?: StandardMaterial;
+      pointMaterial?: StandardMaterial;
+      lineMaterialOptions: {
+        greasedLineMaterialOptions: Partial<GreasedLineMaterialOptions>;
+        greasedLineMeshOptions: Partial<GreasedLineMeshOptions>;
+      };
+    };
+  }
+)
 ```
 
 #### Parameters
 
 | Parameter | Type                | Description                                                                                   |
 | --------- | ------------------- | --------------------------------------------------------------------------------------------- |
-| `_scene`  | `Scene`             | The Babylon.js scene where the debug drawer will be created.                                  |
+| `scene`   | `Scene`             | The Babylon.js scene where the debug drawer will be created.                                  |
 | `options` | `object` (optional) | Additional configuration options for customizing parent node, primitive types, and materials. |
 
 #### Options parameter
 
-| Property                                                   | Type                                  | Description                                                                               |
-| ---------------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `parent.node`                                              | `TransformNode \| string`             | Optional parent node (or its name) to which the debug drawer should be attached.          |
-| `primitiveTypes`                                           | `DebugDrawerPrimitiveType[]`          | List of primitive types (triangles, lines, points) to enable for debugging visualization. |
-| `materials.triMaterial`                                    | `StandardMaterial`                    | Custom material for drawing triangle primitives.                                          |
-| `materials.pointMaterial`                                  | `StandardMaterial`                    | Custom material for drawing point primitives.                                             |
-| `materials.lineMaterialOptions.greasedLineMaterialOptions` | `Partial<GreasedLineMaterialOptions>` | Configuration for the **GreasedLineMaterial** used when rendering debug lines.            |
-| `materials.lineMaterialOptions.greasedLineMeshOptions`     | `Partial<GreasedLineMeshOptions>`     | Configuration for the **GreasedLineMesh** geometry options                                |
+| Property                                                                      | Type                                  |
+| ----------------------------------------------------------------------------- | ------------------------------------- |
+| `parent.node`                                                                 | `TransformNode \| string`             |
+| `primitiveTypes`                                                              | `DebugDrawerPrimitiveType[]`          |
+| `materials.triMaterial`                                                       | `StandardMaterial`                    |
+| `materials.pointMaterial`                                                     | `StandardMaterial`                    |
+| `materials.lineMaterialOptions`<br/>&nbsp;&nbsp;`.greasedLineMaterialOptions` | `Partial<GreasedLineMaterialOptions>` |
+| `materials.lineMaterialOptions`<br/>&nbsp;&nbsp;`.greasedLineMeshOptions`     | `Partial<GreasedLineMeshOptions>`     |
 
 ```ts
-export type DebugDrawerPrimitiveType = "lines" | "tris" | "quads" | "points";
+type DebugDrawerPrimitiveType = "lines" | "tris" | "quads" | "points";
 ```
+
+- `parent.node` — Optional parent node (or its name) to which the debug drawer should be attached.
+- `primitiveTypes` — List of primitive types (triangles, lines, points) to enable for debugging visualization.
+- `materials.triMaterial` — Custom material for drawing triangle primitives.
+- `materials.pointMaterial` — Custom material for drawing point primitives.
+- `materials.lineMaterialOptions.greasedLineMaterialOptions` — Configuration for the **GreasedLineMaterial** used when rendering debug lines.
+- `materials.lineMaterialOptions.greasedLineMeshOptions` — Configuration for the **GreasedLineMesh** geometry options.
 
 You can then call the `draw` function to visualize the required layers:
 
@@ -91,7 +98,7 @@ debug.draw(navigationPlugin.navMesh, navigationPlugin.intermediates, scene, debu
 | `NAVMESH`                      | Displays the final navigation mesh used for pathfinding.                       |
 | `NAVMESH_BV_TREE`              | Shows the bounding volume tree (BVTree) used for fast spatial queries.         |
 
-Note: You can also use the specific `draw` functions from the `NavigationDebugger`. [Refere to the NavigationDebugger API](API)
+Note: You can also use the specific `draw` functions from the `NavigationDebugger`. [Refer to the NavigationDebugger API](API)
 
 Drawing a debug nav mesh where `polyFlags` are set to `1` (default value) with `blue` color:
 
@@ -140,4 +147,4 @@ debug.draw(navigationPlugin.navMesh, navigationPlugin.intermediates, scene, ADDO
 
 ### The createDebugNavMesh function
 
-The function `navigationPlugin.createDebugNavMesh` is available in V2 to maintain backwards compatiblity.
+The function `navigationPlugin.createDebugNavMesh` is available in V2 to maintain backwards compatibility.

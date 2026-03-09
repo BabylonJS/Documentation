@@ -32,7 +32,7 @@ Just copy the code below if you want to use it.
 
 These examples use an orthographic camera giving a 2D view
 
-<Playground id="#FA2H7X#3" title="Open Line" description="Open line example."/>
+<Playground id="#FA2H7X#479" title="Open Line" description="Open line example."/>
 <Playground id="#FA2H7X#4" title="Closed Line" description="Closed line example."/>
 <Playground id="#FA2H7X#5" title="Standard UV = True" description="Standard UV is true."/>
 <Playground id="#FA2H7X#6" title="Standard UV = False" description="Standard UV is false."/>

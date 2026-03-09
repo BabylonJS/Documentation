@@ -7868,7 +7868,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 ### Major updates
 
 - New [fancy forum](https://forum.babylonjs.com)! ([Deltakosh](https://github.com/deltakosh))
-- [Inspector v2.0](/toolsAndResources/inspector). [Dev log](https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205) ([Deltakosh](https://github.com/deltakosh))
+- [Inspector v2.0](/legacy/inspector). [Dev log](https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205) ([Deltakosh](https://github.com/deltakosh))
 - Added support for [parallel shader compilation](https://www.khronos.org/registry/webgl/extensions/KHR_parallel_shader_compile/) ([Deltakosh](https://github.com/deltakosh))
 - Added [Object Based Motion Blur](http://doc.babylonjs.com/how_to/using_motionblurpostprocess) post-process ([julien-moreau](https://github.com/julien-moreau))
 - Added [support for ammo.js](/features/featuresDeepDive/physics/usingPhysicsEngine) as a physics plugin (Composite objects, motors, joints) ([TrevorDev](https://github.com/TrevorDev))

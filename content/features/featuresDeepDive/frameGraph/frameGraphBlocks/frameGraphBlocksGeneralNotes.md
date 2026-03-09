@@ -12,7 +12,6 @@ Unlike other node editors (such as the node material editor and the node geometr
 For example, if you clear a color and depth texture using a `Clear` block and update the number of color texture samples, you will immediately get an error in the console:
 
 <font color="red">
-Error: FrameGraphClearTextureTask Clear: the depth texture and the output texture must have the same number of samples.<br/>
 From preview manager: Error: FrameGraphClearTextureTask Clear: the depth texture and the output texture must have the same number of samples.
 </font>
 
@@ -78,6 +77,7 @@ NRGE supports a number of connection types, those that would be expected of a no
 
 However, in order to make things easier to discover in the user interface and to limit errors, we have divided the texture type into several types, depending on the type of data stored in the texture:
 * **TextureViewDepth**: the texture stores the depth (Z coordinate) in the camera's view space
+* **TextureNormViewDepth**: the texture stores the normalized depth (Z coordinate) in the camera's view space
 * **TextureScreenDepth**: the texture stores the depth (Z coordinate) in the screen space
 * **TextureViewNormal**: the texture stores the normal in the camera's view space
 * **TextureWorldNormal**: the texture stores the normal in the world space
@@ -93,7 +93,7 @@ Most of the time, these textures (except for the general purpose texture) will b
 
 ![Geometry Renderer block](/img/frameGraph/block_geometry_renderer.jpg)
 
-See the [GeometryRenderer block](#geometryrenderer) section for more information.
+See the [GeometryRenderer block](/features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksDescription#geometryrenderer) section for more information.
 
 ### Description of block parameters
 
@@ -101,6 +101,6 @@ Most blocks have parameters that you can change to modify their behavior: you ac
 
 In the rest of this document, we will generally not list/describe them, because:
 * many of them are self-explanatory
-* we don't want to repeat descriptions that you can find elsewhere in the documentation. For example, the description of all SSR parameters can be found in [Screen Space Reflections (SSR) Rendering Pipeline](features/featuresDeepDive/postProcesses/SSRRenderingPipeline) or in the [class documentation](/typedoc/classes/babylon.ssrrenderingpipeline).
+* we don't want to repeat descriptions that you can find elsewhere in the documentation. For example, the description of all SSR parameters can be found in [Screen Space Reflections (SSR) Rendering Pipeline](/features/featuresDeepDive/postProcesses/SSRRenderingPipeline) or in the [class documentation](/typedoc/classes/babylon.ssrrenderingpipeline).
 
 Regarding the second point, as most (if not all) of the blocks you can use in a frame graph are wrappers around features that exist in the engine, you can always find documentation about them in other sections of the website.

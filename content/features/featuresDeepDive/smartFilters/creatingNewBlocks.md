@@ -22,6 +22,24 @@ There are two ways you can make and use blocks for Smart Filters:
 | Can load directly in the Smart Filters Editor (SFE)                                                         | Yes            | No        |
 | Can do custom logic in your bind function <br/>(e.g. math or packing multiple inputs into a single uniform) | No             | Yes       |
 
+## Designing Your Block
+
+### Terminology
+
+| Term        | Definition                                                                                                                                                                                                                                               |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Design Time | When you are instantiating blocks, connecting them, and setting initial values of properties and input blocks                                                                                                                                            |
+| Runtime     | Begins after you have called createRuntimeAsync() and are working with the SmartFilterRuntime returned - at this point input block values can be changed, but changes to block properties will have no effect on that instance of the SmartFilterRuntime |
+
+### Uniforms vs. Consts
+
+In a Smart Filter block, input connection points become uniforms, and properties of the block become consts.
+
+| Pick    | When                                                                                                                                                                               |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Uniform | If the value needs to be settable at runtime (for example, to achieve an animation)                                                                                                |
+| Const   | If the value will never need to be changed at runtime. The benefit of a const is that the shader compiler can better optimize the code since it knows the value will never change. |
+
 ## Important GLSL Coding Requirements
 
 <Alert severity="info">
@@ -52,6 +70,11 @@ These requirements ensure the optimizer can collapse sections of the Smart Filte
    }
    color = texture2D(input, uvToUse);
    ```
+1. Be sure your fragment shaders return values in the 0-1 range
+
+   - <b>Why:</b> You can't rely on intermediate textures for clamping your values, because when your block is included in a Smart Filter and run through the optimizer, it
+     will return its value directly to the next block in the Smart Filter instead of writing to an intermediate texture.
+   - <b>Debugging tip:</b> If you see visual differences in the Smart Filter Editor when testing a Smart Filter and toggling the optimizer on and off, you can enable the "Clamp Return Values" debug mode (directly below the Optimize Smart Filter toggle) to have it inject clamps for you when it connects blocks. If that removes the inconsistency when toggling the optimizer on and off, that indicates you have a block that needs to clamp its output to be compatible with the optimizer.
 
 ### Testing Optimizer Compatibility
 
@@ -96,6 +119,29 @@ vec4 mainImage(vec2 vUV) { // main
     return vec4(tinted, color.a);
 }
 ```
+
+### Creating Block Properties
+
+Block properties are consts in the GLSL. If you want to introduce a block property (which unlike a uniform can only be set before the runtime is created), you can add an annotation directly above the const declaration like this:
+
+```annotated-GLSL
+// { "property": true }
+const float mode = 1.;
+```
+
+When the block is selected in the Smart Filters Editor, you'll see the mode appear in the properties panel on the right:
+![SFE](/img/how_to/smart-filters/const-prop-sfe-textbox.png)
+
+You can optionally supply a list of values to appear in a dropdown like this:
+
+```annotated-GLSL
+// { "property": { "options": { "Normal": 0, "Crazy": 1, "Odd": 2 } } }
+const float mode = 1.;
+```
+
+And it will appear like this in the Smart Filters Editor:
+
+![SFE](/img/how_to/smart-filters/const-prop-sfe-options.png)
 
 ### Annotation Requirements
 
@@ -201,6 +247,65 @@ import { uniforms, shaderProgram } from "./compositionBlock.fragment.js";
 1. The ShaderBinding.bind() function must not assume texture inputs will be defined
    - If the Smart Filter has been optimized, texture inputs may be replaced with return values from other blocks instead of texture uniforms
    - For example, don't have logic that branches based on if the texture input was defined
+
+### Creating Block Properties
+
+To create a property mapped to a const in a TypeScript + GLSL Code block, follow these steps:
+
+1. Annotate the const in the GLSL code like this:
+
+```annotated-GLSL
+// { "property": true }
+const float mode = 1.;
+```
+
+2. Add a property to your new block's class (with optional editableInPropertyPage metadata to make it visible in the Smart Filters Editor):
+
+```typescript
+@editableInPropertyPage("Mode", PropertyTypeForEdition.List, "PROPERTIES", {
+    notifiers: { rebuild: true },
+    options: [
+        { label: "Normal", value: 0 },
+        { label: "Crazy", value: 1 },
+        { label: "Odd", value: 2 },
+    ],
+})
+public mode: number = 1;
+
+```
+
+3. Override getShaderProgram() in the new block's class
+
+```typescript
+/**
+ * Gets the shader program to use to render the block.
+ * This adds the per-instance const values to the shader program.
+ * @returns The shader program to use to render the block
+ */
+public override getShaderProgram() {
+    const staticShaderProgram = super.getShaderProgram();
+
+    // Since we are making changes only for this instance of the block, and
+    // the disableableShaderProgram is static, we make a copy and modify that.
+    const shaderProgramForThisInstance = CloneShaderProgram(staticShaderProgram);
+    shaderProgramForThisInstance.fragment.constPerInstance = `const float _mode_ = ${this.mode.toFixed(1)};`;
+
+    return shaderProgramForThisInstance;
+}
+```
+
+It will then appear in the Smart Filters Editor like this:
+
+![SFE](/img/how_to/smart-filters/const-prop-sfe-options.png)
+
+#### Important Notes
+
+<Alert severity="info">
+
+1. In your getShaderProgram() override you must call CloneShaderProgram to ensure that the value you set does not get applied to other instances of your new block type.
+1. In the string you set constPerInstance to, you must add underscores before and after the symbol name you used in your GLSL
+
+</Alert>
 
 ### Configuring Your Build
 

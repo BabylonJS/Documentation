@@ -636,13 +636,14 @@ pre.prism-code {
 /* inspired by: https://css-tricks.com/responsive-data-tables/ */
 .responsiveTable {
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid #888;
     border-collapse: collapse;
+    margin-bottom: 1em;
 
     td,
     tr,
     th {
-        border: 1px solid black;
+        border: 1px solid #888;
         border-collapse: collapse;
         min-width: 100px;
     }
@@ -656,6 +657,16 @@ pre.prism-code {
         .tdBefore {
             display: none;
         }
+    }
+}
+
+[data-theme="dark"] .responsiveTable {
+    border-color: #666;
+
+    td,
+    tr,
+    th {
+        border-color: #666;
     }
 }
 
@@ -678,12 +689,20 @@ pre.prism-code {
         position: absolute;
         top: -9999px;
         left: -9999px;
-        border-bottom: 2px solid #333;
+        border-bottom: 2px solid #888;
     }
 
     .responsiveTable tbody tr {
-        border: 1px solid #000;
+        border: 1px solid #888;
         padding: 0.25em;
+    }
+
+    [data-theme="dark"] .responsiveTable thead tr {
+        border-bottom: 2px solid #666;
+    }
+
+    [data-theme="dark"] .responsiveTable tbody tr {
+        border: 1px solid #666;
     }
 
     .responsiveTable td.pivoted {

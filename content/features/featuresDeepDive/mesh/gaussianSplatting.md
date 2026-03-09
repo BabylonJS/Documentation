@@ -23,6 +23,12 @@ Supported formats are :
 
 **Note: Triangular meshes stored in .PLY are also supported and used by Triangular Splatting**
 
+The .SPZ file import supports the flipY option to handle vertically flipped file outputs. This option is also available with the `updateData` method but not with other formats.
+
+```javascript
+const pit = await BABYLON.ImportMeshAsync("https://assets.babylonjs.com/splats/hornedlizard.spz", scene, {pluginOptions:{splat:{flipY:true}}})
+```
+
 ## Triangular Splatting
 
 Triangular splatting produces opaque geometry that can be used like a regular mesh. By default, triangulated geometry is lit. To Make the TriSplat mesh to be rendered correctly, it must use only the vertex color. Apply the following material to get the expected rendering:
@@ -47,7 +53,7 @@ BABYLON.ImportMeshAsync("https://assets.babylonjs.com/splats/gs_Skull.splat", sc
 
 **Note: Gaussian splatting files do not have a standard on handness or orientation. No space change operation will happen. Some scene might appear updside down or mirrored.**
 
-<Playground id="#M05L0C#5" title="Nianticlabs .SPZ examples need a rotation." description="Nianticlabs .SPZ examples up is not the same as Babylon.js default."/>
+<Playground id="#M05L0C#0" title="Nianticlabs .SPZ examples need a rotation." description="Nianticlabs .SPZ examples up is not the same as Babylon.js default."/>
 
 ## Updating datas of a Gaussian Splatting
 
@@ -108,7 +114,7 @@ function modifyMesh(gs) {
         positions[i * 8 + 1] -= 2.0;
     }
     // Make that change visible
-    gs.updateData(arrayBuffer);
+    gs.updateData(arrayBuffer, undefined, { flipY: false });
     // Create a blob with array buffer and download it. It can be used directly with the sandbox
     const blob = new Blob([arrayBuffer], { type: 'application/octet-stream' });
     BABYLON.Tools.DownloadBlob(blob, "newGSplat.splat");
@@ -119,9 +125,9 @@ function modifyMesh(gs) {
 
 <Playground id="#45KYTJ#123" title="Loading and displaying different Gaussian Splatting scenes" description="Loading and displaying different Gaussian Splatting scenes."/>
 
-<Playground id="#EILZ5L#3" title="10000 splats updated" description="Creating and updating a Gaussian Splatting made of 10000 individual splats"/>
+<Playground id="#EILZ5L#27" title="10000 splats updated" description="Creating and updating a Gaussian Splatting made of 10000 individual splats"/>
 
-<Playground id="#RKKCHG#0" title="Download and modify a GS" description="Download a Gaussian Splatting and modify a bunch splats. Then, downloads it."/>
+<Playground id="#RKKCHG#15" title="Download and modify a GS" description="Download a Gaussian Splatting and modify a bunch splats. Then, downloads it."/>
 
 <Playground id="#QA2662#12" title="SOG Gaussian splats" description="SOG Gaussian splats with Spherical Harmonics."/>
 
@@ -139,6 +145,29 @@ shadowGenerator.setTransparencyShadow(true); // This call is necessary to render
 ```
 
 <Playground id="#OE54M5#15" title="Spotlight shadow" description="Gaussian Splatting cast shadows from a spotlight light source."/>
+
+## Parts and Scene construction
+
+It is possible to combine multiple Gaussian Splatting assets into a single scene while maintaining a global splat sorting order.
+
+To enable this workflow:
+
+- Create an empty Gaussian Splatting container :
+    Initialize an empty Gaussian Splatting object that will act as the root container for the scene.
+- Populate the container :
+    Add content to this container, either procedurally generated or loaded from external assets.
+- Add parts to the main mesh :
+    Each Gaussian Splatting component is attached to the main mesh using the addPart method.
+
+The addPart method returns a mesh instance, which can then be independently transformed or otherwise manipulated (e.g., positioning, scaling, animation) while still participating in the global splat sorting.
+
+<Playground id="#PUWLG4#0" title="Manipulate Splats" description="Two Gaussian Splatting elements in a single scene."/>
+
+Each part can have an independent visibility value through the `visibility` property, which influences each individual splat. This means the overall transparency of the Gaussian Splatting is greatly influenced by splat density and overdraw. A visibility of 0.1 may leave the Gaussian Splatting almost opaque if enough splats share the same pixel.
+
+Added parts can be removed by index using the `removePart` method.
+
+<Playground id="#BTS11N#0" title="Parts visibility and suppression" description="Add parts, change their visibility and remove one of them."/>
 
 ## File format conversion
 

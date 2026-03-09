@@ -100,6 +100,18 @@ var createScene = function () {
 
 <Playground id="#Z8HTUN#1" title="Simple scene" description="Simple falling sphere created with body and shape" isMain={true} category="Physics"/>
 
+## Physicalize GLTF
+
+An extra step is needed in order to be able to physicalize meshes coming from gltf. Insert an extra node transform just before the `__root__` so conversion between Righ or Left handedness are transparent for the physics engine.
+
+```javascript
+const trParent = new BABYLON.TransformNode("tr", scene);
+const root = scene.getMeshByName("__root__");
+root.setParent(trParent);
+```
+
+<Playground id="#TOVMEA#0" title="Simple scene with gltf" description="Simple falling boombox mesh coming from gltf" isMain={true} category="Physics"/>
+
 ## Debugging your scene
 
 Use the physics debug display when your scene and dynamics doesn't behave the way you think it should.

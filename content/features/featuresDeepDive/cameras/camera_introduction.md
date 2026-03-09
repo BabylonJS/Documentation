@@ -14,7 +14,7 @@ video-content:
 
 ## Cameras
 
-Of the many cameras available in Babylon.js, the two most used are probably the [Universal Camera](/typedoc/classes/babylon.universalcamera), used for "first-person" movement, [ArcRotateCamera](/typedoc/classes/babylon.arcrotatecamera), an orbital camera, and [WebXRCamera](/typedoc/classes/babylon.webxrcamera), used for modern virtual reality experiences.
+Of the many cameras available in Babylon.js, the three most used are probably the [Universal Camera](/typedoc/classes/babylon.universalcamera), used for "first-person" movement, [ArcRotateCamera](/typedoc/classes/babylon.arcrotatecamera), an orbital camera, and [WebXRCamera](/typedoc/classes/babylon.webxrcamera), used for modern virtual reality experiences.
 
 To allow user input, a camera must be attached to the canvas using:
 
@@ -387,3 +387,4 @@ While this is realistic, it may be visually unappealing. If the angle between th
 
 And if you want further control other the camera projection plane tilting, you can mess with the `camera.projectionPlaneTilt` property.
 See [this forum post](https://forum.babylonjs.com/t/add-vertical-shift-to-3ds-max-exporter-babylon-cameras/17480/16) for more information.
+
