@@ -169,6 +169,59 @@ Added parts can be removed by index using the `removePart` method.
 
 <Playground id="#BTS11N#0" title="Parts visibility and suppression" description="Add parts, change their visibility and remove one of them."/>
 
+## Material Plugin
+
+`GaussianSplattingMaterial` supports the Babylon.js material plugin system via `MaterialPluginBase`. However, there is an important difference compared to standard material plugins: **custom uniforms declared through `getUniforms()` and `bindForSubMesh()` are not supported**. The Gaussian Splatting shader uses a specialized UBO layout that does not accommodate additional user-defined uniforms.
+
+Plugins that only inject shader code through injection points like `CUSTOM_FRAGMENT_MAIN_END` work correctly:
+
+```javascript
+class GsPlugin extends BABYLON.MaterialPluginBase {
+    constructor(material) {
+        super(material, 'GSPlugin', 208, { GS_PLUGIN: true }, true, true);
+        this._enable(true);
+    }
+
+    getCustomCode(shaderType) {
+        if (shaderType === 'fragment') {
+            return {
+                CUSTOM_FRAGMENT_MAIN_END: `
+                    gl_FragColor = vec4(0.0, 0.0, 0.0, 0.05);
+                `,
+            };
+        }
+        return null;
+    }
+
+    getClassName() {
+        return 'GSPlugin';
+    }
+}
+
+var gsMat = new BABYLON.GaussianSplattingMaterial('GSMat', scene);
+new GsPlugin(gsMat);
+gs.material = gsMat;
+gsMat.setSourceMesh(gs);
+```
+
+Plugins that add custom uniforms (e.g., a `float opacity` uniform bound via `bindForSubMesh`) will fail to compile with the Gaussian Splatting material.
+
+Other fragment preprocessors are : 
+ 
+- CUSTOM_FRAGMENT_DEFINITIONS
+- CUSTOM_FRAGMENT_MAIN_BEGIN
+- CUSTOM_FRAGMENT_BEFORE_FRAGCOLOR
+- CUSTOM_FRAGMENT_MAIN_END
+
+Vertex preprocessors are:
+
+- CUSTOM_VERTEX_DEFINITIONS
+- CUSTOM_VERTEX_MAIN_BEGIN
+- CUSTOM_VERTEX_UPDATE
+- CUSTOM_VERTEX_MAIN_END
+
+<Playground id="#CQH0FN#9" title="Gaussian Splatting Material Plugin" description="Demonstrates a working material plugin on a GaussianSplattingMaterial and how custom uniforms differ from standard materials."/>
+
 ## File format conversion
 
 SplatTransform is a CLI tool for converting and editing Gaussian splats: https://github.com/playcanvas/splat-transform
