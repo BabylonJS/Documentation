@@ -49,7 +49,7 @@ You can specify which part of the mesh uses a specific material by using the _su
 To define multiple submeshes, you just have to use this code:
 
 ```javascript
-sphere.subMeshes = [];
+sphere.releaseSubMeshes();
 const verticesCount = sphere.getTotalVertices();
 
 new BABYLON.SubMesh(0, 0, verticesCount, 0, 900, sphere);
