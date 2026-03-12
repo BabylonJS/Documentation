@@ -128,7 +128,7 @@ await nrg.buildAsync();
 ```
 That's all you need to make it work with a node render graph!
 
-The full PG: <Playground id="#9YU4C5#113" image="/img/playgroundsAndNMEs/pg-9YU4C5-11.png" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (node render graph)"/>
+The full PG: <Playground id="#9YU4C5#113" image="/img/playgroundsAndNMEs/pg-9YU4C5-11.png" title="Node Render Graph basic example" description="Basic node render graph example in replacement of the scene render loop"/>
 
 By default, calling `nrg.buildAsync()` will also assign the frame graph to `scene.frameGraph`.
 

@@ -88,12 +88,17 @@ Regarding the last point, this is what `Scene.render` does when `Scene.frameGrap
 1. Calls `Scene.animate`
 1. Notifies `Scene.onBeforeRenderObservable`
 1. Updates the cameras
+1. Notifies `Scene.onBeforeRenderTargetsRenderObservable`
+1. Render RTTs declared at the scene level
+1. Notifies `Scene.onAfterRenderTargetsRenderObservable`
 1. Updates the world's mesh matrices
 1. Animates the particle systems
 1. Executes the frame graph
 1. Notifies `Scene.onAfterRenderObservable`
 <br/>
-As you can see, only 3 observables are notified in this case.
+As you can see, only 5 observables are notified in this case.
+
+Note that the "Render RTTs declared at the scene level" step has been integrated to frame graphs to simplify porting legacy code to frame graphs.
 
 ### Use a frame graph in addition to the existing scene render loop
 

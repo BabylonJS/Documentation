@@ -52,7 +52,16 @@ As a final optional pass, the method inspects every pair of consecutive quaterni
 
 Available since Babylon.js v9.0, the `AnimatorAvatar` class provides the `retargetAnimationGroup` method to retarget a source animation group so that it drives the bones of the avatar's skeleton(s) and the morph targets of its morph target manager(s). Retargeting is name-based: the method matches the names of the `TransformNode` targets in the source animation against the names of the bones (matched either by their linked transform node name or directly by the bone name) and morph targets in the avatar. Any targeted animation whose name has no corresponding bone or morph target in the avatar is removed from the resulting group. The method returns a **new** `AnimationGroup`; the source group is not modified.
 
-**Note:** The current implementation only supports source animation groups that animate `TransformNode` objects, not bones directly. This is the standard case for glTF assets, where animations always target transform nodes.
+<Alert severity="warning" title="Source and target rest pose">
+<br/>
+For retargeting to work correctly, the source animation must be at its **rest pose** when `retargetAnimationGroup` is called. If the animation has been played for any reason — or is still playing — every transform node in the source hierarchy must be restored to its **rest pose** before calling this method. Failing to do so will produce incorrect keyframe compensation because the reference pose matrices are sampled from the current transform node transforms. The rest pose may or may not correspond to frame 0 of the animation: if it does, calling `sourceAnimationGroup.goToFrame(0)` is sufficient to restore it; otherwise you will need to reset the transforms manually.
+
+For the target skeleton, the retargeting code internally derives the reference matrices from its recorded rest pose (the one obtained by `skeleton.returnToRest()`). You do not need to call `returnToRest()` yourself, but you must ensure that the rest pose recorded in the skeleton is the correct reference pose for your character.
+</Alert>
+
+<Alert severity="info">
+The current implementation only supports source animation groups that animate `TransformNode` objects, not bones directly. This is the standard case for glTF assets, where animations always target transform nodes.
+</Alert>
 
 The `AnimatorAvatar` class exposes a **showWarnings** property (boolean, default `true`) that controls whether warnings are emitted during retargeting. When `true`, various diagnostic messages may be logged via `Logger.Warn` throughout the retargeting process. Set it to `false` to suppress these messages in production.
 
@@ -137,7 +146,7 @@ This PG shows a concrete example of retargeting:
 
 ![Animation Retargeting Tool](/img/animationRetargeting/tool.jpg)
 
-Link to the tool: <Playground id="#RJQC3F#13" image="/img/playgroundsAndNMEs/pg-RJQC3F-9.png" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true}/>
+Link to the tool: <Playground id="#RJQC3F#15" image="/img/playgroundsAndNMEs/pg-RJQC3F-9.png" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true}/>
 
 The Animation Retargeting Tool is an interactive playground that lets you experiment with retargeting without writing any code. The scene is split into two viewports: the left half shows the **avatar** (the target character that will be animated), and the right half shows the **reference skeleton** derived from the source animation file. A panel on the right side of the screen groups all the controls.
 
@@ -151,8 +160,8 @@ The following options affect how the mesh is loaded and displayed:
 
   | Update rest pose **enabled** | Update rest pose **disabled** |
   |---|---|
-  | ![Dude with update rest pose enabled](/img/animationRetargeting/updateRestPose_enabled.jpg) | ![Dude with update rest pose disabled](/img/animationRetargeting/updateRestPose_disabled.jpg) |
-  | ![Walking animation, update rest pose enabled](/img/animationRetargeting/updateRestPose_enabled_walk.webp) | ![Walking animation, update rest pose disabled](/img/animationRetargeting/updateRestPose_disabled_walk.webp) |
+  | ![Dude with update rest pose enabled](/img/animationRetargeting/updateRestPose_enabled.jpg!400) | ![Dude with update rest pose disabled](/img/animationRetargeting/updateRestPose_disabled.jpg!400) |
+  | ![Walking animation, update rest pose enabled](/img/animationRetargeting/updateRestPose_enabled_walk.webp!400) | ![Walking animation, update rest pose disabled](/img/animationRetargeting/updateRestPose_disabled_walk.webp!400) |
 
 - **Rescale** — when enabled, the character is scaled down to fit the viewport if it is larger than a reference size. Useful for assets that use real-world units.
 - **Show skeleton** — overlays the skeleton visualisation on the avatar mesh. The **Show skel. local axes** sub-option draws the local coordinate frame of every bone.
@@ -191,15 +200,17 @@ The **Retarget** section exposes all the parameters of `IRetargetOptions` descri
 
   | Fix root position OFF | Fix root position ON |
   |:---:|:---:|
-  | ![Fix root position disabled](/img/animationRetargeting/fixRootPos_disabled.webp) | ![Fix root position enabled](/img/animationRetargeting/fixRootPos_enabled.webp) |
+  | ![Fix root position disabled](/img/animationRetargeting/fixRootPos_disabled.webp!400) | ![Fix root position enabled](/img/animationRetargeting/fixRootPos_enabled.webp!400) |
 
 - **Fix ground reference** — corresponds to `fixGroundReference`. When enabled, a reference bone (typically a toe or foot bone) is used to anchor the character to the ground plane, preventing the character from floating or sinking. Note that even with **Fix root position** enabled, the character may still not be properly grounded without this flag. The videos below show the Big Vegas character retargeted with the Praying animation, with **Fix root position** ON in both cases but **Fix ground reference** disabled (left) and enabled (right):
 
   | Fix ground reference OFF | Fix ground reference ON |
   |:---:|:---:|
-  | ![Fix ground reference disabled](/img/animationRetargeting/fixGroundRef_disabled.webp) | ![Fix ground reference enabled](/img/animationRetargeting/fixGroundRef_enabled.webp) |
+  | ![Fix ground reference disabled](/img/animationRetargeting/fixGroundRef_disabled.webp!400) | ![Fix ground reference enabled](/img/animationRetargeting/fixGroundRef_enabled.webp!400) |
 
-     **Note:** **Fix ground reference** alone may not be appropriate for animations where the ground reference bone is not always the lowest point during the animation (e.g. walking or running animations), as it can cause unwanted vertical corrections. In this case, also try enabling **Fix ground ref. dynamic** and see if that improves things.
+<Alert severity="info">
+     **Fix ground reference** alone may not be appropriate for animations where the ground reference bone is not always the lowest point during the animation (e.g. walking or running animations), as it can cause unwanted vertical corrections. In this case, also try enabling **Fix ground ref. dynamic** and see if that improves things.
+</Alert>
 
 - **Fix ground ref. dynamic** — corresponds to `fixGroundReferenceDynamicRefNode`. Only has an effect when **Fix ground reference** is also enabled. When enabled, the ground reference correction no longer assumes that the configured ground reference bone is always the lowest point: at each frame the system scans all retargeted bones and uses whichever bone is furthest below the root as the effective ground reference for that keyframe. This makes the correction work correctly for animations where the reference bone is temporarily lifted (e.g. walking, running, kicking).
 
@@ -254,4 +265,5 @@ The optional **restPoseUpdate** array contains a list of bone (or transform node
 [Animation Retargeting in the Wicked Engine](https://wickedengine.net/2022/09/animation-retargeting/)<br/>
 [Animation Retargeting Algorithm](https://github.com/upf-gti/retargeting-threejs/blob/main/docs/Algorithm.md)<br/>
 [WebGL2 : 132 : Animation Retargeting](https://www.youtube.com/watch?v=c9qBhFsAIIg)
+
 

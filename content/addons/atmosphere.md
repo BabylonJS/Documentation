@@ -11,9 +11,33 @@ video-content:
 
 ## Introduction
 
-The atmosphere addon provides physically based sky and aerial perspective, supporting views from ground to space.
+The atmosphere addon provides physically based sky and aerial perspective rendering, supporting views from ground to space.
 
-<Playground id="#K1Y1Q8#40" title="Default Atmosphere" description="The default atmosphere with Earth-like scattering parameters." />
+<Playground id="#K1Y1Q8#60" title="Default Atmosphere" description="The default atmosphere with Earth-like scattering parameters." />
+
+## Installation
+
+The atmosphere addon is available as an ES6 NPM package:
+
+```shell
+npm install @babylonjs/addons --save
+```
+
+and as a UMD NPM package:
+
+```shell
+npm install babylonjs-addons --save
+```
+
+When using the ES6 package, import the `Atmosphere` class directly from its subpath:
+
+```javascript
+import { Atmosphere } from "@babylonjs/addons/atmosphere";
+```
+
+<Alert severity="info">
+The atmosphere requires WebGPU or WebGL2. Call `Atmosphere.IsSupported(engine)` before creating an instance to verify the engine is compatible.
+</Alert>
 
 ## Scene Setup
 
@@ -21,7 +45,7 @@ The atmosphere addon provides physically based sky and aerial perspective, suppo
 
 For rendering objects within the atmosphere, it is recommended to use [physically based materials (PBR)](/features/featuresDeepDive/materials/using/introToPBR).
 
-<Playground id="#K1Y1Q8#26" title="PBR Integration" description="A PBR sphere rendered within the atmosphere." />
+<Playground id="#K1Y1Q8#61" title="PBR Integration" description="A PBR sphere rendered within the atmosphere." />
 
 <br/>
 <br/>
@@ -60,7 +84,7 @@ The atmosphere is created by specifying the directional light.
 
 ```javascript
 const atmosphere = new Atmosphere("atmosphere", scene, [ light ]);
-// True if rendering to a linear target (e.g. DefaultRenderingPipeline)
+// True if rendering to an HDR target (e.g. DefaultRenderingPipeline with hdr: true)
 atmosphere.isLinearSpaceComposition = true;
 // True if light value in the scene is expected to be linear (e.g. PBRMaterials)
 atmosphere.isLinearSpaceLight = true;
@@ -72,9 +96,9 @@ By default, Earth-like scattering parameters and dimensions will be used. This c
 
 Rayleigh scattering can have a strong effect on the overall color of the atmosphere.
 
-<Playground id="#K1Y1Q8#39" title="Green Rayleigh Scattering" description="Create a green sky by increasing Rayleigh scattering in the green channel." />
+<Playground id="#K1Y1Q8#62" title="Green Rayleigh Scattering" description="Create a green sky by increasing Rayleigh scattering in the green channel." />
 
-```
+```javascript
 atmosphere.physicalProperties.peakRayleighScattering =
     new Vector3(0.001, 0.034, 0.001); // r, g, b
 ```
@@ -83,7 +107,7 @@ atmosphere.physicalProperties.peakRayleighScattering =
 
 Mie scattering and absorption affect the haziness of the atmosphere.
 
-<Playground id="#K1Y1Q8#34" title="Increased Mie Scattering" description="Increased Mie scattering for a hazier atmosphere." />
+<Playground id="#K1Y1Q8#63" title="Increased Mie Scattering" description="Increased Mie scattering for a hazier atmosphere." />
 
 ```javascript
 atmosphere.physicalProperties.mieScatteringScale = 100;
@@ -93,7 +117,7 @@ atmosphere.physicalProperties.mieScatteringScale = 100;
 
 Ozone absorption can also affect the color of the atmosphere.
 
-<Playground id="#K1Y1Q8#35" title="Increased Ozone Absorption" description="Increased Ozone absorption for a deeper blue sky." />
+<Playground id="#K1Y1Q8#64" title="Increased Ozone Absorption" description="Increased Ozone absorption for a deeper blue sky." />
 
 ```javascript
 atmosphere.physicalProperties.ozoneAbsorptionScale = 5;
@@ -103,7 +127,7 @@ atmosphere.physicalProperties.ozoneAbsorptionScale = 5;
 
 Multiple Scattering simulates light within the atmosphere that has scattered more than once. This affects the brightness of the atmosphere but can also affect the overall color, especially depending on the ground albedo.
 
-<Playground id="#K1Y1Q8#36" title="Increased Multiple Scattering" description="Increased multiple scattering and red ground albedo." />
+<Playground id="#K1Y1Q8#65" title="Increased Multiple Scattering" description="Increased multiple scattering and red ground albedo." />
 
 ```javascript
 atmosphere.multiScatteringIntensity = 4.0;
@@ -114,7 +138,7 @@ atmosphere.groundAlbedo = new Color3(1.0, 0.2, 0.2);
 
 By default, the atmosphere uses look up tables (LUTs) for improved efficiency. To fall back to the more expensive but higher quality ray marching, use the following properties.
 
-<Playground id="#K1Y1Q8#37" title="Full Ray Marching" description="The default atmosphere with Earth-like scattering parameters and full ray marching." />
+<Playground id="#K1Y1Q8#66" title="Full Ray Marching" description="The default atmosphere with Earth-like scattering parameters and full ray marching." />
 
 ```javascript
 atmosphere.isAerialPerspectiveLutEnabled = false;
@@ -127,7 +151,7 @@ The atmosphere can simulate different times of day by changing the direction of 
 
 Typically, a -Y light direction can be used to simulate a directly overhead sun, although this depends on what is considered the up vector of the scene.
 
-<Playground id="#K1Y1Q8#38" title="Day-Night Animation" description="Simulating different times of day by animating the sun position." />
+<Playground id="#K1Y1Q8#67" title="Day-Night Animation" description="Simulating different times of day by animating the sun position." />
 
 ```javascript
 // Assuming +Y is up
@@ -140,4 +164,12 @@ To simulate night, a minimum multiple scattering intensity can be set. This main
 
 ```javascript
 atmosphere.minimumMultiScatteringIntensity = 0.1;
+```
+
+## Disposal
+
+When the atmosphere is no longer needed, call `dispose()` to release all GPU resources and remove it from the scene:
+
+```javascript
+atmosphere.dispose();
 ```

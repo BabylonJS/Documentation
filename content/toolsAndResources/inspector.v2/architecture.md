@@ -74,7 +74,7 @@ From a typing standpoint (compile time), a Service Contract is associated with a
 
 ```ts
 export const OtherServiceIdentity = Symbol("Other Service");
-export interface IOtherService extends IService<OtherServiceIdentity> {
+export interface IOtherService extends IService<typeof OtherServiceIdentity> {
     doSomethingAmazing(): void;
 }
 ```
@@ -84,6 +84,9 @@ This allows for strong type checking at compile time to prevent mistakes where t
 "Other Service" would have its own `ServiceDefinition` similar to the example above for "My Service." We can modify the "My Service" `ServiceDefinition` to consume "Other Service" as follows:
 
 ```ts
+// ServiceDefinition<Produced, Consumed>
+// The first tuple lists service contracts this service produces (empty here — it produces nothing yet).
+// The second tuple lists service contracts this service consumes (depends on).
 export const MyServiceDefinition: ServiceDefinition<[], [IOtherService]> = {
     // Helpful for debugging, and sometimes used in UI.
     friendlyName: "My Service",
@@ -120,7 +123,7 @@ We can add a new service contract and identity for "My Service," and then update
 
 ```ts
 export const MyServiceIdentity = Symbol("My Service");
-export interface IMyService extends IService<MyServiceIdentity> {
+export interface IMyService extends IService<typeof MyServiceIdentity> {
     showAlert(message: string): void;
 }
 
@@ -161,7 +164,7 @@ In the example above, the service instance returned from the service factory fun
 
 ```ts
 export const MyServiceIdentity = Symbol("My Service");
-export interface IMyService extends IService<MyServiceIdentity> {
+export interface IMyService extends IService<typeof MyServiceIdentity> {
     showAlert(message: string): void;
 }
 
@@ -221,7 +224,7 @@ The simplest way to add dynamic extensions is to use the `BuiltInsExtensionFeed`
 
 ```ts
 export const MyServiceIdentity = Symbol("My Service");
-export interface IMyService extends IService<MyServiceIdentity> {
+export interface IMyService extends IService<typeof MyServiceIdentity> {
     showAlert(message: string): void;
 }
 

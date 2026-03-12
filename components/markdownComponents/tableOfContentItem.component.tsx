@@ -73,7 +73,6 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                                     sx={{
                                         transform: "translate(4px, -2px)",
                                         padding: 1,
-                                        marginLeft: 8,
                                         height: 20,
                                     }}
                                     onClick={copyItem}
@@ -120,7 +119,6 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                                     sx={{
                                         transform: "translate(4px, -2px)",
                                         padding: 1,
-                                        marginLeft: 8,
                                         height: 20,
                                     }}
                                     onClick={copyItem}

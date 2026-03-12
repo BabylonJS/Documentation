@@ -14,7 +14,15 @@ The Babylon.js Inspector is a diagnostic tool that makes it possible to inspect 
 
 The Inspector is included in Babylon tools like [Playground](/toolsAndResources/thePlayground) and [Sandbox](/toolsAndResources/sandbox) and can be toggled on or off with buttons in their toolbars.
 
-The Inspector is also available as an API to be used in your own projects, which can be found in the [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) package.
+The Inspector is also available as an API to be used in your own projects.
+
+If you are using the Babylon ESM packages (e.g. `@babylonjs/core`), then use the [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) ESM package (version 8.49.0+ is Inspector V2).
+
+If you are using the Babylon UMD packages (e.g. `babylonjs`), then use the [babylonjs-inspector](https://www.npmjs.com/package/babylonjs-inspector) UMD package (version 8.49.0+ is Inspector V2).
+
+<Alert severity="warning">
+Inspector extensibility is limited when using the UMD package. This is because the UMD bundle is intended to work directly in the browser, which means it bundles all its dependencies (React, Fluent, etc.) and does not currently re-export them. This makes it hard to create an extension that is a React component, for example.
+</Alert>
 
 Following is a basic example showing how to attach Inspector to a Babylon scene.
 
@@ -36,7 +44,7 @@ The following V1 options are automatically mapped:
 
 | V1 Option                        | V2 Equivalent                                                               |
 | -------------------------------- | --------------------------------------------------------------------------- |
-| `overlay`                        | `layoutMode: "overlay"` or `"inline"`                                       |
+| `overlay`                        | `layoutMode: "overlay"` (when `true`) or `"inline"` (when `false`)          |
 | `handleResize`                   | `autoResizeEngine`                                                          |
 | `globalRoot`                     | `containerElement`                                                          |
 | `initialTab`                     | A service definition that selects the corresponding pane                    |
@@ -48,3 +56,11 @@ The following V1 options are automatically mapped:
 | `contextMenu`                    | A service definition that adds section commands to Scene Explorer           |
 
 For new code, use the V2 API (`ShowInspector`) directly, which returns an `InspectorToken` for controlling Inspector visibility. See the [Extensibility API](/toolsAndResources/inspectorv2/extensibilityAPI) for details.
+
+## Inspector in Playground
+
+As mentioned, Inspector is already included as a feature of [Playground](/toolsAndResources/thePlayground). However, you can also use the Inspector V2 API directly in the Playground if you want to have programmatic control of Inspector, you want to experiment with the Inspector API, or you want to extend the functionality of Inspector just for one specific Playground.
+
+Here is a simple example showing how to use Inspector programmatically in a Playground:
+
+<Playground id="#6RBWKC" title="Inspector V2" description="Example of calling the API for showing Inspector V2"/>

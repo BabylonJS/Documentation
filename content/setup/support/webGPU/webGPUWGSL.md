@@ -74,6 +74,8 @@ fn main(input : FragmentInputs) -> FragmentOutputs {
 }
 ```
 
+<Alert severity="warning">Even though the entry point parameter is named `input`, do **not** access shader variables through `input.XXX`. Always use `vertexInputs.XXX` (vertex shader) or `fragmentInputs.XXX` (fragment shader) instead. The engine may apply transformations to certain input variables — for example, attributes stored as integers (such as `position` when using an integer vertex buffer) are automatically converted to their float equivalent, so accessing them via `input.XXX` would give the raw unconverted value and produce incorrect results.</Alert>
+
 ### Using pre-defined uniforms
 To use the pre-defined uniforms of the scene (`view`, `viewProjection`, `projection`, `vEyePosition`) and mesh (`world`, `visibility`), you must include the appropriate file(s) in the shader code:
 ```wgsl

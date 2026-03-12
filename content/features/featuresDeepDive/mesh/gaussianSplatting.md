@@ -23,6 +23,12 @@ Supported formats are :
 
 **Note: Triangular meshes stored in .PLY are also supported and used by Triangular Splatting**
 
+The .SPZ file import supports the flipY option to handle vertically flipped file outputs. This option is also available with the `updateData` method but not with other formats.
+
+```javascript
+const pit = await BABYLON.ImportMeshAsync("https://assets.babylonjs.com/splats/hornedlizard.spz", scene, {pluginOptions:{splat:{flipY:true}}})
+```
+
 ## Triangular Splatting
 
 Triangular splatting produces opaque geometry that can be used like a regular mesh. By default, triangulated geometry is lit. To Make the TriSplat mesh to be rendered correctly, it must use only the vertex color. Apply the following material to get the expected rendering:
@@ -155,7 +161,86 @@ To enable this workflow:
 
 The addPart method returns a mesh instance, which can then be independently transformed or otherwise manipulated (e.g., positioning, scaling, animation) while still participating in the global splat sorting.
 
+**Note: User is responsible to check the maximum part count that can be displayed but a Gaussian Splatting.**
+
+```javascript
+const maxPartCount = BABYLON.GetGaussianSplattingMaxPartCount(scene.getEngine());
+```
+
 <Playground id="#PUWLG4#0" title="Manipulate Splats" description="Two Gaussian Splatting elements in a single scene."/>
+
+Each part can have an independent visibility value through the `visibility` property, which influences each individual splat. This means the overall transparency of the Gaussian Splatting is greatly influenced by splat density and overdraw. A visibility of 0.1 may leave the Gaussian Splatting almost opaque if enough splats share the same pixel.
+
+Added parts can be removed by index using the `removePart` method.
+
+<Playground id="#BTS11N#0" title="Parts visibility and suppression" description="Add parts, change their visibility and remove one of them."/>
+
+## Material Plugin
+
+`GaussianSplattingMaterial` supports the Babylon.js material plugin system via `MaterialPluginBase`. However, there are some important differences compared to standard material plugins.
+
+The following example can be used as a reference for a custom fragment shader extension:
+
+```javascript
+class GSPlugin extends BABYLON.MaterialPluginBase {
+    constructor(material) {
+        super(material, 'GSPlugin', 200);
+
+        this._enable(true);
+        this._material.onCompiled = (effect) => console.log(effect.fragmentSourceCode);
+    }
+
+    getCustomCode(shaderType) {
+        if (shaderType === 'fragment') {
+            return {
+                CUSTOM_FRAGMENT_MAIN_END: `gl_FragColor = vec4(opacity, 0.0, 0.0, 0.05);`,
+                CUSTOM_FRAGMENT_DEFINITIONS: `uniform float opacity;`
+            };
+        }
+        return null;
+    }
+
+    getClassName() {
+        return 'GSPlugin';
+    }
+
+
+    getUniforms() {
+        return {
+            externalUniforms: ['opacity'],
+        };
+    }
+
+    bindForSubMesh(uniformBuffer, scene, engine, subMesh) {
+        const effect = subMesh.effect;
+        if (!effect) {
+            return;
+        }
+        effect.setFloat('opacity', 1.);
+    }
+}
+
+var gsMat = new BABYLON.GaussianSplattingMaterial('GSMat', scene);
+new GsPlugin(gsMat);
+gs.material = gsMat;
+gsMat.setSourceMesh(gs);
+```
+
+Other fragment preprocessors are : 
+ 
+- CUSTOM_FRAGMENT_DEFINITIONS
+- CUSTOM_FRAGMENT_MAIN_BEGIN
+- CUSTOM_FRAGMENT_BEFORE_FRAGCOLOR
+- CUSTOM_FRAGMENT_MAIN_END
+
+Vertex preprocessors are:
+
+- CUSTOM_VERTEX_DEFINITIONS
+- CUSTOM_VERTEX_MAIN_BEGIN
+- CUSTOM_VERTEX_UPDATE
+- CUSTOM_VERTEX_MAIN_END
+
+<Playground id="#CQH0FN#9" title="Gaussian Splatting Material Plugin" description="Demonstrates a working material plugin on a GaussianSplattingMaterial and how custom uniforms differ from standard materials."/>
 
 ## File format conversion
 

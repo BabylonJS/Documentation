@@ -615,6 +615,11 @@
                                     "friendlyName": "Save Babylon",
                                     "children": {},
                                     "content": "features/featuresDeepDive/Exporters/Save_Babylon"
+                                },
+                                "3MFExporter": {
+                                    "friendlyName": "3MF Exporter",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/Exporters/exportingTo3MF"
                                 }
                             },
                             "content": "features/featuresDeepDive/Exporters"
@@ -2536,6 +2541,11 @@
                             "friendlyName": "Async-loading packages and Chunks using known bundlers",
                             "children": {},
                             "content": "setup/support/asyncChunks"
+                        },
+                        "pix": {
+                            "friendlyName": "Debugging and Profiling with PIX",
+                            "children": {},
+                            "content": "setup/support/pix"
                         }
                     }
                 }
@@ -2643,6 +2653,17 @@
                         }
                     },
                     "content": "toolsAndResources/nge"
+                },
+                "npe": {
+                    "friendlyName": "Node Particle Editor",
+                    "children": {
+                        "npeBlocks": {
+                            "friendlyName": "Available Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/npe/npeBlocks"
+                        }
+                    },
+                    "content": "toolsAndResources/npe"
                 },
                 "viewerConfigurator": {
                     "friendlyName": "Viewer Configurator",

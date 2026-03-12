@@ -11,6 +11,12 @@ video-content:
 Following are a number of concrete examples showing how to extend Inspector V2.
 
 <Alert severity="info">
+Most of the examples are implemented in [CodeSandbox.io](https://codesandbox.io/) rather than Babylon's [Playground](https://playground.babylonjs.com/) since Playground uses the Inspector UMD bundle which has extensibility limitations due to React and other dependencies being bundled and not re-exported. Additionally, many of the Inspector examples pull in OSS packages to better demonstrate extension possibilities, and this generally requires bundling, which Playground does not do.
+
+That said, you can test certain aspects of the Inspector API directly in Playground, including some basic extensibility. See https://playground.babylonjs.com/#UV17TL for an example.
+</Alert>
+
+<Alert severity="info">
 The code is shown by default for each example, but you can **drag the divider on the right towards the left to reveal a live demo of the example**. Be patient as it will take a few seconds for the live demo to load!
 </Alert>
 
@@ -64,6 +70,6 @@ Specifically, it defines a "favorites" service that adds a side pane, and *produ
 
 All of the examples so far have demonstrated [static](/toolsAndResources/inspectorv2/architecture#static-extensions) extensions where new `ServiceDefinition`s are loaded immediately upon the call to `ShowInspector`. It's also possible to defer loading of an extension until a user explicitly installs it via Inspector's extensions dialog. These are called [dynamic](/toolsAndResources/inspectorv2/architecture#dynamic-extensions) extensions.
 
-This example modifies the previous example by making the graphics budget service and draw call toolbar item collectively a dynamic extension that must be installed before it is loaded. Notice in the example below there is a second tab, `graphicsBudgetService.tsx`. This contains the default export that is needed for the `getExtensionModuleAsync` function to work correctly.
+This example modifies the [Toolbar Items](#toolbar-items) example above by making the graphics budget service and draw call toolbar item collectively a dynamic extension that must be installed before it is loaded. Notice in the example below there is a second tab, `graphicsBudgetService.tsx`. This contains the default export that is needed for the `getExtensionModuleAsync` function to work correctly.
 
 <CodeSandbox id="98pthf" title="Inspector V2 - Dynamic Extension" files="/src/index.tsx,/src/graphicsBudgetService.tsx" />

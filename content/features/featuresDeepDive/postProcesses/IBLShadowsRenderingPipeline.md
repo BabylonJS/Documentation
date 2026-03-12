@@ -16,7 +16,7 @@ Here is a comparison of the rendering with and without the activation of the IBL
 
 | With Shadows | Without Shadows |
 | --- | --- |
-| ![With Shadows](/img/how_to/iblShadowsRenderingPipeline/intro_with_shadows.jpg) | ![Without Shadows](/img/how_to/iblShadowsRenderingPipeline/intro_without_shadows.jpg) |
+| ![With Shadows](/img/how_to/iblShadowsRenderingPipeline/intro_with_shadows.jpg!400) | ![Without Shadows](/img/how_to/iblShadowsRenderingPipeline/intro_without_shadows.jpg!400) |
 
 Here is the playground that generated the above images:
 
@@ -100,7 +100,7 @@ Screen-space shadows complement voxel shadows very nicely as they are great for 
 
 | No SS Shadows | With SS Shadows |
 | --- | --- |
-| ![No SS Shadows](/img/how_to/iblShadowsRenderingPipeline/NoSSS.jpg) | ![SS Shadows](/img/how_to/iblShadowsRenderingPipeline/SSS.jpg) |
+| ![No SS Shadows](/img/how_to/iblShadowsRenderingPipeline/NoSSS.jpg!400) | ![SS Shadows](/img/how_to/iblShadowsRenderingPipeline/SSS.jpg!400) |
 
 ## Limitations
 
@@ -111,7 +111,7 @@ Screen-space shadows complement voxel shadows very nicely as they are great for 
 
 | 1 Sample | 4 Samples |
 | --- | --- |
-|![1-Sample](/img/how_to/iblShadowsRenderingPipeline/1-sample.jpg) | ![4-Samples](/img/how_to/iblShadowsRenderingPipeline/4-samples.jpg) |
+|![1-Sample](/img/how_to/iblShadowsRenderingPipeline/1-sample.jpg!400) | ![4-Samples](/img/how_to/iblShadowsRenderingPipeline/4-samples.jpg!400) |
 
 Note that the over-bright side of the sphere, facing away from the sun is an artifact of Babylon's use of spherical harmonics for diffuse IBL lighting.
 
@@ -190,4 +190,5 @@ Each frame, the time taken to compute shadows is primarily affected by two thing
 - `sampleDirections` - The number of sample directions determines the number of voxel traces and the number of screen-space traces done for shadows. These are the primary computations done each frame so lowering this number will help performance.
 
 - `shadowRenderSizeFactor` - Since the shadow computations are done per fragment, lowering the resolution of the shadow buffers can have a significant impact on performance. Try setting `shadowRenderSizeFactor` below 1.0.
+
 
