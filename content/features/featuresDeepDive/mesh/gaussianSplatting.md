@@ -161,6 +161,12 @@ To enable this workflow:
 
 The addPart method returns a mesh instance, which can then be independently transformed or otherwise manipulated (e.g., positioning, scaling, animation) while still participating in the global splat sorting.
 
+**Note: User is responsible to check the maximum part count that can be displayed but a Gaussian Splatting.**
+
+```javascript
+const maxPartCount = BABYLON.GetGaussianSplattingMaxPartCount(scene.getEngine());
+```
+
 <Playground id="#PUWLG4#0" title="Manipulate Splats" description="Two Gaussian Splatting elements in a single scene."/>
 
 Each part can have an independent visibility value through the `visibility` property, which influences each individual splat. This means the overall transparency of the Gaussian Splatting is greatly influenced by splat density and overdraw. A visibility of 0.1 may leave the Gaussian Splatting almost opaque if enough splats share the same pixel.
