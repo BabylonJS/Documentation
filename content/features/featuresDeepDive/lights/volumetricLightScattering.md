@@ -147,5 +147,6 @@ That's why you can see in the code above that we reduce the **frequency** of vol
 
 Please refer to the [FrameGraphVolumetricLightingTask](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList#framegraphvolumetriclightingtask) page for detailed information on task parameters and PG examples.
 
-<Playground engine="webgpu" id="#WLGEJB#24" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task"/>
+<Playground engine="webgpu" id="#WLGEJB#33" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task"/>
+
 
