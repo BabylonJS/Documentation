@@ -161,6 +161,12 @@ To enable this workflow:
 
 The addPart method returns a mesh instance, which can then be independently transformed or otherwise manipulated (e.g., positioning, scaling, animation) while still participating in the global splat sorting.
 
+**Note: User is responsible to check the maximum part count that can be displayed but a Gaussian Splatting.**
+
+```javascript
+const maxPartCount = BABYLON.GetGaussianSplattingMaxPartCount(scene.getEngine());
+```
+
 <Playground id="#PUWLG4#0" title="Manipulate Splats" description="Two Gaussian Splatting elements in a single scene."/>
 
 Each part can have an independent visibility value through the `visibility` property, which influences each individual splat. This means the overall transparency of the Gaussian Splatting is greatly influenced by splat density and overdraw. A visibility of 0.1 may leave the Gaussian Splatting almost opaque if enough splats share the same pixel.
@@ -171,23 +177,24 @@ Added parts can be removed by index using the `removePart` method.
 
 ## Material Plugin
 
-`GaussianSplattingMaterial` supports the Babylon.js material plugin system via `MaterialPluginBase`. However, there is an important difference compared to standard material plugins: **custom uniforms declared through `getUniforms()` and `bindForSubMesh()` are not supported**. The Gaussian Splatting shader uses a specialized UBO layout that does not accommodate additional user-defined uniforms.
+`GaussianSplattingMaterial` supports the Babylon.js material plugin system via `MaterialPluginBase`. However, there are some important differences compared to standard material plugins.
 
-Plugins that only inject shader code through injection points like `CUSTOM_FRAGMENT_MAIN_END` work correctly:
+The following example can be used as a reference for a custom fragment shader extension:
 
 ```javascript
-class GsPlugin extends BABYLON.MaterialPluginBase {
+class GSPlugin extends BABYLON.MaterialPluginBase {
     constructor(material) {
-        super(material, 'GSPlugin', 208, { GS_PLUGIN: true }, true, true);
+        super(material, 'GSPlugin', 200);
+
         this._enable(true);
+        this._material.onCompiled = (effect) => console.log(effect.fragmentSourceCode);
     }
 
     getCustomCode(shaderType) {
         if (shaderType === 'fragment') {
             return {
-                CUSTOM_FRAGMENT_MAIN_END: `
-                    gl_FragColor = vec4(0.0, 0.0, 0.0, 0.05);
-                `,
+                CUSTOM_FRAGMENT_MAIN_END: `gl_FragColor = vec4(opacity, 0.0, 0.0, 0.05);`,
+                CUSTOM_FRAGMENT_DEFINITIONS: `uniform float opacity;`
             };
         }
         return null;
@@ -196,6 +203,21 @@ class GsPlugin extends BABYLON.MaterialPluginBase {
     getClassName() {
         return 'GSPlugin';
     }
+
+
+    getUniforms() {
+        return {
+            externalUniforms: ['opacity'],
+        };
+    }
+
+    bindForSubMesh(uniformBuffer, scene, engine, subMesh) {
+        const effect = subMesh.effect;
+        if (!effect) {
+            return;
+        }
+        effect.setFloat('opacity', 1.);
+    }
 }
 
 var gsMat = new BABYLON.GaussianSplattingMaterial('GSMat', scene);
@@ -203,8 +225,6 @@ new GsPlugin(gsMat);
 gs.material = gsMat;
 gsMat.setSourceMesh(gs);
 ```
-
-Plugins that add custom uniforms (e.g., a `float opacity` uniform bound via `bindForSubMesh`) will fail to compile with the Gaussian Splatting material.
 
 Other fragment preprocessors are : 
  
