@@ -641,8 +641,8 @@ A frame graph task that performs volumetric lighting.
 
 [Link to the class](/typedoc/classes/babylon.framegraphvolumetriclightingtask)
 
-<Playground engine="webgpu" id="#WLGEJB#25" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task" isMain={true}/>
-<Playground engine="webgpu" id="#WLGEJB#26" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting (NRG)" description="Example of a node render graph using the volumetric lighting block" isMain={true}/>
+<Playground engine="webgpu" id="#WLGEJB#34" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task" isMain={true}/>
+<Playground engine="webgpu" id="#WLGEJB#35" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting (NRG)" description="Example of a node render graph using the volumetric lighting block" isMain={true}/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -962,5 +962,6 @@ Outputs:
 <br/>
 
 Note that in a frame graph, mipmaps are not generated automatically; you must use a `FrameGraphGenerateMipMapsTask` task to do so.
+
 
 
