@@ -29,9 +29,9 @@ If fflate is already present on `globalThis.fflate` (bundled by your application
 The simplest way to export one or more meshes is `ThreeMf.SerializeToMemoryAsync`. It buffers the entire 3MF archive into a `Uint8Array` that you can then save or upload.
 
 ```typescript
-import { BjsThreeMfSerializer, ThreeMf } from "babylonjs-serializers";
+import { ThreeMfSerializer, ThreeMf } from "babylonjs-serializers";
 
-const serializer = new BjsThreeMfSerializer();
+const serializer = new ThreeMfSerializer();
 
 const buffer = await ThreeMf.SerializeToMemoryAsync(serializer, mesh1, mesh2);
 
@@ -52,10 +52,10 @@ if (buffer) {
 For large scenes or environments where you want to avoid buffering the entire archive in memory (e.g., writing directly to a Node.js file stream), use `serializeAsync` with a sink callback:
 
 ```typescript
-import { BjsThreeMfSerializer } from "babylonjs-serializers";
+import { ThreeMfSerializer } from "babylonjs-serializers";
 import { createWriteStream } from "fs";
 
-const serializer = new BjsThreeMfSerializer({ unit: ST_Unit.millimeter });
+const serializer = new ThreeMfSerializer({ unit: ST_Unit.millimeter });
 const chunks: Uint8Array[] = [];
 
 await serializer.serializeAsync(
@@ -72,7 +72,7 @@ await serializer.serializeAsync(
 
 ## Serializer options
 
-Options are passed as an object to the `BjsThreeMfSerializer` constructor. All fields are optional.
+Options are passed as an object to the `ThreeMfSerializer` constructor. All fields are optional.
 
 | Option | Type | Default | Description |
 |---|---|---|---|
@@ -93,7 +93,7 @@ ST_Unit.millimeter  // most common for desktop 3D printing
 ST_Unit.centimeter
 ST_Unit.inch
 ST_Unit.foot
-ST_Unit.meter       // default for BjsThreeMfSerializer
+ST_Unit.meter       // default for ThreeMfSerializer
 ```
 
 > **Important:** The unit does not rescale coordinates. It declares to the consuming application how to interpret the raw numbers in the file. Make sure the unit you choose matches the actual scale of your mesh vertices.
@@ -101,9 +101,9 @@ ST_Unit.meter       // default for BjsThreeMfSerializer
 ### Example: millimeter export with metadata
 
 ```typescript
-import { BjsThreeMfSerializer, ST_Unit, ThreeMf } from "babylonjs-serializers";
+import { ThreeMfSerializer, ST_Unit, ThreeMf } from "babylonjs-serializers";
 
-const serializer = new BjsThreeMfSerializer({
+const serializer = new ThreeMfSerializer({
     unit: ST_Unit.millimeter,
     metadata: {
         Title: "My Part",
@@ -121,7 +121,7 @@ const buffer = await ThreeMf.SerializeToMemoryAsync(serializer, bracket);
 When a scene contains many copies of the same object created with `Mesh.createInstance()`, enabling `exportInstances` avoids duplicating geometry for every copy:
 
 ```typescript
-const serializer = new BjsThreeMfSerializer({ exportInstances: true });
+const serializer = new ThreeMfSerializer({ exportInstances: true });
 
 // sourceMesh is exported once as a resource object.
 // each InstancedMesh becomes a separate build item pointing to that object.
