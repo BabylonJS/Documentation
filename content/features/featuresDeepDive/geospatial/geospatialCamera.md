@@ -16,7 +16,7 @@ The `GeospatialCamera` is designed for orbiting a spherical planet centered at t
 
 The camera uses an **ECEF (Earth-Centered, Earth-Fixed)** coordinate system where the planet center is at the world origin and positions on the surface are expressed as 3D cartesian coordinates.
 
-<Playground id="#BNOR48#1" title="Geospatial Camera Demo" description="Basic geospatial camera orbiting a globe with drag, zoom, and tilt interactions." image="img/playgroundsAndNMEs/geoCam.png" />
+<Playground id="#BNOR48#1" title="Geospatial Camera Demo" description="Basic geospatial camera orbiting a globe with drag, zoom, and tilt interactions." image="/img/playgroundsAndNMEs/geoCam.png" />
 
 ## Quick Start
 
