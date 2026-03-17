@@ -1,6 +1,6 @@
 import * as TypeDoc from "typedoc";
 // import { ScriptTarget } from "typescript";
-import { writeFileSync, mkdirSync, readFileSync, existsSync } from "fs";
+import { writeFileSync, mkdirSync, existsSync } from "fs";
 import del from "del";
 import { sep } from "path";
 import * as path from "path";
@@ -135,8 +135,8 @@ export const generateBreadcrumbs = (html: HTMLElement, id: string[], baseLocatio
 };
 
 export const getAPIPageData = async (id: string[], baseLocation: string = "typedoc") => {
-    const basePath = path.join(process.cwd(), `.${sep}.temp${sep}${baseLocation}${sep}docdirectory`);
-    let filename = `${basePath}${sep}files${sep}${id.join(sep)}.html`;
+    const basePath = path.join(process.cwd(), '.temp', baseLocation, 'docdirectory');
+    let filename = path.join(basePath, 'files', ...id) + '.html';
     const allLowerCase = id.every((i) => i.toLowerCase() === i);
     if (allLowerCase && id.length > 1) {
         const relPattern = path.relative(basePath, filename).replace(/\\/g, "/");
@@ -147,7 +147,10 @@ export const getAPIPageData = async (id: string[], baseLocation: string = "typed
             redirect: `/${baseLocation}/${filename.replace(".html", "")}`,
         };
     }
-    const html = readFileSync(filename, "utf-8").toString();
+    // Use dynamic require to prevent the bundler from tracing this read —
+    // the fully dynamic path triggers an overly broad file pattern warning.
+    // eslint-disable-next-line no-eval
+    const html = (eval("require") as NodeRequire)("fs").readFileSync(filename, "utf-8").toString();
     // read the HTML file, extract description, title, css
     const root = parse(html);
     const head = root.querySelector("head");
