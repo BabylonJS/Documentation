@@ -139,7 +139,8 @@ export const getAPIPageData = async (id: string[], baseLocation: string = "typed
     let filename = `${basePath}${sep}files${sep}${id.join(sep)}.html`;
     const allLowerCase = id.every((i) => i.toLowerCase() === i);
     if (allLowerCase && id.length > 1) {
-        glob.sync(path.relative(path.resolve("."), path.resolve(filename)).replace(/\\/g, "/"), { nocase: true }).forEach((f) => {
+        const relPattern = path.relative(basePath, filename).replace(/\\/g, "/");
+        glob.sync(relPattern, { nocase: true, cwd: basePath }).forEach((f) => {
             filename = f.substring(f.indexOf(id[0]));
         });
         return {
