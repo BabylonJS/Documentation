@@ -1,7 +1,7 @@
 import * as TypeDoc from "typedoc";
 // import { ScriptTarget } from "typescript";
 import { writeFileSync, mkdirSync, existsSync } from "fs";
-import del from "del";
+import { deleteAsync as del } from "del";
 import { sep } from "path";
 import * as path from "path";
 import * as glob from "glob";
@@ -64,7 +64,7 @@ export const generateTypeDoc = async (url: string = "https://cdn.babylonjs.com/d
                 tsconfig: `${basePathResolved}${sep}tsconfig.json`,
                 readme: "none",
                 entryPoints: [`${basePathResolved}${sep}doc.d.ts`],
-            });
+            } as Partial<Record<string, unknown>> as TypeDoc.TypeDocOptions);
 
             console.log("API starting", "post bootstrap");
 
@@ -185,6 +185,12 @@ export const getAPIPageData = async (id: string[], baseLocation: string = "typed
 
     root.querySelectorAll("script").forEach((node) => node.remove());
 
+    // Extract only the main content area (.col-content) to avoid
+    // passing the full HTML page (with header/footer/sidebar) through
+    // the React rendering pipeline. This is more robust than relying
+    // on fragile index-based traversal of the React element tree.
+    const colContent = root.querySelector(".col-content");
+
     // do not index lowercased pages
     if (/[A-Z]/.test(url)) {
         // TODO - check for errors
@@ -208,7 +214,7 @@ export const getAPIPageData = async (id: string[], baseLocation: string = "typed
         id,
         metadata,
         cssArray,
-        contentNode: root.toString(),
+        contentNode: colContent ? colContent.innerHTML : root.toString(),
         breadcrumbs: generateBreadcrumbs(root, id, baseLocation),
     };
 };

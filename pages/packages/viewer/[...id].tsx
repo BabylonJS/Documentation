@@ -29,10 +29,7 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
     }
     const ref = useRef<HTMLDivElement>();
     const html = redirect ? "" : parseNode(contentNode, baseLocation).result;
-    let children = <></>;
-    try {
-        children = html.props.children[0].props.children[1].props.children;
-    } catch (e) {}
+    const children = html || <></>;
     const router = useRouter();
     useEffect(() => {
         getIcons();
