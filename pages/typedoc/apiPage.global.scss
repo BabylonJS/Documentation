@@ -254,7 +254,8 @@ body {
 
 .api-container {
     padding: 16px;
-    max-width: 100%;
+    max-width: 97%;
+    --color-background: transparent;
     .tsd-breadcrumb {
         display: none !important;
     }

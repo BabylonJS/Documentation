@@ -1,8 +1,7 @@
-import { FunctionComponent, useContext } from "react";
-import { ComponentsWithoutNodeOptions } from "rehype-react/lib/complex-types";
+import { FunctionComponent, PropsWithChildren, useContext } from "react";
 import { BaseUrlContext } from "../../pages/_app";
 
-export interface IDocumentationLinkProps extends ComponentsWithoutNodeOptions {
+export interface IDocumentationLinkProps extends PropsWithChildren<{}> {
     href: string;
     title?: string;
 }

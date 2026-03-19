@@ -1,9 +1,8 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { IMediaEmbed } from "../../lib/content.interfaces";
 
-// reduce package size
-import YoutubePlayer from "react-player/youtube";
-import FilePlayer from "react-player/file";
+// react-player v3 uses a single unified player entry point
+import ReactPlayer from "react-player";
 import { Box, useTheme } from "@mui/material";
 
 /**
@@ -18,7 +17,7 @@ export const MediaMarkdownComponent: FunctionComponent<IMediaEmbed> = (props) =>
     const getPlayer = () => {
         if (props.type === "youtube") {
             return (
-                <YoutubePlayer
+                <ReactPlayer
                     style={{
                         position: "absolute",
                         top: 0,
@@ -27,12 +26,12 @@ export const MediaMarkdownComponent: FunctionComponent<IMediaEmbed> = (props) =>
                     width="100%"
                     height="100%"
                     controls={!props.noControls}
-                    url={`https://www.youtube.com/watch?v=${props.url}`}
-                ></YoutubePlayer>
+                    src={`https://www.youtube.com/watch?v=${props.url}`}
+                ></ReactPlayer>
             );
         }
         return (
-            <FilePlayer
+            <ReactPlayer
                 width="100%"
                 height="100%"
                 style={{
@@ -41,8 +40,8 @@ export const MediaMarkdownComponent: FunctionComponent<IMediaEmbed> = (props) =>
                     left: 0,
                 }}
                 controls={!props.noControls}
-                url={props.url}
-            ></FilePlayer>
+                src={props.url}
+            ></ReactPlayer>
         );
     };
     return (

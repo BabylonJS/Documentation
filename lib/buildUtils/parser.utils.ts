@@ -1,8 +1,9 @@
 import { Plugin, Processor } from "unified";
-import visit from "unist-util-visit";
+import { visit } from "unist-util-visit";
 import { Node } from "unist";
 
-import { createElement } from "react";
+import { createElement, Fragment } from "react";
+import * as jsxRuntime from "react/jsx-runtime";
 // import ReactDOM from "react-dom";
 import { unified } from "unified";
 import highlight from "rehype-highlight";
@@ -17,7 +18,7 @@ import { AnchorWrapper } from "../../components/wrappers/anchorWrapper.component
  * @param options Options to pass to the plugin
  */
 export const testPlugin: Plugin<[any?] | [Processor?, any?]> = (options) => {
-    const visitor: visit.Visitor<Node> = (node: any /*, index, parent*/) => {
+    const visitor = (node: any /*, index, parent*/) => {
         var props = node.properties as { [key: string]: string };
         if (node.tagName === "a" && props.href.indexOf("p") !== -1) {
             props.className = `${props.className || ""} test`;
@@ -30,7 +31,7 @@ export const testPlugin: Plugin<[any?] | [Processor?, any?]> = (options) => {
 };
 
 export const addPlaygroundSearch: Plugin<[any?] | [Processor?, any?]> = (options) => {
-    const visitor: visit.Visitor<Node> = (node: any /*, index, parent*/) => {
+    const visitor = (node: any /*, index, parent*/) => {
         var props = node.properties as { [key: string]: any };
         const classes = (props.className || []) as string[];
         if (node.tagName === "section" && (classes.indexOf("tsd-kind-method") !== -1 || classes.indexOf("tsd-kind-property") !== -1)) {
@@ -69,7 +70,7 @@ export const addPlaygroundSearch: Plugin<[any?] | [Processor?, any?]> = (options
 
 export const apiLinkParserPlugin: () => Plugin<[any?] | [Processor?, any?]> = (baseLocation = "typedoc") => {
     return () => {
-        const visitor: visit.Visitor<Node> = (node: any /*, index, parent*/) => {
+        const visitor = (node: any /*, index, parent*/) => {
             var props = node.properties as { [key: string]: any };
             if (node.tagName === "a" && props.href && !props.href.startsWith("http") && props.href.indexOf("/") !== -1 && props.href[0] !== ".") {
                 props.href = `/${baseLocation}/${props.href}`;
@@ -93,9 +94,11 @@ export const parseNode = (htmlContent: string, baseLocation = "typedoc") => {
         .use(apiLinkParserPlugin.call(null, baseLocation))
         .use(addPlaygroundSearch)
         .use(rehype2react, {
-            createElement: createElement,
+            Fragment,
+            jsx: (jsxRuntime as any).jsx,
+            jsxs: (jsxRuntime as any).jsxs,
             components: {
-                a: AnchorWrapper,
+                a: AnchorWrapper as any,
             },
         });
 

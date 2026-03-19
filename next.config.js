@@ -3,9 +3,6 @@
 const withMDX = require("@next/mdx")();
 module.exports = withMDX({
     output: "export",
-    outputFileTracingExcludes: {
-        "*": ["./.temp/**"],
-    },
     sassOptions: {
         includePaths: ["./styles"],
         silenceDeprecations: ["legacy-js-api"],
