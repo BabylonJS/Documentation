@@ -84,9 +84,17 @@ interface TypeDocSearchProps {
     id?: string[];
 }
 
+interface ManifestEntry {
+    module: string;
+    file: string;
+    count: number;
+}
+
 export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocation = "typedoc", id = [] }) => {
     const [query, setQuery] = useState("");
-    const [globalIndex, setGlobalIndex] = useState<SearchEntry[] | null>(null);
+    const [manifest, setManifest] = useState<ManifestEntry[] | null>(null);
+    // Per-module data keyed by module name; null = not yet loaded
+    const [moduleData, setModuleData] = useState<Record<string, SearchEntry[]>>({});
     const [pageMembers, setPageMembers] = useState<SearchEntry[]>([]);
     const [expanded, setExpanded] = useState(false);
     const [activeIdx, setActiveIdx] = useState(-1);
@@ -100,15 +108,53 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
     const currentModule = getModuleFromId(id);
     const pageTitle = getPageTitle(id);
 
-    // Lazily load the global search index
-    const loadGlobalIndex = useCallback(() => {
-        if (globalIndex) return;
-        const jsonFile = `/${baseLocation.replace(/\//g, "-")}-search-index.json`;
-        fetch(jsonFile)
+    const prefix = baseLocation.replace(/\//g, "-");
+
+    // Load manifest (tiny file listing available modules)
+    const loadManifest = useCallback(() => {
+        if (manifest) return;
+        fetch(`/api-search/${prefix}/manifest.json`)
             .then((r) => r.json())
-            .then((data: SearchEntry[]) => setGlobalIndex(data))
-            .catch(() => setGlobalIndex([]));
-    }, [globalIndex, baseLocation]);
+            .then((data: ManifestEntry[]) => setManifest(data))
+            .catch(() => setManifest([]));
+    }, [manifest, prefix]);
+
+    // Load a specific module's search data
+    const loadModule = useCallback(
+        (mod: string) => {
+            if (moduleData[mod]) return; // already loaded
+            if (!manifest) return;
+            const entry = manifest.find((m) => m.module === mod);
+            if (!entry) return;
+            fetch(`/api-search/${prefix}/${entry.file}`)
+                .then((r) => r.json())
+                .then((data: SearchEntry[]) => {
+                    // Attach module name to each entry (not stored in per-module files)
+                    const withMod = data.map((e) => ({ ...e, module: mod }));
+                    setModuleData((prev) => ({ ...prev, [mod]: withMod }));
+                })
+                .catch(() => setModuleData((prev) => ({ ...prev, [mod]: [] })));
+        },
+        [manifest, moduleData, prefix],
+    );
+
+    // Load all modules (for global search)
+    const loadAllModules = useCallback(() => {
+        if (!manifest) return;
+        for (const entry of manifest) {
+            loadModule(entry.module);
+        }
+    }, [manifest, loadModule]);
+
+    // When manifest arrives and we know the mode, load the right data
+    useEffect(() => {
+        if (!manifest) return;
+        if (mode === "module" && currentModule) {
+            loadModule(currentModule);
+        } else if (mode === "global") {
+            loadAllModules();
+        }
+    }, [manifest, mode, currentModule, loadModule, loadAllModules]);
 
     // Parse page members from DOM when on a class/interface page
     useEffect(() => {
@@ -138,12 +184,12 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
         if (mode === "members") {
             return pageMembers;
         }
-        if (!globalIndex) return [];
         if (mode === "module" && currentModule) {
-            return globalIndex.filter((e) => e.module === currentModule);
+            return moduleData[currentModule] || [];
         }
-        return globalIndex;
-    }, [mode, pageMembers, globalIndex, currentModule]);
+        // Global: concatenate all loaded modules
+        return Object.values(moduleData).flat();
+    }, [mode, pageMembers, moduleData, currentModule]);
 
     // Filter results
     const results = useMemo(() => {
@@ -205,10 +251,10 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
     // Focus input when search expands
     useEffect(() => {
         if (expanded) {
-            if (mode !== "members") loadGlobalIndex();
+            if (mode !== "members") loadManifest();
             setTimeout(() => inputRef.current?.focus(), 50);
         }
-    }, [expanded, loadGlobalIndex, mode]);
+    }, [expanded, loadManifest, mode]);
 
     const placeholder = mode === "members"
         ? `Search ${pageTitle} members\u2026`
@@ -322,7 +368,7 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
                                 {results.length === 0 ? (
                                     <Box sx={{ p: 2, textAlign: "center" }}>
                                         <Typography variant="body2" color="text.secondary">
-                                            {mode !== "members" && globalIndex === null ? "Loading..." : "No results found"}
+                                            {mode !== "members" && manifest === null ? "Loading\u2026" : "No results found"}
                                         </Typography>
                                     </Box>
                                 ) : (

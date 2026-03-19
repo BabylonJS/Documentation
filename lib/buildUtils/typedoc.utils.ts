@@ -369,10 +369,13 @@ export const getTypeDocFiles = (baseLocation: string = "typedoc") => {
 };
 
 /**
- * Scans the generated TypeDoc HTML and produces a lightweight JSON search
- * index written to `public/<baseLocation>-search-index.json`.
+ * Scans the generated TypeDoc HTML and produces per-module JSON search
+ * indices written to `public/api-search/<prefix>/<module-slug>.json`,
+ * plus a small manifest at `public/api-search/<prefix>/manifest.json`.
  *
  * Each entry contains: name, kind (Class, Interface …), module, and url.
+ * Splitting by module means the browser only loads the ~10-20 KB file(s)
+ * it actually needs instead of a single 400 KB blob.
  */
 const KIND_LABELS: Record<string, string> = {
     classes: "Class",
@@ -386,7 +389,7 @@ const KIND_LABELS: Record<string, string> = {
 
 const buildSearchIndex = (basePathResolved: string, baseLocation: string) => {
     const filesDir = path.join(basePathResolved, "files");
-    const index: { name: string; kind: string; module: string; url: string }[] = [];
+    const byModule: Record<string, { name: string; kind: string; url: string }[]> = {};
 
     for (const kindDir of Object.keys(KIND_LABELS)) {
         const dir = path.join(filesDir, kindDir);
@@ -395,36 +398,46 @@ const buildSearchIndex = (basePathResolved: string, baseLocation: string) => {
         const htmlFiles = glob.sync("*.html", { cwd: dir });
         for (const file of htmlFiles) {
             const base = file.replace(/\.html$/, "");
-            // Filename pattern: _babylonjs_core.Scene  →  module = "@babylonjs/core", name = "Scene"
             const dotIdx = base.indexOf(".");
             let module = "";
             let name = base;
             if (dotIdx !== -1) {
                 const rawModule = base.substring(0, dotIdx);
                 name = base.substring(dotIdx + 1);
-                // Convert _babylonjs_core → @babylonjs/core
                 module = rawModule.replace(/^_/, "@").replace(/_/g, "/");
             } else {
-                // Module pages themselves (e.g. _babylonjs_core → @babylonjs/core)
                 module = base.replace(/^_/, "@").replace(/_/g, "/");
                 name = module;
             }
 
-            index.push({
+            if (!byModule[module]) byModule[module] = [];
+            byModule[module].push({
                 name,
                 kind: KIND_LABELS[kindDir],
-                module,
                 url: `/${baseLocation}/${kindDir}/${base}`,
             });
         }
     }
 
-    // Sort alphabetically by name for consistent output
-    index.sort((a, b) => a.name.localeCompare(b.name));
-
-    const outDir = path.join(process.cwd(), "public");
+    // Write per-module files and build manifest
+    const prefix = baseLocation.replace(/\//g, "-");
+    const outDir = path.join(process.cwd(), "public", "api-search", prefix);
     mkdirSync(outDir, { recursive: true });
-    const outFile = path.join(outDir, `${baseLocation.replace(/\//g, "-")}-search-index.json`);
-    writeFileSync(outFile, JSON.stringify(index));
-    console.log(`Search index: ${index.length} entries → ${outFile}`);
+
+    const manifest: { module: string; file: string; count: number }[] = [];
+
+    for (const [module, entries] of Object.entries(byModule)) {
+        entries.sort((a, b) => a.name.localeCompare(b.name));
+        // Slug: "@babylonjs/core" → "babylonjs-core"
+        const slug = module.replace(/^@/, "").replace(/\//g, "-");
+        const fileName = `${slug}.json`;
+        writeFileSync(path.join(outDir, fileName), JSON.stringify(entries));
+        manifest.push({ module, file: fileName, count: entries.length });
+    }
+
+    manifest.sort((a, b) => a.module.localeCompare(b.module));
+    writeFileSync(path.join(outDir, "manifest.json"), JSON.stringify(manifest));
+
+    const total = manifest.reduce((sum, m) => sum + m.count, 0);
+    console.log(`Search index: ${total} entries across ${manifest.length} modules → ${outDir}/`);
 };

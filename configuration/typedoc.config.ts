@@ -41,6 +41,31 @@ const config: TypeDocConfig = {
             repoPath: "packages/dev/loaders",
             entryPoint: "packages/dev/loaders/src/index.ts",
         },
+        {
+            npmPackage: "@babylonjs/serializers",
+            repoPath: "packages/dev/serializers",
+            entryPoint: "packages/dev/serializers/src/index.ts",
+        },
+        {
+            npmPackage: "@babylonjs/gui",
+            repoPath: "packages/dev/gui",
+            entryPoint: "packages/dev/gui/src/index.ts",
+        },
+        {
+            npmPackage: "@babylonjs/materials",
+            repoPath: "packages/dev/materials",
+            entryPoint: "packages/dev/materials/src/index.ts",
+        },
+        {
+            npmPackage: "@babylonjs/inspector",
+            repoPath: "packages/dev/inspector",
+            entryPoint: "packages/dev/inspector/src/index.ts",
+        },
+        {
+            npmPackage: "@babylonjs/viewer",
+            repoPath: "packages/tools/viewer",
+            entryPoint: "packages/tools/viewer/src/index.ts",
+        },
     ],
 };
 

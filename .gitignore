@@ -33,6 +33,10 @@ yarn-error.log*
 .env.production.local
 .temp
 
+# generated search indices (built from TypeDoc output)
+public/api-search/
+public/*-search-index.json
+
 # vercel
 .vercel
 public/sitemap.xml
