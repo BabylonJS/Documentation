@@ -175,6 +175,24 @@ Added parts can be removed by index using the `removePart` method.
 
 <Playground id="#BTS11N#0" title="Parts visibility and suppression" description="Add parts, change their visibility and remove one of them."/>
 
+## Picking
+
+Gaussian Splatting does not have triangle geometry, so standard ray-based picking falls back to bounding volume intersection. For accurate picking, Gaussian Splatting uses GPU picking. Individual parts added with `addPart` return proxy meshes that can be included in the `GPUPicker` picking list. This allows each part to be selected and manipulated independently.
+
+```javascript
+const gpuPicker = new BABYLON.GPUPicker();
+gpuPicker.setPickingList([part1, part2, otherMeshes]);
+
+scene.onPointerDown = async (evt) => {
+    const pickResult = await gpuPicker.pickAsync(evt.offsetX, evt.offsetY);
+    if (pickResult) {
+        console.log("Picked:", pickResult.mesh.name);
+    }
+};
+```
+
+<Playground id="#3LNCE6#36" title="Picking Gaussian Splatting Parts" description="GPU picking with individual Gaussian Splatting parts and gizmo manipulation."/>
+
 ## Material Plugin
 
 `GaussianSplattingMaterial` supports the Babylon.js material plugin system via `MaterialPluginBase`. However, there are some important differences compared to standard material plugins.
