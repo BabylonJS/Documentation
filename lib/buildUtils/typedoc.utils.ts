@@ -1,5 +1,5 @@
 import * as TypeDoc from "typedoc";
-import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs";
+import { writeFileSync, mkdirSync, existsSync, readFileSync, rmSync } from "fs";
 import { execSync } from "child_process";
 import { deleteAsync as del } from "del";
 import { sep } from "path";
@@ -38,10 +38,24 @@ const cloneRepo = (tmpPath: string, config: TypeDocConfig, version: string): str
     const repoDir = path.join(tmpPath, "repo");
     const firstEntry = path.join(repoDir, config.packages[0].entryPoint);
 
-    // Reuse existing clone if the entry point file is already present
+    // Reuse existing clone only if it matches the requested version tag
     if (existsSync(firstEntry)) {
-        console.log("Repo already cloned, reusing", repoDir);
-        return repoDir;
+        try {
+            const clonedTag = execSync("git describe --tags --exact-match HEAD", {
+                cwd: repoDir,
+                encoding: "utf-8",
+                stdio: ["pipe", "pipe", "pipe"],
+            }).trim();
+            if (clonedTag === version) {
+                console.log(`Repo already cloned at ${version}, reusing`, repoDir);
+                return repoDir;
+            }
+            console.log(`Cloned repo is at ${clonedTag} but need ${version}, re-cloning…`);
+        } catch {
+            console.log("Cannot determine cloned version, re-cloning…");
+        }
+        // Remove stale clone
+        rmSync(repoDir, { recursive: true, force: true });
     }
 
     const repoUrl = `https://github.com/${config.githubRepo}.git`;
@@ -103,29 +117,35 @@ export const generateTypeDoc = async (
 
         const repoDir = cloneRepo(tmpPath, config, resolvedVersion);
 
-        // 2. Inject @module tags into entry point files so TypeDoc names
-        //    modules after the npm package (e.g. "@babylonjs/core") instead
-        //    of deriving names from the file path ("packages_dev_core_src").
-        //    The real file paths stay intact so TypeDoc's git integration
-        //    still produces correct GitHub source links.
+        // 2. Create temporary wrapper entry point files that declare the
+        //    @module tag and re-export from the real entry points. This
+        //    avoids mutating the git clone so line numbers in the checked-out
+        //    sources stay aligned with the tagged commit.
+        const wrapperDir = path.join(tmpPath, "typedoc-wrappers");
+        mkdirSync(wrapperDir, { recursive: true });
+        const entryPoints: string[] = [];
+
         for (const pkg of config.packages) {
-            const entryFile = path.join(repoDir, pkg.entryPoint);
-            const original = readFileSync(entryFile, "utf-8");
-            if (!original.includes("@module")) {
-                writeFileSync(entryFile, `/** @module ${pkg.npmPackage} */\n${original}`);
+            const realEntry = path.join(repoDir, pkg.entryPoint);
+            if (!existsSync(realEntry)) {
+                throw new Error(`Entry point not found: ${realEntry}`);
             }
+
+            const wrapperFileName = pkg.npmPackage.replace(/[^a-zA-Z0-9_-]/g, "_") + ".ts";
+            const wrapperPath = path.join(wrapperDir, wrapperFileName);
+
+            // Relative path from the wrapper file to the real entry point
+            const relativeToReal = path
+                .relative(wrapperDir, realEntry)
+                .replace(/\\/g, "/")
+                .replace(/\.(tsx?|jsx?)$/, "");
+
+            const wrapperSource = `/** @module ${pkg.npmPackage} */\nexport * from "${relativeToReal}";\n`;
+            writeFileSync(wrapperPath, wrapperSource);
+            entryPoints.push(wrapperPath);
         }
 
-        // 3. Collect entry points from the real source paths
-        const entryPoints = config.packages.map((p) => {
-            const ep = path.join(repoDir, p.entryPoint);
-            if (!existsSync(ep)) {
-                throw new Error(`Entry point not found: ${ep}`);
-            }
-            return ep;
-        });
-
-        // 4. Write a tsconfig for TypeDoc.
+        // 3. Write a tsconfig for TypeDoc.
         const paths: Record<string, string[]> = {};
         for (const pkg of config.packages) {
             const srcDir = "./" + path.dirname(pkg.entryPoint);
@@ -147,12 +167,18 @@ export const generateTypeDoc = async (
                     baseUrl: ".",
                     paths,
                 },
-                include: config.packages.map((p) => p.entryPoint),
+                include: [
+                    ...config.packages.map((p) => p.entryPoint),
+                    path.relative(repoDir, wrapperDir).replace(/\\/g, "/") + "/*.ts",
+                ],
             }),
         );
 
         // 4. Run TypeDoc — git integration is automatic since the
         //    source files live inside a real git clone.
+        //    The wrapper entry points live outside the clone, so TypeDoc
+        //    resolves @module names from those, while source links still
+        //    point at the unmodified files inside the git repo.
         try {
             const app = await TypeDoc.Application.bootstrap({
                 name: title,

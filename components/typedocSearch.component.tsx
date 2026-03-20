@@ -334,6 +334,8 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
                                     "aria-label": "Search API",
                                     "aria-controls": "typedoc-search-results",
                                     "aria-expanded": query.length >= 2 && results.length > 0,
+                                    "aria-activedescendant": activeIdx >= 0 ? `typedoc-search-opt-${activeIdx}` : undefined,
+                                    "aria-autocomplete": "list" as const,
                                     role: "combobox",
                                     autoComplete: "off",
                                 }}
@@ -381,6 +383,7 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
                                         {results.map((entry, idx) => (
                                             <li
                                                 key={entry.url + entry.name}
+                                                id={`typedoc-search-opt-${idx}`}
                                                 role="option"
                                                 aria-selected={idx === activeIdx}
                                                 onMouseDown={(e) => {
