@@ -466,4 +466,22 @@ const buildSearchIndex = (basePathResolved: string, baseLocation: string) => {
 
     const total = manifest.reduce((sum, m) => sum + m.count, 0);
     console.log(`Search index: ${total} entries across ${manifest.length} modules → ${outDir}/`);
+
+    // Build a legacy redirect map so old BABYLON.* URLs can be resolved.
+    // Only generated on CI to avoid slowing down local dev builds.
+    if (process.env.PRODUCTION) {
+        const redirectMap: Record<string, string> = {};
+        for (const entries of Object.values(byModule)) {
+            for (const entry of entries) {
+                const urlParts = entry.url.split("/");
+                const kind = urlParts[urlParts.length - 2];
+                const key = `${kind}/${entry.name}`;
+                if (!redirectMap[key]) {
+                    redirectMap[key] = entry.url;
+                }
+            }
+        }
+        writeFileSync(path.join(outDir, "legacy-redirects.json"), JSON.stringify(redirectMap));
+        console.log(`Legacy redirect map: ${Object.keys(redirectMap).length} entries`);
+    }
 };
