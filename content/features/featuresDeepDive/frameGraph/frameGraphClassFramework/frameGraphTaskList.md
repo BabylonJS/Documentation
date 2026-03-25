@@ -71,7 +71,7 @@ Provides the same functionalities as the [Selection outline layer](/features/fea
 [Link to the class](/typedoc/classes/babylon.framegraphselectionoutlinelayertask)
 
 <Playground id="#E1F0GP#4" title="Selection outline layer" description="Example of a frame graph using the Selection outline layer task" isMain={false}/>
-<Playground id="#ADUC74#1" title="Selection outline layer (NRG)" description="Example of a node render graph using the Selection outline layer block" isMain={true}/>
+<Playground id="#ADUC74#1" title="Selection outline layer (NRG)" description="Example of a node render graph using the Selection outline layer block" isMain={true} category="Frame Graph"/>
 
 Inputs:
 * **targetTexture**. The target texture to apply the effect layer to. The effect will be blended with the contents of this texture.
@@ -97,7 +97,7 @@ Task used to execute a compute shader (WebGPU only).
 [Link to the class](/typedoc/classes/babylon.framegraphcomputeshadertask)
 
 <Playground engine="webgpu" id="#KOBPUW#18" image="/img/playgroundsAndNMEs/pg-KOBPUW-11.png" title="Compute shader task" description="Example of a frame graph using the compute shader task" isMain={false}/>
-<Playground engine="webgpu" id="#KOBPUW#19" image="/img/playgroundsAndNMEs/pg-KOBPUW-14.png" title="Compute shader task (NRG)" description="Example of a node render graph using the compute shader block" isMain={true}/>
+<Playground engine="webgpu" id="#KOBPUW#19" image="/img/playgroundsAndNMEs/pg-KOBPUW-14.png" title="Compute shader task (NRG)" description="Example of a node render graph using the compute shader block" isMain={true} category="Frame Graph"/>
 
 Inputs:
 * **dispatchSize**. Defines the dispatch size for the compute shader.
@@ -563,7 +563,7 @@ Task which applies a screen-space reflection post-process.
 [Link to the class](/typedoc/classes/babylon.framegraphssrrenderingpipelinetask)
 
 <Playground id="#SUEU9U#129" image="/img/playgroundsAndNMEs/pg-SUEU9U-54.png" title="SSR task" description="Example of a frame graph using the SSR task" isMain={false}/>
-<Playground id="#PIZ1GK#2388" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2373.png" title="SSR task (NRG)" description="Example of a node render graph using the SSR block" isMain={true}/>
+<Playground id="#PIZ1GK#2388" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2373.png" title="SSR task (NRG)" description="Example of a node render graph using the SSR block" isMain={true} category="Frame Graph"/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -642,7 +642,7 @@ A frame graph task that performs volumetric lighting.
 [Link to the class](/typedoc/classes/babylon.framegraphvolumetriclightingtask)
 
 <Playground engine="webgpu" id="#WLGEJB#45" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task" isMain={false}/>
-<Playground engine="webgpu" id="#WLGEJB#46" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting (NRG)" description="Example of a node render graph using the volumetric lighting block" isMain={true}/>
+<Playground engine="webgpu" id="#WLGEJB#46" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting (NRG)" description="Example of a node render graph using the volumetric lighting block" isMain={true} category="Frame Graph"/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -951,7 +951,7 @@ Task which generates mipmaps for a texture.
 [Link to the class](/typedoc/classes/babylon.framegraphgeneratemipmapstask)
 
 <Playground id="#4QES4Q#4" image="/img/playgroundsAndNMEs/pg-4QES4Q-1.png" title="Generate mipmaps task" description="Example of a frame graph using the generate mipmaps task" isMain={false}/>
-<Playground id="#4QES4Q#5" image="/img/playgroundsAndNMEs/pg-4QES4Q-2.png" title="Generate mipmaps task (NRG)" description="Example of a node render graph using the generate mipmaps block" isMain={true}/>
+<Playground id="#4QES4Q#5" image="/img/playgroundsAndNMEs/pg-4QES4Q-2.png" title="Generate mipmaps task (NRG)" description="Example of a node render graph using the generate mipmaps block" isMain={true} category="Frame Graph"/>
 
 Inputs:
 * **targetTexture**. The texture to generate mipmaps for.
