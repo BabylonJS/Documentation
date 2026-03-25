@@ -54,7 +54,7 @@ const task = new BABYLON.FrameGraphCustomPostProcessTask("edgeDetection", frameG
 
 Here is a simple PG that illustrates the two code paths (update line 21 to use the standard or frame graph path):
 
-<Playground id="#F494TC" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Custom post-process in frame graph" description="Using a custom post-process in frame graph with FrameGraphCustomPostProcessTask" isMain={true}/>
+<Playground id="#F494TC" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Custom post-process in frame graph" description="Using a custom post-process in frame graph with FrameGraphCustomPostProcessTask" isMain={true} category="Frame Graph"/>
 
 ## Making the task available in NRGE
 

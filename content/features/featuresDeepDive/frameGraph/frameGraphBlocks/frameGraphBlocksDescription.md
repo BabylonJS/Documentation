@@ -116,7 +116,7 @@ A typical configuration when using the **Automatic thickness computation** optio
 
 Note that the `Geometry renderer back faces` block has been configured with **Reverse culling** checked, because we need the depth of the back faces! You will get an error message in the window log if you forget to check this option for the `GeometryRenderer` connected to the **geomBackDepth** input (but only if **Automatic calculation of thickness** is checked!).
 
-<Playground id="#PIZ1GK#2391" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2094.png" title="Using SSR in a node render graph" description="Example of a node render graph using SSR with automatic thickness computation" isMain={true}/>
+<Playground id="#PIZ1GK#2391" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2094.png" title="Using SSR in a node render graph" description="Example of a node render graph using SSR with automatic thickness computation" isMain={true} category="Frame Graph"/>
 
 You will see in this PG that we are rebuilding the graph (see line 67) because we have set the `ssr.blurDispersionStrength` property to 0. As the SSR block has a non-zero value in NRGE, we are in the case explained above where the graph must be rebuilt.
 
@@ -148,7 +148,7 @@ Note that if you enable Order Independent Transparency (OIT - **Use OIT for tran
 
 <NRGE id="#PSA9PS#161" title="Multiple shadow generators example (NRGE)" description="Using multiple shadow generators with an ObjectRenderer block" isMain={true} category="NodeRenderGraph"/>
 
-<Playground id="#JWKDME#205" image="/img/playgroundsAndNMEs/pg-JWKDME-30.png" title="Multiple shadow generators example (PG)" description="Using multiple shadow generators with a ObjectRenderer block" isMain={true}/>
+<Playground id="#JWKDME#205" image="/img/playgroundsAndNMEs/pg-JWKDME-30.png" title="Multiple shadow generators example (PG)" description="Using multiple shadow generators with a ObjectRenderer block" isMain={true} category="Frame Graph"/>
 
 <H3Image title="GeometryRenderer" image="/img/frameGraph/block_geometry_renderer.jpg" alt="GeometryRenderer node"/>
 
@@ -201,7 +201,7 @@ You will need to retrieve a reference to the utility layer by code, then use it 
 For example:
 <NRGE id="#7RTSEF" title="Use of the UtilityLayerRenderer block (NRGE)" description="Example of a node render graph using the UtilityLayerRenderer block" isMain={true} category="NodeRenderGraph"/>
 
-<Playground id="#IFF2ZR#1" title="Use of the UtilityLayerRenderer block" description="Example of a node render graph using the UtilityLayerRenderer block" isMain={true}/>
+<Playground id="#IFF2ZR#1" title="Use of the UtilityLayerRenderer block" description="Example of a node render graph using the UtilityLayerRenderer block" isMain={true} category="Frame Graph"/>
 
 ## Layers blocks
 
@@ -217,7 +217,7 @@ These blocks allow you to use the [Glow](/features/featuresDeepDive/mesh/glowLay
 Here is an example of how to use the `GlowLayer` block:
 <NRGE id="#PSA9PS#154" title="Use of the GlowLayer block (NRGE)" description="Example Node Render Material using two GlowLayer blocks" isMain={true} category="NodeRenderGraph"/>
 
-<Playground id="#IG8NRC#90" image="/img/playgroundsAndNMEs/pg-IG8NRC-16.png" title="Use of the GlowLayer block (PG)" description="Example of a node render graph using the GlowLayer block" isMain={true}/>
+<Playground id="#IG8NRC#90" image="/img/playgroundsAndNMEs/pg-IG8NRC-16.png" title="Use of the GlowLayer block (PG)" description="Example of a node render graph using the GlowLayer block" isMain={true} category="Frame Graph"/>
 
 Note that this graph renders two glow layers in two different textures, with different parameters, which you cannot do without a frame graph!
 
