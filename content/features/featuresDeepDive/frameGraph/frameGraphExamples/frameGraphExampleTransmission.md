@@ -62,7 +62,7 @@ Here is the node render graph corresponding to the description in the previous s
 
 ![Node render graph implementation](/img/frameGraph/example_transmission_framegraph.jpg!600)
 
-<NRGE id="#3MVLQ7#9" title="Implementation of the node render graph" description="Rendering of transmissive materials with a node render graph" isMain={true} category="NodeRenderGraph"/>
+<NRGE id="#3MVLQ7#9" title="Implementation of the node render graph" description="Rendering of transmissive materials with a node render graph" isMain={false} category="NodeRenderGraph"/>
 
 It closely follows the operations described above:
 * `RenderNonTransmissiveObjects` renders the objects from the *NonTransmissiveObjectsList* list in the **Color Texture** texture
@@ -85,7 +85,7 @@ Key points to highlight from this graph:
 
 Here is a playground that uses the node render graph described above to render a scene with transmissive materials:
 
-<Playground id="#7FZ6P6#1" image="/img/playgroundsAndNMEs/pg-JWKDME-70.png" title="Node render graph for rendering transmissive materials" description="Rendering transmissive materials with a node render graph" isMain={true}/>
+<Playground id="#7FZ6P6#1" image="/img/playgroundsAndNMEs/pg-JWKDME-70.png" title="Node render graph for rendering transmissive materials" description="Rendering transmissive materials with a node render graph" isMain={false}/>
 
 We have created a separate class `RenderWithTransmission`, which takes care of loading and configuring the graph for you. This should make it easier to reuse the code in your own projects, but feel free to use this code as a starting point for your own experiments!
 
@@ -93,6 +93,6 @@ Note that we disable the use/creation of the `TransmissionHelper` class by setti
 
 Here is the same scene using the unmodified asset:
 
-<Playground id="#SYQW69#1301" title="TransmissionHelper for rendering transmissive materials" description="Rendering transmissive materials with transmission helper" isMain={true}/>
+<Playground id="#SYQW69#1301" title="TransmissionHelper for rendering transmissive materials" description="Rendering transmissive materials with transmission helper" isMain={false}/>
 
 If you open both playgrounds in two different tabs and switch between them, you will see that the renders are identical. However, if you check a frame with [Spector](https://spector.babylonjs.com/), you will see that we are performing fewer render passes in the node render graph version.
