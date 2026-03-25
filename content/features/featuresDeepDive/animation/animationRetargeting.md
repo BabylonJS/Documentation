@@ -140,13 +140,13 @@ retargeted.play(true);
 
 This PG shows a concrete example of retargeting:
 
-<Playground id="#K1QFZD#2" image="/img/playgroundsAndNMEs/pg-K1QFZD-1.png" title="Retargeted animation" description="Example of retargeting a hip-hop animation to a character" isMain={true}/>
+<Playground id="#K1QFZD#2" image="/img/playgroundsAndNMEs/pg-K1QFZD-1.png" title="Retargeted animation" description="Example of retargeting a hip-hop animation to a character" isMain={true} category="Animation"/>
 
 ## The Animation Retargeting Tool
 
 ![Animation Retargeting Tool](/img/animationRetargeting/tool.jpg)
 
-Link to the tool: <Playground id="#RJQC3F#15" image="/img/playgroundsAndNMEs/pg-RJQC3F-9.png" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true}/>
+Link to the tool: <Playground id="#RJQC3F#15" image="/img/playgroundsAndNMEs/pg-RJQC3F-9.png" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true} category="Animation"/>
 
 The Animation Retargeting Tool is an interactive playground that lets you experiment with retargeting without writing any code. The scene is split into two viewports: the left half shows the **avatar** (the target character that will be animated), and the right half shows the **reference skeleton** derived from the source animation file. A panel on the right side of the screen groups all the controls.
 

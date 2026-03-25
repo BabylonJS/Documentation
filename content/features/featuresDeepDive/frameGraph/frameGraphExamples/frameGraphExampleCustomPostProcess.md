@@ -54,7 +54,7 @@ const task = new BABYLON.FrameGraphCustomPostProcessTask("edgeDetection", frameG
 
 Here is a simple PG that illustrates the two code paths (update line 21 to use the standard or frame graph path):
 
-<Playground id="#F494TC" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Custom post-process in frame graph" description="Using a custom post-process in frame graph with FrameGraphCustomPostProcessTask" isMain={true}/>
+<Playground id="#F494TC" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Custom post-process in frame graph" description="Using a custom post-process in frame graph with FrameGraphCustomPostProcessTask" isMain={true} category="Frame Graph"/>
 
 ## Making the task available in NRGE
 
@@ -178,7 +178,7 @@ Note: Since a playground can be launched multiple times, we first check whether 
 
 You can use this PG to test it:
 
-<Playground id="#ZC3Y12#8" image="/img/playgroundsAndNMEs/pg-ZC3Y12-4.png" title="Custom post-process in NRGE" description="Making a custom post-process available in NRGE" isMain={true}/>
+<Playground id="#ZC3Y12#8" image="/img/playgroundsAndNMEs/pg-ZC3Y12-4.png" title="Custom post-process in NRGE" description="Making a custom post-process available in NRGE" isMain={false}/>
 
 The scene is displayed normally. To use a frame graph with the edge detection post-process, proceed as follows:
 * Open the inspector
@@ -198,7 +198,7 @@ const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("XQF0ML", scene)
 await nrg.buildAsync();
 ```
 
-<Playground id="#ZC3Y12#10" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Load node render graph with custom post-process" description="Loading a node render graph from the snippet server with custom post-process" isMain={true}/>
+<Playground id="#ZC3Y12#10" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.png" title="Load node render graph with custom post-process" description="Loading a node render graph from the snippet server with custom post-process" isMain={false}/>
 
 **Important**: editing the node render graph with the [standalone NRGE](https://nrge.babylonjs.com) will not work!
 

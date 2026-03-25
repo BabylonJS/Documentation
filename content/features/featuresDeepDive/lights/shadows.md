@@ -487,7 +487,7 @@ Then assign this wrapper to the corresponding `Material.shadowDepthWrapper` prop
 material.shadowDepthWrapper = shadowDepthWrapper;
 ```
 
-_Et voilà_! You now have proper shadows: <Playground id="#PNQRY1#80" title="Fixed Shadows" description="Fixing previously incorrect shadows." image="/img/playgroundsAndNMEs/divingDeeperShadows23.jpg"/>
+_Et voilà_! You now have proper shadows: <Playground id="#MNHJEB" title="Fixed Shadows" description="Fixing previously incorrect shadows." image="/img/playgroundsAndNMEs/divingDeeperShadows23.jpg"/>
 
 It works for any type of materials, being a `CustomMaterial`, `PBRCustomMaterial`, `ShaderMaterial` or `NodeMaterial` instances. There's no point of using this for `StandardMaterial` and `PBRMaterial` materials because the standard shadow map shader already handles the types of deformation / alpha rejection those materials can generate (namely morph targets / bones / alpha testing).
 
@@ -614,3 +614,4 @@ In the demo, this is used for the small floating sphere:
 
 - the base material of the sphere is a `CustomMaterial`
 - the wrapper bound to `sphereFloating.material.shadowDepthWrapper` is a wrapper generated around a specific `ShaderMaterial` material that only implements the logic for fragment discarding, so which is much more lightweight than the shader that would be generated were it based on the `CustomMaterial` base material
+

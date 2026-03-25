@@ -23,8 +23,8 @@ Provides the same functionalities as the [glow layer](/features/featuresDeepDive
 
 [Link to the class](/typedoc/classes/babylon.framegraphglowlayertask)
 
-<Playground id="#GCG2Z7#5" image="/img/playgroundsAndNMEs/pg-GCG2Z7-3.png" title="Glow layer" description="Example of a frame graph using the glow layer task" isMain={true}/>
-<Playground id="#GCG2Z7#6" image="/img/playgroundsAndNMEs/pg-GCG2Z7-2.png" title="Glow layer (NRG)" description="Example of a node render graph using the glow layer block" isMain={true}/>
+<Playground id="#GCG2Z7#5" image="/img/playgroundsAndNMEs/pg-GCG2Z7-3.png" title="Glow layer" description="Example of a frame graph using the glow layer task" isMain={false}/>
+<Playground id="#GCG2Z7#6" image="/img/playgroundsAndNMEs/pg-GCG2Z7-2.png" title="Glow layer (NRG)" description="Example of a node render graph using the glow layer block" isMain={false}/>
 
 Inputs:
 * **targetTexture**. The target texture to apply the effect layer to. The effect will be blended with the contents of this texture.
@@ -45,8 +45,8 @@ Provides the same functionalities as the [highlight layer](/features/featuresDee
 
 [Link to the class](/typedoc/classes/babylon.framegraphhighlightlayertask)
 
-<Playground id="#PV8OLY#35" image="/img/playgroundsAndNMEs/pg-PV8OLY-28.png" title="Highlight layer" description="Example of a frame graph using the highlight layer task" isMain={true}/>
-<Playground id="#PV8OLY#36" image="/img/playgroundsAndNMEs/pg-PV8OLY-29.png" title="Highlight layer (NRG)" description="Example of a node render graph using the highlight layer block" isMain={true}/>
+<Playground id="#PV8OLY#35" image="/img/playgroundsAndNMEs/pg-PV8OLY-28.png" title="Highlight layer" description="Example of a frame graph using the highlight layer task" isMain={false}/>
+<Playground id="#PV8OLY#36" image="/img/playgroundsAndNMEs/pg-PV8OLY-29.png" title="Highlight layer (NRG)" description="Example of a node render graph using the highlight layer block" isMain={false}/>
 
 Inputs:
 * **targetTexture**. The target texture to apply the effect layer to. The effect will be blended with the contents of this texture.
@@ -70,8 +70,8 @@ Provides the same functionalities as the [Selection outline layer](/features/fea
 
 [Link to the class](/typedoc/classes/babylon.framegraphselectionoutlinelayertask)
 
-<Playground id="#E1F0GP#4" title="Selection outline layer" description="Example of a frame graph using the Selection outline layer task" isMain={true}/>
-<Playground id="#ADUC74#1" title="Selection outline layer (NRG)" description="Example of a node render graph using the Selection outline layer block" isMain={true}/>
+<Playground id="#E1F0GP#4" title="Selection outline layer" description="Example of a frame graph using the Selection outline layer task" isMain={false}/>
+<Playground id="#ADUC74#1" title="Selection outline layer (NRG)" description="Example of a node render graph using the Selection outline layer block" isMain={true} category="Frame Graph"/>
 
 Inputs:
 * **targetTexture**. The target texture to apply the effect layer to. The effect will be blended with the contents of this texture.
@@ -96,8 +96,8 @@ Task used to execute a compute shader (WebGPU only).
 
 [Link to the class](/typedoc/classes/babylon.framegraphcomputeshadertask)
 
-<Playground engine="webgpu" id="#KOBPUW#18" image="/img/playgroundsAndNMEs/pg-KOBPUW-11.png" title="Compute shader task" description="Example of a frame graph using the compute shader task" isMain={true}/>
-<Playground engine="webgpu" id="#KOBPUW#19" image="/img/playgroundsAndNMEs/pg-KOBPUW-14.png" title="Compute shader task (NRG)" description="Example of a node render graph using the compute shader block" isMain={true}/>
+<Playground engine="webgpu" id="#KOBPUW#18" image="/img/playgroundsAndNMEs/pg-KOBPUW-11.png" title="Compute shader task" description="Example of a frame graph using the compute shader task" isMain={false}/>
+<Playground engine="webgpu" id="#KOBPUW#19" image="/img/playgroundsAndNMEs/pg-KOBPUW-14.png" title="Compute shader task (NRG)" description="Example of a node render graph using the compute shader block" isMain={true} category="Frame Graph"/>
 
 Inputs:
 * **dispatchSize**. Defines the dispatch size for the compute shader.
@@ -140,8 +140,8 @@ Task used to execute a custom function.
 
 [Link to the class](/typedoc/classes/babylon.framegraphexecutetask)
 
-<Playground id="#SUEU9U#110" image="/img/playgroundsAndNMEs/pg-SUEU9U-10.png" title="Execute task" description="Example of a frame graph using the execute task" isMain={true}/>
-<Playground id="#SUEU9U#133" image="/img/playgroundsAndNMEs/pg-SUEU9U-11.png" title="Execute task (NRG)" description="Example of a node render graph using the execute block" isMain={true}/>
+<Playground id="#SUEU9U#110" image="/img/playgroundsAndNMEs/pg-SUEU9U-10.png" title="Execute task" description="Example of a frame graph using the execute task" isMain={false}/>
+<Playground id="#SUEU9U#133" image="/img/playgroundsAndNMEs/pg-SUEU9U-11.png" title="Execute task (NRG)" description="Example of a node render graph using the execute block" isMain={false}/>
 
 Inputs:
 * **func**. The function to execute when the task is enabled.
@@ -157,8 +157,8 @@ Task that renders a GUI texture.
 
 [Link to the class](/typedoc/classes/babylon.gui.framegraphguitask)
 
-<Playground id="#SUEU9U#111" image="/img/playgroundsAndNMEs/pg-SUEU9U-77.png" title="GUI task" description="Example of a frame graph using the gui task" isMain={true}/>
-<Playground id="#SUEU9U#134" image="/img/playgroundsAndNMEs/pg-SUEU9U-78.png" title="GUI task (NRG)" description="Example of a node render graph using the gui block" isMain={true}/>
+<Playground id="#SUEU9U#111" image="/img/playgroundsAndNMEs/pg-SUEU9U-77.png" title="GUI task" description="Example of a frame graph using the gui task" isMain={false}/>
+<Playground id="#SUEU9U#134" image="/img/playgroundsAndNMEs/pg-SUEU9U-78.png" title="GUI task (NRG)" description="Example of a node render graph using the gui block" isMain={false}/>
 
 Inputs:
 * **targetTexture**. The target texture to render the GUI to.
@@ -359,7 +359,7 @@ Task which applies a custom post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphcustompostprocesstask)
 
-<Playground id="#R33LVG#6" image="/img/playgroundsAndNMEs/pg-R33LVG-2.png" title="Custom task" description="Example of a frame graph using the custom task" isMain={true}/>
+<Playground id="#R33LVG#6" image="/img/playgroundsAndNMEs/pg-R33LVG-2.png" title="Custom task" description="Example of a frame graph using the custom task" isMain={false}/>
 
 Inputs:
 * **onApplyObservable**. Observable triggered when bind is called for the post process. Use this to set custom uniforms (see example playground).
@@ -371,8 +371,8 @@ Task which applies a depth of field post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphdepthoffieldtask)
 
-<Playground id="#SUEU9U#120" image="/img/playgroundsAndNMEs/pg-SUEU9U-31.png" title="Depth of field task" description="Example of a frame graph using the depth of field task" isMain={true}/>
-<Playground id="#SUEU9U#155" image="/img/playgroundsAndNMEs/pg-SUEU9U-32.png" title="Depth of field task (NRG)" description="Example of a node render graph using the depth of field block" isMain={true}/>
+<Playground id="#SUEU9U#120" image="/img/playgroundsAndNMEs/pg-SUEU9U-31.png" title="Depth of field task" description="Example of a frame graph using the depth of field task" isMain={false}/>
+<Playground id="#SUEU9U#155" image="/img/playgroundsAndNMEs/pg-SUEU9U-32.png" title="Depth of field task (NRG)" description="Example of a node render graph using the depth of field block" isMain={false}/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -455,8 +455,8 @@ Task which applies a image processing post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphimageprocessingtask)
 
-<Playground id="#SUEU9U#125" image="/img/playgroundsAndNMEs/pg-SUEU9U-45.png" title="Image processing task" description="Example of a frame graph using the image processing task" isMain={true}/>
-<Playground id="#SUEU9U#148" image="/img/playgroundsAndNMEs/pg-SUEU9U-46.png" title="Image processing task (NRG)" description="Example of a node render graph using the image processing block" isMain={true}/>
+<Playground id="#SUEU9U#125" image="/img/playgroundsAndNMEs/pg-SUEU9U-45.png" title="Image processing task" description="Example of a frame graph using the image processing task" isMain={false}/>
+<Playground id="#SUEU9U#148" image="/img/playgroundsAndNMEs/pg-SUEU9U-46.png" title="Image processing task (NRG)" description="Example of a node render graph using the image processing block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinimageprocessingpostprocess). The properties of the post-process.
@@ -472,8 +472,8 @@ Task which applies a motion blur post-process.
 [Link to the class](/typedoc/classes/babylon.framegraphmotionblurtask)
 
 <Playground id="#YB006J#790" image="/img/playgroundsAndNMEs/pg-YB006J-746.png" title="Motion blur task (screen based)" description="Example of a frame graph using the motion blur task (screen based)" isMain={false}/>
-<Playground id="#YB006J#791" image="/img/playgroundsAndNMEs/pg-YB006J-749.png" title="Motion blur task (object based)" description="Example of a frame graph using the motion blur task (object based)" isMain={true}/>
-<Playground id="#YB006J#794" image="/img/playgroundsAndNMEs/pg-YB006J-753.png" title="Motion blur task (NRG)" description="Example of a node render graph using the motion blur block" isMain={true}/>
+<Playground id="#YB006J#791" image="/img/playgroundsAndNMEs/pg-YB006J-749.png" title="Motion blur task (object based)" description="Example of a frame graph using the motion blur task (object based)" isMain={false}/>
+<Playground id="#YB006J#794" image="/img/playgroundsAndNMEs/pg-YB006J-753.png" title="Motion blur task (NRG)" description="Example of a node render graph using the motion blur block" isMain={false}/>
 
 Inputs:
 * **velocityTexture** (optional). The velocity texture to use for the motion blur effect. Needed for object-based motion blur.
@@ -528,8 +528,8 @@ Task which applies a screen-space ambient occlusion post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphssao2renderingpipelinetask)
 
-<Playground id="#SUEU9U#128" image="/img/playgroundsAndNMEs/pg-SUEU9U-51.png" title="SSAO2 task" description="Example of a frame graph using the SSAO2 task" isMain={true}/>
-<Playground id="#SUEU9U#156" image="/img/playgroundsAndNMEs/pg-SUEU9U-52.png" title="SSAO2 task (NRG)" description="Example of a node render graph using the SSAO2 block" isMain={true}/>
+<Playground id="#SUEU9U#128" image="/img/playgroundsAndNMEs/pg-SUEU9U-51.png" title="SSAO2 task" description="Example of a frame graph using the SSAO2 task" isMain={false}/>
+<Playground id="#SUEU9U#156" image="/img/playgroundsAndNMEs/pg-SUEU9U-52.png" title="SSAO2 task (NRG)" description="Example of a node render graph using the SSAO2 block" isMain={false}/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -562,8 +562,8 @@ Task which applies a screen-space reflection post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphssrrenderingpipelinetask)
 
-<Playground id="#SUEU9U#129" image="/img/playgroundsAndNMEs/pg-SUEU9U-54.png" title="SSR task" description="Example of a frame graph using the SSR task" isMain={true}/>
-<Playground id="#PIZ1GK#2388" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2373.png" title="SSR task (NRG)" description="Example of a node render graph using the SSR block" isMain={true}/>
+<Playground id="#SUEU9U#129" image="/img/playgroundsAndNMEs/pg-SUEU9U-54.png" title="SSR task" description="Example of a frame graph using the SSR task" isMain={false}/>
+<Playground id="#PIZ1GK#2388" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2373.png" title="SSR task (NRG)" description="Example of a node render graph using the SSR block" isMain={true} category="Frame Graph"/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -602,7 +602,7 @@ Task which applies a temporal anti-aliasing post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphtaatask)
 
-<Playground id="#OWGOUN#19" image="/img/playgroundsAndNMEs/pg-OWGOUN-15.png" title="TAA task" description="Example of a frame graph using the TAA task" isMain={true}/>
+<Playground id="#OWGOUN#19" image="/img/playgroundsAndNMEs/pg-OWGOUN-15.png" title="TAA task" description="Example of a frame graph using the TAA task" isMain={false}/>
 
 Inputs:
 * **objectRendererTask**. The object renderer task used to render the scene objects.
@@ -641,8 +641,8 @@ A frame graph task that performs volumetric lighting.
 
 [Link to the class](/typedoc/classes/babylon.framegraphvolumetriclightingtask)
 
-<Playground engine="webgpu" id="#WLGEJB#34" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task" isMain={true}/>
-<Playground engine="webgpu" id="#WLGEJB#39" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting (NRG)" description="Example of a node render graph using the volumetric lighting block" isMain={true}/>
+<Playground engine="webgpu" id="#WLGEJB#45" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task" isMain={false}/>
+<Playground engine="webgpu" id="#WLGEJB#46" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting (NRG)" description="Example of a node render graph using the volumetric lighting block" isMain={true} category="Frame Graph"/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -676,8 +676,8 @@ Task used to render objects to a texture.
 
 [Link to the class](/typedoc/classes/babylon.framegraphobjectrenderertask)
 
-<Playground id="#IG8NRC#88" image="/img/playgroundsAndNMEs/pg-IG8NRC-82.png" title="Object renderer task" description="Example of a frame graph using the object renderer task" isMain={true}/>
-<Playground id="#IG8NRC#89" image="/img/playgroundsAndNMEs/pg-IG8NRC-81.png" title="Object renderer task (NRG)" description="Example of a node render graph using the object renderer block" isMain={true}/>
+<Playground id="#IG8NRC#88" image="/img/playgroundsAndNMEs/pg-IG8NRC-82.png" title="Object renderer task" description="Example of a frame graph using the object renderer task" isMain={false}/>
+<Playground id="#IG8NRC#89" image="/img/playgroundsAndNMEs/pg-IG8NRC-81.png" title="Object renderer task (NRG)" description="Example of a node render graph using the object renderer block" isMain={false}/>
 
 Inputs:
 * **targetTexture**. The target texture(s) where the objects will be rendered. Define an array of handles if you want to use multi-target rendering (see below for more details).
@@ -734,8 +734,8 @@ Task used to render geometry to a set of textures.
 
 [Link to the class](/typedoc/classes/babylon.framegraphgeometryrenderertask)
 
-<Playground id="#ARI9J5#6" image="/img/playgroundsAndNMEs/pg-ARI9J5-1.png" title="Geometry renderer task" description="Example of a frame graph using the geometry renderer task" isMain={true}/>
-<Playground id="#SUEU9U#157" image="/img/playgroundsAndNMEs/pg-SUEU9U-74.png" title="Geometry renderer task (NRG)" description="Example of a node render graph using the geometry renderer block" isMain={true}/>
+<Playground id="#ARI9J5#6" image="/img/playgroundsAndNMEs/pg-ARI9J5-1.png" title="Geometry renderer task" description="Example of a frame graph using the geometry renderer task" isMain={false}/>
+<Playground id="#SUEU9U#157" image="/img/playgroundsAndNMEs/pg-SUEU9U-74.png" title="Geometry renderer task (NRG)" description="Example of a node render graph using the geometry renderer block" isMain={false}/>
 
 <br/><br/>
 
@@ -801,9 +801,9 @@ Task used to generate shadows from a list of objects.
 
 [Link to the class (CSM)](/typedoc/classes/babylon.framegraphcascadedshadowgeneratortask)
 
-<Playground id="#JWKDME#189" image="/img/playgroundsAndNMEs/pg-JWKDME-175.png" title="Shadow generator task" description="Example of a frame graph using the shadow generator task" isMain={true}/>
-<Playground id="#JWKDME#190" image="/img/playgroundsAndNMEs/pg-JWKDME-174.png" title="Shadow generator task (NRG)" description="Example of a node render graph using the shadow generator block" isMain={true}/>
-<Playground id="#JWKDME#198" image="/img/playgroundsAndNMEs/pg-JWKDME-176.png" title="Cascaded shadow generator task (NRG)" description="Example of a node render graph using the cascaded shadow generator block" isMain={true}/>
+<Playground id="#JWKDME#189" image="/img/playgroundsAndNMEs/pg-JWKDME-175.png" title="Shadow generator task" description="Example of a frame graph using the shadow generator task" isMain={false}/>
+<Playground id="#JWKDME#190" image="/img/playgroundsAndNMEs/pg-JWKDME-174.png" title="Shadow generator task (NRG)" description="Example of a node render graph using the shadow generator block" isMain={false}/>
+<Playground id="#JWKDME#198" image="/img/playgroundsAndNMEs/pg-JWKDME-176.png" title="Cascaded shadow generator task (NRG)" description="Example of a node render graph using the cascaded shadow generator block" isMain={false}/>
 
 Inputs:
 * **objectList**. The object list that generates shadows.
@@ -861,8 +861,8 @@ Task used to render an utility layer.
 
 [Link to the class](/typedoc/classes/babylon.framegraphutilitylayerrenderertask)
 
-<Playground id="#SUEU9U#131" image="/img/playgroundsAndNMEs/pg-SUEU9U-85.png" title="Utility layer renderer task" description="Example of a frame graph using the utility layer renderer task" isMain={true}/>
-<Playground id="#SUEU9U#132" image="/img/playgroundsAndNMEs/pg-SUEU9U-84.png" title="Utility layer renderer task (NRG)" description="Example of a node render graph using the utility layer renderer block" isMain={true}/>
+<Playground id="#SUEU9U#131" image="/img/playgroundsAndNMEs/pg-SUEU9U-85.png" title="Utility layer renderer task" description="Example of a frame graph using the utility layer renderer task" isMain={false}/>
+<Playground id="#SUEU9U#132" image="/img/playgroundsAndNMEs/pg-SUEU9U-84.png" title="Utility layer renderer task (NRG)" description="Example of a node render graph using the utility layer renderer block" isMain={false}/>
 
 Inputs:
 * **targetTexture**. The target texture of the task.
@@ -950,8 +950,8 @@ Task which generates mipmaps for a texture.
 
 [Link to the class](/typedoc/classes/babylon.framegraphgeneratemipmapstask)
 
-<Playground id="#4QES4Q#4" image="/img/playgroundsAndNMEs/pg-4QES4Q-1.png" title="Generate mipmaps task" description="Example of a frame graph using the generate mipmaps task" isMain={true}/>
-<Playground id="#4QES4Q#5" image="/img/playgroundsAndNMEs/pg-4QES4Q-2.png" title="Generate mipmaps task (NRG)" description="Example of a node render graph using the generate mipmaps block" isMain={true}/>
+<Playground id="#4QES4Q#4" image="/img/playgroundsAndNMEs/pg-4QES4Q-1.png" title="Generate mipmaps task" description="Example of a frame graph using the generate mipmaps task" isMain={false}/>
+<Playground id="#4QES4Q#5" image="/img/playgroundsAndNMEs/pg-4QES4Q-2.png" title="Generate mipmaps task (NRG)" description="Example of a node render graph using the generate mipmaps block" isMain={true} category="Frame Graph"/>
 
 Inputs:
 * **targetTexture**. The texture to generate mipmaps for.
