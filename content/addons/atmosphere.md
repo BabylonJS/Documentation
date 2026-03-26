@@ -1,7 +1,7 @@
 ---
 title: Atmosphere
 image:
-description: The atmosphere addon provides a physically based sky and aerial perspective rendering, supporting views from ground to space.
+description: The atmosphere addon provides physically based sky and aerial perspective rendering.
 further-reading:
 video-overview:
 video-content:
@@ -11,9 +11,11 @@ video-content:
 
 ## Introduction
 
-The atmosphere addon provides physically based sky and aerial perspective rendering, supporting views from ground to space.
+The atmosphere addon provides physically based sky and aerial perspective rendering.
 
-<Playground id="#K1Y1Q8#60" title="Default Atmosphere" description="The default atmosphere with Earth-like scattering parameters." />
+Orbital views of the globe are also supported, as demonstrated in the following playground.
+
+<Playground id="#K1Y1Q8#82" title="Default Atmosphere" description="The default atmosphere with a globe toggle." />
 
 ## Installation
 
@@ -45,12 +47,12 @@ The atmosphere requires WebGPU or WebGL2. Call `Atmosphere.IsSupported(engine)` 
 
 For rendering objects within the atmosphere, it is recommended to use [physically based materials (PBR)](/features/featuresDeepDive/materials/using/introToPBR).
 
-<Playground id="#K1Y1Q8#61" title="PBR Integration" description="A PBR sphere rendered within the atmosphere." />
+<Playground id="#K1Y1Q8#94" title="PBR Integration" description="A PBR sphere rendered within the atmosphere." />
 
 <br/>
 <br/>
 
-The atmosphere addon automatically integrates with `PBRMaterial`s, allowing for consistent lighting of objects, taking into account atmospheric effects.
+The atmosphere addon automatically integrates with `PBRMaterial`, ensuring consistent lighting that accounts for atmospheric effects.
 
 ### Directional Light
 
@@ -61,9 +63,9 @@ const light = new DirectionalLight("sun", new Vector3(0, -1, 0), scene);
 light.intensity = Math.PI; // Set intensity for PBRMaterials
 ```
 
-To get the correct brightness on `PBRMaterial`s, the light intensity can simply be set to PI. This will cancel out the 1/PI factor from the PBR rendering.
+To get the correct brightness on `PBRMaterial`s, the light intensity can be set to PI. This will cancel out the 1/PI factor from the PBR rendering.
 
-A more physically-based `DirectionalLight` setup is possible by leveraging the [IntensityMode](/features/featuresDeepDive/materials/using/masterPBR#intensitymode) to specify the light in physical units (e.g., lux or nits).
+A more physically-based `DirectionalLight` setup can leverage the [IntensityMode](/features/featuresDeepDive/materials/using/masterPBR#intensitymode) to specify the light in physical units (e.g., lux or nits).
 
 ### Rendering Pipeline
 
@@ -80,34 +82,33 @@ Tonemapping can be enabled to better handle the high dynamic range of the atmosp
 
 ## Customizing the Atmosphere
 
-The atmosphere is created by specifying the directional light.
+Create the atmosphere by passing the directional light.
 
 ```javascript
-const atmosphere = new Atmosphere("atmosphere", scene, [ light ]);
+const atmosphere = new Atmosphere("atmosphere", scene, [light]);
 // True if rendering to an HDR target (e.g. DefaultRenderingPipeline with hdr: true)
 atmosphere.isLinearSpaceComposition = true;
 // True if light value in the scene is expected to be linear (e.g. PBRMaterials)
 atmosphere.isLinearSpaceLight = true;
 ```
 
-By default, Earth-like scattering parameters and dimensions will be used. This can be further customized.
+By default, Earth-like scattering parameters and dimensions are used. This can be further customized.
 
 ### Rayleigh Scattering
 
 Rayleigh scattering can have a strong effect on the overall color of the atmosphere.
 
-<Playground id="#K1Y1Q8#62" title="Green Rayleigh Scattering" description="Create a green sky by increasing Rayleigh scattering in the green channel." />
+<Playground id="#K1Y1Q8#83" title="Green Rayleigh Scattering" description="Create a green sky by increasing Rayleigh scattering in the green channel." />
 
 ```javascript
-atmosphere.physicalProperties.peakRayleighScattering =
-    new Vector3(0.001, 0.034, 0.001); // r, g, b
+atmosphere.physicalProperties.peakRayleighScattering = new Vector3(0.001, 0.034, 0.001); // r, g, b
 ```
 
 ### Mie Scattering and Absorption
 
 Mie scattering and absorption affect the haziness of the atmosphere.
 
-<Playground id="#K1Y1Q8#63" title="Increased Mie Scattering" description="Increased Mie scattering for a hazier atmosphere." />
+<Playground id="#K1Y1Q8#84" title="Increased Mie Scattering" description="Increased Mie scattering for a hazier atmosphere." />
 
 ```javascript
 atmosphere.physicalProperties.mieScatteringScale = 100;
@@ -117,7 +118,7 @@ atmosphere.physicalProperties.mieScatteringScale = 100;
 
 Ozone absorption can also affect the color of the atmosphere.
 
-<Playground id="#K1Y1Q8#64" title="Increased Ozone Absorption" description="Increased Ozone absorption for a deeper blue sky." />
+<Playground id="#K1Y1Q8#85" title="Increased Ozone Absorption" description="Increased ozone absorption for a deeper blue sky." />
 
 ```javascript
 atmosphere.physicalProperties.ozoneAbsorptionScale = 5;
@@ -125,9 +126,9 @@ atmosphere.physicalProperties.ozoneAbsorptionScale = 5;
 
 ### Multiple Scattering
 
-Multiple Scattering simulates light within the atmosphere that has scattered more than once. This affects the brightness of the atmosphere but can also affect the overall color, especially depending on the ground albedo.
+Multiple scattering simulates light within the atmosphere that has scattered more than once. This affects the brightness of the atmosphere but can also affect the overall color, especially depending on the ground albedo.
 
-<Playground id="#K1Y1Q8#65" title="Increased Multiple Scattering" description="Increased multiple scattering and red ground albedo." />
+<Playground id="#K1Y1Q8#86" title="Increased Multiple Scattering" description="Increased multiple scattering and red ground albedo." />
 
 ```javascript
 atmosphere.multiScatteringIntensity = 4.0;
@@ -136,9 +137,9 @@ atmosphere.groundAlbedo = new Color3(1.0, 0.2, 0.2);
 
 ### Optimization and Quality
 
-By default, the atmosphere uses look up tables (LUTs) for improved efficiency. To fall back to the more expensive but higher quality ray marching, use the following properties.
+By default, the atmosphere uses lookup tables (LUTs) for improved efficiency. To fall back to the more expensive but higher-quality ray marching, use the following properties.
 
-<Playground id="#K1Y1Q8#66" title="Full Ray Marching" description="The default atmosphere with Earth-like scattering parameters and full ray marching." />
+<Playground id="#K1Y1Q8#87" title="Full Ray Marching" description="The default atmosphere with full ray marching." />
 
 ```javascript
 atmosphere.isAerialPerspectiveLutEnabled = false;
@@ -149,15 +150,15 @@ atmosphere.isSkyViewLutEnabled = false;
 
 The atmosphere can simulate different times of day by changing the direction of the light.
 
-Typically, a -Y light direction can be used to simulate a directly overhead sun, although this depends on what is considered the up vector of the scene.
+Typically, a -Y light direction can be used for a directly overhead sun, although this depends on what is considered the up-vector of the scene.
 
-<Playground id="#K1Y1Q8#67" title="Day-Night Animation" description="Simulating different times of day by animating the sun position." />
+<Playground id="#K1Y1Q8#90" title="Day-Night Animation" description="Simulating different times of day by animating the sun position." />
 
 ```javascript
 // Assuming +Y is up
 light.direction = new Vector3(0, -1, 0); // Day
-light.direction = new Vector3(0,  1, 0); // Night
-light.direction = new Vector3(1,  0, 0); // Sunrise/Sunset
+light.direction = new Vector3(0, 1, 0); // Night
+light.direction = new Vector3(1, 0, 0); // Sunrise/Sunset
 ```
 
 To simulate night, a minimum multiple scattering intensity can be set. This maintains some ambient light in the atmosphere even when the sun is below the horizon.
