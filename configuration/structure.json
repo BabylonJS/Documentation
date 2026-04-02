@@ -677,6 +677,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview"
                                         },
+                                        "frameGraphWritingTasks": {
+                                            "friendlyName": "Writing Frame Graph Tasks",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphWritingTasks"
+                                        },
                                         "frameGraphTaskList": {
                                             "friendlyName": "Frame Graph Task List",
                                             "children": {},
