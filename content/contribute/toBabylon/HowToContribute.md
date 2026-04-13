@@ -316,13 +316,13 @@ Open [http://localhost:1346](http://localhost:1346) in your browser.
 
 Using VSCode:
 
-- In the Run and Debug Menu, choose "Run and debug unit tests" or "Run and debug visualization tests", OR
-- Open the Command Palette, type "Run Task", select "Run unit tests` or "Run visualization tests"
+- In the Run and Debug Menu, choose "Run and Debug unit tests (Dev)" for the Vitest unit suite, or one of the validation test launch configurations for Playwright-based browser tests.
+- Open the Command Palette, type "Run Task", and select "Run visualization tests (Dev)" or "Launch visualization test runner (Dev)".
 
 Using command line:
 
 - Run `npm run test:unit` or `npm run test:visualization`
-- Or run `npm run test` or `npx jest` to launch all tests at the same time
+- Run `npm run test` to execute the default root unit-test run
 
 #### Link a public project to an external one
 
@@ -869,7 +869,7 @@ To start the debugger using VS Code use the launch task you want to debug and ru
 
 All packages are built with sourcemaps (when not in production mode), so opening the browser and choose the file to debug will allow to debug using typescript sources.
 
-Unit tests can be debugged as well using the VS Code debugger. When in debug mode tests will run "in band" and not parallel. Set the breakpoint beforehand and run the tests. The initial run might take some time, but once the debugger is connected it will stop at that breakpoint.
+Unit tests can be debugged as well using the VS Code debugger. The built-in Vitest launch configurations run without file parallelism, which makes breakpoints predictable. Set the breakpoint beforehand and run the tests. The initial run might take some time, but once the debugger is connected it will stop at that breakpoint.
 
 Contact us in the forum with any issues regarding debugging.
 
@@ -917,9 +917,9 @@ This should be used only when you want to build the public packages in the repos
 
 There are 3 types of tests configured in the repository:
 
-- unit
-- visualization
-- integration (TBD)
+- unit (Vitest)
+- visualization (Playwright)
+- integration (Playwright)
 
 Each package can have a "test" folder with a specific structure. The structure of the test folder will allow tests to run automatically in the entire repository (and in a single package). The structure is as follows:
 
@@ -927,57 +927,56 @@ Each package can have a "test" folder with a specific structure. The structure o
 
 All files must follow this schema:
 
-`(.*).test.{js, ts, tsx}`, for example - materials.test.ts or babylon.physicsEngine.test.js
+`(.*).test.{ts, tsx}`, for example - materials.test.ts
 
-Those files will be automatically picked by jest and will run as part of the test script, using the correct environment (jsdom/node for unit tests)
+At the repository level, the Vitest `unit` project automatically picks up files matching `packages/**/test/unit/**/*.test.{ts,tsx}`.
 
-The possible test environment are node and jsdom for unit tests, and also puppeteer for visualization and integration (see [https://jestjs.io/docs/configuration#testenvironment-string](https://jestjs.io/docs/configuration#testenvironment-string)). The default test environment is node (and puppeteer for visualization). To change the environment, add a comment at the first line of the file. For example:
+The default unit-test environment is `node`. When a unit test needs DOM APIs, switch the file to `jsdom` by adding a comment at the first line of the file. For example:
 
 ```javascript
 /**
- * @jest-environment jsdom
+ * @vitest-environment jsdom
  */
 ```
 
-will enable jsdom as the test environment and will make the window and document object available in unit tests.
+This enables jsdom for that file and makes `window` and `document` available in the test. Browser-based visualization and integration tests run separately through Playwright rather than through the Vitest unit project.
 
-Test results can be seen on the console. A junit.xml file is also generated after every test run, but it is mainly used for CI reporting.
+Test results can be seen on the console. In CI, Vitest also emits a `junit.xml` report for test reporting.
 
 Visualization tests will generate a report if any test failed. The report will open automatically after running the tests.
 
-To run all tests in a single command run `npm run test` or `npx jest` in the main directory.
+To run the repository's unit-test suite from the root, run `npm run test` or `npm run test:unit` in the main directory.
 
-We are testing using jest. To know everything you need to know, read their documentation - [https://jestjs.io/docs/getting-started](https://jestjs.io/docs/getting-started)
+We are testing unit suites using Vitest. To learn more about the test runner and its API, read the Vitest documentation - [https://vitest.dev/guide/](https://vitest.dev/guide/)
 
 ### Unit testing
 
 Apart from what's written before, there are a few things that need to be observed when writing unit tests.
 
-- Unit tests are meant to test a specific unit or module. Anything else must be mocked. To read more about jest mocking - [https://jestjs.io/docs/mock-functions](https://jestjs.io/docs/mock-functions)
+- Unit tests are meant to test a specific unit or module. Anything else should be mocked. To read more about Vitest mocking, see [https://vitest.dev/guide/mocking.html](https://vitest.dev/guide/mocking.html)
 - If you are testing the connection between two or more modules it is not a unit test and should probably be an integration test.
-- It is recommended not to use puppeteer as the environment for unit testing
+- Do not use browser-based Playwright tests as a substitute for unit tests. If `node` is not enough, prefer `@vitest-environment jsdom` before moving to visualization or integration coverage.
 - jsdom does not allow adding script tags to the DOM. Anything that needs to be added externally must be mocked.
 
-To run all unit tests run `npm run test -- --selectProjects unit`. To run tests only in a specific project, run the npm command with the right workspace package: `npm run test -w @dev/core -- --selectProjects unit`
+To run all unit tests, run `npm run test:unit` from the repository root.
 
-To run a specific unit test you can use jest filtering, which is either filter per filename:
+To run a specific unit test file, pass its path to Vitest from the repository root:
 
-`npm run test -w @dev/core -- --selectProjects unit -i "material"`
+`npm run test:unit -- packages/dev/core/test/unit/Math/babylon.math.vector.test.ts`
 
-This will run all tests that their filename has "material" in them.
+To run tests matching part of the test name, use Vitest's `-t` filter:
 
-You can also filter using term in the test name itself (the "it" and "describes" functions in your tests):
+`npm run test:unit -- -t "material"`
 
-`npm run test -w @dev/core -- --selectProjects unit -t "material"`
-
-This will run all tests that have the word "material" in their name.
+To debug the current test file from VS Code, use the "Run and Debug current unit test file (Dev)" launch configuration.
 
 ### Visualization tests
 
 Before running the visualization tests, you'll need to start the local server:
+
 ```shell
 npm start
-``` 
+```
 
 Run all visualization tests (WebGL1, WebGL2 and WebGPU) using `npm run test:visualization` in the main directory.
 
