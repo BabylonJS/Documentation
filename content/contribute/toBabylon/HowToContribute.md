@@ -110,7 +110,7 @@ Before embarking on editing or adding to Babylon.js please make sure you are fam
 
 Please note that some of these are checked on submission automatically by software, including
 
-- The addition of comments to your code as described [here](/contribute/toBabylon/contributeToAPI);
+- The addition of comments to your code as described in [Contribute to the API](/contribute/toBabylon/contributeToAPI);
 - Consistent coding style (linting).
 
 ### Editing with Visual Studio Code
@@ -161,15 +161,7 @@ git commit file1.ts file2.ts file3.ts -m "Description of Changes"
 
 Node.js and npm can be installed from the [Node.js home page](https://nodejs.org/en/).
 
-The package manager npm is updated regularly and often to test Babylon.js you will need the latest v8 version. To update to the latest v8 version in your CLI:
-
-```bash
-npm install -g npm@8.x
-```
-
-the `g` installs npm globally so you can use it in any folder.
-
-Note that we currently don't support npm v6.x or under.
+Babylon.js currently requires Node.js `>=20.11.0 <23.0.0` and npm `>=8.0.0`.
 
 To check your npm and node version after node was installed:
 
@@ -184,7 +176,7 @@ run `npm install` in the main directory. This will build everything needed to ge
 
 It is recommended to run `npm run build:dev` before starting to work to make sure everything is in the right place.
 
-Using VSCode? Install the recommended extensions and start `Run and Watch Dev Host` to compile and get started with the esm dev host. TO use the classic UMD-based development (and have the BABYLON namespace available), run `Run and Watch Babylon Server`.
+Using VSCode? Install the recommended extensions and start `Run and Watch Dev Host (Dev)` to compile and get started with the esm dev host. To use the classic UMD-based development (and have the BABYLON namespace available), run `CDN Serve and watch (Dev)`.
 
 To build the dev sources, shaders, and assets, run `npm run build:dev`.
 
@@ -208,7 +200,7 @@ Using command line:
 - run `npm run watch:dev` (If you want to make changes to the dev packages. Otherwise run `npm run build:dev`)
 - run `npm run serve -w @tools/babylon-server` in a new terminal window
 
-The Babylon server offers 2 variants - js and ts. To load the js version (the default one) navigate to http://localhost:1337. To use the TS version navigate to http://localhost:1337/index-ts.html.
+The Babylon server offers 2 variants - js and ts. To load the js version (the default one) navigate to [http://localhost:1337](http://localhost:1337). To use the TS version navigate to [http://localhost:1337/index-ts.html](http://localhost:1337/index-ts.html).
 The files to edit are sceneJs.js and sceneTs.ts in the source folder of the Babylon server package.
 
 As described in the next section, the Babylon server also offers a playground-snippet debugging.
@@ -360,11 +352,11 @@ _Hint_: You may need to refresh the code before adding back a new breakpoint.
 
 ## Repository structure
 
-The repository is built similar to a mono-repo. Every package has its own package.json and can be used independently, of course taking its dependencies into account.
+The repository is a monorepo. Every package has its own package.json and can be used independently, taking its dependencies into account.
 
-Packages in `dev` and `lts` are composites ([https://www.typescriptlang.org/tsconfig#composite](https://www.typescriptlang.org/tsconfig#composite)) and can compile using a single command if needed. When watching, dependent packages will be automatically compiled as well, when needed.
+Packages under `packages/dev` can be compiled together using the root TypeScript build, and dependent packages will be rebuilt automatically when needed.
 
-All packages (with the exception of public es6 packages) have the same basic structure:
+Most packages share the same basic structure:
 
 - src folder holds typescript files and assets
 - test folder holds tests (See [Testing](#testing))
@@ -385,7 +377,7 @@ To run a specific npm command on a specific package, run `npm <command> -w <pack
 
 To run a specific npm command on the root package, run `npm <command>`.
 
-Read more about node workspaces - [https://docs.npmjs.com/cli/v7/using-npm/workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces)
+Read more about node workspaces - [https://docs.npmjs.com/cli/using-npm/workspaces](https://docs.npmjs.com/cli/using-npm/workspaces)
 
 ### Naming convention
 
@@ -394,18 +386,12 @@ Read more about node workspaces - [https://docs.npmjs.com/cli/v7/using-npm/works
 
 ### Types of packages
 
-There are 4 different types of packages:
+There are 3 different types of packages:
 
 #### dev packages
 
 Packages with their name starting with `@dev`. These are the main packages that will be used on day-to-day work with the repository.
 Those packages will hold raw assets in their dist directory, and are ready to be consumed by any packer (like webpack or rollup).
-
-#### lts packages
-
-Packages with their name starting with `@lts`. These are packages that are used for the long-term support of the repository. In time some code will move to the LTS packages (for example side effects or deprecated functions). LTS packages will be used to generate the public packages.
-
-LTS packages are an extension of the dev packages and should never include duplicated code.
 
 #### Tools packages
 
@@ -414,7 +400,7 @@ Tools are, for example, the playground, the sandbox, node and GUI editor.
 
 #### Public packages
 
-The public-facing packages are the ones that are served using NPM. They are mainly built using the LTS or Tools packages. They are also the only ones not marked "private" in their package.json.
+The public-facing packages live under `packages/public`. They are the packages published to npm and are the only ones not marked `private` in their package.json.
 
 ### Running scripts
 
@@ -591,7 +577,7 @@ import { Control } from "gui/2D/controls/control";
 import { AdvancedDynamicTexture } from "gui/2D/advancedDynamicTexture";
 ```
 
-Using the dev package names (defined in packageMapping.ts in the build tools) will allow the build system to choose which project to take sources from - dev, or lts.
+Using the dev package names (defined in the build tools) keeps local development pointed at the monorepo sources instead of published packages.
 
 ### Serving the repository
 
@@ -617,7 +603,7 @@ When loading from the different packages in the dev host you will use the packag
 import { Scene } from "@dev/core";
 ```
 
-It is important to stay consistent when importing, i.e. not to load a part from the @lts packages and another part from the @dev package, as typescript will complain they are not the same object.
+It is important to stay consistent when importing, i.e. not to mix published `@babylonjs/*` packages with local `@dev/*` packages for the same codepath, as TypeScript will treat them as different copies.
 
 The dev host is configured to be much more forgiving when developing. The best example is the `noImplicitAny` rule, which is set to false. This is done mainly so you could load .js files as well as typescript file. This is the reason for the `allowJs` flag being set to true.
 
@@ -788,9 +774,9 @@ Note about dev host - the dev host is not using any best practices for productio
 
 The Babylon server is a direct copy of the Babylon CDN structure. It serves javascript files, along with sourcemaps and declarations.
 
-Similar to the dev host, the Babylon server will take the latest compiled code from the dev (or lts) packages and serve it to the browser. The default address for the local CDN is [http://localhost:1338](http://localhost:1338)
+Similar to the dev host, the Babylon server will take the latest compiled code from the current monorepo packages and serve it to the browser. The default address for the local CDN is [http://localhost:1337](http://localhost:1337).
 
-The Babylon server's _index.html_ has references to all of our public packages and has the BABYLON namespace populated, similar to the way the playground is working. If you want to debug a playground scene without starting the playground, edit the file sceneJs.js or sceneTs.ts for typescript, and open http://localhost:1338/index.html or http://localhost:1338/index-ts.html
+The Babylon server's _index.html_ has references to all of our public packages and has the BABYLON namespace populated, similar to the way the playground is working. If you want to debug a playground scene without starting the playground, edit the files `sceneJs.js` or `sceneTs.ts` in the babylon-server package and open [http://localhost:1337/index.html](http://localhost:1337/index.html) or [http://localhost:1337/index-ts.html](http://localhost:1337/index-ts.html).
 
 To start the Babylon server, run:
 
@@ -815,7 +801,6 @@ A few notes:
 
 As with any webpack-hosted package, there are a few properties that can be configured (using either the CLA od the .env file as discussed above):
 
-- source: the type of source you will use. This can be either 'dev' or 'lts'. The default is 'dev'.
 - mode: the type of build you will use. This can be either 'production' or 'development'. The default is 'development'.
 - cdnPort: the port that the Babylon server will be hosted on. The default is 1337.
 - enableHttps: whether or not to use https. The default is false.
@@ -840,7 +825,7 @@ Notes:
 
 - If the playground is served using HTTPS, the Babylon server must be HTTPS-Enabled as well.
 - To load the dist files (and avoid using the babylon-server) add ?dist=true to the url.
-- All tools will open on [http://localhost:1338](http://localhost:1338)
+- Local ports vary by tool. Use the relevant section above or the VS Code launch configuration for the exact URL.
 
 ### Playground
 
@@ -899,17 +884,9 @@ You can reference this package in other packages to link them together. Once thi
 
 To build each and every package available in the repository, run `npm run build -w @namespace/package-name`. There is, however, a quicker and more efficient way of building a package that has dependencies.
 
-`nx` is integrated in the repository, and can be seen as a local assets repository to run build much faster. When running an npm script using nx it will automatically run the same command in local dependencies and in the right order. So, for example, when building the public `babylonjs-gui` package using `npx nx run babylonjs-gui:build`, nx will add the following projects to the sequence:
+`nx` is integrated in the repository, and can be seen as a local assets repository to run builds much faster. When running an npm script using nx it will automatically run the same command in local dependencies and in the right order. For example, when building a public package such as `babylonjs-gui` using `npx nx run babylonjs-gui:build`, nx will add the required dependent projects to the sequence automatically.
 
-- @dev/build-tools (a dependency of each dev package)
-- @dev/core
-- @lts/core
-- babylonjs
-- @dev/gui
-- @lts/gui
-- babylonjs-gui
-
-It will run the build in sequence (because of the predefined dependencies), but will skip building a package if it hasn't changed since the last build call. So calling `npx nx run babylonjs:build` will build dev, lts, and public, but those 3 will be ready when building babylonjs-gui and will not build again.
+It will run the build in sequence (because of the predefined dependencies), but will skip building a package if it hasn't changed since the last build call. So calling `npx nx run babylonjs:build` will build the projects needed for that target and reuse anything that is already up to date when another package depends on it.
 
 This should be used only when you want to build the public packages in the repository, and will mainly be used by the CI. However, nx is available to you and is a very powerful tool. In the future we might integrate it more in the repository. TO read more about nx: [https://nx.dev/getting-started/intro](https://nx.dev/getting-started/intro)
 
@@ -1000,7 +977,7 @@ You can break the execution and still see the report (if any tests filed) by pre
 
 #### Adding a new test
 
-To add a new test to the visualization tests, add the test data to this file: https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/tests/test/visualization/config.json
+To add a new test to the visualization tests, add the test data to [packages/tools/tests/test/visualization/config.json](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/tests/test/visualization/config.json)
 
 The best way to do that is first create a playground, save it (using a local version of the playground, for example) and then add it at the end of the config file:
 
@@ -1114,7 +1091,7 @@ npm install
 
 ### Local Build and Serve
 
-Using VSCode? Install the recommended extensions and start `Run and Watch Dev Host` to compile and get started with the esm dev host. TO use the classic UMD-based development (and have the BABYLON namespace available), run `Run and Watch Babylon Server`.
+Using VSCode? Install the recommended extensions and start `Run and Watch Dev Host (Dev)` to compile and get started with the esm dev host. To use the classic UMD-based development (and have the BABYLON namespace available), run `CDN Serve and watch (Dev)`.
 
 To build the dev sources, shaders, and assets, run `npm run build:dev`.
 
@@ -1139,5 +1116,3 @@ Commit files you have added or edited but not those built.
 ### Push Pull-Request Check
 
 ![Pull-Request](/img/contribute/summary3.jpg)
-
-
