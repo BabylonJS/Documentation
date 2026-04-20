@@ -24,7 +24,7 @@ This example walks through a tiny graph that runs on the editor's default scene 
 4. Connect them.
 5. Run the graph and inspect the result.
 
-You can try it in the live editor here: [Flow Graph Editor](https://flow-graph-editor-degbgccwdjdmbdc4.z01.azurefd.net)
+You can try it in the live editor here: [Flow Graph Editor](https://flowgraph.babylonjs.com)
 
 ## Goal
 

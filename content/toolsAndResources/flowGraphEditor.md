@@ -23,7 +23,7 @@ This makes the editor a practical companion to the core [Flow Graph documentatio
 
 The editor is designed for rapid iteration. You can load a scene, wire logic together, run it immediately, inspect values, pause on breakpoints, and save the graph for later use.
 
-You can try the hosted build here: [Flow Graph Editor](https://flow-graph-editor-degbgccwdjdmbdc4.z01.azurefd.net)
+You can try the hosted build here: [Flow Graph Editor](https://flowgraph.babylonjs.com)
 
 ![Babylon.js Flow Graph Editor overview](/img/tools/flowGraphEditor/overview.png)
 

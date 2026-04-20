@@ -24,7 +24,7 @@ The goal is simple:
 - Click a specific mesh in the preview scene.
 - Log a message when that mesh is picked.
 
-You can try it in the hosted editor here: [Flow Graph Editor](https://flow-graph-editor-degbgccwdjdmbdc4.z01.azurefd.net)
+You can try it in the hosted editor here: [Flow Graph Editor](https://flowgraph.babylonjs.com)
 
 ## Blocks Used
 
