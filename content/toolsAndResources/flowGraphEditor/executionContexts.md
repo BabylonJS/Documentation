@@ -20,6 +20,8 @@ An execution context is one independent run of the same flow graph.
 
 That means a single graph definition can be executed more than once, with each execution context keeping its own variable state. This is useful when the same behavior should be reused across multiple entities or multiple logical runs without duplicating the graph itself.
 
+If your goal is to keep several separate graph definitions open in the same editor session, that is a different feature. See [Multiple Graphs In One Editor](/toolsAndResources/flowGraphEditor/multipleGraphs).
+
 Examples include:
 
 - The same interaction logic applied to several meshes
@@ -38,6 +40,7 @@ In the current implementation, execution contexts do **not** provide separate sc
 So the mental model is:
 
 - One loaded scene context for asset lookup and scene-aware pickers
+- Many graph tabs for separate graph definitions
 - Many execution contexts for independent graph state
 
 ## Toolbar Controls

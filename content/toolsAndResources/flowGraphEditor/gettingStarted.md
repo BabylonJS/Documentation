@@ -17,7 +17,7 @@ video-content:
 The Flow Graph Editor is built around a tight loop:
 
 1. Load or prepare a scene.
-2. Add blocks and connect them into a graph.
+2. Add blocks and connect them into one or more graphs.
 3. Run the graph against the scene.
 4. Inspect behavior, adjust the graph, and validate again.
 5. Save the graph to a file or snippet when it is ready.
@@ -63,6 +63,21 @@ In the current implementation, execution contexts share the same scene context b
 
 For the dedicated reference, see [Execution Contexts](/toolsAndResources/flowGraphEditor/executionContexts).
 
+## Working With Multiple Graphs
+
+The editor can also keep multiple graph definitions open in the same session.
+
+Those graphs appear as tabs above the toolbar. Each tab is a separate graph, while still sharing the same loaded scene context for preview and asset resolution.
+
+This is different from execution contexts:
+
+- Multiple graphs give you separate graph definitions in one session.
+- Execution contexts give one selected graph multiple runtime instances.
+
+Saving and loading preserves the full graph-tab session rather than collapsing everything back into a single graph.
+
+For the dedicated feature reference, see [Multiple Graphs In One Editor](/toolsAndResources/flowGraphEditor/multipleGraphs).
+
 ## Building The First Graph
 
 The editor works with two broad block types:
@@ -105,6 +120,7 @@ Previously saved graphs can be restored from either a local JSON file or a snipp
 The next step is learning the tools that make larger graphs manageable: execution controls, validation, search, grouping, and runtime debugging.
 
 - If you want a concrete first walkthrough, start with [Example - Your First Runnable Graph](/toolsAndResources/flowGraphEditor/firstGraphExample).
+- Read [Multiple Graphs In One Editor](/toolsAndResources/flowGraphEditor/multipleGraphs) if you want to organize several graph definitions in one editor session.
 - Continue with [Authoring, Validation, and Debugging](/toolsAndResources/flowGraphEditor/authoringAndDebugging) for the main authoring workflow.
 - Read [Execution Contexts](/toolsAndResources/flowGraphEditor/executionContexts) if you want to run the same graph logic with separate runtime state.
 - Use [Editor Operations and Shortcuts](/toolsAndResources/flowGraphEditor/editorOperations) as the reference for grouping, clipboard behavior, notes, search, and navigation.

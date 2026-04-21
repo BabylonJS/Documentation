@@ -20,6 +20,28 @@ This page collects the non-block mechanics of the Flow Graph Editor: toolbar act
 
 For execution, debugging, and scene-aware workflows, see [Authoring, Validation, and Debugging](/toolsAndResources/flowGraphEditor/authoringAndDebugging). For validation rules and property editing, see [Validation and Property Editing](/toolsAndResources/flowGraphEditor/validationAndProperties).
 
+## Graph Tabs
+
+The editor now supports multiple graphs through a tab strip above the main toolbar.
+
+These tabs manage separate graph definitions, not separate execution contexts.
+
+### Switching Graphs
+
+Click a tab to make that graph active on the canvas.
+
+The selected tab controls which graph you edit, run, validate, and inspect.
+
+### Adding, Renaming, And Closing Tabs
+
+- Use the `+` button in the tab strip to create a new graph.
+- Double-click a tab name to rename it.
+- Use the `×` button on a tab to close it when more than one graph exists.
+
+The last remaining graph cannot be closed.
+
+For the full feature behavior, including save/load semantics and the difference from execution contexts, see [Multiple Graphs In One Editor](/toolsAndResources/flowGraphEditor/multipleGraphs).
+
 ## Toolbar Basics
 
 The toolbar is the main control surface for editing and running a graph.

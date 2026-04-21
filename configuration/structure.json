@@ -2645,6 +2645,11 @@
                             "children": {},
                             "content": "toolsAndResources/flowGraphEditor/meshPickExample"
                         },
+                        "multipleGraphs": {
+                            "friendlyName": "Multiple Graphs In One Editor",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/multipleGraphs"
+                        },
                         "executionContexts": {
                             "friendlyName": "Execution Contexts",
                             "children": {},

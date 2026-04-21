@@ -32,6 +32,7 @@ You can try the hosted build here: [Flow Graph Editor](https://flowgraph.babylon
 The current editor focuses on the full authoring loop:
 
 - Creating graphs with execution and data blocks
+- Managing multiple graphs in one editor session
 - Loading a test scene from a Playground snippet or local scene file
 - Saving and restoring graphs from files or the Babylon.js snippet server
 - Running, pausing, stopping, and resetting graph execution
@@ -48,6 +49,7 @@ The feature set is growing quickly, so this section is intentionally structured 
 - [Getting Started With The Flow Graph Editor](/toolsAndResources/flowGraphEditor/gettingStarted)
 - [Example - Your First Runnable Graph](/toolsAndResources/flowGraphEditor/firstGraphExample)
 - [Example - Click A Mesh And Log It](/toolsAndResources/flowGraphEditor/meshPickExample)
+- [Multiple Graphs In One Editor](/toolsAndResources/flowGraphEditor/multipleGraphs)
 - [Execution Contexts](/toolsAndResources/flowGraphEditor/executionContexts)
 - [Authoring, Validation, and Debugging](/toolsAndResources/flowGraphEditor/authoringAndDebugging)
 - [Editor Operations and Shortcuts](/toolsAndResources/flowGraphEditor/editorOperations)
