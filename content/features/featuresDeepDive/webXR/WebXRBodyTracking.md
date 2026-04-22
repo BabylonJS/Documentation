@@ -7,7 +7,7 @@ further-reading:
   - title: WebXR Body Tracking Specification
     url: https://immersive-web.github.io/body-tracking/
   - title: WebXR Hand Tracking
-    url: /features/featuresDeepDive/webXR/WebXRHandTracking
+    url: /features/featuresDeepDive/webXR/WebXRSelectedFeatures/WebXRHandTracking
   - title: WebXR Features Manager
     url: /features/featuresDeepDive/webXR/webXRFeaturesManager
 video-overview:
@@ -238,6 +238,6 @@ You do not need to do anything special — this is handled transparently.
 ### Further reading
 
 - [WebXR Body Tracking Specification](https://immersive-web.github.io/body-tracking/)
-- [WebXR Hand Tracking](/features/featuresDeepDive/webXR/WebXRHandTracking)
+- [WebXR Hand Tracking](/features/featuresDeepDive/webXR/WebXRSelectedFeatures/WebXRHandTracking)
 - [WebXR Features Manager](/features/featuresDeepDive/webXR/webXRFeaturesManager)
 - [Source code: WebXRBodyTracking.ts](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/XR/features/WebXRBodyTracking.ts)
