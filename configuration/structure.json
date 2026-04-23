@@ -2291,6 +2291,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/webXR/WebXRHandTracking"
                                         },
+                                        "WebXRBodyTracking": {
+                                            "friendlyName": "WebXR Body Tracking",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/webXR/WebXRBodyTracking"
+                                        },
                                         "WebXRMovement": {
                                             "friendlyName": "WebXR Movement",
                                             "children": {},
