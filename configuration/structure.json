@@ -2356,6 +2356,11 @@
                     "children": {},
                     "content": "setup/starterHTML"
                 },
+                "createBabylonJS": {
+                    "friendlyName": "Scaffold a Project (create-babylonjs)",
+                    "children": {},
+                    "content": "setup/createBabylonJS"
+                },
                 "templates": {
                     "friendlyName": "Templates",
                     "children": {
