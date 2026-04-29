@@ -14,7 +14,7 @@ export const InlineExampleComponent: FunctionComponent<IExampleLink> = (example)
     const link = show && getExampleLink(example);
     const baseUrl = useContext(BaseUrlContext);
     const onCloseClicked = () => {
-        context.setActiveExample({});
+        context.setActiveExample(null);
         setShow(false);
     };
 

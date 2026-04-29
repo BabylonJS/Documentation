@@ -1,5 +1,5 @@
 import * as TypeDoc from "typedoc";
-import { writeFileSync, mkdirSync, existsSync, readFileSync, rmSync } from "fs";
+import { writeFileSync, mkdirSync, existsSync, rmSync } from "fs";
 import { execSync } from "child_process";
 import { deleteAsync as del } from "del";
 import { sep } from "path";

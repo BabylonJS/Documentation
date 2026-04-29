@@ -27,7 +27,7 @@ import Link from "next/link";
 interface DocumentationPageContext {
     exampleLinks: IExampleLink[];
     addExampleLink: (_link: IExampleLink) => void;
-    setActiveExample: (_link: IExampleLink) => void;
+    setActiveExample: (_link: IExampleLink | null) => void;
     addTOCItem: (_tocItem: ITableOfContentsItem) => void;
     activeTOCItem: ITableOfContentsItem | null;
     setActiveTOCItem: (_tocItem: ITableOfContentsItem) => void;
@@ -36,7 +36,7 @@ interface DocumentationPageContext {
 export const DocumentationContext = createContext<DocumentationPageContext>({
     exampleLinks: [],
     addExampleLink: (_link: IExampleLink) => {},
-    setActiveExample: (_link: IExampleLink) => {},
+    setActiveExample: (_link: IExampleLink | null) => {},
     addTOCItem: (_tocItem: ITableOfContentsItem) => {},
     activeTOCItem: null,
     setActiveTOCItem: (_tocItem: ITableOfContentsItem) => {},
