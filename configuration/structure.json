@@ -2637,6 +2637,97 @@
                     "children": {},
                     "content": "toolsAndResources/guiEditor"
                 },
+                "flowGraphEditor": {
+                    "friendlyName": "Flow Graph Editor",
+                    "children": {
+                        "gettingStarted": {
+                            "friendlyName": "Getting Started",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/gettingStarted"
+                        },
+                        "firstGraphExample": {
+                            "friendlyName": "Example - Your First Runnable Graph",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/firstGraphExample"
+                        },
+                        "meshPickExample": {
+                            "friendlyName": "Example - Click A Mesh And Log It",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/meshPickExample"
+                        },
+                        "multipleGraphs": {
+                            "friendlyName": "Multiple Graphs In One Editor",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/multipleGraphs"
+                        },
+                        "executionContexts": {
+                            "friendlyName": "Execution Contexts",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/executionContexts"
+                        },
+                        "authoringAndDebugging": {
+                            "friendlyName": "Authoring and Debugging",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/authoringAndDebugging"
+                        },
+                        "editorOperations": {
+                            "friendlyName": "Editor Operations and Shortcuts",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/editorOperations"
+                        },
+                        "validationAndProperties": {
+                            "friendlyName": "Validation and Property Editing",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/validationAndProperties"
+                        },
+                        "supportedBlockFamilies": {
+                            "friendlyName": "Supported Block Families",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/supportedBlockFamilies"
+                        },
+                        "blockReference": {
+                            "friendlyName": "Block Reference",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/blockReference"
+                        },
+                        "eventBlocks": {
+                            "friendlyName": "Event Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/eventBlocks"
+                        },
+                        "animationBlocks": {
+                            "friendlyName": "Animation Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/animationBlocks"
+                        },
+                        "physicsBlocks": {
+                            "friendlyName": "Physics Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/physicsBlocks"
+                        },
+                        "audioBlocks": {
+                            "friendlyName": "Audio Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/audioBlocks"
+                        },
+                        "controlFlowBlocks": {
+                            "friendlyName": "Control Flow Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/controlFlowBlocks"
+                        },
+                        "dataAccessBlocks": {
+                            "friendlyName": "Data Access Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/dataAccessBlocks"
+                        },
+                        "utilityBlocks": {
+                            "friendlyName": "Utility Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/utilityBlocks"
+                        }
+                    },
+                    "content": "toolsAndResources/flowGraphEditor"
+                },
                 "nme": {
                     "friendlyName": "Node Material Editor",
                     "children": {
