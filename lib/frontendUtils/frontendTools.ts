@@ -28,7 +28,7 @@ export const getExampleLink = (example: Partial<IExampleLink>, full: boolean = t
 
 export const getExampleImageUrl = (example: Partial<IExampleLink>) => {
     const idToUse = example.playgroundId || example.id;
-    return `/img/playgroundsAndNMEs/${example.type}${idToUse.replace(/#/g, "-")}.png`;
+    return `/img/playgroundsAndNMEs/${example.type}${idToUse!.replace(/#/g, "-")}.png`;
 };
 
 export const getImageUrl = (imageUrl?: string, baseUrl?: string) => {

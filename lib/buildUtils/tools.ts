@@ -15,12 +15,10 @@ export const markdownDirectory = "content/";
 
 import vercelConfig from "../../redirects.json";
 
-const childPageData = {};
+const childPageData: Record<string, IDocumentationPageProps> = {};
 
-export const getAllFiles = (dirPath: string, arrayOfFiles?: string[], extension = ".md"): string[] => {
+export const getAllFiles = (dirPath: string, arrayOfFiles: string[] = [], extension = ".md"): string[] => {
     const files = readdirSync(dirPath);
-
-    arrayOfFiles = arrayOfFiles || [];
 
     files.forEach(function (file) {
         const fullPath = join(dirPath, "/", file);
@@ -72,7 +70,7 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem, fullPage: bool
                         }
                     })
                     .join("");
-                metadata[correctKey] = matterResult.data[key];
+                (metadata as any)[correctKey] = matterResult.data[key];
             });
 
             // find the first image in the document (if not already set)
@@ -114,7 +112,7 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem, fullPage: bool
 }
 
 export const getExampleImagePath = (example: Partial<IExampleLink>) => {
-    return join(process.cwd(), "public/img/playgroundsAndNMEs/", `${example.type}${example.id.replace(/#/g, "-")}.png`);
+    return join(process.cwd(), "public/img/playgroundsAndNMEs/", `${example.type}${example.id!.replace(/#/g, "-")}.png`);
 };
 
 export const generateExampleImage = async (type: "pg" | "nme" | "nge" | "sfe" | "nrge", id: string, optionalFilename?: string, engine?: "webgpu" | "webgl2", snapshot?: string) => {
@@ -151,7 +149,7 @@ export const generateExampleImage = async (type: "pg" | "nme" | "nge" | "sfe" | 
         if (type !== "pg") {
             const element = await page.$("#graph-canvas");
             await page.setViewport({ width: 1700, height: 800 });
-            await element.screenshot({ path: imageUrl, type: imageUrl.endsWith("jpg") ? "jpeg" : "png" }); // takes a screenshot
+            await element!.screenshot({ path: imageUrl, type: imageUrl.endsWith("jpg") ? "jpeg" : "png" }); // takes a screenshot
         } else {
             await page.screenshot({ path: imageUrl, fullPage: true, type: imageUrl.endsWith("jpg") ? "jpeg" : "png" }); // takes a screenshot
         }
@@ -176,7 +174,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
 
     const docItem = docs.doc;
 
-    const childPages = {};
+    const childPages: Record<string, IDocumentationPageProps> = {};
 
     if (fullPage && docItem.children) {
         Object.keys(docItem.children).forEach(async (key) => {
@@ -190,10 +188,10 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
 
     const breadcrumbs = generateBreadcrumbs(id);
 
-    const relatedArticles = {};
-    const relatedExternalLinks = [];
+    const relatedArticles: Record<string, IDocumentationPageProps> = {};
+    const relatedExternalLinks: { url: string; title: string }[] = [];
 
-    const promises = [];
+    const promises: Promise<any>[] = [];
     if (fullPage && metadata.furtherReading) {
         metadata.furtherReading.forEach((item) => {
             const url = typeof item === "string" ? item : item.url;
@@ -273,20 +271,20 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         for (const [_, full, type, exampleId] of matches) {
             const typePlayground = type === "Playground" ? "pg" : (type.toLowerCase() as "nme" | "nge");
             const realType: "pg" | "nme" | "nge" = (typePlayground as "pg" | "nme" | "nge") || "pg";
-            const imageUrl = /image="(.*?)"/.test(full) && /image="(.*?)"/.exec(full)[1];
-            const engine = /engine="(.*?)"/.test(full) && (/engine="(.*?)"/.exec(full)[1] as any);
-            const snapshot = /snapshot="(.*?)"/.test(full) && /snapshot="(.*?)"/.exec(full)[1];
+            const imageUrl = /image="(.*?)"/.test(full) && /image="(.*?)"/.exec(full)![1];
+            const engine = /engine="(.*?)"/.test(full) && (/engine="(.*?)"/.exec(full)![1] as any);
+            const snapshot = /snapshot="(.*?)"/.test(full) && /snapshot="(.*?)"/.exec(full)![1];
             const fileExists = imageUrl ? existsSync(join(process.cwd(), "public", imageUrl)) : existsSync(getExampleImagePath({ id: exampleId, type: realType }));
             if (exampleId && exampleId !== "nmeId" && exampleId !== "playgroundId" && !(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !fileExists) {
-                await generateExampleImage(realType, exampleId, imageUrl, engine, snapshot);
+                await generateExampleImage(realType, exampleId, imageUrl || undefined, engine, snapshot || undefined);
             }
             if (realType === "pg") {
-                const title = (/title="(.*?)"/.test(full) && /title="(.*?)"/.exec(full)[1]) || `Playground for ${metadata.title}`;
-                const description = (/description="(.*?)"/.test(full) && /description="(.*?)"/.exec(full)[1]) || "";
+                const title = (/title="(.*?)"/.test(full) && /title="(.*?)"/.exec(full)![1]) || `Playground for ${metadata.title}`;
+                const description = (/description="(.*?)"/.test(full) && /description="(.*?)"/.exec(full)![1]) || "";
                 const playgroundId = exampleId[0] === "#" ? exampleId.substr(1) : exampleId;
                 const buff = Buffer.from(playgroundId, "utf-8");
                 const isMain = /isMain={true}/.test(full);
-                const category = (/category="(.*?)"/.test(full) && /category="(.*?)"/.exec(full)[1]) || "";
+                const category = (/category="(.*?)"/.test(full) && /category="(.*?)"/.exec(full)![1]) || "";
                 const searchId = buff.toString("base64");
                 if (searchId) {
                     try {

@@ -128,9 +128,9 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                                     } else {
                                         h = +preH;
                                     }
-                                } else if (e.naturalWidth > containerRef.current.clientWidth) {
-                                    h = (h * containerRef.current.clientWidth) / w;
-                                    w = containerRef.current.clientWidth;
+                                } else if (e.naturalWidth > containerRef.current!.clientWidth) {
+                                    h = (h * containerRef.current!.clientWidth) / w;
+                                    w = containerRef.current!.clientWidth;
                                 }
                                 setContainerScale({ h, w });
                                 if (intrinsic.h === 0) {

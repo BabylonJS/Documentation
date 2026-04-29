@@ -27,7 +27,7 @@ import Link from "next/link";
 interface DocumentationPageContext {
     exampleLinks: IExampleLink[];
     addExampleLink: (_link: IExampleLink) => void;
-    setActiveExample: (_link: IExampleLink) => void;
+    setActiveExample: (_link: IExampleLink | null) => void;
     addTOCItem: (_tocItem: ITableOfContentsItem) => void;
     activeTOCItem: ITableOfContentsItem | null;
     setActiveTOCItem: (_tocItem: ITableOfContentsItem) => void;
@@ -36,7 +36,7 @@ interface DocumentationPageContext {
 export const DocumentationContext = createContext<DocumentationPageContext>({
     exampleLinks: [],
     addExampleLink: (_link: IExampleLink) => {},
-    setActiveExample: (_link: IExampleLink) => {},
+    setActiveExample: (_link: IExampleLink | null) => {},
     addTOCItem: (_tocItem: ITableOfContentsItem) => {},
     activeTOCItem: null,
     setActiveTOCItem: (_tocItem: ITableOfContentsItem) => {},
@@ -68,11 +68,11 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
 
     const tocLevel = typeof metadata.tocLevels === "number" ? metadata.tocLevels : 3;
 
-    const markdownRef = useRef<HTMLDivElement>();
+    const markdownRef = useRef<HTMLDivElement>(null);
 
     // To avoid context empty when adding more than one example in one time
-    const tmpExamplesCache = [];
-    const tmpTOCCache = [];
+    const tmpExamplesCache: IExampleLink[] = [];
+    const tmpTOCCache: ITableOfContentsItem[] = [];
 
     const addExampleLink = (link: IExampleLink) => {
         setExampleLinks((prevState) => {
@@ -110,7 +110,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
             }
         };
         return () => {
-            window.onhashchange = undefined;
+            window.onhashchange = undefined as any;
             // TODO since the last update of next, this code is not executed correctly.
             // console.log('clearing');
             clearExampleLinks();
@@ -149,7 +149,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     const editOnGitHub = () => {
         window.open(gitHubUrl, "_blank");
     };
-    const renderedContent = <MDXRemote {...mdxContent} components={markdownComponents} />;
+    const renderedContent = <MDXRemote {...(mdxContent as any)} components={markdownComponents as any} />;
     const theme = useTheme();
     return (
         <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
@@ -216,21 +216,21 @@ export interface IDocumentationParsedUrlQuery extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async ({ params }) => {
     // check if it is a redirect
-    if (isRedirect(params.id)) {
+    if (isRedirect(params!.id)) {
         return {
             props: {
-                id: params.id,
-                redirectTo: getRedirect(params.id),
+                id: params!.id,
+                redirectTo: getRedirect(params!.id),
             },
         };
     }
 
-    const props = await getPageData(params.id, true);
+    const props = await getPageData(params!.id, true);
     const rehypeSlug = (await import("rehype-slug")).default;
     const remarkGfm = (await import("remark-gfm")).default;
     const remarkMath = (await import("remark-math")).default;
     const rehypeKatex = (await import("rehype-katex")).default;
-    props.mdxContent = await serialize(props.content, {
+    props.mdxContent = await serialize(props.content ?? "", {
         mdxOptions: {
             remarkPlugins: [/*remarkLint, */ remarkGfm, remarkMath],
             rehypePlugins: [rehypeSlug, rehypeKatex],

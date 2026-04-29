@@ -26,7 +26,7 @@ export const populateDocItemsArray = () => {
         });
     }
 
-    traverseChildren([], config.children);
+    traverseChildren([], config.children!);
 };
 
 export const getAvailableUrls = async (): Promise<{ params: { id: string[]; content?: string } }[]> => {
@@ -54,7 +54,7 @@ export const getAvailableUrls = async (): Promise<{ params: { id: string[]; cont
         });
     }
 
-    traverseChildren([], config.children);
+    traverseChildren([], config.children!);
 
     if (process.env.PRODUCTION) {
         console.log("clearing search index");
@@ -84,11 +84,11 @@ export const checkUnusedFiles = (contentArray: { params: { id: string[]; content
 };
 
 export const checkDuplicates = (contentArray: { params: { id: string[]; content?: string } }[]) => {
-    const map = {};
+    const map: Record<string, string[]> = {};
     contentArray.forEach((contentFile) => {
-        if (map[contentFile.params.content]) {
+        if (contentFile.params.content && map[contentFile.params.content]) {
             console.log("duplicate content in id", contentFile.params.id, map[contentFile.params.content]);
-        } else {
+        } else if (contentFile.params.content) {
             map[contentFile.params.content] = contentFile.params.id;
         }
     });
@@ -103,10 +103,10 @@ export const validateContent = (contentArray: { params: { id: string[]; content?
 };
 
 export const generateBreadcrumbs = (ids: string[]) => {
-    let currentChildren = config.children;
+    let currentChildren = config.children!;
     return ids.map((id, idx) => {
         const { friendlyName } = currentChildren[id];
-        currentChildren = currentChildren[id].children;
+        currentChildren = currentChildren[id].children!;
         return {
             name: friendlyName,
             url: `/${ids.slice(0, idx + 1).join("/")}`,

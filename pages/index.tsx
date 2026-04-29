@@ -37,8 +37,8 @@ export const Home: FunctionComponent<HomeProps> = ({ metadata, mdxContent, child
     const markdownRef = createRef<HTMLDivElement>();
 
     // To avoid context empty when adding more than one example in one time
-    const tmpExamplesCache = [];
-    const tmpTOCCache = [];
+    const tmpExamplesCache: IExampleLink[] = [];
+    const tmpTOCCache: ITableOfContentsItem[] = [];
 
     const addExampleLink = (link: IExampleLink) => {
         // first make sure we don't have it yet!
@@ -80,7 +80,7 @@ export const Home: FunctionComponent<HomeProps> = ({ metadata, mdxContent, child
     }, [id]);
 
     const components = markdownComponents;
-    const renderedContent = <MDXRemote {...mdxContent} components={components} />
+    const renderedContent = <MDXRemote {...mdxContent} components={components as any} />
     return (
         <Layout
             breadcrumbs={[]}
@@ -121,7 +121,7 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     const props = await getPageData([], true);
     const rehypeSlug = (await import("rehype-slug")).default;
     const remarkGfm = (await import("remark-gfm")).default;
-    props.mdxContent = await serialize(props.content, {
+    props.mdxContent = await serialize(props.content ?? "", {
         // components: markdownComponents,
         mdxOptions: {
             remarkPlugins: [remarkGfm],

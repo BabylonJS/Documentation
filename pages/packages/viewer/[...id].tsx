@@ -1,9 +1,11 @@
 import { FunctionComponent, useRef, useEffect } from "react";
 import { GetStaticPaths } from "next";
 import { generateTypeDoc, getAPIPageData } from "../../../lib/buildUtils/typedoc.utils";
+import { viewerConfig } from "../../../configuration/typedoc.config";
 import { parseNode } from "../../../lib/buildUtils/parser.utils";
 import { MarkdownMetadata } from "../../../lib/interfaces";
 import Layout from "../../../components/layout.component";
+import { TypeDocSearch } from "../../../components/typedocSearch.component";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
@@ -27,7 +29,7 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
     if (!contentNode && !redirect) {
         return <></>;
     }
-    const ref = useRef<HTMLDivElement>();
+    const ref = useRef<HTMLDivElement>(null);
     const html = redirect ? "" : parseNode(contentNode, baseLocation).result;
     const children = html || <></>;
     const router = useRouter();
@@ -81,7 +83,8 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
                     );
                 })}
             </Head>
-            <div ref={ref} className="api-container">
+            <div ref={ref} className="api-container" style={{ position: "relative" }}>
+                <TypeDocSearch baseLocation={baseLocation} id={id} />
                 {children}
             </div>
         </Layout>
@@ -94,7 +97,7 @@ export interface IAPIParsedUrlQuery extends ParsedUrlQuery {
     id: string[];
 }
 
-export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery>*/ = async ({ params }) => {
+export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery>*/ = async ({ params }: { params: any }) => {
     const content = await getAPIPageData(params.id, baseLocation);
     if (content.redirect) {
         return {
@@ -113,7 +116,7 @@ export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParse
 
 export const getStaticPaths: GetStaticPaths = async () => {
     console.log("API - get static paths");
-    const paths = await generateTypeDoc("https://cdn.jsdelivr.net/npm/@babylonjs/viewer/lib/index.d.ts", "Babylon.js Viewer", baseLocation);
+    const paths = await generateTypeDoc(viewerConfig.title, baseLocation, viewerConfig);
     console.log("API - paths", "done");
     return {
         paths,
@@ -123,8 +126,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 function updateUseElements() {
     document.querySelectorAll("use").forEach((el) => {
-        if (el.getAttribute("href").includes("#icon-")) {
-            el.setAttribute("href", el.getAttribute("href").replace(/.*#/, "#"));
+        if (el.getAttribute("href")!.includes("#icon-")) {
+            el.setAttribute("href", el.getAttribute("href")!.replace(/.*#/, "#"));
         }
     });
 }

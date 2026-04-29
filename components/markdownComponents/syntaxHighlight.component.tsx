@@ -6,7 +6,7 @@ import LinkIcon from "@mui/icons-material/ContentCopy";
 
 export const SyntaxHighlighting: FunctionComponent<{ className: string; children: string }> = (props) => {
     const [isCopy, setIsCopied] = useState(false);
-    const [checkedTimeout, setCheckedTimeout] = useState<NodeJS.Timeout>(null);
+    const [checkedTimeout, setCheckedTimeout] = useState<NodeJS.Timeout | null>(null);
     if (!props.className && typeof props.children === "string" && !props.children.includes("\n")) {
         return <code>{props.children}</code>;
     }

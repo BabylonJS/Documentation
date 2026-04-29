@@ -4,6 +4,7 @@ import { generateTypeDoc, getAPIPageData } from "../../lib/buildUtils/typedoc.ut
 import { parseNode } from "../../lib/buildUtils/parser.utils";
 import { MarkdownMetadata } from "../../lib/interfaces";
 import Layout from "../../components/layout.component";
+import { TypeDocSearch } from "../../components/typedocSearch.component";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
@@ -25,7 +26,7 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
     if (!contentNode && !redirect) {
         return <></>;
     }
-    const ref = useRef<HTMLDivElement>();
+    const ref = useRef<HTMLDivElement>(null);
     const html = redirect ? "" : parseNode(contentNode).result;
     const children = html || <></>;
     const router = useRouter();
@@ -79,7 +80,8 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
                     );
                 })}
             </Head>
-            <div ref={ref} className="api-container">
+            <div ref={ref} className="api-container" style={{ position: "relative" }}>
+                <TypeDocSearch baseLocation="typedoc" id={id} />
                 {children}
             </div>
         </Layout>
@@ -92,13 +94,14 @@ export interface IAPIParsedUrlQuery extends ParsedUrlQuery {
     id: string[];
 }
 
-export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery>*/ = async ({ params }) => {
-    const content = await getAPIPageData(params.id);
+export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery>*/ = async ({ params }: { params: any }) => {
+    const id = params.id?.length ? params.id : ["index"];
+    const content = await getAPIPageData(id);
     if (content.redirect) {
         return {
             props: {
                 redirect: content.redirect,
-                id: params.id,
+                id,
             },
         };
     }
@@ -112,6 +115,8 @@ export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParse
 export const getStaticPaths: GetStaticPaths = async () => {
     console.log("API - get static paths");
     const paths = await generateTypeDoc();
+    // Add the root /typedoc/ path for the optional catch-all route
+    paths.push({ params: { id: [] } });
     console.log("API - paths", "done");
     return {
         paths,
@@ -121,8 +126,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 function updateUseElements() {
     document.querySelectorAll("use").forEach((el) => {
-        if (el.getAttribute("href").includes("#icon-")) {
-            el.setAttribute("href", el.getAttribute("href").replace(/.*#/, "#"));
+        if (el.getAttribute("href")!.includes("#icon-")) {
+            el.setAttribute("href", el.getAttribute("href")!.replace(/.*#/, "#"));
         }
     });
 }

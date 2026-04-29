@@ -72,15 +72,15 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
                                 },
                             }}
                             component="span"
-                            id={`example-${props.type}-${props.id.replace(/#/g, "-")}`}
+                            id={`example-${props.type}-${props.id!.replace(/#/g, "-")}`}
                         >
-                            <span onClick={onExamplePressed.bind(this, context)}>
+                            <span onClick={onExamplePressed.bind(this)}>
                                 <Tooltip title={`Preview ${props.type} ${props.title}`}>
                                     <LinkIcon></LinkIcon>
                                 </Tooltip>
                             </span>
                             <Tooltip title={`Preview ${props.type} ${props.title}`}>
-                                <span style={{ minWidth: 120 }} onClick={onExamplePressed.bind(this, context)}>
+                                <span style={{ minWidth: 120 }} onClick={onExamplePressed.bind(this)}>
                                     {example.title}
                                 </span>
                             </Tooltip>
@@ -93,7 +93,7 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
                             </span>
                         </Box>
                         <Hidden smUp>
-                            <Snackbar message={`${example.type} opened at the top`} onClose={handleClose} open={open} autoHideDuration={3000}></Snackbar>
+                            <Snackbar message={`${example.type} opened at the top`} onClose={handleClose as any} open={open} autoHideDuration={3000}></Snackbar>
                         </Hidden>
                     </>
                 </Tooltip>

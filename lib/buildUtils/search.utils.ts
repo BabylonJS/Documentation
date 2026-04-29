@@ -28,9 +28,9 @@ export interface IPlaygroundSearchItem {
 
 const API_KEY = process.env.SEARCH_API_KEY;
 
-const headers = {
+const headers: Record<string, string> = {
     "Content-type": "application/json; charset=UTF-8",
-    "api-key": API_KEY,
+    "api-key": API_KEY ?? "",
 };
 
 const getUrl = (type: string, indexName: string = 'documents') => {

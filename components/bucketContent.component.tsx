@@ -104,11 +104,11 @@ const DivContainer = styled("div")(({ theme }) => ({
 export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPages, title = "Coming next", externalLinks }) => {
     const baseUrl = useContext(BaseUrlContext);
     const bucketItems: IBucketItem[] = Object.keys(childPages || []).map((child) => {
-        const childData = childPages[child].metadata;
-        const title = (childData.title || child).replace(/_/g, " ");
-        const link = "/" + childPages[child].id.join("/");
-        const imageUrl = getImageUrl(childData.imageUrl, baseUrl);
-        return { title, link, imageUrl, description: childData.description };
+        const childData = childPages?.[child]?.metadata;
+        const title = (childData?.title || child).replace(/_/g, " ");
+        const link = "/" + childPages?.[child]?.id.join("/");
+        const imageUrl = getImageUrl(childData?.imageUrl, baseUrl);
+        return { title, link, imageUrl, description: childData?.description || "" };
     });
     return (
         <>

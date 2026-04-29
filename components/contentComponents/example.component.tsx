@@ -54,7 +54,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                     },
                 }}
             >
-                <a href={`#example-${example.type || "pg"}-${example.id.replace(/#/g, "-")}`}>
+                <a href={`#example-${example.type || "pg"}-${example?.id?.replace(/#/g, "-")}`}>
                     <IconButton onClick={onPlaygroundPressed} aria-label={`Open ${type} ${title}`} size="small" color="inherit">
                         <Tooltip title={`Open ${type} ${title}`}>
                             <LinkIcon></LinkIcon>
@@ -96,7 +96,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                     }}
                     src={baseUrl + (image || imageUrl || getExampleImageUrl(example))}
                     title={title}
-                    alt={title}
+                    alt={title || ""}
                     fill={true}
                 ></Image>
             </Box>
