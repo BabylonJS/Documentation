@@ -20,6 +20,7 @@
 *.pem
 .*.swp
 *~
+*.tsbuildinfo
 
 # debug
 npm-debug.log*
