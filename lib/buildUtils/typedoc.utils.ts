@@ -262,7 +262,7 @@ export const generateBreadcrumbs = (html: HTMLElement, id: string[], baseLocatio
         }
 
         return {
-            name: element.firstChild.rawText,
+            name: element.firstChild!.rawText,
             url,
         };
     });
@@ -298,19 +298,19 @@ export const getAPIPageData = async (id: string[], baseLocation: string = "typed
     // read the HTML file, extract description, title, css
     const root = parse(html);
     const head = root.querySelector("head");
-    const cssArray = [];
+    const cssArray: string[] = [];
     const metadata: MarkdownMetadata = {
         title: "Babylon.js API",
         description: "[Babylon.js API]",
         keywords: "babylonjs, babylon.js, api, " + baseLocation + "," + id.join(","),
     };
-    const titleNode = head.querySelector("title").firstChild;
+    const titleNode = head!.querySelector("title")!.firstChild;
     if (titleNode) {
         metadata.title = titleNode.rawText.split(" | ")[0];
     }
 
     try {
-        metadata.description = root.querySelector(".tsd-panel .tsd-comment p").textContent.substring(0, 150) + " " + metadata.description;
+        metadata.description = root.querySelector(".tsd-panel .tsd-comment p")!.textContent.substring(0, 150) + " " + metadata.description;
     } catch (e) {
         metadata.description = `${id.join(" ")} ${metadata.description}`;
     }

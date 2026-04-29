@@ -29,7 +29,7 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
     if (!contentNode && !redirect) {
         return <></>;
     }
-    const ref = useRef<HTMLDivElement>();
+    const ref = useRef<HTMLDivElement>(null);
     const html = redirect ? "" : parseNode(contentNode, baseLocation).result;
     const children = html || <></>;
     const router = useRouter();
@@ -97,7 +97,7 @@ export interface IAPIParsedUrlQuery extends ParsedUrlQuery {
     id: string[];
 }
 
-export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery>*/ = async ({ params }) => {
+export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery>*/ = async ({ params }: { params: any }) => {
     const content = await getAPIPageData(params.id, baseLocation);
     if (content.redirect) {
         return {
@@ -126,8 +126,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 function updateUseElements() {
     document.querySelectorAll("use").forEach((el) => {
-        if (el.getAttribute("href").includes("#icon-")) {
-            el.setAttribute("href", el.getAttribute("href").replace(/.*#/, "#"));
+        if (el.getAttribute("href")!.includes("#icon-")) {
+            el.setAttribute("href", el.getAttribute("href")!.replace(/.*#/, "#"));
         }
     });
 }

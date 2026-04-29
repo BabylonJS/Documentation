@@ -64,7 +64,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                             onPointerEnter={pointerEnter}
                             onPointerLeave={pointerLeave}
                             {...item}
-                            id={item.image ? null : id}
+                            id={item.image ? undefined : id}
                         >
                             {item.children}
                             {item.image && item.title}
@@ -110,7 +110,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                             onPointerEnter={pointerEnter}
                             onPointerLeave={pointerLeave}
                             {...item}
-                            id={item.image ? null : id}
+                            id={item.image ? undefined : id}
                         >
                             {item.children}
                             {item.image && item.title}

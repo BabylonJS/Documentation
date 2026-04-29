@@ -104,7 +104,6 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
                     position: "relative",
                     // transition: "max-height 0.2s",
                     // maxHeight: 0,
-                    overflow: "hidden",
                     "& div": {
                         whiteSpace: "nowrap",
                         overflow: "hidden",

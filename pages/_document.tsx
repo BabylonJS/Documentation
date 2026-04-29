@@ -74,12 +74,12 @@ MyDocument.getInitialProps = async (ctx) => {
     const baseUrl = process.env.BASE_URL ?? "";
 
     if (baseUrl) {
-        globalThis.baseUrl = baseUrl;
+        (globalThis as any).baseUrl = baseUrl;
     }
 
     return {
         ...initialProps,
-        baseUrl: baseUrl || globalThis.baseUrl,
+        baseUrl: baseUrl || (globalThis as any).baseUrl,
         // Styles fragment is rendered after the app and page rendering finish.
         styles: [...React.Children.toArray(initialProps.styles)],
     };

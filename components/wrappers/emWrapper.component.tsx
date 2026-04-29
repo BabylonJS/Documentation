@@ -24,7 +24,7 @@ export enum ElementType {
  * Replaces <em> element
  */
 export const EMWrapper: FunctionComponent<IEMLinkProps> = ({ children }) => {
-    const parsed = parseMessage(children.toString());
+    const parsed = parseMessage(children?.toString() ?? "");
     if (parsed.match) {
         const color = parsed.color || ColorType.INFO;
         switch (parsed.type) {
@@ -56,11 +56,11 @@ const parseMessage = (message: string): { match: boolean; type?: ElementType; co
     const matches = message.match(/\((.+)\)(.*)/);
     if (matches) {
         const splits = matches[1].split(".");
-        if (ElementType[splits[0].toUpperCase()]) {
+        if (ElementType[splits[0].toUpperCase() as keyof typeof ElementType]) {
             return {
                 match: true,
-                type: ElementType[splits[0].toUpperCase()],
-                color: ColorType[splits[1].toUpperCase()],
+                type: ElementType[splits[0].toUpperCase() as keyof typeof ElementType],
+                color: ColorType[splits[1].toUpperCase() as keyof typeof ColorType],
                 params: splits[2],
                 content: (matches[2] || '').trim(),
             };

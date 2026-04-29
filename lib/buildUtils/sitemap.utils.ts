@@ -7,13 +7,13 @@ const basePath = join(process.cwd(), `.${sep}public`);
 const tmpFile = resolve(tmpPath, `${process.pid}${Math.random()}.xml`);
 const sitemapFile = resolve(basePath, `sitemap.xml`);
 
-const cache = [];
-let timeout: NodeJS.Timeout;
+const cache: { name: string; url: string; lastModified?: string }[] = [];
+let timeout: NodeJS.Timeout | undefined;
 
-const debounceEvent = (callback, time) => {
-    let interval;
-    return (...args) => {
-      clearTimeout(interval);
+const debounceEvent = (callback: (...args: any[]) => void, time: number) => {
+    let interval: NodeJS.Timeout | null = null;
+    return (...args: any[]) => {
+      if (interval) clearTimeout(interval);
       interval = setTimeout(() => {
         interval = null;
         callback(...args);
@@ -37,7 +37,7 @@ export const addToSitemap = (name: string, url: string, lastModified?: string) =
     }
 
     timeout = setTimeout(() => {
-        const endOfFile = [];
+    const endOfFile: string[] = [];
         cache.forEach((c) => {
             endOfFile.unshift(`<url><loc>https://doc.babylonjs.com${c.url}</loc>${c.lastModified !== undefined ? `<lastmod>${c.lastModified}</lastmod>` : ""}</url>`);
         });
@@ -54,7 +54,7 @@ export const writeAllToSitemap = debounceEvent(() => {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url><loc>https://doc.babylonjs.com/search</loc></url>;
     <url><loc>https://doc.babylonjs.com/playground</loc></url>`;
-    const lines = [];
+    const lines: string[] = [];
     results.forEach((result) => {
         const lineRes = result.split("\n");
         lineRes.forEach((l) => {

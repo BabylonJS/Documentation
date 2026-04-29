@@ -120,7 +120,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                     codeLines = (code || "").split("\n");
                     startingLine = 0;
                     foundLine = -1;
-                    const lowerTerm = term.toLowerCase();
+                    const lowerTerm = term!.toLowerCase();
                     
                     for (foundLine = 0; foundLine < codeLines.length; ++foundLine) {
                         // Long lines get trimmed because some playgrounds contain base64 strings textures and other objects
@@ -201,7 +201,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                                 },
                             }}
                         >
-                            {Array.from(tags).map((chip: string) => {
+                            {Array.from(tags as Set<string>).map((chip) => {
                                 return (
                                     <Link key={chip} href={baseUrl + `/playground?q=${chip}&type=tags`}>
                                         <Chip size="small" color="primary" label={chip} />

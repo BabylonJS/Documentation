@@ -37,6 +37,7 @@
         "remark-gfm": "^4.0.1"
     },
     "devDependencies": {
+        "@types/html-to-text": "^9.0.4",
         "@types/node": "^25.5.0",
         "@types/react": "^17.0.0",
         "del": "^8.0.1",
