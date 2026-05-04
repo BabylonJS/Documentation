@@ -7,6 +7,8 @@ import RightArrowIcon from "@mui/icons-material/LastPage";
 import SearchIcon from "@mui/icons-material/Search";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Toolbar, Tooltip, Typography } from "@mui/material";
 import Box from "@mui/system/Box";
 import { useTheme } from "@mui/material/styles";
@@ -28,6 +30,7 @@ const menuStructure = generateMenuStructure();
 
 export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
     const breadcrumbContainerRef = useRef<HTMLDivElement>(null);
     const measureRef = useRef<HTMLDivElement>(null);
@@ -250,7 +253,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         flexWrap: "nowrap",
                         alignItems: "center",
                         [theme.breakpoints.up("md")]: {
-                            paddingLeft: "300px",
+                            paddingLeft: sidebarCollapsed ? "0px" : "300px",
+                            transition: "padding-left 0.2s ease",
                         },
                         "& > a": {
                             padding: theme.spacing(1),
@@ -367,6 +371,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                     flex: 1,
                     [theme.breakpoints.up("md")]: {
                         pt: 0,
+                        position: "relative",
                     },
                     paddingTop: "100px",
                 }}
@@ -378,8 +383,10 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         display: "block",
                         // paddingBottom: "40px",
                         [theme.breakpoints.up("md")]: {
-                            width: "300px",
+                            width: sidebarCollapsed ? "0px" : "300px",
                             flexShrink: 0,
+                            transition: "width 0.2s ease",
+                            overflow: "hidden",
                             "& > div": {
                                 height: "100%",
                             },
@@ -434,12 +441,39 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                 height: "100%",
                                 backgroundColor: theme.customPalette.sideMenu.backgroundColor,
                                 zIndex: 1500,
+                                minWidth: "300px",
                             }}
                         >
                             {MenuStructure}
                         </Box>
                     </Hidden>
                 </Box>
+                <Hidden mdDown implementation="css">
+                    <Box
+                        sx={{
+                            position: "absolute",
+                            top: "16px",
+                            left: sidebarCollapsed ? "0px" : "288px",
+                            transition: "left 0.2s ease",
+                            zIndex: 1501,
+                            backgroundColor: theme.customPalette.sideMenu.backgroundColor,
+                            borderRadius: "0 4px 4px 0",
+                            border: `1px solid ${theme.palette.divider}`,
+                            borderLeft: "none",
+                            cursor: "pointer",
+                            display: "flex",
+                            alignItems: "center",
+                            padding: "4px 0",
+                            "&:hover": {
+                                backgroundColor: theme.palette.action.hover,
+                            },
+                        }}
+                        onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+                        title={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+                    >
+                        {sidebarCollapsed ? <ChevronRightIcon fontSize="small" /> : <ChevronLeftIcon fontSize="small" />}
+                    </Box>
+                </Hidden>
                 <Box
                     component="main"
                     sx={{
@@ -448,7 +482,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         flexDirection: "column",
                         maxWidth: "100%",
                         [theme.breakpoints.up("md")]: {
-                            width: `calc(100% - 300px)`,
+                            width: `calc(100% - ${sidebarCollapsed ? "0px" : "300px"})`,
+                            transition: "width 0.2s ease",
                         },
                     }}
                 >
