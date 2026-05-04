@@ -286,7 +286,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 });
 ```
 
-To configure the physics impostor (which defaults to a sphere with the default friction and restitution) use the physics props option:
+To configure the physics properties (which defaults to a sphere with the default friction and restitution) use the physics props option:
 
 ```javascript
 const featureManager = xrHelper.baseExperience.featuresManager;
@@ -296,7 +296,6 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
   jointMeshes: {
     enablePhysics: true,
     physicsProps: {
-      impostorType: PhysicsImpostor.BoxImpostor,
       friction: 0.5,
       restitution: 0.3,
     },
@@ -306,7 +305,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 
 Notice that you can't define the mass. that is because the tracked joints will always have mass `0` to prevent them from constantly "falling down" towards the center of gravity.
 
-<Playground id="#X7Y4H8#73" title="Hand tracking with legacy physics" description="A simple example of a hands-enabled legacy physics playground" image="/img/how_to/xr/handTrackingSpheres.jpg"/>
+<Playground id="#X7Y4H8#73" title="Hand tracking with physics" description="A simple example of a hands-enabled physics playground" image="/img/how_to/xr/handTrackingSpheres.jpg"/>
 
 
 ### Microgestures

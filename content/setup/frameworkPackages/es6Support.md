@@ -456,77 +456,26 @@ new PolygonMeshBuilder("polytri", corners, scene, MyEarcut);
 
 It would be the same for physics plugin where you can either provide the underlying engine as a var or inject it in the constructor of the Babylon.js respective plugin.
 
-## Ammo
+## Havok Physics
 
-Exactly like in the previous paragraph, you can inject your ammo dependency into Babylon.js. Either you can keep as a global script reference thus not including the dependency in your bundle or you could follow the following steps to include ammo as part of your bundled application.
+The recommended physics engine for Babylon.js is [Havok](/features/featuresDeepDive/physics/usingPhysicsEngine). To use Havok with ES6/npm, install it:
 
-First, install ammo.js from its Github build folder (in order to benefit from an up to date version):
-
-```javascript
-npm install kripken/ammo.js
+```bash
+npm install @babylonjs/havok
 ```
 
-Then in Webpack, you need to disable the node.js dependencies to generate a successful package (obviously if you are targeting web builds):
+Then in your code:
 
 ```javascript
-module.exports = {
-  ...
-  resolve: {
-    fallback: {
-      'fs': false,
-      'path': false,
-    }
-  }
-}
+import HavokPhysics from "@babylonjs/havok";
+import { HavokPlugin } from "@babylonjs/core/Physics/v2/Plugins/havokPlugin.js";
+
+const havokInstance = await HavokPhysics();
+const havokPlugin = new HavokPlugin(true, havokInstance);
+scene.enablePhysics(new Vector3(0, -9.81, 0), havokPlugin);
 ```
 
-Finally, in your code, you can setup the AmmoJSPlugin this way:
-
-```javascript
-import ammo from "ammo.js";
-const Ammo = await ammo();
-...
-const ammoPlugin = new AmmoJSPlugin(true, Ammo);
-```
-
-For Webpack versions before 5, you'll instead need:
-
-```javascript
-module.exports = {
-    context: __dirname,
-    ...
-    node: {
-        fs: 'empty'
-    }
-}
-```
-
-```javascript
-import * as ammo from "ammo.js";
-const Ammo = await ammo.default();
-...
-const ammoPlugin = new AmmoJSPlugin(true, Ammo);
-```
-
-## Ammo with types enabled
-
-Follow the instructions at https://github.com/giniedp/ammojs-typed.
-
-Import the dependencies:
-
-```javascript
-import { AmmoJSPlugin } from "@babylonjs/core/Physics/Plugins/ammoJSPlugin.js";
-import Ammo from "ammojs-typed";
-```
-
-and in your code:
-
-```javascript
-const ammo = await Ammo();
-scene.enablePhysics(new Vector3(0, -9.81, 0), new AmmoJSPlugin(true, ammo));
-```
-
-![](/img/resources/ammo-es6/ammo-es6-typed.png)
+<Alert severity="warning" title="Deprecated: Ammo.js" description="AmmoJSPlugin, CannonJSPlugin, and OimoJSPlugin are legacy Physics V1 plugins and have been deprecated in favor of HavokPlugin (Physics V2). See the migration guide at /features/featuresDeepDive/physics/v2/migrateFromV1."/>
 
 ## Loaders
 
