@@ -62,7 +62,7 @@ Here is the node render graph corresponding to the description in the previous s
 
 ![Node render graph implementation](/img/frameGraph/example_transmission_framegraph.jpg!600)
 
-<NRGE id="#3MVLQ7#9" title="Implementation of the node render graph" description="Rendering of transmissive materials with a node render graph" isMain={false} category="NodeRenderGraph"/>
+<NRGE id="#3MVLQ7#12" title="Implementation of the node render graph" description="Rendering of transmissive materials with a node render graph" isMain={false} category="NodeRenderGraph"/>
 
 It closely follows the operations described above:
 * `RenderNonTransmissiveObjects` renders the objects from the *NonTransmissiveObjectsList* list in the **Color Texture** texture
