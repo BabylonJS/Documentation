@@ -43,7 +43,7 @@ Notice that no changes were made in the XR code, and that the scene works perfec
 
 ```javascript
 // GUI
-var plane = BABYLON.Mesh.CreatePlane("plane", 1);
+var plane = BABYLON.MeshBuilder.CreatePlane("plane", { size: 1 });
 plane.position = new BABYLON.Vector3(1.4, 1.5, 0.4);
 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(plane);
 var panel = new BABYLON.GUI.StackPanel();

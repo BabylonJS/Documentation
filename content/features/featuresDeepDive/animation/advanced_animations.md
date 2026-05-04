@@ -276,6 +276,7 @@ const FunnyEase = (function (_super) {
 You will find a complete demonstration of the easing functions behaviors, in this playground: <Playground id="#8ZNVGR" title="Easing Behavior Examples" description="Examples of the easing functions available." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation4.jpg"/>
 
 If you need finer control of the easing function than at animation level, you can also define it at animation key level:
+
 ```javascript
 export interface IAnimationKey {
     /**
@@ -353,14 +354,11 @@ this.engine = new BABYLON.Engine(theCanvas, true, {
 This way, the scene will render quantizing physics and animation steps by discrete chunks of the timeStep amount, as set in the physics engine. For example:
 
 ```javascript
-const physEngine = new BABYLON.CannonJSPlugin(false);
+const physEngine = new BABYLON.HavokPlugin();
 newScene.enablePhysics(this.gravity, physEngine);
-physEngine.setTimeStep(1 / 60);
 ```
 
 With the code above, the engine will run discrete steps at 60Hz (0.01666667s) and, in case of a late frame render time, it will try to calculate a maximum of 4 steps (lockstepMaxSteps) to recover eventual accumulated delay, before rendering the frame.
-
-Note that when explicitly creating the CannonJSPlugin, it is important to pass false as \_useDeltaForWorldStep parameter in its constructor, to disable CannonJS internal accumulator.
 
 To run logic code in sync with the steps, there are the two following observables on the scene:
 

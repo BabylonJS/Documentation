@@ -321,7 +321,7 @@ If you then need to draw the curve or use it for whatever you want you just get 
 
 ```javascript
 const path = myFullCurve.getPoints();
-const extruded = BABYLON.Mesh.ExtrudeShape("extrudedShape", shape, path, 1, 0, scene);
+const extruded = BABYLON.MeshBuilder.ExtrudeShape("extrudedShape", { shape: shape, path: path, scale: 1, rotation: 0 }, scene);
 ```
 
 If you need then to know the curve length, just use the _**length()**_ method.

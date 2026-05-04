@@ -31,7 +31,7 @@ You can access the live example in this PG: <Playground id="#2KKVBH" title="Grid
 The grid is using the local position to outline any of the axis fitting with one unit in black. Only one on ten lines will be fully black, the other lines will be in lighter grey. You can imagine it as a ruler with bigger marks for centimeters and smaller for millimeters.
 
 ```javascript
-var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/heightMap.png", 100, 100, 100, 0, 10, scene, false);
+var ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("ground", "textures/heightMap.png", { width: 100, height: 100, subdivisions: 100, minHeight: 0, maxHeight: 10 }, scene);
 ground.material = new BABYLON.GridMaterial("groundMaterial", scene);
 ```
 
