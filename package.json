@@ -10,7 +10,8 @@
         "start": "next start",
         "test": "vitest run",
         "test:watch": "vitest",
-        "test:update": "vitest run --update"
+        "test:update": "vitest run --update",
+        "prepare": "husky"
     },
     "dependencies": {
         "@emotion/react": "^11.10.5",
@@ -45,8 +46,12 @@
         "glob": "^13.0.6",
         "gray-matter": "^4.0.2",
         "html-to-text": "^9.0.5",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
+        "markdownlint-cli": "^0.48.0",
         "next-plugin-transpile-modules": "^2.0.0",
         "next-remote-watch": "^2.0.0",
+        "prettier": "^3.8.3",
         "puppeteer": "^24.39.1",
         "rehype-highlight": "^7.0.2",
         "rehype-katex": "^7.0.1",
@@ -63,5 +68,17 @@
     },
     "resolutions": {
         "@types/react": "^17.0.0"
+    },
+    "lint-staged": {
+        "*.{ts,tsx,js,jsx}": [
+            "prettier --write"
+        ],
+        "*.md": [
+            "prettier --write",
+            "markdownlint --fix"
+        ],
+        "*.{json,scss,css}": [
+            "prettier --write"
+        ]
     }
 }
