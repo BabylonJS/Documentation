@@ -1,4 +1,6 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Layout from "../components/layout.component";
 import GithubIcon from "@mui/icons-material/GitHub";
 import { Box, useTheme } from "@mui/material";
@@ -65,6 +67,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
     const [activeTOCItem, setActiveTOCItem] = useState<ITableOfContentsItem | null>(null);
+    const [examplesCollapsed, setExamplesCollapsed] = useState(false);
 
     const tocLevel = typeof metadata.tocLevels === "number" ? metadata.tocLevels : 3;
 
@@ -192,14 +195,46 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                         </div>
                     </div>
                     {exampleLinks.length !== 0 && (
-                        <Box
-                            sx={{
-                                backgroundColor: theme.customPalette.examples.backgroundColor,
-                            }}
-                            className={[styles["examples-container"]].join(" ")}
-                        >
-                            <ExamplesComponent examples={exampleLinks}></ExamplesComponent>
-                        </Box>
+                        <>
+                            <Box
+                                sx={{
+                                    display: { xs: "none", sm: "flex" },
+                                    position: "absolute",
+                                    right: examplesCollapsed ? 0 : 280,
+                                    top: 16,
+                                    transition: "right 0.2s ease",
+                                    alignItems: "center",
+                                    cursor: "pointer",
+                                    backgroundColor: theme.customPalette.examples.backgroundColor,
+                                    borderRadius: "4px 0 0 4px",
+                                    border: `1px solid ${theme.palette.divider}`,
+                                    borderRight: "none",
+                                    padding: "4px 0",
+                                    "&:hover": {
+                                        backgroundColor: theme.palette.action.hover,
+                                    },
+                                    zIndex: 2,
+                                }}
+                                onClick={() => setExamplesCollapsed(!examplesCollapsed)}
+                                title={examplesCollapsed ? "Show examples" : "Hide examples"}
+                            >
+                                {examplesCollapsed ? <ChevronLeftIcon fontSize="small" /> : <ChevronRightIcon fontSize="small" />}
+                            </Box>
+                            <Box
+                                sx={{
+                                    backgroundColor: theme.customPalette.examples.backgroundColor,
+                                    transition: "width 0.2s ease, min-width 0.2s ease",
+                                    ...(examplesCollapsed && {
+                                        width: "0px !important",
+                                        minWidth: "0px !important",
+                                        overflow: "hidden",
+                                    }),
+                                }}
+                                className={[styles["examples-container"]].join(" ")}
+                            >
+                                <ExamplesComponent examples={exampleLinks}></ExamplesComponent>
+                            </Box>
+                        </>
                     )}
                 </div>
             </DocumentationContext.Provider>
