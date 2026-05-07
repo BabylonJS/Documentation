@@ -343,17 +343,17 @@ npm run generate:side-effect-stubs
 
 ## Automation Scripts
 
-| Script                                        | Purpose                                             | Usage                                         |
-| --------------------------------------------- | --------------------------------------------------- | --------------------------------------------- |
-| `verifyTreeShaking.mjs`                       | Unified CI check for manifest, barrels, and stubs   | `npm run check:treeshaking`                   |
-| `checkManifestDrift.mjs`                      | Verify manifest matches source                      | `npm run check:manifest-drift`                |
-| `generatePureBarrels.mjs`                     | Regenerate `pure.ts` barrel files                   | `npm run generate:pure-barrels`               |
-| `generateSideEffectStubs.mjs`                 | Generate prototype warning stubs                    | `npm run generate:side-effect-stubs`          |
-| `auditSideEffects.mjs`                        | Scan for all side effects                           | `npm run audit:side-effects`                  |
-| `syncSideEffects.mjs`                         | Sync manifest to package metadata                   | `npm run sync:side-effects`                   |
-| `injectPureAnnotations.mjs`                   | Inject `/*#__PURE__*/` in compiled JS               | Runs automatically during build               |
-| `bundleSmokeTest.mjs`                         | Run tree-shaking bundle tests                       | `npm run test:treeshaking`                    |
-| `fixPureImports.mjs`                          | Rewrite imports in `.pure.ts` to `.pure` specifiers | `node scripts/treeshaking/fixPureImports.mjs` |
+| Script                        | Purpose                                             | Usage                                         |
+| ----------------------------- | --------------------------------------------------- | --------------------------------------------- |
+| `verifyTreeShaking.mjs`       | Unified CI check for manifest, barrels, and stubs   | `npm run check:treeshaking`                   |
+| `checkManifestDrift.mjs`      | Verify manifest matches source                      | `npm run check:manifest-drift`                |
+| `generatePureBarrels.mjs`     | Regenerate `pure.ts` barrel files                   | `npm run generate:pure-barrels`               |
+| `generateSideEffectStubs.mjs` | Generate prototype warning stubs                    | `npm run generate:side-effect-stubs`          |
+| `auditSideEffects.mjs`        | Scan for all side effects                           | `npm run audit:side-effects`                  |
+| `syncSideEffects.mjs`         | Sync manifest to package metadata                   | `npm run sync:side-effects`                   |
+| `injectPureAnnotations.mjs`   | Inject `/*#__PURE__*/` in compiled JS               | Runs automatically during build               |
+| `bundleSmokeTest.mjs`         | Run tree-shaking bundle tests                       | `npm run test:treeshaking`                    |
+| `fixPureImports.mjs`          | Rewrite imports in `.pure.ts` to `.pure` specifiers | `node scripts/treeshaking/fixPureImports.mjs` |
 
 Both `generatePureBarrels.mjs` and `generateSideEffectStubs.mjs` support `--check` mode, which is used by `verifyTreeShaking.mjs` to compare expected output to committed files without modifying anything.
 
