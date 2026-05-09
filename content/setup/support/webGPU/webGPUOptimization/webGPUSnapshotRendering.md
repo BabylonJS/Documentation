@@ -84,7 +84,7 @@ const sr = new BABYLON.SnapshotRenderingHelper(scene);
 sr.enableSnapshotRendering();
 ```
 
-Call `updateMesh()` to update a mesh when its position/rotation/scaling/visibility property has changed.
+Call `updateMesh()` to update a mesh when its position/rotation/scaling property has changed.
 
 If you create a layer (glow, highlight), call `updateMeshesForEffectLayer()` for that layer to make it compatible with fast SR mode.
 
