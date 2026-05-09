@@ -2759,6 +2759,11 @@
                                     "friendlyName": "Mix",
                                     "children": {},
                                     "content": "toolsAndResources/assetLibraries/materialsLibrary/mixMat"
+                                },
+                                "customMat": {
+                                    "friendlyName": "Custom",
+                                    "children": {},
+                                    "content": "toolsAndResources/assetLibraries/materialsLibrary/customMat"
                                 }
                             },
                             "content": "toolsAndResources/assetLibraries/materialsLibrary"
