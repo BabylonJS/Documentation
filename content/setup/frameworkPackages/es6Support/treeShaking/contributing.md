@@ -16,9 +16,11 @@ video-content:
 
 This guide is for contributors adding or modifying Babylon.js framework code. Application developers should start with [Using Pure Imports](/setup/frameworkPackages/es6Support/treeShaking/usingPureImports) and [Registering Side Effects](/setup/frameworkPackages/es6Support/treeShaking/registeringSideEffects).
 
-## The Three-File Pattern
+## The File Pattern
 
-Every module with side effects is split into up to three files:
+Most files in Babylon.js have no side effects. These use a regular filename, such as `feature.ts`, and do not need any special treatment.
+
+The multi-file pattern only applies to modules with side effects. Those are split into up to three files:
 
 ```text
 feature.pure.ts  -> Implementation and registration function
@@ -26,23 +28,27 @@ feature.types.ts -> TypeScript module augmentations, if any
 feature.ts       -> Backward-compatible wrapper
 ```
 
-Use all three files when a feature adds methods or properties to existing classes and needs `declare module` augmentation. Use only `feature.pure.ts` and `feature.ts` when a feature has runtime side effects, such as `RegisterClass`, but no type augmentation.
+Not every side-effect module needs all three files. The `.types.ts` file is only needed when the feature adds methods or properties to another class.
 
-### When You Need All Three Files
+### No Side Effects: Regular File
+
+If your feature has no side effects at all, use the regular filename: `feature.ts`. No `.pure.ts`, wrapper, or `.types.ts` file is needed. This is the most common case.
+
+### Side Effects Without Type Augmentations: Two Files
+
+If your feature only has `RegisterClass` calls or static assignments, with no prototype augmentation:
+
+- `feature.pure.ts` contains the implementation and `RegisterFeature()` function.
+- `feature.ts` is the wrapper that calls `RegisterFeature()`.
+
+No `.types.ts` file is needed if there are no `declare module` blocks.
+
+### Side Effects With Type Augmentations: Three Files
 
 You need all three if your feature:
 
 - Adds methods or properties to existing classes.
-- Uses `declare module` to augment type definitions.
-
-### When You Need Only Two Files
-
-If your feature only has `RegisterClass` calls or static assignments, with no prototype augmentation:
-
-- `feature.pure.ts` contains the implementation and `registerFeature()` function.
-- `feature.ts` is the wrapper that calls `registerFeature()`.
-
-No `.types.ts` file is needed if there are no `declare module` blocks.
+- Uses `declare module` to tell TypeScript about those added members.
 
 ## Step-by-Step: Adding a New Prototype Augmentation
 
@@ -87,7 +93,7 @@ export class MyFeatureSceneComponent {
 }
 
 let _registered = false;
-export function registerMyFeatureSceneComponent(): void {
+export function RegisterMyFeatureSceneComponent(): void {
   if (_registered) {
     return;
   }
@@ -105,7 +111,7 @@ Rules:
 
 - Start `.pure.ts` files with `/** This file must only contain pure code and pure imports */`.
 - Re-export the `.types` module when the feature has type augmentations.
-- Put all side effects inside the `registerXxx()` function.
+- Put all side effects inside the `RegisterXxx()` function.
 - Guard registration with an idempotency flag.
 - Import from `.pure` specifiers when a pure module exists.
 - Keep `RegisterClass` calls inside the registration function.
@@ -115,9 +121,9 @@ Rules:
 ```typescript
 // myFeatureSceneComponent.ts
 export * from "./myFeatureSceneComponent.pure";
-import { registerMyFeatureSceneComponent } from "./myFeatureSceneComponent.pure";
+import { RegisterMyFeatureSceneComponent } from "./myFeatureSceneComponent.pure";
 
-registerMyFeatureSceneComponent();
+RegisterMyFeatureSceneComponent();
 ```
 
 The wrapper preserves existing behavior: importing the non-pure module still runs the compatibility side effects.
@@ -168,7 +174,7 @@ export class MyNewMesh extends Mesh {
 }
 
 let _registered = false;
-export function registerMyNewMesh(): void {
+export function RegisterMyNewMesh(): void {
   if (_registered) {
     return;
   }
@@ -183,23 +189,23 @@ export function registerMyNewMesh(): void {
 ```typescript
 // myNewMesh.ts
 export * from "./myNewMesh.pure";
-import { registerMyNewMesh } from "./myNewMesh.pure";
+import { RegisterMyNewMesh } from "./myNewMesh.pure";
 
-registerMyNewMesh();
+RegisterMyNewMesh();
 ```
 
 ## Naming Conventions
 
 ### Registration Function Naming
 
-Registration functions use `register` plus the PascalCase file name:
+Registration functions always use `Register` plus the PascalCase file name:
 
 | Filename                               | Function                                 |
 | -------------------------------------- | ---------------------------------------- |
-| `standardMaterial.pure.ts`             | `registerStandardMaterial()`             |
-| `engine.multiRender.pure.ts`           | `registerEngineMultiRender()`            |
-| `WebXRHandTracking.pure.ts`            | `registerWebXRHandTracking()`            |
-| `joinedPhysicsEngineComponent.pure.ts` | `registerJoinedPhysicsEngineComponent()` |
+| `standardMaterial.pure.ts`             | `RegisterStandardMaterial()`             |
+| `engine.multiRender.pure.ts`           | `RegisterEngineMultiRender()`            |
+| `WebXRHandTracking.pure.ts`            | `RegisterWebXRHandTracking()`            |
+| `joinedPhysicsEngineComponent.pure.ts` | `RegisterJoinedPhysicsEngineComponent()` |
 
 ## Import Specifiers in Pure Files
 
@@ -280,39 +286,38 @@ MyAsset.Parse = MyAssetParse;
 
 Users who import from `myAsset.pure` can tree-shake `MyAssetParse` independently from the compatibility static. Users who import from `myAsset` get the legacy `MyAsset.Parse(...)` API and its matching type augmentation.
 
-## Transitive Dependencies
+## Automatic Dependencies
 
-If a registration function requires another registered feature, call it explicitly inside registration:
+If a registration function depends on another registered feature, call it inside your function:
 
 ```typescript
-export function registerMyMaterial(): void {
+export function RegisterMyMaterial(): void {
   if (_registered) {
     return;
   }
   _registered = true;
 
-  // Register transitive dependencies needed for deserialization.
-  registerTexture();
-  registerImageProcessingConfiguration();
+  // Register dependencies needed for loading saved scenes.
+  RegisterTexture();
+  RegisterImageProcessingConfiguration();
 
   RegisterClass("BABYLON.MyMaterial", MyMaterial);
   SerializationHelper._MyMaterialParser = MyMaterial.Parse;
 }
 ```
 
-Add transitive registration when:
+Add automatic dependencies when:
 
-- Your feature's `Parse()` method will trigger another parser stub.
+- Your feature's `Parse()` method will trigger another missing-registration error.
 - Your feature's constructor always creates instances of another registered class.
 - Your feature is unusable without the dependency.
 
 Do not add transitive registration when:
 
 - The dependency is optional.
-- The user might not serialize that sub-feature.
 - Adding it would pull in a very large module from a small utility.
 
-## Pure Annotations
+## The `#__PURE__` Annotation
 
 TypeScript decorators compile to module-scope `__decorate(...)` calls, which can block tree-shaking. The build pipeline injects `/*#__PURE__*/` annotations into compiled `.pure.js` files automatically.
 
@@ -322,16 +327,29 @@ If your `.pure.ts` file uses decorators, no manual annotation is needed. Make su
 
 Before submitting a PR that adds or modifies tree-shakeable code:
 
-1. Run `npm run build:es6` and confirm TypeScript compiles with 0 errors.
-2. Run `npm run lint:check`. The `no-side-effect-imports-in-pure` rule catches bare side-effect imports in `.pure.ts` files and missing `/*#__PURE__*/` annotations on call expressions.
-3. Run `npm run check:treeshaking`. This unified check verifies manifest drift, pure barrels, and side-effect stubs.
-4. Run `npm run test:treeshaking` and confirm all bundle smoke tests pass.
+1. **TypeScript compiles**: `npm run build:es6` with 0 errors.
+2. **ESLint passes**: `npm run lint:check`. Two custom ESLint rules enforce tree-shaking correctness.
+3. **Tree-shaking verification passes**: `npm run check:treeshaking`, which verifies manifest drift, pure barrels, and side-effect stubs.
+4. **Side-effects sync check passes**: `npm run check:side-effects-sync`, which verifies the `sideEffects` array in `@babylonjs/core/package.json` matches the manifest.
+5. **Bundle smoke tests pass**: `npm run test:treeshaking`.
+
+`@babylonjs/require-pure-annotation` requires `/*#__PURE__*/` on module-scope calls and static field initializers in `.pure.ts` files. It is auto-fixable.
+
+`@babylonjs/no-side-effect-imports-in-pure` disallows side-effect-only imports in `.pure.ts` files and checks that `pure.ts` barrels only re-export side-effect-free sources.
+
+The full CI check runs all of these together:
+
+```bash
+npm run check:treeshaking-all
+```
 
 If `check:treeshaking` fails, the error message tells you which fix command to run:
 
 ```bash
 # If manifest drift is detected:
-node scripts/treeshaking/auditSideEffects.mjs --out scripts/treeshaking/side-effects-manifest.json
+npm run update:manifest
+
+# If sideEffects array is out of sync:
 node scripts/treeshaking/syncSideEffects.mjs
 
 # If pure barrels are out of date:
@@ -343,19 +361,33 @@ npm run generate:side-effect-stubs
 
 ## Automation Scripts
 
-| Script                        | Purpose                                             | Usage                                         |
-| ----------------------------- | --------------------------------------------------- | --------------------------------------------- |
-| `verifyTreeShaking.mjs`       | Unified CI check for manifest, barrels, and stubs   | `npm run check:treeshaking`                   |
-| `checkManifestDrift.mjs`      | Verify manifest matches source                      | `npm run check:manifest-drift`                |
-| `generatePureBarrels.mjs`     | Regenerate `pure.ts` barrel files                   | `npm run generate:pure-barrels`               |
-| `generateSideEffectStubs.mjs` | Generate prototype warning stubs                    | `npm run generate:side-effect-stubs`          |
-| `auditSideEffects.mjs`        | Scan for all side effects                           | `npm run audit:side-effects`                  |
-| `syncSideEffects.mjs`         | Sync manifest to package metadata                   | `npm run sync:side-effects`                   |
-| `injectPureAnnotations.mjs`   | Inject `/*#__PURE__*/` in compiled JS               | Runs automatically during build               |
-| `bundleSmokeTest.mjs`         | Run tree-shaking bundle tests                       | `npm run test:treeshaking`                    |
-| `fixPureImports.mjs`          | Rewrite imports in `.pure.ts` to `.pure` specifiers | `node scripts/treeshaking/fixPureImports.mjs` |
+| Script                        | npm Command                          | Purpose                                             |
+| ----------------------------- | ------------------------------------ | --------------------------------------------------- |
+| `verifyTreeShaking.mjs`       | `npm run check:treeshaking`          | Unified CI check for manifest, barrels, and stubs   |
+| `checkManifestDrift.mjs`      | `npm run check:manifest-drift`       | Verify manifest matches source                      |
+| `generatePureBarrels.mjs`     | `npm run generate:pure-barrels`      | Regenerate `pure.ts` barrel files                   |
+| `generateSideEffectStubs.mjs` | `npm run generate:side-effect-stubs` | Generate prototype warning stubs                    |
+| `auditSideEffects.mjs`        | `npm run audit:side-effects`         | Scan for all side effects                           |
+| `syncSideEffects.mjs`         | (manual)                             | Sync manifest to package metadata                   |
+| `injectPureAnnotations.mjs`   | (runs automatically during build)    | Inject `/*#__PURE__*/` in compiled JS               |
+| `bundleSmokeTest.mjs`         | `npm run test:treeshaking`           | Run tree-shaking bundle tests                       |
+| `fixPureImports.mjs`          | (manual)                             | Rewrite imports in `.pure.ts` to `.pure` specifiers |
 
 Both `generatePureBarrels.mjs` and `generateSideEffectStubs.mjs` support `--check` mode, which is used by `verifyTreeShaking.mjs` to compare expected output to committed files without modifying anything.
+
+`syncSideEffects.mjs` also supports `--check` mode, used by `npm run check:side-effects-sync` in CI.
+
+## Pre-Commit Hook
+
+The Babylon.js repository uses a `.githooks/pre-commit` hook. When core source files are staged, the hook automatically:
+
+1. Runs `npm run precommit`.
+2. Regenerates the side-effects manifest with `npm run update:manifest`.
+3. Regenerates pure barrels with `npm run generate:pure-barrels`.
+4. Regenerates side-effect stubs with `npm run generate:side-effect-stubs`.
+5. Stages the updated manifest, package metadata, and generated barrels.
+
+After editing `.pure.ts` files, the hook handles the common generation steps. You can still run the individual commands manually to verify before committing.
 
 ## Quick Reference: File Header Convention
 
@@ -364,8 +396,8 @@ Both `generatePureBarrels.mjs` and `generateSideEffectStubs.mjs` support `--chec
 /** This file must only contain pure code and pure imports */
 
 // .types.ts files:
-// No special header needed. These only contain declare module blocks.
+// No special header needed; these only contain declare module blocks.
 
 // .ts wrapper files:
-// No special header needed. These are thin wrappers.
+// No special header needed; these are thin wrappers.
 ```

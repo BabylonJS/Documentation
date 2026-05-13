@@ -19,10 +19,10 @@ video-content:
 Every module in `@babylonjs/core` is available through the existing import path and, where applicable, a pure import path:
 
 ```typescript
-// Existing path: includes the module's compatibility side effects.
+// Existing path: includes side effects.
 import { Scene } from "@babylonjs/core/scene";
 
-// Recommended pure path: tree-shakeable, with side effects registered manually.
+// Pure path: tree-shakeable, with side effects registered manually.
 import { Scene } from "@babylonjs/core/pure";
 ```
 
@@ -34,7 +34,7 @@ Instead of importing from individual deep paths, you can use the pure barrel:
 import { Scene, Engine, Vector3, Color3, FreeCamera } from "@babylonjs/core/pure";
 ```
 
-The pure barrel re-exports the pure module graph. Your bundler analyzes which symbols you actually use and removes the rest. The result is intended to be equivalent to importing from deep pure paths, but with a more convenient import surface.
+The pure barrel re-exports the pure module graph. Your bundler figures out which symbols you actually use and removes the rest. The result is the same as importing from individual pure files, but the barrel is more convenient.
 
 ## Subdirectory Barrels
 
@@ -55,7 +55,7 @@ Pure imports include:
 - Class definitions, such as `Scene`, `Engine`, `Mesh`, and `Camera`.
 - Functions and utilities, such as `MeshBuilder`, math helpers, and tools.
 - Type definitions, interfaces, enums, and type aliases.
-- Registration functions, such as `registerStandardMaterial()`.
+- Registration functions, such as `RegisterStandardMaterial()`.
 
 Pure imports do not automatically run:
 
@@ -69,28 +69,28 @@ Pure imports do not automatically run:
 Every side effect is wrapped in a callable registration function exported from the corresponding pure module:
 
 ```typescript
-import { registerStandardMaterial, registerJoinedPhysicsEngineComponent, registerRay } from "@babylonjs/core/pure";
+import { RegisterStandardMaterial, RegisterJoinedPhysicsEngineComponent, RegisterRay } from "@babylonjs/core/pure";
 
-registerStandardMaterial();
-registerJoinedPhysicsEngineComponent();
-registerRay();
+RegisterStandardMaterial();
+RegisterJoinedPhysicsEngineComponent();
+RegisterRay();
 ```
 
 Registration functions are:
 
-- Idempotent, so calling one more than once is safe.
-- Discoverable in IDE autocomplete by typing `register`.
-- Named predictably with `register` plus the PascalCase file name, such as `registerEngineMultiRender()`.
+- Safe to call multiple times. Only the first call does anything; repeat calls are ignored.
+- Discoverable in IDE autocomplete by typing `Register`.
+- Named predictably with `Register` plus the PascalCase file name, such as `RegisterEngineMultiRender()`.
 
 ## Type Augmentations
 
 Optional features can add methods and properties to core classes through TypeScript module augmentation. With pure imports, import the `.types` module to make TypeScript aware of those members:
 
 ```typescript
-import { Scene, registerJoinedPhysicsEngineComponent } from "@babylonjs/core/pure";
+import { Scene, RegisterJoinedPhysicsEngineComponent } from "@babylonjs/core/pure";
 import "@babylonjs/core/Physics/joinedPhysicsEngineComponent.types";
 
-registerJoinedPhysicsEngineComponent();
+RegisterJoinedPhysicsEngineComponent();
 
 const scene = new Scene(engine);
 scene.enablePhysics();
@@ -118,7 +118,7 @@ export function AnimationParse(parsedAnimation: any): Animation {
 }
 
 // Inside the registration function (called by animation.ts):
-export function registerAnimation(): void {
+export function RegisterAnimation(): void {
     // ...
     Animation.Parse = AnimationParse; // static only assigned here
     RegisterClass("BABYLON.Animation", Animation);
@@ -136,8 +136,8 @@ import { AnimationParse } from "@babylonjs/core/pure";
 const anim = AnimationParse(data);
 
 // Legacy: the class static only works AFTER calling the registration function:
-import { Animation, registerAnimation } from "@babylonjs/core/pure";
-registerAnimation(); // assigns Animation.Parse = AnimationParse
+import { Animation, RegisterAnimation } from "@babylonjs/core/pure";
+RegisterAnimation(); // assigns Animation.Parse = AnimationParse
 const anim = Animation.Parse(data); // now works
 
 // Alternatively you can always import directly from the legacy path, which includes the registration side effects:
@@ -174,9 +174,11 @@ Available function files:
 Vite uses Rollup internally. No special configuration is normally required for pure imports:
 
 ```typescript
+// vite.config.ts
 import { defineConfig } from "vite";
 
 export default defineConfig({
+    // Vite handles .pure imports correctly.
     // The package sideEffects metadata guides tree-shaking.
 });
 ```
@@ -188,8 +190,8 @@ Webpack respects the `sideEffects` field in `package.json`. Make sure tree-shaki
 ```javascript
 module.exports = {
     optimization: {
-        usedExports: true,
-        sideEffects: true,
+        usedExports: true, // Enable tree-shaking (default in production)
+        sideEffects: true, // Respect package sideEffects metadata (default)
     },
 };
 ```
@@ -199,13 +201,14 @@ module.exports = {
 Rollup-based builds can mark pure modules as side-effect-free if additional control is needed:
 
 ```javascript
+import { readFileSync } from "fs";
+
 function markPureModules() {
     return {
         name: "mark-pure-modules",
-        async load(id) {
+        load(id) {
             if (/\.pure\.(js|ts)$/.test(id) || /\.functions\.(js|ts)$/.test(id)) {
-                const fs = await import("fs");
-                const code = fs.readFileSync(id, "utf8");
+                const code = readFileSync(id, "utf8");
                 return { code, moduleSideEffects: false };
             }
             return null;
@@ -214,7 +217,7 @@ function markPureModules() {
 }
 
 export default {
-    plugins: [markPureModules()],
+    plugins: [markPureModules() /* ... other plugins */],
 };
 ```
 
@@ -243,30 +246,18 @@ import {
     PhysicsShapeType,
     HavokPlugin,
     HingeConstraint,
-    registerAbstractEngineDom,
-    registerAbstractEngineRenderPass,
-    registerAbstractEngineStates,
-    registerAbstractEngineStencil,
-    registerAbstractEngineTexture,
-    registerExtensionsEngineRenderTarget,
-    registerEngineUniformBuffer,
-    registerShadowGeneratorSceneComponent,
-    registerJoinedPhysicsEngineComponent,
-    registerV2PhysicsEngineComponent,
-} from "@babylonjs/core/pure.js";
+    RegisterStandardEngineExtensions,
+    RegisterShadowGeneratorSceneComponent,
+    RegisterJoinedPhysicsEngineComponent,
+    RegisterV2PhysicsEngineComponent,
+} from "@babylonjs/core/pure";
 
 import "@babylonjs/core/Physics/joinedPhysicsEngineComponent.types";
 
-registerAbstractEngineDom();
-registerAbstractEngineRenderPass();
-registerAbstractEngineStates();
-registerAbstractEngineStencil();
-registerAbstractEngineTexture();
-registerExtensionsEngineRenderTarget();
-registerEngineUniformBuffer();
-registerShadowGeneratorSceneComponent();
-registerJoinedPhysicsEngineComponent();
-registerV2PhysicsEngineComponent();
+RegisterStandardEngineExtensions();
+RegisterShadowGeneratorSceneComponent();
+RegisterJoinedPhysicsEngineComponent();
+RegisterV2PhysicsEngineComponent();
 
 function createScene(engine: Engine, canvas: HTMLCanvasElement): Scene {
     const scene = new Scene(engine);
@@ -374,15 +365,29 @@ import("@babylonjs/havok").then((havok) => {
 
 ### Loading a Serialized Scene
 
-Serialization relies on `RegisterClass` to reconstruct objects by class name. Register the classes you expect to encounter:
+For glTF loading, use `SceneLoader` with the pure barrel and the glTF loader package:
 
 ```typescript
-import { SceneLoader, registerStandardMaterial, registerPBRMaterial, registerImageProcessingConfiguration, registerTexture } from "@babylonjs/core/pure";
+import { Engine, Scene, SceneLoader, RegisterStandardEngineExtensions, RegisterEnginesExtensionsEngineRawTexture } from "@babylonjs/core/pure";
+import "@babylonjs/loaders/glTF";
 
-registerStandardMaterial();
-registerPBRMaterial();
-registerImageProcessingConfiguration();
-registerTexture();
+RegisterStandardEngineExtensions();
+RegisterEnginesExtensionsEngineRawTexture();
+
+const engine = new Engine(canvas, true);
+const scene = new Scene(engine);
+const result = await SceneLoader.ImportMeshAsync("", "model.glb", undefined, scene);
+```
+
+For `.babylon` files, serialization relies on `RegisterClass` to reconstruct objects by class name. Register the classes you expect to encounter:
+
+```typescript
+import { SceneLoader, RegisterStandardMaterial, RegisterPBRMaterial, RegisterImageProcessingConfiguration, RegisterTexture } from "@babylonjs/core/pure";
+
+RegisterStandardMaterial();
+RegisterPBRMaterial();
+RegisterImageProcessingConfiguration();
+RegisterTexture();
 
 const scene = await SceneLoader.LoadAsync("./", "scene.babylon", engine);
 ```
@@ -390,9 +395,9 @@ const scene = await SceneLoader.LoadAsync("./", "scene.babylon", engine);
 ### Node Material with Blocks
 
 ```typescript
-import { NodeMaterial, registerAllNodeMaterialBlocks } from "@babylonjs/core/pure";
+import { NodeMaterial, RegisterAllNodeMaterialBlocks } from "@babylonjs/core/pure";
 
-registerAllNodeMaterialBlocks();
+RegisterAllNodeMaterialBlocks();
 
 const nodeMat = await NodeMaterial.ParseFromSnippetAsync("ABC123", scene);
 ```
@@ -400,11 +405,11 @@ const nodeMat = await NodeMaterial.ParseFromSnippetAsync("ABC123", scene);
 You can also register only the block categories you need:
 
 ```typescript
-import { registerNodeMaterialPBRBlocks, registerNodeMaterialMathBlocks, registerNodeMaterialInputBlocks } from "@babylonjs/core/pure";
+import { RegisterNodeMaterialPBRBlocks, RegisterNodeMaterialMathBlocks, RegisterNodeMaterialInputBlocks } from "@babylonjs/core/pure";
 
-registerNodeMaterialPBRBlocks();
-registerNodeMaterialMathBlocks();
-registerNodeMaterialInputBlocks();
+RegisterNodeMaterialPBRBlocks();
+RegisterNodeMaterialMathBlocks();
+RegisterNodeMaterialInputBlocks();
 ```
 
 ### WebXR Gallery
@@ -430,42 +435,30 @@ import {
     Vector3,
     WebXRDefaultExperience,
     WebXRFeatureName,
-    registerAbstractEngineDom,
-    registerAbstractEngineRenderPass,
-    registerAbstractEngineStates,
-    registerAbstractEngineStencil,
-    registerAbstractEngineTexture,
-    registerExtensionsEngineRenderTarget,
-    registerEngineUniformBuffer,
-    registerRay,
-    registerInstancedMesh,
-    registerAllNodeMaterialBlocks,
-    registerExtensionsEngineDynamicTexture,
-    registerAnimation,
-    registerImageProcessingConfiguration,
-    registerColorCurves,
-    registerTexture,
-    registerFresnelParameters,
-} from "@babylonjs/core/pure.js";
+    RegisterFullEngineExtensions,
+    RegisterWebXRDefaultExperience,
+    RegisterRay,
+    RegisterInstancedMesh,
+    RegisterAllNodeMaterialBlocks,
+    RegisterAnimation,
+    RegisterImageProcessingConfiguration,
+    RegisterColorCurves,
+    RegisterTexture,
+    RegisterFresnelParameters,
+} from "@babylonjs/core/pure";
 
 import "@babylonjs/loaders/glTF";
 
-registerAbstractEngineDom();
-registerRay();
-registerInstancedMesh();
-registerAllNodeMaterialBlocks();
-registerExtensionsEngineDynamicTexture();
-registerAnimation();
-registerImageProcessingConfiguration();
-registerColorCurves();
-registerTexture();
-registerFresnelParameters();
-registerAbstractEngineRenderPass();
-registerAbstractEngineStates();
-registerAbstractEngineStencil();
-registerAbstractEngineTexture();
-registerExtensionsEngineRenderTarget();
-registerEngineUniformBuffer();
+RegisterFullEngineExtensions();
+RegisterWebXRDefaultExperience();
+RegisterRay();
+RegisterInstancedMesh();
+RegisterAllNodeMaterialBlocks();
+RegisterAnimation();
+RegisterImageProcessingConfiguration();
+RegisterColorCurves();
+RegisterTexture();
+RegisterFresnelParameters();
 
 function createScene(engine: Engine, canvas: HTMLCanvasElement): Scene {
     const scene = new Scene(engine);
@@ -549,8 +542,70 @@ New pure-import code should import Babylon.js core values and registration funct
 ```typescript
 import { Scene, Engine, Vector3 } from "@babylonjs/core/pure";
 
-// Temporary migration exception: replace this with an explicit registerXxx() call.
+// Temporary migration exception: replace this with an explicit RegisterXxx() call.
 import "@babylonjs/core/Physics/joinedPhysicsEngineComponent";
 ```
 
 Convert those remaining imports as you identify the registrations your application actually needs.
+
+## Package Configuration
+
+### The `exports` Map
+
+The `@babylonjs/core` package uses Node.js [package exports](https://nodejs.org/api/packages.html#exports) to define entry points:
+
+```json
+"exports": {
+    ".": {
+        "types": "./index.d.ts",
+        "import": "./index.js",
+        "default": "./index.js"
+    },
+    "./pure": {
+        "types": "./pure.d.ts",
+        "import": "./pure.js",
+        "default": "./pure.js"
+    },
+    "./*": {
+        "types": "./*.d.ts",
+        "import": "./*.js",
+        "default": "./*.js"
+    }
+}
+```
+
+The `default` condition keeps compatibility with CommonJS consumers, while the `import` condition is used by ESM-aware bundlers.
+
+### The `sideEffects` Field
+
+The top-level `sideEffects` array in `package.json` lists every file that has module-level side effects. Bundlers use this to determine what can be safely tree-shaken. Files not in the list, including `.pure.js` files, are considered side-effect-free.
+
+This field is maintained by `syncSideEffects.mjs`; you should not need to edit it manually.
+
+## Testing Tree-Shaking
+
+### ES6 Visualization Tests
+
+The Babylon.js repository includes visualization tests that validate tree-shaking at runtime. Each test scene in `packages/tools/tests/es6Vis/` has three import styles:
+
+- `barrel.ts` imports from `@babylonjs/core`.
+- `deep.ts` imports from deep paths such as `@babylonjs/core/Engines/engine`.
+- `pure.ts` imports from `@babylonjs/core/pure` or `.pure` paths.
+
+All three styles must produce identical visual output. Run them with:
+
+```bash
+npm run test:es6vis -w @tools/tests
+npm run test:es6-packages -w @tools/tests
+```
+
+The bundle size test asserts that `pure <= deep < barrel` for each scene.
+
+### ES6 Package Smoke Tests
+
+The `test:es6-packages` script also:
+
+1. Type-checks all `@babylonjs/*` packages against `tsconfig.es6-smoke.json`.
+2. Bundles an ESM entry that imports all public packages with esbuild.
+3. Runs a Node.js smoke test that imports `@babylonjs/core` and verifies basic runtime behavior.
+4. Validates editor package entry points.

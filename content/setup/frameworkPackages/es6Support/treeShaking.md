@@ -16,24 +16,24 @@ video-content:
 
 ## Why Tree-Shaking Matters
 
-Babylon.js is a large framework. `@babylonjs/core` contains rendering, physics, animation, XR, particles, materials, loaders, and many other systems. Most applications use only part of this functionality, so bundling the whole package can include code your application never runs.
+Babylon.js is a large framework. `@babylonjs/core` contains over 2,200 source files covering rendering, physics, animation, XR, particles, materials, loaders, and many other systems. Most applications use only part of this functionality, so bundling the whole package can include code your application never runs.
 
-Tree-shaking lets bundlers such as Webpack, Rollup, Vite, and esbuild analyze which exports your application actually uses and remove the rest from the final bundle. The exact savings depend on the features you use, but focused applications can often reduce their Babylon.js bundle significantly.
+Tree-shaking lets bundlers such as Webpack, Rollup, Vite, and esbuild figure out which code your application actually uses and remove the rest from the final bundle. This can cut bundle sizes by 50-80% depending on which features you use.
 
 ## The Challenge: Side Effects
 
-JavaScript modules can have side effects: code that runs when a module is imported and changes global or shared state. Babylon.js uses side effects for several compatibility and discovery features:
+JavaScript modules can have side effects: code that runs automatically when a file is imported, changing things globally. Babylon.js uses side effects for several compatibility and discovery features:
 
-- Class registration, such as `RegisterClass("BABYLON.Camera", Camera)`, for deserialization by class name.
-- Prototype augmentation, such as adding optional methods to `Scene` or `Engine`.
-- Shader registration, which stores shader source code for the engine to compile.
-- Feature registration, such as making WebXR features discoverable by name.
+- Class registration, such as `RegisterClass("BABYLON.Camera", Camera)`, which lets the engine recreate objects by name when loading saved scenes.
+- Prototype augmentation, such as `Scene.prototype.enablePhysics = function() {...}`, which attaches optional methods to existing classes.
+- Shader registration, which stores GPU shader source code so the engine can compile it later.
+- Feature registration, such as making WebXR features available by name.
 
-When a module has side effects, bundlers cannot safely remove it just because your code does not reference one of its exports. This is why the traditional ES6 tree-shaking guidance recommends deep imports and explicit side-effect imports.
+When a module has side effects, bundlers cannot safely remove it just because your code does not reference one of its exports. This is why `@babylonjs/core` historically shipped with `sideEffects: ["**/*"]`, telling bundlers that every file might have side effects.
 
 ## The Pure Barrel
 
-Babylon.js provides a parallel pure import system that separates implementation code from side effects. This makes it possible to import from a single barrel while keeping tree-shaking effective.
+Babylon.js provides an alternative import system where side effects are moved into explicit registration functions. This makes it possible to import from a single barrel while keeping tree-shaking effective.
 
 | Import style              | Example                             | Tree-shakeable | Side effects          |
 | ------------------------- | ----------------------------------- | -------------- | --------------------- |
@@ -41,121 +41,68 @@ Babylon.js provides a parallel pure import system that separates implementation 
 | ES6 deep imports          | `@babylonjs/core/Engines/engine.js` | Yes            | Imported explicitly   |
 | Pure barrel               | `@babylonjs/core/pure`              | Yes            | Registered explicitly |
 
-The pure barrel re-exports the pure implementation modules. Your bundler can analyze which exports you import from the barrel and remove unused code, while features that historically depended on side effects are activated with explicit registration functions.
+A barrel is a single file that re-exports symbols from many other files, giving you one convenient import path. The pure barrel re-exports the pure implementation modules without running their side effects. Your bundler can analyze which exports you import from the barrel and remove unused code, while features that historically depended on side effects are activated with explicit registration functions.
 
 ## How It Works
 
-Modules with side effects are split into up to three files:
+Most files in Babylon.js have no side effects and use their regular file name. The multi-file split only applies to modules that have side effects.
+
+For those modules, the code is split into up to three files:
 
 ```text
 camera.pure.ts  -> Pure implementation and registration function
-camera.types.ts -> Type augmentations only
+camera.types.ts -> Type augmentations only, when needed
 camera.ts       -> Backward-compatible wrapper that registers side effects
 ```
 
-- `.pure.ts` contains implementation code and exports a `registerXxx()` function for any side effects.
-- `.types.ts` contains TypeScript `declare module` augmentations only.
+- `.pure.ts` contains the implementation. Nothing runs automatically when you import it. It exports a `RegisterXxx()` function that you call when you need the side effects.
+- `.types.ts` contains TypeScript `declare module` augmentations for methods added to other classes. It is only needed when a file adds methods or properties to another class.
 - `.ts` re-exports the pure module and calls the registration function to preserve existing import behavior.
 
-Existing imports keep working. Pure imports opt into the side-effect-free path.
+If a module has no side effects, it just uses a normal `.ts` file. No `.pure.ts` or `.types.ts` file is needed.
 
 ## Quick Start
 
-This complete example imports from the pure barrel, explicitly registers the rendering side effects it needs, loads an animated glTF character, places it on a ground mesh, and starts the render loop.
-
-The glTF loader package still registers its loader plugin through a side-effect import. The Babylon.js core rendering features used by the scene are registered explicitly.
+This example imports from the pure barrel and explicitly registers the core engine extensions needed for rendering. The bundler can eliminate everything you do not use.
 
 The example assumes your HTML contains a `<canvas id="renderCanvas"></canvas>` element.
 
 ```typescript
-import {
-  Engine,
-  Scene,
-  ArcRotateCamera,
-  HemisphericLight,
-  DirectionalLight,
-  CreateGround,
-  PBRMaterial,
-  Color3,
-  Color4,
-  Vector3,
-  ImportMeshAsync,
-  registerAbstractEngineDom,
-  registerAbstractEngineRenderPass,
-  registerAbstractEngineStates,
-  registerAbstractEngineStencil,
-  registerAbstractEngineTexture,
-  registerExtensionsEngineRenderTarget,
-  registerEngineUniformBuffer,
-} from "@babylonjs/core/pure.js";
+import { Engine, Scene, FreeCamera, HemisphericLight, CreateSphere, StandardMaterial, Color3, Vector3, RegisterCoreEngineExtensions } from "@babylonjs/core/pure";
 
-import "@babylonjs/loaders/glTF/2.0/index.js";
-
-registerAbstractEngineDom();
-registerAbstractEngineRenderPass();
-registerAbstractEngineStates();
-registerAbstractEngineStencil();
-registerAbstractEngineTexture();
-registerExtensionsEngineRenderTarget();
-registerEngineUniformBuffer();
-
-const MODEL_URL = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Fox/glTF-Binary/Fox.glb";
-
-function createScene(engine: Engine, canvas: HTMLCanvasElement): Scene {
-  const scene = new Scene(engine);
-  scene.clearColor = new Color4(0.4, 0.6, 0.8, 1);
-
-  const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 4, 150, new Vector3(0, 30, 0), scene);
-  camera.attachControl(canvas, true);
-  camera.lowerRadiusLimit = 50;
-  camera.upperRadiusLimit = 300;
-
-  const hemisphericLight = new HemisphericLight("hemi", new Vector3(0, 1, 0), scene);
-  hemisphericLight.intensity = 0.5;
-
-  const directionalLight = new DirectionalLight("dir", new Vector3(-1, -3, -1), scene);
-  directionalLight.intensity = 0.8;
-  directionalLight.position = new Vector3(50, 100, 50);
-
-  const ground = CreateGround("ground", { width: 200, height: 200 }, scene);
-  const groundMaterial = new PBRMaterial("groundMat", scene);
-  groundMaterial.albedoColor = new Color3(0.3, 0.5, 0.2);
-  groundMaterial.metallic = 0;
-  groundMaterial.roughness = 0.95;
-  ground.material = groundMaterial;
-
-  ImportMeshAsync(MODEL_URL, scene).then((result) => {
-    const root = result.meshes[0];
-    root.position = Vector3.Zero();
-
-    const skeleton = result.skeletons[0];
-    skeleton?.returnToRest();
-
-    const animationGroups = result.animationGroups;
-    animationGroups.forEach((animationGroup) => animationGroup.stop());
-
-    const primaryAnimation = animationGroups[0];
-    primaryAnimation?.start(true, 1.0);
-
-    const secondaryAnimation = animationGroups[1];
-    if (secondaryAnimation) {
-      secondaryAnimation.start(true, 1.0);
-      secondaryAnimation.setWeightForAllAnimatables(0.3);
-    }
-  });
-
-  return scene;
-}
+RegisterCoreEngineExtensions();
 
 const canvas = document.getElementById("renderCanvas") as HTMLCanvasElement;
 const engine = new Engine(canvas, true);
-const scene = createScene(engine, canvas);
+const scene = new Scene(engine);
+
+const camera = new FreeCamera("camera", new Vector3(0, 5, -10), scene);
+camera.setTarget(Vector3.Zero());
+
+new HemisphericLight("light", new Vector3(0, 1, 0), scene);
+
+const material = new StandardMaterial("sphereMat", scene);
+material.diffuseColor = new Color3(0.4, 0.6, 0.9);
+
+const sphere = CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
+sphere.material = material;
 
 engine.runRenderLoop(() => scene.render());
-window.addEventListener("resize", () => engine.resize());
 ```
 
-The pure barrel gives you the convenience of a single import surface. You can still import from individual `.pure` modules when you prefer explicit deep paths.
+The pure barrel re-exports every class and function from the package. Your bundler figures out which exports you actually use and removes the rest, giving you the same tree-shaking benefit as individual `.pure` imports with less import code.
+
+### Engine Registration Tiers
+
+Engine extensions such as texture loading, alpha blending, render targets, and uniform buffers are side effects that must be registered when using pure imports. Three tiered helpers are available:
+
+| Helper                               | What it registers                                                                                |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `RegisterCoreEngineExtensions()`     | DOM binding, render passes, GPU states, and stencil support                                      |
+| `RegisterStandardEngineExtensions()` | Core plus textures, file loading, alpha, render targets, and uniform buffers                     |
+| `RegisterFullEngineExtensions()`     | Standard plus cube/raw/dynamic textures, multi-render, multiview, queries, compute, video, debug |
+
+For most applications, `RegisterStandardEngineExtensions()` is the right choice. Use `RegisterFullEngineExtensions()` if you need advanced features like compute shaders, cube textures, or multiview rendering.
 
 ## When to Use Pure Imports
 

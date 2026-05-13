@@ -14,59 +14,63 @@ video-overview:
 video-content:
 ---
 
-## What Side Effects Are
+## What Are Side Effects?
 
-In the context of tree-shaking, a side effect is code that modifies shared state when a module is imported. Babylon.js uses side effects for several categories of behavior:
+In the context of tree-shaking, a side effect is any code that runs automatically when a file is imported, changing global state. Babylon.js has several categories:
 
-| Category                      | Purpose                                    | Example                                   |
-| ----------------------------- | ------------------------------------------ | ----------------------------------------- |
-| `RegisterClass`               | Enable deserialization by class name       | `RegisterClass("BABYLON.Camera", Camera)` |
-| Prototype augmentation        | Add optional methods to core classes       | `Scene.prototype.enablePhysics = ...`     |
-| Shader registration           | Register shader source for GPU compilation | `ShaderStore["default"] = "..."`          |
-| Feature registration          | Make features discoverable by name         | WebXR feature registration                |
-| Node constructor registration | Enable node-based editor blocks            | `AddNodeConstructor("Block", ...)`        |
+| Category               | Purpose                                                           | Example                                   |
+| ---------------------- | ----------------------------------------------------------------- | ----------------------------------------- |
+| `RegisterClass`        | Let the engine recreate objects by name when loading saved scenes | `RegisterClass("BABYLON.Camera", Camera)` |
+| Prototype augmentation | Attach optional methods to existing classes                       | `Scene.prototype.enablePhysics = ...`     |
+| Shader registration    | Store shader source code for GPU compilation                      | `ShaderStore["default"] = "..."`          |
+| Feature registration   | Make features available by name                                   | WebXR feature registration                |
+| Node constructor       | Enable node-based editor blocks                                   | `AddNodeConstructor("Block", ...)`        |
 
-With pure imports, these side effects do not run automatically. You opt in by calling the matching `registerXxx()` function.
+When using pure imports, these side effects do not run automatically. You turn them on by calling the corresponding `RegisterXxx()` function.
 
 ## Finding Registration Functions
 
-Registration functions follow the naming pattern `register` plus the PascalCase file name:
+All registration functions follow the naming pattern `Register` plus the PascalCase file name:
 
-| File                                   | Registration function                    |
+| File                                   | Registration Function                    |
 | -------------------------------------- | ---------------------------------------- |
-| `standardMaterial.pure.ts`             | `registerStandardMaterial()`             |
-| `joinedPhysicsEngineComponent.pure.ts` | `registerJoinedPhysicsEngineComponent()` |
-| `engine.multiRender.pure.ts`           | `registerEngineMultiRender()`            |
-| `depthRendererSceneComponent.pure.ts`  | `registerDepthRendererSceneComponent()`  |
-| `boundingBoxRenderer.pure.ts`          | `registerBoundingBoxRenderer()`          |
+| `standardMaterial.pure.ts`             | `RegisterStandardMaterial()`             |
+| `joinedPhysicsEngineComponent.pure.ts` | `RegisterJoinedPhysicsEngineComponent()` |
+| `engine.multiRender.pure.ts`           | `RegisterEngineMultiRender()`            |
+| `depthRendererSceneComponent.pure.ts`  | `RegisterDepthRendererSceneComponent()`  |
+| `boundingBoxRenderer.pure.ts`          | `RegisterBoundingBoxRenderer()`          |
 
-Type `register` in your IDE to discover available registration functions. The names map directly to the Babylon.js module paths you already know.
+Type `Register` in your IDE and autocomplete will list available registration functions. The names map directly to the Babylon.js module paths you already know.
 
-## Material and Serialization Registration
+## Categories of Registration
+
+### Material and Serialization Registration
 
 Serialized content needs class and parser registration so Babylon.js can recreate objects by class name:
 
 ```typescript
-import { registerStandardMaterial, registerPBRMaterial, registerImageProcessingConfiguration, registerTexture, registerFresnelParameters } from "@babylonjs/core/pure";
+import { RegisterStandardMaterial, RegisterPBRMaterial, RegisterImageProcessingConfiguration, RegisterTexture, RegisterFresnelParameters } from "@babylonjs/core/pure";
 
-registerStandardMaterial();
-registerPBRMaterial();
-registerImageProcessingConfiguration();
-registerTexture();
-registerFresnelParameters();
+RegisterStandardMaterial();
+RegisterPBRMaterial();
+RegisterImageProcessingConfiguration(); // Also registers ColorCurves automatically
+RegisterTexture();
+RegisterFresnelParameters();
 ```
 
 Register these when loading `.babylon` files, snippets, or other serialized content that may contain those types.
 
-## Scene Component Registration
+### Scene Component Registration
 
 Some features add methods to existing classes such as `Scene`, `Engine`, `Mesh`, or `Camera`:
 
 ```typescript
-import { registerJoinedPhysicsEngineComponent } from "@babylonjs/core/pure";
+// Physics
+import { RegisterJoinedPhysicsEngineComponent } from "@babylonjs/core/pure";
 import "@babylonjs/core/Physics/joinedPhysicsEngineComponent.types";
 
-registerJoinedPhysicsEngineComponent();
+RegisterJoinedPhysicsEngineComponent();
+// Now scene.enablePhysics(), scene.getPhysicsEngine(), etc. are available
 ```
 
 After registration, methods such as `scene.enablePhysics()` are available at runtime. The `.types` import makes TypeScript aware of the same methods.
@@ -74,73 +78,87 @@ After registration, methods such as `scene.enablePhysics()` are available at run
 Other common scene component registrations include:
 
 ```typescript
-import { registerRay, registerDepthRendererSceneComponent, registerBoundingBoxRenderer } from "@babylonjs/core/pure";
+import { RegisterRay, RegisterDepthRendererSceneComponent, RegisterBoundingBoxRenderer } from "@babylonjs/core/pure";
 
-registerRay();
-registerDepthRendererSceneComponent();
-registerBoundingBoxRenderer();
+RegisterRay();
+RegisterDepthRendererSceneComponent();
+RegisterBoundingBoxRenderer();
 ```
 
-## Engine Extension Registration
+### Engine Extension Registration
 
-Engine extensions are also explicit with pure imports:
+Engine extensions add capabilities like texture loading, alpha blending, multi-render targets, and uniform buffers. Three tiered helpers let you register groups of extensions at once:
 
 ```typescript
-import { registerEngineMultiRender, registerEngineOcclusionQuery, registerEngineTransformFeedback } from "@babylonjs/core/pure";
+import { RegisterCoreEngineExtensions, RegisterStandardEngineExtensions, RegisterFullEngineExtensions } from "@babylonjs/core/pure";
 
-registerEngineMultiRender();
-registerEngineOcclusionQuery();
-registerEngineTransformFeedback();
+RegisterCoreEngineExtensions(); // Minimum: DOM, render passes, GPU states, stencil
+RegisterStandardEngineExtensions(); // Most apps: Core + textures, file loading, alpha, render targets, uniform buffers
+RegisterFullEngineExtensions(); // Everything: Standard + cube/raw/dynamic textures, multi-render, multiview, queries, compute, video, debugging
 ```
 
-## Node Editor Block Registration
+For most applications, `RegisterStandardEngineExtensions()` is the right choice. All tiers are safe to call multiple times or in combination. Calling a higher tier after a lower one just adds the missing pieces.
+
+You can also register individual extensions if you need fine-grained control:
+
+```typescript
+import { RegisterEnginesExtensionsEngineMultiRender, RegisterEngineTransformFeedback } from "@babylonjs/core/pure";
+
+RegisterEnginesExtensionsEngineMultiRender();
+RegisterEngineTransformFeedback();
+```
+
+### Node Editor Block Registration
 
 Node Material, Node Geometry, Node Particle, Flow Graph, and Node Render Graph systems need block registration for deserialization and editor workflows.
 
 Register all blocks for a system:
 
 ```typescript
-import { registerAllNodeMaterialBlocks } from "@babylonjs/core/pure";
+import { RegisterAllNodeMaterialBlocks } from "@babylonjs/core/pure";
 
-registerAllNodeMaterialBlocks();
+RegisterAllNodeMaterialBlocks();
 ```
 
 Or register only selected categories:
 
 ```typescript
-import { registerNodeMaterialPBRBlocks, registerNodeMaterialMathBlocks, registerNodeMaterialVertexBlocks } from "@babylonjs/core/pure";
+import { RegisterNodeMaterialPBRBlocks, RegisterNodeMaterialMathBlocks, RegisterNodeMaterialVertexBlocks } from "@babylonjs/core/pure";
 
-registerNodeMaterialPBRBlocks();
-registerNodeMaterialMathBlocks();
-registerNodeMaterialVertexBlocks();
+RegisterNodeMaterialPBRBlocks();
+RegisterNodeMaterialMathBlocks();
+RegisterNodeMaterialVertexBlocks();
 ```
 
 Bulk registrations include:
 
-| Function                             | System                   |
-| ------------------------------------ | ------------------------ |
-| `registerAllNodeMaterialBlocks()`    | Node Material Editor     |
-| `registerAllNodeGeometryBlocks()`    | Node Geometry Editor     |
-| `registerAllNodeParticleBlocks()`    | Node Particle Editor     |
-| `registerAllFlowGraphBlocks()`       | Flow Graph               |
-| `registerAllNodeRenderGraphBlocks()` | Node Render Graph Editor |
+| Function                             | System                   | Blocks |
+| ------------------------------------ | ------------------------ | ------ |
+| `RegisterAllNodeMaterialBlocks()`    | Node Material Editor     | ~108   |
+| `RegisterAllNodeGeometryBlocks()`    | Node Geometry Editor     | ~80    |
+| `RegisterAllNodeParticleBlocks()`    | Node Particle Editor     | ~49    |
+| `RegisterAllFlowGraphBlocks()`       | Flow Graph               | ~47    |
+| `RegisterAllNodeRenderGraphBlocks()` | Node Render Graph Editor | ~44    |
 
-## XR Feature Registration
+### XR Feature Registration
 
 ```typescript
-import { registerWebXRDefaultExperience, registerWebXRHandTracking, registerWebXRAnchorSystem, registerWebXRHitTest } from "@babylonjs/core/pure";
+import { RegisterWebXRDefaultExperience, RegisterWebXRHandTracking, RegisterWebXRAnchorSystem, RegisterWebXRHitTest } from "@babylonjs/core/pure";
 
-registerWebXRDefaultExperience();
-registerWebXRHandTracking();
-registerWebXRAnchorSystem();
-registerWebXRHitTest();
+RegisterWebXRDefaultExperience();
+RegisterWebXRHandTracking();
+RegisterWebXRAnchorSystem();
+RegisterWebXRHitTest();
 ```
 
-## Transitive Dependencies
+## Automatic Dependencies
 
-Some registration functions register their own required dependencies. For example, `registerImageProcessingConfiguration()` can register related image-processing dependencies that are required by its parser path.
+Some registration functions automatically register the features they depend on. For example:
 
-You do not need to manually register dependencies that are already handled transitively. If you are unsure, calling a registration function multiple times is harmless because registration functions are idempotent.
+- `RegisterImageProcessingConfiguration()` automatically calls `RegisterColorCurves()`.
+- `RegisterStandardMaterial()` registers the class and its parser.
+
+You do not need to manually register dependencies that are already handled this way. If you are unsure, calling a registration function multiple times is harmless.
 
 ## CheckMissingImports Diagnostic
 
@@ -152,7 +170,7 @@ import { CheckMissingImports } from "@babylonjs/core/Misc/checkMissingImports";
 const missing = CheckMissingImports();
 ```
 
-It reports known side-effect stubs that have not been registered:
+This scans all known placeholders and reports which features have not been registered:
 
 ```text
 [Babylon.js] The following side-effect modules have not been imported:
@@ -166,6 +184,22 @@ See: https://doc.babylonjs.com/setup/frameworkPackages/es6Support/treeShaking
 
 `CheckMissingImports` can report modules your application never uses. Treat it as a development aid, then register only the features your code actually needs. Do not include this diagnostic in production builds.
 
+## Safe to Call Multiple Times
+
+All registration functions are safe to call more than once. Only the first call actually does anything:
+
+```typescript
+RegisterStandardMaterial();
+RegisterStandardMaterial(); // No-op, already registered
+RegisterStandardMaterial(); // No-op
+```
+
+This means:
+
+- You can safely call registration functions from multiple modules.
+- Libraries can register what they need without worrying about duplicate calls.
+- The order of registration usually does not matter, except for dependencies that must exist before use.
+
 ## Migration from Existing Side-Effect Imports
 
 To migrate an existing side-effect import:
@@ -175,13 +209,14 @@ To migrate an existing side-effect import:
 import "@babylonjs/core/Physics/joinedPhysicsEngineComponent";
 
 // After:
-import { registerJoinedPhysicsEngineComponent } from "@babylonjs/core/pure";
-registerJoinedPhysicsEngineComponent();
+import { RegisterJoinedPhysicsEngineComponent } from "@babylonjs/core/pure";
+RegisterJoinedPhysicsEngineComponent();
 ```
 
 The mapping is straightforward:
 
 1. Take the side-effect import path.
-2. Import the matching `registerXxx` function from `@babylonjs/core/pure`.
-3. Call it before using the feature.
-4. Add the `.types` import when the feature augments TypeScript types.
+2. Add `.pure` before the extension.
+3. Import the matching `RegisterXxx` function from `@babylonjs/core/pure`, where `Xxx` is the PascalCase filename.
+4. Call it before using the feature.
+5. Add the `.types` import when the feature augments TypeScript types.
