@@ -164,13 +164,47 @@ It can check stubs for parser registration, scene factory methods, scene picking
 
 Not every reported module is required. The report lists what is available but unregistered, so only import the features your application actually uses.
 
-### Side-Effect Stubs
+### Side-Effect Warning Stubs
 
 When pure imports are used, augmented prototype methods can be represented by lightweight stubs until registration occurs. These stubs make missing side effects easier to diagnose and allow feature-detection checks to remain safe.
 
+These stubs:
+
+- Return `undefined`, so feature-detection code like `if (scene.getPhysicsEngine())` works correctly.
+- Do not log warnings by default, because internal engine code may probe optional features frequently.
+- Produce a clear `TypeError` if you try to use the return value as an object.
+
 For example, code such as `if (scene.getPhysicsEngine()) { ... }` can evaluate to `false` when physics is not registered, instead of crashing during a feature check.
 
+To debug a pure-import scene and see which missing side-effect registrations are actually being called, enable runtime stub warnings during development:
+
+```typescript
+import { SetMissingSideEffectWarningsEnabled } from "@babylonjs/core/Misc/devTools";
+
+SetMissingSideEffectWarningsEnabled(true);
+```
+
+With this enabled, each missing side-effect stub logs at most once:
+
+```text
+[Babylon.js] Scene.getPhysicsEngine() requires a side-effect import. See: https://doc.babylonjs.com/setup/frameworkPackages/es6Support/treeShaking
+```
+
+If your code intentionally probes optional augmented APIs, suppress warnings around that synchronous probe:
+
+```typescript
+import { SuppressMissingSideEffectWarnings } from "@babylonjs/core/Misc/devTools";
+
+SuppressMissingSideEffectWarnings(() => {
+  scene.getPhysicsEngine?.();
+});
+```
+
+Use runtime warnings as a development diagnostic. For a broad startup report of all known unregistered stubs, use `CheckMissingImports()` instead.
+
 ## Performance Considerations
+
+### Registration Timing
 
 Register side effects before you use them. A common pattern is to group application registrations near the top of your entry point:
 
@@ -181,6 +215,8 @@ RegisterStandardMaterial();
 RegisterRay();
 RegisterJoinedPhysicsEngineComponent();
 ```
+
+### Bundle Size Impact
 
 Registration functions are typically small. The main bundle-size benefit comes from not importing the modules your application does not need.
 
