@@ -952,6 +952,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/materials/using/moreMaterials"
                                         },
+                                        "textureRepetition": {
+                                            "friendlyName": "Breaking Texture Repetition",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/materials/using/textureRepetition"
+                                        },
                                         "parallaxMapping": {
                                             "friendlyName": "Parallax Mapping",
                                             "children": {},
