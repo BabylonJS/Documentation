@@ -160,29 +160,54 @@ Some registration functions automatically register the features they depend on. 
 
 You do not need to manually register dependencies that are already handled this way. If you are unsure, calling a registration function multiple times is harmless.
 
-## CheckMissingImports Diagnostic
+## The `CheckMissingImports` Diagnostic
 
-If you are unsure which registrations your application needs, use the development diagnostic utility:
+If you're unsure which registrations your app needs, use the diagnostic utility:
 
 ```typescript
 import { CheckMissingImports } from "@babylonjs/core/Misc/checkMissingImports";
 
+// Call after all your imports but before scene logic
 const missing = CheckMissingImports();
 ```
 
-This scans all known placeholders and reports which features have not been registered:
+This scans all known placeholders (stubs) and reports which features haven't been registered:
 
-```text
+```
 [Babylon.js] The following side-effect modules have not been imported:
   - Ray
   - ImageProcessingConfiguration
   - Texture
 Note: These are only required if your application uses the corresponding features.
 If you do use them, import the modules or their parent packages to avoid runtime errors.
-See: https://doc.babylonjs.com/setup/frameworkPackages/es6Support/treeShaking
+See: https://doc.babylonjs.com/setup/treeshaking
 ```
 
-`CheckMissingImports` can report modules your application never uses. Treat it as a development aid, then register only the features your code actually needs. Do not include this diagnostic in production builds.
+**Important**: `CheckMissingImports` reports ALL unregistered stubs, even ones your app may never hit. Not every reported module needs to be imported — only the ones your code actually uses.
+
+This utility is intended for **development only**. It imports several core modules to test their stubs, so don't include it in production builds.
+
+## Runtime Stub Warning Diagnostics
+
+`CheckMissingImports()` reports all known unregistered stubs, including features your app may never use. If you want to debug only the missing side-effect registrations that are actually called at runtime, enable one-time stub warnings:
+
+```typescript
+import { SetMissingSideEffectWarningsEnabled } from "@babylonjs/core/Misc/devTools";
+
+SetMissingSideEffectWarningsEnabled(true);
+```
+
+Missing side-effect stubs are quiet by default because Babylon internals may probe optional augmented APIs. When warnings are enabled, each missing `Class.method` logs at most once. For code that intentionally probes optional APIs, suppress warnings around the synchronous probe:
+
+```typescript
+import { SuppressMissingSideEffectWarnings } from "@babylonjs/core/Misc/devTools";
+
+SuppressMissingSideEffectWarnings(() => {
+  scene.getPhysicsEngine?.();
+});
+```
+
+Keep runtime stub warnings as a development diagnostic unless your application intentionally wants this logging in production.
 
 ## Safe to Call Multiple Times
 

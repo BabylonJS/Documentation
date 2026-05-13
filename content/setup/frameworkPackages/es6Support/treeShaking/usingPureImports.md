@@ -108,20 +108,20 @@ In the tree-shaking architecture, static methods that previously lived on classe
 // In animation.pure.ts:
 
 export class Animation {
-    // No static Parse() in the class body!
-    // ...
+  // No static Parse() in the class body!
+  // ...
 }
 
 // The free function is exported separately — always available from .pure.ts:
 export function AnimationParse(parsedAnimation: any): Animation {
-    // ... actual implementation ...
+  // ... actual implementation ...
 }
 
 // Inside the registration function (called by animation.ts):
 export function RegisterAnimation(): void {
-    // ...
-    Animation.Parse = AnimationParse; // static only assigned here
-    RegisterClass("BABYLON.Animation", Animation);
+  // ...
+  Animation.Parse = AnimationParse; // static only assigned here
+  RegisterClass("BABYLON.Animation", Animation);
 }
 ```
 
@@ -178,8 +178,8 @@ Vite uses Rollup internally. No special configuration is normally required for p
 import { defineConfig } from "vite";
 
 export default defineConfig({
-    // Vite handles .pure imports correctly.
-    // The package sideEffects metadata guides tree-shaking.
+  // Vite handles .pure imports correctly.
+  // The package sideEffects metadata guides tree-shaking.
 });
 ```
 
@@ -189,10 +189,10 @@ Webpack respects the `sideEffects` field in `package.json`. Make sure tree-shaki
 
 ```javascript
 module.exports = {
-    optimization: {
-        usedExports: true, // Enable tree-shaking (default in production)
-        sideEffects: true, // Respect package sideEffects metadata (default)
-    },
+  optimization: {
+    usedExports: true, // Enable tree-shaking (default in production)
+    sideEffects: true, // Respect package sideEffects metadata (default)
+  },
 };
 ```
 
@@ -204,20 +204,20 @@ Rollup-based builds can mark pure modules as side-effect-free if additional cont
 import { readFileSync } from "fs";
 
 function markPureModules() {
-    return {
-        name: "mark-pure-modules",
-        load(id) {
-            if (/\.pure\.(js|ts)$/.test(id) || /\.functions\.(js|ts)$/.test(id)) {
-                const code = readFileSync(id, "utf8");
-                return { code, moduleSideEffects: false };
-            }
-            return null;
-        },
-    };
+  return {
+    name: "mark-pure-modules",
+    load(id) {
+      if (/\.pure\.(js|ts)$/.test(id) || /\.functions\.(js|ts)$/.test(id)) {
+        const code = readFileSync(id, "utf8");
+        return { code, moduleSideEffects: false };
+      }
+      return null;
+    },
+  };
 }
 
 export default {
-    plugins: [markPureModules() /* ... other plugins */],
+  plugins: [markPureModules() /* ... other plugins */],
 };
 ```
 
@@ -229,126 +229,125 @@ This example uses Physics V2 with Havok, a ground plane, falling spheres, a hing
 
 ```typescript
 import {
-    Engine,
-    Scene,
-    ArcRotateCamera,
-    HemisphericLight,
-    DirectionalLight,
-    CreateSphere,
-    CreateBox,
-    CreateGround,
-    PBRMaterial,
-    Color3,
-    Color4,
-    Vector3,
-    ShadowGenerator,
-    PhysicsAggregate,
-    PhysicsShapeType,
-    HavokPlugin,
-    HingeConstraint,
-    RegisterStandardEngineExtensions,
-    RegisterShadowGeneratorSceneComponent,
-    RegisterJoinedPhysicsEngineComponent,
-    RegisterV2PhysicsEngineComponent,
-} from "@babylonjs/core/pure";
+  Engine,
+  Scene,
+  ArcRotateCamera,
+  HemisphericLight,
+  DirectionalLight,
+  CreateSphere,
+  CreateBox,
+  CreateGround,
+  PBRMaterial,
+  Color3,
+  Color4,
+  Vector3,
+  ShadowGenerator,
+  PhysicsAggregate,
+  PhysicsShapeType,
+  HavokPlugin,
+  HingeConstraint,
+  RegisterStandardEngineExtensions,
+  RegisterJoinedPhysicsEngineComponent,
+  RegisterPhysicsV2PhysicsEngineComponent,
+} from "@babylonjs/core/pure.js";
 
-import "@babylonjs/core/Physics/joinedPhysicsEngineComponent.types";
-
+// Engine extensions required for rendering
 RegisterStandardEngineExtensions();
-RegisterShadowGeneratorSceneComponent();
+
+// Physics v2 engine components
 RegisterJoinedPhysicsEngineComponent();
-RegisterV2PhysicsEngineComponent();
+RegisterPhysicsV2PhysicsEngineComponent();
 
 function createScene(engine: Engine, canvas: HTMLCanvasElement): Scene {
-    const scene = new Scene(engine);
-    scene.clearColor = new Color4(0.05, 0.05, 0.1, 1);
+  const scene = new Scene(engine);
+  scene.clearColor = new Color4(0.05, 0.05, 0.1, 1);
 
-    const camera = new ArcRotateCamera("camera", -Math.PI / 4, Math.PI / 3, 20, new Vector3(0, 3, 0), scene);
-    camera.attachControl(canvas, true);
-    camera.lowerRadiusLimit = 8;
-    camera.upperRadiusLimit = 40;
+  const camera = new ArcRotateCamera("camera", -Math.PI / 4, Math.PI / 3, 20, new Vector3(0, 3, 0), scene);
+  camera.attachControl(canvas, true);
+  camera.lowerRadiusLimit = 8;
+  camera.upperRadiusLimit = 40;
 
-    const ambientLight = new HemisphericLight("ambient", new Vector3(0, 1, 0), scene);
-    ambientLight.intensity = 0.3;
+  const ambientLight = new HemisphericLight("ambient", new Vector3(0, 1, 0), scene);
+  ambientLight.intensity = 0.3;
 
-    const directionalLight = new DirectionalLight("dirLight", new Vector3(-1, -2, 1).normalize(), scene);
-    directionalLight.position = new Vector3(5, 10, -5);
-    directionalLight.intensity = 0.8;
+  const directionalLight = new DirectionalLight("dirLight", new Vector3(-1, -2, 1).normalize(), scene);
+  directionalLight.position = new Vector3(5, 10, -5);
+  directionalLight.intensity = 0.8;
 
-    const shadowGenerator = new ShadowGenerator(1024, directionalLight);
-    shadowGenerator.useBlurExponentialShadowMap = true;
+  const shadowGenerator = new ShadowGenerator(1024, directionalLight);
+  shadowGenerator.useBlurExponentialShadowMap = true;
 
-    const ground = CreateGround("ground", { width: 20, height: 20 }, scene);
-    const groundMaterial = new PBRMaterial("groundMat", scene);
-    groundMaterial.albedoColor = new Color3(0.15, 0.15, 0.15);
-    groundMaterial.metallic = 0.1;
-    groundMaterial.roughness = 0.9;
-    ground.material = groundMaterial;
-    ground.receiveShadows = true;
+  const ground = CreateGround("ground", { width: 20, height: 20 }, scene);
+  const groundMaterial = new PBRMaterial("groundMat", scene);
+  groundMaterial.albedoColor = new Color3(0.15, 0.15, 0.15);
+  groundMaterial.metallic = 0.1;
+  groundMaterial.roughness = 0.9;
+  ground.material = groundMaterial;
+  ground.receiveShadows = true;
 
-    const sphereColors = [new Color3(0.8, 0.2, 0.2), new Color3(0.2, 0.8, 0.2), new Color3(0.2, 0.2, 0.8), new Color3(0.8, 0.8, 0.2)];
+  const sphereColors = [new Color3(0.8, 0.2, 0.2), new Color3(0.2, 0.8, 0.2), new Color3(0.2, 0.2, 0.8), new Color3(0.8, 0.8, 0.2)];
 
-    for (let index = 0; index < sphereColors.length; index++) {
-        const sphere = CreateSphere(`sphere${index}`, { diameter: 1, segments: 16 }, scene);
-        sphere.position = new Vector3((index - 1.5) * 2, 6 + index * 2, 0);
+  for (let index = 0; index < sphereColors.length; index++) {
+    const sphere = CreateSphere(`sphere${index}`, { diameter: 1, segments: 16 }, scene);
+    sphere.position = new Vector3((index - 1.5) * 2, 6 + index * 2, 0);
 
-        const sphereMaterial = new PBRMaterial(`sphereMat${index}`, scene);
-        sphereMaterial.albedoColor = sphereColors[index];
-        sphereMaterial.metallic = 0.5;
-        sphereMaterial.roughness = 0.4;
-        sphere.material = sphereMaterial;
+    const sphereMaterial = new PBRMaterial(`sphereMat${index}`, scene);
+    sphereMaterial.albedoColor = sphereColors[index];
+    sphereMaterial.metallic = 0.5;
+    sphereMaterial.roughness = 0.4;
+    sphere.material = sphereMaterial;
 
-        shadowGenerator.addShadowCaster(sphere);
-    }
+    shadowGenerator.addShadowCaster(sphere);
+  }
 
-    const boxA = CreateBox("boxA", { width: 1, height: 0.5, depth: 2 }, scene);
-    boxA.position = new Vector3(4, 4, 0);
-    const boxAMaterial = new PBRMaterial("boxAMat", scene);
-    boxAMaterial.albedoColor = new Color3(0.6, 0.3, 0.7);
-    boxAMaterial.metallic = 0.6;
-    boxAMaterial.roughness = 0.3;
-    boxA.material = boxAMaterial;
-    shadowGenerator.addShadowCaster(boxA);
+  const boxA = CreateBox("boxA", { width: 1, height: 0.5, depth: 2 }, scene);
+  boxA.position = new Vector3(4, 4, 0);
+  const boxAMaterial = new PBRMaterial("boxAMat", scene);
+  boxAMaterial.albedoColor = new Color3(0.6, 0.3, 0.7);
+  boxAMaterial.metallic = 0.6;
+  boxAMaterial.roughness = 0.3;
+  boxA.material = boxAMaterial;
+  shadowGenerator.addShadowCaster(boxA);
 
-    const boxB = CreateBox("boxB", { width: 1, height: 0.5, depth: 2 }, scene);
-    boxB.position = new Vector3(4, 4, 2.5);
-    const boxBMaterial = new PBRMaterial("boxBMat", scene);
-    boxBMaterial.albedoColor = new Color3(0.3, 0.6, 0.7);
-    boxBMaterial.metallic = 0.6;
-    boxBMaterial.roughness = 0.3;
-    boxB.material = boxBMaterial;
-    shadowGenerator.addShadowCaster(boxB);
+  const boxB = CreateBox("boxB", { width: 1, height: 0.5, depth: 2 }, scene);
+  boxB.position = new Vector3(4, 4, 2.5);
+  const boxBMaterial = new PBRMaterial("boxBMat", scene);
+  boxBMaterial.albedoColor = new Color3(0.3, 0.6, 0.7);
+  boxBMaterial.metallic = 0.6;
+  boxBMaterial.roughness = 0.3;
+  boxB.material = boxBMaterial;
+  shadowGenerator.addShadowCaster(boxB);
 
-    return scene;
+  return scene;
 }
 
 async function initPhysics(scene: Scene, havokInstance: unknown): Promise<void> {
-    const plugin = new HavokPlugin(true, havokInstance);
-    scene.enablePhysics(new Vector3(0, -9.81, 0), plugin);
+  const plugin = new HavokPlugin(true, havokInstance);
+  scene.enablePhysics(new Vector3(0, -9.81, 0), plugin);
 
-    const ground = scene.getMeshByName("ground");
-    if (ground) {
-        new PhysicsAggregate(ground, PhysicsShapeType.BOX, { mass: 0 }, scene);
+  const ground = scene.getMeshByName("ground");
+  if (ground) {
+    new PhysicsAggregate(ground, PhysicsShapeType.BOX, { mass: 0 }, scene);
+  }
+
+  for (let index = 0; index < 4; index++) {
+    const sphere = scene.getMeshByName(`sphere${index}`);
+    if (sphere) {
+      new PhysicsAggregate(sphere, PhysicsShapeType.SPHERE, { mass: 1, restitution: 0.6 }, scene);
     }
+  }
 
-    for (let index = 0; index < 4; index++) {
-        const sphere = scene.getMeshByName(`sphere${index}`);
-        if (sphere) {
-            new PhysicsAggregate(sphere, PhysicsShapeType.SPHERE, { mass: 1, restitution: 0.6 }, scene);
-        }
-    }
+  const boxA = scene.getMeshByName("boxA");
+  const boxB = scene.getMeshByName("boxB");
+  if (!boxA || !boxB) {
+    return;
+  }
 
-    const boxA = scene.getMeshByName("boxA");
-    const boxB = scene.getMeshByName("boxB");
-    if (!boxA || !boxB) {
-        return;
-    }
+  const aggregateA = new PhysicsAggregate(boxA, PhysicsShapeType.BOX, { mass: 0 }, scene);
+  const aggregateB = new PhysicsAggregate(boxB, PhysicsShapeType.BOX, { mass: 2 }, scene);
 
-    const aggregateA = new PhysicsAggregate(boxA, PhysicsShapeType.BOX, { mass: 0 }, scene);
-    const aggregateB = new PhysicsAggregate(boxB, PhysicsShapeType.BOX, { mass: 2 }, scene);
-
-    const hinge = new HingeConstraint(new Vector3(0, 0, 1), new Vector3(0, 0, -1), new Vector3(1, 0, 0), new Vector3(1, 0, 0), scene);
-    aggregateA.body.addConstraint(aggregateB.body, hinge);
+  const hinge = new HingeConstraint(new Vector3(0, 0, 1), new Vector3(0, 0, -1), new Vector3(1, 0, 0), new Vector3(1, 0, 0), scene);
+  aggregateA.body.addConstraint(aggregateB.body, hinge);
 }
 
 const canvas = document.getElementById("renderCanvas") as HTMLCanvasElement;
@@ -359,7 +358,7 @@ engine.runRenderLoop(() => scene.render());
 window.addEventListener("resize", () => engine.resize());
 
 import("@babylonjs/havok").then((havok) => {
-    havok.default().then((havokInstance: unknown) => initPhysics(scene, havokInstance));
+  havok.default().then((havokInstance: unknown) => initPhysics(scene, havokInstance));
 });
 ```
 
@@ -368,15 +367,35 @@ import("@babylonjs/havok").then((havok) => {
 For glTF loading, use `SceneLoader` with the pure barrel and the glTF loader package:
 
 ```typescript
-import { Engine, Scene, SceneLoader, RegisterStandardEngineExtensions, RegisterEnginesExtensionsEngineRawTexture } from "@babylonjs/core/pure";
-import "@babylonjs/loaders/glTF";
+import { Engine, Scene, ArcRotateCamera, DirectionalLight, Vector3, ImportMeshAsync, RegisterStandardEngineExtensions, RegisterEnginesExtensionsEngineRawTexture } from "@babylonjs/core/pure.js";
 
+// Register glTF loader plugin
+import "@babylonjs/loaders/glTF/2.0/index.js";
+
+// Engine extensions required for rendering
 RegisterStandardEngineExtensions();
+
+// Raw texture support (needed by glTF loader internally)
 RegisterEnginesExtensionsEngineRawTexture();
 
-const engine = new Engine(canvas, true);
-const scene = new Scene(engine);
-const result = await SceneLoader.ImportMeshAsync("", "model.glb", undefined, scene);
+const MODEL_URL = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Fox/glTF-Binary/Fox.glb";
+
+function createScene(engine) {
+  const scene = new Scene(engine);
+
+  // ── Camera ────────────────────────────────────────────────────────
+  const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 4, 150, new Vector3(0, 30, 0), scene);
+  camera.attachControl(true);
+  camera.lowerRadiusLimit = 50;
+  camera.upperRadiusLimit = 300;
+
+  const dir = new DirectionalLight("dir", new Vector3(-1, -3, -1), scene);
+  dir.intensity = 0.8;
+  dir.position = new Vector3(50, 100, 50);
+
+  // ── Load animated model ───────────────────────────────────────────
+  ImportMeshAsync(MODEL_URL, scene);
+}
 ```
 
 For `.babylon` files, serialization relies on `RegisterClass` to reconstruct objects by class name. Register the classes you expect to encounter:
@@ -418,36 +437,36 @@ This example creates a small VR gallery with teleportation, controller pointer s
 
 ```typescript
 import {
-    Engine,
-    Scene,
-    ArcRotateCamera,
-    HemisphericLight,
-    DirectionalLight,
-    CreateGround,
-    CreateCylinder,
-    CreateSphere,
-    CreateTorus,
-    CreateBox,
-    PBRMaterial,
-    StandardMaterial,
-    Color3,
-    Color4,
-    Vector3,
-    WebXRDefaultExperience,
-    WebXRFeatureName,
-    RegisterFullEngineExtensions,
-    RegisterWebXRDefaultExperience,
-    RegisterRay,
-    RegisterInstancedMesh,
-    RegisterAllNodeMaterialBlocks,
-    RegisterAnimation,
-    RegisterImageProcessingConfiguration,
-    RegisterColorCurves,
-    RegisterTexture,
-    RegisterFresnelParameters,
+  Engine,
+  Scene,
+  ArcRotateCamera,
+  HemisphericLight,
+  DirectionalLight,
+  CreateGround,
+  CreateCylinder,
+  CreateSphere,
+  CreateTorus,
+  CreateBox,
+  PBRMaterial,
+  StandardMaterial,
+  Color3,
+  Color4,
+  Vector3,
+  WebXRDefaultExperience,
+  WebXRFeatureName,
+  RegisterFullEngineExtensions,
+  RegisterWebXRDefaultExperience,
+  RegisterRay,
+  RegisterInstancedMesh,
+  RegisterAllNodeMaterialBlocks,
+  RegisterAnimation,
+  RegisterImageProcessingConfiguration,
+  RegisterColorCurves,
+  RegisterTexture,
+  RegisterFresnelParameters,
 } from "@babylonjs/core/pure";
 
-import "@babylonjs/loaders/glTF";
+import "@babylonjs/loaders/glTF/2.0";
 
 RegisterFullEngineExtensions();
 RegisterWebXRDefaultExperience();
@@ -461,70 +480,70 @@ RegisterTexture();
 RegisterFresnelParameters();
 
 function createScene(engine: Engine, canvas: HTMLCanvasElement): Scene {
-    const scene = new Scene(engine);
-    scene.clearColor = new Color4(0.05, 0.05, 0.1, 1);
+  const scene = new Scene(engine);
+  scene.clearColor = new Color4(0.05, 0.05, 0.1, 1);
 
-    const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 3, 10, Vector3.Zero(), scene);
-    camera.attachControl(canvas, true);
-    camera.lowerRadiusLimit = 2;
-    camera.upperRadiusLimit = 20;
+  const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 3, 10, Vector3.Zero(), scene);
+  camera.attachControl(canvas, true);
+  camera.lowerRadiusLimit = 2;
+  camera.upperRadiusLimit = 20;
 
-    const hemisphericLight = new HemisphericLight("hemi", new Vector3(0, 1, 0), scene);
-    hemisphericLight.intensity = 0.4;
+  const hemisphericLight = new HemisphericLight("hemi", new Vector3(0, 1, 0), scene);
+  hemisphericLight.intensity = 0.4;
 
-    const directionalLight = new DirectionalLight("dir", new Vector3(-1, -2, -1), scene);
-    directionalLight.intensity = 0.8;
-    directionalLight.position = new Vector3(5, 10, 5);
+  const directionalLight = new DirectionalLight("dir", new Vector3(-1, -2, -1), scene);
+  directionalLight.intensity = 0.8;
+  directionalLight.position = new Vector3(5, 10, 5);
 
-    const floor = CreateGround("floor", { width: 20, height: 20 }, scene);
-    const floorMaterial = new PBRMaterial("floorMat", scene);
-    floorMaterial.albedoColor = new Color3(0.15, 0.15, 0.2);
-    floorMaterial.metallic = 0.1;
-    floorMaterial.roughness = 0.9;
-    floor.material = floorMaterial;
+  const floor = CreateGround("floor", { width: 20, height: 20 }, scene);
+  const floorMaterial = new PBRMaterial("floorMat", scene);
+  floorMaterial.albedoColor = new Color3(0.15, 0.15, 0.2);
+  floorMaterial.metallic = 0.1;
+  floorMaterial.roughness = 0.9;
+  floor.material = floorMaterial;
 
-    const pedestalMaterial = new PBRMaterial("pedestalMat", scene);
-    pedestalMaterial.albedoColor = new Color3(0.6, 0.6, 0.65);
-    pedestalMaterial.metallic = 0.3;
-    pedestalMaterial.roughness = 0.5;
+  const pedestalMaterial = new PBRMaterial("pedestalMat", scene);
+  pedestalMaterial.albedoColor = new Color3(0.6, 0.6, 0.65);
+  pedestalMaterial.metallic = 0.3;
+  pedestalMaterial.roughness = 0.5;
 
-    const positions = [new Vector3(-3, 0, 3), new Vector3(0, 0, 4), new Vector3(3, 0, 3), new Vector3(-3, 0, -3), new Vector3(3, 0, -3)];
+  const positions = [new Vector3(-3, 0, 3), new Vector3(0, 0, 4), new Vector3(3, 0, 3), new Vector3(-3, 0, -3), new Vector3(3, 0, -3)];
 
-    positions.forEach((position, index) => {
-        const pedestal = CreateCylinder(`pedestal${index}`, { diameter: 0.8, height: 1 }, scene);
-        pedestal.position = position.add(new Vector3(0, 0.5, 0));
-        pedestal.material = pedestalMaterial;
+  positions.forEach((position, index) => {
+    const pedestal = CreateCylinder(`pedestal${index}`, { diameter: 0.8, height: 1 }, scene);
+    pedestal.position = position.add(new Vector3(0, 0.5, 0));
+    pedestal.material = pedestalMaterial;
 
-        const object = index % 3 === 0 ? CreateSphere(`obj${index}`, { diameter: 0.5, segments: 32 }, scene) : index % 3 === 1 ? CreateTorus(`obj${index}`, { diameter: 0.5, thickness: 0.15 }, scene) : CreateBox(`obj${index}`, { size: 0.4 }, scene);
-        object.position = position.add(new Vector3(0, 1.3, 0));
+    const object = index % 3 === 0 ? CreateSphere(`obj${index}`, { diameter: 0.5, segments: 32 }, scene) : index % 3 === 1 ? CreateTorus(`obj${index}`, { diameter: 0.5, thickness: 0.15 }, scene) : CreateBox(`obj${index}`, { size: 0.4 }, scene);
+    object.position = position.add(new Vector3(0, 1.3, 0));
 
-        const objectMaterial = new StandardMaterial(`objMat${index}`, scene);
-        objectMaterial.emissiveColor = Color3.FromHSV((index / positions.length) * 360, 0.7, 0.9);
-        objectMaterial.disableLighting = true;
-        object.material = objectMaterial;
-    });
+    const objectMaterial = new StandardMaterial(`objMat${index}`, scene);
+    objectMaterial.emissiveColor = Color3.FromHSV((index / positions.length) * 360, 0.7, 0.9);
+    objectMaterial.disableLighting = true;
+    object.material = objectMaterial;
+  });
 
-    WebXRDefaultExperience.CreateAsync(scene, {
-        floorMeshes: [floor],
-        optionalFeatures: true,
-        disableNearInteraction: true,
-    }).then((xr) => {
-        xr.teleportation?.addFloorMesh(floor);
+  WebXRDefaultExperience.CreateAsync(scene, {
+    floorMeshes: [floor],
+    optionalFeatures: true,
+    disableNearInteraction: true,
+  }).then((xr) => {
+    xr.teleportation?.addFloorMesh(floor);
 
-        try {
-            xr.baseExperience.featuresManager.enableFeature(WebXRFeatureName.POINTER_SELECTION, "stable", {
-                xrInput: xr.input,
-                enablePointerSelectionOnAllControllers: true,
-                disablePointerUpOnTouchOut: false,
-                forceGazeMode: false,
-                disableScenePointerVectorUpdate: false,
-            } as any);
-        } catch {
-            // Pointer selection is not available on every browser or device.
-        }
-    });
+    try {
+      xr.baseExperience.featuresManager.enableFeature(WebXRFeatureName.POINTER_SELECTION, "stable", {
+        xrInput: xr.input,
+        enablePointerSelectionOnAllControllers: true,
+        disablePointerUpOnTouchOut: false,
+        forceGazeMode: false,
+        disableScenePointerVectorUpdate: false,
+      } as any);
+    } catch {
+      // Pointer selection is not available on every browser or device.
+    }
+  });
 
-    return scene;
+  return scene;
 }
 
 const canvas = document.getElementById("renderCanvas") as HTMLCanvasElement;
