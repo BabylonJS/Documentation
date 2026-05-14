@@ -317,17 +317,6 @@ This extension introduces five boolean input states per hand (`menu` - only left
 <img src="/img/how_to/xr/hand-tracking-microgestures.png" title="Hand tracking microgestures" alt="Hand tracking microgestures" width="500" height="900" />
 <br/><br/>
 
-To enable this functionality, the online repository must be disabled until the `oculus-hand` profile becomes available through the WebXR controller profiles repository.
-With the online repository disabled, the profile will be loaded locally, allowing applications to access the Oculus hand input definitions.
-
-```typescript
-scene.createDefaultXRExperienceAsync({
-    inputOptions: {
-      disableOnlineControllerRepository: true
-    }
- })
- ```
-
 If you're using ES6 modules with tree-shaking, make sure to import the controller to ensure its initialization.
 
  ```ts
@@ -351,4 +340,4 @@ xr.input.onControllerAddedObservable.add((xrController) => {
 
 In the playground below, you can find subscriptions for all available events.
 
-<Playground id="#F41V6N#2277" title="Hand tracking microgestures" description="A simple example of a hand tracking microgestures" />
+<Playground id="#F41V6N#2427" title="Hand tracking microgestures" description="A simple example of a hand tracking microgestures" />
