@@ -4,11 +4,15 @@ image:
 description: Learn how to customize input controls for Babylon.js cameras.
 keywords: diving deeper, cameras, input, camera input
 further-reading:
+  - title: Camera Movement and Input System (ArcRotateCamera and GeospatialCamera)
+    url: /features/featuresDeepDive/cameras/cameraMovementSystem
   - title: Looking at Custom Camera Inputs
     url: https://babylonjs.medium.com/looking-at-custom-camera-inputs-becb492f09fc
 video-overview:
 video-content:
 ---
+
+> **Note:** This page covers the legacy plugin-style input manager (`camera.inputs`) used by `FreeCamera`, `UniversalCamera`, `FollowCamera`, and `FlyCamera`. `ArcRotateCamera` and `GeospatialCamera` route their inputs through a newer declarative inputMap + movement system documented in [Camera Movement and Input System](/features/featuresDeepDive/cameras/cameraMovementSystem). Existing legacy flags on `ArcRotateCamera` (e.g. `useCtrlForPanning`, `panningMouseButton`, `useAltToZoom`, `inertia`, `panningInertia`) continue to work and are bridged onto the new inputMap automatically — but if you want to make new customizations on those two cameras, prefer the new system.
 
 ## How to Customize Camera Inputs
 
