@@ -259,8 +259,6 @@ The legacy boolean / numeric flags continue to work and are bridged to the input
 - `camera.panningInertia` flows through to `camera.movement.panInertia`.
 - `camera.inertialAlphaOffset`, `camera.inertialBetaOffset`, `camera.inertialRadiusOffset`, `camera.inertialPanningX`, `camera.inertialPanningY` are still read and written. Direct writes to these properties still cause the camera to move with inertia.
 
-The deprecated `useMovementSystem` accessor remains as a no-op getter/setter so any code that still toggles it compiles.
-
 If you mix legacy flag changes and direct inputMap edits, the legacy flag setters re-sync the inputMap each time they are written. If you intend to fully customize via the inputMap, make your inputMap edits _after_ any legacy flag assignments, or just stop touching the legacy flags entirely.
 
 ## Custom interactions and handlers
