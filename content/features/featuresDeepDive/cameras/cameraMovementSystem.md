@@ -37,7 +37,7 @@ The legacy approach had a separate boolean or numeric property for every customi
 Splitting things into a declarative inputMap and a separate physics layer means:
 
 - Each input class becomes a thin translator: it observes the DOM, looks up the matching inputMap entry, and dispatches to the typed handler.
-- Customizing a binding is a single `addEntry` / `setInteraction` call, no recompilation needed.
+- Adding a new gesture is a single `setInteraction` or `addEntry` call in your own scene code — no new framework property and no engine release needed.
 - Inertia and decay live in one place and produce framerate-independent motion regardless of whether the user is at 60Hz, 144Hz, or single-stepping.
 
 ## The inputMap
@@ -54,10 +54,10 @@ Resolution is **first-match-wins**. The mapper walks the array in order and retu
 | `pointer` | `button: 0` | `rotate` |
 | `pointer` | `button: 2` | `pan` |
 | `wheel` | _(any)_ | `zoom` |
-| `keyboard` | `key: [187, 107, 189, 109]` (`+ -`) | `zoom` |
-| `keyboard` | `ctrl` | `pan` |
-| `keyboard` | `alt` | `zoom` |
-| `keyboard` | _(any)_ | `rotate` |
+| `keyboard` | `+ -` (codes 187, 107, 189, 109) | `zoom` |
+| `keyboard` | `ctrl` + nav key | `pan` |
+| `keyboard` | `alt` + nav key | `zoom` |
+| `keyboard` | nav key only | `rotate` |
 
 ### GeospatialCamera defaults
 
@@ -67,27 +67,29 @@ Resolution is **first-match-wins**. The mapper walks the array in order and retu
 | `pointer` | `button: 1` | `rotate` (tilt) |
 | `pointer` | `button: 2` | `rotate` (tilt) |
 | `wheel` | _(any)_ | `zoom` |
-| `keyboard` | `key: [187, 107, 189, 109]` (`+ -`) | `zoom` |
-| `keyboard` | `ctrl` | `rotate` |
-| `keyboard` | `alt` | `rotate` |
-| `keyboard` | _(any)_ | `pan` |
+| `keyboard` | `+ -` (codes 187, 107, 189, 109) | `zoom` |
+| `keyboard` | `ctrl` + nav key | `rotate` |
+| `keyboard` | `alt` + nav key | `rotate` |
+| `keyboard` | nav key only | `pan` |
+
+The keyboard rows above describe what happens when a **registered navigation key** is pressed. Each input class subscribes to a small set of key codes (`keysUp`, `keysDown`, `keysLeft`, `keysRight`, plus `keysReset`, `keysZoomIn`, `keysZoomOut` where applicable) and only consults the inputMap for those keys — pressing an unrelated key (like `Q` or `Tab`) does nothing. So a row like `keyboard | nav key only | rotate` means "when the user presses one of the registered navigation keys with no modifier held, dispatch rotate", not "any key on the keyboard rotates".
 
 ## When to use which API
 
-The InputMapper exposes a small surface of mutation methods. Picking the right one keeps your code intent clear and avoids accidentally clobbering other entries.
+The InputMapper exposes a small surface of mutation methods. Picking the right one keeps your code intent clear.
 
-For a single, runnable reference that exercises every API in this section with inline commentary, see the **InputMapper API tour playground**: <Playground id="#NKSE39#0" title="InputMapper API Tour — addEntry, setInteraction, getEntry, handlers, and more" />
+For a single, runnable reference that exercises every API in this section with inline commentary, see the **InputMapper API tour playground**: <Playground id="#Y8BTCE#0" title="InputMapper API Tour — addEntry, setInteraction, getEntry, handlers, and more" />
 
 | You want to… | Use | Why |
 |---|---|---|
-| Add a brand-new input combo (e.g. ctrl+drag on a camera that doesn't already have one) | `addEntry` | Inserts at the correct position by specificity so the new entry wins where it should. |
-| Swap which interaction an _existing_ entry produces (e.g. flip the existing ctrl+drag entry from pan to rotate) | `setInteraction` | Mutates the matched entry's `interaction` in place. Doesn't add or remove entries. |
+| Set up an input combo to do a specific interaction (whether or not the combo already has a distinct entry in the map) | `setInteraction` | Mutates the matched entry's `interaction` in place when the entry is at least as specific as the request; otherwise inserts a new, more-specific entry via `addEntry` so the new mapping wins for that combo without clobbering broader entries. |
+| Insert one or more raw entries explicitly (e.g. seeding an editor's "user bindings" list, or rebuilding a known mapping from scratch) | `addEntry` | Inserts at the correct position by specificity. Use when you want full control over what's inserted (sensitivity, axis overrides) rather than letting `setInteraction` synthesize an entry from the conditions. |
 | Bulk-swap interactions on every entry that matches some conditions (e.g. all keys currently bound to pan should become rotate) | `setInteractions` (plural) | Updates every matching entry; returns the count. |
 | Tweak a property on an existing entry (e.g. change wheel-zoom sensitivity) | `getEntry` then mutate | Returns a reference to the live entry. |
 | Get every entry matching a description | `getEntries` | Useful for bulk sensitivity tuning or auditing. |
 | Restore the default mappings after experimenting | `resetInputMap` | Calls the factory the camera registered at construction time. |
 
-The first row is the most common gotcha. `setInteraction` mutates the entry that `resolveInteraction` would have returned — if you ask it to swap an input combo that isn't already a distinct entry in the map, it will mutate the catch-all entry that absorbed it, which usually breaks unmodified gestures.
+`setInteraction` is the right starting point for "I want input X to do Y" because it does the safe thing whether or not the combo already exists. `addEntry` is reserved for the rarer cases where you want to construct the entry explicitly (for example to set `sensitivity`/`sensitivityX`/`sensitivityY` at insertion time, or to seed a batch of bindings).
 
 ### Example: `setInteraction` (swap an existing binding)
 
@@ -105,22 +107,23 @@ input.setInteraction("pointer", { button: 0, modifiers: { ctrl: true } }, "rotat
 
 Live playground: <Playground id="#A1CDLY#0" title="ArcRotate setInteraction — swap left-drag and ctrl+left-drag" />
 
-### Example: `addEntry` (introduce a new binding)
+### Example: `setInteraction` introducing a new combo
 
-GeospatialCamera does **not** have a ctrl-modified pointer entry by default. Calling `setInteraction("pointer", { button: 0, modifiers: { ctrl: true } }, "rotate")` would resolve the catch-all `{ button: 0, interaction: "pan" }` entry and silently flip _it_ to rotate, breaking unmodified left-drag.
-
-Use `addEntry` instead — it inserts the new entry at the correct position based on specificity, so it wins for ctrl-modified left-drag without intercepting plain left-drag:
+GeospatialCamera does **not** have a ctrl-modified pointer entry by default. Asking for `setInteraction("pointer", { button: 0, modifiers: { ctrl: true } }, "rotate")` against its default map matches the catch-all `{ button: 0, interaction: "pan" }`, but that catch-all is *broader* than the request — it doesn't constrain ctrl. `setInteraction` detects this and inserts a new specific entry instead of mutating the catch-all:
 
 ```javascript
-camera.movement.input.addEntry({
-    source: "pointer",
-    button: 0,
-    modifiers: { ctrl: true },
-    interaction: "rotate",
-});
+// Same call works on either camera. On ArcRotate it mutates the existing
+// ctrl-modified entry; on Geospatial it adds a new specific entry.
+camera.movement.input.setInteraction(
+    "pointer",
+    { button: 0, modifiers: { ctrl: true } },
+    "rotate"
+);
 ```
 
-Live playground: <Playground id="#P0JBTE#0" title="Geospatial addEntry — add ctrl+left-drag rotate" />
+After this call on GeospatialCamera, ctrl + left-drag rotates and unmodified left-drag still pans.
+
+Live playground: <Playground id="#6QK7ZS#0" title="Geospatial setInteraction — add ctrl+left-drag rotate" />
 
 ### Example: `getEntry` (tweak sensitivity)
 
