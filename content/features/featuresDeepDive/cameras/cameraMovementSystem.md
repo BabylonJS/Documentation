@@ -76,6 +76,8 @@ Resolution is **first-match-wins**. The mapper walks the array in order and retu
 
 The InputMapper exposes a small surface of mutation methods. Picking the right one keeps your code intent clear and avoids accidentally clobbering other entries.
 
+For a single, runnable reference that exercises every API in this section with inline commentary, see the **InputMapper API tour playground**: <Playground id="#NKSE39#0" title="InputMapper API Tour — addEntry, setInteraction, getEntry, handlers, and more" />
+
 | You want to… | Use | Why |
 |---|---|---|
 | Add a brand-new input combo (e.g. ctrl+drag on a camera that doesn't already have one) | `addEntry` | Inserts at the correct position by specificity so the new entry wins where it should. |
