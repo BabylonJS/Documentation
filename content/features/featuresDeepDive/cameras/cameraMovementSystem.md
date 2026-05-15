@@ -10,6 +10,10 @@ video-overview:
 video-content:
 ---
 
+<Alert severity="info" title="Supported cameras">
+  This system is currently available on **`ArcRotateCamera`** and **`GeospatialCamera`**. The other built-in cameras (`FreeCamera`, `UniversalCamera`, `FollowCamera`, `FlyCamera`, VR / touch-joystick inputs, etc.) are being ported over and will adopt the same `camera.movement` / `camera.movement.input` surface in subsequent releases. Until then, those cameras continue to use the legacy plugin-style input manager documented in [Customizing Camera Inputs](/features/featuresDeepDive/cameras/customizingCameraInputs).
+</Alert>
+
 ## Overview
 
 `ArcRotateCamera` and `GeospatialCamera` route every frame's input through a small two-layer system:
@@ -270,6 +274,5 @@ The handler signature differs per camera (arc-rotate's `pan` takes `(deltaX, del
 
 ## Notes
 
-- `FreeCamera`, `FollowCamera`, `FlyCamera`, VR / touch-joystick input sources still use the older plugin-style `camera.inputs` system documented in [Customizing Camera Inputs](/features/featuresDeepDive/cameras/customizingCameraInputs). Migration to the new system for those cameras will land in subsequent PRs.
 - Touch input on `ArcRotateCamera` and `GeospatialCamera` (single-touch drag, multi-touch pan + pinch) routes through the same inputMap as pointer input. Multi-touch entries use the `"touch"` source with an optional `touchCount` condition.
 - Gamepad input on `ArcRotateCamera` feeds the same accumulators as pointer input, so it benefits from the same inertia and framerate-independence work.

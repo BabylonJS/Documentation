@@ -12,7 +12,7 @@ video-overview:
 video-content:
 ---
 
-> **Note:** This page covers the legacy plugin-style input manager (`camera.inputs`) used by `FreeCamera`, `UniversalCamera`, `FollowCamera`, and `FlyCamera`. `ArcRotateCamera` and `GeospatialCamera` route their inputs through a newer declarative inputMap + movement system documented in [Camera Movement and Input System](/features/featuresDeepDive/cameras/cameraMovementSystem). Existing legacy flags on `ArcRotateCamera` (e.g. `useCtrlForPanning`, `panningMouseButton`, `useAltToZoom`, `inertia`, `panningInertia`) continue to work and are bridged onto the new inputMap automatically — but if you want to make new customizations on those two cameras, prefer the new system.
+> **Note:** This page covers the legacy plugin-style input manager (`camera.inputs`). It currently applies to `FreeCamera`, `UniversalCamera`, `FollowCamera`, `FlyCamera`, and the VR / touch-joystick inputs — but those cameras are being ported to the newer declarative inputMap + movement system used by `ArcRotateCamera` and `GeospatialCamera` today, documented in [Camera Movement and Input System](/features/featuresDeepDive/cameras/cameraMovementSystem). For the cameras already on the new system, existing legacy flags (e.g. `useCtrlForPanning`, `panningMouseButton`, `useAltToZoom`, `inertia`, `panningInertia`) continue to work and are bridged onto the new inputMap automatically — but new customizations should prefer the new system.
 
 ## How to Customize Camera Inputs
 
