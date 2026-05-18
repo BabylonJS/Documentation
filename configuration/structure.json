@@ -2439,7 +2439,34 @@
                         },
                         "es6Support": {
                             "friendlyName": "ES6/NPM Support",
-                            "children": {},
+                            "children": {
+                                "treeShaking": {
+                                    "friendlyName": "Tree-Shaking with Pure Imports",
+                                    "children": {
+                                        "usingPureImports": {
+                                            "friendlyName": "Using Pure Imports",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/usingPureImports"
+                                        },
+                                        "registeringSideEffects": {
+                                            "friendlyName": "Registering Side Effects",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/registeringSideEffects"
+                                        },
+                                        "troubleshooting": {
+                                            "friendlyName": "Troubleshooting Pure Imports",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/troubleshooting"
+                                        },
+                                        "contributing": {
+                                            "friendlyName": "Adding Tree-Shakeable Features",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/contributing"
+                                        }
+                                    },
+                                    "content": "setup/frameworkPackages/es6Support/treeShaking"
+                                }
+                            },
                             "content": "setup/frameworkPackages/es6Support"
                         }
                     },

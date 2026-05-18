@@ -8,6 +8,8 @@ further-reading:
     url: /setup/frameworkPackages/frameworkVers
   - title: NPM Support
     url: /setup/frameworkPackages/npmSupport
+  - title: Tree-Shaking with Pure Imports
+    url: /setup/frameworkPackages/es6Support/treeShaking
 video-overview:
 video-content:
 ---
@@ -338,6 +340,8 @@ This means the previous example is now requiring about 700Kb vs 2.3Mb before.
 **Please note we are continuing to improve our min package size by decoupling a bit more our packages so if you spot any unnecessary dependency, please, do not hesitate to create an issue on [GitHub](https://github.com/BabylonJS/Babylon.js).**
 
 **As you will see in the next paragraph, you also need to target individual files to fully benefit from tree shaking in your app.**
+
+Babylon.js also provides a pure import system that lets you import from a single barrel while preserving tree-shaking. See [Tree-Shaking with Pure Imports](/setup/frameworkPackages/es6Support/treeShaking) for the pure barrel workflow.
 
 ## Side Effects
 
@@ -697,6 +701,8 @@ SetBasisTranscoderWorker(worker);
 
 Starting with Babylon.js v7.23, we are introducing a new way for ES6 users to import optional features without side effects.
 Depending on how the internal engine works, we have aimed to reduce the number of functions that need to be added at the prototype level. Instead, when possible, we are offering more 'pick and choose' public functions.
+
+For the newer pure-barrel registration model, see [Tree-Shaking with Pure Imports](/setup/frameworkPackages/es6Support/treeShaking) and [Registering Side Effects](/setup/frameworkPackages/es6Support/treeShaking/registeringSideEffects).
 
 ### Animations
 
