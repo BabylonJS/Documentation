@@ -369,6 +369,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/cameras/customizingCameraInputs"
                                 },
+                                "cameraMovementSystem": {
+                                    "friendlyName": "Camera Movement and Input System",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/cameras/cameraMovementSystem"
+                                },
                                 "multiViewsPart1": {
                                     "friendlyName": "Multiviews Part1",
                                     "children": {},
