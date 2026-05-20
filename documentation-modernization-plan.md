@@ -8,16 +8,16 @@ The target architecture should make the site easier to maintain, easier to valid
 
 ## Phase Status
 
-| Phase | Status | Notes |
-| --- | --- | --- |
-| Phase 1: Centralize Markdown Compilation | Done | Shared compiler added under `lib/markdown`; home page, docs page, and markdown regression tests now use it. `npm test` and `npm run build` pass. |
-| Phase 2: Build a Typed Content Graph | Done | Typed content graph added under `lib/contentGraph`; docs static paths now use the graph route manifest; graph regression tests cover metadata, breadcrumbs, examples, and navigation order. `npm test` and `npm run build` pass. |
-| Phase 3: Add Schema Validation | Not started | Depends on the content graph. |
-| Phase 4: Make Static Artifacts Explicit | Not started | Depends on the content graph and validation pipeline. |
-| Phase 5: Isolate Playground Preview Image Generation | Not started | Build currently still generates screenshots during page generation. |
-| Phase 6: Isolate Page UI Features | Not started | Depends on stable page data boundaries. |
-| Phase 7: TypeDoc Pipeline Cleanup | Not started | TypeDoc build artifacts still come from the existing pipeline. |
-| Phase 8: Evaluate Static App Router Migration | Not started | Only evaluate after the static data pipeline is stable. |
+| Phase                                                | Status      | Notes                                                                                                                                                                                                                            |
+| ---------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Phase 1: Centralize Markdown Compilation             | Done        | Shared compiler added under `lib/markdown`; home page, docs page, and markdown regression tests now use it. `npm test` and `npm run build` pass.                                                                                 |
+| Phase 2: Build a Typed Content Graph                 | Done        | Typed content graph added under `lib/contentGraph`; docs static paths now use the graph route manifest; graph regression tests cover metadata, breadcrumbs, examples, and navigation order. `npm test` and `npm run build` pass. |
+| Phase 3: Add Schema Validation                       | Not started | Depends on the content graph.                                                                                                                                                                                                    |
+| Phase 4: Make Static Artifacts Explicit              | Not started | Depends on the content graph and validation pipeline.                                                                                                                                                                            |
+| Phase 5: Isolate Playground Preview Image Generation | Not started | Build currently still generates screenshots during page generation.                                                                                                                                                              |
+| Phase 6: Isolate Page UI Features                    | Not started | Depends on stable page data boundaries.                                                                                                                                                                                          |
+| Phase 7: TypeDoc Pipeline Cleanup                    | Not started | TypeDoc build artifacts still come from the existing pipeline.                                                                                                                                                                   |
+| Phase 8: Evaluate Static App Router Migration        | Not started | Only evaluate after the static data pipeline is stable.                                                                                                                                                                          |
 
 ## Non-Negotiable Constraints
 
