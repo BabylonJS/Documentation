@@ -4,7 +4,6 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Layout from "../components/layout.component";
 import GithubIcon from "@mui/icons-material/GitHub";
 import { Box, useTheme } from "@mui/material";
-import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import { BucketContent } from "../components/bucketContent.component";
 import { getAvailableUrls, validateContent } from "../lib/buildUtils/content.utils";
@@ -23,6 +22,7 @@ import { VideoCollection } from "../components/videoCollection.component";
 import styles from "./documentationPage.module.scss";
 import { getRedirect, getRedirects, isRedirect } from "../lib/buildUtils/redirects";
 import Link from "next/link";
+import { compileMarkdown } from "../lib/markdown/compileMarkdown";
 
 // testing lib instead of src (documentation states to use the src)
 
@@ -261,16 +261,7 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     }
 
     const props = await getPageData(params!.id, true);
-    const rehypeSlug = (await import("rehype-slug")).default;
-    const remarkGfm = (await import("remark-gfm")).default;
-    const remarkMath = (await import("remark-math")).default;
-    const rehypeKatex = (await import("rehype-katex")).default;
-    props.mdxContent = await serialize(props.content ?? "", {
-        mdxOptions: {
-            remarkPlugins: [/*remarkLint, */ remarkGfm, remarkMath],
-            rehypePlugins: [rehypeSlug, rehypeKatex],
-        },
-    });
+    props.mdxContent = await compileMarkdown(props.content ?? "");
     return {
         props,
     };

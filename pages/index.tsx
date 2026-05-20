@@ -3,7 +3,6 @@ import { FunctionComponent, createRef, useEffect, useState } from "react";
 
 import Layout from "../components/layout.component";
 
-import {serialize} from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 import styles from "./documentationPage.module.scss";
@@ -18,6 +17,7 @@ import { InlineExampleComponent } from "../components/contentComponents/inlineEx
 import Head from "next/head";
 import { DocumentationContext, IDocumentationParsedUrlQuery } from "./[...id]";
 import { MarkdownMetadata } from "../lib/interfaces";
+import { compileMarkdown } from "../lib/markdown/compileMarkdown";
 
 
 export interface HomeProps {
@@ -119,15 +119,7 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async () => {
     const props = await getPageData([], true);
-    const rehypeSlug = (await import("rehype-slug")).default;
-    const remarkGfm = (await import("remark-gfm")).default;
-    props.mdxContent = await serialize(props.content ?? "", {
-        // components: markdownComponents,
-        mdxOptions: {
-            remarkPlugins: [remarkGfm],
-            rehypePlugins: [rehypeSlug],
-        },
-    });
+    props.mdxContent = await compileMarkdown(props.content ?? "");
     return {
         props,
     };
