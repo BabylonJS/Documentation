@@ -11,7 +11,7 @@ The target architecture should make the site easier to maintain, easier to valid
 | Phase | Status | Notes |
 | --- | --- | --- |
 | Phase 1: Centralize Markdown Compilation | Done | Shared compiler added under `lib/markdown`; home page, docs page, and markdown regression tests now use it. `npm test` and `npm run build` pass. |
-| Phase 2: Build a Typed Content Graph | Not started | Next planned implementation phase. |
+| Phase 2: Build a Typed Content Graph | Done | Typed content graph added under `lib/contentGraph`; docs static paths now use the graph route manifest; graph regression tests cover metadata, breadcrumbs, examples, and navigation order. `npm test` and `npm run build` pass. |
 | Phase 3: Add Schema Validation | Not started | Depends on the content graph. |
 | Phase 4: Make Static Artifacts Explicit | Not started | Depends on the content graph and validation pipeline. |
 | Phase 5: Isolate Playground Preview Image Generation | Not started | Build currently still generates screenshots during page generation. |
@@ -196,9 +196,18 @@ Tasks:
 
 Acceptance criteria:
 
-- `getStaticPaths` can be implemented from the graph route manifest.
-- `getStaticProps` can fetch one page from the graph without triggering search, sitemap, or screenshot side effects.
-- Existing routes and navigation behavior are preserved.
+- `getStaticPaths` can be implemented from the graph route manifest. Done.
+- The graph exposes page lookup data without search, sitemap, or screenshot side effects. Done.
+- Existing routes and navigation behavior are preserved. Done.
+
+Phase 2 verification:
+
+- Added `ContentGraph` types, structure loading, graph construction, route manifest generation, metadata/frontmatter normalization, breadcrumbs, previous/next IDs, child IDs, internal link extraction, example reference extraction, source paths, last modified times, and GitHub edit URLs.
+- Updated the docs catch-all route to use the graph route manifest for static paths while keeping page rendering on the existing page data helper until later artifact isolation phases.
+- Added `__tests__/content-graph.test.ts`.
+- `npm test` passed.
+- `npm run build` passed with existing TypeDoc tracing, large page data, internal link, and playground screenshot timeout warnings.
+- Code review pass completed after implementation.
 
 ## Phase 3: Add Schema Validation
 

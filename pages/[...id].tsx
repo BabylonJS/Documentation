@@ -6,7 +6,7 @@ import GithubIcon from "@mui/icons-material/GitHub";
 import { Box, useTheme } from "@mui/material";
 import { MDXRemote } from "next-mdx-remote";
 import { BucketContent } from "../components/bucketContent.component";
-import { getAvailableUrls, validateContent } from "../lib/buildUtils/content.utils";
+import { validateContent } from "../lib/buildUtils/content.utils";
 import { createContext, FunctionComponent, useEffect, useRef, useState } from "react";
 import { ExamplesComponent } from "../components/contentComponents/example.component";
 import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
@@ -268,7 +268,8 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = await getAvailableUrls();
+    const { getContentGraph } = await import("../lib/contentGraph/buildContentGraph");
+    const paths = [...getContentGraph().routeManifest];
     // ONLY when building
     if (process.env.PRODUCTION) {
         validateContent(
