@@ -263,7 +263,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             alignItems: "center",
                             flexShrink: 0,
                         },
-                        "& > a:first-child": {
+                        "& > a:first-of-type": {
                             padding: theme.spacing(1, 2),
                             borderRight: "1px solid #707070",
                             borderLeft: "1px solid #707070",

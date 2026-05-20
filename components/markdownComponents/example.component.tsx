@@ -61,7 +61,7 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
                                 "& span": {
                                     marginRight: theme.spacing(1),
                                 },
-                                "& span:first-child": {
+                                "& span:first-of-type": {
                                     marginLeft: theme.spacing(1),
                                 },
                                 "& svg": {
