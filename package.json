@@ -5,13 +5,17 @@
     "scripts": {
         "clean": "node -e \"const fs=require('fs');fs.rmSync('.temp',{recursive:true,force:true});fs.rmSync('.next',{recursive:true,force:true});fs.rmSync('public/api-search',{recursive:true,force:true})\"",
         "dev": "next dev",
-        "build": "npm run validate:content && next build",
+        "build": "npm run build:content && next build",
+        "build:content": "tsx scripts/build-content.ts",
         "build:local": "next build",
+        "build:search": "tsx scripts/build-search.ts",
+        "build:sitemap": "tsx scripts/build-sitemap.ts",
         "start": "next start",
         "test": "vitest run",
         "test:watch": "vitest",
         "test:update": "vitest run --update",
-        "validate:content": "tsx scripts/validate-content.ts"
+        "validate:content": "tsx scripts/validate-content.ts",
+        "upload:search": "tsx scripts/upload-search-index.ts"
     },
     "dependencies": {
         "@emotion/react": "^11.10.5",

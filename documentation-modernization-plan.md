@@ -13,7 +13,7 @@ The target architecture should make the site easier to maintain, easier to valid
 | Phase 1: Centralize Markdown Compilation             | Done        | Shared compiler added under `lib/markdown`; home page, docs page, and markdown regression tests now use it. `npm test` and `npm run build` pass.                                                                                 |
 | Phase 2: Build a Typed Content Graph                 | Done        | Typed content graph added under `lib/contentGraph`; docs static paths now use the graph route manifest; graph regression tests cover metadata, breadcrumbs, examples, and navigation order. `npm test` and `npm run build` pass. |
 | Phase 3: Add Schema Validation                       | Done        | Standalone `npm run validate:content` command added and wired into `npm run build`; validation checks structure, frontmatter, links, markdown refs, and example metadata. `npm test` and `npm run build` pass                    |
-| Phase 4: Make Static Artifacts Explicit              | Not started | Depends on the content graph and validation pipeline.                                                                                                                                                                            |
+| Phase 4: Make Static Artifacts Explicit              | Done        | Content artifacts, sitemap, docs search, playground search, and search upload now have explicit scripts. `npm test` and `npm run build` pass.                                                                                    |
 | Phase 5: Isolate Playground Preview Image Generation | Not started | Build currently still generates screenshots during page generation.                                                                                                                                                              |
 | Phase 6: Isolate Page UI Features                    | Not started | Depends on stable page data boundaries.                                                                                                                                                                                          |
 | Phase 7: TypeDoc Pipeline Cleanup                    | Not started | TypeDoc build artifacts still come from the existing pipeline.                                                                                                                                                                   |
@@ -291,9 +291,21 @@ Tasks:
 
 Acceptance criteria:
 
-- Running `next build` does not need to mutate external search services.
-- Local builds work without search secrets.
-- Generated artifacts can be inspected when a build fails.
+- Running `next build` does not need to mutate external search services. Done.
+- Local builds work without search secrets. Done.
+- Generated artifacts can be inspected when a build fails. Done.
+
+Phase 4 verification:
+
+- Added `npm run build:content`, `npm run build:search`, `npm run build:sitemap`, and `npm run upload:search`.
+- `build:content` writes inspectable `.temp/content` graph, route manifest, validation report, sitemap XML, and search payloads before `next build`.
+- Documentation and playground search payloads are generated from the content graph instead of `getPageData` route rendering.
+- Azure Search upload is isolated to `npm run upload:search` and requires `SEARCH_API_KEY` only when that explicit command is run.
+- Removed documentation and TypeDoc search/sitemap mutation calls from route generation.
+- TypeDoc still generates local API search JSON during its existing page-data pipeline, which is tracked as Phase 7 cleanup.
+- Playground preview screenshots still run during page generation when missing, which remains the Phase 5 scope.
+- `npm run build:content`, `npm run build:search`, `npm run build:sitemap`, `npm test`, and `npm run build` passed.
+- Code review pass completed after implementation.
 
 ## Phase 5: Isolate Playground Preview Image Generation
 

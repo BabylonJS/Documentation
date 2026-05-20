@@ -5,11 +5,9 @@ import { IDocMenuItem, MarkdownMetadata } from "../interfaces";
 import matter from "gray-matter";
 import { generateBreadcrumbs, getElementByIdArray } from "./content.utils";
 import { IDocumentationPageProps, IExampleLink } from "../content.interfaces";
-import { addSearchItem, addPlaygroundItem } from "./search.utils";
-import { addToSitemap } from "./sitemap.utils";
 
 import puppeteer from "puppeteer";
-import { getExampleImageUrl, getExampleLink } from "../frontendUtils/frontendTools";
+import { getExampleLink } from "../frontendUtils/frontendTools";
 
 export const markdownDirectory = "content/";
 
@@ -241,34 +239,9 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
 
     // Search index!
     if (fullPage) {
-        const url = "/" + id.join("/");
-        // create a buffer
-        const buff = Buffer.from(url, "utf-8");
-        const searchId = buff.toString("base64");
-        // TODO - check for errors
-        try {
-            await addSearchItem({
-                id: searchId,
-                categories: breadcrumbs.map((bc) => bc.name),
-                path: url,
-                isApi: false,
-                content: content,
-                keywords: metadata.keywords.split(","),
-                description: metadata.description,
-                title: metadata.title,
-                imageUrl: metadata.imageUrl,
-                videoLink: metadata.videoOverview,
-                lastModified: lastModified,
-            });
-        } catch (e) {
-            console.log("Error indexing item. Probably an index error.");
-        }
-
-        addToSitemap(metadata.title, url, lastModified ? lastModified.toISOString() : "");
-
         // generate images to examples. Offline only at the moment
         const matches = Array.from(content.matchAll(/(<(Playground|nme|nge|NME|NGE|NRGE|nrge|SFE|sfe).*id="([A-Za-z0-9#]*)".*\/>)/g));
-        for (const [_, full, type, exampleId] of matches) {
+        for (const [, full, type, exampleId] of matches) {
             const typePlayground = type === "Playground" ? "pg" : (type.toLowerCase() as "nme" | "nge");
             const realType: "pg" | "nme" | "nge" = (typePlayground as "pg" | "nme" | "nge") || "pg";
             const imageUrl = /image="(.*?)"/.test(full) && /image="(.*?)"/.exec(full)![1];
@@ -277,32 +250,6 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             const fileExists = imageUrl ? existsSync(join(process.cwd(), "public", imageUrl)) : existsSync(getExampleImagePath({ id: exampleId, type: realType }));
             if (exampleId && exampleId !== "nmeId" && exampleId !== "playgroundId" && !(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !fileExists) {
                 await generateExampleImage(realType, exampleId, imageUrl || undefined, engine, snapshot || undefined);
-            }
-            if (realType === "pg") {
-                const title = (/title="(.*?)"/.test(full) && /title="(.*?)"/.exec(full)![1]) || `Playground for ${metadata.title}`;
-                const description = (/description="(.*?)"/.test(full) && /description="(.*?)"/.exec(full)![1]) || "";
-                const playgroundId = exampleId[0] === "#" ? exampleId.substr(1) : exampleId;
-                const buff = Buffer.from(playgroundId, "utf-8");
-                const isMain = /isMain={true}/.test(full);
-                const category = (/category="(.*?)"/.test(full) && /category="(.*?)"/.exec(full)![1]) || "";
-                const searchId = buff.toString("base64");
-                if (searchId) {
-                    try {
-                        await addPlaygroundItem({
-                            title,
-                            description,
-                            id: searchId,
-                            playgroundId,
-                            keywords: metadata.keywords.split(",").map((item) => item.trim()),
-                            imageUrl: imageUrl || getExampleImageUrl({ type: realType, id: exampleId }),
-                            documentationPage: url,
-                            isMain,
-                            category,
-                        });
-                    } catch (e) {
-                        console.log("Error indexing playground. Probably an index error.");
-                    }
-                }
             }
         }
 

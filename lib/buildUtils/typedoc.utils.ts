@@ -8,11 +8,8 @@ import * as glob from "glob";
 import os from "os";
 import { getAllFiles } from "./tools";
 import { MarkdownMetadata } from "../interfaces";
-import { addSearchItem, clearIndex } from "./search.utils";
 
-import { htmlToText } from "html-to-text";
 import { parse, HTMLElement } from "node-html-parser";
-import { addToSitemap } from "./sitemap.utils";
 
 import typedocConfig, { TypeDocConfig } from "../../configuration/typedoc.config";
 
@@ -222,13 +219,6 @@ export const generateTypeDoc = async (
 
     const files = getTypeDocFiles(baseLocation);
 
-    // clear the search index if needed
-    // only run this when building for master
-    if (process.env.PRODUCTION) {
-        const existingDocs = files.map(({ params }) => `/${baseLocation}/${params.id.join("/")}`);
-        await clearIndex(true, existingDocs);
-    }
-
     return files;
 };
 
@@ -318,9 +308,6 @@ export const getAPIPageData = async (id: string[], baseLocation: string = "typed
     metadata.description = metadata.description.replace(/\n/g, "").replace(/\t/g, "");
     // Search index
     let url = "/" + baseLocation + "/" + id.join("/");
-    // create a buffer
-    const buff = Buffer.from(url, "utf-8");
-    const searchId = buff.toString("base64");
     // index page
     if (id.length === 1 && id[0] === "module/BABYLON") {
         metadata.description = "Babylon.js API main page - BABYLON namespace";
@@ -334,25 +321,6 @@ export const getAPIPageData = async (id: string[], baseLocation: string = "typed
     // the React rendering pipeline. This is more robust than relying
     // on fragile index-based traversal of the React element tree.
     const colContent = root.querySelector(".col-content");
-
-    // do not index lowercased pages
-    if (/[A-Z]/.test(url)) {
-        // TODO - check for errors
-        const res = await addSearchItem({
-            id: searchId,
-            path: url,
-            isApi: true,
-            content: htmlToText(html),
-            keywords: id,
-            description: metadata.description,
-            title: metadata.title,
-            imageUrl: metadata.imageUrl,
-            videoLink: metadata.videoOverview,
-        });
-
-        // add to sitemap
-        addToSitemap(metadata.title, url);
-    }
 
     return {
         id,

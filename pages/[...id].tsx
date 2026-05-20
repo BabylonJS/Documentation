@@ -6,10 +6,9 @@ import GithubIcon from "@mui/icons-material/GitHub";
 import { Box, useTheme } from "@mui/material";
 import { MDXRemote } from "next-mdx-remote";
 import { BucketContent } from "../components/bucketContent.component";
-import { validateContent } from "../lib/buildUtils/content.utils";
 import { createContext, FunctionComponent, useEffect, useRef, useState } from "react";
 import { ExamplesComponent } from "../components/contentComponents/example.component";
-import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
+import { getPageData } from "../lib/buildUtils/tools";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { IconButton, Tooltip } from "@mui/material";
 import { IDocumentationPageProps, IExampleLink, ITableOfContentsItem } from "../lib/content.interfaces";
@@ -270,13 +269,6 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
 export const getStaticPaths: GetStaticPaths = async () => {
     const { getContentGraph } = await import("../lib/contentGraph/buildContentGraph");
     const paths = [...getContentGraph().routeManifest];
-    // ONLY when building
-    if (process.env.PRODUCTION) {
-        validateContent(
-            paths,
-            getAllFiles(markdownDirectory).map((path) => path.replace(/\\/g, "/").replace("content/", "")),
-        );
-    }
 
     const redirects = getRedirects();
     // TODO solve this more elegantly.
