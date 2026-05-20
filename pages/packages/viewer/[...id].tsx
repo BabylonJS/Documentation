@@ -1,7 +1,6 @@
 import { FunctionComponent, useRef, useEffect } from "react";
 import { GetStaticPaths } from "next";
-import { generateTypeDoc, getAPIPageData } from "../../../lib/buildUtils/typedoc.utils";
-import { viewerConfig } from "../../../configuration/typedoc.config";
+import { getAPIPageData, getTypeDocStaticPaths } from "../../../lib/buildUtils/typedoc.utils";
 import { parseNode } from "../../../lib/buildUtils/parser.utils";
 import { MarkdownMetadata } from "../../../lib/interfaces";
 import Layout from "../../../components/layout.component";
@@ -116,7 +115,7 @@ export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParse
 
 export const getStaticPaths: GetStaticPaths = async () => {
     console.log("API - get static paths");
-    const paths = await generateTypeDoc(viewerConfig.title, baseLocation, viewerConfig);
+    const paths = getTypeDocStaticPaths(baseLocation);
     console.log("API - paths", "done");
     return {
         paths,
