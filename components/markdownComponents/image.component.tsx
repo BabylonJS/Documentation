@@ -111,12 +111,12 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             return (
                 <StyledImage
                     unoptimized={true}
-                    onLoadingComplete={(e) => {
+                    onLoad={(event) => {
                         if (properties.fill === true) {
                             try {
-                                // const imgTag = e.target as HTMLImageElement;
-                                let h = e.naturalHeight;
-                                let w = e.naturalWidth;
+                                const image = event.currentTarget;
+                                let h = image.naturalHeight;
+                                let w = image.naturalWidth;
                                 // avoid using the loading gif to calculate size
                                 if (src.startsWith("data:image/gif;base64")) {
                                     return;
@@ -124,17 +124,17 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                                 if (preW) {
                                     w = Math.min(+preW, 760);
                                     if (!preH) {
-                                        h = (h * w) / e.naturalWidth;
+                                        h = (h * w) / image.naturalWidth;
                                     } else {
                                         h = +preH;
                                     }
-                                } else if (e.naturalWidth > containerRef.current!.clientWidth) {
+                                } else if (image.naturalWidth > containerRef.current!.clientWidth) {
                                     h = (h * containerRef.current!.clientWidth) / w;
                                     w = containerRef.current!.clientWidth;
                                 }
                                 setContainerScale({ h, w });
                                 if (intrinsic.h === 0) {
-                                    setIntrinsic({ h: e.naturalHeight, w: e.naturalWidth });
+                                    setIntrinsic({ h: image.naturalHeight, w: image.naturalWidth });
                                 }
                             } catch (e) {
                                 //no-op
