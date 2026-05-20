@@ -1,6 +1,6 @@
 import { Snackbar, Tooltip, Hidden, Box, useTheme } from "@mui/material";
 import { FunctionComponent, MouseEvent, SyntheticEvent, useContext, useEffect, useState } from "react";
-import { DocumentationContext } from "../../pages/[...id]";
+import { DocumentationContext } from "../../features/docs/DocumentationContext";
 
 import LinkIcon from "@mui/icons-material/Link";
 import ExternalLinkIcon from "@mui/icons-material/OpenInNew";

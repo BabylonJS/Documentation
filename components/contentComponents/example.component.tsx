@@ -1,7 +1,7 @@
 import { Toolbar, Typography, IconButton, Tooltip, useTheme } from "@mui/material";
 import { FunctionComponent, useContext } from "react";
 import { IExampleLink } from "../../lib/content.interfaces";
-import { DocumentationContext } from "../../pages/[...id]";
+import { DocumentationContext } from "../../features/docs/DocumentationContext";
 import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
 import LinkIcon from "@mui/icons-material/Link";
 import { Link as MaterialLink } from "@mui/material";

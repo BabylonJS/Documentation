@@ -1,7 +1,7 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { FunctionComponent, useContext, useState } from "react";
 import { ITableOfContentsItem } from "../../lib/content.interfaces";
-import { DocumentationContext } from "../../pages/[...id]";
+import { DocumentationContext } from "../../features/docs/DocumentationContext";
 
 export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[]; levels: number }> = ({ tocItems, levels }) => {
     // To commented-out lines in this file are for future use.

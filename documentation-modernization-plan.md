@@ -15,7 +15,7 @@ The target architecture should make the site easier to maintain, easier to valid
 | Phase 3: Add Schema Validation                       | Done        | Standalone `npm run validate:content` command added and wired into `npm run build`; validation checks structure, frontmatter, links, markdown refs, and example metadata. `npm test` and `npm run build` pass                    |
 | Phase 4: Make Static Artifacts Explicit              | Done        | Content artifacts, sitemap, docs search, playground search, and search upload now have explicit scripts. `npm test` and `npm run build` pass.                                                                                    |
 | Phase 5: Isolate Playground Preview Image Generation | Done        | Preview-image checks and generation now have explicit scripts. `npm test` and `npm run build` pass.                                                                                                                              |
-| Phase 6: Isolate Page UI Features                    | Not started | Depends on stable page data boundaries.                                                                                                                                                                                          |
+| Phase 6: Isolate Page UI Features                    | Done        | Docs route UI, context, MDX rendering, example panel state, TOC state, and hash scrolling are now isolated under `features/docs`. `npm test` and `npm run build` pass.                                                          |
 | Phase 7: TypeDoc Pipeline Cleanup                    | Not started | TypeDoc build artifacts still come from the existing pipeline.                                                                                                                                                                   |
 | Phase 8: Evaluate Static App Router Migration        | Not started | Only evaluate after the static data pipeline is stable.                                                                                                                                                                          |
 
@@ -358,9 +358,19 @@ Tasks:
 
 Acceptance criteria:
 
-- Route files mostly connect static data to feature components.
-- Interactive behavior remains client-side and works in exported static pages.
-- The docs page is easier to test in isolation.
+- Route files mostly connect static data to feature components. Done.
+- Interactive behavior remains client-side and works in exported static pages. Done.
+- The docs page is easier to test in isolation. Done.
+
+Phase 6 verification:
+
+- Added `features/docs/DocsPage.tsx`, `DocsMdxRenderer.tsx`, `DocsExamplesProvider.tsx`, `DocsTableOfContentsProvider.tsx`, `DocumentationContext.tsx`, `useHashScroll.ts`, and `useExamplePanel.ts`.
+- Reduced `pages/[...id].tsx` to static route wiring and redirected rendering through the feature-owned docs page.
+- Updated the home page to reuse the feature-owned documentation context, MDX renderer, example state, and TOC state helpers.
+- Moved documentation context consumers from the route module to `features/docs/DocumentationContext`.
+- Added `__tests__/docs-features.test.ts` for example-link de-duplication, TOC de-duplication, and context value assembly.
+- `git diff --check`, `npm test`, and `npm run build` passed.
+- Code review pass completed after implementation.
 
 ## Phase 7: TypeDoc Pipeline Cleanup
 
