@@ -15,9 +15,9 @@ The target architecture should make the site easier to maintain, easier to valid
 | Phase 3: Add Schema Validation                       | Done        | Standalone `npm run validate:content` command added and wired into `npm run build`; validation checks structure, frontmatter, links, markdown refs, and example metadata. `npm test` and `npm run build` pass                    |
 | Phase 4: Make Static Artifacts Explicit              | Done        | Content artifacts, sitemap, docs search, playground search, and search upload now have explicit scripts. `npm test` and `npm run build` pass.                                                                                    |
 | Phase 5: Isolate Playground Preview Image Generation | Done        | Preview-image checks and generation now have explicit scripts. `npm test` and `npm run build` pass.                                                                                                                              |
-| Phase 6: Isolate Page UI Features                    | Done        | Docs route UI, context, MDX rendering, example panel state, TOC state, and hash scrolling are now isolated under `features/docs`. `npm test` and `npm run build` pass.                                                          |
-| Phase 7: TypeDoc Pipeline Cleanup                    | Done        | TypeDoc generation now runs through an explicit `build:typedoc` step; API routes read prebuilt `.temp` artifacts and static API search/legacy redirect outputs. `npm test` and `npm run build` pass.                              |
-| Phase 8: Evaluate Static App Router Migration        | Not started | Only evaluate after the static data pipeline is stable.                                                                                                                                                                          |
+| Phase 6: Isolate Page UI Features                    | Done        | Docs route UI, context, MDX rendering, example panel state, TOC state, and hash scrolling are now isolated under `features/docs`. `npm test` and `npm run build` pass.                                                           |
+| Phase 7: TypeDoc Pipeline Cleanup                    | Done        | TypeDoc generation now runs through an explicit `build:typedoc` step; API routes read prebuilt `.temp` artifacts and static API search/legacy redirect outputs. `npm test` and `npm run build` pass.                             |
+| Phase 8: Evaluate Static App Router Migration        | Done        | Static export is ready for a dedicated App Router proof branch, but an in-place migration is not recommended because route conflicts and shell client/server refactors remain. `npm test` and `npm run build` pass.              |
 
 ## Non-Negotiable Constraints
 
@@ -436,9 +436,20 @@ Tasks:
 
 Acceptance criteria:
 
-- `next build` still produces a static export.
-- URLs, metadata, and generated HTML remain compatible with the current deployment.
-- The migration provides clear maintainability value beyond folder movement.
+- `next build` still produces a static export. Done.
+- URLs, metadata, and generated HTML remain compatible with the current deployment. Evaluated.
+- The migration provides clear maintainability value beyond folder movement. Evaluated.
+
+Phase 8 verification:
+
+- Added `npm run evaluate:app-router`, which writes `.temp/content/app-router-evaluation.json` and `.temp/content/app-router-evaluation.md` from the current Next config, content graph, redirect manifest, and TypeDoc artifacts.
+- Evaluation result: static export is ready for a dedicated App Router proof branch, but the production routes should not be migrated in this branch.
+- Route mapping evaluated: home, markdown docs plus redirects, TypeDoc API, Viewer API, examples, playground, search, toggle color, and 404.
+- Main blockers: equivalent `app/` routes cannot coexist with current `pages/` routes at the same URLs; `Layout` currently depends on `next/head`, `next/router`, and client hooks; `_app` and `_document` responsibilities need App Router provider/metadata equivalents.
+- Added `__tests__/app-router-evaluation.test.ts` for static export readiness, required TypeDoc artifacts, and markdown report rendering.
+- `npm run evaluate:app-router`, `npm test`, and `npm run build` passed.
+- Recommendation: open a dedicated App Router proof branch only if the team wants to perform the shell/metadata refactors and route-output comparison as a follow-up migration project.
+- Code review pass completed after implementation.
 
 ## Search Strategy Options
 
