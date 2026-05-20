@@ -10,6 +10,8 @@ import { BaseUrlContext } from "../../pages/_app";
 const StylesImg = styled("img")(({ theme }) => ({
     borderRadius: theme.shape.borderRadius,
     flexGrow: "1",
+    maxWidth: "100%",
+    height: "auto",
     transition: ".5s ease",
     backfaceVisibility: "hidden",
 }));
@@ -89,6 +91,33 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             window.removeEventListener("resize", resize);
         };
     }, [intrinsic]);
+    const updateContainerScaleFromImage = (image: HTMLImageElement) => {
+        try {
+            let h = image.naturalHeight;
+            let w = image.naturalWidth;
+            // avoid using the loading gif to calculate size
+            if (src.startsWith("data:image/gif;base64")) {
+                return;
+            }
+            if (preW) {
+                w = Math.min(+preW, 760);
+                if (!preH) {
+                    h = (h * w) / image.naturalWidth;
+                } else {
+                    h = +preH;
+                }
+            } else if (containerRef.current && image.naturalWidth > containerRef.current.clientWidth) {
+                h = (h * containerRef.current.clientWidth) / w;
+                w = containerRef.current.clientWidth;
+            }
+            setContainerScale({ h, w });
+            if (intrinsic.h === 0) {
+                setIntrinsic({ h: image.naturalHeight, w: image.naturalWidth });
+            }
+        } catch (e) {
+            //no-op
+        }
+    };
     const getImage = () => {
         if (src.startsWith("http") || src.startsWith("//") || src.indexOf(".gif") !== -1) {
             let style: { width?: string; height?: string } = {};
@@ -102,7 +131,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         }
         const properties: IImageEmbed = { ...props };
         if (!properties.width || !properties.height) {
-            properties.fill = true;
+            return <StylesImg {...props} src={baseUrl + src} onLoad={(event) => updateContainerScaleFromImage(event.currentTarget)} />;
         } else {
             properties.width = +properties.width;
             properties.height = +properties.height;
@@ -111,36 +140,6 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             return (
                 <StyledImage
                     unoptimized={true}
-                    onLoad={(event) => {
-                        if (properties.fill === true) {
-                            try {
-                                const image = event.currentTarget;
-                                let h = image.naturalHeight;
-                                let w = image.naturalWidth;
-                                // avoid using the loading gif to calculate size
-                                if (src.startsWith("data:image/gif;base64")) {
-                                    return;
-                                }
-                                if (preW) {
-                                    w = Math.min(+preW, 760);
-                                    if (!preH) {
-                                        h = (h * w) / image.naturalWidth;
-                                    } else {
-                                        h = +preH;
-                                    }
-                                } else if (image.naturalWidth > containerRef.current!.clientWidth) {
-                                    h = (h * containerRef.current!.clientWidth) / w;
-                                    w = containerRef.current!.clientWidth;
-                                }
-                                setContainerScale({ h, w });
-                                if (intrinsic.h === 0) {
-                                    setIntrinsic({ h: image.naturalHeight, w: image.naturalWidth });
-                                }
-                            } catch (e) {
-                                //no-op
-                            }
-                        }
-                    }}
                     {...properties}
                     src={baseUrl + src}
                 ></StyledImage>
