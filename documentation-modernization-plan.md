@@ -14,7 +14,7 @@ The target architecture should make the site easier to maintain, easier to valid
 | Phase 2: Build a Typed Content Graph                 | Done        | Typed content graph added under `lib/contentGraph`; docs static paths now use the graph route manifest; graph regression tests cover metadata, breadcrumbs, examples, and navigation order. `npm test` and `npm run build` pass. |
 | Phase 3: Add Schema Validation                       | Done        | Standalone `npm run validate:content` command added and wired into `npm run build`; validation checks structure, frontmatter, links, markdown refs, and example metadata. `npm test` and `npm run build` pass                    |
 | Phase 4: Make Static Artifacts Explicit              | Done        | Content artifacts, sitemap, docs search, playground search, and search upload now have explicit scripts. `npm test` and `npm run build` pass.                                                                                    |
-| Phase 5: Isolate Playground Preview Image Generation | Not started | Build currently still generates screenshots during page generation.                                                                                                                                                              |
+| Phase 5: Isolate Playground Preview Image Generation | Done        | Preview-image checks and generation now have explicit scripts. `npm test` and `npm run build` pass.                                                                                                                              |
 | Phase 6: Isolate Page UI Features                    | Not started | Depends on stable page data boundaries.                                                                                                                                                                                          |
 | Phase 7: TypeDoc Pipeline Cleanup                    | Not started | TypeDoc build artifacts still come from the existing pipeline.                                                                                                                                                                   |
 | Phase 8: Evaluate Static App Router Migration        | Not started | Only evaluate after the static data pipeline is stable.                                                                                                                                                                          |
@@ -321,9 +321,19 @@ Tasks:
 
 Acceptance criteria:
 
-- Normal static page generation does not unexpectedly launch Puppeteer.
-- Missing image checks are visible to contributors.
-- Image generation remains available when intentionally invoked.
+- Normal static page generation does not unexpectedly launch Puppeteer. Done.
+- Missing image checks are visible to contributors. Done.
+- Image generation remains available when intentionally invoked. Done.
+
+Phase 5 verification:
+
+- Added pure content-graph preview image scanning in `lib/contentGraph/exampleImages.ts`.
+- Added `npm run check:example-images` for report-only missing image checks without launching Puppeteer.
+- Added `npm run build:example-images` for intentional screenshot generation, plus `--dry-run` and optional `--strict` modes.
+- Removed Puppeteer imports and preview screenshot generation from `lib/buildUtils/tools.ts` and normal `getPageData` execution.
+- Current corpus reports 1930 preview image references, 1922 existing images, and 8 missing images.
+- `npm run check:example-images`, `npm run build:example-images -- --dry-run`, `npm test`, and `npm run build` passed.
+- Code review pass completed after implementation.
 
 ## Phase 6: Isolate Page UI Features
 

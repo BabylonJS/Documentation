@@ -1,7 +1,18 @@
-import { describe, expect, it } from "vitest";
+import { existsSync, mkdirSync, rmSync, writeFileSync } from "fs";
+import { join } from "path";
+import { afterEach, describe, expect, it } from "vitest";
 
 import { ContentGraph, ContentGraphPage } from "../lib/contentGraph/types";
+import { collectExampleImageReferences, createExampleImageReport } from "../lib/contentGraph/exampleImages";
 import { createDocumentationSearchIndex, createPlaygroundSearchIndex, createSitemapEntries, createSitemapXml } from "../lib/contentGraph/staticArtifacts";
+
+const testImagePath = join(process.cwd(), "public/img/playgroundsAndNMEs/__content-artifacts-test.png");
+
+afterEach(() => {
+    if (existsSync(testImagePath)) {
+        rmSync(testImagePath, { force: true });
+    }
+});
 
 const createPage = (overrides: Partial<ContentGraphPage> = {}): ContentGraphPage => ({
     id: ["docs", "page"],
@@ -100,5 +111,43 @@ describe("Static Content Artifacts", () => {
                 documentationPage: "/docs/page",
             }),
         ]);
+    });
+
+    it("collects preview image references from renderable graph examples", () => {
+        const graph = createGraph([
+            createPage({
+                examples: [
+                    { type: "pg", id: "ABC#1", title: "Playground" },
+                    { type: "nme", id: "NODE#1", imageUrl: "/img/playgroundsAndNMEs/custom-node.png" },
+                    { type: "pg", id: "playgroundId" },
+                ],
+            }),
+            createPage({ id: ["hidden"], route: "/hidden", examples: [{ type: "pg", id: "HIDDEN#1" }] }),
+        ], [["docs", "page"]]);
+
+        const references = collectExampleImageReferences(graph);
+
+        expect(references.map((reference) => reference.imageUrl)).toEqual(["/img/playgroundsAndNMEs/custom-node.png", "/img/playgroundsAndNMEs/pgABC-1.png"]);
+        expect(references.map((reference) => reference.documentationPage)).toEqual(["/docs/page", "/docs/page"]);
+    });
+
+    it("reports missing and existing preview images", () => {
+        mkdirSync(join(testImagePath, ".."), { recursive: true });
+        writeFileSync(testImagePath, "test image");
+
+        const graph = createGraph([
+            createPage({
+                examples: [
+                    { type: "pg", id: "EXISTING#1", imageUrl: "/img/playgroundsAndNMEs/__content-artifacts-test.png" },
+                    { type: "pg", id: "MISSING#1" },
+                ],
+            }),
+        ]);
+
+        const report = createExampleImageReport(graph);
+
+        expect(report.checkedImages).toBe(2);
+        expect(report.existingImages.map((reference) => reference.id)).toEqual(["EXISTING#1"]);
+        expect(report.missingImages.map((reference) => reference.id)).toEqual(["MISSING#1"]);
     });
 });
