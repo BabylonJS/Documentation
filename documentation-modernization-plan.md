@@ -12,7 +12,7 @@ The target architecture should make the site easier to maintain, easier to valid
 | ---------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Phase 1: Centralize Markdown Compilation             | Done        | Shared compiler added under `lib/markdown`; home page, docs page, and markdown regression tests now use it. `npm test` and `npm run build` pass.                                                                                 |
 | Phase 2: Build a Typed Content Graph                 | Done        | Typed content graph added under `lib/contentGraph`; docs static paths now use the graph route manifest; graph regression tests cover metadata, breadcrumbs, examples, and navigation order. `npm test` and `npm run build` pass. |
-| Phase 3: Add Schema Validation                       | Not started | Depends on the content graph.                                                                                                                                                                                                    |
+| Phase 3: Add Schema Validation                       | Done        | Standalone `npm run validate:content` command added and wired into `npm run build`; validation checks structure, frontmatter, links, markdown refs, and example metadata. `npm test` and `npm run build` pass                    |
 | Phase 4: Make Static Artifacts Explicit              | Not started | Depends on the content graph and validation pipeline.                                                                                                                                                                            |
 | Phase 5: Isolate Playground Preview Image Generation | Not started | Build currently still generates screenshots during page generation.                                                                                                                                                              |
 | Phase 6: Isolate Page UI Features                    | Not started | Depends on stable page data boundaries.                                                                                                                                                                                          |
@@ -213,9 +213,9 @@ Phase 2 verification:
 
 Add explicit validation for documentation structure and markdown frontmatter.
 
-Candidate dependency:
+Implementation note:
 
-- `zod`
+- Use a small typed validator in `lib/contentGraph/validateContentGraph.ts` for now instead of adding a schema dependency. A later pass can still move the rule definitions to `zod` or another schema library if the validation surface grows.
 
 Validation should cover:
 
@@ -239,9 +239,20 @@ Tasks:
 
 Acceptance criteria:
 
-- A contributor can run one command and understand what is wrong with a docs page.
-- Production builds fail on invalid content structure.
-- Existing valid docs continue to pass after any required cleanup.
+- A contributor can run one command and understand what is wrong with a docs page. Done.
+- Production builds fail on invalid content structure. Done.
+- Existing valid docs continue to pass after any required cleanup. Done.
+
+Phase 3 verification:
+
+- Added `npm run validate:content` and wired it into `npm run build` before `next build`.
+- Added validation for structure fields, missing/unreferenced markdown files, duplicate content references, frontmatter keys and value shapes, internal links, redirects, and playground/NME/NGE/SFE/NRGE metadata.
+- Existing legacy cleanup opportunities are reported as warnings so static export stays unblocked while authors get actionable feedback.
+- Added `__tests__/content-validation.test.ts` with valid corpus coverage and focused invalid fixture coverage.
+- `npm run validate:content` passed with 0 errors and known warnings.
+- `npm test` passed.
+- `npm run build` passed with validation enabled, plus existing TypeDoc tracing, large page data, internal link, and playground screenshot timeout warnings.
+- Code review pass completed after implementation.
 
 ## Phase 4: Make Static Artifacts Explicit
 

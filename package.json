@@ -5,12 +5,13 @@
     "scripts": {
         "clean": "node -e \"const fs=require('fs');fs.rmSync('.temp',{recursive:true,force:true});fs.rmSync('.next',{recursive:true,force:true});fs.rmSync('public/api-search',{recursive:true,force:true})\"",
         "dev": "next dev",
-        "build": "next build",
+        "build": "npm run validate:content && next build",
         "build:local": "next build",
         "start": "next start",
         "test": "vitest run",
         "test:watch": "vitest",
-        "test:update": "vitest run --update"
+        "test:update": "vitest run --update",
+        "validate:content": "tsx scripts/validate-content.ts"
     },
     "dependencies": {
         "@emotion/react": "^11.10.5",
@@ -54,6 +55,7 @@
         "remark-lint": "^10.0.1",
         "remark-math": "^6.0.0",
         "sass": "^1.32.8",
+        "tsx": "^4.22.3",
         "typedoc": "^0.28.17",
         "typescript": "^5.9.3",
         "unified": "^11.0.5",
