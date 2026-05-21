@@ -5,7 +5,7 @@
     "scripts": {
         "clean": "node -e \"const fs=require('fs');fs.rmSync('.temp',{recursive:true,force:true});fs.rmSync('.next',{recursive:true,force:true});fs.rmSync('public/api-search',{recursive:true,force:true})\"",
         "dev": "next dev",
-        "build": "npm run build:content && npm run build:typedoc && next build",
+        "build": "npm run build:content && npm run build:typedoc && npm run build:sitemap && next build",
         "build:content": "tsx scripts/build-content.ts",
         "build:example-images": "tsx scripts/build-example-images.ts",
         "build:local": "next build",

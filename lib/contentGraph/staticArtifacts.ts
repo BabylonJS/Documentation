@@ -35,7 +35,11 @@ export const createSitemapEntries = (graph: ContentGraph): SitemapEntry[] => {
 };
 
 export const createSitemapXml = (graph: ContentGraph, baseUrl = "https://doc.babylonjs.com") => {
-    const urls = createSitemapEntries(graph).map((entry) => {
+    return createSitemapXmlFromEntries(createSitemapEntries(graph), baseUrl);
+};
+
+export const createSitemapXmlFromEntries = (entries: SitemapEntry[], baseUrl = "https://doc.babylonjs.com") => {
+    const urls = entries.map((entry) => {
         const location = `${baseUrl}${entry.url}`;
         const lastModified = entry.lastModified ? `<lastmod>${escapeXml(entry.lastModified)}</lastmod>` : "";
         return `    <url><loc>${escapeXml(location)}</loc>${lastModified}</url>`;

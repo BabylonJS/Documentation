@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it } from "vitest";
 
 import { ContentGraph, ContentGraphPage } from "../lib/contentGraph/types";
 import { collectExampleImageReferences, createExampleImageReport } from "../lib/contentGraph/exampleImages";
-import { createDocumentationSearchIndex, createPlaygroundSearchIndex, createSitemapEntries, createSitemapXml } from "../lib/contentGraph/staticArtifacts";
+import { createDocumentationSearchIndex, createPlaygroundSearchIndex, createSitemapEntries, createSitemapXml, createSitemapXmlFromEntries } from "../lib/contentGraph/staticArtifacts";
 
 const testImagePath = join(process.cwd(), "public/img/playgroundsAndNMEs/__content-artifacts-test.png");
 
@@ -67,6 +67,12 @@ describe("Static Content Artifacts", () => {
         expect(entries.map((entry) => entry.url)).toEqual(["/", "/docs/page", "/playground", "/search"]);
         expect(sitemapXml).toContain("<loc>https://example.test/docs/page</loc><lastmod>2024-01-02T03:04:05.000Z</lastmod>");
         expect(sitemapXml).not.toContain("/hidden");
+    });
+
+    it("creates sitemap XML from explicit entries", () => {
+        const sitemapXml = createSitemapXmlFromEntries([{ url: "/typedoc/classes/Scene" }], "https://example.test");
+
+        expect(sitemapXml).toContain("<loc>https://example.test/typedoc/classes/Scene</loc>");
     });
 
     it("creates documentation search records from graph metadata", () => {
