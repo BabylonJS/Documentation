@@ -305,7 +305,7 @@ Phase 4 verification:
 - Removed documentation and TypeDoc search/sitemap mutation calls from route generation.
 - TypeDoc still generates local API search JSON during its existing page-data pipeline, which is tracked as Phase 7 cleanup.
 - Playground preview screenshots still run during page generation when missing, which remains the Phase 5 scope.
-- `npm run build:content`, `npm run build:search`, `npm run build:sitemap`, `npm test`, and `npm run build` passed. Later follow-up: regular `npm run build` no longer runs `build:sitemap`; Azure Pipelines uses `npm run build:ci` on master for the exported sitemap and uploads PR static export snapshots through `DEPLOYMENT_SERVER`/`DEPLOY_TOKEN`.
+- `npm run build:content`, `npm run build:search`, `npm run build:sitemap`, `npm test`, and `npm run build` passed. Later follow-up: regular `npm run build` no longer runs `build:sitemap`; Azure Pipelines uses `npm run build:ci` on master for the exported sitemap, uploads static export snapshots through `DEPLOYMENT_SERVER`/`DEPLOY_TOKEN`, comments PR snapshots through `GITHUB_SERVICE_CONNECTION`, and purges the documentation CDN on master.
 - Code review pass completed after implementation.
 
 ## Phase 5: Isolate Playground Preview Image Generation
