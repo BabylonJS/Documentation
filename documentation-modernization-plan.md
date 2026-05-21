@@ -24,7 +24,7 @@ The target architecture should make the site easier to maintain, easier to valid
 - Keep `output: "export"` in Next.js.
 - Every public documentation page must remain statically generated.
 - Existing URLs should continue to work, either directly or through the existing redirect system.
-- Search, sitemap generation, TypeDoc output, and playground metadata should be generated as static build artifacts.
+- Search, TypeDoc output, and playground metadata should be generated as static build artifacts; public sitemap generation should run only in the master CI build.
 - Local development must not require production secrets such as `SEARCH_API_KEY`.
 - Documentation authors should continue writing markdown/MDX content without needing to understand the full build system.
 - Any future App Router route must be compatible with static export.
@@ -284,7 +284,7 @@ Static artifacts may include:
 
 Tasks:
 
-- Generate sitemap from graph data instead of page render side effects.
+- Generate sitemap from graph and TypeDoc route data instead of page render side effects, but keep the public sitemap step out of regular local builds.
 - Generate search documents from graph data instead of `getPageData` side effects.
 - Generate playground search metadata from graph data.
 - Keep Azure Search upload as an explicit CI/deployment step, not a requirement for local static rendering.
@@ -299,12 +299,13 @@ Phase 4 verification:
 
 - Added `npm run build:content`, `npm run build:search`, `npm run build:sitemap`, and `npm run upload:search`.
 - `build:content` writes inspectable `.temp/content` graph, route manifest, validation report, sitemap XML, and search payloads before `next build`.
+- `build:sitemap` writes the shipped `public/sitemap.xml` from content and TypeDoc routes, and `build:ci` runs it only for the master CI static export path.
 - Documentation and playground search payloads are generated from the content graph instead of `getPageData` route rendering.
 - Azure Search upload is isolated to `npm run upload:search` and requires `SEARCH_API_KEY` only when that explicit command is run.
 - Removed documentation and TypeDoc search/sitemap mutation calls from route generation.
 - TypeDoc still generates local API search JSON during its existing page-data pipeline, which is tracked as Phase 7 cleanup.
 - Playground preview screenshots still run during page generation when missing, which remains the Phase 5 scope.
-- `npm run build:content`, `npm run build:search`, `npm run build:sitemap`, `npm test`, and `npm run build` passed.
+- `npm run build:content`, `npm run build:search`, `npm run build:sitemap`, `npm test`, and `npm run build` passed. Later follow-up: regular `npm run build` no longer runs `build:sitemap`; master CI uses `npm run build:ci` for the exported sitemap.
 - Code review pass completed after implementation.
 
 ## Phase 5: Isolate Playground Preview Image Generation
@@ -329,7 +330,7 @@ Phase 5 verification:
 
 - Added pure content-graph preview image scanning in `lib/contentGraph/exampleImages.ts`.
 - Added `npm run check:example-images` for report-only missing image checks without launching Puppeteer.
-- Added `npm run build:example-images` for intentional screenshot generation, plus `--dry-run` and optional `--strict` modes.
+- Added `npm run build:example-images` for intentional screenshot generation, plus `--dry-run` and optional `--strict` modes. This is the command to generate playground/editor preview snapshots now that normal builds no longer do it.
 - Removed Puppeteer imports and preview screenshot generation from `lib/buildUtils/tools.ts` and normal `getPageData` execution.
 - Current corpus reports 1930 preview image references, 1922 existing images, and 8 missing images.
 - `npm run check:example-images`, `npm run build:example-images -- --dry-run`, `npm test`, and `npm run build` passed.

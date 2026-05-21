@@ -1,0 +1,36 @@
+name: Master Static Build
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export with sitemap
+        run: npm run build:ci
+
+      - name: Upload static export
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-export
+          path: out
+          if-no-files-found: error
