@@ -21,42 +21,14 @@ import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-
-// next-mdx-remote's serialize must be dynamically imported (ESM)
-async function getSerialize() {
-    const { serialize } = await import("next-mdx-remote/serialize");
-    return serialize;
-}
-
-async function getPlugins() {
-    const rehypeSlug = (await import("rehype-slug")).default;
-    const remarkGfm = (await import("remark-gfm")).default;
-    const remarkMath = (await import("remark-math")).default;
-    const rehypeKatex = (await import("rehype-katex")).default;
-    return { rehypeSlug, remarkGfm, remarkMath, rehypeKatex };
-}
+import { compileMarkdownWithFrontmatter } from "../lib/markdown/compileMarkdown";
 
 /**
  * Serialize markdown content through the same pipeline as getStaticProps.
  * Returns { compiledSource, frontmatter }.
  */
 async function serializeMarkdown(markdownWithFrontmatter: string) {
-    const serialize = await getSerialize();
-    const { rehypeSlug, remarkGfm, remarkMath, rehypeKatex } = await getPlugins();
-
-    const { content, data: frontmatter } = matter(markdownWithFrontmatter);
-
-    const mdxResult = await serialize(content, {
-        mdxOptions: {
-            remarkPlugins: [remarkGfm, remarkMath],
-            rehypePlugins: [rehypeSlug, rehypeKatex],
-        },
-    });
-
-    return {
-        compiledSource: mdxResult.compiledSource,
-        frontmatter,
-    };
+    return compileMarkdownWithFrontmatter(markdownWithFrontmatter);
 }
 
 function loadFixture(name: string): string {

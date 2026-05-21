@@ -1,6 +1,6 @@
 import { FunctionComponent, PropsWithChildren, useContext, useEffect, useState } from "react";
 import { ITableOfContentsItem } from "../../lib/content.interfaces";
-import { DocumentationContext } from "../../pages/[...id]";
+import { DocumentationContext } from "../../features/docs/DocumentationContext";
 import { BaseUrlContext } from "../../pages/_app";
 
 import LinkIcon from "@mui/icons-material/Link";
