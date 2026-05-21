@@ -24,7 +24,7 @@ The target architecture should make the site easier to maintain, easier to valid
 - Keep `output: "export"` in Next.js.
 - Every public documentation page must remain statically generated.
 - Existing URLs should continue to work, either directly or through the existing redirect system.
-- Search, TypeDoc output, and playground metadata should be generated as static build artifacts; public sitemap generation should run only in the master CI build.
+- Search, TypeDoc output, and playground metadata should be generated as static build artifacts; public sitemap generation should run only in the Azure Pipelines master build.
 - Local development must not require production secrets such as `SEARCH_API_KEY`.
 - Documentation authors should continue writing markdown/MDX content without needing to understand the full build system.
 - Any future App Router route must be compatible with static export.
@@ -299,13 +299,13 @@ Phase 4 verification:
 
 - Added `npm run build:content`, `npm run build:search`, `npm run build:sitemap`, and `npm run upload:search`.
 - `build:content` writes inspectable `.temp/content` graph, route manifest, validation report, sitemap XML, and search payloads before `next build`.
-- `build:sitemap` writes the shipped `public/sitemap.xml` from content and TypeDoc routes, and `build:ci` runs it only for the master CI static export path.
+- `build:sitemap` writes the shipped `public/sitemap.xml` from content and TypeDoc routes, and `build:ci` runs it only for the Azure Pipelines master static export path.
 - Documentation and playground search payloads are generated from the content graph instead of `getPageData` route rendering.
 - Azure Search upload is isolated to `npm run upload:search` and requires `SEARCH_API_KEY` only when that explicit command is run.
 - Removed documentation and TypeDoc search/sitemap mutation calls from route generation.
 - TypeDoc still generates local API search JSON during its existing page-data pipeline, which is tracked as Phase 7 cleanup.
 - Playground preview screenshots still run during page generation when missing, which remains the Phase 5 scope.
-- `npm run build:content`, `npm run build:search`, `npm run build:sitemap`, `npm test`, and `npm run build` passed. Later follow-up: regular `npm run build` no longer runs `build:sitemap`; master CI uses `npm run build:ci` for the exported sitemap.
+- `npm run build:content`, `npm run build:search`, `npm run build:sitemap`, `npm test`, and `npm run build` passed. Later follow-up: regular `npm run build` no longer runs `build:sitemap`; Azure Pipelines uses `npm run build:ci` on master for the exported sitemap and uploads PR static export snapshots through `DEPLOYMENT_SERVER`/`DEPLOY_TOKEN`.
 - Code review pass completed after implementation.
 
 ## Phase 5: Isolate Playground Preview Image Generation
