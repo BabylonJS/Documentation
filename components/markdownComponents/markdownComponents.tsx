@@ -22,7 +22,7 @@ export const markdownComponents = {
     sfe: SFEMarkdownComponent,
     nrge: NRGEMarkdownComponent,
     NRGE: NRGEMarkdownComponent,
-    pre: (props) => <div {...props} />,
+    pre: (props: any) => <div {...props} />,
     code: SyntaxHighlighting,
     table: Table,
     thead: Thead,

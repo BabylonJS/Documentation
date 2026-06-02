@@ -306,16 +306,18 @@ const camera = new BABYLON.VRDeviceOrientationGamepadCamera("Camera", new BABYLO
 
 ## WebVR Free Camera
 
-**NOTE:** WebVR is deprecated! Please use WebXR instead
+**NOTE:** WebVR has been removed from Babylon.js as of version 7.0. Please use [WebXR](/features/featuresDeepDive/webXR/introToWebXR) instead.
 
-[WebVRFreeCamera](/typedoc/classes/babylon.webvrfreecamera) is the legacy virtual reality camera, now intended for use with older VR device browsers that don't support the WebXR standard.
+The `WebVRFreeCamera` is no longer available. To create VR experiences, use the WebXR experience helper:
 
 ```javascript
-// Parameters : name, position, scene, webVROptions
-const camera = new BABYLON.WebVRFreeCamera("WVR", new BABYLON.Vector3(0, 1, -15), scene);
+// Create a default XR experience with immersive VR support
+const xrHelper = await scene.createDefaultXRExperienceAsync({
+  floorMeshes: [ground],
+});
 ```
 
-This camera deserves its own page: [Using the WebVR Camera](/features/featuresDeepDive/cameras/webVRCamera).
+See [Introduction to WebXR](/features/featuresDeepDive/webXR/introToWebXR) for full documentation.
 
 ## FlyCamera
 
@@ -387,4 +389,3 @@ While this is realistic, it may be visually unappealing. If the angle between th
 
 And if you want further control other the camera projection plane tilting, you can mess with the `camera.projectionPlaneTilt` property.
 See [this forum post](https://forum.babylonjs.com/t/add-vertical-shift-to-3ds-max-exporter-babylon-cameras/17480/16) for more information.
-

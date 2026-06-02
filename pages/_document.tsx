@@ -21,6 +21,7 @@ export class MyDocument extends Document {
                     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
                     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
                     <link rel="manifest" href="/manifest.json" />
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.css" integrity="sha384-IKOookmJ6jaAbJnGdgrLG5MDmzxJmjkIm6XCFqxnhzuMbfkEhGQalwVq2sYnGyZM" crossOrigin="anonymous" />
                     <meta name="msapplication-TileColor" content="#ffffff" />
                     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
                 </Head>
@@ -74,12 +75,12 @@ MyDocument.getInitialProps = async (ctx) => {
     const baseUrl = process.env.BASE_URL ?? "";
 
     if (baseUrl) {
-        globalThis.baseUrl = baseUrl;
+        (globalThis as any).baseUrl = baseUrl;
     }
 
     return {
         ...initialProps,
-        baseUrl: baseUrl || globalThis.baseUrl,
+        baseUrl: baseUrl || (globalThis as any).baseUrl,
         // Styles fragment is rendered after the app and page rendering finish.
         styles: [...React.Children.toArray(initialProps.styles)],
     };

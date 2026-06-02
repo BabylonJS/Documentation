@@ -160,10 +160,10 @@ The physical falloff is the only falloff method that ignores the `range` paramet
 ![The Sponza scene covered in lights but there are block artefacts where the lights end](/img/features/clusteredLighting/physicalFalloff.png)
 <font size="2">The artefacts that can occur from incorrect range parameters when using a physical falloff.</font>
 
-The physical falloff can be disabled on all PBR meterials using:
+The physical falloff can be disabled on all PBR materials using:
 ```javascript
-for (const material of scene.meterials) {
-    if (meterial instanceof BABYLON.PBRMaterial) {
+for (const material of scene.materials) {
+    if (material instanceof BABYLON.PBRMaterial) {
         material.usePhysicalLightFalloff = false;
         // ... or alternatively ...
         material.useGLTFLightFalloff = true;

@@ -19,7 +19,7 @@ The Physics Aggregate is an object that contains a Body and a Shape. It's a help
 ## How to use it
 
 ```javascript
-const sphere = BABYLON.Mesh.CreateSphere("sphere", 16, 2, scene);
+const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { segments: 16, diameter: 2 }, scene);
 const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.PhysicsShapeType.SPHERE, { mass: 1 }, scene);
 ```
 
@@ -27,7 +27,7 @@ This is very similar to the Physics V1 Impostor.
 At aggregate creation, a body and a shape are instantiated all at once. However, recreating shapes is not the most performant choice. You can alternatively pass the shape instead of the PhysicsShapeType, and the aggregate will reuse that shape:
 
 ```javascript
-const sphere = BABYLON.Mesh.CreateSphere("sphere", 16, 2, scene);
+const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { segments: 16, diameter: 2 }, scene);
 const sphere2 = sphere.clone("sphere2");
 
 const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.PhysicsShapeType.SPHERE, { mass: 1 }, scene);

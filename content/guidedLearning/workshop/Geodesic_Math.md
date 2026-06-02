@@ -88,7 +88,7 @@ Fig 9 Unit Vectors
 
 Consider the position vector *xi*&#8407; + *yj*&#8407; its length |*xi*&#8407; + *yj*&#8407;| = &radic;(*x<sup>2</sup>* + *y<sup>2</sup>* + *xy*);. This is the result of applying the cosine rule to the triangle in Fig 10 
 
-|*xi*&#8407; + *yj*&#8407;| = &radic;(*x<sup>2</sup>* + *y<sup>2</sup>* + 2*xy*cos(120<sup>o</sup>)); and cos(120<sup>o</sup>) = 0.5
+|*xi*&#8407; + *yj*&#8407;| = &radic;(*x<sup>2</sup>* + *y<sup>2</sup>* - 2*xy*cos(120<sup>o</sup>)); and cos(120<sup>o</sup>) = -0.5
 
 ![length](/img/snippets/geo13.png)  
 Fig 10 Unit Vectors

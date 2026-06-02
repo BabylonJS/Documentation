@@ -54,7 +54,7 @@ You can even specify the usage of your octree independently:
 * ```mesh.useOctreeForRenderingSelection``` : Octree for submeshes can even be used during mesh selection based on camera field of view. Once a mesh is selected by the camera, if the mesh has submeshes, the camera has to select which one is visible. In this case, having an octree can be really helpful.
 
 ## GroundMesh
-For the specific case of ground meshes, Babylon.js provides a class called ```BABYLON.GroundMesh``` that you can create using ```BABYLON.Mesh.CreateGround``` and ```BABYLON.Mesh.CreateGroundFromHeightMap```.
+For the specific case of ground meshes, Babylon.js provides a class called ```BABYLON.GroundMesh``` that you can create using ```BABYLON.MeshBuilder.CreateGround``` and ```BABYLON.MeshBuilder.CreateGroundFromHeightMap```.
 
 By calling ```groundMesh.optimize(chunkSize)``` where chunkSize defines the number of submeshes you want, the mesh will be optimized for rendering, picking and collisions by creating an internal octree (Be sure to select a correct chunkSize).
 

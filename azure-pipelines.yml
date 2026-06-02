@@ -1,0 +1,99 @@
+trigger:
+  branches:
+    include:
+      - master
+
+pr:
+  branches:
+    include:
+      - master
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  NODE_VERSION: 22.x
+  NPM_CONFIG_CACHE: $(Pipeline.Workspace)/.npm
+  DOCS_ZIP: $(Build.ArtifactStagingDirectory)/docs.zip
+  SNAPSHOT_PATH: DOCS/$(Build.SourceBranch)
+
+steps:
+  - checkout: self
+    clean: true
+
+  - task: NodeTool@0
+    displayName: Use Node $(NODE_VERSION)
+    inputs:
+      versionSpec: $(NODE_VERSION)
+
+  - task: Cache@2
+    displayName: Cache npm packages
+    inputs:
+      key: 'npm | "$(Agent.OS)" | package-lock.json'
+      restoreKeys: |
+        npm | "$(Agent.OS)"
+      path: $(NPM_CONFIG_CACHE)
+
+  - script: npm ci
+    displayName: Install dependencies
+
+  - script: npm run build:ci
+    displayName: Build static export with sitemap
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+  - script: npm run build
+    displayName: Build static export
+    condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+  - script: |
+      set -euo pipefail
+      test -f out/index.html
+    displayName: Verify static export output
+
+  - script: |
+      set -euo pipefail
+      : "${DEPLOYMENT_SERVER:?DEPLOYMENT_SERVER pipeline variable is required for snapshot upload.}"
+      : "${DEPLOY_TOKEN:?DEPLOY_TOKEN pipeline variable is required for snapshot upload.}"
+
+      cd out
+      zip -qr "$(DOCS_ZIP)" .
+      cd -
+
+      curl "${DEPLOYMENT_SERVER}/upload" -i -X POST \
+        -H "Content-Type: multipart/form-data" \
+        -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
+        -F "path=$(SNAPSHOT_PATH)" \
+        -F "storageAccount=babylonsnapshots" \
+        -F "zip=@$(DOCS_ZIP)"
+    displayName: Upload static snapshot
+    condition: succeeded()
+    env:
+      DEPLOYMENT_SERVER: $(DEPLOYMENT_SERVER)
+      DEPLOY_TOKEN: $(DEPLOY_TOKEN)
+
+  - task: GitHubComment@0
+    displayName: Comment PR snapshot location
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+    inputs:
+      gitHubConnection: $(GITHUB_SERVICE_CONNECTION)
+      repositoryName: $(Build.Repository.Name)
+      comment: |
+        Documentation snapshot uploaded.
+
+        Path: `$(SNAPSHOT_PATH)`
+        Build: $(System.CollectionUri)$(System.TeamProject)/_build/results?buildId=$(Build.BuildId)
+
+  - script: |
+      set -euo pipefail
+      : "${DEPLOYMENT_SERVER:?DEPLOYMENT_SERVER pipeline variable is required for CDN purge.}"
+      : "${DEPLOY_TOKEN:?DEPLOY_TOKEN pipeline variable is required for CDN purge.}"
+
+      curl "${DEPLOYMENT_SERVER}/purge?endpoint=babylonjs-documentation&profileName=babylonjstools" \
+        -i \
+        -X POST \
+        -H "Authorization: Bearer ${DEPLOY_TOKEN}"
+    displayName: Purge documentation CDN
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    env:
+      DEPLOYMENT_SERVER: $(DEPLOYMENT_SERVER)
+      DEPLOY_TOKEN: $(DEPLOY_TOKEN)

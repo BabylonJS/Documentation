@@ -9,6 +9,7 @@ See the [Basic Concepts and Getting Started](/features/featuresDeepDive/frameGra
 
 This section describes the frame graph class framework:
 * [Overview of the frame graph framework](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview) describes the main classes that are part of the framework
+* [Writing custom frame graph tasks](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphWritingTasks) explains how to implement your own tasks, including composite tasks that use other tasks internally
 * [List of task classes in the frame graph framework](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList) describes all the tasks that can be used with a frame graph.
 <br/>
 Note that the implementation of the framework is inspired by Unity's [Render Graph System](https://docs.unity3d.com/6000.2/Documentation/Manual/urp/render-graph-introduction.html).

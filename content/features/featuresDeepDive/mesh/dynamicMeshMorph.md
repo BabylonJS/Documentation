@@ -50,7 +50,7 @@ const pathArray = [];
 for (let i = -20; i < 20; i++) {
   pathArray.push(pathFunction(i * 2));
 }
-const mesh = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, false, false, 0, scene, true, sideO);
+const mesh = BABYLON.MeshBuilder.CreateRibbon("ribbon", { pathArray: pathArray, closeArray: false, closePath: false, offset: 0, updatable: true, sideOrientation: sideO }, scene);
 ```
 
 example : <Playground id="#1MSEBT" title="Dynamic Mesh Morph Example 1" description="Simple example of dynamically morphing a mesh."/> _(please rotate the cam to see it)_
@@ -81,14 +81,6 @@ for (let p = 0; p < pathArray.length; p++) {
 The way to update then our existing mesh is quite simple : let's just re-use the _CreateRibbon()_ method and give it this mesh as last parameter with our modified _pathArray_.
 
 ```javascript
-mesh = BABYLON.Mesh.CreateRibbon(null, pathArray, null, null, null, null, null, null, mesh);
-```
-
-The other parameters than _pathArray_ and _mesh_ are just ignored when updating, so they can be set to _null_ for better understanding.  
-The _CreateRibbon()_ method thus updates the given ribbon and returns it.  
-You can also use the other call signature :
-
-```javascript
 mesh = BABYLON.MeshBuilder.CreateRibbon(null, { pathArray: pathArray, instance: mesh });
 ```
 
@@ -111,7 +103,7 @@ const updatePath = function (path, k) {
 };
 
 // path array population ...
-const mesh = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, false, false, 0, scene, true);
+const mesh = BABYLON.MeshBuilder.CreateRibbon("ribbon", { pathArray: pathArray, closeArray: false, closePath: false, offset: 0, updatable: true }, scene);
 
 // morphing
 const k = 0;
@@ -121,9 +113,7 @@ scene.registerBeforeRender(function () {
     updatePath(pathArray[p], k);
   }
   // ribbon update
-  mesh = BABYLON.Mesh.CreateRibbon(null, pathArray, null, null, null, null, null, null, mesh);
-  // or also :
-  // mesh = BABYLON.MeshBuilder.CreateRibbon(null, {pathArray: pathArray, instance: mesh});
+  mesh = BABYLON.MeshBuilder.CreateRibbon(null, { pathArray: pathArray, instance: mesh });
   k += 0.05;
 });
 ```
@@ -144,7 +134,7 @@ It's even easier as Lines just require a path of points as parameter.
 ```javascript
 const points1 = [v1, v2, ..., vN]; // vector3 array
 let lines = BABYLON.MeshBuilder.CreateLines("lines", {points: points1, updatable: true}, scene, true);
-let dashedLines = BABYLON.Mesh.CreateDashedLines("lines", points1, dashSize, gapSize, nb, scene, true);
+let dashedLines = BABYLON.MeshBuilder.CreateDashedLines("lines", { points: points1, dashSize: dashSize, gapSize: gapSize, dashNb: nb, updatable: true }, scene);
 
 lines = BABYLON.MeshBuilder.CreateLines(null, {points: points2, instance: lines});
 dashedLines = BABYLON.MeshBuilder.CreateDashedLines(null, {points: points2, instance: dashedLines});
@@ -168,8 +158,8 @@ const path1 = [v1, ..., vN]; //vector3 array : tube axis1
 const radius1 = 5;
 const path2 = [u1, ..., uN]; // another vector3 array : tube axis2
 const radius2 = 8;
-const tube = BABYLON.Mesh.CreateTube("tube", path1, radius1, 12, null, cap, scene, true);
-tube = BABYLON.MeshBuilder.CreateTube(null, {path: path2, radius: radius2, instance: tube});
+const tube = BABYLON.MeshBuilder.CreateTube("tube", { path: path1, radius: radius1, tessellation: 12, cap: cap, updatable: true }, scene);
+tube = BABYLON.MeshBuilder.CreateTube(null, { path: path2, radius: radius2, instance: tube });
 ```
 
 Of course, it also works with the _radiusFunction_ parameter :
@@ -221,7 +211,7 @@ const myScale2 = function(i, distance) { ... };
 const myRotation1 = function(i, distance) { ... };
 const myRotation2 = function(i, distance) { ... };
 // extrusion
-let ext = BABYLON.Mesh.ExtrudeShapeCustom("ext", { shape: shape1, path: path1, scaleFunction: myScale1, rotationFunction: myRotation1, updatable: true, cap }, scene);
+let ext = BABYLON.MeshBuilder.ExtrudeShapeCustom("ext", { shape: shape1, path: path1, scaleFunction: myScale1, rotationFunction: myRotation1, updatable: true, cap: cap }, scene);
 // mesh update
 ext = BABYLON.MeshBuilder.ExtrudeShapeCustom(null,{shape: shape2, path: path2, scaleFunction: myScale2, rotationFunction: myRotation2, instance: ext});
 ```
@@ -231,9 +221,9 @@ Both new functions can be used in the render loop.
 The funny part is, as _ExtrudeShape()_ and _ExtrudedShapeCustom()_ build the same mesh (only parameters change), you can create a simple extruded shape with _ExtrudeShape()_ and then morph it with _ExtrudeShapeCustom()_ if you need more complexity.
 
 ```javascript
-let ext = BABYLON.Mesh.ExtrudeShape("ext", shape1, path1, scale1, rotation1, cap, scene, true);
+let ext = BABYLON.MeshBuilder.ExtrudeShape("ext", { shape: shape1, path: path1, scale: scale1, rotation: rotation1, cap: cap, updatable: true }, scene);
 // mesh update
-ext = BABYLON.Mesh.ExtrudeShapeCustom(null, shape2, path2, myScale2, myRotation2, null, null, null, null, null, null, ext);
+ext = BABYLON.MeshBuilder.ExtrudeShapeCustom(null, { shape: shape2, path: path2, scaleFunction: myScale2, rotationFunction: myRotation2, instance: ext });
 ```
 
 Example: <Playground id="#20IBWW#14" title="Extruded Shape Example" description="Simple example of dynamically morphing an extruded shape."/>
@@ -271,10 +261,10 @@ So, if your mesh doesn't need to reflect the light (emissive color only for inst
 Use then the _freezeNormals()_ method just after your mesh is created :
 
 ```javascript
-const tube = BABYLON.Mesh.CreateTube("tube", path, 3, 12, null, BABYLON.Mesh.NO_CAP, scene, true);
+const tube = BABYLON.MeshBuilder.CreateTube("tube", { path: path, radius: 3, tessellation: 12, cap: BABYLON.Mesh.NO_CAP, updatable: true }, scene);
 tube.freezeNormals();
 // path update here ...
-tube = BABYLON.Mesh.CreateTube(null, path, 3, null, null, null, null, null, null, tube);
+tube = BABYLON.MeshBuilder.CreateTube(null, { path: path, instance: tube });
 ```
 
 If you need to reset the normals computation process on, use then once the _unfreezeNormals()_ method.

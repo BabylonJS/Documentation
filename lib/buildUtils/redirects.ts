@@ -25,6 +25,6 @@ export function getRedirect(id: string[]) {
     return (
         redirects.redirects.find((redirect: { source: string; destination: string }) => {
             return redirect.source === joined;
-        }).destination || ""
+        })!.destination || ""
     );
 }

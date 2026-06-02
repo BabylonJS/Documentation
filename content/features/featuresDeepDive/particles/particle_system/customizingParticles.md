@@ -50,34 +50,43 @@ particleSystem.startPositionFunction = (worldMatrix: Matrix, positionToUpdate: V
 };
 ```
 
-The update function has the default form:
+Assigning `updateFunction` replaces Babylon.js's built-in particle update, so your function is responsible for advancing particle age, recycling particles, and applying any movement or color changes you still want. Use public properties and methods in custom update functions; properties starting with `_` are internal and can change between releases.
+
+A custom update function can take this form:
 
 ```javascript
-updateFunction = function (particles) {
+var scaledColorStep = new BABYLON.Color4(0, 0, 0, 0);
+var scaledDirection = BABYLON.Vector3.Zero();
+var scaledGravity = BABYLON.Vector3.Zero();
+
+particleSystem.updateFunction = function (particles) {
+  var scene = this.getScene();
+  var delta = this.updateSpeed * (scene ? scene.getAnimationRatio() : 1);
+
   for (let index = 0; index < particles.length; index++) {
     var particle = particles[index];
-    particle.age += this._scaledUpdateSpeed;
+    particle.age += delta;
 
     if (particle.age >= particle.lifeTime) {
-      // Recycle
-      particles.splice(index, 1);
-      this._stockParticles.push(particle);
+      this.recycleParticle(particle);
       index--;
       continue;
-    } else {
-      particle.colorStep.scaleToRef(this._scaledUpdateSpeed, this._scaledColorStep);
-      particle.color.addInPlace(this._scaledColorStep);
-
-      if (particle.color.a < 0) particle.color.a = 0;
-
-      particle.angle += particle.angularSpeed * this._scaledUpdateSpeed;
-
-      particle.direction.scaleToRef(this._scaledUpdateSpeed, particle._scaledDirection);
-      particle.position.addInPlace(particle._scaledDirection);
-
-      this.gravity.scaleToRef(this._scaledUpdateSpeed, this._scaledGravity);
-      particle.direction.addInPlace(this._scaledGravity);
     }
+
+    particle.colorStep.scaleToRef(delta, scaledColorStep);
+    particle.color.addInPlace(scaledColorStep);
+
+    if (particle.color.a < 0) {
+      particle.color.a = 0;
+    }
+
+    particle.angle += particle.angularSpeed * delta;
+
+    particle.direction.scaleToRef(delta, scaledDirection);
+    particle.position.addInPlace(scaledDirection);
+
+    this.gravity.scaleToRef(delta, scaledGravity);
+    particle.direction.addInPlace(scaledGravity);
   }
 };
 ```
@@ -86,13 +95,13 @@ Two simple examples of customizing the update function:
 
 ### Randomize the Particle's Color per Frame
 
-Add the following line in the `else` section:
+Add the following line after the recycle check:
 
 ```javascript
 particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), 1);
 ```
 
-<Playground id="#MRRGXL#955" image="/img/playgroundsAndNMEs/pg-MRRGXL-950.png" title="Random Colored Particles" description="Simple example of creating random colored particles."/>
+<Playground id="#MRRGXL#956" image="/img/playgroundsAndNMEs/pg-MRRGXL-950.png" title="Random Colored Particles" description="Simple example of creating random colored particles."/>
 
 ### Grow Particles from Size 0 to a Final Size
 
@@ -107,7 +116,7 @@ particleSystem.maxSize = 0;
 particleSystem.finalSize = 1;
 ```
 
-In the `else` section, to grow the particle to its final size by 35% of its lifetime, add:
+After the recycle check, to grow the particle to its final size by 35% of its lifetime, add:
 
 ```javascript
 if (particle.age < particle.lifeTime * 0.35) {
@@ -115,7 +124,7 @@ if (particle.age < particle.lifeTime * 0.35) {
 }
 ```
 
-<Playground id="#WJBZQH#108" image="/img/playgroundsAndNMEs/pg-WJBZQH-104.png" title="Growing Particles" description="Simple example of creating growing particles."/>
+<Playground id="#WJBZQH#109" image="/img/playgroundsAndNMEs/pg-WJBZQH-104.png" title="Growing Particles" description="Simple example of creating growing particles."/>
 
 ### Particle Emitter Type
 
@@ -274,4 +283,3 @@ You can see a similar example with node-based particles:
 ### Particle Effect Object
 
 The particle effect object is a slightly modified [Babylon Effect Object](/typedoc/classes/babylon.effect). Also note that the `ShadersStore` is a namespace on this special effect object.
-

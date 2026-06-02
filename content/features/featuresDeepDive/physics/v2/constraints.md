@@ -85,6 +85,9 @@ let constraint = new BABYLON.Physics6DoFConstraint({
     {axis: BABYLON.PhysicsConstraintAxis.ANGULAR_Y, minLimit: 0, maxLimit: 1.58}
 ], scene);
 ```
+
+When creating a constraint, if `axisA` or `axisB` is not set, a default value of `(1, 0, 0)` is used.
+
 ## Debug visualization
 
 Physics viewer allows to display angular and linear limits of constraints.

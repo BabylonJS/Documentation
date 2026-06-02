@@ -682,6 +682,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview"
                                         },
+                                        "frameGraphWritingTasks": {
+                                            "friendlyName": "Writing Frame Graph Tasks",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphWritingTasks"
+                                        },
                                         "frameGraphTaskList": {
                                             "friendlyName": "Frame Graph Task List",
                                             "children": {},
@@ -956,6 +961,11 @@
                                             "friendlyName": "Apply Bump, Opacity, Tiling, and Detail maps",
                                             "children": {},
                                             "content": "features/featuresDeepDive/materials/using/moreMaterials"
+                                        },
+                                        "textureRepetition": {
+                                            "friendlyName": "Breaking Texture Repetition",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/materials/using/textureRepetition"
                                         },
                                         "parallaxMapping": {
                                             "friendlyName": "Parallax Mapping",
@@ -2296,6 +2306,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/webXR/WebXRHandTracking"
                                         },
+                                        "WebXRBodyTracking": {
+                                            "friendlyName": "WebXR Body Tracking",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/webXR/WebXRBodyTracking"
+                                        },
                                         "WebXRMovement": {
                                             "friendlyName": "WebXR Movement",
                                             "children": {},
@@ -2360,6 +2375,11 @@
                     "friendlyName": "Starter HTML Template",
                     "children": {},
                     "content": "setup/starterHTML"
+                },
+                "createBabylonJS": {
+                    "friendlyName": "Scaffold a Project (create-babylonjs)",
+                    "children": {},
+                    "content": "setup/createBabylonJS"
                 },
                 "templates": {
                     "friendlyName": "Templates",
@@ -2429,7 +2449,34 @@
                         },
                         "es6Support": {
                             "friendlyName": "ES6/NPM Support",
-                            "children": {},
+                            "children": {
+                                "treeShaking": {
+                                    "friendlyName": "Tree-Shaking with Pure Imports",
+                                    "children": {
+                                        "usingPureImports": {
+                                            "friendlyName": "Using Pure Imports",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/usingPureImports"
+                                        },
+                                        "registeringSideEffects": {
+                                            "friendlyName": "Registering Side Effects",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/registeringSideEffects"
+                                        },
+                                        "troubleshooting": {
+                                            "friendlyName": "Troubleshooting Pure Imports",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/troubleshooting"
+                                        },
+                                        "contributing": {
+                                            "friendlyName": "Adding Tree-Shakeable Features",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/contributing"
+                                        }
+                                    },
+                                    "content": "setup/frameworkPackages/es6Support/treeShaking"
+                                }
+                            },
                             "content": "setup/frameworkPackages/es6Support"
                         }
                     },
@@ -2764,6 +2811,11 @@
                                     "friendlyName": "Mix",
                                     "children": {},
                                     "content": "toolsAndResources/assetLibraries/materialsLibrary/mixMat"
+                                },
+                                "customMat": {
+                                    "friendlyName": "Custom",
+                                    "children": {},
+                                    "content": "toolsAndResources/assetLibraries/materialsLibrary/customMat"
                                 }
                             },
                             "content": "toolsAndResources/assetLibraries/materialsLibrary"

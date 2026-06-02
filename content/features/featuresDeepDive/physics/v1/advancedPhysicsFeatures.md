@@ -39,9 +39,9 @@ There are certain conditions in which a heightmap can be initialized:
 To create a ground from an image-based ground mesh:
 
 ```javascript
-var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/worldHeightMap.jpg", 200, 200, 50, 0, 30, scene, false, function () {
+var ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("ground", "textures/worldHeightMap.jpg", { width: 200, height: 200, subdivisions: 50, minHeight: 0, maxHeight: 30, onReady: function () {
     ground.physicsImpostor = new BABYLON.PhysicsImpostor(ground, BABYLON.PhysicsImpostor.HeightmapImpostor, { mass: 0 });
-});
+} }, scene);
 ```
 
 To create a heightmap from a square ribbon:
@@ -61,7 +61,7 @@ for (let p = 0; p <= 100; p++) {
 
 }
 
-var mesh = BABYLON.Mesh.CreateRibbon("ribbon", arrayOfPaths, false, false, 0, scene);
+var mesh = BABYLON.MeshBuilder.CreateRibbon("ribbon", { pathArray: arrayOfPaths, closeArray: false, closePath: false, offset: 0 }, scene);
 mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.HeightmapImpostor, { mass: 0, friction:1, restitution: 0.5 });
 ```
 

@@ -14,10 +14,10 @@ This feature allows you to specify different meshes based on distance to viewer 
 For instance, here is how to define 4 levels of details for a given mesh, with distance comparison :
 
 ```javascript
-const knot00 = BABYLON.Mesh.CreateTorusKnot("knot0", 0.5, 0.2, 128, 64, 2, 3, scene);
-const knot01 = BABYLON.Mesh.CreateTorusKnot("knot1", 0.5, 0.2, 32, 16, 2, 3, scene);
-const knot02 = BABYLON.Mesh.CreateTorusKnot("knot2", 0.5, 0.2, 24, 12, 2, 3, scene);
-const knot03 = BABYLON.Mesh.CreateTorusKnot("knot3", 0.5, 0.2, 16, 8, 2, 3, scene);
+const knot00 = BABYLON.MeshBuilder.CreateTorusKnot("knot0", { radius: 0.5, tube: 0.2, radialSegments: 128, tubularSegments: 64, p: 2, q: 3 }, scene);
+const knot01 = BABYLON.MeshBuilder.CreateTorusKnot("knot1", { radius: 0.5, tube: 0.2, radialSegments: 32, tubularSegments: 16, p: 2, q: 3 }, scene);
+const knot02 = BABYLON.MeshBuilder.CreateTorusKnot("knot2", { radius: 0.5, tube: 0.2, radialSegments: 24, tubularSegments: 12, p: 2, q: 3 }, scene);
+const knot03 = BABYLON.MeshBuilder.CreateTorusKnot("knot3", { radius: 0.5, tube: 0.2, radialSegments: 16, tubularSegments: 8, p: 2, q: 3 }, scene);
 
 knot00.addLODLevel(15, knot01);
 knot00.addLODLevel(30, knot02);
@@ -75,10 +75,10 @@ By default, instances will use LOD defined on root mesh. You do not have to spec
 const count = 3;
 const scale = 4;
 
-const knot00 = BABYLON.Mesh.CreateTorusKnot("knot0", 0.5, 0.2, 128, 64, 2, 3, scene);
-const knot01 = BABYLON.Mesh.CreateTorusKnot("knot1", 0.5, 0.2, 32, 16, 2, 3, scene);
-const knot02 = BABYLON.Mesh.CreateTorusKnot("knot2", 0.5, 0.2, 24, 12, 2, 3, scene);
-const knot03 = BABYLON.Mesh.CreateTorusKnot("knot3", 0.5, 0.2, 16, 8, 2, 3, scene);
+const knot00 = BABYLON.MeshBuilder.CreateTorusKnot("knot0", { radius: 0.5, tube: 0.2, radialSegments: 128, tubularSegments: 64, p: 2, q: 3 }, scene);
+const knot01 = BABYLON.MeshBuilder.CreateTorusKnot("knot1", { radius: 0.5, tube: 0.2, radialSegments: 32, tubularSegments: 16, p: 2, q: 3 }, scene);
+const knot02 = BABYLON.MeshBuilder.CreateTorusKnot("knot2", { radius: 0.5, tube: 0.2, radialSegments: 24, tubularSegments: 12, p: 2, q: 3 }, scene);
+const knot03 = BABYLON.MeshBuilder.CreateTorusKnot("knot3", { radius: 0.5, tube: 0.2, radialSegments: 16, tubularSegments: 8, p: 2, q: 3 }, scene);
 
 knot00.setEnabled(false);
 

@@ -136,7 +136,7 @@ var box = MeshBuilder.CreateBox("Small1", { width: 0.5, depth: 0.5, height: 0.25
 box.position.y = 1.5;
 box.position.z = 1;
 
-var body = Mesh.CreateCylinder("body", 3, 2, 2, 0, 0, scene);
+var body = MeshBuilder.CreateCylinder("body", { height: 3, diameterTop: 2, diameterBottom: 2 }, scene);
 var bodymtl = new StandardMaterial("red", scene);
 bodymtl.diffuseColor = new Color3(0.8, 0.5, 0.5);
 body.material = bodymtl;

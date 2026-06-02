@@ -1,7 +1,7 @@
 import { Toolbar, Typography, IconButton, Tooltip, useTheme } from "@mui/material";
 import { FunctionComponent, useContext } from "react";
 import { IExampleLink } from "../../lib/content.interfaces";
-import { DocumentationContext } from "../../pages/[...id]";
+import { DocumentationContext } from "../../features/docs/DocumentationContext";
 import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
 import LinkIcon from "@mui/icons-material/Link";
 import { Link as MaterialLink } from "@mui/material";
@@ -54,7 +54,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                     },
                 }}
             >
-                <a href={`#example-${example.type || "pg"}-${example.id.replace(/#/g, "-")}`}>
+                <a href={`#example-${example.type || "pg"}-${example?.id?.replace(/#/g, "-")}`}>
                     <IconButton onClick={onPlaygroundPressed} aria-label={`Open ${type} ${title}`} size="small" color="inherit">
                         <Tooltip title={`Open ${type} ${title}`}>
                             <LinkIcon></LinkIcon>
@@ -96,7 +96,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                     }}
                     src={baseUrl + (image || imageUrl || getExampleImageUrl(example))}
                     title={title}
-                    alt={title}
+                    alt={title || ""}
                     fill={true}
                 ></Image>
             </Box>

@@ -24,11 +24,11 @@ export const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => 
         // Remove the server-side injected CSS.
         const jssStyles = document.querySelector("#jss-server-side");
         if (jssStyles) {
-            jssStyles.parentElement.removeChild(jssStyles);
+            jssStyles.parentElement!.removeChild(jssStyles);
         }
     }, []);
     if(!pageProps.baseUrl) {
-        pageProps.baseUrl = globalThis.baseUrl || "";
+        pageProps.baseUrl = (globalThis as any).baseUrl || "";
     }
     return (
         <>

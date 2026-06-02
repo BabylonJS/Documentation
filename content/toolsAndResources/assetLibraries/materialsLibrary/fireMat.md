@@ -32,7 +32,7 @@ fireMaterial.diffuseTexture = new BABYLON.Texture("diffuse.png", scene);
 fireMaterial.distortionTexture = new BABYLON.Texture("distortion.png", scene);
 fireMaterial.opacityTexture = new BABYLON.Texture("opacity.png", scene);
 
-var plane = BABYLON.Mesh.CreatePlane("fireplane", 1.0, scene);
+var plane = BABYLON.MeshBuilder.CreatePlane("fireplane", { size: 1.0 }, scene);
 plane.material = fireMaterial;
 ```
 

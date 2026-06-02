@@ -25,7 +25,7 @@ A demo can be found here: PG: <Playground id="#1KF7V1" title="Shadow Only Materi
 ShadowOnly material is dead simple to use. Just apply it as material to any mesh where you want to display only shadow:
 
 ```
-var ground = BABYLON.Mesh.CreatePlane('ground', 1000, scene)
+var ground = BABYLON.MeshBuilder.CreatePlane('ground', { size: 1000 }, scene)
 ground.rotation.x = Math.PI / 2
 ground.material = new BABYLON.ShadowOnlyMaterial('shadowOnly', scene)
 ground.receiveShadows = true
