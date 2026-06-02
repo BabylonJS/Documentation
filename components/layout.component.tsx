@@ -116,7 +116,6 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 <meta name="og:url" content={url} />
                 <meta name="og:description" content={description.substr(0, 150)} />
                 <meta name="twitter:card" content="summary_large_image" />
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.css" integrity="sha384-IKOookmJ6jaAbJnGdgrLG5MDmzxJmjkIm6XCFqxnhzuMbfkEhGQalwVq2sYnGyZM" crossOrigin="anonymous" />
                 {!!previous && <link rel="prev" href={baseDomain + "/" + previous.id.join("/")} />}
                 {!!next && <link rel="next" href={baseDomain + "/" + next.id.join("/")} />}
                 {setCanonical && <link rel="canonical" href={url} />}
@@ -263,7 +262,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             alignItems: "center",
                             flexShrink: 0,
                         },
-                        "& > a:first-child": {
+                        "& > a:first-of-type": {
                             padding: theme.spacing(1, 2),
                             borderRight: "1px solid #707070",
                             borderLeft: "1px solid #707070",

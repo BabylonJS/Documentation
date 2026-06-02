@@ -952,7 +952,7 @@ body {
     .tsd-index-accordion .tsd-accordion-summary > svg {
         margin-left: 0.25rem;
     }
-    .tsd-index-content > :not(:first-child) {
+    .tsd-index-content > * + * {
         margin-top: 0.75rem;
     }
     .tsd-index-heading {
@@ -1220,7 +1220,7 @@ body {
         white-space: nowrap;
         line-height: 40px;
     }
-    .tsd-page-toolbar .table-cell:first-child {
+    .tsd-page-toolbar .table-cell:first-of-type {
         width: 100%;
     }
     .tsd-page-toolbar .tsd-toolbar-icon {

@@ -1,86 +1,52 @@
 import { GetStaticProps } from "next";
-import { FunctionComponent, createRef, useEffect, useState } from "react";
-
-import Layout from "../components/layout.component";
-
-import {serialize} from "next-mdx-remote/serialize";
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-
-import styles from "./documentationPage.module.scss";
-
-import { markdownComponents } from "../components/markdownComponents/markdownComponents";
-
-// testing lib instead of src (documentation states to use the src)
-import { BucketContent } from "../components/bucketContent.component";
-import { IDocumentationPageProps, IExampleLink, ITableOfContentsItem } from "../lib/content.interfaces";
-import { getPageData } from "../lib/buildUtils/tools";
-import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
 import Head from "next/head";
-import { DocumentationContext, IDocumentationParsedUrlQuery } from "./[...id]";
-import { MarkdownMetadata } from "../lib/interfaces";
+import { FunctionComponent, useCallback, useEffect, useRef } from "react";
 
+import { BucketContent } from "../components/bucketContent.component";
+import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
+import Layout from "../components/layout.component";
+import { DocumentationContextProvider } from "../features/docs/DocumentationContext";
+import { DocsMdxRenderer } from "../features/docs/DocsMdxRenderer";
+import { useDocsTableOfContents } from "../features/docs/DocsTableOfContentsProvider";
+import { useExamplePanel } from "../features/docs/useExamplePanel";
+import { getPageData } from "../lib/buildUtils/tools";
+import { IDocumentationPageProps } from "../lib/content.interfaces";
+import { MarkdownMetadata } from "../lib/interfaces";
+import { compileMarkdown } from "../lib/markdown/compileMarkdown";
+import styles from "./documentationPage.module.scss";
+import type { IDocumentationParsedUrlQuery } from "./[...id]";
 
 export interface HomeProps {
     metadata: MarkdownMetadata;
-    mdxContent: MDXRemoteSerializeResult;
+    mdxContent: IDocumentationPageProps["mdxContent"];
     childPages: {
         [key: string]: IDocumentationPageProps;
     };
     id: string[];
 }
+
 export const Home: FunctionComponent<HomeProps> = ({ metadata, mdxContent, childPages, id }) => {
-    const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
-    const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
-    const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
-    const [activeTOCItem, setActiveTOCItem] = useState<ITableOfContentsItem | null>(null);
+    const markdownRef = useRef<HTMLDivElement>(null);
+    const examples = useExamplePanel(markdownRef);
+    const tableOfContents = useDocsTableOfContents();
+    const { clearExampleLinks, setActiveExample } = examples;
+    const { clearTOCItems } = tableOfContents;
+    const routeKey = id.join("/");
 
-    const markdownRef = createRef<HTMLDivElement>();
-
-    // To avoid context empty when adding more than one example in one time
-    const tmpExamplesCache: IExampleLink[] = [];
-    const tmpTOCCache: ITableOfContentsItem[] = [];
-
-    const addExampleLink = (link: IExampleLink) => {
-        // first make sure we don't have it yet!
-        if (tmpExamplesCache.find((item) => item.id === link.id) || exampleLinks.find((item) => item.id === link.id)) {
-            return;
-        }
-        tmpExamplesCache.push(link);
-        setExampleLinks([...exampleLinks, ...tmpExamplesCache]);
-    };
-
-    const addTOCItem = (tocItem: ITableOfContentsItem) => {
-        // first make sure we don't have it yet!
-        if (tocItem.level < 1 || tmpTOCCache.find((item) => item.id === tocItem.id) || tocLinks.find((item) => item.id === tocItem.id)) {
-            return;
-        }
-        tmpTOCCache.push(tocItem);
-        setTocLinks([...tocLinks, ...tmpTOCCache]);
-    };
-
-    const clearExampleLinks = () => {
-        tmpExamplesCache.length = 0;
-        setExampleLinks([]);
-    };
-
-    const clearTOCItems = () => {
-        setTocLinks([]);
-        tmpTOCCache.length = 0;
-    };
+    const scrollToTop = useCallback(() => {
+        markdownRef.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+    }, []);
 
     useEffect(() => {
-        setTimeout(() => {
-            markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
-        });
+        const timeout = window.setTimeout(scrollToTop);
         return () => {
+            window.clearTimeout(timeout);
             clearExampleLinks();
             setActiveExample(null);
             clearTOCItems();
         };
-    }, [id]);
+    }, [clearExampleLinks, clearTOCItems, routeKey, scrollToTop, setActiveExample]);
 
-    const components = markdownComponents;
-    const renderedContent = <MDXRemote {...mdxContent} components={components as any} />
     return (
         <Layout
             breadcrumbs={[]}
@@ -100,34 +66,27 @@ export const Home: FunctionComponent<HomeProps> = ({ metadata, mdxContent, child
                     }}
                 ></script>
             </Head>
-            <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
-                <div className={styles['documentation-container']}>
+            <DocumentationContextProvider examples={examples} tableOfContents={tableOfContents}>
+                <div className={styles["documentation-container"]}>
                     <div className={styles["markdown-and-playground"]}>
-                        <InlineExampleComponent {...activeExample} />
+                        <InlineExampleComponent {...examples.activeExample} />
                         <div ref={markdownRef} className={styles["markdown-container"]} id="markdown-container">
                             <h1>{metadata.title}</h1>
-                            {renderedContent}
+                            <DocsMdxRenderer mdxContent={mdxContent} />
                             <BucketContent childPages={childPages}></BucketContent>
                         </div>
                     </div>
                 </div>
-            </DocumentationContext.Provider>
+            </DocumentationContextProvider>
         </Layout>
     );
 };
+
 export default Home;
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async () => {
     const props = await getPageData([], true);
-    const rehypeSlug = (await import("rehype-slug")).default;
-    const remarkGfm = (await import("remark-gfm")).default;
-    props.mdxContent = await serialize(props.content ?? "", {
-        // components: markdownComponents,
-        mdxOptions: {
-            remarkPlugins: [remarkGfm],
-            rehypePlugins: [rehypeSlug],
-        },
-    });
+    props.mdxContent = await compileMarkdown(props.content ?? "");
     return {
         props,
     };

@@ -71,9 +71,12 @@ export const addPlaygroundSearch: Plugin<any[]> = function (options: any) {
 export const apiLinkParserPlugin = (baseLocation = "typedoc"): Plugin => {
     return () => {
         const visitor = (node: any /*, index, parent*/) => {
-            var props = node.properties as { [key: string]: any };
+            var props = (node.properties ||= {}) as { [key: string]: any };
             if (node.tagName === "a" && props.href && !props.href.startsWith("http") && props.href.indexOf("/") !== -1 && props.href[0] !== ".") {
                 props.href = `/${baseLocation}/${props.href}`;
+            }
+            if (node.tagName === "use" && props.href?.includes("#icon-")) {
+                props.href = props.href.replace(/.*#/, "#");
             }
             if (node.tagName === "input") {
                 props.readonly = true;
@@ -89,7 +92,7 @@ export const apiLinkParserPlugin = (baseLocation = "typedoc"): Plugin => {
 export const parseNode = (htmlContent: string, baseLocation = "typedoc") => {
     // const parsed = unified().use(html).stringify(node);
     var processor = unified()
-        .use(parse)
+        .use(parse, { fragment: true })
         .use(highlight)
         .use(apiLinkParserPlugin(baseLocation))
         .use(addPlaygroundSearch)
