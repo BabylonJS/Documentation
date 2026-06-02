@@ -88,7 +88,7 @@ Drag behavior keeps the point under the cursor anchored to the globe by construc
 Configurable properties:
 
 ```javascript
-const pointerInput = camera.inputs.attached["GeospatialCameraPointersInput"];
+const pointerInput = camera.inputs.attached["pointers"];
 pointerInput.pitchSensitivity = 1.0; // Pitch rotation sensitivity
 pointerInput.yawSensitivity = 1.0; // Yaw rotation sensitivity
 pointerInput.pinchToPanMax = 20; // Pixel threshold to distinguish pinch from pan
@@ -109,7 +109,7 @@ Handles scroll wheel zoom. By default, zooms toward the point on the globe under
 Configurable properties:
 
 ```javascript
-const keyboardInput = camera.inputs.attached["GeospatialCameraKeyboardInput"];
+const keyboardInput = camera.inputs.attached["keyboard"];
 keyboardInput.panSensitivity = 1.0;
 keyboardInput.rotationSensitivity = 1.0;
 keyboardInput.zoomSensitivity = 1.0;
@@ -143,7 +143,7 @@ User input flows through a layered pipeline: **input sensitivity** (per-device s
 
 ```javascript
 // Per-device: make mouse tilt twice as fast
-camera.inputs.attached["GeospatialCameraPointersInput"].pitchSensitivity = 2.0;
+camera.inputs.attached["pointers"].pitchSensitivity = 2.0;
 
 // Global: make all zoom faster, add pan glide
 camera.movement.zoomSpeed = 4;

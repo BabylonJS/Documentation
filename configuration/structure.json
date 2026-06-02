@@ -877,6 +877,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/importers/assetContainers"
                                 },
+                                "smartAssets": {
+                                    "friendlyName": "Smart Assets",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/importers/smartAssets"
+                                },
                                 "createImporters": {
                                     "friendlyName": "Create Your Own File Importer",
                                     "children": {},
@@ -2618,6 +2623,16 @@
                             "friendlyName": "Examples",
                             "children": {},
                             "content": "toolsAndResources/inspector.v2/examples"
+                        },
+                        "overrideManager": {
+                            "friendlyName": "Override Manager",
+                            "children": {},
+                            "content": "toolsAndResources/inspector.v2/overrideManager"
+                        },
+                        "projectFile": {
+                            "friendlyName": "Project Files (.babylonproj)",
+                            "children": {},
+                            "content": "toolsAndResources/inspector.v2/projectFile"
                         }
                     },
                     "content": "toolsAndResources/inspector.v2"
