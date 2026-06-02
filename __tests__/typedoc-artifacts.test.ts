@@ -1,12 +1,13 @@
-import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "fs";
-import { tmpdir } from "os";
+import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "fs";
+import os, { tmpdir } from "os";
 import { join } from "path";
 
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { createTypeDocSearchArtifacts, writeTypeDocSearchArtifacts } from "../lib/buildUtils/typedoc.utils";
+import { createTypeDocSearchArtifacts, getTypeDocFiles, writeTypeDocSearchArtifacts } from "../lib/buildUtils/typedoc.utils";
 
 const tempDirectories: string[] = [];
+const localArtifactsDirectories: string[] = [];
 
 const createTempDirectory = () => {
     const directory = mkdtempSync(join(tmpdir(), "typedoc-artifacts-"));
@@ -21,12 +22,39 @@ const writeHtmlFile = (basePath: string, kind: string, fileName: string) => {
 };
 
 afterEach(() => {
+    vi.restoreAllMocks();
     while (tempDirectories.length) {
         rmSync(tempDirectories.pop()!, { recursive: true, force: true });
+    }
+    while (localArtifactsDirectories.length) {
+        rmSync(localArtifactsDirectories.pop()!, { recursive: true, force: true });
     }
 });
 
 describe("TypeDoc artifact helpers", () => {
+    it("uses generated TypeDoc file casing without adding lowercase route aliases", () => {
+        vi.spyOn(os, "platform").mockReturnValue("linux");
+        const baseLocation = "__typedoc-casing-test";
+        const basePath = join(process.cwd(), ".temp", baseLocation, "docdirectory");
+        const filesPath = join(basePath, "files");
+        localArtifactsDirectories.push(join(process.cwd(), ".temp", baseLocation));
+
+        if (existsSync(localArtifactsDirectories[0])) {
+            rmSync(localArtifactsDirectories[0], { recursive: true, force: true });
+        }
+
+        writeHtmlFile(basePath, "classes", "_babylonjs_core.Scene.html");
+        writeFileSync(join(filesPath, "index.html"), "<html></html>", { encoding: "utf-8" });
+
+        const paths = getTypeDocFiles(baseLocation);
+
+        expect(paths).toHaveLength(2);
+        expect(paths).toEqual(expect.arrayContaining([
+            { params: { id: ["classes", "_babylonjs_core.Scene"] } },
+            { params: { id: ["index"] } },
+        ]));
+    });
+
     it("creates deterministic search and legacy redirect artifacts from generated HTML", () => {
         const basePath = createTempDirectory();
         writeHtmlFile(basePath, "classes", "_babylonjs_core.Scene.html");

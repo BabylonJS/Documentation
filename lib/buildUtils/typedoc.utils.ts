@@ -2,7 +2,6 @@ import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { sep } from "path";
 import * as path from "path";
 import * as glob from "glob";
-import os from "os";
 import { getAllFiles } from "./tools";
 import { MarkdownMetadata } from "../interfaces";
 
@@ -148,18 +147,7 @@ export const getTypeDocFiles = (baseLocation: string = "typedoc") => {
             };
         })
         .filter(({ params }) => (baseLocation === "typedoc" ? params.id.indexOf("module/BABYLON") === -1 : true));
-    const extra =
-        os.platform() === "win32" || os.platform() === "darwin"
-            ? []
-            : fileMap.map((file) => {
-                  return {
-                      params: {
-                          id: file.params.id.map((id) => id.toLowerCase()),
-                      },
-                  };
-              });
-
-    return [...fileMap, ...extra];
+    return fileMap;
 };
 
 export const getTypeDocStaticPaths = (baseLocation: string = "typedoc") => getTypeDocFiles(baseLocation);

@@ -50,10 +50,6 @@ steps:
       test -f out/index.html
     displayName: Verify static export output
 
-  - publish: out
-    artifact: static-export
-    displayName: Publish static export artifact
-
   - script: |
       set -euo pipefail
       : "${DEPLOYMENT_SERVER:?DEPLOYMENT_SERVER pipeline variable is required for snapshot upload.}"
