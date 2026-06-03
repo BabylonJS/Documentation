@@ -1,4 +1,5 @@
 import type { IPlaygroundSearchItem, ISearchIndexItem } from "../buildUtils/search.utils";
+import { docsFlavors, type DocsFlavorId } from "../docsFlavors";
 import { getExampleImageUrl } from "../frontendUtils/frontendTools";
 import type { ContentGraph, ContentGraphExampleReference, ContentGraphPage } from "./types";
 
@@ -48,9 +49,10 @@ export const createSitemapXmlFromEntries = (entries: SitemapEntry[], baseUrl = "
     return [`<?xml version="1.0" encoding="UTF-8"?>`, `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`, ...urls, `</urlset>`].join("\n");
 };
 
-export const createDocumentationSearchIndex = (graph: ContentGraph): ISearchIndexItem[] => {
+export const createDocumentationSearchIndex = (graph: ContentGraph, flavorId: DocsFlavorId = docsFlavors.babylon.id): ISearchIndexItem[] => {
     return getRenderablePages(graph).map((page) => ({
         id: encodeSearchId(page.route),
+        flavor: flavorId,
         categories: page.breadcrumbs.map((breadcrumb) => breadcrumb.name),
         path: page.route,
         isApi: false,
@@ -64,19 +66,20 @@ export const createDocumentationSearchIndex = (graph: ContentGraph): ISearchInde
     }));
 };
 
-const createPlaygroundSearchItem = (page: ContentGraphPage, example: ContentGraphExampleReference): IPlaygroundSearchItem | undefined => {
+const createPlaygroundSearchItem = (page: ContentGraphPage, example: ContentGraphExampleReference, flavorId: DocsFlavorId): IPlaygroundSearchItem | undefined => {
     if (example.type !== "pg" || !example.id) {
         return undefined;
     }
 
     const playgroundId = example.id[0] === "#" ? example.id.substr(1) : example.id;
-    const id = encodeSearchId(playgroundId);
+    const id = encodeSearchId(`${flavorId}:${playgroundId}`);
     if (!id) {
         return undefined;
     }
 
     return {
         id,
+        flavor: flavorId,
         playgroundId,
         title: example.title || `Playground for ${page.metadata.title}`,
         description: example.description || "",
@@ -88,12 +91,12 @@ const createPlaygroundSearchItem = (page: ContentGraphPage, example: ContentGrap
     };
 };
 
-export const createPlaygroundSearchIndex = (graph: ContentGraph): IPlaygroundSearchItem[] => {
+export const createPlaygroundSearchIndex = (graph: ContentGraph, flavorId: DocsFlavorId = docsFlavors.babylon.id): IPlaygroundSearchItem[] => {
     const items = new Map<string, IPlaygroundSearchItem>();
 
     getRenderablePages(graph).forEach((page) => {
         page.examples.forEach((example) => {
-            const item = createPlaygroundSearchItem(page, example);
+            const item = createPlaygroundSearchItem(page, example, flavorId);
             if (item) {
                 items.set(item.id, item);
             }

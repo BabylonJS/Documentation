@@ -20,6 +20,7 @@ import { SideMenu } from "./sideMenu.component";
 import { useRouter } from "next/dist/client/router";
 import { useContext } from "react";
 import { ColorModeContext, BaseUrlContext } from "../pages/_app";
+import { getDocsFlavorFromId } from "../lib/docsFlavors";
 
 export const defaultKeywords = ["babylonjs", "documentation", "webgl", "engine"].join(", ");
 // very temporary structure configuration
@@ -89,7 +90,9 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
               robots: metadata.robots || "index, follow",
           };
 
-    const MenuStructure = <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>;
+    const docsFlavor = getDocsFlavorFromId(id);
+    const flavorMenuStructure = docsFlavor.menuItems ?? menuStructure;
+    const MenuStructure = <SideMenu items={flavorMenuStructure} selected={`/${id.join("/")}`} currentFlavorId={docsFlavor.id}></SideMenu>;
     const indexOfQuery = router.asPath.indexOf("?");
     const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : indexOfQuery !== -1 ? router.asPath.substring(0, indexOfQuery) : router.asPath);
     const setCanonical = id.indexOf("search") === -1 && id.indexOf("playground") === -1 && indexOfQuery !== -1;
@@ -163,7 +166,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             },
                         }}
                     >
-                        <Link href={baseDomain + "/"}>
+                        <Link href={baseDomain + (docsFlavor.basePath || "/")}>
                             <span></span>
                         </Link>
                     </Typography>
@@ -199,7 +202,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         <form
                             onSubmit={(e) => {
                                 e.preventDefault();
-                                router.push("/search?q=" + searchTerm);
+                                router.push(`${docsFlavor.searchPath}?q=${encodeURIComponent(searchTerm)}`);
                                 return false;
                             }}
                             noValidate
@@ -234,8 +237,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             />
                         </form>
                     </Box>
-                    <Link href="https://github.com/BabylonJS/Babylon.js" target={"_blank"} rel={"noopener"}>
-                        <IconButton aria-label="Babylon.js Github" size="medium" color="inherit">
+                    <Link href={docsFlavor.githubUrl} target={"_blank"} rel={"noopener"}>
+                        <IconButton aria-label={`${docsFlavor.label} Github`} size="medium" color="inherit">
                             <GithubIcon />
                         </IconButton>
                     </Link>
@@ -272,7 +275,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         },
                     }}
                 >
-                    <Link href={baseDomain + "/typedoc"}>API</Link>
+                    <Link href={baseDomain + docsFlavor.apiPath}>API</Link>
                     {!!previous && (
                         <Link key="previousArticle" href={baseDomain + "/" + previous.id.join("/")}>
                             <Tooltip title={`Previous article: ${previous.metadata.title}`} aria-label="Previous article">
@@ -426,7 +429,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                 onClick={handleDrawerToggle}
                                 onKeyDown={handleDrawerToggle}
                             >
-                                <Link href={baseDomain + "/"}>
+                                <Link href={baseDomain + (docsFlavor.basePath || "/")}>
                                     <img src={baseDomain + "/img/babylonidentity.svg"} alt="Babylon.js logo" width="200" height="60" />
                                 </Link>
                                 {MenuStructure}

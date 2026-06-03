@@ -1,7 +1,9 @@
 import { IDocumentSearchResult, ISearchResult } from "../frontendUtils/searchQuery.utils";
+import { type DocsFlavorId } from "../docsFlavors";
 
 export interface ISearchIndexItem {
     id: string;
+    flavor: DocsFlavorId;
     title: string;
     imageUrl?: string;
     description?: string;
@@ -16,6 +18,7 @@ export interface ISearchIndexItem {
 
 export interface IPlaygroundSearchItem {
     id: string;
+    flavor: DocsFlavorId;
     playgroundId: string;
     title: string;
     imageUrl?: string;
@@ -95,7 +98,7 @@ export const addPlaygroundItem = async (item: IPlaygroundSearchItem) => {
     return result;
 }
 
-export const clearPlaygroundIndex = async () => {
+export const clearPlaygroundIndex = async (flavorId: DocsFlavorId = "babylon") => {
     if (!process.env.SEARCH_API_KEY) {
         console.log("no search API key defined");
         return;
@@ -108,7 +111,7 @@ export const clearPlaygroundIndex = async () => {
             method: "POST",
             
             body: JSON.stringify({
-                // filter: `isMain eq true`,
+                filter: `flavor eq '${flavorId}'`,
                 top: 10000,
                 ...params
             }),
@@ -156,7 +159,7 @@ export const clearPlaygroundIndex = async () => {
     console.log("search index cleared");
 };
 
-export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] = []) => {
+export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] = [], flavorId: DocsFlavorId = "babylon") => {
     if (!process.env.SEARCH_API_KEY) {
         console.log("no search API key defined");
         return;
@@ -174,7 +177,7 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
             method: "POST",
 
             body: JSON.stringify({
-                filter: `isApi eq ${isApi}`,
+                filter: `isApi eq ${isApi} and flavor eq '${flavorId}'`,
                 top: 10000,
                 ...params
             }),

@@ -1,7 +1,10 @@
+import { type DocsFlavorId } from "../docsFlavors";
+
 export interface ISearchResult {
     "@search.score": number;
     id: string;
     title: string;
+    flavor?: DocsFlavorId;
     imageUrl?: string;
     description?: string;
 }
@@ -20,8 +23,18 @@ export interface IDocumentSearchResult extends ISearchResult {
     videoLink: string;
 }
 
-export async function queryIndex<T extends ISearchResult>(query: string, type: "playgrounds" | "documents" = "documents") {
-    const result = await fetch(`https://babylonjs-newdocs.search.windows.net/indexes/${type}/docs?api-version=2020-06-30&search=${query}`, {
+export function buildSearchIndexUrl(query: string, type: "playgrounds" | "documents" = "documents", flavorId: DocsFlavorId = "babylon") {
+    const params = new URLSearchParams({
+        "api-version": "2020-06-30",
+        search: query,
+        $filter: `flavor eq '${flavorId}'`,
+    });
+
+    return `https://babylonjs-newdocs.search.windows.net/indexes/${type}/docs?${params.toString()}`;
+}
+
+export async function queryIndex<T extends ISearchResult>(query: string, type: "playgrounds" | "documents" = "documents", flavorId: DocsFlavorId = "babylon") {
+    const result = await fetch(buildSearchIndexUrl(query, type, flavorId), {
         headers: {
             "Content-type": "application/json; charset=UTF-8",
             // read key - can be exposed
