@@ -12,7 +12,7 @@ module.exports = withMDX({
         unoptimized: true,
     },
     trailingSlash: true,
-    assetPrefix: process.env.BASE_URL || "",
+    assetPrefix: process.env.BASE_URL || process.env.NEXT_PUBLIC_BASE_URL || "",
     // async redirects() {
     //     return [
     //       {

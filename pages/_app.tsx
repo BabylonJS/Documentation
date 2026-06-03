@@ -27,8 +27,8 @@ export const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => 
             jssStyles.parentElement!.removeChild(jssStyles);
         }
     }, []);
-    if(!pageProps.baseUrl) {
-        pageProps.baseUrl = (globalThis as any).baseUrl || "";
+    if (!pageProps.baseUrl) {
+        pageProps.baseUrl = process.env.NEXT_PUBLIC_BASE_URL || (globalThis as any).baseUrl || "";
     }
     return (
         <>

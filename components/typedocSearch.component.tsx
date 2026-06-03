@@ -1,10 +1,11 @@
-import { FunctionComponent, useState, useRef, useEffect, useCallback, useMemo } from "react";
+import { FunctionComponent, useState, useRef, useEffect, useCallback, useMemo, useContext } from "react";
 import { useRouter } from "next/router";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/system/Box";
 import { InputBase, Paper, Typography, IconButton, alpha } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
+import { BaseUrlContext } from "../pages/_app";
 
 interface SearchEntry {
     name: string;
@@ -103,6 +104,7 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
     const listRef = useRef<HTMLUListElement>(null);
     const router = useRouter();
     const theme = useTheme();
+    const baseUrl = useContext(BaseUrlContext);
 
     const mode = getSearchMode(id);
     const currentModule = getModuleFromId(id);
@@ -113,11 +115,11 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
     // Load manifest (tiny file listing available modules)
     const loadManifest = useCallback(() => {
         if (manifest) return;
-        fetch(`/api-search/${prefix}/manifest.json`)
+        fetch(`${baseUrl}/api-search/${prefix}/manifest.json`)
             .then((r) => r.json())
             .then((data: ManifestEntry[]) => setManifest(data))
             .catch(() => setManifest([]));
-    }, [manifest, prefix]);
+    }, [baseUrl, manifest, prefix]);
 
     // Load a specific module's search data
     const loadModule = useCallback(
@@ -126,7 +128,7 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
             if (!manifest) return;
             const entry = manifest.find((m) => m.module === mod);
             if (!entry) return;
-            fetch(`/api-search/${prefix}/${entry.file}`)
+            fetch(`${baseUrl}/api-search/${prefix}/${entry.file}`)
                 .then((r) => r.json())
                 .then((data: SearchEntry[]) => {
                     // Attach module name to each entry (not stored in per-module files)
@@ -135,7 +137,7 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
                 })
                 .catch(() => setModuleData((prev) => ({ ...prev, [mod]: [] })));
         },
-        [manifest, moduleData, prefix],
+        [baseUrl, manifest, moduleData, prefix],
     );
 
     // Load all modules (for global search)

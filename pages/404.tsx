@@ -2,7 +2,8 @@ import { Typography, Link as MaterialLink, Box, useTheme } from "@mui/material";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import Layout from "../components/layout.component";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
+import { BaseUrlContext } from "./_app";
 
 /**
  * Attempt to resolve an old-style BABYLON.* TypeDoc URL to the new
@@ -11,6 +12,7 @@ import { FunctionComponent, useEffect, useState } from "react";
  */
 function useLegacyTypedocRedirect(): string | null {
     const router = useRouter();
+    const baseUrl = useContext(BaseUrlContext);
     const [redirect, setRedirect] = useState<string | null>(null);
 
     useEffect(() => {
@@ -25,7 +27,7 @@ function useLegacyTypedocRedirect(): string | null {
         const lastDot = rest.lastIndexOf(".");
         const name = lastDot !== -1 ? rest.substring(lastDot + 1) : rest;
 
-        fetch("/api-search/typedoc/legacy-redirects.json")
+        fetch(`${baseUrl}/api-search/typedoc/legacy-redirects.json`)
             .then((res) => (res.ok ? res.json() : null))
             .then((map: Record<string, string> | null) => {
                 if (!map) return;
@@ -36,7 +38,7 @@ function useLegacyTypedocRedirect(): string | null {
                 }
             })
             .catch(() => {});
-    }, [router.asPath]);
+    }, [baseUrl, router.asPath]);
 
     useEffect(() => {
         if (redirect) {
