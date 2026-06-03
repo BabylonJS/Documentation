@@ -15,6 +15,7 @@ variables:
   NODE_VERSION: 22.x
   NPM_CONFIG_CACHE: $(Pipeline.Workspace)/.npm
   DOCS_ZIP: $(Build.ArtifactStagingDirectory)/docs.zip
+  SNAPSHOT_BASE_URL: https://snapshots-cvgtc2eugrd3cgfd.z01.azurefd.net
   SNAPSHOT_PATH: DOCS/$(Build.SourceBranch)
 
 steps:
@@ -44,6 +45,9 @@ steps:
   - script: npm run build
     displayName: Build static export
     condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
+    env:
+      BASE_URL: /$(SNAPSHOT_PATH)
+      NEXT_PUBLIC_BASE_URL: /$(SNAPSHOT_PATH)
 
   - script: |
       set -euo pipefail
@@ -80,6 +84,7 @@ steps:
       comment: |
         Documentation snapshot uploaded.
 
+        Snapshot: [$(SNAPSHOT_BASE_URL)/$(SNAPSHOT_PATH)]($(SNAPSHOT_BASE_URL)/$(SNAPSHOT_PATH))
         Path: `$(SNAPSHOT_PATH)`
         Build: $(System.CollectionUri)$(System.TeamProject)/_build/results?buildId=$(Build.BuildId)
 
