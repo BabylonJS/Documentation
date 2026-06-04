@@ -120,7 +120,7 @@ This is the default and cheapest solution. All this does is disable the TAA effe
 
 This works well when the only movement in your scene is from your camera, but does not prevent ghosting when the objects themselves are moving. For example if there’s an animation it will experience the same ghosting regardless of this option:
 
-![A blurry animation of the BrainStem model](/img/how_to/taaRenderingPipeline/animation_ghosting.png)
+![A blurry animation of the BrainStem model](/img/how_to/taaRenderingPipeline/animation_ghosting.webp)
 
 Note that you’ll likely want to set this to `false` if you’re using any of the other techniques below. You can still leave this set to `true` if you wish to use the other techniques for moving objects while still disabling TAA for a moving camera.
 
@@ -136,7 +136,7 @@ For this to work the TAA implementation requires a texture containing the per-pi
 
 Additionally, this still produces ghosting when a pixel goes from being covered by an object one frame to uncovered the next. This occurs because the pixel is not in the previous frame, but it still tries to find its location in the previos frame regardless:
 
-![A blurry boombox where the front is slightly less blurry than the back](/img/how_to/taaRenderingPipeline/reproject_ghosting.png)
+![A blurry boombox where the front is slightly less blurry than the back](/img/how_to/taaRenderingPipeline/reproject_ghosting.webp)
 
 Note how the front of the model is less blurry than the background behind the model.
 
@@ -152,14 +152,14 @@ In theory, if a pixel is too different from it’s previous value then the previ
 
 Color clamping starts by getting the `min` and `max` values from the neighborhood of pixels, which we define as the 3x3 square centered on the target location:
 
-![A square showing the 3x3 neighborhood of pixels in an image](/img/how_to/taaRenderingPipeline/color_neighborhood.png)
+![A square showing the 3x3 neighborhood of pixels in an image](/img/how_to/taaRenderingPipeline/color_neighborhood.webp)
 <font size="2">From [Temporal AA and the Quest for the Holy Trail](https://www.elopezr.com/temporal-aa-and-the-quest-for-the-holy-trail/?unapproved=4350&moderation-hash=6c2bafd345ec15df25dca9a491e4c2be#comment-4350) by Emilio López</font>
 
 Color clamping then assumes that the pixel will never go outside the **[`min`, `max`]** range and anything outside that range is likely to be incorrect. These "incorrect" pixels are adjusted by clamping them to within this **[`min`, `max`]** range, hence where the name comes from.
 
 Due to its aggresive nature, this technique almost entirely gets rid of the ghosting artifacts at the cost of being slightly more expensive (each output pixel now requires querying 9 more input pixels). That being said, movement still produces artifacts with this technique, albeit a different kind that’s alot more subtle:
 
-![A zoom in of the boombox in motion, the text and edges are a bit broken and wobbly](/img/how_to/taaRenderingPipeline/clamp_artifacts.png)
+![A zoom in of the boombox in motion, the text and edges are a bit broken and wobbly](/img/how_to/taaRenderingPipeline/clamp_artifacts.webp)
 
 Note the slighlty garbled text and edges. Sadly, an incorrect value is still an incorrect value, regardless of how much you try to "correct" it.
 

@@ -50,7 +50,7 @@ The `cullBackFaces` option set to `true` will make sure the faces that are back 
 
 For eg:
 
-![Projection box](/img/features/decals/decal_projbox.jpg)
+![Projection box](/img/features/decals/decal_projbox.webp)
 
 In this picture, the red box materializes the projection box and has the `size` dimensions passed in `options`.
 
@@ -58,19 +58,19 @@ As the projection box extends farther from the back, with `cullBackFaces=false` 
 
 | front                                              | back                                                 |
 | -------------------------------------------------- | ---------------------------------------------------- |
-| ![Front](/img/features/decals/decal_front.jpg!350) | ![Back](/img/features/decals/decal_back_nok.jpg!350) |
+| ![Front](/img/features/decals/decal_front.webp!350) | ![Back](/img/features/decals/decal_back_nok.webp!350) |
 
 <br/>
 With `cullBackFaces=true` however, the projected texture will not be visible on the back:
 
 | front                                              | back                                                |
 | -------------------------------------------------- | --------------------------------------------------- |
-| ![Front](/img/features/decals/decal_front.jpg!350) | ![Back](/img/features/decals/decal_back_ok.jpg!300) |
+| ![Front](/img/features/decals/decal_front.webp!350) | ![Back](/img/features/decals/decal_back_ok.webp!300) |
 
 <br/>
 Of course, you can try to lower the dimensions of the projection box:
 
-![Projection box](/img/features/decals/decal_projbox_small.jpg)
+![Projection box](/img/features/decals/decal_projbox_small.webp)
 
 It will work even with `cullBackFaces=false` as the box does not extend past the back. But even this reduced box is too big if we want to create a decal on the arm, for example. For the arm, you would need a very tiny box, but then this tiny box may be too tiny if we project on another part of the body... So, you would need to adjust the size depending on where you create the decal, which can be tedious and difficult to achieve in practice. Using `cullBackFaces=true` with a relatively big box will work in all cases without worrying about where the decal is created.
 
@@ -120,8 +120,8 @@ Note that you must enable support for decal maps (`material.decalMap.isEnabled =
 However, you can disable/enable the decal map rendering at any time by updating `decalMap.isEnabled`. You can even start in a disabled state and enable it later, but the important thing is to set a value to `material.decalMap.isEnabled` (or even just access `material.decalMap`) before the first rendering. If you don't do this, `material.decalMap` will always return `null`.
 
 Here are sample playgrounds that show how to use decal maps. Click on the meshes to add decals: 
-- <Playground id="#9BVW2S#60" title="Decal maps" description="Example of using decal maps." image="/img/playgroundsAndNMEs/pg-9BVW2S-49.png"/>
-- <Playground id="#N10DXG#17" title="Decal Graffiti" description="Add graffiti with decal maps." image="/img/playgroundsAndNMEs/textureDecals_graffiti.jpg" />
+- <Playground id="#9BVW2S#60" title="Decal maps" description="Example of using decal maps." image="/img/playgroundsAndNMEs/pg-9BVW2S-49.webp"/>
+- <Playground id="#N10DXG#17" title="Decal Graffiti" description="Add graffiti with decal maps." image="/img/playgroundsAndNMEs/textureDecals_graffiti.webp" />
 
 #### Improving results
 
@@ -135,7 +135,7 @@ const decalMap = new BABYLON.MeshUVSpaceRenderer(mesh, scene, { uvEdgeBlending: 
 ```
 
 Results:
-![Fix seam artifacts](/img/features/decals/decaltexture_fixseams.jpg)
+![Fix seam artifacts](/img/features/decals/decaltexture_fixseams.webp)
 
 The mesh on the right has `uvEdgeBlending = true` but the mesh on the left does not.
 

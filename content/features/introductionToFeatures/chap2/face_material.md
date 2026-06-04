@@ -21,7 +21,7 @@ In the *faceUV* array faces are numbered 0 for back, 1 front, 2 right, 3 left, 4
 ## Detached House Example
 We will start with this image
 
-![cubehouse texture](/img/getstarted/cubehouse.png)
+![cubehouse texture](/img/getstarted/cubehouse.webp)
 
 which contains, in order, images of the same size for the front, right, back and left sides of the house.
 
@@ -52,23 +52,23 @@ const box = BABYLON.MeshBuilder.CreateBox("box", {faceUV: faceUV, wrap: true});
 ```
 Of course we also need to change the image used for the diffuse texture of the box material.
 
-<Playground id="#KBS9I5#72" title="Adding Materials To Individual Object Faces" description="A playground demonstrating how to add materials to individual faces of the objects in your scene." image="/img/playgroundsAndNMEs/gettingStartedFaceMaterials.jpg"/>
+<Playground id="#KBS9I5#72" title="Adding Materials To Individual Object Faces" description="A playground demonstrating how to add materials to individual faces of the objects in your scene." image="/img/playgroundsAndNMEs/gettingStartedFaceMaterials.webp"/>
 
-![house 3](/img/getstarted/house3.png)
+![house 3](/img/getstarted/house3.webp)
 
 ## Semi Detached House Example
 In this case the house is twice as wide and so are parts of the image
 
-![semihouse texture](/img/getstarted/semihouse.png)
+![semihouse texture](/img/getstarted/semihouse.webp)
 
 The front and back of the house (far left and right of the image) is twice the width of a side (middle image) which we can use twice.
 
-<Playground id="#KBS9I5#73" title="Reusing Materials On Individual Object Faces" description="A playground demonstrating how to add reuse materials to apply on individual faces of the objects in your scene." image="/img/playgroundsAndNMEs/gettingStartedFaceMaterialsDoubled.jpg"/>
+<Playground id="#KBS9I5#73" title="Reusing Materials On Individual Object Faces" description="A playground demonstrating how to add reuse materials to apply on individual faces of the objects in your scene." image="/img/playgroundsAndNMEs/gettingStartedFaceMaterialsDoubled.webp"/>
 
-![house 4](/img/getstarted/house4.png)
+![house 4](/img/getstarted/house4.webp)
 
 ## Moving On
 
 Having created our detached and semi-detached houses we would like many copies of them to form our world. We could make, separately, copies of the boxes and the roofs but it would be easier if we could combine a box and roof into one mesh, a house. Before we do this let's tidy up the code so that we can concentrate on the new code we are adding. To this end we place the existing code into functions.
 
-<Playground id="#KBS9I5#74" title="Wrapping House Building Into Functions" description="A playground wrapping mesh-building code into functions for future repeat use." image="/img/playgroundsAndNMEs/gettingStartedFaceMaterials.jpg"/>
+<Playground id="#KBS9I5#74" title="Wrapping House Building Into Functions" description="A playground wrapping mesh-building code into functions for future repeat use." image="/img/playgroundsAndNMEs/gettingStartedFaceMaterials.webp"/>

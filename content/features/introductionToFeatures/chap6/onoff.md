@@ -41,10 +41,10 @@ const pointerDown = (mesh) => {
 }
 ```
 
-<Playground id="#TC31NV#5" title="Start/Stop Particles on Click" description="Start and stop a particle system on click." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray1.jpg"/>
+<Playground id="#TC31NV#5" title="Start/Stop Particles on Click" description="Start and stop a particle system on click." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray1.webp"/>
 
 Now we add this into the village world.
 
-<Playground id="#KBS9I5#93" title="Add The Fountain To The Village" description="Add the fountain to the village." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray2.jpg"/>
+<Playground id="#KBS9I5#93" title="Add The Fountain To The Village" description="Add the fountain to the village." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray2.webp"/>
 
 So far all the actions have been in daylight and now time moves to the night where we will need street lights.

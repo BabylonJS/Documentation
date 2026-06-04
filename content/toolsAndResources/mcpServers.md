@@ -158,7 +158,7 @@ The Babylon.js MCP servers can create a local editor session that links the MCP 
 4. Open the matching Babylon.js editor URL.
 5. Paste the session URL in the editor's MCP session section.
 
-![The MCP Session section in the Node Material Editor right panel](/img/tools/nme/mcpSessionSection.png)
+![The MCP Session section in the Node Material Editor right panel](/img/tools/nme/mcpSessionSection.webp)
 
 The local session is served from `127.0.0.1` or `localhost` by default. It stops when the MCP process exits, when the MCP session server is stopped, or after a period without MCP/editor activity.
 

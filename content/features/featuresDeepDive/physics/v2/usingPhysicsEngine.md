@@ -135,4 +135,4 @@ This snippet will create the PhysicsViewer and then will add every PhysicsBody a
 
 You can turn on and off the Physics Viewer on the Debug Tab of the Inspector:
 
-![Inspector Physics Viewer](/img/features/physics/inspector-physics-viewer.gif)
+![Inspector Physics Viewer](/img/features/physics/inspector-physics-viewer.webp)

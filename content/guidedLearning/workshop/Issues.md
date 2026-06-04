@@ -17,7 +17,7 @@ sphere.intersectsMesh(wall)
 ```
 would give the result *true*
 
-![Fig 1](/img/samples/collide4.jpg)  
+![Fig 1](/img/samples/collide4.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
 
 You may think that where the sphere in Fig 2 is travelling towards the wall that you could use
@@ -31,32 +31,32 @@ else {
 }
 ```
 
-![Fig 2](/img/samples/collide2.jpg)  
+![Fig 2](/img/samples/collide2.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 2
 
 However consider the sphere as having unit diameter and is moving towards the ball with a speed of 5 units per frame. The check for collision has to be 
 considered for each frame. The first frame is as in Fig 3 and the next frame as in Fig 4
 
-![Fig 3](/img/samples/collide2.jpg)  
+![Fig 3](/img/samples/collide2.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 3
 
 The sphere will have gone past the wall and is not intersecting it and so no collision will be detected
 
-![Fig 4](/img/samples/collide3.jpg)  
+![Fig 4](/img/samples/collide3.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 4
 
 ## Size and Speed Matter.
 
 Consider a sphere of radius r travelling towards a wall with speed v, at a position just out of contact with the wall. To be able definitely to use of the _intersectsMesh_ method the sphere must be in contact with the wall during the next frame. The maximum distance the sphere can travel between frames must be less than twice the radius, as in Fig 5. 
 
-![Fig 5](/img/samples/collide5.jpg)  
+![Fig 5](/img/samples/collide5.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 5
 
 So for the sphere to start in any random position and travel directly towards the wall and for an intersection with the wall definitely to take place during a frame v &lt;= 2r
 
 Now consider two spheres travelling towards each other, each sphere having a speed v. The relative velocity is 2v. Take one sphere as stationary and the other moving with speed v at a position just out of contact with each other. To be able to use the _intersectsMesh_ method the spheres must be in contact with each other during the next frame. The maximum distance the moving sphere can travel between frames must be less than four times the radius, as in Fig 6. 
 
-![Fig 6](/img/samples/collide6.jpg)  
+![Fig 6](/img/samples/collide6.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 6
 
 So for two spheres to start in any random positions and travel directly towards each other and for an intersection with the wall definitely to take place during a frame 2v &lt;= 4r, which is again v &lt;= 2r.
@@ -69,7 +69,7 @@ What is the situation when v > 2r?
 
 Consider that the front of the sphere is a distance d from the wall in a frame, F, and in the next frame, N, the sphere intersects the wall or has moved passed it, then 0 &lt;= d &lt;= v. If d &gt; v then d - v &gt; 0 and so in the next frame the sphere is still a distance d - v &gt; 0 from the wall. In fact when the sphere is any distance p away from the wall, p &gt; 0, then for frame F,  d = p modulo v. Fig 7 shows that for the sphere to intersect the wall v - 2r &lt; d V v.
 
-![Fig 7](/img/samples/collide7.jpg)  
+![Fig 7](/img/samples/collide7.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 7
 
 The sphere just touches the wall when d = 0 and so for a display where the sphere does not penetrate the wall p modulo v is 0.
@@ -107,7 +107,7 @@ What happens when the speed of a sphere is greater than twice the radius and you
 
 In Fig 8 the red arrow shows the movement of the sphere, between two frames, when the collision with the wall is not detected and the green arrow the required movement. The required position is a reflection, with the wall as reflector, of the through position.
 
-![Fig 8](/img/samples/collide15.jpg)  
+![Fig 8](/img/samples/collide15.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 8.
 
 As usual r is the radius of the sphere.

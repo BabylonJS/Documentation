@@ -14,12 +14,12 @@ The Texture Inspector is designed to enable you to debug your textures inside of
 
 ## How to Access
 
-![Accessing the Inspector](/img/features/debuglayer/texture/access.png)
+![Accessing the Inspector](/img/features/debuglayer/texture/access.webp)
 The Texture Inspector can be accessed from the main inspector panel. Simply select a texture from the list, and click the "edit"  button underneath the texture preview.
 
 ## Properties
 
-![Properties Bar](/img/features/debuglayer/texture/properties.png)
+![Properties Bar](/img/features/debuglayer/texture/properties.webp)
 
 ### Dimensions
 
@@ -43,7 +43,7 @@ When inspecting a cubemap, you can click through the 6 buttons to view the faces
 
 ## Tools
 
-![Toolbar](/img/features/debuglayer/texture/tools.png)
+![Toolbar](/img/features/debuglayer/texture/tools.webp)
 
 ### Rectangle Select
 
@@ -67,7 +67,7 @@ Displays the active color and alpha, which are used by other tools. Clicking ope
 
 ## Channels
 
-![Channel Pane](/img/features/debuglayer/texture/channels.png)
+![Channel Pane](/img/features/debuglayer/texture/channels.webp)
 This pane is used to control the RGBA channels. Clicking the eye icons on the left will hide individual channels, allowing you to narrow your focus to particular channels. Clicking the letter on the right will lock a channel, meaning that any edits you perform will not affect that channel.
 
 ## Shortcuts

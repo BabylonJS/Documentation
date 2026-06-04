@@ -16,11 +16,11 @@ Just as we used different images on different faces of a box something similar i
 
 For the car body we use this image
 
-![car](/img/getstarted/car.png)
+![car](/img/getstarted/car.webp)
 
 and this one for the wheels
 
-![wheel](/img/getstarted/wheel.png)
+![wheel](/img/getstarted/wheel.webp)
 
 For the cylinder face 0, is the bottom, face 2 the top and face 1 the edge joining the bottom and top and for the extruded polygon it is face 0, is the top and face 2 the bottom. Remember that currently the car body and its wheels are built lying down
 
@@ -42,7 +42,7 @@ The edge runs from (0, 0) to (1, 0.5)
 faceUV[1] = new BABYLON.Vector4(0, 0, 1, 0.5);
 ```
 
-<Playground id="#KDPAQ9#12" title="Adding Materials To The Car" description="Simple demonstration of adding a material to the extruded car body." image="/img/playgroundsAndNMEs/gettingStartedCarMaterials1.jpg"/>
+<Playground id="#KDPAQ9#12" title="Adding Materials To The Car" description="Simple demonstration of adding a material to the extruded car body." image="/img/playgroundsAndNMEs/gettingStartedCarMaterials1.webp"/>
 
 A wheel is more straight forward because of its symmetry and it uses the whole image for the top and bottom and just picks up a black pixel for the edges.
 
@@ -53,8 +53,8 @@ wheelUV[2] = new BABYLON.Vector4(0, 0, 1, 1);
 ```
 Putting these together and rotating the finished car upright gives
 
-![car model](/img/getstarted/carmodel.png)
+![car model](/img/getstarted/carmodel.webp)
 
-<Playground id="#KDPAQ9#13" title="Adding Materials To The Wheels" description="Simple demonstration of adding a material to the extruded wheels." image="/img/playgroundsAndNMEs/gettingStartedCarMaterials2.jpg"/> 
+<Playground id="#KDPAQ9#13" title="Adding Materials To The Wheels" description="Simple demonstration of adding a material to the extruded wheels." image="/img/playgroundsAndNMEs/gettingStartedCarMaterials2.webp"/> 
 
 At last we are ready to think about animating the wheels.

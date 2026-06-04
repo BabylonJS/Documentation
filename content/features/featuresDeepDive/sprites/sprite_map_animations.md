@@ -17,7 +17,7 @@ One limitation is that you can have only one animation sequence assigned per fra
 
 All animations are assumed to be looping though they may all have different timings globally and per animation frame.
 
-![sprite map animation](/img/how_to/Sprites/water_anim.png)
+![sprite map animation](/img/how_to/Sprites/water_anim.webp)
 
 Lets assume their frameIDs in order are 24, 25, 26, 27, 28, 29, 30 and 31 and we want to play them in this order. We start with frameID 24 and add this to the tiles, or rather any tile that contains frameID 24 will show the animation.
 

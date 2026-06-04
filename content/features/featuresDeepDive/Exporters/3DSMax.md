@@ -16,15 +16,15 @@ We have recently introduced a new tool to simplify the installation of the plugi
 
 First, you can download the latest version of the installer from our [Github Releases](https://github.com/BabylonJS/Exporters/releases). Once on the releases page, you can find all our packages in the assets section of each release:
 
-![releases](/img/exporters/installer/GithubPreRelease.png)
+![releases](/img/exporters/installer/GithubPreRelease.webp)
 
 From there, you can download the Installer.zip file. Chrome is currently warning of potential threat as the installer.exe has currently not been downloaded enough to pass the Chromium checks. In this case, you might see a message like this:
 
-![chrome warning](/img/exporters/installer/ChromeDLWarning.png)
+![chrome warning](/img/exporters/installer/ChromeDLWarning.webp)
 
 You can nevertheless continue to download by pressing the little arrow and choosing to "Keep" the file:
 
-![chrome warning keep](/img/exporters/installer/ChromeDLWarningKeep.png)
+![chrome warning keep](/img/exporters/installer/ChromeDLWarningKeep.webp)
 
 Once downloaded, you can extract the content of the zip in your favorite location.
 
@@ -32,17 +32,17 @@ Once downloaded, you can extract the content of the zip in your favorite locatio
 
 Launch the executable file contained in the previous zip. On the first launch Windows like Chrome previously will emit a Smart Screen warning as the application has currently not being launched enough to be trusted.
 
-![smart screen warning](/img/exporters/installer/SmartScreen.png)
+![smart screen warning](/img/exporters/installer/SmartScreen.webp)
 
 As before, you can choose to continue by pressing more info and then Run anyway:
 
-![smart screen warning keep](/img/exporters/installer/SmartScreenKeep.png)
+![smart screen warning keep](/img/exporters/installer/SmartScreenKeep.webp)
 
 No worries, you are almost there. A second warning is raised by Windows as the installer needs to write files in the program files and therefore run in elevated mode. You can access the User Account Control and finally start using the application.
 
 From this point, it gets simpler:
 
-![smart screen warning keep](/img/exporters/installer/Installer.png)
+![smart screen warning keep](/img/exporters/installer/Installer.webp)
 
 Once launched the application should auto detect all the installation folders from your Autodesk applications. In case it fails to do so, you could still manually location the targeted software.
 
@@ -56,7 +56,7 @@ Please note that both the software you are trying to install the plugin for shou
 
 The plugin is designed for 3DS Max 2015 or later. To download it, go to the [Github project Releases](https://github.com/BabylonJS/Exporters/releases).
 
-![releases](/img/exporters/installer/GithubPreRelease.png)
+![releases](/img/exporters/installer/GithubPreRelease.webp)
 
 In the assets section of the release you can find one zip file per supported tool (like max_2019.zip) containing the plugin files.
 
@@ -64,11 +64,11 @@ Click on the zip file, to start Downloading.
 
 By default, Windows blocks all .dll files coming from the web, so we have to unblock them first. Select the zip file, and with a right click select _Properties_, select _Unblock_, and then _OK_.
 
-![dll unblocking](/img/exporters/3DSMax/3_dll_unlocking.jpg)
+![dll unblocking](/img/exporters/3DSMax/3_dll_unlocking.webp)
 
 Then, extract the content of the zip file on your computer, and open the directory corresponding to your 3DS Max version. Finally, make sure 3ds Max is not running, and move all .dll files into the installation directory of 3DS Max (in `C:/Programs/Autodesk/3ds Max 2015/bin/assemblies`). The next time you will start 3ds Max, the plugin will be automatically launched, and a new tab should appear:
 
-![plugin visible](/img/exporters/3DSMax/4_plugin_visible.jpg)
+![plugin visible](/img/exporters/3DSMax/4_plugin_visible.webp)
 
 Congratulations! You did it!
 
@@ -201,9 +201,9 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
 If you right-click on your scene, you will have a menu _Babylon -> Babylon Properties:_
 All the available blend modes are listed below:
 
-![Property button](/img/exporters/3DSMax/5_properties_button.jpg)
+![Property button](/img/exporters/3DSMax/5_properties_button.webp)
 
-![Scene properties](/img/exporters/3DSMax/6_properties_window.jpg)
+![Scene properties](/img/exporters/3DSMax/6_properties_window.webp)
 
 The scene properties allow you to do these things:
 
@@ -219,7 +219,7 @@ The scene properties allow you to do these things:
 
 With a right click on a mesh, select the menu _Babylon -> Babylon Properties_ to open the window Object Properties:
 
-![Object properties](/img/exporters/3DSMax/7_object_properties_window.jpg)
+![Object properties](/img/exporters/3DSMax/7_object_properties_window.webp)
 
 With this window, you can set the following properties:
 
@@ -240,13 +240,13 @@ With this window, you can set the following properties:
 
 If you create a standard light and right click on it, select the menu Babylon -> Babylon Properties to display this window:
 
-![Light properties](/img/exporters/3DSMax/8_light_properties_window.jpg)
+![Light properties](/img/exporters/3DSMax/8_light_properties_window.webp)
 
 The options **Do not export**, **Tag** and **animations** are exactly the same as the Object properties window.
 
 ## Camera properties
 
-![Camera properties](/img/exporters/3DSMax/9_camera_properties_window.jpg)
+![Camera properties](/img/exporters/3DSMax/9_camera_properties_window.webp)
 
 In this window, you can choose the kind of camera you want to create in Babylon.js. You can also:
 
@@ -261,7 +261,7 @@ In this window, you can choose the kind of camera you want to create in Babylon.
 
 When your scene is ready to be exported, click on the **Babylon** tab on the top menu, and click on **Babylon File Exporter** to display the exporter window.
 
-![export window](/img/exporters/3DSMax/10_export_window.jpg)
+![export window](/img/exporters/3DSMax/10_export_window.webp)
 
 This window is composed of 3 panels:
 
@@ -317,7 +317,7 @@ If you don’t have any lights in your scene, the exporter will add a hemispheri
 
 The object position will be defined with your object pivot position. In the image below, the pivot position is not at the center of the box: updating the object position in Babylon.js will update this pivot position, and not the box position.
 
-![pivot](/img/exporters/3DSMax/10_pivot.jpg)
+![pivot](/img/exporters/3DSMax/10_pivot.webp)
 
 ## Negative scale
 
@@ -383,7 +383,7 @@ The handling of arnold materials is mimic from glTF format. [Detailed explanatio
 
 As well as the default supported GLTF parameters, in Babylon format, we support the coating parameters of the material. You can see below the supported parameters:
 
-![texture](/img/exporters/3DSMax/Coating.png)
+![texture](/img/exporters/3DSMax/Coating.webp)
 
 Please note that if a map is used for the weight or the roughness parameter, they will be combined in the same way the ORM texture is created in the Detailed explanations. In 3DS MAX, metalness and roughness maps are black and white images (R=G=B). The 2 maps must have same sizes to be merged successfully.
 
@@ -395,7 +395,7 @@ The roughness of the coating can be inverted to mean Glossiness - this is contro
 
 Simply use the _Double Sided_ material natively present in 3ds Max (Materials > General > Double Sided).
 
-![3DS MAX double sided material](/img/exporters/3DSMax/DoubleSidedMaterial.jpg)
+![3DS MAX double sided material](/img/exporters/3DSMax/DoubleSidedMaterial.webp)
 
 From there, you can specify the _Facing_ and _Back_ materials. Those sub-materials are independent from each other. For example, one can be a standard material and the other a physical.
 
@@ -414,7 +414,7 @@ Moreover, the _Double sided_ material should not be confused with the _2-sided_ 
 
 The RGB Multiply map can be used as an intermediate node between a bitmap texture and a material.
 
-![bitmap to RGB Multiply map to material](/img/exporters/3DSMax/RGBMultiplyMap.jpg)
+![bitmap to RGB Multiply map to material](/img/exporters/3DSMax/RGBMultiplyMap.webp)
 
 The texture is retrieved from one channel and the color from the other one.
 
@@ -435,7 +435,7 @@ The handling of the directX shader material is mimic from glTF format. [Detailed
 
 Babylon supports PNG, DDS and TGA formats for texture transparency. You can choose to include the transparency directly in your diffuse texture, or create an opacity map. Here are the options to check if you want to have transparency on your diffuse texture:
 
-![texture](/img/exporters/3DSMax/11_texture.jpg)
+![texture](/img/exporters/3DSMax/11_texture.webp)
 
 **Important:** if you are relying on a physically based material, you can choose the transparency mode through a dedicated material attribute. You can refer to the [following documentation](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#alpha-mode) to learn more about this feature.
 
@@ -443,7 +443,7 @@ Babylon supports PNG, DDS and TGA formats for texture transparency. You can choo
 
 Native materials are enhanced to have extra attributes under Babylon attributes section.
 
-![3DS MAX babylon material attributes](/img/exporters/3DSMax/BabylonMaterialAttributes.jpg)
+![3DS MAX babylon material attributes](/img/exporters/3DSMax/BabylonMaterialAttributes.webp)
 
 Most Babylon attributes are common to all materials:
 
@@ -464,11 +464,11 @@ All nodes (meshes, lights...) and materials have their custom attributes exporte
 
 To define custom attributes either use the Parameter Editor window or scripting:
 
-![3DS MAX custom attributes parameter editor](/img/exporters/3DSMax/CustomAttributesDefinition_3dsMax.jpg)
+![3DS MAX custom attributes parameter editor](/img/exporters/3DSMax/CustomAttributesDefinition_3dsMax.webp)
 
 Custom attributes are exported under _metadata_:
 
-![3DS MAX custom attributes babylon](/img/exporters/3DSMax/CustomAttributes_babylon.jpg)
+![3DS MAX custom attributes babylon](/img/exporters/3DSMax/CustomAttributes_babylon.webp)
 
 Following types have particularities you should know:
 
@@ -484,8 +484,8 @@ Now that you know all about the exporter features, it’s time to use it!
 
 First, create the model you will be using in the Key class. I choose to create a simple key (you might recognize a little inspiration from the Zelda games). As you can see, the key has 3 key frames creating a floating animation. Its material has no diffuse color (set to black), but a self-illumination color (corresponding to the emissive color in Babylon.js).
 
-![key](/img/exporters/3DSMax/12_key.jpg)
+![key](/img/exporters/3DSMax/12_key.webp)
 
 The only thing left to do is to export this key as a Babylon file, and we’re done with 3DS Max. As the animation is going from frame 0 to frame 80, the Babylon properties for this object have to be updated. And we’re done!
 
-![animation](/img/exporters/3DSMax/13_animation.jpg)
+![animation](/img/exporters/3DSMax/13_animation.webp)

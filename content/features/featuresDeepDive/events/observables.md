@@ -24,7 +24,7 @@ The implementer uses an Observable to create a property which will trigger all t
 
 Most users will simply be adding their own Observers to the Observables that Babylon.js provides. But it is also possible to create your own Observables (a simple example of which is below). For those who want to delve deeper please see the [API](/typedoc/classes/babylon.observable).
 
-- <Playground id="#6IGFM2" title="Simple Custom Observable Example" description="Simple example of using an observable in a scene." image="/img/playgroundsAndNMEs/divingDeeperObservable1.jpg"/>
+- <Playground id="#6IGFM2" title="Simple Custom Observable Example" description="Simple example of using an observable in a scene." image="/img/playgroundsAndNMEs/divingDeeperObservable1.webp"/>
   An Observable - onXChange- is added to the master sphere. The two minion spheres and the actions they have to undertake form the two Observers which react when a change in the x position of the master is observed.
 
 ## Observable Methods and Properties
@@ -98,7 +98,7 @@ scene.onBeforeRenderObservable.add(function () {
 });
 ```
 
-- <Playground id="#UP2O8#0" title="Add an Observer" description="Simple example of how to add an observer to a scene." image="/img/playgroundsAndNMEs/divingDeeperObservable2.jpg"/>
+- <Playground id="#UP2O8#0" title="Add an Observer" description="Simple example of how to add an observer to a scene." image="/img/playgroundsAndNMEs/divingDeeperObservable2.webp"/>
 
 To remove an Observer, you need to store it during it's creation to refer to it with remove. The following example remove the Observer before it is notified of even the first frame rendering.
 
@@ -113,7 +113,7 @@ const observer = scene.onBeforeRenderObservable.add(function () {
 scene.onBeforeRenderObservable.remove(observer);
 ```
 
-- <Playground id="#UP2O8#1" title="Add and Remove an Observer" description="Simple example of how to add and remove an observer from a scene." image="/img/playgroundsAndNMEs/divingDeeperObservable3.jpg"/>
+- <Playground id="#UP2O8#1" title="Add and Remove an Observer" description="Simple example of how to add and remove an observer from a scene." image="/img/playgroundsAndNMEs/divingDeeperObservable3.webp"/>
 
 The following example removes the Observer during the rendering cycle. Since it is not possible to remove an Observer that does not exist there is a need to check whether the Observable still has the Observer.
 

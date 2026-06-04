@@ -16,7 +16,7 @@ A pivot in Babylon.js is an alternative method to using a [parent](/features/fea
 
 On this page the demonstration mesh is a cube with side length 1. When a mesh is created the pivot (red sphere) is always at the _local origin_ (yellow sphere); the _local origin_ and _created origin_ are at the world space origin of (0, 0, 0). When the pivot and _local origin_ are coincident they are shown as a red and yellow striped sphere, as in Fig 1.
 
-![Initial Creation of The Box](/img/how_to/pivots/pivot1.png)  
+![Initial Creation of The Box](/img/how_to/pivots/pivot1.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1 Cube with side length 2
 
 To rotate or scale a mesh about a pivot point you apply the rotation or scaling vectors to the mesh. This is different to using a parent to rotate or scale a mesh.
@@ -46,7 +46,7 @@ For the cube of side 2 to set the pivot at the front, left, bottom corner use
 box.setPivotPoint(new BABYLON.Vector3(-1, -1, -1));
 ```
 
-![Set pivot](/img/how_to/pivots/pivot9.png)  
+![Set pivot](/img/how_to/pivots/pivot9.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 2 Cube with side length 2 pivot at (-1, -1, -1)
 
 <Playground id="#T6IN6X" title="Set Pivot Point Exp. 1" description="Setting a pivot point at front, left, bottom corner of a cube."/>
@@ -72,10 +72,10 @@ After a rotation or a scaling of a mesh with a pivot set the world space positio
 
 The blue sphere is at (5, 0, 0). When the yellow sphere(_local origin_) and the blue sphere coincide then a yellow and blue sphere is shown.
 
-![positioned mesh](/img/how_to/pivots/pivot10.png)  
+![positioned mesh](/img/how_to/pivots/pivot10.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 3 Pivoted Cube at (5, 0, 0)
 
-![positioned and rotated mesh](/img/how_to/pivots/pivot11.png)  
+![positioned and rotated mesh](/img/how_to/pivots/pivot11.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 4 Pivoted Cube Rotated
 
 In Fig 3 and Fig 4 the value for ```box.position``` will be (5, 0, 0).   

@@ -1,7 +1,7 @@
 ---
 title: WebXR extension package and utility
-image: /img/extensions/WebXRExtension/thumb150.png
-imageUrl: /img/extensions/WebXRExtension/thumb150.png
+image: /img/extensions/WebXRExtension/thumb150.webp
+imageUrl: /img/extensions/WebXRExtension/thumb150.webp
 description: The library and utility are designed to simplify the creation of applications using hand gesture recognition. They also include other useful features for working with virtual reality headsets.
 keywords: extensions, WebXR, Hand tracking
 further-reading:

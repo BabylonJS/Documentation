@@ -67,7 +67,7 @@ We want to reset the jumpCount back to 1. This is where you could potentially al
 
 I specifically added the implementation for detecting slopes because I wanted there to be stairs in the game. This served to be a challenge because meshes use their actual geometry, so in order to accomplish a smooth walking movement along stairs, I needed to create invisible colliders. These were just box meshes that were rotated to have the flat side along where the stairs would be (essentially a slope).
 
-![collision](/img/how_to/create-a-game/slopecollision.png) ![stairs](/img/how_to/create-a-game/stairs.png)
+![collision](/img/how_to/create-a-game/slopecollision.webp) ![stairs](/img/how_to/create-a-game/stairs.webp)
 
 Then I had to differentiate between stairs and non-stairs. The way I did this was by comparing the angles between the normal of the mesh and the up vector (this took some testing to find a good range).
 
@@ -82,7 +82,7 @@ The [\_checkSlope](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb
     ```
 
 2. We send 4 raycasts down from the character, making a kind of circle of raycasts.
-   ![illustration](/img/how_to/create-a-game/sloperaycast.png)
+   ![illustration](/img/how_to/create-a-game/sloperaycast.webp)
 
 3. For each raycast, we're checking if there's a hit and whether the normal of the hit is not equal to the up vector.
 

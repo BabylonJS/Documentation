@@ -14,7 +14,7 @@ With this plugin, you can also export your project to glTF 2.0 format (https://g
 
 All you need to do is choose **gltf** as **Output format**.
 
-![glTF export window](/img/exporters/3DSMax/14_gltf_export_window.jpg)
+![glTF export window](/img/exporters/3DSMax/14_gltf_export_window.webp)
 
 The plugin exports to babylon format before converting it to glTF.
 The notable exported files are the .gltf and .bin ones.
@@ -94,7 +94,7 @@ The physical materials are exported to glTF format as PBR materials.
 
 Involved parameters are highlighted bellow and described in the following sections.
 
-![3DS MAX physical material parameters](/img/exporters/3DSMax/18_3dsmax_physical_materials_parameters.png)
+![3DS MAX physical material parameters](/img/exporters/3DSMax/18_3dsmax_physical_materials_parameters.webp)
 
 Remember that in 3DS MAX, when a map is assigned to a parameter, the basic parameter value is ignored. This behaviour is kept when exporting.
 
@@ -108,7 +108,7 @@ In glTF format, the transparency is expressed in alpha (alpha = 1 - transparency
 
 The base color RGB and the alpha A are merged together into a single color RGBA:
 
-![glTF base color and alpha maps combined](/img/exporters/3DSMax/16_gltf_baseColor_alpha_combined.jpg)
+![glTF base color and alpha maps combined](/img/exporters/3DSMax/16_gltf_baseColor_alpha_combined.webp)
 
 The 2 maps must have same sizes to be merged successfully.
 
@@ -116,7 +116,7 @@ Note that the duration of this process scales with images size and may have a se
 
 The basic parameter value is used as default value when binded map is not provided:
 
-![glTF base color map and transparency weight combined](/img/exporters/3DSMax/17_gltf_baseColor_transparencyWeight_combined.jpg)
+![glTF base color map and transparency weight combined](/img/exporters/3DSMax/17_gltf_baseColor_transparencyWeight_combined.webp)
 
 ## Metalness and Roughness
 
@@ -126,7 +126,7 @@ The roughness of the material is used. It can be inverted to mean Glossiness - t
 
 The metalness and roughness maps are combined together:
 
-![glTF metalness and roughness maps combined](/img/exporters/3DSMax/15_gltf_metallic_roughness_combined.jpg)
+![glTF metalness and roughness maps combined](/img/exporters/3DSMax/15_gltf_metallic_roughness_combined.webp)
 
 In 3DS MAX, metalness and roughness maps are black and white images (R=G=B).
 
@@ -158,7 +158,7 @@ The Standard Surface Arnold material is exported to glTF format as a PBR materia
 
 Involved parameters are highlighted bellow.
 
-![3DS Max Standard Surface parameters](/img/exporters/3DSMax/standardSurfaceParameters.jpg)
+![3DS Max Standard Surface parameters](/img/exporters/3DSMax/standardSurfaceParameters.webp)
 
 When exporting, if a map is assigned to a parameter, the basic parameter value is ignored.
 
@@ -201,7 +201,7 @@ Such texture defines:
 - the **R**oughness in Green channel and is assigned to the material _Roughness_
 - the **M**etalness in Blue channel and is assigned to the material _Metalness_
 
-![glTF ORM map](/img/exporters/3DSMax/ORM.jpg)
+![glTF ORM map](/img/exporters/3DSMax/ORM.webp)
 
 In this case the exporter does not merge textures, but instead assumes the texture provided is already merged.
 
@@ -262,7 +262,7 @@ The handling of the double sided material is mimic from babylon format. [Detaile
 
 Native materials are enhanced to have extra attributes under Babylon attributes section.
 
-![3DS MAX babylon material attributes](/img/exporters/3DSMax/BabylonMaterialAttributes.jpg)
+![3DS MAX babylon material attributes](/img/exporters/3DSMax/BabylonMaterialAttributes.webp)
 
 Most Babylon attributes are common to all materials:
 
@@ -282,11 +282,11 @@ All nodes (meshes, lights...) and materials have their custom attributes exporte
 
 To define custom attributes either use the Parameter Editor window or scripting:
 
-![3DS MAX custom attributes parameter editor](/img/exporters/3DSMax/CustomAttributesDefinition_3dsMax.jpg)
+![3DS MAX custom attributes parameter editor](/img/exporters/3DSMax/CustomAttributesDefinition_3dsMax.webp)
 
 Custom attributes are exported under _extras_:
 
-![3DS MAX custom attributes glTF](/img/exporters/3DSMax/CustomAttributes_glTF.jpg)
+![3DS MAX custom attributes glTF](/img/exporters/3DSMax/CustomAttributes_glTF.webp)
 
 Note that the custom attributes are added to the node, not to the mesh or light component itself.
 
@@ -307,13 +307,13 @@ It contains two materials:
 - _Original Material_ used for rendering (for example Arnold, Mental ray, V-Ray)
 - _Baked Material_ exported by the Babylonjs exporter
 
-![3DS Max Shell material parameters](/img/exporters/3DSMax/shellMaterial.png)
+![3DS Max Shell material parameters](/img/exporters/3DSMax/shellMaterial.webp)
 
 ## DirectX Shader material
 
 In 3DS Max the DirectX shader material is used to represent more accurately how the material will render in another application. That is why only the material contained in its _Software Render Style_ section is exported. All other parameters are ignored.
 
-![3DS Max DirectX Shader parameters](/img/exporters/3DSMax/directXShader.png)
+![3DS Max DirectX Shader parameters](/img/exporters/3DSMax/directXShader.webp)
 
 More information on how you could use this material in conjunction with the Shell material in the discussion [here](https://github.com/BabylonJS/Exporters/issues/296).
 
@@ -337,17 +337,17 @@ You can export all animations of the objects in your scene into a single animati
 
 3. Go to “Time Configuration” window and change “Start Time:”, “End Time” under “Animation” section properly.
 
-![3ds Time Configuration Window](/img/exporters/3DSMax/time_configuration_window.jpg)
+![3ds Time Configuration Window](/img/exporters/3DSMax/time_configuration_window.webp)
 
 4. Right click on the imported 3D model. Navigate “Babylon... > Babylon Properties” and open the “Babylon.js Object Properties” window as below.
 
-![3ds Babylon Plugin Properties Window](/img/exporters/3DSMax/3ds_babylon_plugin_properties_window.jpg)
+![3ds Babylon Plugin Properties Window](/img/exporters/3DSMax/3ds_babylon_plugin_properties_window.webp)
 
 5. Update the “From:”, “To:” fields under “Animations” section with expected animation frames to be exported
 
 6. Open “Babylon Exporter” window from menu “Babylon > Babylon File Exporter ...” as below.
 
-![3ds Babylon Exporter](/img/exporters/3DSMax/babylon_exporter.jpg)
+![3ds Babylon Exporter](/img/exporters/3DSMax/babylon_exporter.webp)
 
 ## Multiple animation clips
 
@@ -355,7 +355,7 @@ You can also export multiple animations clips and play one of them depending on 
 
 To setup the animations clips (also named animation groups) right-click on your scene, you will have a menu Babylon -> Babylon Animation Groups, which opens the Animation Groups window.
 
-![3ds animation groups window](/img/exporters/3DSMax/animation_groups_window.jpg)
+![3ds animation groups window](/img/exporters/3DSMax/animation_groups_window.webp)
 
 Features are explained below:
 

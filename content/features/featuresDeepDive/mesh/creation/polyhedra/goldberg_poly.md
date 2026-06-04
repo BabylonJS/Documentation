@@ -18,7 +18,7 @@ video-content:
 
 Within Babylon.js a Goldberg polyhedron (GBP) is formed as a dual of an icosahedron based geodesic polyhedron and its vertices mapped onto a sphere. The two parameters m and n used in forming the geodesic base also determine the arrangement of faces for the GBP.
 
-![Dual](/img/snippets/geo31.png)  
+![Dual](/img/snippets/geo31.webp)  
 Fig 1 - The red grid is the dual of the blue grid and vice-versa.
 
 On this page we explain how to create a GBP directly. More information about [GBP Mathematics](/guidedLearning/workshop/Geodesic_Math) and the [first development stage of coding a GBP](/guidedLearning/workshop/Geodesic_Code) are available in the documentation workshop.
@@ -29,7 +29,7 @@ A GBP consists of 12 pentagonal faces and a number of hexagonal faces determined
 
 The world consists of 12 poles, the pentagonal faces plus a number of hexagonal faces. Around each of the poles there is a group of hexagonal faces that are closer to one pole than the others. These are the unshared faces of the world. Depending on the value of the second parameter, **n**, there may be zero or more faces that are equidistant from two or even three poles. These are the shared faces.
 
-![Faces](/img/snippets/geo32.png)  
+![Faces](/img/snippets/geo32.webp)  
 Fig 2 - Poles are black, unshared faces are colored and shared faces are white.
 
 The faces are stored in the following order
@@ -143,7 +143,7 @@ const uvArray = [
 
 For the poles pentagons are used to match the uvs.
 
-![Face Texture](/img/snippets/geo33.png)  
+![Face Texture](/img/snippets/geo33.webp)  
 Fig 3 - Areas of Image to Use as Face Textures
 
 ![Texture map](https://assets.babylonjs.com/environments/hexworld.jpg)  

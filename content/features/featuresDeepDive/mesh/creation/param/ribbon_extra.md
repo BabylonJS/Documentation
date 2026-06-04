@@ -16,7 +16,7 @@ It is formed using paths. A path is simply an array of a minimum of two vector3 
 
 Below shows the construction of a ribbon using two paths A and B each having five points.
 
-![Ribbon](/img/how_to/ribbon/ribbon.png)
+![Ribbon](/img/how_to/ribbon/ribbon.webp)
 
 Here's a simple example:
 

@@ -194,7 +194,7 @@ this.mesh.material = this._lightmtl;
 #### Texture Swapping
 
 This is a super simple process that involves making a material that has a texture of what the lantern looks like when "lit".  
-![unlit lantern](/img/how_to/create-a-game/unlit.png) ![lit lantern](/img/how_to/create-a-game/lit.png)
+![unlit lantern](/img/how_to/create-a-game/unlit.webp) ![lit lantern](/img/how_to/create-a-game/lit.webp)
 
 I generated this texture in Blender, just giving the mesh an emissive coloring and then baking that into a .png.
 

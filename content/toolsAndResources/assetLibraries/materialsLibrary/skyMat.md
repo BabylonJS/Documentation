@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Sky Material](/img/extensions/materials/sky.png)
+![Sky Material](/img/extensions/materials/sky.webp)
 
 ## Introduction
 
@@ -59,13 +59,13 @@ The aspect of the sky can be customized, including the day/night time. The prope
 skyMaterial.turbidity = 1; // Represents the amount (scattering) of haze as opposed to molecules in atmosphere
 ```
 
-![skyTurbidity](/img/extensions/materials/skyTurbidity.png)
+![skyTurbidity](/img/extensions/materials/skyTurbidity.webp)
 
 ```javascript
 skyMaterial.luminance = 1; // Controls the overall luminance of sky in interval [0, 1190]
 ```
 
-![skyLuminance](/img/extensions/materials/skyLuminance.png)
+![skyLuminance](/img/extensions/materials/skyLuminance.webp)
 
 ```javascript
 // Control the planet's orientation over the sun
@@ -81,13 +81,13 @@ skyMaterial.useSunPosition = true; // Do not set sun position from azimuth and i
 skyMaterial.sunPosition = new BABYLON.Vector3(0, 100, 0);
 ```
 
-![skyAzimuthInclination](/img/extensions/materials/skyAzimuthInclination.png)
+![skyAzimuthInclination](/img/extensions/materials/skyAzimuthInclination.webp)
 
 ```javascript
 skyMaterial.rayleigh = 2; // Represents the sky appearance (globally)
 ```
 
-![skyRayleigh](/img/extensions/materials/skyRayleigh.png)
+![skyRayleigh](/img/extensions/materials/skyRayleigh.webp)
 
 ```javascript
 // Mie scattering (from [Gustav Mie](https://en.wikipedia.org/wiki/Gustav_Mie))
@@ -99,7 +99,7 @@ skyMaterial.mieDirectionalG = 0.8;
 skyMaterial.mieCoefficient = 0.005; // The mieCoefficient in interval [0, 0.1], affects the property skyMaterial.mieDirectionalG
 ```
 
-![skyMie](/img/extensions/materials/skyMie.png)
+![skyMie](/img/extensions/materials/skyMie.webp)
 
 ## Keeping the horizon relative to the camera elevation
 

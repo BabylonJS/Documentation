@@ -138,14 +138,14 @@ The Shape types supported by the V2 Plugin are:
 
 | Enum | Description | Image | Havok plugin support |
 | --- | --- | --- | --- |
-| SPHERE | Simple sphere | ![Sphere Shape](/img/features/physics/sphere_shape_viewer.png) | ✅ |
-| CAPSULE | A cylinder with a half sphere at top and bottom | ![capsule Shape](/img/features/physics/capsule_shape_viewer.png) | ✅ |
-| CYLINDER | Cylinder | ![cylinder Shape](/img/features/physics/cylinder_shape_viewer.png) | ✅ |
-| BOX | Box | ![box Shape](/img/features/physics/cube_shape_viewer.png) | ✅ |
-| CONVEX_HULL | A convex hull is the smallest convex shape containing points.| ![convex_hull Shape](/img/features/physics/convex_hull_shape_viewer.png) | ✅ |
-| MESH | Mesh used for rendering or a simpler version | ![mesh Shape](/img/features/physics/mesh_shape_viewer.png) | ✅ |
-| CONTAINER | Holder of other shapes | ![container Shape](/img/features/physics/compound_shape_viewer.png) | ✅ |
-| HEIGHTFIELD | A height field mesh is a 2D surface with height data. | ![heightfield Shape](/img/features/physics/heightfield_shape_viewer.png) | ✅ |
+| SPHERE | Simple sphere | ![Sphere Shape](/img/features/physics/sphere_shape_viewer.webp) | ✅ |
+| CAPSULE | A cylinder with a half sphere at top and bottom | ![capsule Shape](/img/features/physics/capsule_shape_viewer.webp) | ✅ |
+| CYLINDER | Cylinder | ![cylinder Shape](/img/features/physics/cylinder_shape_viewer.webp) | ✅ |
+| BOX | Box | ![box Shape](/img/features/physics/cube_shape_viewer.webp) | ✅ |
+| CONVEX_HULL | A convex hull is the smallest convex shape containing points.| ![convex_hull Shape](/img/features/physics/convex_hull_shape_viewer.webp) | ✅ |
+| MESH | Mesh used for rendering or a simpler version | ![mesh Shape](/img/features/physics/mesh_shape_viewer.webp) | ✅ |
+| CONTAINER | Holder of other shapes | ![container Shape](/img/features/physics/compound_shape_viewer.webp) | ✅ |
+| HEIGHTFIELD | A height field mesh is a 2D surface with height data. | ![heightfield Shape](/img/features/physics/heightfield_shape_viewer.webp) | ✅ |
 
 [This page contains more detail about shapes and their parameters.](/features/featuresDeepDive/physics/shapes)
 

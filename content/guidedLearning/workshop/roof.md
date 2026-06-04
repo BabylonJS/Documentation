@@ -18,7 +18,7 @@ In this case the **rise**, or roof height, is the same for all sections of the r
 
 The **footprint** for the house defines the inner walls of the house, from which the data for the outer walls is calculated. A roof overhangs the outer walls. The footprint of the roof, or **roofprint**, defines the corners of this overhang. In _Fig 1_ the black area shows the thickness, or **ply** of the house walls and the red the **overhang** of the roofprint.
 
-![overhang](/img/samples/roof1.jpg)
+![overhang](/img/samples/roof1.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
 
 Since in creating the house the _ply_, house _height_ and the footprint _corners_ have already been created they are used to create the roofprint, as in
@@ -39,7 +39,7 @@ PG: <Playground id="#1Z71FW#41" title="Example Roof Floor" description="."/>
 
 Though it is possibly more accurate to use the roofprint as a guide to a plan for the roof it is probably easier (in terms of coordinates) to use the original footprint. All you need to do is draw, in a plan diagram, the planes of the roof. An **apex** is a highest point on the roof where planes meet. The plan diagram in _Fig 2_ shows the floorprint corners numbered C0, C1, C2 etc and the apexes numbered in sequence using A0, A1 etc. _Fig 2_ is drawn to scale based on the original base data. 
 
-![roof plan](/img/samples/roof2.jpg)
+![roof plan](/img/samples/roof2.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 2
 
 ```javascript
@@ -105,24 +105,24 @@ PG: <Playground id="#1Z71FW#42" title="Simple Roof Plan Example" description="."
 
 When you want different parts of the roof to have different heights then although it is possible to choose suitable apexes and planes it is much more difficult to determine the apex where a low roof meets the plane of a higher roof. For example in _Fig 3_ it is possible to calculate the x coordinate of apex A using 3D vector geometry.
 
-![roof planes meet](/img/samples/roof3.jpg)
+![roof planes meet](/img/samples/roof3.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 3
 
 The simplest solution however is to use values that extend the small roof into the large roof.
 
 Following this method and using the original floor plan the plan for the lower roof section will cover the red area as in _Fig 4_
 
-![overlap 1](/img/samples/roof4.jpg)
+![overlap 1](/img/samples/roof4.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 4
 
 The help prevent Z fighting the plan for the higher roof will be reduced so that parts of it will fall inside the lower roof.
 
 The plan drawing for the main roof is now as in _Fig 5_ and for the smaller roof as in _Fig 6_
 
-![main roof](/img/samples/roof5.jpg)
+![main roof](/img/samples/roof5.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 5
 
-![smaller roof](/img/samples/roof6.jpg)
+![smaller roof](/img/samples/roof6.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 6
 
 Specific corners to be used by the _roofprint_ function have to be created for the main and the small roof. The original corners are used to create the whole roofprint in order to construct the roof floor.

@@ -1,6 +1,6 @@
 ---
 title: Node Material Editor Custom Blocks
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: Learn all about how to create custom blocks in the super handy Node Material Editor.
 keywords: shaders, glsl, node editor, graphics, GPU program, material, NME, Node Material, Node Material Editor
 further-reading:
@@ -16,7 +16,7 @@ Starting with v5.0 you can now create custom blocks by wrapping some plain [GLSL
 
 At the time, a custom block is described by a .json file that you must provide when registering a new custom block in the node material editor:
 
-![Register Custom Block](/img/how_to/Materials/customBlock_register.jpg)
+![Register Custom Block](/img/how_to/Materials/customBlock_register.webp)
 
 When clicking on the "+" icon to add (register) a new custom block, you will be requested for the .json file that describes the block.
 
@@ -76,7 +76,7 @@ Last thing, the main function (the one which is exported in the **functionName**
 
 Custom blocks are no different from the other blocks, so you simply need to drag&drop a block from the list on the left to the main area:
 
-![Register Custom Block](/img/how_to/Materials/customBlock_use.jpg)
+![Register Custom Block](/img/how_to/Materials/customBlock_use.webp)
 
 Here, the `myPerlin2D` block is a `Perlin2D` custom block (see the list of custom blocks in the left menu).
 
@@ -136,17 +136,17 @@ This block has been imported into the NME with this .json file:
 }
 ```
 
-Here's the link to the NME: <NME id="#3WEKUZ#1" title="Custom Perlin2D block" description="A node material which is using a custom Perlin2D block" image="/img/playgroundsAndNMEs/NMEPerlin2DCustomBlock.jpg"/>
+Here's the link to the NME: <NME id="#3WEKUZ#1" title="Custom Perlin2D block" description="A node material which is using a custom Perlin2D block" image="/img/playgroundsAndNMEs/NMEPerlin2DCustomBlock.webp"/>
 
 ### Using Custom Blocks for Ray Marching
 Ray marching is commonly used for rendering fractals, volumetric effects, and scenes with complex, procedural objects. It’s flexible and can handle a wide range of situations, but it can be computationally intensive, especially for complex scenes or objects with intricate geometry. Ray marching has been possible in Babylon.js since its inception through authoring custom shaders. Similarly, the way to enable it in node material is through authoring custom blocks. 
 
-![An example of ray marching which fuses a rounded rectangular mesh with a sphere mesh](/img/tools/nme/rayMarchingExample.jpg)
+![An example of ray marching which fuses a rounded rectangular mesh with a sphere mesh](/img/tools/nme/rayMarchingExample.webp)
 
 There is no universal ray marching block in node material as each experience that uses ray marching may have different requirements. To learn how to get started with a custom block we have an [in-depth article about using ray marching in node material](https://medium.com/@babylonjs/ray-marching-in-the-babylon-js-node-material-editor-967b5b8c269c) including simple and complex examples. The article also talks about the additional blocks that have been added to the Node Material Editor, like the `FragDepth` block, to support ray marching in a custom block. 
 
 Here are a couple of examples of ray marching. One is a simple example using a custom block in the Node Material Editor and the other a very complex example showing the power of ray marching with a custom shader in a Babylon.js playground.
 
-<NME id="#GD8DSL#27" title="Ray Marching Custom Block" description="A node material which uses a custom Ray Marching block" image="/img/playgroundsAndNMEs/rayMarchingNME.jpg"/>
+<NME id="#GD8DSL#27" title="Ray Marching Custom Block" description="A node material which uses a custom Ray Marching block" image="/img/playgroundsAndNMEs/rayMarchingNME.webp"/>
 
-<Playground id="#M3QR7E#78" title="Snail Ray Marching Scene" description="A complex example of ray marching with a custom block." image="/img/playgroundsAndNMEs/rayMarchingSnail.jpg"/>
+<Playground id="#M3QR7E#78" title="Snail Ray Marching Scene" description="A complex example of ray marching with a custom block." image="/img/playgroundsAndNMEs/rayMarchingSnail.webp"/>

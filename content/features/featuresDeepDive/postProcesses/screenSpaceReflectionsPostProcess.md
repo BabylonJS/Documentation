@@ -20,10 +20,10 @@ Rendering reflections in real-time can be done using several methods. Each metho
     * cons: limited to what the camera sees.
 
 As an example, with SSR enabled (look at the water-tank):
-![with_ssr](/img/how_to/screenSpaceReflectionsPostProcess/with_ssr.png)
+![with_ssr](/img/how_to/screenSpaceReflectionsPostProcess/with_ssr.webp)
 
 With SSR disabled:
-![with_ssr](/img/how_to/screenSpaceReflectionsPostProcess/without_ssr.png)
+![with_ssr](/img/how_to/screenSpaceReflectionsPostProcess/without_ssr.webp)
 
 You can find a simple example of the SSR post-process in our playground: 
 - <Playground id="#PIZ1GK" title="SSR Post Process Example - Standard material" description="Simple example of the screen space reflection Post Process, with Standard material"/>

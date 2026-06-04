@@ -16,7 +16,7 @@ _Going the Distance with Babylon.js_ is a book that bridges the gap between the 
 
 By the by - it's possible that you or your employer's subscription service has to the title for free as part of your subscription.
 
-![book](/img/how_to/book/book.png)
+![book](/img/how_to/book/book.webp)
 
 ## Officially Endorsed by the Babylon.js Team
 

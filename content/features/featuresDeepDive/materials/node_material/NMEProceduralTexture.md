@@ -1,6 +1,6 @@
 ---
 title: Node Material Procedural Textures
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: Learn how to create Proecedural Textures using the Node Material.
 keywords: shaders, glsl, node editor, graphics, GPU program, material, NME, Node Material, Node Material Editor, procedural texture
 further-reading:
@@ -38,7 +38,7 @@ BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMateria
 });
 ```
 
-Playground: <Playground id="#8S19ZC#1" title="NME Procedural Texture Example" description="Playground example of using the Node Material Editor to create a Procedural Texture." image="/img/playgroundsAndNMEs/PGNMEProceduralTexture.jpg" isMain={true} category="Node Material"/>
+Playground: <Playground id="#8S19ZC#1" title="NME Procedural Texture Example" description="Playground example of using the Node Material Editor to create a Procedural Texture." image="/img/playgroundsAndNMEs/PGNMEProceduralTexture.webp" isMain={true} category="Node Material"/>
 
 You can check out this video for more information:
 <Youtube id="qqMuuSM7GvI"/>

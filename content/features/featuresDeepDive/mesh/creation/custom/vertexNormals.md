@@ -29,7 +29,7 @@ In the following two playgrounds see how the changing directions within the norm
 
 ##Normals and Minimum Vertices
 
-![Wireframe](/img/how_to/Mesh/box1.jpg)
+![Wireframe](/img/how_to/Mesh/box1.webp)
 
 The box above has 8 vertices. If we want to keep the indices to the minimum they will be 0, 1, 2, 3, 4, 5, 6, 7.
 
@@ -40,7 +40,7 @@ How doesBabylon.js calculate the `normal` for vertex 3?
 
 The diagram below shows that the average of the three mathematical normals at each vertex is used:
 
-![Normals](/img/how_to/Mesh/box4.jpg)
+![Normals](/img/how_to/Mesh/box4.webp)
 
 Besides minimising the number of vertices needed there are other advantages as will be seen when creating a sphere.
 
@@ -65,11 +65,11 @@ There are times, such as needing each face of a box to be covered in a [differen
 when it is better to have the box constructed from separate faces each of which are constructed by two facets and no two faces
 sharing a vertex indices. They will of course share vertex positions.
 
-![Seperate Faces](/img/how_to/Mesh/box3.jpg)
+![Seperate Faces](/img/how_to/Mesh/box3.webp)
 
 In Babylon.js this can be achieved using the `convertToFlatShadedMesh` function. The results are shown below:
 
-![Flat Shaded Normals](/img/how_to/Mesh/box5.jpg)
+![Flat Shaded Normals](/img/how_to/Mesh/box5.webp)
 
 For a flat shaded mesh each of the triangular facets making a face of the box has mathematical normals as their vertex normals. For simplicity of illustration we will only consider the six faces making up the box than the full range of triangular facets used in the mesh construction. Each face has 4 corners, each corner has a unique normal at right angles to the face. There are 6 faces on a box and so 24 unique corner normals.
 

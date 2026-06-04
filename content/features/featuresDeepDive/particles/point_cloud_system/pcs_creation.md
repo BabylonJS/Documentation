@@ -62,7 +62,7 @@ pcs.addPoints(10000, myfunc);
 
 will produce a denser block of points whose heights only cover a range of 10000 points, as you can see in the picture below.
 
-![use of i or s](/img/how_to/particles/points1.jpg)
+![use of i or s](/img/how_to/particles/points1.webp)
 
 In addition the use of `particle.groupId` can have an effect on all particles within a group. For example
 
@@ -77,7 +77,7 @@ pcs.addPoints(10000, myfunc);
 
 will displace the second group of points along the x axis.
 
-![use groupId](/img/how_to/particles/points2.jpg)
+![use groupId](/img/how_to/particles/points2.webp)
 
 - <Playground id="#UI95UC#1" title="Pass A Function" description="Simple example of passing a function to add point cloud points."/>
 
@@ -85,11 +85,11 @@ will displace the second group of points along the x axis.
 
 You are able to take a mesh such as this one as a model
 
-![Points 3](/img/how_to/particles/points3.jpg)
+![Points 3](/img/how_to/particles/points3.webp)
 
 and convert it to particle points on its surface or within its volume
 
-![Points 4](/img/how_to/particles/points4.jpg)
+![Points 4](/img/how_to/particles/points4.webp)
 
 The points are evenly randomly distributed based on the size of the individual triangular facets of the mesh model. The density of points is the same for all facets.
 

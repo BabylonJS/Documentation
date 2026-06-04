@@ -1,6 +1,6 @@
 ---
 title: Make the Best Use of the Forum
-image: /img/defaultImage.png
+image: /img/defaultImage.webp
 description: Learn about the best place to get help, the Babylon.js forum.
 keywords: diving deeper, contribution, contribute, open-source, oss, forum
 further-reading:

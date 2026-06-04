@@ -102,7 +102,7 @@ scene.onBeforeRenderObservable.add(() => {
     frameGraph.execute();
 });
 ```
-The full PG: <Playground id="#CP2RN9#322" title="VAT and frame graph" description="VAT working when using a frame graph" isMain={false} image="/img/playgroundsAndNMEs/pg-VI0JUJ-3.png"/>
+The full PG: <Playground id="#CP2RN9#322" title="VAT and frame graph" description="VAT working when using a frame graph" isMain={false} image="/img/playgroundsAndNMEs/pg-VI0JUJ-3.webp"/>
 
 You can see that the spiders are now animated in the normal texture.
 
@@ -112,7 +112,7 @@ For completeness, here is the same thing using a node render graph:
 
 Node Render Graph: <NRGE id="#USAV67#5" title="VAT and frame graph (NRGE)" description="VAT working when using a frame graph (NRGE)" isMain={false}/>
 
-PG: <Playground id="#CP2RN9#324" image="/img/playgroundsAndNMEs/pg-CP2RN9-324.png" title="VAT and frame graph (NRG)" description="VAT working when using a frame graph (NRG)" isMain={false} image="/img/playgroundsAndNMEs/pg-VI0JUJ-3.png"/>
+PG: <Playground id="#CP2RN9#324" image="/img/playgroundsAndNMEs/pg-CP2RN9-324.webp" title="VAT and frame graph (NRG)" description="VAT working when using a frame graph (NRG)" isMain={false} image="/img/playgroundsAndNMEs/pg-VI0JUJ-3.webp"/>
 
 Notes:
 * We disable `autoFillExternalInputs` when loading the node's render graph, because the list of meshes used by the geometry renderer task must not contain the plane on which we display the geometry texture (otherwise, you will get an error such as “GL_INVALID_OPERATION: glDrawElements: feedback loop formed between the frame buffer and the active texture").

@@ -69,8 +69,8 @@ panel.addControl(picker);
 <Playground id="#9K3MRA#2" title="WebXR Color Picker" description="Simple WebXR color picker example." isMain={true} category="WebXR"/>
 
 ## AR demo
-![playground](/img/how_to/xr/ARPortal.jpg)
-<Playground id="#M3G924" title="AR Portal" description="WebXR AR Portal" isMain={true} category="WebXR" image="/img/how_to/xr/ARPortal.jpg"/>
+![playground](/img/how_to/xr/ARPortal.webp)
+<Playground id="#M3G924" title="AR Portal" description="WebXR AR Portal" isMain={true} category="WebXR" image="/img/how_to/xr/ARPortal.webp"/>
 
 ## Other demos
 

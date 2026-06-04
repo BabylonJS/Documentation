@@ -22,26 +22,26 @@ At the bottom of each Documentation page you will see the Github icon:
 
 Select this and it will take you to the correct Github page from where you select the edit button:
 
-![quick edit](/img/contribute/documentation/easy-edit.png)
+![quick edit](/img/contribute/documentation/easy-edit.webp)
 
 You can now [use markdown](https://guides.github.com/features/mastering-markdown/) to edit the documentation page.
 
 Once done, try to quickly explain what your modification is for, and click on the _Propose file change_ button:
 
-![propose file change](/img/contribute/documentation/easy-submit.png)
+![propose file change](/img/contribute/documentation/easy-submit.webp)
 
 For now, your modification isn't yet in the main files. You have to ask the Babylon.js core team to validate and merge your work.
 
 Press the _Create pull request_ button:
 
-![sending pull](/img/contribute/documentation/easy-pull.png)
+![sending pull](/img/contribute/documentation/easy-pull.webp)
 
 If needed, modify your comment, and press again the _Create pull request_ button:
 
-![commenting pull](/img/contribute/documentation/easy-pull2.png)
+![commenting pull](/img/contribute/documentation/easy-pull2.webp)
 
 Congratulations, your modifications are now waiting to be validated and merged into the official documentation!
 
-![pull now waiting](/img/contribute/documentation/easy-pull-waiting.png)
+![pull now waiting](/img/contribute/documentation/easy-pull-waiting.webp)
 
 Do not hesitate to read the [Good Practice](/contribute/contributeToDocs#good-practices) section.

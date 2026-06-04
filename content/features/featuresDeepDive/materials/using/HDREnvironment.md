@@ -50,7 +50,7 @@ As the generated DDS files can be relatively large (32Mb for a 512px wide file),
 - drag &amp; drop your .dds environmentTexture file ([example](https://playground.babylonjs.com/textures/environment.dds))
 - open the Inspector, go to the Tools, and click on `Generate .env texture`
 
-![inspector env texture tool](/img/how_to/Environment/inspector-generate-env-texture.png)
+![inspector env texture tool](/img/how_to/Environment/inspector-generate-env-texture.webp)
 
 You can now download and use your `.env` environment, using this bit of code:
 
@@ -94,11 +94,11 @@ As of 7.48.0 new options are available on the prefiltering front.
 - The parameter `prefilterIrradianceOnLoad` prefilters the HDR texture and stores the diffuse part of the IBL as a texture instead of harmonics. This gives a lot more dynamicity to the output and can allow "true" hdr.
 - The parameter `prefilterUsingCdf` can be used to generate the irradiance texture containing by relying on the HDR CDF data which helps a lot to get closer from Ray tracers.
 
-![IBL Filters](/img/how_to/environment/iblFilters.png)
+![IBL Filters](/img/how_to/environment/iblFilters.webp)
 
 ## Using a pure cube texture
 
-![inspector env texture tool](/img/how_to/environment/inspector-generate-env-texture.png)
+![inspector env texture tool](/img/how_to/environment/inspector-generate-env-texture.webp)
 
 While using a .dds or .env cube texture is the best option, you may want to still rely on classic cube texture (mostly for size reason).
 So, you can still do this as well:

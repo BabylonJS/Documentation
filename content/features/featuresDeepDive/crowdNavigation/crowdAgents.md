@@ -10,7 +10,7 @@ video-content:
 
 ## Crowds and navigation agents
 
-![a crowd ](/img/extensions/navigation/CrowdExample.png)
+![a crowd ](/img/extensions/navigation/CrowdExample.webp)
 
 Now we have a navmesh, we can create autonomous agents and make them navigate within that navmesh constraint.
 The agents will find the best path to that destination while avoiding other crowd agents.

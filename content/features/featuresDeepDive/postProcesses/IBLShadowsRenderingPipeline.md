@@ -16,7 +16,7 @@ Here is a comparison of the rendering with and without the activation of the IBL
 
 | With Shadows | Without Shadows |
 | --- | --- |
-| ![With Shadows](/img/how_to/iblShadowsRenderingPipeline/intro_with_shadows.jpg!400) | ![Without Shadows](/img/how_to/iblShadowsRenderingPipeline/intro_without_shadows.jpg!400) |
+| ![With Shadows](/img/how_to/iblShadowsRenderingPipeline/intro_with_shadows.webp!400) | ![Without Shadows](/img/how_to/iblShadowsRenderingPipeline/intro_without_shadows.webp!400) |
 
 Here is the playground that generated the above images:
 
@@ -100,7 +100,7 @@ Screen-space shadows complement voxel shadows very nicely as they are great for 
 
 | No SS Shadows | With SS Shadows |
 | --- | --- |
-| ![No SS Shadows](/img/how_to/iblShadowsRenderingPipeline/NoSSS.jpg!400) | ![SS Shadows](/img/how_to/iblShadowsRenderingPipeline/SSS.jpg!400) |
+| ![No SS Shadows](/img/how_to/iblShadowsRenderingPipeline/NoSSS.webp!400) | ![SS Shadows](/img/how_to/iblShadowsRenderingPipeline/SSS.webp!400) |
 
 ## Limitations
 
@@ -111,7 +111,7 @@ Screen-space shadows complement voxel shadows very nicely as they are great for 
 
 | 1 Sample | 4 Samples |
 | --- | --- |
-|![1-Sample](/img/how_to/iblShadowsRenderingPipeline/1-sample.jpg!400) | ![4-Samples](/img/how_to/iblShadowsRenderingPipeline/4-samples.jpg!400) |
+|![1-Sample](/img/how_to/iblShadowsRenderingPipeline/1-sample.webp!400) | ![4-Samples](/img/how_to/iblShadowsRenderingPipeline/4-samples.webp!400) |
 
 Note that the over-bright side of the sphere, facing away from the sun is an artifact of Babylon's use of spherical harmonics for diffuse IBL lighting.
 
@@ -168,14 +168,14 @@ shadowPipeline.allowDebugPasses = true;
 
 | Property | Description | Image |
 | --- | --- | --- |
-| gbufferDebugEnabled | This will display only the targets of the g-buffer that are used by the shadow pipeline. | ![G-Buffer](/img/how_to/iblShadowsRenderingPipeline/gbuffer_debug.jpg) |
-| cdfDebugEnabled | This displays the IBL and the CDF maps used for importance sampling. | ![G-Buffer](/img/how_to/iblShadowsRenderingPipeline/ibl_debug.jpg) |
-| voxelDebugEnabled | This displays the voxel grid in slices spread across the screen. It also displays what slices of geometry are stored in each layer of the voxel grid. Each stripe represents one layer of the grid and each full gradient (from bright red to black) represents the layers rendered in a single draw call. | ![G-Buffer](/img/how_to/iblShadowsRenderingPipeline/voxel_debug.jpg) |
-| voxelDebugAxis | When using tri-planar voxelization (the default), this value can be used to display only the voxelization result for that axis. `0` -> z-axis, `1` -> y-axis, `2` -> x-axis, `undefined` -> all axes combined | ![Y-axis Voxelization](/img/how_to/iblShadowsRenderingPipeline/voxel_y-axis_debug.jpg) |
-| voxelDebugDisplayMip | Displays a given mip of the voxel grid. `voxelDebugAxis` must be `undefined` in this case because we only generate mips for the combined voxel grid. | ![Voxel Grid Mip 3](/img/how_to/iblShadowsRenderingPipeline/voxel_mip3_debug.jpg) |
-| voxelTracingDebugEnabled | Displays just the shadow samples taken this frame. | ![Voxel Tracing](/img/how_to/iblShadowsRenderingPipeline/voxel_tracing_debug.jpg) |
-| spatialBlurPassDebugEnabled | Display the shadow samples taken this frame, spatially blurred.  | ![G-Buffer](/img/how_to/iblShadowsRenderingPipeline/spatial_blur_debug.jpg) |
-| accumulationPassDebugEnabled | Display the debug view for the shadows accumulated over time. | ![G-Buffer](/img/how_to/iblShadowsRenderingPipeline/accumulation_debug.jpg) |
+| gbufferDebugEnabled | This will display only the targets of the g-buffer that are used by the shadow pipeline. | ![G-Buffer](/img/how_to/iblShadowsRenderingPipeline/gbuffer_debug.webp) |
+| cdfDebugEnabled | This displays the IBL and the CDF maps used for importance sampling. | ![G-Buffer](/img/how_to/iblShadowsRenderingPipeline/ibl_debug.webp) |
+| voxelDebugEnabled | This displays the voxel grid in slices spread across the screen. It also displays what slices of geometry are stored in each layer of the voxel grid. Each stripe represents one layer of the grid and each full gradient (from bright red to black) represents the layers rendered in a single draw call. | ![G-Buffer](/img/how_to/iblShadowsRenderingPipeline/voxel_debug.webp) |
+| voxelDebugAxis | When using tri-planar voxelization (the default), this value can be used to display only the voxelization result for that axis. `0` -> z-axis, `1` -> y-axis, `2` -> x-axis, `undefined` -> all axes combined | ![Y-axis Voxelization](/img/how_to/iblShadowsRenderingPipeline/voxel_y-axis_debug.webp) |
+| voxelDebugDisplayMip | Displays a given mip of the voxel grid. `voxelDebugAxis` must be `undefined` in this case because we only generate mips for the combined voxel grid. | ![Voxel Grid Mip 3](/img/how_to/iblShadowsRenderingPipeline/voxel_mip3_debug.webp) |
+| voxelTracingDebugEnabled | Displays just the shadow samples taken this frame. | ![Voxel Tracing](/img/how_to/iblShadowsRenderingPipeline/voxel_tracing_debug.webp) |
+| spatialBlurPassDebugEnabled | Display the shadow samples taken this frame, spatially blurred.  | ![G-Buffer](/img/how_to/iblShadowsRenderingPipeline/spatial_blur_debug.webp) |
+| accumulationPassDebugEnabled | Display the debug view for the shadows accumulated over time. | ![G-Buffer](/img/how_to/iblShadowsRenderingPipeline/accumulation_debug.webp) |
 
 ## Performance Notes
 

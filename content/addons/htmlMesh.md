@@ -1,6 +1,6 @@
 ---
 title: HtmlMesh
-image: public/img/playgroundsAndNMEs/htmlMeshPG.png
+image: public/img/playgroundsAndNMEs/htmlMeshPG.webp
 description: The HTML Mesh is a mesh that displays a webpage (or DOM element) in the scene, meaning that it can occlude other meshes and be occluded by other meshs.
 further-reading:
 video-overview:
@@ -13,9 +13,9 @@ video-content:
 
 The HTML Mesh is a mesh that displays a webpage (or DOM element) in the scene, meaning that it can occlude other meshes and be occluded by other meshs.
 
-<Playground id="#HVHYJC#82" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.png"/>
+<Playground id="#HVHYJC#82" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.webp"/>
 
-<Playground id="#B17TC7#210" title="HtmlMesh Box Example" description="Example of using multiple HtmlMesh instances as the sides of a box"  image="/img/playgroundsAndNMEs/HtmlMeshBoxPG.png"/>
+<Playground id="#B17TC7#210" title="HtmlMesh Box Example" description="Example of using multiple HtmlMesh instances as the sides of a box"  image="/img/playgroundsAndNMEs/HtmlMeshBoxPG.webp"/>
 
 The following uses cases are supported by the HtmlMesh
 

@@ -18,14 +18,14 @@ Clone the Babylon.js repo and launch the reflector bridge from the command line.
 
 The default port is 1234. Specify a different port by adding `--port=<port>` to the command line.
 
-![bridge](/img/features/reflector/bridge.png)
+![bridge](/img/features/reflector/bridge.webp)
 
 ### Step 2 - Start the reflector debugging session
 Open https://sandbox.babylonjs.com/?reflector=true.
 
 The default hostname and port are `localhost` and `1234`. Specify a different hostname or port by adding `&hostname=<hostname>&port=<port>` to the url. The hostname and port must match the host and port that is running the reflector bridge.
 
-![debug session](/img/features/reflector/debugSession.png)
+![debug session](/img/features/reflector/debugSession.webp)
 
 ### Step 3 - Connect to the reflector debugging session from the client
 
@@ -41,11 +41,11 @@ reflector.close();
 
 The inspector UI in the Tools pane has this code built in. For example, loading a glTF model in the sandbox on an Android device connected to a desktop via USB connection with port forwarding enabled, the inspector can be used to connect to the remote debugging session.
 
-![connect to reflector](/img/features/reflector/connectToReflector.png)
+![connect to reflector](/img/features/reflector/connectToReflector.webp)
 
 After transferring the scene, the reflector debugging session will reflect the scene from the device:
 
-![debug session with scene](/img/features/reflector/debugSessionWithScene.png)
+![debug session with scene](/img/features/reflector/debugSessionWithScene.webp)
 
 Happy remote debugging the scene!
 

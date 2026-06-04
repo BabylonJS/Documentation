@@ -50,7 +50,7 @@ To make the lamp light more visible we turn down the intensity of the hemispheri
 light.intensity = 0.5;
 ```
 
-<Playground id="#4G38H4#6" title="Create a Street Light" description="Create a basic streetlight shape and attach a spotlight." image="/img/playgroundsAndNMEs/gettingStartedStreetLights1.jpg"/>
+<Playground id="#4G38H4#6" title="Create a Street Light" description="Create a basic streetlight shape and attach a spotlight." image="/img/playgroundsAndNMEs/gettingStartedStreetLights1.webp"/>
 
 We export the lamp, of appropriate size, to use it in the village. As we need more than one street light, once the lamp is loaded we will clone it several times. For each street light we will add the lamp light. Lights are normally restricted to four in any scene. Any more and only the last 4 created are active. To extend the number of lights used we set the number needed on any material to be lit.
 
@@ -58,6 +58,6 @@ We export the lamp, of appropriate size, to use it in the village. As we need mo
 material.maxSimultaneousLights = 5;
 ```
 
-<Playground id="#KBS9I5#94" title="Add Street Lights" description="Add street lights to the village and adjust the lighting." image="/img/playgroundsAndNMEs/gettingStartedStreetLights2.jpg"/>
+<Playground id="#KBS9I5#94" title="Add Street Lights" description="Add street lights to the village and adjust the lighting." image="/img/playgroundsAndNMEs/gettingStartedStreetLights2.webp"/>
 
 It would be good if we could slide daylight into nightlight and vice-versa. We can when we add the Babylon.js GUI.

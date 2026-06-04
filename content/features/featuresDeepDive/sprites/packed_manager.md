@@ -13,7 +13,7 @@ video-content:
 
 A packed spritesheet will look something like this
 
-![Packed Spritesheet](/img/how_to/Sprites/pack1.png);
+![Packed Spritesheet](/img/how_to/Sprites/pack1.webp);
 
 with sprite cells of different sizes arranged to optimize the file size.
 

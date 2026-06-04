@@ -15,7 +15,7 @@ In this case a complex shape is one constructed from spheres of the same size in
 is always in contact with at least one other sphere in the shape. A complex shape is likely to have concave sections. 
 An example of colliding complex shapes is given below. It has been constructed using the Solid Particle System because of the speed and flexibility when using many repeated shapes.
 
-![Complex Shape](/img/samples/collide1.jpg)
+![Complex Shape](/img/samples/collide1.webp)
 
 PG: <Playground id="#WLYB9#5" title="Complex Shapes Colliding" description="An example of complex shapes in collision."/>
 

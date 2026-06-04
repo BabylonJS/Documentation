@@ -14,7 +14,7 @@ The first 3 extends `Engine` and `Engine` extends `ThinEngine`, which is a low l
 
 Here's a chart with the main files/classes used to implement the **WebGPU** engine:
 
-![WebGPU chart](/img/extensions/webgpu/classesChart.png!1366)
+![WebGPU chart](/img/extensions/webgpu/classesChart.webp!1366)
 
 ## Core classes
 These are the core classes used in the WebGPU implementation.

@@ -20,7 +20,7 @@ video-content:
 
 A `SelectionPanel` contains groups of checkboxes, radio buttons and sliders. Though not as versatile as building your own interface with your own custom arrangement of controls it can be a quick way to construct a method of changing scene parameters for objects within your scene.
 
-![selection panel](/img/GUI/selectPanel1.jpg)
+![selection panel](/img/GUI/selectPanel1.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
 
 ## Referencing a Selection Panel
@@ -55,7 +55,7 @@ selectBox.addGroup(transformGroup);
 selectBox.addGroup(colorGroup);
 ```
 
-- <Playground id="#9M6M2I" title="Selection Panel with Added Groups" description="Simple example showing how to add a selection panel with added groups to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector1.jpg"/>
+- <Playground id="#9M6M2I" title="Selection Panel with Added Groups" description="Simple example showing how to add a selection panel with added groups to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector1.webp"/>
 
 In addition if you have already constructed selector groups then you can then pass them in an array when you create the selection panel. The format for this is
 
@@ -77,8 +77,8 @@ selectBox.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
 advancedTexture.addControl(selectBox);
 ```
 
-- <Playground id="#BXMTCD" title="Selection Panel and Groups on Creation" description="Simple example showing how to add a selection panel with added groups on creation." image="/img/playgroundsAndNMEs/divingDeeperSelector1.jpg"/>
-- <Playground id="#BXMTCD#1" title="Selection Panel with Both Approaches" description="Simple example showing how to add a selection panel with both approaches." image="/img/playgroundsAndNMEs/divingDeeperSelector1.jpg"/>
+- <Playground id="#BXMTCD" title="Selection Panel and Groups on Creation" description="Simple example showing how to add a selection panel with added groups on creation." image="/img/playgroundsAndNMEs/divingDeeperSelector1.webp"/>
+- <Playground id="#BXMTCD#1" title="Selection Panel with Both Approaches" description="Simple example showing how to add a selection panel with both approaches." image="/img/playgroundsAndNMEs/divingDeeperSelector1.webp"/>
 
 ## Creating Groups
 
@@ -200,7 +200,7 @@ const displayValue = function (value) {
 
 For consistency of appearance you can only change the overall font and color of all headers, all labels and all selector buttons.
 
-- <Playground id="#BXMTCD#4" title="Selection Panel with Font Change" description="Simple example showing how to add a selection panel with a font change." image="/img/playgroundsAndNMEs/divingDeeperSelector2.jpg"/>
+- <Playground id="#BXMTCD#4" title="Selection Panel with Font Change" description="Simple example showing how to add a selection panel with a font change." image="/img/playgroundsAndNMEs/divingDeeperSelector2.webp"/>
 
 Without any direct setting, the color of labels follows that of the selection panel.
 
@@ -216,8 +216,8 @@ selectBox.buttonBackground = "#684502";
 selectBox.labelColor = "brown";
 ```
 
-- <Playground id="#BXMTCD#2" title="Selection Panel with Color Changes no labels" description="Simple example showing how to add a selection panel with color changes apart from labels." image="/img/playgroundsAndNMEs/divingDeeperSelector3.jpg"/>
-- <Playground id="#BXMTCD#3" title="Selection Panel with Color Changes" description="Simple example showing how to add a selection panel with a color change." image="/img/playgroundsAndNMEs/divingDeeperSelector4.jpg"/>
+- <Playground id="#BXMTCD#2" title="Selection Panel with Color Changes no labels" description="Simple example showing how to add a selection panel with color changes apart from labels." image="/img/playgroundsAndNMEs/divingDeeperSelector3.webp"/>
+- <Playground id="#BXMTCD#3" title="Selection Panel with Color Changes" description="Simple example showing how to add a selection panel with a color change." image="/img/playgroundsAndNMEs/divingDeeperSelector4.webp"/>
 
 Individual headers and labels can have their text changed.
 
@@ -226,8 +226,8 @@ selectBox.setHeaderName("Move", 0);
 selectBox.relabel("Theta", 2, 0);
 ```
 
-- <Playground id="#BXMTCD#5" title="Selection Panel Change Group Header" description="Simple example showing how to add a selection panel and change the group header." image="/img/playgroundsAndNMEs/divingDeeperSelector5.jpg"/>
-- <Playground id="#BXMTCD#6" title="Selection Panel Change Selector Label" description="Simple example showing how to add a selection panel and change the selector label." image="/img/playgroundsAndNMEs/divingDeeperSelector5.jpg"/>
+- <Playground id="#BXMTCD#5" title="Selection Panel Change Group Header" description="Simple example showing how to add a selection panel and change the group header." image="/img/playgroundsAndNMEs/divingDeeperSelector5.webp"/>
+- <Playground id="#BXMTCD#6" title="Selection Panel Change Selector Label" description="Simple example showing how to add a selection panel and change the selector label." image="/img/playgroundsAndNMEs/divingDeeperSelector5.webp"/>
 
 ### Groups and Selectors
 
@@ -245,7 +245,7 @@ In the same way a selector of the correct type can be added to the bottom of a g
 transformGroup.addCheckbox("Across", toLeft);
 ```
 
-- <Playground id="#BXMTCD#7" title="Selector Group Add Selector" description="Simple example showing how to add a selector group and add a selector to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.jpg"/>
+- <Playground id="#BXMTCD#7" title="Selector Group Add Selector" description="Simple example showing how to add a selector group and add a selector to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.webp"/>
 
 A selector can be removed from a group at any time using its position in the group, eg
 
@@ -255,7 +255,7 @@ colorGroup.removeSelector(0);
 rotationGroup.removeSelector(0);
 ```
 
-- <Playground id="#BXMTCD#8" title="Selector Group Add Selector" description="Simple example showing how to add a selector group and remove a selector from your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.jpg"/>
+- <Playground id="#BXMTCD#8" title="Selector Group Add Selector" description="Simple example showing how to add a selector group and remove a selector from your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.webp"/>
 
 For a selector within a group that is contained within a selection panel you can add a selector by use of the group position and correct parameters, eg
 
@@ -263,7 +263,7 @@ For a selector within a group that is contained within a selection panel you can
 selectBox.addToGroupSlider(2, "Angle X", orientateX, "degs", 0, 2 * Math.PI, Math.PI, displayValue);
 ```
 
-- <Playground id="#BXMTCD#9" title="Selector Panel Add Selector" description="Simple example showing how to add a selector panel and add a selector to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.jpg"/>
+- <Playground id="#BXMTCD#9" title="Selector Panel Add Selector" description="Simple example showing how to add a selector panel and add a selector to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.webp"/>
 
 and remove a selector by using its reference position, ie. group and selector position in the group. For example
 
@@ -271,4 +271,4 @@ and remove a selector by using its reference position, ie. group and selector po
 selectBox.removeFromGroupSelector(0, 0);
 ```
 
-- <Playground id="#BXMTCD#10" title="Selector Group Remove Selector" description="Simple example showing how to add a selector group and remove a selector from your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.jpg"/>
+- <Playground id="#BXMTCD#10" title="Selector Group Remove Selector" description="Simple example showing how to add a selector group and remove a selector from your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.webp"/>

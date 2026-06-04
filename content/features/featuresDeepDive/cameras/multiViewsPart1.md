@@ -30,7 +30,7 @@ Multiview can be enabled by setting the `useMultiview` option to `true`.
 scene.createDefaultVRExperience({ useMultiview: true });
 ```
 
-<Playground id="#SRV2A0" title="VR Experience Multiview Example" description="A simple example of using multiviews for a VR experience." image="/img/playgroundsAndNMEs/divingDeeperMultiviews1.jpg"/>
+<Playground id="#SRV2A0" title="VR Experience Multiview Example" description="A simple example of using multiviews for a VR experience." image="/img/playgroundsAndNMEs/divingDeeperMultiviews1.webp"/>
 
 ## Using with VRDeviceOrientationFreeCamera to display on the screen
 
@@ -44,4 +44,4 @@ multiviewMetrics.multiviewEnabled = true;
 const multiviewCamera = new BABYLON.VRDeviceOrientationFreeCamera("", new BABYLON.Vector3(-10, 5, 0), scene, undefined, multiviewMetrics);
 ```
 
-<Playground id="#EZDZZV" title="VRDeviceOrientationFreeCamera Multiview Example" description="A simple example of using multiviews to create a VRDeviceOrientationFreeCamera." image="/img/playgroundsAndNMEs/divingDeeperMultiviews2.jpg"/>
+<Playground id="#EZDZZV" title="VRDeviceOrientationFreeCamera Multiview Example" description="A simple example of using multiviews to create a VRDeviceOrientationFreeCamera." image="/img/playgroundsAndNMEs/divingDeeperMultiviews2.webp"/>

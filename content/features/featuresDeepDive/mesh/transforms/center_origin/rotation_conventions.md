@@ -27,7 +27,7 @@ References to Euler angles within the Babylon.js community can usually be taken 
 
 ### YXZ *Local Axes* Yaw, Pitch, Roll
 
-![Yaw pitch roll](/img/how_to/Mesh/yawpitchroll.jpg)
+![Yaw pitch roll](/img/how_to/Mesh/yawpitchroll.webp)
 
 A pitch is about X, yaw about Y and roll about Z applied in the order yaw, pitch roll using **local** axes.
 
@@ -77,7 +77,7 @@ which will produce this orientation whatever the orientation of the mesh prior t
 
 ### YXZ, Local Space, Yaw, Pitch, Roll
 
-![Yaw pitch roll](/img/how_to/Mesh/yawpitchroll.jpg)
+![Yaw pitch roll](/img/how_to/Mesh/yawpitchroll.webp)
 
 As a reminder this convention is directly used in the _rotation_ method in Babylon.js in the form
 

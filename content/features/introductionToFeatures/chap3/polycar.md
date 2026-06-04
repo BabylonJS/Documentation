@@ -41,7 +41,7 @@ const car = BABYLON.MeshBuilder.ExtrudePolygon("car", {shape: outline, depth: 0.
 > The playground has earcut defined but if you are following this tutorial on your own file system that you will need to download the earcut algorithm via [CDN](https://unpkg.com/earcut@latest/dist/earcut.min.js) or [NPM](https://github.com/mapbox/earcut#install).  
 > If you are using TypeScript then you can inject the earcut algorithm as the *earcutInjection* parameter on the [extrudePolygon function](https://doc.babylonjs.com/typedoc/classes/babylon.meshbuilder#extrudepolygon).
 
-<Playground id="#KDPAQ9#10" title="Learning to Extrude" description="Simple demonstration showing the basics of extruding meshes." image="/img/playgroundsAndNMEs/gettingStartedExtrude1.jpg"/>
+<Playground id="#KDPAQ9#10" title="Learning to Extrude" description="Simple demonstration showing the basics of extruding meshes." image="/img/playgroundsAndNMEs/gettingStartedExtrude1.webp"/>
 
 We form the wheel for the right back position from a cylinder and add it as a child to the car. Then make copies for the right front, left back and left front wheels. This time using *clone* rather than *createInstance* since we can clone a clone. When we clone a wheel its parent is made the parent of the clone.
 
@@ -62,6 +62,6 @@ const wheelLF = wheelRF.clone("wheelLF");
 wheelLF.position.y = -0.2 - 0.035;
 ```
 
-<Playground id="#KDPAQ9#11" title="Extruding Wheels" description="Expanding on the basics of extruding meshes." image="/img/playgroundsAndNMEs/gettingStartedExtrude2.jpg"/>
+<Playground id="#KDPAQ9#11" title="Extruding Wheels" description="Expanding on the basics of extruding meshes." image="/img/playgroundsAndNMEs/gettingStartedExtrude2.webp"/>
 
 Now we will make the car look a bit more like a car using some textures.

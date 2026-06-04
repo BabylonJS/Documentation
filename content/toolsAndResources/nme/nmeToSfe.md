@@ -1,6 +1,6 @@
 ---
 title: Usage with the Smart Filter Editor
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: Learn how to create shader blocks for the Smart Filter Editor using Node Material Editor
 keywords: shaders, node editor, node graph, NME, SFE, Node Material, Node Material Editor, Smart Filter, Smart Filter Editor
 further-reading:
@@ -23,7 +23,7 @@ If you're new to either, start by reading more about [Node Materials](/features/
 
 ## Example
 
-![NME](/img/how_to/Materials/nmeToSfe.png)
+![NME](/img/how_to/Materials/nmeToSfe.webp)
 NME Source: <NME id="#QYN8UY#5" title="Halftone Shader" description="An example demonstrating how to create a Smart Filter-ready shader." />
 
 ## New NME Blocks

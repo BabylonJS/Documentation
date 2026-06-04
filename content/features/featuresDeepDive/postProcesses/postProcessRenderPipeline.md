@@ -15,7 +15,7 @@ A render pipeline can be managed by enabling and disabling some effects and disp
 
 ## Base Render Pipeline
 
-![](/img/PPArchitecture.png)
+![](/img/PPArchitecture.webp)
 
 Renders Pipelines are composed of several classes.
 

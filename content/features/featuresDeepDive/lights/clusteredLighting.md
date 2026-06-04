@@ -36,8 +36,8 @@ Babylon takes a slightly different apprach to clustered lighting, which is mainl
 
 This solution works on both WebGPU and WebGL 2 (if float color buffers are supported and blendable).
 
-<Playground id="#CSCJO2#89" image="/img/playgroundsAndNMEs/pg-CSCJO2-75.png" title="Sponza scene with 1000 lights" description="Example showing off the capabilities of clustered lighting by making the Sponza scene colorful" />
-<Playground id="#6JYGXW#3" image="/img/playgroundsAndNMEs/pg-6JYGXW-1.png" title="ClusteredLights corridor" description="A corridor lit by hundreds of colored point and spot lights" />
+<Playground id="#CSCJO2#89" image="/img/playgroundsAndNMEs/pg-CSCJO2-75.webp" title="Sponza scene with 1000 lights" description="Example showing off the capabilities of clustered lighting by making the Sponza scene colorful" />
+<Playground id="#6JYGXW#3" image="/img/playgroundsAndNMEs/pg-6JYGXW-1.webp" title="ClusteredLights corridor" description="A corridor lit by hundreds of colored point and spot lights" />
 
 **Important**:
 * For best performance, when creating a light intended for use in a clustered light container, do not add it to the scene! To do this, pass the value *true* for the **dontAddToScene** parameter of the light constructor.
@@ -47,7 +47,7 @@ This solution works on both WebGPU and WebGL 2 (if float color buffers are suppo
 
 By the default the screen is split into 64 tiles accross and 64 tiles down for a total of 4,096 tiles.
 
-![The Sponza scene with the screen covered in randomly-colored tiles](/img/features/clusteredLighting/tiles64x64.png)
+![The Sponza scene with the screen covered in randomly-colored tiles](/img/features/clusteredLighting/tiles64x64.webp)
 <font size="2">The Sponza scene with the default tiling options. Each tile is tinted a different color.</font>
 
 The amount of tiles can be changed using the `verticalTiles` and `horizontalTiles` options:
@@ -56,13 +56,13 @@ lightContainer.verticalTiles = 16;
 lightContainer.horizontalTiles = 9;
 ```
 
-![The Sponza scene with the screen covered in less, but larger, randomly-colored tiles](/img/features/clusteredLighting/tiles16x9.png)
+![The Sponza scene with the screen covered in less, but larger, randomly-colored tiles](/img/features/clusteredLighting/tiles16x9.webp)
 <font size="2">The Sponza scene with only 16 tiles across and 9 tiles down.</font>
 
 Configuring the total tile count is a balancing act between keeping the light clustering fast by reducing the amount of tiles, while keeping the per-pixel lighting fast by keeping the tiles small<sup>[1](#footnotes)</sup>, which makes the light list for that pixel more accurate. Increasing the tile count will also increase the GPU memory usage.
 
 To cluster the lights into the tiles we render each light against the configured tile layout using a "light proxy" (or light mesh). In Babylon this light proxy is a simple square:
-![The lion face from the Sponza scene with a single light and the wireframe of a square overtop the light](/img/features/clusteredLighting/proxy.png)
+![The lion face from the Sponza scene with a single light and the wireframe of a square overtop the light](/img/features/clusteredLighting/proxy.webp)
 <font size="2">The light proxy square.</font>
 
 The light proxies are scaled by the `range` parameter of the light. By default the range of lights is very large, so `ClusteredLightContainer` will clamp all lights to a smaller (yet still quite large) range. If you wish to have lights with a larger range than the defualt max of 16383, this can be modified using the `maxRange` option:
@@ -81,7 +81,7 @@ WebGPU uses the simpler method of the two since it supports more advanced featur
 
 WebGL does not support storage buffers nor does it support any form of atomic writes. Instead WebGL takes advantage of the blending stage of the rendering pipeline by writing out the bit values and additively blending them together. A floating-point render target is used to ensure the blended values exactly match the fragment outputs, but sadly floating point values cannot accurately represent all 32 distinct bit values that a 32-bit int could. For this reason, the number of lights per batch in WebGL is equal to the number of fraction bits the hardware supports, which on most systems is 23.
 
-![The Sponza scene with the screen covered in pixelated red circled of varying shades](/img/features/clusteredLighting/additiveBlending.png)
+![The Sponza scene with the screen covered in pixelated red circled of varying shades](/img/features/clusteredLighting/additiveBlending.webp)
 <font size="2">The result of additively blending light proxies with different bit values.</font>
 
 To support multiple batches (when more than 23 lights are rendered) the floating-point render target is expanded vertically by the number of batches, and the light proxy is shifted based on its batch number in the vertex shader.
@@ -98,7 +98,7 @@ Our solution to this problem, partly inspired by [this GitHub project](https://g
 
 The depth clustering is a lot more simple and can easily be done on the CPU since we're only dealing with a single dimension (depth) instead of two (screen X and Y). The depth range of the camera (from `minZ` to `maxZ`) is split into 16 slices by default, with each slice containing the minimum and maximum light index that intersects that slice. This provides a range of bitmasks (from the tiled clustering step) the fragment shader needs to check. For these minimum and maximum indices to efficiently represent the lights within the slice, the lights are sorted based on distance from the camera. Sorting is fast enough to be done each frame.
 
-![The Sponza scene with the screen covered in randomly-colored slices getting further and further away from the camera](/img/features/clusteredLighting/slices16.png)
+![The Sponza scene with the screen covered in randomly-colored slices getting further and further away from the camera](/img/features/clusteredLighting/slices16.webp)
 <font size="2">The Sponza scene with the default depth slicing options. Each slice is tinted a different color.</font>
 
 The number of slices can be tweaked using the `depthSlices` option. Additionally, the cameras `maxZ` property can be adjusted to bring the slices closer which is recommended for smaller scenes:
@@ -107,7 +107,7 @@ camera.maxZ = 100;
 lightContainer.depthSlices = 64;
 ```
 
-![The Sponza scene with the screen covered in more, but thinner, randomly-colored slices](/img/features/clusteredLighting/slices64.png)
+![The Sponza scene with the screen covered in more, but thinner, randomly-colored slices](/img/features/clusteredLighting/slices64.webp)
 <font size="2">The Sponza scene with a max depth of 100 split into 64 slices.</font>
 
 To find the intersection between the tiled clustering and the depth clustering, the lighting code in the fragment shader ends up looking along the lines of (overly simplified for the sake of demonstration):
@@ -157,7 +157,7 @@ To reduce branching in the shader, all lights are assumed to use the default fal
 
 The physical falloff is the only falloff method that ignores the `range` parameter on lights. This means that the range the light proxy is rendered at might be shorter than the lights actual range of influence. This falloff is still supported, just be sure to adjust the `range` of your lights accordingly so they reach a point where the physical falloff is not very noticeable anymore.
 
-![The Sponza scene covered in lights but there are block artefacts where the lights end](/img/features/clusteredLighting/physicalFalloff.png)
+![The Sponza scene covered in lights but there are block artefacts where the lights end](/img/features/clusteredLighting/physicalFalloff.webp)
 <font size="2">The artefacts that can occur from incorrect range parameters when using a physical falloff.</font>
 
 The physical falloff can be disabled on all PBR materials using:

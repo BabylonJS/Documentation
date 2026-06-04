@@ -78,7 +78,7 @@ pipeline.lensTexture = new BABYLON.Texture("lensdirt.jpg", scene);
 
 A dirty lens mask should look like:
 
-![DirtyLensTexture](/img/how_to/advanced/standardRenderingPipeline/lensdirt.jpg)
+![DirtyLensTexture](/img/how_to/advanced/standardRenderingPipeline/lensdirt.webp)
 
 ## Setting up the pseudo lens flare
 
@@ -107,11 +107,11 @@ Now, you can add a "starbust" texture. This will disturb the final result and ma
 pipeline.lensStarTexture = new Texture("lensstar.jpg", scene);
 ```
 
-![StarbustTexture](/img/how_to/advanced/standardRenderingPipeline/lensstar.png)
+![StarbustTexture](/img/how_to/advanced/standardRenderingPipeline/lensstar.webp)
 
 which gives:
 
-![StarbustTextureResult](/img/how_to/advanced/standardRenderingPipeline/lensstarresult.png)
+![StarbustTextureResult](/img/how_to/advanced/standardRenderingPipeline/lensstarresult.webp)
 
 Finally, you can apply a palette of colors which will be used by the post-processes to disturb the lens flare colors:
 
@@ -121,7 +121,7 @@ pipeline.lensColorTexture = new Texture("lenscolor.png", scene);
 
 Color texture like:
 
-![LensColorTexture](/img/how_to/advanced/standardRenderingPipeline/lenscolor.png)
+![LensColorTexture](/img/how_to/advanced/standardRenderingPipeline/lenscolor.webp)
 
 ### Setting up parameters
 
@@ -141,7 +141,7 @@ The halo width:
 pipeline.lensFlareHaloWidth = 1; // By default 0.4;
 ```
 
-![HaloWidth](/img/how_to/advanced/standardRenderingPipeline/halo_width.png)
+![HaloWidth](/img/how_to/advanced/standardRenderingPipeline/halo_width.webp)
 
 The distortion strength:
 

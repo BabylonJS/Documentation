@@ -25,7 +25,7 @@ camera.attachControl(canvas, true);
 
 Think of this camera as one orbiting its target position, or more imaginatively as a spy satellite orbiting the earth. Its position relative to the target (earth) can be set by three parameters, _alpha_ (radians) the longitudinal rotation, _beta_ (radians) the latitudinal rotation and  _radius_ the distance from the target position.
 
-![arc rotate camera](/img/how_to/camalphabeta.jpg)
+![arc rotate camera](/img/how_to/camalphabeta.webp)
 
 In our case we want to have the camera parented to the character
 
@@ -41,6 +41,6 @@ const camera = new BABYLON.ArcRotateCamera("camera", Math.PI / 2, Math.PI / 2.5,
 
 Since the character makes instant turns the camera also does. To make the viewing smoother a smoother track for the character to follow would be needed.
 
-<Playground id="#KBS9I5#97" title="Over The Shoulder" description="Parent the camera to a character for an over the shoulder angle." image="/img/playgroundsAndNMEs/gettingStartedCamera.jpg"/>
+<Playground id="#KBS9I5#97" title="Over The Shoulder" description="Parent the camera to a character for an over the shoulder angle." image="/img/playgroundsAndNMEs/gettingStartedCamera.webp"/>
 
 We can also use a different type of camera to follow the character another way.

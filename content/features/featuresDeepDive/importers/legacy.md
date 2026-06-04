@@ -10,7 +10,7 @@ BABYLON.AppendSceneAsync("duck.gltf", scene).then(function () {
 });
 ```
 
-See an example here: <Playground id="#WGZLGJ#11155" title="Append An Object" description="Simple example showing how append an object to your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport1.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#WGZLGJ#11155" title="Append An Object" description="Simple example showing how append an object to your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport1.webp" isMain={true} category="Import"/>
 
 Loads all babylon assets from a string and appends them to the scene
 
@@ -20,7 +20,7 @@ BABYLON.AppendSceneAsync("data:" + gltfString, scene).then(function () {
 });
 ```
 
-See an example here: <Playground id="#88CB6A#165" title="Append Assets From A String" description="Simple example showing how append objects from a string." image="/img/playgroundsAndNMEs/divingDeeperFileImport2.jpg"/>
+See an example here: <Playground id="#88CB6A#165" title="Append Assets From A String" description="Simple example showing how append objects from a string." image="/img/playgroundsAndNMEs/divingDeeperFileImport2.webp"/>
 
 You can also load a .glb binary file from a data string as long as the binary data is base64 encoded:
 
@@ -38,7 +38,7 @@ const base64_model_content = "data:application/octet-stream;base64,-BASE 64 ENCO
 const base64_model_content = "data:model/gltf-binary;base64,-BASE 64 ENCODED DATA-";
 ```
 
-See an example here: <Playground id="#7F6S08#386" title="Load .glb From Binary Data" description="Simple example showing how to load an object from a data string that is base64 encoded." image="/img/playgroundsAndNMEs/divingDeeperFileImport3.jpg"/>
+See an example here: <Playground id="#7F6S08#386" title="Load .glb From Binary Data" description="Simple example showing how to load an object from a data string that is base64 encoded." image="/img/playgroundsAndNMEs/divingDeeperFileImport3.webp"/>
 
 ## LoadSceneAsync
 
@@ -64,7 +64,7 @@ BABYLON.SceneLoader.ImportMesh(["myMesh1", "myMesh2"], "./", "duck.gltf", scene,
 });
 ```
 
-See an example here: <Playground id="#JUKXQD" title="Import Mesh" description="Simple example showing how to import an object into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#JUKXQD" title="Import Mesh" description="Simple example showing how to import an object into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport4.webp" isMain={true} category="Import"/>
 
 ### ImportMeshAsync
 
@@ -78,7 +78,7 @@ importPromise.then((result) => {
 });
 ```
 
-See an example here: <Playground id="#TVHK90#646" title="Import Mesh Async with Promises" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#TVHK90#646" title="Import Mesh Async with Promises" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.webp" isMain={true} category="Import"/>
 
 or
 
@@ -88,7 +88,7 @@ const result = await BABYLON.ImportMeshAsync("./duck.gltf", scene, { meshNames: 
 // Result has meshes, particleSystems, skeletons, animationGroups and transformNodes
 ```
 
-See an example here: <Playground id="#YAL1RN#307" title="Import Mesh Async with await" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#YAL1RN#307" title="Import Mesh Async with await" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.webp" isMain={true} category="Import"/>
 
 ## LoadAssetContainerAsync
 
@@ -105,7 +105,7 @@ BABYLON.LoadAssetContainerAsync("./duck.gltf", scene).then(function (container) 
 });
 ```
 
-See an example here: <Playground id="#JA1ND3#1053" title="Asset Container Load Example" description="Simple example showing how to load assets into asset containers." image="/img/playgroundsAndNMEs/divingDeeperFileImport5.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#JA1ND3#1053" title="Asset Container Load Example" description="Simple example showing how to load assets into asset containers." image="/img/playgroundsAndNMEs/divingDeeperFileImport5.webp" isMain={true} category="Import"/>
 
 ## ImportAnimationsAsync
 
@@ -116,7 +116,7 @@ You can customize the import process using options and callbacks
 BABYLON.ImportAnimationsAsync("./Elf_run.gltf", scene);
 ```
 
-See an example here: <Playground id="#UGD0Q0#315" title="Importing Animations" description="Simple example showing how to import animations into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport6.jpg"/>
+See an example here: <Playground id="#UGD0Q0#315" title="Importing Animations" description="Simple example showing how to import animations into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport6.webp"/>
 
 ## AppendSceneAsync
 
@@ -162,4 +162,4 @@ data:;base64,<base64_encoded_file_contents>
 ```
 
 The **;** before **base64** and the **,** following it are both required. See here for an example of loading an obj file in base64 encoding:
-<Playground id="#58T0JY" title="Load base64 model" description="Example showing how to load a base64 encoded model using the data url syntax" image="/img/playgroundsAndNMEs/pg-58T0JY.png" />
+<Playground id="#58T0JY" title="Load base64 model" description="Example showing how to load a base64 encoded model using the data url syntax" image="/img/playgroundsAndNMEs/pg-58T0JY.webp" />

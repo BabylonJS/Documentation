@@ -14,7 +14,7 @@ video-content:
 
 `BABYLON.LensRenderingPipeline` is a predefined chain of postprocesses that helps achieving photograph-like realism.
 
-![DoF example](/img/how_to/depth-of-field/example01.jpg)  
+![DoF example](/img/how_to/depth-of-field/example01.webp)  
 _An example of what can be achieved with this postprocess pipeline._
 
 You can see a live example of it here:

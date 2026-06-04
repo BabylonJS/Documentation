@@ -41,7 +41,7 @@ Finally, I would recommend adding a few shortcuts to your environment. Follow th
 
 This will make the main commands quicker to access. Do not hesitate to adapt the bindings to your preferences.
 
-![keybindings](/img/how_to/howToStart/keybindings.png)
+![keybindings](/img/how_to/howToStart/keybindings.webp)
 
 ## Debugging code
 

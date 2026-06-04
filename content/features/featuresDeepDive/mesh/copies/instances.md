@@ -52,7 +52,7 @@ Note: related are **thin instances**, if you want yet more performances but with
 
 The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). To use a Node Material in a mesh with Instances, you need to add the Instances node to it so that the object is properly instanced:
 
-![Use Instances with Node Material](/img/how_to/instances-node.png)
+![Use Instances with Node Material](/img/how_to/instances-node.webp)
 
 The Instances node also gives information on the instance number of the object, which can be useful to, for example, color each instance differently.
 
@@ -114,7 +114,7 @@ Example: <Playground id="#YPABS1#183" title="Custom Buffers Example 2" descripti
 
 If you want to use custom buffers in conjunction with node materials, you can access the instanced buffers color with the mesh.color block. Make sure you have added the Instances block to your graph and then the mesh.color block will reference the instanced buffers color assigned to the instance.
 
-![Use Instanced Buffers Color with Node Material](/img/how_to/instances-node-meshColor.png)
+![Use Instanced Buffers Color with Node Material](/img/how_to/instances-node-meshColor.webp)
 
 Example: <Playground id="#D6GB23" title="Custom Buffers in Node Material" description="Using custom buffers to drive texture offset in node material."/>
 
@@ -159,13 +159,13 @@ Note that for performance sake the master mesh (the mesh from which instances ar
 
 Using Blender, you can create instances of a mesh by just creating a linked object:
 
-![](/img/how_to/use-instance/blender-linked-object.jpg)
+![](/img/how_to/use-instance/blender-linked-object.webp)
 
 ## 3ds Max
 
 Using 3DS Max, you can create instances of a mesh by just creating a clone instance object with clic right on the object:
 
-![](/img/how_to/use-instance/3ds-linked-object.jpg)
+![](/img/how_to/use-instance/3ds-linked-object.webp)
 
 ## Limitations
 

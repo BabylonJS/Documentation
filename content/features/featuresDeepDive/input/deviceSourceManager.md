@@ -22,7 +22,7 @@ This class supports several methods of input:
 - **Generic/Other Gamepad** _(DeviceType: BABYLON.DeviceType.Generic, Inputs: number)_
 
 Here's an example of the DeviceSourceManager in use
-<Playground id="#C7PM2B#18" title="DeviceSourceManager Example" description="Simple example showing how to use the DeviceSourceManager in your scene." image="/img/playgroundsAndNMEs/pg-C7PM2B-17.png"/>
+<Playground id="#C7PM2B#18" title="DeviceSourceManager Example" description="Simple example showing how to use the DeviceSourceManager in your scene." image="/img/playgroundsAndNMEs/pg-C7PM2B-17.webp"/>
 
 To use the DeviceSourceManager, first create an instance of it. You will need to provide an engine object.
 
@@ -71,7 +71,7 @@ onDeviceDisconnectedObservable.add((device) => {
 ```
 
 Here's a demonstration of how these Observables work
-<Playground id="#Y4YWCD#1" title="Basic DeviceSourceManager Demo" description="Simple demonstration of how the DeviceSourceManager observables work" image="/img/playgroundsAndNMEs/pg-Y4YWCD-1.png"/>
+<Playground id="#Y4YWCD#1" title="Basic DeviceSourceManager Demo" description="Simple demonstration of how the DeviceSourceManager observables work" image="/img/playgroundsAndNMEs/pg-Y4YWCD-1.webp"/>
 
 For Keyboards and Pointers, you can use an event based system to get the current input and previous input when an input is activated
 

@@ -12,7 +12,7 @@ video-content:
 
 Take a single sprite image example, i.e. just one cell.
 
-![palm tree](/img/getstarted/palmtree.png)
+![palm tree](/img/getstarted/palmtree.webp)
 
 Using an image format which contain alpha channel for transparency, like .png, allows complex shapes to be displayed.
 
@@ -47,7 +47,7 @@ Please note that the z-axis position of a sprite will affect its size on the scr
 
 A spritesheet example
 
-![uniform spritesheet](/img/how_to/Sprites/08-2.png)
+![uniform spritesheet](/img/how_to/Sprites/08-2.webp)
 
 There are 44 cells in the above spritesheet, each one 64 x 64 pixels. Since the cells are square you can just use  the cell size rather than its width and height. Create the sprite manager with
 ```javascript
@@ -59,7 +59,7 @@ which can then be used to produce just one sprite instance.
 const player = new BABYLON.Sprite("player", spriteManagerPlayer); 
 player.cellIndex = 1;
 ```
-![Elements](/img/how_to/Sprites/08-1.png)
+![Elements](/img/how_to/Sprites/08-1.webp)
 
 Since the cells are square the default values for player width and height are 1 and the ratio is correct they are not needed. However the if the sprite is to draw from a cell with index other than 0 it must be specified.
 

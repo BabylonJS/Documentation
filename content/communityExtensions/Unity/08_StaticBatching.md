@@ -16,7 +16,7 @@ Please refer to the [Unity Layer](https://docs.unity3d.com/Manual/Layers.html) d
 
 ## Babylon Static Layer
 
-![Static Layer](/img/exporters/unity/staticlayer.jpg)
+![Static Layer](/img/exporters/unity/staticlayer.webp)
 
 The static batching layer can prepare your objects to take advantage of the toolkit's static batching export. This step is useful as a performance optimization allowing the engine to reduce number of draw-calls dramatically, but keep amount of rendered geometry intact.
 

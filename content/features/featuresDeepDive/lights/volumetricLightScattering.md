@@ -99,9 +99,9 @@ vls.mesh.material.diffuseTexture= new BABYLON.Texture(...);
 
 Feel free to tour some examples of Volumetric LightScattering in the playground :
 
-- <Playground id="#AU5641" title="Basic Example" description="Simple example of adding a basic light scattering post process to your scene." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP1.jpg"/>
-- <Playground id="#HYFQJ" title="Spherical Harmonics as Source" description="Simple example of adding a light scattering post process with spherical harmonics as a source." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP2.jpg"/>
-- <Playground id="#UUXLX#37" title="VLS through CSG-created slots" description="Simple example of adding a light scattering post process through CSG-created slots." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP3.jpg"/>
+- <Playground id="#AU5641" title="Basic Example" description="Simple example of adding a basic light scattering post process to your scene." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP1.webp"/>
+- <Playground id="#HYFQJ" title="Spherical Harmonics as Source" description="Simple example of adding a light scattering post process with spherical harmonics as a source." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP2.webp"/>
+- <Playground id="#UUXLX#37" title="VLS through CSG-created slots" description="Simple example of adding a light scattering post process through CSG-created slots." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP3.webp"/>
 
 Have fun !
 
@@ -147,6 +147,6 @@ That's why you can see in the code above that we reduce the **frequency** of vol
 
 Please refer to the [FrameGraphVolumetricLightingTask](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList#framegraphvolumetriclightingtask) page for detailed information on task parameters and PG examples.
 
-<Playground engine="webgpu" id="#WLGEJB#44" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task"/>
+<Playground engine="webgpu" id="#WLGEJB#44" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.webp" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task"/>
 
 

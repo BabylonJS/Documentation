@@ -23,7 +23,7 @@ particleSystem.isAnimationSheetEnabled = true; // after construction
 
 As an example, we are using the same spritesheet as for the sprite manager section of the documentation.
 
-![sheet](/img/how_to/sprites/08-2.png)
+![sheet](/img/how_to/sprites/08-2.webp)
 
 This spritesheet is used as the *particleTexture*:
 
@@ -43,7 +43,7 @@ particleSystem.spriteCellChangeSpeed = 4; // default is one
 
 The *spriteCellHeight* and *spriteCellWidth* are the cell height and width for each sprite in the animation sheet.
 
-![Cell Dimensions](/img/how_to/sprites/08-1.png)
+![Cell Dimensions](/img/how_to/sprites/08-1.webp)
 
 We are only going to use the first 10 cells of the spritesheet, and so *startSpriteCellID* is 0 and *endSpriteCellID* is 9. The top-left sprite is in cell 0, and you count from left to right from the top row downwards.
 

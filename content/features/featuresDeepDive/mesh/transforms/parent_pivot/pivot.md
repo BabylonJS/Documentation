@@ -18,7 +18,7 @@ There are three ways to change a center of rotation different to the local origi
 
 Together an axis and a center of rotation define a straight line in space and in the following animated playgrounds this line is shown in white. The asymmetric pilot mesh is used to demonstrate the rotation.
 
-![The Pilot](/img/how_to/Mesh/pilot.jpg)
+![The Pilot](/img/how_to/Mesh/pilot.webp)
 The Pilot
 
 In each of the following examples there is

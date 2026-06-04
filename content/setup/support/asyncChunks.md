@@ -30,7 +30,7 @@ Let's say we are building a simple babylon project, using the default template f
 
 If we simply build the project, we will notice the following files in the dist folder:
 
-![List of files using the default build](/img/defaultDistFolder.png)
+![List of files using the default build](/img/defaultDistFolder.webp)
 
 Each of these files represents an `import()` call in the framework. For example, this is a code snippet from our standard material:
 

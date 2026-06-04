@@ -18,7 +18,7 @@ Starting with a polygon as the footprint, a house is built by giving the footpri
 
 **A footprint** is a sequence of consecutive corners in counter-clockwise order. Each **corner** is a Vector3 in the form (x, 0, z). This footprint forms the inner walls of the house, see Fig 1. The inner walls do not have to be set at right angles to each other.
 
-![Footprint](/img/samples/house1.jpg)
+![Footprint](/img/samples/house1.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
 
 This footprint is then copied and extended by **ply** (the thickness of the walls) to form the base of the walls for the house.
@@ -27,12 +27,12 @@ The number of walls will be the number of corners in the footprint, with wall w 
 
 If the number of walls is nbWalls the new corners are numbered by adding nbWalls to the corresponding inner corners. Then the base for wall w, consists of corners numbered, w, (w + 1) % nbWalls, w + nbWalls, (w + 1) % nbWalls + nbWalls. See Fig 2.
 
-![Base of Walls](/img/samples/house2.jpg)
+![Base of Walls](/img/samples/house2.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 2
 
 The top of wall is formed by adding the **height** of the walls to the base corners to form the top corners, having the form of a Vector3 (x, height, z). The new corners are numbered by adding 2 \_ nbWalls to the corresponding base corners. The top of wall w will consist of corners numbered , w + 2 \_ nbWalls, (w + 1) % nbWalls + 2 \_ nbWalls, w + nbWalls + 2 \_ nbWalls, (w + 1) % nbWalls + nbWalls + 2 \* nbWalls. See Fig 3.
 
-![Top of Walls](/img/samples/house3.jpg)
+![Top of Walls](/img/samples/house3.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 3
 
 ## Walls Mesh
@@ -70,7 +70,7 @@ To form the mesh, the base, top, inner wall and outer wall have to be split into
 
 Fig 4 shows the corner numbers for a completed wall. For simplification this is without taking into account that for the final wall the far corners will be the starting corners so in any code each w + 1 must be calculated using modulo nbWalls.
 
-![Wall w](/img/samples/house4.jpg)
+![Wall w](/img/samples/house4.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 4
 
 By corner number
@@ -96,7 +96,7 @@ A door has two properties, width and height. A doorspace has two properties - a 
 
 A window has two properties, width and height. A windowspace has three properties - a window, left and top, which, when it is part of wall w, are its horizontal distance from the inner corner w and the vertical distance from the top of the wall to the top of the window. Top must be greater than zero and less than wall height - window height.
 
-![Doors and Windows](/img/samples/house5.jpg)
+![Doors and Windows](/img/samples/house5.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 5
 
 ## Walls with Doors and Windows
@@ -133,7 +133,7 @@ Consider inner wall w with one door and one window added as in Fig 6 showing cor
 
 Let V<sub>label</sub> be the position of a corner with the given label in the form of the triple x, y, z.
 
-![Polygon with Holes](/img/samples/house6.jpg)
+![Polygon with Holes](/img/samples/house6.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 6
 
 Using polygonMeshBuilder would create an interior wall positions array with
@@ -240,7 +240,7 @@ _height_ : height of window
 
 Using the plan in fig 7 we can construct a house.
 
-![House floorplan](/img/samples/house7.jpg)
+![House floorplan](/img/samples/house7.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 7
 
 Inner base corner coordinates

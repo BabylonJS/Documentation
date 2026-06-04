@@ -88,7 +88,7 @@ if (p === 0) {
 }
 ```
 
-<Playground id="#N9IZ8M#1" title="Animating To a Path" description="Simple example of animating an object along a path." image="/img/playgroundsAndNMEs/gettingStartedVillageWalk1.jpg"/>
+<Playground id="#N9IZ8M#1" title="Animating To a Path" description="Simple example of animating an object along a path." image="/img/playgroundsAndNMEs/gettingStartedVillageWalk1.webp"/>
 
 A little trickier and using a bit of trial and error for the turns and distance we can achieve a more complicated walk for the character around the village. One reason for using degrees and converting them to radians for the *rotate* method is that it is easier to adjust by adding one or two degrees.
 
@@ -108,6 +108,6 @@ if (p === 0) {
 }
 ```
 
-<Playground id="#KBS9I5#81" title="Character Walking Through Town" description="Animate a character walking through the village." image="/img/playgroundsAndNMEs/gettingStartedVillageWalk2.jpg"/>
+<Playground id="#KBS9I5#81" title="Character Walking Through Town" description="Animate a character walking through the village." image="/img/playgroundsAndNMEs/gettingStartedVillageWalk2.webp"/>
 
 We now have two things moving around the village a car and a character. How can we avoid them colliding?

@@ -20,7 +20,7 @@ Selection Outline Layer draws a crisp outline around selected meshes, similar to
 
 Under the hood it renders a depth/ID mask and then composites an outline in a merge pass. This keeps the outline visually consistent and allows proper occlusion against other geometry.
 
-![illustration](/img/how_to/selection-outline-layer/introduction.png)
+![illustration](/img/how_to/selection-outline-layer/introduction.webp)
 
 ## How to use
 

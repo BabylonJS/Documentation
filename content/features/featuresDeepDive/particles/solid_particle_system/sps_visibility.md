@@ -12,15 +12,15 @@ video-content:
 
 To render the meshes on the screen, BJS uses their bounding box (BBox): if the BBox is in the frustum, then the mesh is selected to be rendered on the screen. This method is really performant as it avoids to make the GPU compute things that wouldn't be visible. The BBox of each mesh is recomputed when its World Matrix is updated. This is called **frustum culling**. In the following example image, the green and orange objects are frustum culled.
 
-![Frustum culling](/img/how_to/Particles/frustum-culling.png)
+![Frustum culling](/img/how_to/Particles/frustum-culling.webp)
 
 When you create an SPS, unless you use the `positionFunction` at creation time, all its particles are set by default at the position (0, 0, 0). So the bounding box size of the SPS mesh is initially the size of its biggest particle. In the following example image, the size of the entire SPS is taken as just the size of the first red object.
 
-![SPS and bounding box size](/img/how_to/Particles/frustum-culling-2.png)
+![SPS and bounding box size](/img/how_to/Particles/frustum-culling-2.webp)
 
 If you animate your particles without updating the SPS mesh World Matrix, its BBox may keep far more little than the current space occupied by the moving particles. So, if this little BBox gets out of the screen (cam rotation for instance), the whole SPS can then disappear at once! In the following example, once the first red object's bounding box is out of the frustum, the entire SPS mesh will be culled, even through there are still two objects visible by the camera.
 
-![SPS and culling](/img/how_to/Particles/frustum-culling-3.png)
+![SPS and culling](/img/how_to/Particles/frustum-culling-3.webp)
 
 In order to manage the SPS visibility, you have some ways: the methods `SPS.refreshVisibleSize()` or `SPS.setVisibilityBox(size)` and the properties `SPS.isAlwaysVisible`, `SPS.computeBoundingBox`, `SPS.isVisibilityBoxLocked`, and `SPS.autoUpdateSubMeshes`.
 

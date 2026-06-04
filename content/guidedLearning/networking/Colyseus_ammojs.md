@@ -1,6 +1,6 @@
 ---
 title: Network Physical Synchronization (based on ammojs + colyseus)
-image: /img/resources/networking/colyseus_ammojs/d1.gif
+image: /img/resources/networking/colyseus_ammojs/d1.webp
 description: Learn to develop Network Physical Synchronization by colyseus
 keywords: colyseus, multiplayer, networking, ammojs, server
 further-reading:
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Wireframe](/img/resources/networking/colyseus_ammojs/d1.gif)
+![Wireframe](/img/resources/networking/colyseus_ammojs/d1.webp)
 
 This guide will help you realize the synchronization of network physical effects based on colyseus. This is a very simple demonstration. It does not include any server verification. Collision and detection only occur on the player's client. The server is responsible for synchronizing the data of physical effects and allocating the permissions of physical calculation;
 
@@ -314,7 +314,7 @@ Now, we have completed all the functions!!!
 
 ## Please enjoy the final effect
 
-![Wireframe](/img/resources/networking/colyseus_ammojs/d2.gif)
+![Wireframe](/img/resources/networking/colyseus_ammojs/d2.webp)
 
 ## Homework
 
