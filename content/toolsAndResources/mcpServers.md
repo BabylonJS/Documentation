@@ -217,6 +217,24 @@ If you prefer to keep using `npx` through `nvm`, run the server through a login 
 
 Use the direct absolute path option if your MCP client has trouble with shell commands.
 
+### Use npm exec Instead of npx
+
+Some environments can resolve `npm` more reliably than `npx`. In that case, use `npm exec` and run the dispatcher command from the package:
+
+```json
+{
+    "servers": {
+        "babylonjs-node-material": {
+            "type": "stdio",
+            "command": "npm",
+            "args": ["exec", "--yes", "--package", "@babylonjs/mcp-servers", "--", "babylonjs-mcp-servers", "nme"]
+        }
+    }
+}
+```
+
+Replace the final `nme` argument with the dispatcher name for the editor you want to use.
+
 ### Windows npx Path
 
 On Windows, point the command to `npx.cmd` if the client cannot resolve `npx` by name:
