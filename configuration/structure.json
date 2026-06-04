@@ -2623,6 +2623,11 @@
                     },
                     "content": "toolsAndResources/accessibility"
                 },
+                "mcpServers": {
+                    "friendlyName": "MCP Servers",
+                    "children": {},
+                    "content": "toolsAndResources/mcpServers"
+                },
                 "thePlayground": {
                     "friendlyName": "Playground",
                     "children": {
