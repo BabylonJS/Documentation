@@ -11,7 +11,7 @@ import { parseMarkdownFrontmatter } from "./markdown/frontmatter";
 import { ContentGraph, ContentGraphExampleReference, ContentGraphPage, ContentGraphRouteParams } from "./contentGraph/types";
 
 const babylonLiteGitHubRepo = "BabylonJS/Babylon-Lite";
-const babylonLiteRepositoryUrl = `https://github.com/${babylonLiteGitHubRepo}.git`;
+const babylonLiteRepositoryUrl = "https://github.com/BabylonJS/Babylon-Lite";
 const babylonLiteApiUrl = `https://api.github.com/repos/${babylonLiteGitHubRepo}`;
 const babylonLiteTempDirectory = join(process.cwd(), ".temp", "babylon-lite");
 const babylonLiteTempRepoDirectory = join(babylonLiteTempDirectory, "repo");
@@ -93,16 +93,6 @@ const readJson = (filePath: string) => JSON.parse(readFileSync(filePath, "utf-8"
 const hasBabylonLiteDocs = (repositoryPath: string) => existsSync(join(repositoryPath, babylonLiteDocsRelativeRoot));
 
 const getLocalBabylonLiteRepositoryPath = () => {
-    const localRepositoryPath = process.env.BABYLON_LITE_REPO_PATH;
-    if (localRepositoryPath) {
-        const resolvedPath = resolve(localRepositoryPath);
-        if (hasBabylonLiteDocs(resolvedPath)) {
-            return resolvedPath;
-        }
-        console.warn(`Skipping Babylon Lite docs: BABYLON_LITE_REPO_PATH does not contain ${babylonLiteDocsRelativeRoot}.`);
-        return undefined;
-    }
-
     return localBabylonLiteRepositoryCandidates
         .map((candidate) => resolve(candidate))
         .find(hasBabylonLiteDocs);
