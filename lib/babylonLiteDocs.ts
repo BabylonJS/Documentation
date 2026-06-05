@@ -18,6 +18,7 @@ const babylonLiteTempRepoDirectory = join(babylonLiteTempDirectory, "repo");
 const babylonLiteDocsRelativeRoot = join("docs", "lite");
 const babylonLiteTypeDocTempDirectory = join(process.cwd(), ".temp", "lite", "typedoc");
 const babylonLiteTypeDocSearchDirectory = join(process.cwd(), "public", "api-search", "lite-typedoc");
+const localBabylonLiteRepositoryCandidates = ["../Babylon-Lite", "../babylon-lite"];
 
 let cachedRepositoryPath: Promise<string | undefined> | undefined;
 let cachedContentGraph: Promise<ContentGraph | undefined> | undefined;
@@ -89,6 +90,24 @@ const escapeMdxJsxOutsideCodeBlocks = (content: string) => {
 
 const readJson = (filePath: string) => JSON.parse(readFileSync(filePath, "utf-8")) as Record<string, unknown>;
 
+const hasBabylonLiteDocs = (repositoryPath: string) => existsSync(join(repositoryPath, babylonLiteDocsRelativeRoot));
+
+const getLocalBabylonLiteRepositoryPath = () => {
+    const localRepositoryPath = process.env.BABYLON_LITE_REPO_PATH;
+    if (localRepositoryPath) {
+        const resolvedPath = resolve(localRepositoryPath);
+        if (hasBabylonLiteDocs(resolvedPath)) {
+            return resolvedPath;
+        }
+        console.warn(`Skipping Babylon Lite docs: BABYLON_LITE_REPO_PATH does not contain ${babylonLiteDocsRelativeRoot}.`);
+        return undefined;
+    }
+
+    return localBabylonLiteRepositoryCandidates
+        .map((candidate) => resolve(candidate))
+        .find(hasBabylonLiteDocs);
+};
+
 export const isBabylonLiteRepositoryPublic = async () => {
     try {
         const response = await fetch(babylonLiteApiUrl, {
@@ -127,14 +146,9 @@ const clonePublicBabylonLiteRepository = () => {
 
 export const getBabylonLiteRepositoryPath = async () => {
     cachedRepositoryPath ??= (async () => {
-        const localRepositoryPath = process.env.BABYLON_LITE_REPO_PATH;
+        const localRepositoryPath = getLocalBabylonLiteRepositoryPath();
         if (localRepositoryPath) {
-            const resolvedPath = resolve(localRepositoryPath);
-            if (existsSync(join(resolvedPath, babylonLiteDocsRelativeRoot))) {
-                return resolvedPath;
-            }
-            console.warn(`Skipping Babylon Lite docs: BABYLON_LITE_REPO_PATH does not contain ${babylonLiteDocsRelativeRoot}.`);
-            return undefined;
+            return localRepositoryPath;
         }
 
         if (!(await isBabylonLiteRepositoryPublic())) {
