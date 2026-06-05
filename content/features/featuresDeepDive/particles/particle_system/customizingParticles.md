@@ -101,7 +101,7 @@ Add the following line after the recycle check:
 particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), 1);
 ```
 
-<Playground id="#MRRGXL#956" image="/img/playgroundsAndNMEs/pg-MRRGXL-950.png" title="Random Colored Particles" description="Simple example of creating random colored particles."/>
+<Playground id="#MRRGXL#956" image="/img/playgroundsAndNMEs/pg-MRRGXL-950.webp" title="Random Colored Particles" description="Simple example of creating random colored particles."/>
 
 ### Grow Particles from Size 0 to a Final Size
 
@@ -124,7 +124,7 @@ if (particle.age < particle.lifeTime * 0.35) {
 }
 ```
 
-<Playground id="#WJBZQH#109" image="/img/playgroundsAndNMEs/pg-WJBZQH-104.png" title="Growing Particles" description="Simple example of creating growing particles."/>
+<Playground id="#WJBZQH#109" image="/img/playgroundsAndNMEs/pg-WJBZQH-104.webp" title="Growing Particles" description="Simple example of creating growing particles."/>
 
 ### Particle Emitter Type
 
@@ -142,7 +142,7 @@ Below is an example that creates a new spray emitter, which sends streams of par
 
 In order to determine where a particle is emitted from, the cylinder is divided into two regions as in the diagram below.
 
-![cylinder emitter](/img/how_to/particles/cyl_particles.png)
+![cylinder emitter](/img/how_to/particles/cyl_particles.webp)
 
 Any particle with a start position inside the red region is emitted in the direction from the center to the particle. Any particle with a start position inside the blue region is emitted horizontally.
 

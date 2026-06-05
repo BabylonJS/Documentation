@@ -20,19 +20,19 @@ Simply put, the human eye is much more adept at distinguishing the differences b
 ## Luminance and how we perceive color value
 When looking at a computer monitor, each pixel is emitting a specific amount of light from which our eyes perceive color and value. The image below illustrates starting with a value of black, or 0% light luminance and increases luminance by 5% with each step until we reach white or 100% light luminance.
 
-![Linear interpolation of monitor pixel luminance values](/img/assetPipeline/colorSpace/linearGradient_steps.png) 
+![Linear interpolation of monitor pixel luminance values](/img/assetPipeline/colorSpace/linearGradient_steps.webp) 
 
 What we can note about the gradient is that if we look at the middle step, the pixels rendering value have a luminance level that is 50% of the luminance value of the pixels rendering white. Numerically, this value is 50%, but we perceive the value to be brighter than middle grey. We also have more trouble distinguishing the change in values in the brighter areas of the gradient and we perceive most of these values to be brighter than they should appear.
 
 This is due to our eyes being more sensitive toward low levels of light than high levels of light. This means that for us to perceive a smooth gradient where middle grey looks to us to be midway between black and white, we can’t use a linear interpolation of light power for each step in the gradient. This is where gamma correction comes in. The sRGB color space that your monitor or devices is using relies on a specific gamma curve to adjust the power of light emitting from each pixel to make our eyes perceive a smooth gradient with each segment feeling like the value it is supposed to represent. The image below illustrates how the gradient is modified by the sRGB color space, and a perceived 50% grey pixel will emit only about 22% of the power of a perceived white pixel. This lines up with the sensitivity of the average human eye and brings the perceived values in line with our expectations.
 
-![Gamma decoded interpolation of monitor pixel luminance values](/img/assetPipeline/colorSpace/gammaGradient_steps.png) 
+![Gamma decoded interpolation of monitor pixel luminance values](/img/assetPipeline/colorSpace/gammaGradient_steps.webp) 
 
 The gamma curve used by the sRGB color space is very close to the standard gamma of 2.2 with some extra adjustment for very dark values. Since it is so similar, however, we will be using the values for standard gamma for the rest of this article as the math is a little simpler and when we are speaking about shaders the extra optimization can really help. When color is displayed to a monitor it uses a gamma decoding color transfer function of function pow(x, 2.2) which results in the gradient above.
 
 Below are two graphs illustrating what is happening in the two gradients above and why the standard gamma 2.2 is used to compensate for the human eye. On the left, we see the blue line representing the first gradient where luminance value is linearly interpolated from a normalized value of 0.0 to 1.0. The green line represents the values that our eyes perceive based on the physiology of our photoreceptors. On the right the blue line represents the pixel values of the gradient that are fed to the monitor which are a linear interpolation of the gradient from values of 0.0 to 1.0. The gamma decoding done by the monitor runs each value through the color transfer function pow(x,2.2) and returns the luminance value shown by the red line. This decoding of the pixel values aligns with our ability to perceive luminance levels and we then see a linear interpolation of perceived values, even though the luminance level of pixels on the monitor are not linear.
 
-![Perceived lumance of a linear interpolation of luminance versus linear pixel values and their gamma decoded luminance](/img/assetPipeline/colorSpace/gammaPerceptionDecode.png) 
+![Perceived lumance of a linear interpolation of luminance versus linear pixel values and their gamma decoded luminance](/img/assetPipeline/colorSpace/gammaPerceptionDecode.webp) 
 
 ## Gamma encoding
 We have seen how our perception of light is not linear as the luminance of that light increases. However, when a camera is used to record an image, the light sensors work in a linear fashion. If the light hitting the sensor is doubled, the value recorded is doubled. But remember the graph above on how we perceive luminance shows that doubling the luminance makes our eyes perceive more than double the value. This means that when we record an image with a camera, there are several ways to write the data to a file.
@@ -41,7 +41,7 @@ If the image is saved in a RAW format, it means there is no defined color space,
 
 Consider the graphs below. In the left graph, the blue line represents the linear values of luminance recorded by the camera where the green line represents the values written to file. Note how it matches the graph above showing how we perceive luminance based on a linear interpolation of luminance. In the right graph the red line represents the values read from the recorded image after being gamma decoded — pow(x, 2.2) — when displayed to a monitor or device. The blue line represents how our eyes perceive a linear gradient of values, even though the luminance of the pixels in the monitor do not use a linear increase of luminance. Again, note that this graph matches the graph above showing how the pixel values comprising the gradient have their luminance adjusted when displayed on a monitor.
 
-![Gamma encoding linear pixel values and how the values are perceived after those values are gamma decoded](/img/assetPipeline/colorSpace/perceptionAfterGammaDecoding.png) 
+![Gamma encoding linear pixel values and how the values are perceived after those values are gamma decoded](/img/assetPipeline/colorSpace/perceptionAfterGammaDecoding.webp) 
 
 Now we can see how gamma encoding luminance values from a camera’s sensor will retain an image as our eyes perceived it, but this same process is used when saving an image from software. Because the monitor is gamma decoding any color it displays, any choices made about how the color appears in terms of value, exposure, black point, etc. will be based on the value that the monitor displays, not the linear values of that color. For example, if we have a linear value of 0.5 loaded from a file, the value that would be displayed on the monitor would be pow(0.5, 2.2) or approximately 0.2176. But we don’t want to save the value of 0.2176 into a file as loading that from file would incur a second gamma decode transfer to pow(0.2176, 2.2) or approximately 0.0349. This means that any image we save will need gamma encoding so that it will load and display as originally intended when taking the gamma decoding the monitor does into account. In the case of the value 0.2176 from earlier, gamma encoding the value with pow(0.2176, 1/2.2) will result in a value of 0.5 written to the file.
 
@@ -73,7 +73,7 @@ pow(0.5326, 2.2) = 0.25
 
 The trick here is knowing when a value is a gamma encoded value or a linear value. The shader does not know whether a value is gamma encoded or not so it is up to us to keep track of this. The example below shows the difference in a render based on if the value for a color is treated as a gamma encoded value or as a linear value. This example is using the color as an input in a simple light calculation. It’s easy to see the difference in the final render based on if we assume a gamma encoded value versus a linear value. This difference becomes critical when we need to match renders to product or brand colors that have specific values.
 
-![Comparisons of color treated as gamma encoded and as linear with a difference between the two renders](/img/assetPipeline/colorSpace/gammaOperationsDiff.png) 
+![Comparisons of color treated as gamma encoded and as linear with a difference between the two renders](/img/assetPipeline/colorSpace/gammaOperationsDiff.webp) 
 
 This means that we will need to have a method to know if a specific value is a gamma encoded value or a linear value. Luckily, there are a few rules we can rely on to give us a good indication about if a value is gamma encoded or not.
 
@@ -86,7 +86,7 @@ If we are using a texture authoring package like Substance Designer, we have a b
 
 Remember, we stated earlier that sRGB is very close to standard gamma 2.2, so even if you export your textures in sRGB, you can use the standard gamma 2.2 decode on the texture and you will see minimal change. To optimize the Babylon.js shaders, standard gamma 2.2 is used to encode and decode as the color transfer function has fewer operations making the shaders lighter. There is an option, however, to support sRGB textures if the project has critical color needs.
 
-![Export options in Substance Designer allowing control over color space for textures](/img/assetPipeline/colorSpace/designerExport.png) 
+![Export options in Substance Designer allowing control over color space for textures](/img/assetPipeline/colorSpace/designerExport.webp) 
 
 Now that we see how we can export textures in different color spaces, how do we know which textures should be in which color space? This comes down to how the texture is used. All color data textures should be exported using sRGB color space and all non-color data textures should be exported in linear color space. With that stipulation set, let’s discuss the difference between the two.
 
@@ -122,32 +122,32 @@ Since the node material editor allows us to create custom shaders for our assets
 #### Color Picker
 The color picker implemented in the node material editor shows color that has been gamma decoded. We can easily tell by looking at the black to white gradient on the left side of the picker. The gradient appears to be perceptually linear like the examples above, which means that the monitor has gamma decoded the values it is displaying. If we are using the picker to select a color visually, the value we end up with will be gamma encoded. For any color entered directly into the picker from another source, we will need to know the color space for those values to determine if we need to enable a color transfer function on the node.
 
-![The gamma decoded color picker implemented in the Babylon.js node material editor](/img/assetPipeline/colorSpace/colorPicker.png) 
+![The gamma decoded color picker implemented in the Babylon.js node material editor](/img/assetPipeline/colorSpace/colorPicker.webp) 
 
 #### Color3 and Color4 Nodes
 Both these nodes will hold a color value as defined by the user. We need to know if the color values are gamma encoded or linear because, as was stated earlier, we should not be doing any calculation with a gamma encoded color. If the color values are linear, we don’t need to do anything else. If the color value is gamma encoded, however, we need to convert it to linear before using it for any calculations. Luckily, we don’t need to manually convert the color as we can simply set the parameter Convert to linear space on the node itself. There is also another parameter to Convert to gamma space in case we have the color values in linear space but need them to instead be in gamma encoded for any reason. The color nodes are a good example of why it’s important to keep track of color space since the node itself does what basis the value of the color is using. It can also get confusing if the source of the color value is unknown or the colors are in mixed color spaces. It is good practice to stick to using gamma encoded colors for color data and linear colors for non-color data, so we always know when a color transfer function is needed.
 
-![Color3 and Color4 nodes include conversions to both gamma space and linear space](/img/assetPipeline/colorSpace/color3Block.png) 
+![Color3 and Color4 nodes include conversions to both gamma space and linear space](/img/assetPipeline/colorSpace/color3Block.webp) 
 
 #### Texture
 Any texture loaded into a node material will either be loaded directly into a Texture node or be loaded into an Image Source node and wired to a Texture node. In both cases the color space of the texture can be converted right on the Texture node just like with the Color3 or Color4 nodes. Textures can be more straightforward in terms of knowing if they represent color data or non-color data depending on the way they are used in the shader.
 
-![Texture nodes include also conversions to gamma space and linear space which are commonly used to convert textures saved in a specific color space](/img/assetPipeline/colorSpace/textureBlock.png) 
+![Texture nodes include also conversions to gamma space and linear space which are commonly used to convert textures saved in a specific color space](/img/assetPipeline/colorSpace/textureBlock.webp) 
 
 #### Lights
 This node calculates the scene lighting considering all punctual lights in the scene such as directional, spot, and hemisphere. This uses a blinn-phong lighting model and is closely related to StandardMaterial in Babylon.js. This node does not do any specific conversion on any input and expects the user to pass all color inputs as linear. Because we should not be doing any calculation on gamma encoded color values, we should convert any nodes wired to diffuseColor and specularColor to linear color space. The glossiness input should already be in linear space, so there is likely no conversion is needed. The diffuseOutput, specularOutput, and shadow output color space will match what was put into the node. If we set our input correctly to linear space the output will also be in linear space.
 
-![The lights node does no color space conversion, so we need to ensure all of our inputs are in linear color space when connected to this node](/img/assetPipeline/colorSpace/lightsBlock.png) 
+![The lights node does no color space conversion, so we need to ensure all of our inputs are in linear color space when connected to this node](/img/assetPipeline/colorSpace/lightsBlock.webp) 
 
 #### PBRMetallicRoughness
 This node also does no color space conversion of any input wired to the node. To do the lighting calculation correctly we must set all inputs to be in linear color space, so a conversion needs to be done on any gamma encoded color data. For the outputs, there is one that has already been converted to gamma space which is the lighting output. This is a combination of all lighting components and includes a gamma space conversion for convenience. The rest of the component outputs are all in linear color space so that we can immediately use them for other calculations without needing any conversion. Once we are done combining or modifying the components, we will still be in linear space and fortunately there is an easy way to handle this conversion in the FragmentOutput node.
 
-![The PBRMetallicRoughness node should also have all inputs converted to linear color space before connecting. However, it does have one output labeled “lighting” that is a combination of all lighting components and has been converted to gamma space for convenience](/img/assetPipeline/colorSpace/PBRblock.png) 
+![The PBRMetallicRoughness node should also have all inputs converted to linear color space before connecting. However, it does have one output labeled “lighting” that is a combination of all lighting components and has been converted to gamma space for convenience](/img/assetPipeline/colorSpace/PBRblock.webp) 
 
 #### FragmentOutput
 Typically, this block will expect any inputs to be wired with color in gamma space. This is why the PBRMetallicRoughness lighting output is already converted to gamma space and can be directly connected to the FragmentOutput. Otherwise, we will likely have color in linear space before we wire it to the FragmentOutput. A manual conversion can be done if desired, but the simplest way is to utilize the Convert to gamma space parameter on the FragmentOutput block. This becomes a powerful way to control our color space so we can simply ensure every input is in linear space and then convert it all back to gamma space right at the end.
 
-![The FragmentOutput contains conversions for gamma space and linear space for flexibility. This is the best way to control your color space as all your calculations should be in linear color space. Using the final node to convert back to gamma color space for display is very easy and keeps your graph clean](/img/assetPipeline/colorSpace/fragmentOutBlock.png) 
+![The FragmentOutput contains conversions for gamma space and linear space for flexibility. This is the best way to control your color space as all your calculations should be in linear color space. Using the final node to convert back to gamma color space for display is very easy and keeps your graph clean](/img/assetPipeline/colorSpace/fragmentOutBlock.webp) 
 
 ## Final Thoughts
 While the topic of color space is broad and can easily confuse, it can also be broken down to some specific guidelines for ensuring that our materials render correctly. Keeping in mind the difference between color data and non-color data helps define in which color space textures should be exported.

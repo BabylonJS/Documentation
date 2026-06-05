@@ -87,7 +87,7 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem, fullPage: bool
                         } else {
                             const idPos = pg.indexOf('id="');
                             const imgId = pg.substr(idPos + 4).split('"')[0];
-                            metadata.imageUrl = `/img/playgroundsAndNMEs/pg${imgId.replace(/#/g, "-")}.png`;
+                            metadata.imageUrl = `/img/playgroundsAndNMEs/pg${imgId.replace(/#/g, "-")}.webp`;
                         }
                     }
                 }

@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Screenshot](/img/extensions/materials/gradient.jpg)
+![Screenshot](/img/extensions/materials/gradient.webp)
 
 You can get the gradient material:
 

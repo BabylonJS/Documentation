@@ -36,11 +36,11 @@ Sequence using addRotation: <Playground id="#HPKH80" title="Sequence Rotations U
 ## Rotate
 Imagine a disc with an axis through its center. The disc is able to rotate about the axis. The image below shows the disc at several different rotation points around the axis.
 
-![disc rotate](/img/how_to/Mesh/quat1.jpg)
+![disc rotate](/img/how_to/Mesh/quat1.webp)
 
 For all rotations of the disc the axis can be tilted as seen in the diagram below.
 
-![disc rotate and axle tilt](/img/how_to/Mesh/quat2.jpg)
+![disc rotate and axle tilt](/img/how_to/Mesh/quat2.webp)
 
 Specifying a direction vector for an axis along with an angle is an alternative way of producing a rotation. This is how the *rotate* method is used either in world space or local space. 
 

@@ -1,6 +1,6 @@
 ---
 title: MMD Loader
-image: /img/extensions/mmdLoader/ModelWithInspector.png
+image: /img/extensions/mmdLoader/ModelWithInspector.webp
 description: babylon-mmd is a MMD(MikuMikuDance) 3D model loader and animation runtime for the Babylon.js.
 keywords: extensions, mmd, runtime, extension, external libraries
 further-reading: 
@@ -10,7 +10,7 @@ video-content:
 
 ## **[babylon-mmd](https://github.com/noname0310/babylon-mmd)**: The MMD Loader and Runtime for Babylon.js
 
-![Screenshot showing the MMD model in the playground](/img/extensions/mmdLoader/ModelWithInspector.png)
+![Screenshot showing the MMD model in the playground](/img/extensions/mmdLoader/ModelWithInspector.webp)
 *[YYB Hatsune Miku_10th](https://www.deviantart.com/sanmuyyb/art/YYB-Hatsune-Miku-10th-DL-702119716) by YYB (modified)*
 
 MMD is a Japanese 3D animation creation software that has its own 3D model format, PMD/PMX, and motion formats, VPD and VMD.
@@ -30,7 +30,7 @@ babylon-mmd is a library focused on loading PMX models and VMD motion files into
 
 ## Example
 
-![Playground example of a MMD](/img/extensions/mmdLoader/PGScreenshot.png)
+![Playground example of a MMD](/img/extensions/mmdLoader/PGScreenshot.webp)
 <Playground id="#028YR6#41" title="Complete MMD Example" description="Example of a MMD model with a VMD motion file and audio." />
 
 *Music: [メランコリ・ナイト](https://youtu.be/y__uZETTuL8) by higma*

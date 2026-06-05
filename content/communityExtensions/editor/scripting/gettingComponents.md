@@ -110,7 +110,7 @@ the `@fromSounds` decorator.
 In order to retrieve the reference, the sound must be loaded in the project either attached to a node (spatialized)
 or loaded as 2D sound.
 
-![GetSoundPath](/img/extensions/Editor/GettingComponents/load-sound.png)
+![GetSoundPath](/img/extensions/Editor/GettingComponents/load-sound.webp)
 
 The parameter of this decorator is the name of the sound. In Babylon.JS, the name of a sound is its path provided
 when the sound is being loaded. For example `assets/sounds/mySound.mp3`.
@@ -119,7 +119,7 @@ To get the name of a sound, the `Assets Browser` panel provides a helper by `rig
 click on `Copy Path` in the context menu so the name of the sound is added to the clipboard and just paste it
 in code editor on the parameter.
 
-![GetSoundPath](/img/extensions/Editor/GettingComponents/sound-path.png)
+![GetSoundPath](/img/extensions/Editor/GettingComponents/sound-path.webp)
 
 Example:
 

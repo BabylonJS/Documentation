@@ -13,11 +13,11 @@ This texture is created by rendering the non-transmissive meshes and is defined 
 
 For example, in the scene below, we have a single transmissive material/mesh (the amber block):
 
-![Scene with transmissive meshes](/img/frameGraph/example_transmission_finalscene.jpg!500)
+![Scene with transmissive meshes](/img/frameGraph/example_transmission_finalscene.webp!500)
 
 The amber mesh is rendered like this:
 
-![Refraction texture](/img/frameGraph/example_transmission_refractiontexture.jpg!400)
+![Refraction texture](/img/frameGraph/example_transmission_refractiontexture.webp!400)
 
 In each frame, the refraction texture is regenerated to account for changes in the scene (camera or mesh movements, etc.).
 
@@ -34,7 +34,7 @@ The implementation is as follows:
 
 The `TransmissionHelper` class is responsible for rendering the refraction texture and assigning it to transmissive materials. Two separate renders are required to create a frame:
 
-![Transmission helper](/img/frameGraph/example_transmission_transmissionhelper.jpg!700)
+![Transmission helper](/img/frameGraph/example_transmission_transmissionhelper.webp!700)
 
 By using a frame graph (actually a node render graph), we are free to create transmissive materials without resorting to external .glb/.gltf files.
 
@@ -46,7 +46,7 @@ Thanks to the flexibility of the node render graph, we can do better and render 
 
 Here are the details of the operations we will perform in the node render graph:
 
-![Node render graph operations](/img/frameGraph/example_transmission_framegraph-operations.jpg!600)
+![Node render graph operations](/img/frameGraph/example_transmission_framegraph-operations.webp!600)
 
 As you can see, two additional operations are required compared to using `TransmissionHelper`: a texture copy and image post-processing.
 
@@ -60,7 +60,7 @@ You may be wondering why we need to copy the current texture (let's call it **T*
 
 Here is the node render graph corresponding to the description in the previous section:
 
-![Node render graph implementation](/img/frameGraph/example_transmission_framegraph.jpg!600)
+![Node render graph implementation](/img/frameGraph/example_transmission_framegraph.webp!600)
 
 <NRGE id="#3MVLQ7#12" title="Implementation of the node render graph" description="Rendering of transmissive materials with a node render graph" isMain={false} category="NodeRenderGraph"/>
 
@@ -74,18 +74,18 @@ An additional task that has not yet been described is the `Gen refraction textur
 
 Key points to highlight from this graph:
 * Both the `RenderNonTransmissiveObjects` and `RenderTransmissiveObjects` rendering tasks have the **Disable image processing** option checked to render in linear space:
-![Rendered in linear space](/img/frameGraph/example_transmission_prop_linearspace_render.jpg)
+![Rendered in linear space](/img/frameGraph/example_transmission_prop_linearspace_render.webp)
 * The same applies to the clear color of the `Clear` block:
-![Rendered in linear space](/img/frameGraph/example_transmission_prop_linearspace_clearcolor.jpg)
+![Rendered in linear space](/img/frameGraph/example_transmission_prop_linearspace_clearcolor.webp)
 * The **Create mipmaps** option is checked in the `Refraction Texture` block so that the texture is created with mipmaps. Note that this does not mean that mipmaps are *generated*, but only that additional GPU memory will be allocated for mipmaps! Mipmaps are generated using the `GenerateMipmaps` block. We have also defined specific dimensions for this texture (1024x1024), as we do not need the full final screen resolution. Also, we don't need MSAA for this texture, so **Samples** is set to 1:
-![Refraction texture properties](/img/frameGraph/example_transmission_prop_refractiontexture.jpg)
+![Refraction texture properties](/img/frameGraph/example_transmission_prop_refractiontexture.webp)
 * The output of the `Gen refraction texture mipmaps` block is connected to the **dependencies** input of the `RenderTransmissiveObjects` block: this ensures that the texture is copied and the mipmaps are generated before this block is processed, as we will need the refraction texture during rendering.
 
 ## Playground implementation
 
 Here is a playground that uses the node render graph described above to render a scene with transmissive materials:
 
-<Playground id="#7FZ6P6#1" image="/img/playgroundsAndNMEs/pg-JWKDME-70.png" title="Node render graph for rendering transmissive materials" description="Rendering transmissive materials with a node render graph" isMain={false}/>
+<Playground id="#7FZ6P6#1" image="/img/playgroundsAndNMEs/pg-JWKDME-70.webp" title="Node render graph for rendering transmissive materials" description="Rendering transmissive materials with a node render graph" isMain={false}/>
 
 We have created a separate class `RenderWithTransmission`, which takes care of loading and configuring the graph for you. This should make it easier to reuse the code in your own projects, but feel free to use this code as a starting point for your own experiments!
 

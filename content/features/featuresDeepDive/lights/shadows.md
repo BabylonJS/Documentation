@@ -13,7 +13,7 @@ video-content:
 In this tutorial, we are going to learn how to create shadows in Babylon.js. Shadows are now becoming dynamic, and they are now dynamically generated depending upon a light.
 You might want to visit a playground example for this tutorial:
 
-<Playground id="#IFYDRS" title="Shadow Example" description="Simple Example of adding shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows1.jpg" isMain={true} category="Shadows"/>
+<Playground id="#IFYDRS" title="Shadow Example" description="Simple Example of adding shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows1.webp" isMain={true} category="Shadows"/>
 
 ## How can I do this?
 
@@ -79,7 +79,7 @@ The quality of the blur is defined by the following properties:
 - `shadowGenerator.blurBoxOffset`: Define the offset of the box's edge used to apply the blur. By default, the value is 1 (Meaning the box will go from -1 to 1 in both directions resulting in 9 values read by the blur postprocess).
 - `shadowGenerator.useKernelBlur`: You can decide to use kernel blur instead of box blur. While a bit more expensive, the quality of the shadow is far better with kernel blur. You can control the kernel size with `shadowGenerator.blurKernel`, which default value is 1.
 
-Here is an example of blurred shadows: <Playground id="#IIZ9UU" title="Blurred Shadow Example" description="Simple Example of adding blurred shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows2.jpg" isMain={true} category="Shadows"/>
+Here is an example of blurred shadows: <Playground id="#IIZ9UU" title="Blurred Shadow Example" description="Simple Example of adding blurred shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows2.webp" isMain={true} category="Shadows"/>
 
 ### Close exponential shadow map
 
@@ -101,7 +101,7 @@ or if you want blurred shadows:
 shadowGenerator.useBlurCloseExponentialShadowMap = true;
 ```
 
-Here is an example of how CESM works: <Playground id="#0TG0TB" title="CESM Shadow Example" description="Simple Example of adding close exponential shadow maps to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows3.jpg"/>
+Here is an example of how CESM works: <Playground id="#0TG0TB" title="CESM Shadow Example" description="Simple Example of adding close exponential shadow maps to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows3.webp"/>
 
 ### Percentage Closer Filtering (Webgl2 only)
 
@@ -115,7 +115,7 @@ You can enable PCF with:
 shadowGenerator.usePercentageCloserFiltering = true;
 ```
 
-Here is an example of how PCF works: <Playground id="#B48X7G#1" title="PCF Shadow Example" description="Simple Example of adding percentage closer filtering shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows4.jpg"/>
+Here is an example of how PCF works: <Playground id="#B48X7G#1" title="PCF Shadow Example" description="Simple Example of adding percentage closer filtering shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows4.webp"/>
 
 As PCF requires more resources than can be available on small platforms, you can use the `filteringQuality` property to choose the best tradeoff between quality and performance depending on your experience (the lower the quality the better the performance).
 
@@ -142,7 +142,7 @@ You can enable PCSS with:
 shadowGenerator.useContactHardeningShadow = true;
 ```
 
-Here is an example of how PCSS works: <Playground id="#B48X7G#2" title="PCSS Shadow Example" description="Simple Example of adding Contact Hardening shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows5.jpg"/>
+Here is an example of how PCSS works: <Playground id="#B48X7G#2" title="PCSS Shadow Example" description="Simple Example of adding Contact Hardening shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows5.webp"/>
 
 As PCSS requires more resources than can be available on small platform, you can use the `filteringQuality` property to choose the best tradeoff between quality and performances depending on your experience (the lower the quality the better the performances).
 
@@ -150,41 +150,41 @@ As PCSS requires more resources than can be available on small platform, you can
 shadowGenerator.filteringQuality = BABYLON.ShadowGenerator.QUALITY_LOW;
 ```
 
-The following link gives you a good appreciation of the softening of shadows as the shadow caster moves further away from the object receiving the shadow: <Playground id="#ZT8BKT#57" title="Distance Shadow Softening Example" description="Simple Example of shadow softening with distance." image="/img/playgroundsAndNMEs/divingDeeperShadows6.jpg" isMain={true} category="Shadows"/>
+The following link gives you a good appreciation of the softening of shadows as the shadow caster moves further away from the object receiving the shadow: <Playground id="#ZT8BKT#57" title="Distance Shadow Softening Example" description="Simple Example of shadow softening with distance." image="/img/playgroundsAndNMEs/divingDeeperShadows6.webp" isMain={true} category="Shadows"/>
 
 ## Transparent objects / shadows
 
 For transparent objects to cast shadows, you must set the `transparencyShadow` property to `true` on the shadow generator:
 
-![Transparent objects cast shadows](/img/how_to/shadows/transparencyShadow.jpg)
+![Transparent objects cast shadows](/img/how_to/shadows/transparencyShadow.webp)
 
-<Playground id="#6PITC0" title="Transparent Shadows Example" description="Simple Example of adding transparent shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows7.jpg"/>
+<Playground id="#6PITC0" title="Transparent Shadows Example" description="Simple Example of adding transparent shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows7.webp"/>
 
 Starting with Babylonjs v4.2, you can simulate soft transparent shadows for transparent objects. To do this, you need to set the `enableSoftTransparentShadow` property to `true` on the shadow generator:
 
-![Transparent objects cast soft transparent shadows](/img/how_to/shadows/softTransparentShadows.jpg)
+![Transparent objects cast soft transparent shadows](/img/how_to/shadows/softTransparentShadows.webp)
 
-<Playground id="#LKA8VM" title="Soft Transparent Shadows Example" description="Simple Example of adding soft transparent shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows8.jpg" isMain={true} category="Shadows"/>
+<Playground id="#LKA8VM" title="Soft Transparent Shadows Example" description="Simple Example of adding soft transparent shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows8.webp" isMain={true} category="Shadows"/>
 
 It works by generating some dithering patterns in the shadow map, based on the alpha value of the fragment. This pattern can be visible, depending on your objects (being zoomed or not) and/or on the filtering method used.
 
 Here's for example what it looks like when you don't set a filtering method:
 
-![Transparent objects cast soft transparent shadows - no filtering](/img/how_to/shadows/softTransparentNoFilter.jpg)
+![Transparent objects cast soft transparent shadows - no filtering](/img/how_to/shadows/softTransparentNoFilter.webp)
 
 The patterns are clearly visible.
 
 Even when using a filtering method, you could still be able to see the patterns if zooming too much (filtering=PCF):
 
-![Transparent objects cast soft transparent shadows - PCF filtering](/img/how_to/shadows/softTransparentPCF.jpg)
+![Transparent objects cast soft transparent shadows - PCF filtering](/img/how_to/shadows/softTransparentPCF.webp)
 
 With Blur exponential, however, you can zoom quite a lot and still get good shadows:
 
-![Transparent objects cast soft transparent shadows - BlurExp filtering](/img/how_to/shadows/softTransparentBlurExp.jpg)
+![Transparent objects cast soft transparent shadows - BlurExp filtering](/img/how_to/shadows/softTransparentBlurExp.webp)
 
 So, you may need to test different filtering methods to find the best one for your case.
 
-![Transparent objects cast soft transparent shadows - bottles](/img/how_to/shadows/softTransparentBottles.jpg)
+![Transparent objects cast soft transparent shadows - bottles](/img/how_to/shadows/softTransparentBottles.webp)
 
 This one was generated with PCF, for eg.
 
@@ -195,27 +195,27 @@ You can find a live example here:
 
 Please find here pictures of various filters used with a spot light:
 
-![Hard shadows](/img/how_to/shadows/hardshadows.jpg)
+![Hard shadows](/img/how_to/shadows/hardshadows.webp)
 
 _No filter_
 
-![Poisson](/img/how_to/shadows/poisson.jpg)
+![Poisson](/img/how_to/shadows/poisson.webp)
 
 _Poisson sampling_
 
-![ESM](/img/how_to/shadows/esm.jpg)
+![ESM](/img/how_to/shadows/esm.webp)
 
 _Exponential Shadow Map_
 
-![BlurESM](/img/how_to/shadows/bluresm.jpg)
+![BlurESM](/img/how_to/shadows/bluresm.webp)
 
 _Blur Exponential Shadow Map_
 
-![PCF](/img/how_to/shadows/pcfshadows.jpg)
+![PCF](/img/how_to/shadows/pcfshadows.webp)
 
 _Percentage Closer Filtering_
 
-![PCSS](/img/how_to/shadows/pcssshadows.jpg)
+![PCSS](/img/how_to/shadows/pcssshadows.webp)
 
 _Contact Hardening Shadow_
 
@@ -228,7 +228,7 @@ Only point, directional and spot lights can cast shadows.
 ### Point lights
 
 Point lights use cubemaps rendering so please be cautious when enabling them as this could lead to some performance issues.
-You can also check the example: <Playground id="#XDNVAY#0" title="Point Light Shadow Map Example" description="Simple Example of adding point lights with shadow maps to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows9.jpg"/>
+You can also check the example: <Playground id="#XDNVAY#0" title="Point Light Shadow Map Example" description="Simple Example of adding point lights with shadow maps to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows9.webp"/>
 
 Furthermore, `BlurExponentialShadowMap` and `CloseBlurExponentialShadowMap` are not supported by point lights (mostly because blurring the six faces of the cubemap would be too expensive).
 
@@ -246,7 +246,7 @@ You can control also the size of the projection window by modifying one of those
 - `light.shadowOrthoScale`: 0.1 by default which means that the projection window is increase by 10% from the optimal size.
 - `light.shadowFrustumSize`: Off by default with a value of 0. You can specify a value which will be used to define the square size of the frustum to use.
 
-The light's position, as well as the positions of the mesh that you have pushed into the renderlist, determine where the shadows will appear. Note that your light point-of-view from this position have to view all meshes in the renderList; otherwise the shadows may not be rendered. See the following example: <Playground id="#R1EVD0#152" title="Animated Directional Light Example" description="Simple Example of a moving directional light." image="/img/playgroundsAndNMEs/divingDeeperShadows10.jpg" isMain={true} category="Shadows"/>
+The light's position, as well as the positions of the mesh that you have pushed into the renderlist, determine where the shadows will appear. Note that your light point-of-view from this position have to view all meshes in the renderList; otherwise the shadows may not be rendered. See the following example: <Playground id="#R1EVD0#152" title="Animated Directional Light Example" description="Simple Example of a moving directional light." image="/img/playgroundsAndNMEs/divingDeeperShadows10.webp" isMain={true} category="Shadows"/>
 
 You can also set `light.autoCalcShadowZBounds = true` to compute automatically the best `light.shadowMinZ` and `light.shadowMaxZ` values for each frame. Tightening those values to best fit your scene improve the precision of the depth map, and consequently the shadow rendering. Be warned, however, that when using this parameter with PCF and PCSS you may miss some shadows because of the way those filtering technics are implemented (if all your meshes are both shadow casters and receivers, you won't have any problems with PCF / PCSS, though). Note that `light.autoUpdateExtends` must be set to `true` for `light.autoCalcShadowZBounds` to work.
 
@@ -262,14 +262,14 @@ Even if using an orthographic projection in the end (as you do for directional l
 
 Often you can read explanations about directional lights that says you don't need a position, but if you look at their code, you can see they use a `(0,0,0)` position to build their view matrix... Or in some others they don't explicitly put values in the translation part of the matrix, but it's still 0 values you get there by default.
 
-This position defines where the light frustum is positionned in the world. See the following example: <Playground id="#2898XM#3" title="Analyzing Directional Light Position" description="Simple Example of analyzing directional light position." image="/img/playgroundsAndNMEs/divingDeeperShadows10.jpg"/>
+This position defines where the light frustum is positionned in the world. See the following example: <Playground id="#2898XM#3" title="Analyzing Directional Light Position" description="Simple Example of analyzing directional light position." image="/img/playgroundsAndNMEs/divingDeeperShadows10.webp"/>
 
-![Light frustum](/img/how_to/shadows/directional1.png)
+![Light frustum](/img/how_to/shadows/directional1.webp)
 The colored box is the light frustum and you can see the light gizmo representing the light position and direction. Everything in this box (and only things in this box) will be rendered in the shadow map.
 
 It's not very obvious in the screenshot, but the light position lies on the near plane. It's because we set `light.shadowMinZ = 0` (we have also set `light.shadowMaxZ = 3`, which is the distance to the far plane of the light frustum). If we change the value, the near plane (and the light frustum) will be moved accordingly (the light position being still the same):
 
-![ShadowMinZ changed](/img/how_to/shadows/directional2.png)
+![ShadowMinZ changed](/img/how_to/shadows/directional2.webp)
 Here `shadowMinZ = 0.5`. As you can see, a part of the sphere is now outside of the box and so is not rendered in the shadow map, making the shadow wrong. We could also have moved the light without changing the `shadowMinZ` value for the same result.
 
 You can play in the inspector by changing the position/direction of the light as well as the `shadowMinZ` / `shadowMaxZ` values of the shadow generator to better see how it works.
@@ -284,12 +284,12 @@ Normally, to know if a point is in shadow, you compute its projection into the l
 
 Look at this screenshot again:
 
-![Light frustum](/img/how_to/shadows/directional3.png)
+![Light frustum](/img/how_to/shadows/directional3.webp)
 According to the explanations above, the points of the ground that are not inside the cube should not be shadowed! They still are because the shadowing code does not apply a rejection based on the depth, only on the x/y coordinates: if the point is inside the frustum according to the left/right/top/bottom planes it's ok, even if the point is farer than the far plane (or nearer than the near plane).
 
 **HOWEVER**, that's not the case for the PCF/PCSS filtering methods, they do take into account the depth for the rejection test (for historical reasons probably). Same screenshot as above but with PCF this time:
 
-![Shadows clipped](/img/how_to/shadows/directional4.png)
+![Shadows clipped](/img/how_to/shadows/directional4.webp)
 As you can see, the shadows stop at the frustum boundaries. To correct the problem, you need to increase the light shadow far plane distance (`light.shadowMaxZ`).
 
 So at this point, you ask: why not setting `shadowMinZ` to a very small value (-1e10) and `shadowMaxZ` to a very big value (1e10) to get rid of those problems? One can even set the left/right/top/bottom properties to very small/big values and call it a day, no problems anymore with directional lights, our frustum is always big enough to contain all the objects of the scene.
@@ -298,10 +298,10 @@ The problem is that you lose details/precision in the shadow map. The bigger you
 
 Here's a screenshot with `shadowMinZ=-50000` and `shadowMaxZ=50000` (PCF filtering):
 
-![Artifacts 1](/img/how_to/shadows/directional5.png)
+![Artifacts 1](/img/how_to/shadows/directional5.webp)
 As you can see the shadow is wrong. The object (sphere) is very simple and the artifacts are not really visible (except that the size is wrong), but with other objects you will get much stronger artifacts. Also:
 
-![Artifacts 2](/img/how_to/shadows/directional6.png)
+![Artifacts 2](/img/how_to/shadows/directional6.webp)
 It's the biggest artifact possible, the shadow disappeared! We have set `shadowMinZ=-100000.000` and `shadowMaxZ=5` without filtering methods.
 
 ### Customizing the projection matrix
@@ -348,7 +348,7 @@ Depending on how you setup your shadow generator, you could face weird falloff w
 shadowGenerator.frustumEdgeFalloff = 1.0;
 ```
 
-You can find an example here: <Playground id="#Y5IZCF" title="Frustum Edge Falloff Example" description="Simple Example of frustum edge falloff in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows12.jpg"/>
+You can find an example here: <Playground id="#Y5IZCF" title="Frustum Edge Falloff Example" description="Simple Example of frustum edge falloff in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows12.webp"/>
 
 This property controls the extent to which the shadows fade out at the edge of the frustum. It is used only by directional and spot lights. By default, the value is set to 0 (no falloff) and 1.0 (complete falloff).
 
@@ -380,9 +380,9 @@ BABYLON.SceneLoader.CleanBoneMatrixWeights = true;
 
 ### Self Shadow
 
-It is probably the case that Self-Shadowing requires the biggest attention during its setup. Let's try to setup self-shadowing on the following scene): <Playground id="#FH3FM2#77" title="Self-Shadowing Step 1" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows13.jpg"/>
+It is probably the case that Self-Shadowing requires the biggest attention during its setup. Let's try to setup self-shadowing on the following scene): <Playground id="#FH3FM2#77" title="Self-Shadowing Step 1" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows13.webp"/>
 
-The first step consists in adding a shadow generator in the scene and defining every meshes as both casters and receivers (we also force the bias to 0 to highlight the generated artifacts): <Playground id="#FH3FM2#78" title="Self-Shadowing Step 2" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows14.jpg"/>
+The first step consists in adding a shadow generator in the scene and defining every meshes as both casters and receivers (we also force the bias to 0 to highlight the generated artifacts): <Playground id="#FH3FM2#78" title="Self-Shadowing Step 2" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows14.webp"/>
 
 As you can notice there are weird patterns appearing everywhere on the surface of the self-shadowed objects. This is called shadow acnea ([more information](http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/#shadow-acne)).
 
@@ -390,35 +390,35 @@ Fortunately, in Babylon we do have a way to solve the issue.
 
 #### Bias
 
-As detailed in the previous [opengl tutorial](http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/#shadow-acne), you can increase the value of the bias to make all the acnea disappear: <Playground id="#FH3FM2#79" title="Self-Shadowing Step 3" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows15.jpg"/>
+As detailed in the previous [opengl tutorial](http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/#shadow-acne), you can increase the value of the bias to make all the acnea disappear: <Playground id="#FH3FM2#79" title="Self-Shadowing Step 3" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows15.webp"/>
 
 Unfortunately doing this introduces another side effect called peter panning where the shadows are not attached to their objects anymore.
 
-![PeterPanning](/img/how_to/shadows/peterpanning.jpg)
+![PeterPanning](/img/how_to/shadows/peterpanning.webp)
 
 This is where you can benefit from a Babylon.js 3.2 feature called normal bias.
 
 #### Normal Bias (Since 3.2)
 
-First move back the bias to be at the limit of seeing peter panning artifacts: <Playground id="#FH3FM2#80" title="Self-Shadowing Step 4" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows16.jpg"/>
+First move back the bias to be at the limit of seeing peter panning artifacts: <Playground id="#FH3FM2#80" title="Self-Shadowing Step 4" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows16.webp"/>
 
 As you notice, there is now a bit of acnea appearing on the object where the surface is parallel to the light direction:
 
-![ParallelAcnea](/img/how_to/shadows/paralellacnea.jpg)
+![ParallelAcnea](/img/how_to/shadows/paralellacnea.webp)
 
-This is where to add a bit of normal bias. Basically, during the generation of the shadow map, this will inset the geometry in the direction of the normal where the surface is parallel to the light: <Playground id="#FH3FM2#81" title="Self-Shadowing Step 5" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows17.jpg"/>
+This is where to add a bit of normal bias. Basically, during the generation of the shadow map, this will inset the geometry in the direction of the normal where the surface is parallel to the light: <Playground id="#FH3FM2#81" title="Self-Shadowing Step 5" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows17.webp"/>
 
 All the artifacts are now gone and it is time to make our shadows look awesome.
 
 #### Soft Shadows
 
-Try to change the shadow generator to Contact hardening: <Playground id="#FH3FM2#82" title="Self-Shadowing Step 6" description="Simple Example of adding contact hardening to your shadow generator." image="/img/playgroundsAndNMEs/divingDeeperShadows18.jpg"/>
+Try to change the shadow generator to Contact hardening: <Playground id="#FH3FM2#82" title="Self-Shadowing Step 6" description="Simple Example of adding contact hardening to your shadow generator." image="/img/playgroundsAndNMEs/divingDeeperShadows18.webp"/>
 
-At first, you cannot see the contact hardening effect and, not only this, you can see shadow acnea again. Taking note of the section on PCSS you realize that the light min and max should be set as close as possible: <Playground id="#FH3FM2#76" title="Self-Shadowing Step 7" description="Adjusting the light min and max for better PCSS." image="/img/playgroundsAndNMEs/divingDeeperShadows19.jpg"/>
+At first, you cannot see the contact hardening effect and, not only this, you can see shadow acnea again. Taking note of the section on PCSS you realize that the light min and max should be set as close as possible: <Playground id="#FH3FM2#76" title="Self-Shadowing Step 7" description="Adjusting the light min and max for better PCSS." image="/img/playgroundsAndNMEs/divingDeeperShadows19.webp"/>
 
 Now the contact hardening effect is present but the acnea is even stronger. Unfortunately, the bias is applied on the normalized coordinates depth (0-1) so changing the near and far value of the light impacts how big the bias should be.
 
-So, go back and change the bias to its maximum before seeing peter panning and then apply some normal bias to remove the rest of the acnea leads to the following result: <Playground id="#FH3FM2#83" title="Self-Shadowing Step 8" description="Dialing it all in." image="/img/playgroundsAndNMEs/divingDeeperShadows20.jpg"/>
+So, go back and change the bias to its maximum before seeing peter panning and then apply some normal bias to remove the rest of the acnea leads to the following result: <Playground id="#FH3FM2#83" title="Self-Shadowing Step 8" description="Dialing it all in." image="/img/playgroundsAndNMEs/divingDeeperShadows20.webp"/>
 
 Your shadows are now soft without acnea or peter panning.
 
@@ -449,7 +449,7 @@ The shadow map generation is a complex task and requires to take in account seve
 
 In order to update your own uniforms, you can rely on `shadowGenerator.onBeforeShadowMapRenderObservable` observable. This will be called for you everytime the shadow map will be rendered and it will give you the current compiled effect.
 
-You can find a complete example here: <Playground id="#IJH4VG#6" title="Global Custom Shadow Map Shader" description="Simple example of adding a global custom shadow map shader to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows21.jpg"/>
+You can find a complete example here: <Playground id="#IJH4VG#6" title="Global Custom Shadow Map Shader" description="Simple example of adding a global custom shadow map shader to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows21.webp"/>
 
 Note that this shader will be used to render all the shadow caster objects pertaining to the shadow generator. If you need more fine-grained control, see next section.
 
@@ -463,13 +463,13 @@ Also, you may want to implement custom ways for alpha rejection, and in this cas
 
 #### Basic usage
 
-Take a look at this example: <Playground id="#PNQRY1#81" title="Incorrect Shadows" description="Simple example of shadows not matching mesh changes." image="/img/playgroundsAndNMEs/divingDeeperShadows22.jpg"/>
+Take a look at this example: <Playground id="#PNQRY1#81" title="Incorrect Shadows" description="Simple example of shadows not matching mesh changes." image="/img/playgroundsAndNMEs/divingDeeperShadows22.webp"/>
 
-![Wrong shadows](/img/how_to/shadows/customshadowdepth1.jpg)
+![Wrong shadows](/img/how_to/shadows/customshadowdepth1.webp)
 
 The cube is distorted thanks to a custom shader and the shadows are wrong, it should be:
 
-![Good shadows](/img/how_to/shadows/customshadowdepth2.jpg)
+![Good shadows](/img/how_to/shadows/customshadowdepth2.webp)
 
 You can define a custom shadow map shader by using the new `ShadowDepthWrapper` class.
 
@@ -487,18 +487,18 @@ Then assign this wrapper to the corresponding `Material.shadowDepthWrapper` prop
 material.shadowDepthWrapper = shadowDepthWrapper;
 ```
 
-_Et voilà_! You now have proper shadows: <Playground id="#MNHJEB" title="Fixed Shadows" description="Fixing previously incorrect shadows." image="/img/playgroundsAndNMEs/divingDeeperShadows23.jpg"/>
+_Et voilà_! You now have proper shadows: <Playground id="#MNHJEB" title="Fixed Shadows" description="Fixing previously incorrect shadows." image="/img/playgroundsAndNMEs/divingDeeperShadows23.webp"/>
 
 It works for any type of materials, being a `CustomMaterial`, `PBRCustomMaterial`, `ShaderMaterial` or `NodeMaterial` instances. There's no point of using this for `StandardMaterial` and `PBRMaterial` materials because the standard shadow map shader already handles the types of deformation / alpha rejection those materials can generate (namely morph targets / bones / alpha testing).
 
-In this demo: <Playground id="#PNQRY1#67" title="Shadows with Various Materials" description="Simple example of shadows working wtih different materials." image="/img/playgroundsAndNMEs/divingDeeperShadows24.jpg"/>
+In this demo: <Playground id="#PNQRY1#67" title="Shadows with Various Materials" description="Simple example of shadows working wtih different materials." image="/img/playgroundsAndNMEs/divingDeeperShadows24.webp"/>
 
 - the floating cube is using a `ShaderMaterial` for its base material
 - the grounded cube and sphere are using a `CustomMaterial` for their base material: they are both using the same material (thanks to @Wigen for the dissolving effect!)
 - the fire sphere is using a node material for its base material (thanks to @dannybucksch for this node material!)
 - the small floating sphere is using the same base material (a copy in fact) than the grounded cube and sphere but a specifically crafted `ShaderMaterial` for its shadow depth wrapper: see next section for more explanations
 
-![Custom Shadows](/img/how_to/shadows/customshadowdepth3.jpg)
+![Custom Shadows](/img/how_to/shadows/customshadowdepth3.webp)
 
 For the node materials, you need to instruct the wrapper of the variable name that holds the final world position of the vertex, as it is needed for the shadow depth computation.
 

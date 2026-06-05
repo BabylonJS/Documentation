@@ -13,13 +13,13 @@ Download the [Babylon Editor Toolkit](https://github.com/BabylonJS/UnityExporter
 
 ## Create New Project
 
-![New Unity Project](/img/exporters/unity/newproject.jpg)
+![New Unity Project](/img/exporters/unity/newproject.webp)
 
 Create a new unity game project then add the **Babylon Editor Toolkit** to your project. You can download and import the toolkit unity package [distribution](https://github.com/BabylonJS/UnityExporter/tree/master/Redist) file.
 
 ## Set Compiler Options
 
-![Node Runtime Compilers](/img/exporters/unity/compilers.jpg)
+![Node Runtime Compilers](/img/exporters/unity/compilers.webp)
 
 Configure optional **Runtime Script Compiler** locations. You can download and install or update the current [Node Runtime](https://nodejs.org/en/) to the default location. Then use node package manager to install or update the latest [TypeScript Compiler](https://www.typescriptlang.org/) to the default location.
 

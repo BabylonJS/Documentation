@@ -32,7 +32,7 @@ For continuously looping background music we use a streaming sound:
 BABYLON.CreateStreamingSoundAsync("name", "<sound file URL>", { loop: true, autoplay: true }, audioEngine);
 ```
 
-<Playground id="#SFCC74#823" title="Adding Sound To Your Scene" description="A playground showing how easy it is to add sound to your scene." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
+<Playground id="#SFCC74#823" title="Adding Sound To Your Scene" description="A playground showing how easy it is to add sound to your scene." image="/img/playgroundsAndNMEs/gettingStartedGround.webp"/>
 
 
 To play a short sound once we can use a sound that plays from a fully downloaded buffer:
@@ -44,7 +44,7 @@ sound.play();
 
 In the example below *setInterval* is used to play the sound every 3 seconds
 
-<Playground id="#SFCC74#831" title="Playing Sound Every 3 Seconds" description="Set an interval to play a sound every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
+<Playground id="#SFCC74#831" title="Playing Sound Every 3 Seconds" description="Set an interval to play a sound every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround.webp"/>
 
 Since you probably prefer listening to your own music as you work, and repeated sounds can get annoying, the above playground examples are the only ones in this tutorial that load sounds.
 

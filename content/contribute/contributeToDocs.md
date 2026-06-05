@@ -24,27 +24,27 @@ This folder is the root of all static content used by the site itself.
 
 Then pick a page you want to update and select the edit button:
 
-![quick edit](/img/contribute/documentation/easy-edit.png)
+![quick edit](/img/contribute/documentation/easy-edit.webp)
 
 You can now [use markdown](https://guides.github.com/features/mastering-markdown/) to edit the documentation page.
 
 Once done, try to quickly explain what your modification is for, and click on the _Propose file change_ button:
 
-![propose file change](/img/contribute/documentation/easy-submit.png)
+![propose file change](/img/contribute/documentation/easy-submit.webp)
 
 For now, your modification isn't yet in the main files. You have to ask the Babylon.js core team to validate and merge your work.
 
 Press the _Create pull request_ button:
 
-![sending pull](/img/contribute/documentation/easy-pull.png)
+![sending pull](/img/contribute/documentation/easy-pull.webp)
 
 If needed, modify your comment, and press again the _Create pull request_ button:
 
-![commenting pull](/img/contribute/documentation/easy-pull2.png)
+![commenting pull](/img/contribute/documentation/easy-pull2.webp)
 
 Congratulations, your modifications are now waiting to be validated and merged into the official documentation!
 
-![pull now waiting](/img/contribute/documentation/easy-pull-waiting.png)
+![pull now waiting](/img/contribute/documentation/easy-pull-waiting.webp)
 
 Do not hesitate to read the [Good Practice](/contribute/contributeToDocs#good-practices) section.
 
@@ -63,19 +63,19 @@ Requirements:
 
 Start by going to the main Babylon.js [Documentation](https://github.com/BabylonJS/Documentation) repository and clicking on the _Fork_ button:
 
-![fork](/img/contribute/documentation/further-fork-creation.png)
+![fork](/img/contribute/documentation/further-fork-creation.webp)
 
 This will make a copy of the repository, but on your account.
 
 Click on the _Clone or download_ button, and _Open in Desktop_:
 
-![open locally](/img/contribute/documentation/further-open-desktop.png)
+![open locally](/img/contribute/documentation/further-open-desktop.webp)
 
 Github Desktop will be opened and ask you where you want to save your fork.
 
 When the files are downloaded, open a terminal/command prompt in this repo. It can be done quickly using the Github Desktop menu:
 
-![powershell](/img/contribute/documentation/further-powershell.png)
+![powershell](/img/contribute/documentation/further-powershell.webp)
 
 (_you may have_ Open in Command _rather than_ Open in PowerShell _, that's not a big deal_)
 
@@ -93,13 +93,13 @@ This will launch the dev server on http://localhost:3000
 
 Open the project using your favorite code editor. This can be done also from Github Desktop:
 
-![visual studio](/img/contribute/documentation/further-visual-studio.png)
+![visual studio](/img/contribute/documentation/further-visual-studio.webp)
 
 (_you may have_ Open in Atom _rather than_ Open in Visual Studio _, that's not a big deal_)
 
 You can finally start to update the markdown files!
 
-![visual studio](/img/contribute/documentation/further-editing.png)
+![visual studio](/img/contribute/documentation/further-editing.webp)
 
 ### Adding new images
 
@@ -169,7 +169,7 @@ Just add necessary information about your new page:
 
 Notice the object's key. This will be your new page filename (without markdown extension .md):
 
-![new content](/img/contribute/documentation/further-new-content.png)
+![new content](/img/contribute/documentation/further-new-content.webp)
 
 #### Page metadata
 
@@ -194,7 +194,7 @@ For example, this is a part of the metadata in the node_material page:
 ```yaml
 ---
 title: Node Material
-image: /img/pageImages/nodeMaterial.jpg
+image: /img/pageImages/nodeMaterial.webp
 description: The Node Material is a simple, highly customizable material that you can build yourself piece by piece. Combined with the powerful node-based editor, you can easily create stunning custom GPU shaders and FX for your Babylon.js scenes.
 keywords: shaders, glsl, node editor, graphics, GPU program, material, NME, Node Material, Node Material Editor
 further-reading:
@@ -265,7 +265,7 @@ To add a youtube link, use the youtube markdown tag:
 To add an image, you can use the markdown annotation:
 
 ```markdown
-![Particle choice](/img/how_to/Materials/particleMenu.png)
+![Particle choice](/img/how_to/Materials/particleMenu.webp)
 ```
 
 but you can also use the more advanced `<img/>` tag, that has more control over formatting, size and so on. As always, everything is optional, but very nice to have:
@@ -284,21 +284,21 @@ In Github Desktop, you will see all of your modifications. Sometimes a file name
 
 Add an explicit summary into the required field, and click to _Commit to master_:
 
-![pushing](/img/contribute/documentation/further-pushing.png)
+![pushing](/img/contribute/documentation/further-pushing.webp)
 
 Then, click the _Push origin_ button:
 
-![push](/img/contribute/documentation/further-push.png)
+![push](/img/contribute/documentation/further-push.webp)
 
 And go to your online Github repo. You can use Github Desktop for that:
 
-![github](/img/contribute/documentation/further-github.png)
+![github](/img/contribute/documentation/further-github.webp)
 
 For now, your fork is updated online, having your last modifications.
 
 Click the _New pull request_ button:
 
-![github pull](/img/contribute/documentation/further-github-pull.png)
+![github pull](/img/contribute/documentation/further-github-pull.webp)
 
 If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](/contribute/contributeToDocs#the-easy-way) section.
 
@@ -326,7 +326,7 @@ Congratulation again, you're now a documentation master!
 
 - when showing a block of JavaScript or TypeScript, include the language name after the code block starting ticks to ensure syntax highlighting:
 
-![markdown code](/img/contribute/documentation/markdown-code.png)
+![markdown code](/img/contribute/documentation/markdown-code.webp)
 
 - when quoting a property in a sentence, you can use single _\`_ char (<kbd>Alt</kbd> + numpad <kbd>96</kbd>)
   - example: You can set the `roughness` of a PBR material to 1.

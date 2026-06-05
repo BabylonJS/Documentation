@@ -1,6 +1,6 @@
 ---
 title: Node Material and Particles
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: Learn how to use the node material editor to create particle shaders.
 keywords: diving deeper, materials, node, node material, particle, shader, particles
 further-reading:
@@ -20,7 +20,7 @@ This article will help you set up a simple scene that will contain only a few li
 
 You can see the final result here:
 
-<Playground id="#RA18GJ" title="Node Material With Particles" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle1.jpg"/>
+<Playground id="#RA18GJ" title="Node Material With Particles" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle1.webp"/>
 
 ## Setting up the scene
 
@@ -102,7 +102,7 @@ The NME can be used for materials, particles and postprocesses. We'll switch to 
 
 ![Particle mode in NME](/img/how_to/Particles/nme_particle.jpg)
 
-For this demo, I created a material where the particles are displayed with one texture when above ground (y = 0) and with another one below ground, with a smooth transition between the two. Here is the shader I ended up with: <NME id="#345ATT#4" title="Node Material Particle Shader Example" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle2.jpg"/>
+For this demo, I created a material where the particles are displayed with one texture when above ground (y = 0) and with another one below ground, with a smooth transition between the two. Here is the shader I ended up with: <NME id="#345ATT#4" title="Node Material Particle Shader Example" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle2.webp"/>
 
 ![Demo shader](/img/how_to/Particles/demo_shader.jpg)
 
@@ -157,7 +157,7 @@ const createScene = async function () {
 
 The best part is that our Playground can evolve automagically. If you open the main Playground (referenced at the beginning of this article), you can keep editing the particle system or the material, and your code will automatically update. This happens every time open the Inspector and use one of the editors. When you click "Save to Snippet Server", the system will be smart enough to work with the Playground and update the link for you:
 
-![Automatic update](/img/how_to/Particles/auto-pg.gif)
+![Automatic update](/img/how_to/Particles/auto-pg.webp)
 
 You can see in the GIF that the Snippet ID for the particle system is updated to version #14 when I hit the save button.
 

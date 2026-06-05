@@ -134,7 +134,7 @@ particle.uvs.z = 0.6; //the coordinate of upper right corner given by 60% of ima
 particle.uvs.w = 0.3; //the coordinate of upper right corner given by 30% of image height
 ```
 
-![sps.particle.uv](/img/how_to/Particles/sps2.png)
+![sps.particle.uv](/img/how_to/Particles/sps2.webp)
 
 This can be used both by all the custom functions the _positionFunction_ and _updateParticle()_, whichever you are using. It is most useful when the image is a texture atlas.
 
@@ -146,7 +146,7 @@ Each particle has a different area of the texture set
 
 When the model mesh you are adding to the SPS is one that is using the [material per face technique](/features/featuresDeepDive/materials/using/texturePerBoxFace) then the correct uv values will be applied automatically when the model is added as a shape. Unlike for the colors, the model UVs are saved whether the model had per face UVs or not. This allows to use not only a texture atlas for the particles, but also a texture atlas for the model then inside the particle atlas because you use only one texture in final.
 
-![Sprite Altlas](/img/how_to/apply-material-to-faces/spriteAtlas2.png)
+![Sprite Altlas](/img/how_to/apply-material-to-faces/spriteAtlas2.webp)
 
 <Playground id="#GLZ1PX#313" title="Solid Particles With Material Per Face" description="Simple example of creating solid particle copies of a mesh with unique materials per face."/>
 
@@ -156,7 +156,7 @@ Model is a box with per face material, scaling the FaceUVs by 2 groups the 24 in
 
 Model is a box with per face material applied as before with a group of four per face. An area of the texture for each face is then chosen using the particles _uvs_, in this case by halving in both the width and height for all particles as in image below.
 
-![Sprite Altlas](/img/how_to/apply-material-to-faces/spriteAtlas3.png)
+![Sprite Altlas](/img/how_to/apply-material-to-faces/spriteAtlas3.webp)
 
 Transparency
 

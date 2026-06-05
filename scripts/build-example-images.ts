@@ -19,7 +19,10 @@ class MissingCanvasZoneError extends Error {
     }
 }
 
-const getImageType = (imagePath: string) => (imagePath.endsWith(".jpg") || imagePath.endsWith(".jpeg") ? "jpeg" : "png");
+const getScreenshotOptions = (imagePath: string) =>
+    imagePath.endsWith(".webp")
+        ? ({ type: "webp" as const, quality: 90 })
+        : ({ type: imagePath.endsWith(".jpg") || imagePath.endsWith(".jpeg") ? "jpeg" as const : "png" as const });
 
 const getPlaygroundState = async (page: Page) =>
     page.evaluate(() => {
@@ -121,13 +124,13 @@ const generateExampleImage = async (reference: ExampleImageReference) => {
 
         if (useCanvasScreenshot) {
             const element = await page.$("#renderCanvas");
-            await element!.screenshot({ path: reference.imagePath, type: getImageType(reference.imagePath) });
+            await element!.screenshot({ path: reference.imagePath, ...getScreenshotOptions(reference.imagePath) });
         } else if (reference.type === "pg") {
-            await page.screenshot({ path: reference.imagePath, fullPage: true, type: getImageType(reference.imagePath) });
+            await page.screenshot({ path: reference.imagePath, fullPage: true, ...getScreenshotOptions(reference.imagePath) });
         } else {
             const element = await page.$("#graph-canvas");
             await page.setViewport({ width: 1700, height: 800 });
-            await element!.screenshot({ path: reference.imagePath, type: getImageType(reference.imagePath) });
+            await element!.screenshot({ path: reference.imagePath, ...getScreenshotOptions(reference.imagePath) });
         }
 
         console.log(`Generated ${reference.imageUrl} from ${reference.documentationPage}.`);

@@ -58,7 +58,7 @@ Adding both physics impostors and setting collision enabled to the same object m
 
 The next important step is to define the ellipsoid around our camera. This ellipsoid represents our player’s dimensions: a collision event will be raised when a mesh comes in contact with this ellipsoid, preventing our camera from getting too close to this mesh:
 
-![Ellipsoid](/img/babylon101/ellipsoid.png)
+![Ellipsoid](/img/babylon101/ellipsoid.webp)
 
 The [ellipsoid](/typedoc/classes/babylon.freecamera#ellipsoid) property on Babylon.js cameras is default to size (0.5, 1, 0.5). Changing these values will make you taller, bigger, smaller, thinner, depending on the adjusted axis. In the example below, we will make our camera's ellipsoid a bit wider and deeper than the default one:
 

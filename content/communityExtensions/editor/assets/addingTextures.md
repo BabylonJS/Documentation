@@ -19,7 +19,7 @@ in the inspector on list boxes.
 In the inspector, all list boxes related to textures (for example "Environment Texture" in scene inspector) support
 drag'n'drop from assets browser.
 
-![ApplyTextureMaterialInspector](/img/extensions/Editor/AddingTextures/apply-material-inspector.gif)
+![ApplyTextureMaterialInspector](/img/extensions/Editor/AddingTextures/apply-material-inspector.webp)
 
 ## Cloning Textures
 
@@ -31,7 +31,7 @@ is created and available in the assets panel.
 
 As for the assets browser panel, textures from the assets panel can be drag'n'dopped.
 
-![CloningTexture](/img/extensions/Editor/AddingTextures/cloning-texture.gif)
+![CloningTexture](/img/extensions/Editor/AddingTextures/cloning-texture.webp)
 
 ## Editing A Texture
 
@@ -41,4 +41,4 @@ Once a texture has been clicked, the inspector is updated to show the editable p
 In the assets browser, if a texture file has multiple instances, a menu appears to select the texture instance
 to edit in the inspector.
 
-![EditingTexture](/img/extensions/Editor/AddingTextures/editing-texture.gif)
+![EditingTexture](/img/extensions/Editor/AddingTextures/editing-texture.webp)

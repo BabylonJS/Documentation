@@ -23,7 +23,7 @@ The function(s) added to `onBeforeRenderObservable()` is/are run before every fr
 properties very quickly.
 
 A simple demonstration of complex animation can be found in the playground here:
-<Playground id="#YJVTI6#562" title="Render Loop Animation Example" description="A simple example of animation using the scene's render loop." image="/img/playgroundsAndNMEs/divingDeeperRenderLoopAnimation1.jpg"/>
+<Playground id="#YJVTI6#562" title="Render Loop Animation Example" description="A simple example of animation using the scene's render loop." image="/img/playgroundsAndNMEs/divingDeeperRenderLoopAnimation1.webp"/>
 
 This function can be very useful for complex animation like games, where characters have to move depending on many parameters.
 

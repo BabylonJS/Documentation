@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Implementation](/img/features/fluidrenderer/fluid_intro.jpg)  
+![Implementation](/img/features/fluidrenderer/fluid_intro.webp)  
 
 The implementation of fluid rendering is based on the classic article by Simon Green: [Screen Space Fluid Rendering for Games](https://developer.download.nvidia.com/presentations/2010/gdc/Direct3D_Effects.pdf). You can refer to this paper for more in-depth information as I will not always give too much detail for some steps.
 
@@ -24,11 +24,11 @@ The inputs are simply a list of 3D coordinates representing particles. These par
 
 The first step is to treat each particle as a sphere and project them as circles to generate their depths in a texture. Strictly speaking, a 3D sphere can be projected into an ellipse in a 2D perspective projection, but in practice sticking to circles works well and is more lightweight/computationally easy.
 
-![image](/img/features/fluidrenderer/impl_depth.jpg)
+![image](/img/features/fluidrenderer/impl_depth.webp)
 
 Here is a diffuse rendering to better see the particles:
 
-![image](/img/features/fluidrenderer/impl_diffuse.jpg)
+![image](/img/features/fluidrenderer/impl_diffuse.webp)
 
 The depth must be a linear depth for the blur post-processing to work as intended (see next step)! Thus, the depth texture is created by recording the z-coordinate of the view space of each projected point of the sphere. The shaders used to generate this texture are [particleDepth.vertex.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingParticleDepth.vertex.fx) / [particleDepth.fragment.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingParticleDepth.fragment.fx).
 
@@ -40,8 +40,8 @@ Depth blurring is the important step of the technique, this is how you get the "
 
 |Without blurring|With blurring|
 |----------------|-------------|
-|![image](/img/features/fluidrenderer/impl_depth_woblur.jpg!488)|![image](/img/features/fluidrenderer/impl_depth_wblur.jpg!488)|
-|![image](/img/features/fluidrenderer/impl_diffuse_woblur.jpg!488)|![image](/img/features/fluidrenderer/impl_diffuse_wblur.jpg!488)|
+|![image](/img/features/fluidrenderer/impl_depth_woblur.webp!488)|![image](/img/features/fluidrenderer/impl_depth_wblur.webp!488)|
+|![image](/img/features/fluidrenderer/impl_diffuse_woblur.webp!488)|![image](/img/features/fluidrenderer/impl_diffuse_wblur.webp!488)|
 
 As explained in [1](#ref1) slides 20-31, a standard 2D Gaussian blur will not be appropriate, as you may end up blurring particles that are very far away in the z-dimension if you stick only to the 2D dimension of the texture. A [bilateral filtering](https://en.wikipedia.org/wiki/Bilateral_filter#:~:text=A%20bilateral%20filter%20is%20a,based%20on%20a%20Gaussian%20distribution.) takes into account the Z-depth of each texel to be blurred and will apply more blur for small Z-differences and less/no blur when Z-differences are too large. Moreover, the filtering must make sure that we blur the same amount depending on the distance to the camera: if the particles take up a large part of the screen (say 200x200 pixels) because they are close to the camera, the size of the filter kernel must be larger than if they are far away (say 4x4 pixels): the size of the filter kernel must fit the depth of the texel we are blurring. We will describe the calculation later in this document.
 
@@ -59,11 +59,11 @@ As explained above, the normal is computed using the depth and uv coordinates (m
 
 Here are the normals computed for the example scene:
 
-![image](/img/features/fluidrenderer/impl_normals.jpg)
+![image](/img/features/fluidrenderer/impl_normals.webp)
 
 For fluid surfaces, it is important to implement the **Fresnel** effect, which is responsible for higher reflections at grazing angles (again, see [1](#ref1) - slide 39). Furthermore, for a more accurate rendering, we use Beer's law to calculate the refractive color, which states that the light intensity in a volume decreases exponentially as the light passes through it: `I=exp(-kd)` with `d` being the distance traveled by the light and `k` the absorption factor (which depends on the color of the volume). For a basic rendering, we can use a fixed value for `d` (the thickness of the volume) for the whole volume. You get something like :
 
-![image](/img/features/fluidrenderer/impl_basic_rendering.jpg)
+![image](/img/features/fluidrenderer/impl_basic_rendering.webp)
 
 The shader used to implement the final fluid rendering is [renderFluid.fragment.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingRender.fragment.fx).
 
@@ -75,17 +75,17 @@ Instead of using a fixed thickness for the whole volume, we can try to calculate
 
 Thickness texture:
 
-![image](/img/features/fluidrenderer/impl_thickness.jpg)
+![image](/img/features/fluidrenderer/impl_thickness.webp)
 
 As you can see, the resolution is low (the thickness texture is 256x256 in this screenshot). It's ok because the thickness is a low frequency signal, the values are smooth and do not vary much from point to point. In any case, you should try to use as small a texture as possible for the thickness texture as it is quite fill rate intensive. Also, as with the depth texture, we apply a blur to this texture. This time, however, a standard 2D Gaussian blur is sufficient, we do not need a bilateral filtering.
 
 Blurred thickness texture:
 
-![image](/img/features/fluidrenderer/impl_thickness_blur.jpg)
+![image](/img/features/fluidrenderer/impl_thickness_blur.webp)
 
 Final rendering with a blurred thickness texture:
 
-![image](/img/features/fluidrenderer/fluid_intro.jpg)
+![image](/img/features/fluidrenderer/fluid_intro.webp)
 
 *Et voilà!* This is what you need to do to render a set of particles as a fluid surface.
 
@@ -99,11 +99,11 @@ For example, here are two renderings of the "Dude" model as a fluid, with and wi
 
 |Without the diffuse texture|With the diffuse texture|
 |---------------------------|------------------------|
-|![image](/img/features/fluidrenderer/impl_wo_diffuse.jpg!488)|![image](/img/features/fluidrenderer/impl_w_diffuse.jpg!488)|
+|![image](/img/features/fluidrenderer/impl_wo_diffuse.webp!488)|![image](/img/features/fluidrenderer/impl_w_diffuse.webp!488)|
 
 The generated diffuse texture :
 
-![image](/img/features/fluidrenderer/impl_diffuse_generated.jpg)
+![image](/img/features/fluidrenderer/impl_diffuse_generated.webp)
 
 The list of 3D coordinates for the dude was generated using the [PointsCloudSystem](/typedoc/classes/babylon.pointscloudsystem) class, which can generate points distributed over a mesh and is also capable of generating vertex colors for these points by sampling the diffuse texture of the material.
 
@@ -119,17 +119,17 @@ In the final render shader, we need to convert a view depth to NDC depth several
 
 The projection matrix used to transform view space points to clip space in Babylon.js is (perspective projection):
 
-<p align="center"><img src="/img/features/fluidrenderer/impl_conv_viewtondc_1.jpg" height="100" alt="Perspective projection matrix"/></p>
+<p align="center"><img src="/img/features/fluidrenderer/impl_conv_viewtondc_1.webp" height="100" alt="Perspective projection matrix"/></p>
 
 Thus, the z-coordinate in view space is transformed to clip space as :
 
-<p align="center"><img src="/img/features/fluidrenderer/impl_conv_viewtondc_2.jpg" height="100" alt="Zclip computation"/></p>
+<p align="center"><img src="/img/features/fluidrenderer/impl_conv_viewtondc_2.webp" height="100" alt="Zclip computation"/></p>
 
 Finally, the z-coordinate of the clip space is transformed into NDC space by dividing it by the w-coordinate of the clip space :
 
-<p align="center"><img src="/img/features/fluidrenderer/impl_conv_viewtondc_3.jpg" height="100" alt="Wclip computation"/></p>
+<p align="center"><img src="/img/features/fluidrenderer/impl_conv_viewtondc_3.webp" height="100" alt="Wclip computation"/></p>
 
-<p align="center"><img src="/img/features/fluidrenderer/impl_conv_viewtondc_4.jpg" height="60" alt="Zndc computation"/></p>
+<p align="center"><img src="/img/features/fluidrenderer/impl_conv_viewtondc_4.webp" height="60" alt="Zndc computation"/></p>
 
 This is the formula used in the rendering shader:
 
@@ -143,23 +143,23 @@ To this end, we need to make the kernel size depend on the projected size (on th
 
 So, let's project the coordinate of the particle from view space to screen space (note that we are doing the calculation on the Y coordinate, not X, because the `b` coefficient is a bit simpler than the `a` coefficient in the projection matrix):
 
-<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_1.jpg" height="100" alt="Perspective projection matrix"/></p>
+<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_1.webp" height="100" alt="Perspective projection matrix"/></p>
 
-<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_2.jpg" height="100" alt="Y-slip calculation"/></p>
+<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_2.webp" height="100" alt="Y-slip calculation"/></p>
 
-<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_3.jpg" height="60" alt="Yndc computation"/></p>
+<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_3.webp" height="60" alt="Yndc computation"/></p>
 
-<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_4.jpg" height="60" alt="Yscreen computation"/></p>
+<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_4.webp" height="60" alt="Yscreen computation"/></p>
 
 Thus, the screen size of the projected particle is (`d` being the diameter of the particle):
 
-<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_5.jpg" height="60" alt="Particle screen size"/></p>
+<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_5.webp" height="60" alt="Particle screen size"/></p>
 
-<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_6.jpg" height="60" alt="Constant b"/></p>
+<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_6.webp" height="60" alt="Constant b"/></p>
 
 Note that everything can be precomputed, except for `Zview` :
 
-<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_7.jpg" height="60" alt="Projected particle constant"/></p>
+<p align="center"><img src="/img/features/fluidrenderer/impl_compute_ksize_7.webp" height="60" alt="Projected particle constant"/></p>
 
 `blurFilterSize` is the user parameter used to adjust the blur and `0.05` is a scaling factor so `blurFilterSize = 10` is a good default.
 
@@ -190,13 +190,13 @@ You can also see that we handle a second case where the thickness is fixed (so *
 
 For this scene:
 
-![image](/img/features/fluidrenderer/impl_heightmap_final.jpg)
+![image](/img/features/fluidrenderer/impl_heightmap_final.webp)
 
 Here is what you get for the thickness texture without and with the scene depth buffer handling:
 
 | Without scene depth buffer handling | With scene depth buffer handling |
 |-------------------------------------|----------------------------------|
-|![image](/img/features/fluidrenderer/impl_heightmap_wodepth.jpg!488)|![image](/img/features/fluidrenderer/impl_heightmap_wdepth.jpg!488)|
+|![image](/img/features/fluidrenderer/impl_heightmap_wodepth.webp!488)|![image](/img/features/fluidrenderer/impl_heightmap_wdepth.webp!488)|
 
 So how do we generate and use the scene depth buffer when generating the thickness texture?
 

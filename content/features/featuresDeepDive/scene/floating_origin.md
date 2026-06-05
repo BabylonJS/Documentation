@@ -28,7 +28,7 @@ Only problem is that our GPU's are still limited to 32 bits floating-point,
 so when we have big coordinates -- objects and/or cameras very far from the world's origin,
 for example at (10000000, 0, 10000000) -- we will notice jittering because the big numbers inside matrices will cause 32 bits floating-point imprecision on the GPU.
 
-![Pic01](/img/how_to/floating_origin/pic01.jpg)
+![Pic01](/img/how_to/floating_origin/pic01.webp)
 
 But there is a trick which is good to mitigate that problem: floating-origin, first described by Chris Thorne [^1].
 
@@ -47,7 +47,7 @@ The result is that the camera is indeed kept always at origin, and the objects f
 huge coordinates from the objects that are close to the camera. That is, imprecision only happens very far
 from the camera, and as they are very far anyway, we cannot see the jittering. =)
 
-![Pic02](/img/how_to/floating_origin/pic02.jpg)
+![Pic02](/img/how_to/floating_origin/pic02.webp)
 
 Let's use an example:
 
@@ -72,7 +72,7 @@ but with no jittering.
 
 You can find a working playground example with OriginCamera and Entity classes here:  
 
-<Playground id="#LHI514#66" title="Floating-Origin" description="A simple example of huge scene far from world's origin using floating-origin trick." image="/img/playgroundsAndNMEs/divingDeeperFloatingOrigin.jpg"/>
+<Playground id="#LHI514#66" title="Floating-Origin" description="A simple example of huge scene far from world's origin using floating-origin trick." image="/img/playgroundsAndNMEs/divingDeeperFloatingOrigin.webp"/>
 
 
 If you decide to use floating-origin, all your objects will have to use the same trick,

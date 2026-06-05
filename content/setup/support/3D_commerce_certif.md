@@ -16,7 +16,7 @@ This page will walk you through the 3D Commerce Viewer Certification Program, wh
 
 The Viewer Certification Program enables 3D viewers across the industry to demonstrate that they can accurately and consistently display 3D products, clearing the way for reliable 3D and AR-powered shopping across multiple platforms and devices.
 
-![3D Viewer Certification Program Overview (source: Khronos Web site)](/img/how_to/3D-commerce-certif/2021-3dcommerce-certification-overview.jpg)
+![3D Viewer Certification Program Overview (source: Khronos Web site)](/img/how_to/3D-commerce-certif/2021-3dcommerce-certification-overview.webp)
 
 This program is still in its early days and as a member of this working group, the Babylon.js Team is fully engaged in helping to develop and support its adoption. More info on the [**3D Commerce Web site**](https://www.khronos.org/3dcommerce/).
 
@@ -25,7 +25,7 @@ This program is still in its early days and as a member of this working group, t
 A special version of the [**Babylon.js Sandbox**](https://sandbox.babylonjs.com) has been certified because some parameters have to be set differently than the default engine values (which cannot be changed for backward compatibility reasons):
 
 - Specular over alpha has to be turned off (right side of the picture below). It was being used to render glass before the apparition of dedicated glTF extensions such as transmission and volume.
-  ![Specular over alpha turned-on (left) and off (right)](/img/how_to/3D-commerce-certif/specular-over-alpha.jpg)
+  ![Specular over alpha turned-on (left) and off (right)](/img/how_to/3D-commerce-certif/specular-over-alpha.webp)
 
 - Tone mapping is enabled using `Khronos PBR Neutral`. See [here](https://www.khronos.org/news/press/khronos-pbr-neutral-tone-mapper-released-for-true-to-life-color-rendering-of-3d-products) for more info about this tone mapping technique.
 

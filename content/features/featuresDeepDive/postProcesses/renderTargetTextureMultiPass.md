@@ -49,7 +49,7 @@ Playground example: <Playground id="#69DRZ1" title="Render Target Texture" descr
 
 In this example we add two meshes, pool and ground, to the RTT and distort the UVs of the texture applied to the water plane using a node material to simulate refraction of the mesh behind the water plane.
 
-Playground example: <Playground id="#7ILX7T" title="Water Refraction with RTT" description="Render Target Texture used to simulate water refraction." image="/img/playgroundsAndNMEs/NMEwaterRefractionRTT.jpg" />
+Playground example: <Playground id="#7ILX7T" title="Water Refraction with RTT" description="Render Target Texture used to simulate water refraction." image="/img/playgroundsAndNMEs/NMEwaterRefractionRTT.webp" />
 
 ## Making multiple passes and composing them
 

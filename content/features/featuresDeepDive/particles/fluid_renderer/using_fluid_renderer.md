@@ -48,6 +48,6 @@ Note that the `buffers` object must contain at least one **position** buffer! If
 
 The `FluidRendererGUI` class allows you to see the fluid objects and target renderers registered with the fluid renderer and allows you to modify their properties easily:
 
-![Fluid Debugging](/img/features/fluidrenderer/gui_debugging.jpg)
+![Fluid Debugging](/img/features/fluidrenderer/gui_debugging.webp)
 
 This class is not integrated into Babylon.js because we will update the inspector instead, so in the meantime you can find it [here](/features/featuresDeepDive/particles/fluid_renderer/fluid_gui).

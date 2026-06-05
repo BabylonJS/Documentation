@@ -11,7 +11,7 @@ video-content:
 ## Introduction
 Since the Babylon.js 5.0 release in May 2022, WebGPU support is available and backward compatible with the WebGL implementation of the engine. It was a huge milestone after many iterations on the specification from the [GPU for the Web Working Group](https://github.com/gpuweb/gpuweb) and with a tight collaboration with the amazing teams implementing WebGPU into the browsers. In 2024, we also rewrote all core engine shaders in native WSGL, to avoid the use of TintWASM in full WGLS applications.
 
-![Inspector](/img/extensions/WebGPU.png)
+![Inspector](/img/extensions/WebGPU.webp)
 
 ### Benefits of WebGPU
 The promise behind [WebGPU](https://developer.chrome.com/en/docs/web-platform/webgpu/#what) is a faster API provided through lower level control to system graphics resources from JavaScript and also new capabilities. We hope to bring these improvements to developers in order to create even higher quality 3D web games and experiences through a tool they are already familiar with: Babylon.js.
@@ -46,6 +46,6 @@ You can refer to [this page](https://github.com/gpuweb/gpuweb/wiki/Implementatio
 
 Assuming you're using a browser that supports WebGPU, you can try it out yourself in the [Playground](https://playground.babylonjs.com/) 
 
-![WebGPU](/img/extensions/webGPUPlayground.jpg)
+![WebGPU](/img/extensions/webGPUPlayground.webp)
 
 All demo code is available on [Github](https://github.com/BabylonJS/Website/tree/master/build/Demos/WebGPU), so you can compare both the WebGL and WebGPU versions and take notice that there are currently no differences beside initialization. We will try to keep it this way. :-)

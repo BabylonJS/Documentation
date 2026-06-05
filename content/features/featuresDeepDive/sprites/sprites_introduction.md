@@ -10,7 +10,7 @@ video-content:
 
 ## Sprites
 
-![Elements](/img/how_to/Sprites/08.png)
+![Elements](/img/how_to/Sprites/08.webp)
 
 Babylon.js has three ways of managing sprites, the _SpriteManager_, the _SpritePackedManager_ and the _SpriteMap_. The first manages a single image file or, for animation, a spritesheet (also called a sprite atlas) of multiple sprite images all of the same size. The second is for a packed spritesheet of different sized sprite images. The third uses a packed spritesheet to form a 2D (or 2.5D) grid of possibly thousands of sprites.
 

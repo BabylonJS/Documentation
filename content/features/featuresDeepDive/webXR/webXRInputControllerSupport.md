@@ -248,11 +248,11 @@ By using Oculus Quest 2 controllers, component ids and controller buttons are ma
 
 On Oculus Quest 2 controllers:
 
-![Quest 2 controller mappings](/img/how_to/xr/xr-quest2-controllers_ids_mapping.jpg)
+![Quest 2 controller mappings](/img/how_to/xr/xr-quest2-controllers_ids_mapping.webp)
 
 On the Playground sample:
 
-![ids mappings](/img/how_to/xr/xr-quest2-ids-mapping-playground.jpg)
+![ids mappings](/img/how_to/xr/xr-quest2-ids-mapping-playground.webp)
 
 The simple example, changes the scaling of each 3DCG object when each button is pressed.
 

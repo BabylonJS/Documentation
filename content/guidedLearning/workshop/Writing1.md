@@ -40,7 +40,7 @@ What is needed is a method of obtaining the same number h, from the numbers x<su
 
 The boxes are cubes arranged equally spaced with the following parameters, *size* of box, *gap* between boxes and *spacing* = *size* + *gap*
 
-![spaced boxes](/img/how_to/Shaders/wave1.jpg)
+![spaced boxes](/img/how_to/Shaders/wave1.webp)
 
 The number of boxes n will be odd, numbered from the left starting with 0. 
 
@@ -50,7 +50,7 @@ For example when n = 5, floor(n/2) = 2 and the left hand edges of the boxes 0 to
 
 -2 \* *spacing*, -1 \* *spacing*, 0, 1 \* *spacing*, 2 \* *spacing* respectively. Adding size to these gives their hand edges.
 
-![spaced boxes positions](/img/how_to/Shaders/wave2.jpg)
+![spaced boxes positions](/img/how_to/Shaders/wave2.webp)
 
 Dividing these left and right hand edge positions by *spacing* gives a pair of numbers for each box of
 

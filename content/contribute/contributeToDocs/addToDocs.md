@@ -40,13 +40,13 @@ This will launch the dev server on http://localhost:3000
 
 Open the project using your favorite code editor. This can be done also from Github Desktop:
 
-![visual studio](/img/contribute/documentation/further-visual-studio.png)
+![visual studio](/img/contribute/documentation/further-visual-studio.webp)
 
 (_you may have_ Open in Atom _rather than_ Open in Visual Studio _, that's not a big deal_)
 
 You can finally start to update the markdown files!
 
-![visual studio](/img/contribute/documentation/further-editing.png)
+![visual studio](/img/contribute/documentation/further-editing.webp)
 
 ### Adding new images
 
@@ -115,7 +115,7 @@ Just add necessary information about your new page:
 ```
 
 Notice the object's key. This will be your new page filename (without markdown extension .md):
-![new content](/img/contribute/documentation/further-new-content.png)
+![new content](/img/contribute/documentation/further-new-content.webp)
 
 #### Page metadata
 
@@ -139,7 +139,7 @@ For example, this is a part of the metadata in the node_material page:
 ```yaml
 ---
 title: Node Material
-image: /img/pageImages/nodeMaterial.jpg
+image: /img/pageImages/nodeMaterial.webp
 description: The Node Material is a simple, highly customizable material that you can build yourself piece by piece. Combined with the powerful node-based editor, you can easily create stunning custom GPU shaders and FX for your Babylon.js scenes.
 keywords: shaders, glsl, node editor, graphics, GPU program, material, NME, Node Material, Node Material Editor
 further-reading:
@@ -206,7 +206,7 @@ To add a youtube link, use the youtube markdown tag:
 To add an image, you can use the markdown annotation:
 
 ```markdown
-![Particle choice](/img/how_to/Materials/particleMenu.png)
+![Particle choice](/img/how_to/Materials/particleMenu.webp)
 ```
 
 but you can also use the more advanced `<img/>` tag, that has more control over formatting, size and so on. As always, everything is optional, but very nice to have:
@@ -221,14 +221,14 @@ A Pull Request (PR) has to be made to integrate your modifications into the docu
 You will first pull your local modifications into your online fork, then ask for merging your fork into the main repo.
 In Github Desktop, you will see all of your modifications. Sometimes a file named `babylon.d.ts` will automatically be modified, but there's no problem to PR with it.
 Add an explicit summary into the required field, and click to _Commit to master_:
-![pushing](/img/contribute/documentation/further-pushing.png)
+![pushing](/img/contribute/documentation/further-pushing.webp)
 Then, click the _Push origin_ button:
-![push](/img/contribute/documentation/further-push.png)
+![push](/img/contribute/documentation/further-push.webp)
 And go to your online Github repo. You can use Github Desktop for that:
-![github](/img/contribute/documentation/further-github.png)
+![github](/img/contribute/documentation/further-github.webp)
 For now, your fork is updated online, having your last modifications.
 Click the _New pull request_ button:
-![github pull](/img/contribute/documentation/further-github-pull.png)
+![github pull](/img/contribute/documentation/further-github-pull.webp)
 If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](/contribute/contributeToDocs/easydoc) section.
 Congratulation again, you're now a documentation master!
 
@@ -253,7 +253,7 @@ Congratulation again, you're now a documentation master!
 ### Code
 
 - when showing a block of JavaScript or TypeScript, include the language name after the code block starting ticks to ensure syntax highlighting:
-  ![markdown code](/img/contribute/documentation/markdown-code.png)
+  ![markdown code](/img/contribute/documentation/markdown-code.webp)
 - when quoting a property in a sentence, you can use single _\`_ char (<kbd>Alt</kbd> + numpad <kbd>96</kbd>)
   - example: You can set the `roughness` of a PBR material to 1.
 

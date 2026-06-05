@@ -1,6 +1,6 @@
 ---
 title: Image Filter Control
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: The Babylon.js Filter Control is a web control built on top of Babylon.js in order to apply filter to pictures in web pages with blazing fast speed.
 keywords: web controls, hardware accelerated, 2D, filter, images
 further-reading:
@@ -18,7 +18,7 @@ Filtering images to apply effect might be tedious and slow on the CPU. The best 
 
 To greatly simplify this task we introduced the `ImageFilter` Control.
 
-![ImageFilter](/img/features/controls/imageFilter.png)
+![ImageFilter](/img/features/controls/imageFilter.webp)
 
 ## How to use
 

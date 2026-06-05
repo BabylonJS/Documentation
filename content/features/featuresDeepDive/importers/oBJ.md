@@ -42,11 +42,11 @@ Babylon.js will know how to load the obj file and its mtl file automatically:
 - A Babylon.Mesh will be created for each object/group
 - The obj model should be exported with -Z axis forward, and Y axis upward to be compatible with Babylon.js
 
-![Axis](/img/how_to/import-obj/axys.jpg)
+![Axis](/img/how_to/import-obj/axys.webp)
 
 - By default, due to optimization in the code for loading time, UVs problems can appear, like this :
 
-![Batman UVs problem](/img/how_to/import-obj/uv-issue.jpg)
+![Batman UVs problem](/img/how_to/import-obj/uv-issue.webp)
 
 If you meet this problem, set the variable:
 
@@ -56,7 +56,7 @@ BABYLON.OBJFileLoader.OPTIMIZE_WITH_UV = true;
 
 Then, you'll have a better texture, but with a longer loading.
 
-![Batman UVs ok](/img/how_to/import-obj/uv-fixed.jpg)
+![Batman UVs ok](/img/how_to/import-obj/uv-fixed.webp)
 
 Depending on the modeling program you export your OBJ files from, textures may appear distorted or inverted. As a workaround, you can modify your imported model's UV coordinate scale via setting the variable:
 

@@ -80,7 +80,7 @@ frameGraph.execute();
 scene.frameGraph = frameGraph;
 ```
 This code corresponds to this graph:
-![Basic graph](/img/frameGraph/graph_skeleton.jpg)
+![Basic graph](/img/frameGraph/graph_skeleton.webp)
 
 
 ## FrameGraphTask

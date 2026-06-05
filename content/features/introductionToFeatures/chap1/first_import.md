@@ -30,9 +30,9 @@ BABYLON.ImportMeshAsync("/relative path/myFile", scene, { meshNames: ["model1", 
 
 Note that any of the calls above will only load the models; however, you will not be able to manipulate them in any way. Internally, a Promise object is setup and returned, but the above code does nothing with the result of that Promise. Examples of this are in the following two playgrounds, which **only** import the named models.
 
-<Playground id="#YNEAUL#5260" title="Loading Your First Model" description="Load a model into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModel.jpg"/>
+<Playground id="#YNEAUL#5260" title="Loading Your First Model" description="Load a model into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModel.webp"/>
 
-<Playground id="#YNEAUL#5261" title="Loading Multiple Models at Once" description="Load multiple models into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModelwGrass.jpg"/>
+<Playground id="#YNEAUL#5261" title="Loading Multiple Models at Once" description="Load multiple models into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModelwGrass.webp"/>
 
 Therefore, in order to act on the result and manipulate the objects, we follow the Promise with the _then_ method to call a function with the _result_ of the _Promise_. The _result_ is an object containing, among other things, the property _meshes_ which contains all the loaded models. We can use this array, or their names, to manipulate each mesh.
 
@@ -46,7 +46,7 @@ BABYLON.ImportMeshAsync("/relative path/myFile").then((result) => {
 
 The following playground imports all models and changes their positions:
 
-<Playground id="#YNEAUL#5262" title="Modifying Models After Load" description="Load a model into a scene and modify their position after loading completes." image="/img/playgroundsAndNMEs/gettingStartedFirstModelLoadSuccess.jpg"/>
+<Playground id="#YNEAUL#5262" title="Modifying Models After Load" description="Load a model into a scene and modify their position after loading completes." image="/img/playgroundsAndNMEs/gettingStartedFirstModelLoadSuccess.webp"/>
 
 ## Moving On
 

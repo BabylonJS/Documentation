@@ -16,7 +16,7 @@ We can simulate the appearance of a sky by applying six suitable images to the i
 
 Skybox images are usually loaded with [CubeTexture](/typedoc/classes/babylon.cubetexture). CubeTexture's constructor takes a base URL and (by default) appends "\_px.jpg", "\_nx.jpg", "\_py.jpg", "\_ny.jpg", "\_pz.jpg", and "\_nz.jpg" to load the +x, -x, +y, -y, +z, and -z facing sides of the cube.
 
-|<img src="/img/getstarted/skybox_px.jpg" width="100" height="100" alt="some clouds"/>|<img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" alt="more clouds"/>|<img src="/img/getstarted/skybox_py.jpg" width="100" height="100" alt="the sun overhead"/>|<img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" alt="solid gray"/>|<img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" alt="more clouds"/>|<img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="more clouds"/>|
+|<img src="/img/getstarted/skybox_px.webp" width="100" height="100" alt="some clouds"/>|<img src="/img/getstarted/skybox_nx.webp" width="100" height="100" alt="more clouds"/>|<img src="/img/getstarted/skybox_py.webp" width="100" height="100" alt="the sun overhead"/>|<img src="/img/getstarted/skybox_ny.webp" width="100" height="100" alt="solid gray"/>|<img src="/img/getstarted/skybox_pz.webp" width="100" height="100" alt="more clouds"/>|<img src="/img/getstarted/skybox_nz.webp" width="100" height="100" alt="more clouds"/>|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |skybox\_px.jpg|skybox\_nx.jpg|skybox\_py.jpg|skybox\_ny.jpg|skybox\_pz.jpg|skybox\_nz.jpg|
 <br/>
@@ -40,7 +40,7 @@ We also restrict the camera so that it cannot move below ground level.
 camera.upperBetaLimit = Math.PI / 2.2;
 ```
 
-<Playground id="#KBS9I5#88" title="Adding a Skybox" description="Add a skybox to your scene." image="/img/playgroundsAndNMEs/gettingStartedSkyBox.jpg"/><br/>
+<Playground id="#KBS9I5#88" title="Adding a Skybox" description="Add a skybox to your scene." image="/img/playgroundsAndNMEs/gettingStartedSkyBox.webp"/><br/>
 <br/>
 
 After making a sky, the next environmental improvement is to [grow some trees](/features/introductionToFeatures/chap5/trees).

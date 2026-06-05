@@ -16,15 +16,15 @@ We have recently introduced a new tool to simplify the installation of the plugi
 
 First, you can download the latest version of the installer from our [Github Releases](https://github.com/BabylonJS/Exporters/releases). Once on the releases page, you can find all our packages in the assets section of each release:
 
-![releases](/img/exporters/installer/GithubPreRelease.png)
+![releases](/img/exporters/installer/GithubPreRelease.webp)
 
 From there, you can download the Installer.zip file. Chrome is currently warning of potential threat as the installer.exe has currently not been downloaded enough to pass the Chromium checks. In this case, you might see a message like this:
 
-![chrome warning](/img/exporters/installer/ChromeDLWarning.png)
+![chrome warning](/img/exporters/installer/ChromeDLWarning.webp)
 
 You can nevertheless continue to download by pressing the little arrow and choosing to "Keep" the file:
 
-![chrome warning keep](/img/exporters/installer/ChromeDLWarningKeep.png)
+![chrome warning keep](/img/exporters/installer/ChromeDLWarningKeep.webp)
 
 Once downloaded, you can extract the content of the zip in your favorite location.
 
@@ -32,17 +32,17 @@ Once downloaded, you can extract the content of the zip in your favorite locatio
 
 Launch the executable file contained in the previous zip. On the first launch Windows like Chrome previously will emit a Smart Screen warning as the application has currently not being launched enough to be trusted.
 
-![smart screen warning](/img/exporters/installer/SmartScreen.png)
+![smart screen warning](/img/exporters/installer/SmartScreen.webp)
 
 As before, you can choose to continue by pressing more info and then Run anyway:
 
-![smart screen warning keep](/img/exporters/installer/SmartScreenKeep.png)
+![smart screen warning keep](/img/exporters/installer/SmartScreenKeep.webp)
 
 No worries, you are almost there. A second warning is raised by Windows as the installer needs to write files in the program files and therefore run in elevated mode. You can access the User Account Control and finally start using the application.
 
 From this point, it gets simpler:
 
-![smart screen warning keep](/img/exporters/installer/Installer.png)
+![smart screen warning keep](/img/exporters/installer/Installer.webp)
 
 Once launched the application should auto detect all the installation folders from your Autodesk applications. In case it fails to do so, you could still manually location the targeted software.
 
@@ -56,7 +56,7 @@ Please note that both the software you are trying to install the plugin for shou
 
 The plug-in is designed for Maya 2017 or later. This guide is about the Windows version (a macOS version is coming soon). To download it, go to the [Github project Releases](https://github.com/BabylonJS/Exporters/releases).
 
-![releases](/img/exporters/installer/GithubPreRelease.png)
+![releases](/img/exporters/installer/GithubPreRelease.webp)
 
 In the assets section of the release you can find one zip file per supported tool (like Maya_2019.zip) containing the plugin files.
 
@@ -64,7 +64,7 @@ Click on the zip file, to start Downloading.
 
 By default, Windows blocks all .dll files coming from the web, so we have to unblock them first. Select the zip file, and with a right click select _Properties_, select _Unblock_, and then _OK_.
 
-![dll unblocking](/img/exporters/Maya/3_dll_unlocking.jpg)
+![dll unblocking](/img/exporters/Maya/3_dll_unlocking.webp)
 
 Then, extract the content of the zip file on your computer.
 
@@ -75,11 +75,11 @@ Finally:
 
 You should find the _Maya2Babylon.nll.dll_ in the plug-in Manager (_Windows > Settings/Preferences > Plug-in Manager_).
 
-![dll unblocking](/img/exporters/Maya/4_maya_plug_in_manager.jpg)
+![dll unblocking](/img/exporters/Maya/4_maya_plug_in_manager.webp)
 
 Check _Loaded_ and _Auto load_, and a new tab should appear:
 
-![plug-in visible](/img/exporters/Maya/5_plugin_visible.jpg)
+![plug-in visible](/img/exporters/Maya/5_plugin_visible.webp)
 
 Congratulations! You did it!
 
@@ -176,7 +176,7 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
 
 When your scene is ready to be exported, click on the **Babylon** tab on the top menu, and click on **Babylon File Exporter** to display the exporter window.
 
-![export window](/img/exporters/Maya/6_export_window.jpg)
+![export window](/img/exporters/Maya/6_export_window.webp)
 
 This window is composed of 3 panels:
 
@@ -241,7 +241,7 @@ The handling of physical materials is mimic from glTF format. [Detailed explanat
 
 As well as the default supported GLTF parameters, in Babylon format, we support the coating parameters of Arnold Standard Surface. You can see below the supported parameters:
 
-![texture](/img/exporters/Maya/Coating.png)
+![texture](/img/exporters/Maya/Coating.webp)
 
 Please note that if a map is used for the weight or the roughness parameter, they will be combined in the same way the ORM texture is created in the Detailed explanations. In Maya, metalness and roughness maps are black and white images (R=G=B). The 2 maps must have same sizes to be merged successfully.
 
@@ -251,7 +251,7 @@ In Babylon format, weight is stored in red channel, roughness in green.
 
 Babylon engine supports only 2 UV sets. In Maya the first UV set, created by default (map1), is used as UV1 in Babylon. The second UV set (map2) is used as UV2. Other UV sets are ignored and UV2 is used instead.
 
-![export window](/img/exporters/Maya/7_uv_set_editor.jpg)
+![export window](/img/exporters/Maya/7_uv_set_editor.webp)
 
 Moreover, Babylon engine supports only 1 UV set per texture. If a single texture is linked to UV1 and any other UV set, the log panel will display the warning “Texture is linked to UV1 and UV2. Only one UV set per texture is supported.” and the texture will be linked to UV1 or UV2 but not both.
 
@@ -261,7 +261,7 @@ Now that you know all about the exporter features, it’s time to use it!
 
 To create a double sided material there are different methods, but the only one exported is using two materials and a condition.
 
-![double sided hypershade](/img/exporters/Maya/8_hyperShade_double_sided.jpg)
+![double sided hypershade](/img/exporters/Maya/8_hyperShade_double_sided.webp)
 
 When exporting, the geometry of all meshes using a double sided material is duplicated:
 
@@ -276,9 +276,9 @@ Native materials are enhanced to have extra attributes in a dedicated node. A Ba
 
 Here is an example for 3 different materials:
 
-![Maya babylon material attributes nodes](/img/exporters/Maya/BabylonMaterialAttributes_LargeView.jpg)
+![Maya babylon material attributes nodes](/img/exporters/Maya/BabylonMaterialAttributes_LargeView.webp)
 
-![Maya babylon material attributes details](/img/exporters/Maya/BabylonMaterialAttributes_AllNodes.jpg)
+![Maya babylon material attributes details](/img/exporters/Maya/BabylonMaterialAttributes_AllNodes.webp)
 
 Most Babylon attributes are common to all materials:
 
@@ -294,11 +294,11 @@ Most Babylon attributes are common to all materials:
 
 You can add custom attributes to Meshes, Materials, Lights and Cameras with the attributes window (_Modify > Add Attribute..._) and it adds them in the extra attributes of those objects.
 
-![native attributes window](/img/exporters/Maya/9_attribute_window.png)
+![native attributes window](/img/exporters/Maya/9_attribute_window.webp)
 
 In babylon, the custom attributes are added as metadata.
 
-![custom attributes as metadata](/img/exporters/Maya/CustomAttributes_Metadata.png)
+![custom attributes as metadata](/img/exporters/Maya/CustomAttributes_Metadata.webp)
 
 Following types have particularities you should know:
 
@@ -309,11 +309,11 @@ Following types have particularities you should know:
 
 You can use the exporter through MEL script. To do so you need to generate the exporter parameters with the command 'GenerateExportersParameter' and specify a path and the export type.
 
-![generate export parameter](/img/exporters/Maya/11_generate_export_parameter.jpg)
+![generate export parameter](/img/exporters/Maya/11_generate_export_parameter.webp)
 
 Then you need to specify the other parameters and export with the command 'ScriptToBabylon'.
 
-![export MEL](/img/exporters/Maya/12_script_to_babylon.jpg)
+![export MEL](/img/exporters/Maya/12_script_to_babylon.webp)
 
 You can find an example script in the [Maya\MELScripts](https://github.com/BabylonJS/Exporters/tree/master/Maya/MELScripts) folder of the exporter.
 

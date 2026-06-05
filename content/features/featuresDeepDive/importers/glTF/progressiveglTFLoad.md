@@ -12,7 +12,7 @@ video-content:
 
 Downloading large assets is often slow even with a decent internet connection. Progressively loading discrete levels of detail (LODs) is one technique to combat this. The idea is to store multiple LODs in the asset and progressively load them from low to high quality. This method improves the time to first render since the lowest quality LOD is often dramatically smaller than the highest quality LOD.
 
-<Playground id="#ARN6TJ#5" title="Progressive Loading With LODs" description="Simple Example of progressively loading assets with levels of detail." image="/img/playgroundsAndNMEs/divingDeeperProgressivelyLoading1.jpg"/>
+<Playground id="#ARN6TJ#5" title="Progressive Loading With LODs" description="Simple Example of progressively loading assets with levels of detail." image="/img/playgroundsAndNMEs/divingDeeperProgressivelyLoading1.webp"/>
 
 This demo playground loads a glTF binary (a.k.a. GLB) asset which is a single file store on the server. It uses HTTP range requests to partially download parts of the GLB. The glTF loader minimizes the amount of HTTP requests sent to the server for optimal efficiency. It also shows progress of each stage of the download. Console logging is enabled to show what the glTF loader is doing.
 

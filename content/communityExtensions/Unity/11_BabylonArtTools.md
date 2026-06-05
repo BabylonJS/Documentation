@@ -55,22 +55,22 @@ Highlight it and click on "Save Script to Shelf...", specify a name ('Names') an
 
 The geometry tools help improve overall scene performance by optimizing game art for **WebGL** rendering. The toolkit supports combining meshes, seperating meshes, generating blocking volumes for collision and baking a texture atlas for **Static Mesh Filter** game objects.
 
-![Geometry Tools](/img/exporters/unity/combinemeshes.jpg)
+![Geometry Tools](/img/exporters/unity/combinemeshes.webp)
 
 # Height Mapping
 
 The height mapping tool enables **16-Bit RAW Greyscale** image manipulations. This is very useful to convert to and from **RAW** and **PNG** image formats and to scale height maps to the desired mesh detail resolution.
 
-![Height Mapping](/img/exporters/unity/heightmapping.jpg)
+![Height Mapping](/img/exporters/unity/heightmapping.webp)
 
 # Cubemap Baking
 
 The cubemap baking tool can pre bake environment **Skybox** and **Radiance** texture images. The toolkit supports **Low Dynamic Range**, **High Dynamic Range**, and **Direct Draw Surface** image file formats. An internal [Cubemap Filtering Tool](https://github.com/dariomanesku/cmft) plugin is used to process cubemap textures. It reaches very fast processing speeds by utilizing both multi-core CPU and OpenCL GPU at the same time.
 
-![Cubemap Baking](/img/exporters/unity/cubemapbaking.jpg)
+![Cubemap Baking](/img/exporters/unity/cubemapbaking.webp)
 
 # Texture Atlas Skin
 
 The texture atlas skin tool allows you to bake a texture atlas for **Skinned Mesh Renderer** game objects. It will parse all the sub meshes (materials) and combine all the textures into a group of texture atlas images. The toolkit will encode new uv sets and bake new geometry assets using the combined texture atlas material assets.
 
-![Texture Atlas Skin](/img/exporters/unity/textureatlasskin.jpg)
+![Texture Atlas Skin](/img/exporters/unity/textureatlasskin.webp)

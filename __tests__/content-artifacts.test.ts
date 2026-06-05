@@ -6,7 +6,7 @@ import { ContentGraph, ContentGraphPage } from "../lib/contentGraph/types";
 import { collectExampleImageReferences, createExampleImageReport } from "../lib/contentGraph/exampleImages";
 import { createDocumentationSearchIndex, createPlaygroundSearchIndex, createSitemapEntries, createSitemapXml, createSitemapXmlFromEntries } from "../lib/contentGraph/staticArtifacts";
 
-const testImagePath = join(process.cwd(), "public/img/playgroundsAndNMEs/__content-artifacts-test.png");
+const testImagePath = join(process.cwd(), "public/img/playgroundsAndNMEs/__content-artifacts-test.webp");
 
 afterEach(() => {
     if (existsSync(testImagePath)) {
@@ -133,7 +133,7 @@ describe("Static Content Artifacts", () => {
 
         const references = collectExampleImageReferences(graph);
 
-        expect(references.map((reference) => reference.imageUrl)).toEqual(["/img/playgroundsAndNMEs/custom-node.png", "/img/playgroundsAndNMEs/pgABC-1.png"]);
+        expect(references.map((reference) => reference.imageUrl)).toEqual(["/img/playgroundsAndNMEs/custom-node.png", "/img/playgroundsAndNMEs/pgABC-1.webp"]);
         expect(references.map((reference) => reference.documentationPage)).toEqual(["/docs/page", "/docs/page"]);
     });
 
@@ -144,7 +144,7 @@ describe("Static Content Artifacts", () => {
         const graph = createGraph([
             createPage({
                 examples: [
-                    { type: "pg", id: "EXISTING#1", imageUrl: "/img/playgroundsAndNMEs/__content-artifacts-test.png" },
+                    { type: "pg", id: "EXISTING#1", imageUrl: "/img/playgroundsAndNMEs/__content-artifacts-test.webp" },
                     { type: "pg", id: "MISSING#1" },
                 ],
             }),

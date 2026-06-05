@@ -18,7 +18,7 @@ The skeleton joints in glTF (a.k.a. bones in Babylon.js) point to nodes that are
 
 For example, for the [SimpleSkin model](https://playground.babylonjs.com/#SRVW8J), the first bone `joint1` is linked to the node `node1` in the scene.
 
-![LinkedTransformNode](/img/importers/glTF/glTF_Skinning_LinkedTransformNode.jpg "Bone linked with transform node")
+![LinkedTransformNode](/img/importers/glTF/glTF_Skinning_LinkedTransformNode.webp "Bone linked with transform node")
 
 The transform of `joint1` will change if the transform of `node1` changes. Similarly, `joint2` is linked with `node2` and the transform of `joint2` will change if the transform of `node2` changes. If there are more bones, they will all be linked to the corresponding node in the scene.
 
@@ -34,8 +34,8 @@ This statement is here to prevent the transforms from being applied twice to the
 
 For example, for the [CesiumMan model](https://playground.babylonjs.com/#T1IFZA), there are two parent nodes above the skinned mesh node that have non-identity transforms.
 
-![ParentTransforms1](/img/importers/glTF/glTF_Skinning_ParentTransforms1.jpg "Skinned mesh with non-identity parent transforms 1")
-![ParentTransforms2](/img/importers/glTF/glTF_Skinning_ParentTransforms2.jpg "Skinned mesh with non-identity parent transforms 2")
+![ParentTransforms1](/img/importers/glTF/glTF_Skinning_ParentTransforms1.webp "Skinned mesh with non-identity parent transforms 1")
+![ParentTransforms2](/img/importers/glTF/glTF_Skinning_ParentTransforms2.webp "Skinned mesh with non-identity parent transforms 2")
 
 These nodes are parents of both the skinned mesh `Cesium_Man` and the skeleton root node `Skeleton_torso_joint1`. Having the parent transforms be applied to both will result in the parent transforms being applied twice. _For more details and discussions on this issue, see [this comment](https://github.com/KhronosGroup/glTF/pull/1195#issuecomment-364597428) from the glTF GitHub repo._
 

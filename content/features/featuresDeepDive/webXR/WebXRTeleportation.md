@@ -117,11 +117,11 @@ The teleportation landing zone is defined by the person holding the controllers.
 
 Direct teleportation means - the user aims at the position they want to land at (a straight line). This is used when the ground and the landing location is in sight and is the most convenient and straight-forward way of moving forward.
 
-![Direct WebXR teleportation](/img/how_to/xr/xr-direct-teleportation.png)
+![Direct WebXR teleportation](/img/how_to/xr/xr-direct-teleportation.webp)
 
 An indirect line means the user aims up high and creates a parabolic path. This is used to go across obstacles, or to teleport from one floor to the other.
 
-![Indirect WebXR teleportation](/img/how_to/xr/xr-indirect-teleportation.png)
+![Indirect WebXR teleportation](/img/how_to/xr/xr-indirect-teleportation.webp)
 
 The direct teleportation is always enabled. The indirect teleportation is enabled per default, but it is possible to disable it using a flag:
 
@@ -179,7 +179,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 
 The teleportation landing zone is a group of meshes means to show the user where they are going to land and in which direction. Its default version looks like this:
 
-![Indirect WebXR teleportation](/img/how_to/xr/xr-teleportation-landing-zone.png)
+![Indirect WebXR teleportation](/img/how_to/xr/xr-teleportation-landing-zone.webp)
 
 Each part of the teleportation landing zone is configurable:
 
@@ -200,7 +200,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 
 Which looks like this:
 
-![WebXR Custom landing zone](/img/how_to/xr/xr-landing-zone-custom.png)
+![WebXR Custom landing zone](/img/how_to/xr/xr-landing-zone-custom.webp)
 
 The example can be found here: <Playground id="#B8D5Z6#9" title="Custom Landing Zone" description="Simple example of a custom landing zone."/>
 
@@ -225,7 +225,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 
 Will look like this:
 
-![Custom material for ring](/img/how_to/xr/xr-custom-material-turos-ring.png)
+![Custom material for ring](/img/how_to/xr/xr-custom-material-turos-ring.webp)
 
 ### Disable the ring up-and-down animation
 
@@ -257,7 +257,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 
 This will look like this with light intensity 0.5:
 
-![Disable lighting on ring](/img/how_to/xr/xr-ring-disable-lighting.png)
+![Disable lighting on ring](/img/how_to/xr/xr-ring-disable-lighting.webp)
 
 ## Rotating while teleporting
 
@@ -311,7 +311,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 
 This will look like this (notice it renders on top of the ground that should hide it):
 
-![Rendering group for target zone](/img/how_to/xr/xr-rendering-group-ring.png)
+![Rendering group for target zone](/img/how_to/xr/xr-rendering-group-ring.webp)
 
 To set a utility layer:
 
@@ -390,7 +390,7 @@ teleportation.snapPointsOnly = true;
 
 The feature will look like this:
 
-![Rendering group for target zone](/img/how_to/xr/xr-snap-to-teleportation.gif)
+![Rendering group for target zone](/img/how_to/xr/xr-snap-to-teleportation.webp)
 
 You can play around in this playground:
 

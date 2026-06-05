@@ -12,7 +12,7 @@ video-content:
 
 Introduced in Babylon.js 5.0, The Performance Profiler is a fantastic visual performance debugging tool. As you develop your Babylon experience, this new tool can help you easily identify performance issues and hiccups in your scene.
 
-<img src="/img/tools/PerfViewer/performanceViewerStatisticsTab.png" title="Babylon.js Performance Viewer Statistics Tab"/>
+<img src="/img/tools/PerfViewer/performanceViewerStatisticsTab.webp" title="Babylon.js Performance Viewer Statistics Tab"/>
 
 Available in the Statistics tab of the inspector, it allows you to visually see data charted over time rather than seeing the latest number at any one moment. The data is normalized on the displayed range, meaning the smallest value corresponds to the bottom y-position on the graph, while the highest value corresponds to the top y-position. 
 
@@ -29,7 +29,7 @@ For example, you may notice that FPS drops whenever you do a specific action in 
 
 ## How to use it
 
-<img src="/img/tools/PerfViewer/performanceViewerStatisticsTab.png" title="Babylon.js Performance Viewer Statistics Tab"/>
+<img src="/img/tools/PerfViewer/performanceViewerStatisticsTab.webp" title="Babylon.js Performance Viewer Statistics Tab"/>
 
 There are four buttons to choose from on this screen:
  - Open Realtime Perf Viewer
@@ -40,13 +40,13 @@ There are four buttons to choose from on this screen:
 "Open Realtime Perf Viewer" will open the performance viewer popout in real-time graph mode. 
 While "Load Perf viewer using CSV" will open the performance viewer popout in a view-only mode. 
 
-<img src="/img/tools/PerfViewer/PerformanceViewerPopout.png" title="Babylon.js Performance Viewer Popout"/>
+<img src="/img/tools/PerfViewer/PerformanceViewerPopout.webp" title="Babylon.js Performance Viewer Popout"/>
 
 The left sidebar in the popout holds the activated collection types. It allows the user to toggle visibility and change color through the checkbox and color picker, respectively.
-<img src="/img/tools/PerfViewer/PerfProfilerColor.png" title="Changing the color of a collection type through the color picker"/>
+<img src="/img/tools/PerfViewer/PerfProfilerColor.webp" title="Changing the color of a collection type through the color picker"/>
 
 The center contains the graph, and you can hover at a particular timestamp to view all data values at the timestamp. 
-<img src="/img/tools/PerfViewer/PerfProfilerHover.png" title="Popout"/>
+<img src="/img/tools/PerfViewer/PerfProfilerHover.webp" title="Popout"/>
 
 You can zoom in and out using the mouse wheel. 
 
@@ -56,13 +56,13 @@ You can hover over a single line outside the live data stream to focus on it, fa
 
 A horizontal line shows where that point is relative to every other point on the focused line.
 
-<img src="/img/tools/PerfViewer/PerformanceViewerFocus.png" title="Babylon.js Performance Viewer Line Focus"/>
+<img src="/img/tools/PerfViewer/PerformanceViewerFocus.webp" title="Babylon.js Performance Viewer Line Focus"/>
 
 To return to the live data stream, you can either catch up to the live data stream or conveniently click the "Return" button.
 
 "Begin Recording" will only begin recording in headless recording mode. This button also will allow you to stop recording when it changes the text to "Stop recording."
 
-<img src="/img/tools/PerfViewer/PerfProfilerStopRecording.png" title="Babylon.js Performance Viewer Line Focus"/>
+<img src="/img/tools/PerfViewer/PerfProfilerStopRecording.webp" title="Babylon.js Performance Viewer Line Focus"/>
 
 "Export Perf to CSV" allows you to export the performance recording to a CSV. The CSV export provides for sharing of performance data and also importing at a later time.
 
@@ -192,7 +192,7 @@ const someStrategy = {
 perfCollector.addCollectionStrategies(someStrategy);
 ```
 
-<img src="/img/tools/PerfViewer/PerfViewerCustom.png" title="Custom strategies and categories"/>
+<img src="/img/tools/PerfViewer/PerfViewerCustom.webp" title="Custom strategies and categories"/>
 
 
 <Playground id="#VK7KBX" title="Custom Performance Profiler strategies" description="Example of defining and visualizing your own custom profiler strategies"/>

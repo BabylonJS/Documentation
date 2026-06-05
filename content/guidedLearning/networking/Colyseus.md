@@ -1,6 +1,6 @@
 ---
 title: Real-time Multiplayer with Colyseus
-image: /img/resources/networking/colyseus/gameplay.png
+image: /img/resources/networking/colyseus/gameplay.webp
 description: Learn to develop multiplayer experiences with Colyseus
 keywords: colyseus, multiplayer, networking, authoritative, server
 further-reading:
@@ -82,7 +82,7 @@ document.head.appendChild(externalScript);
 
 In a real-world scenario, please follow the [official Colyseus documentation](https://docs.colyseus.io/colyseus/getting-started/javascript-client/) on how to include the Colyseus JavaScript SDK.
 
-<Playground id="#ZRZS5F#1" title="Loading the SDK Example" description="This example only loads the Colyseus JavaScript SDK" image="/img/resources/networking/colyseus/playground-load-sdk.png"/>
+<Playground id="#ZRZS5F#1" title="Loading the SDK Example" description="This example only loads the Colyseus JavaScript SDK" image="/img/resources/networking/colyseus/playground-load-sdk.webp"/>
 
 ### Establishing a Client-Server Connection
 
@@ -127,7 +127,7 @@ You will be seeing the following message in your server logs, which means a clie
 19U8WkmoK joined!
 ```
 
-<Playground id="#3K64VU#2" title="Room connection Example" description="This example loads the Colyseus SDK and connects into a room." image="/img/resources/networking/colyseus/playground-room-connection.png"/>
+<Playground id="#3K64VU#2" title="Room connection Example" description="This example loads the Colyseus SDK and connects into a room." image="/img/resources/networking/colyseus/playground-room-connection.webp"/>
 
 ## Room State and Schema
 
@@ -277,7 +277,7 @@ colyseusSDK.joinOrCreate("my_room").then(function (room) {
 // (...)
 ```
 
-<Playground id="#W613VP#2" title="Adding players Example" description="This example connects into a room, and display the players who joined the room" image="/img/resources/networking/colyseus/playground-onadd.png"/>
+<Playground id="#W613VP#2" title="Adding players Example" description="This example connects into a room, and display the players who joined the room" image="/img/resources/networking/colyseus/playground-onadd.webp"/>
 
 ### The "Current Player"
 
@@ -321,7 +321,7 @@ room.state.players.onRemove(function (player, sessionId) {
 // ...
 ```
 
-<Playground id="#CB3LF6#1" title="Current player color Example" description="This example connects into a room, and set different color for current player." image="/img/resources/networking/colyseus/playground-onadd-onremove.png" />
+<Playground id="#CB3LF6#1" title="Current player color Example" description="This example connects into a room, and set different color for current player." image="/img/resources/networking/colyseus/playground-onadd-onremove.webp" />
 
 ## Moving the players
 
@@ -401,7 +401,7 @@ room.state.players.onAdd(function (player, sessionId) {
 
 > Read [more about Schema callbacks](https://docs.colyseus.io/colyseus/state/schema/#client-side)
 
-<Playground id="#JMA5FE#2" title="Updating player's position Example" description="This example update players positions without interpolation" image="/img/resources/networking/colyseus/playground.png"/>
+<Playground id="#JMA5FE#2" title="Updating player's position Example" description="This example update players positions without interpolation" image="/img/resources/networking/colyseus/playground.webp"/>
 
 ### Interpolating the player's position
 
@@ -436,7 +436,7 @@ scene.registerBeforeRender(() => {
 });
 ```
 
-<Playground id="#RAG7FE#27" title="Full example with player interpolation" description="Full example with player position interpolation" image="/img/resources/networking/colyseus/playground.png"/>
+<Playground id="#RAG7FE#27" title="Full example with player interpolation" description="Full example with player position interpolation" image="/img/resources/networking/colyseus/playground.webp"/>
 
 ## Extra: Monitoring Rooms and Connections
 
@@ -444,7 +444,7 @@ Colyseus comes with an optional monitoring panel that can be helpful during the 
 
 To view the monitor panel from your local server, go to [http://localhost:2567/colyseus](http://localhost:2567/colyseus).
 
-![monitor](/img/resources/networking/colyseus/monitor.png)
+![monitor](/img/resources/networking/colyseus/monitor.webp)
 
 You can see and interact with all spawned rooms and active client connections through this panel.
 

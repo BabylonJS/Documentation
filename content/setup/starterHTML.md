@@ -96,11 +96,11 @@ video-content:
 
 **Color Key to Babylon.js Sections**
 
-![Webpage Key](/img/quickstart/htmlkey.png)
+![Webpage Key](/img/quickstart/htmlkey.webp)
 
 **HTML with Babylon.js Sections in Color**
 
-![Basic Webpage](/img/quickstart/htmlbjs.png)
+![Basic Webpage](/img/quickstart/htmlbjs.webp)
 
 ## Playground to Download From
 Use the &#x2913; button to download the template from the playground

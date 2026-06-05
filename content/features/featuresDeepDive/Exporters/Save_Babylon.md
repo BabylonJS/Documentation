@@ -36,7 +36,7 @@ function doDownload(filename, scene) {
 ```
 
 The following playground is an example of creating a scene, using the serializer, converting it to a JSON file and then giving the option of downloading it to your computer.  
-PG: <Playground id="#1AGCWP#1" title="Save Scene" description="Example of saving a scene." image="/img/playgroundsAndNMEs/pg-1AGCWP-1.png"/>
+PG: <Playground id="#1AGCWP#1" title="Save Scene" description="Example of saving a scene." image="/img/playgroundsAndNMEs/pg-1AGCWP-1.webp"/>
 
 ## Meshes
 

@@ -738,7 +738,7 @@ function _createMdxContent(props) {
   if (!CodePen) _missingMdxReference("CodePen", true, "37:1-37:69");
   if (!CodeSandbox) _missingMdxReference("CodeSandbox", true, "41:1-41:63");
   if (!NGE) _missingMdxReference("NGE", true, "18:1-18:87");
-  if (!NME) _missingMdxReference("NME", true, "12:1-12:155");
+  if (!NME) _missingMdxReference("NME", true, "12:1-12:156");
   if (!Playground) _missingMdxReference("Playground", true, "4:1-4:82");
   if (!Youtube) _missingMdxReference("Youtube", true, "22:1-22:28");
   return _jsxDEV(_Fragment, {
@@ -761,7 +761,7 @@ function _createMdxContent(props) {
       id: "#HVHYJC#82",
       title: "HtmlMesh Example",
       description: "Example of using HtmlMesh",
-      image: "/img/playgroundsAndNMEs/htmlMeshPG.png"
+      image: "/img/playgroundsAndNMEs/htmlMeshPG.webp"
     }, undefined, false, {
       fileName: "<source.js>",
       lineNumber: 6,
@@ -771,7 +771,7 @@ function _createMdxContent(props) {
       engine: "webgpu",
       title: "Ocean Demo",
       description: "Ocean simulation",
-      image: "/img/extensions/webgpu/ocean.png",
+      image: "/img/extensions/webgpu/ocean.webp",
       category: "WebGPU"
     }, undefined, false, {
       fileName: "<source.js>",
@@ -788,7 +788,7 @@ function _createMdxContent(props) {
       id: "#3WEKUZ#1",
       title: "Custom Perlin2D",
       description: "A node material with Perlin2D block",
-      image: "/img/playgroundsAndNMEs/NMEPerlin2DCustomBlock.jpg"
+      image: "/img/playgroundsAndNMEs/NMEPerlin2DCustomBlock.webp"
     }, undefined, false, {
       fileName: "<source.js>",
       lineNumber: 12,
@@ -961,7 +961,7 @@ exports[`Frontmatter Parsing (gray-matter) > should parse complex frontmatter wi
     },
   ],
   "image": "/img/pageImages/testPage.jpg",
-  "image-url": "/img/defaultImage.png",
+  "image-url": "/img/defaultImage.webp",
   "keywords": "frontmatter, metadata, gray-matter",
   "title": "Frontmatter Variations Test",
   "toc-levels": 0,
@@ -1614,7 +1614,7 @@ function _createMdxContent(props) {
       columnNumber: 1
     }, this), "\\n", _jsxDEV(_components.p, {
       children: _jsxDEV(_components.img, {
-        src: "/img/features/animation/horse_frames.jpg",
+        src: "/img/features/animation/horse_frames.webp",
         alt: "Horse Animation"
       }, undefined, false, {
         fileName: "<source.js>",
@@ -1646,7 +1646,7 @@ function _createMdxContent(props) {
       lineNumber: 28,
       columnNumber: 1
     }, this), "\\n", _jsxDEV("img", {
-      src: "/img/tools/guiEditor/overview.jpg",
+      src: "/img/tools/guiEditor/overview.webp",
       title: "GUI Editor"
     }, undefined, false, {
       fileName: "<source.js>",
@@ -1821,7 +1821,7 @@ function _createMdxContent(props) {
             }, this), _jsxDEV(_components.span, {
               className: "mord mathnormal",
               style: {
-                marginRight: "0.05764em"
+                marginRight: "0.0576em"
               },
               children: "E"
             }, undefined, false, {
@@ -2030,7 +2030,7 @@ function _createMdxContent(props) {
             }, this), _jsxDEV(_components.span, {
               className: "mord mathnormal",
               style: {
-                marginRight: "0.05278em"
+                marginRight: "0.0528em"
               },
               children: "β"
             }, undefined, false, {
@@ -2070,7 +2070,7 @@ function _createMdxContent(props) {
             }, this), _jsxDEV(_components.span, {
               className: "mord mathnormal",
               style: {
-                marginRight: "0.05556em"
+                marginRight: "0.0556em"
               },
               children: "γ"
             }, undefined, false, {
@@ -2465,7 +2465,7 @@ function _createMdxContent(props) {
             }, this), _jsxDEV(_components.span, {
               className: "mord mathnormal",
               style: {
-                marginRight: "0.13889em"
+                marginRight: "0.1389em"
               },
               children: "P"
             }, undefined, false, {
@@ -2473,7 +2473,7 @@ function _createMdxContent(props) {
             }, this), _jsxDEV(_components.span, {
               className: "mord mathnormal",
               style: {
-                marginRight: "0.02778em"
+                marginRight: "0.0278em"
               },
               children: "r"
             }, undefined, false, {
@@ -2488,7 +2488,7 @@ function _createMdxContent(props) {
               children: [_jsxDEV(_components.span, {
                 className: "mord mathnormal",
                 style: {
-                  marginRight: "0.05724em"
+                  marginRight: "0.0572em"
                 },
                 children: "j"
               }, undefined, false, {
@@ -2524,7 +2524,7 @@ function _createMdxContent(props) {
                             children: [_jsxDEV(_components.span, {
                               className: "mord mathnormal mtight",
                               style: {
-                                marginRight: "0.02778em"
+                                marginRight: "0.0278em"
                               },
                               children: "or"
                             }, undefined, false, {
@@ -2649,15 +2649,15 @@ function _createMdxContent(props) {
                           }, this), _jsxDEV(_components.span, {
                             style: {
                               width: "0.667em",
-                              height: "4.800em"
+                              height: "4.8em"
                             },
                             children: _jsxDEV(_components.svg, {
                               xmlns: "http://www.w3.org/2000/svg",
                               width: "0.667em",
-                              height: "4.800em",
+                              height: "4.8em",
                               viewBox: "0 0 667 4800",
                               children: _jsxDEV(_components.path, {
-                                d: "M403 1759 V84 H666 V0 H319 V1759 v1200 v1759 h347 v-84\\nH403z M403 1759 V0 H319 V1759 v1200 v1759 h84z"
+                                d: "M403 1759 V84 H666 V0 H319 V1759 v1200 v1759 v84 h347 v-84\\nH403z M403 1759 V0 H319 V1759 v1200 v1759 v84 h84z"
                               }, undefined, false, {
                                 fileName: "<source.js>"
                               }, this)
@@ -3349,12 +3349,12 @@ function _createMdxContent(props) {
                           }, this), _jsxDEV(_components.span, {
                             style: {
                               width: "0.667em",
-                              height: "4.800em"
+                              height: "4.8em"
                             },
                             children: _jsxDEV(_components.svg, {
                               xmlns: "http://www.w3.org/2000/svg",
                               width: "0.667em",
-                              height: "4.800em",
+                              height: "4.8em",
                               viewBox: "0 0 667 4800",
                               children: _jsxDEV(_components.path, {
                                 d: "M347 1759 V0 H0 V84 H263 V1759 v1200 v1759 H0 v84 H347z\\nM347 1759 V0 H263 V1759 v1200 v1759 h84z"
@@ -3568,7 +3568,7 @@ function _createMdxContent(props) {
                           children: [_jsxDEV(_components.span, {
                             className: "mord mathnormal",
                             style: {
-                              marginRight: "0.10764em"
+                              marginRight: "0.1076em"
                             },
                             children: "f"
                           }, undefined, false, {
@@ -4487,7 +4487,7 @@ function _createMdxContent(props) {
     ..._provideComponents(),
     ...props.components
   }, {Playground} = _components;
-  if (!Playground) _missingMdxReference("Playground", true, "8:1-8:166");
+  if (!Playground) _missingMdxReference("Playground", true, "8:1-8:167");
   return _jsxDEV(_Fragment, {
     children: [_jsxDEV(_components.h1, {
       id: "html-mesh",
@@ -4513,7 +4513,7 @@ function _createMdxContent(props) {
       id: "#HVHYJC#82",
       title: "HtmlMesh Example",
       description: "Example of using HtmlMesh elements in your scene.",
-      image: "/img/playgroundsAndNMEs/htmlMeshPG.png"
+      image: "/img/playgroundsAndNMEs/htmlMeshPG.webp"
     }, undefined, false, {
       fileName: "<source.js>",
       lineNumber: 8,
@@ -4522,7 +4522,7 @@ function _createMdxContent(props) {
       id: "#B17TC7#210",
       title: "HtmlMesh Box Example",
       description: "Example of using multiple HtmlMesh instances as the sides of a box",
-      image: "/img/playgroundsAndNMEs/HtmlMeshBoxPG.png"
+      image: "/img/playgroundsAndNMEs/HtmlMeshBoxPG.webp"
     }, undefined, false, {
       fileName: "<source.js>",
       lineNumber: 10,
@@ -5265,7 +5265,7 @@ exports[`Real Content File Regression > should serialize content/addons/htmlMesh
 {
   "description": "The HTML Mesh is a mesh that displays a webpage (or DOM element) in the scene, meaning that it can occlude other meshes and be occluded by other meshs.",
   "further-reading": null,
-  "image": "public/img/playgroundsAndNMEs/htmlMeshPG.png",
+  "image": "public/img/playgroundsAndNMEs/htmlMeshPG.webp",
   "title": "HtmlMesh",
   "video-content": null,
   "video-overview": null,
@@ -5330,7 +5330,7 @@ exports[`Real Content File Regression > should serialize content/features.md cor
 {
   "description": "Learn all about the breadth and depth of features that come with Babylon.js",
   "further-reading": null,
-  "image": "/img/defaultImage.png",
+  "image": "/img/defaultImage.webp",
   "keywords": "features, feature, capabilities, engine",
   "title": "Babylon.js Features",
   "video-content": null,

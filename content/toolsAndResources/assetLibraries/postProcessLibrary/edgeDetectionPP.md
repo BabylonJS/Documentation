@@ -15,7 +15,7 @@ With this Edge Detection post-process, you can create full-scene outlines in a s
 
 If you’re aiming for that look, this tutorial is for you.
 
-![Screenshot](/img/resources/edgeDetectionPP/EDPP.png)
+![Screenshot](/img/resources/edgeDetectionPP/EDPP.webp)
 
 ## How to use ?
 
@@ -50,7 +50,7 @@ edgeDetectionPostProcess.renderMode = 3; // default is 1
 Here is a full demo where you can control all properties of the EdgeDetection PostProcess."
 Futhermore, you can check the cel materials with outline.
 
-![Screenshot](/img/resources/edgeDetectionPP/EDPP2.png)
+![Screenshot](/img/resources/edgeDetectionPP/EDPP2.webp)
 
 <Playground id="#T6IKWW" title="Edge Detection Post Process Full Demo" description="Edge Detection Post Process Full  Demo"/>
 

@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-<img src="/img/tools/ACE/overview.jpg" title="Babylon.js Animation Curve Editor"/>
+<img src="/img/tools/ACE/overview.webp" title="Babylon.js Animation Curve Editor"/>
 
 ## Easily Create Animations
 
@@ -26,7 +26,7 @@ You can access ACE in 2 different ways:
 
 The first method is to select an existing object in the inspector, find the 'Animations' portion of the properties window, and select the 'Edit' button.
 
-<img src="/img/tools/ACE/object.jpg" title="Loading animation from an object."/>
+<img src="/img/tools/ACE/object.webp" title="Loading animation from an object."/>
 
 The second method can happen if an animation exists in the scene separate from an object. This most often happens when loading an asset into the scene that has attached animations to it, such as in this playground:
 
@@ -34,7 +34,7 @@ The second method can happen if an animation exists in the scene separate from a
 
 In this method you select an individual animation in the Inspector and then hit the 'Edit' Button in the properties window for that animation.
 
-<img src="/img/tools/ACE/animation.jpg" title="Loading animation from an existing animation."/>
+<img src="/img/tools/ACE/animation.webp" title="Loading animation from an existing animation."/>
 
 ## Getting Familiar With The Layout
 
@@ -42,17 +42,17 @@ Let's start by familiarizing ourselves with different parts of ACE.
 
 ### Menu
 
-<img src="/img/tools/ACE/menu.jpg" title="ACE Menu"/>
+<img src="/img/tools/ACE/menu.webp" title="ACE Menu"/>
 
 The Menu offers you the ability to create a new animation, load an animation from the snipper server or from a local file, save animation locally or to the snippet server, edit an animation, and change the playback framerate of an animation.
 
 #### Creating a new animation
 
-<img src="/img/tools/ACE/create.jpg" title="Create Button"/>
+<img src="/img/tools/ACE/create.webp" title="Create Button"/>
 
 Pressing the Create tab will display a menu that allows you to create a new animation. 
 
-<img src="/img/tools/ACE/createMenu.jpg" title="Create Menu"/>
+<img src="/img/tools/ACE/createMenu.webp" title="Create Menu"/>
 
 - Display Name: You can enter a name for your new animation.
 - Mode: This allows you to choose between a `List` of animatable properties OR specify a `Custom` attribute.
@@ -62,101 +62,101 @@ Pressing the Create tab will display a menu that allows you to create a new anim
 
 #### Loading An Animation
 
-<img src="/img/tools/ACE/load.jpg" title="Load Button"/>
+<img src="/img/tools/ACE/load.webp" title="Load Button"/>
 
 Pressing the load tab will display a menu that allows you to load an animation from the Babylon.js snippet server or from a local file.
 
-<img src="/img/tools/ACE/loadMenu.jpg" title="Load Menu"/>
+<img src="/img/tools/ACE/loadMenu.webp" title="Load Menu"/>
 
 #### Saving An Animation
 
-<img src="/img/tools/ACE/save.jpg" title="Save Button"/>
+<img src="/img/tools/ACE/save.webp" title="Save Button"/>
 
 Pressing the save tab will display a menu that allows you to save an animation to the Babylon.js snippet server or to a local file.
 
 After saving to the snippet server, the assigned Snippet ID for your animation will be listed at the bottom of this menu.
 
-<img src="/img/tools/ACE/saveMenu.jpg" title="Save Menu"/>
+<img src="/img/tools/ACE/saveMenu.webp" title="Save Menu"/>
 
 Also see [Using Saved Animations in the Playground](#using-saved-animations-in-the-playground)
 
 #### Editing An Animation
 
-<img src="/img/tools/ACE/edit.jpg" title="Edit Button"/>
+<img src="/img/tools/ACE/edit.webp" title="Edit Button"/>
 
 Pressing the edit tab will display a list of all properties with animations applied to them. Note that if you have entered ACE by selecting the edit button of Babylon Object (Method 1 listed above), then this menu will display ALL properties of the selected object that have animations attached to them.
 
-<img src="/img/tools/ACE/editMenu.jpg" title="Edit Menu"/>
+<img src="/img/tools/ACE/editMenu.webp" title="Edit Menu"/>
 
 #### Changing the Playback Framerate
 
-<img src="/img/tools/ACE/fps.jpg" title="FPS Field"/>
+<img src="/img/tools/ACE/fps.webp" title="FPS Field"/>
 
 The fps (frames per second) field allows you to specify the playback rate of the animations.
 
 ### Key Controls
 
-<img src="/img/tools/ACE/keyControls.jpg" title="ACE Key Controls"/>
+<img src="/img/tools/ACE/keyControls.webp" title="ACE Key Controls"/>
 
 The Key Controls offer the ability to change the frame of a key, the value of a key, set a new key(s), reframe the keys, flatten the key's tangents, create linear tangents for a key, break a key's tangents, unify a key's tangents, and create a step tangent for a key.
 
 #### Changing the Frame of a Key
 
-<img src="/img/tools/ACE/keyFrame.jpg" title="Key Frame Field"/>
+<img src="/img/tools/ACE/keyFrame.webp" title="Key Frame Field"/>
 
 With a single key selected, this input box allows you to enter a new frame number for the selected key to occupy.
 
 #### Changing the Value of a Key
 
-<img src="/img/tools/ACE/keyValue.jpg" title="Key Value Field"/>
+<img src="/img/tools/ACE/keyValue.webp" title="Key Value Field"/>
 
 With a single key selected, this input box allows you to enter a new value for the selected key.
 
 #### Create a New Key
 
-<img src="/img/tools/ACE/newKey.jpg" title="New Key"/>
+<img src="/img/tools/ACE/newKey.webp" title="New Key"/>
 
 This button creates a new key at the location of the play head. If the animations being edited are connected to an object (entered ACE through method 1 above), the new key button will grab the existing value for that property from the object in the scene. For example, if you have loaded a sphere and are editing the Position Vector3 property of that object, when selecting the new key button, the x, y, and z values for the newly created keys will come from the sphere's current position in the connected Babylon scene. Otherwise if there is no connected object to the current animation, the value of the newly created key(s) will be zero.
 
 #### Framing the Canvas
 
-<img src="/img/tools/ACE/frameCanvas.jpg" title="Frame Cavnas"/>
+<img src="/img/tools/ACE/frameCanvas.webp" title="Frame Cavnas"/>
 
 The Frame Canvas button will resize the canvas to neatly fit all keys in the animation into the canvas size. This makes it much easier to see the animation in its entirety.
 
 #### Flattening a Key's Tangents
 
-<img src="/img/tools/ACE/flattenTangents.jpg" title="Flatten Tangents"/>
+<img src="/img/tools/ACE/flattenTangents.webp" title="Flatten Tangents"/>
 
 With a key(s) selected, the flatten tangents button will flatten the tangents coming into and going out of the key.
 
 #### Creating Linear Key Tangents
 
-<img src="/img/tools/ACE/linearTangents.jpg" title="Linear Tangents"/>
+<img src="/img/tools/ACE/linearTangents.webp" title="Linear Tangents"/>
 
 With a key(s) selected, the linear tangents button will create linear tangents coming into and going out of the key.
 
 #### Breaking a Key's Tangents
 
-<img src="/img/tools/ACE/brokenTangents.jpg" title="Broken Tangents"/>
+<img src="/img/tools/ACE/brokenTangents.webp" title="Broken Tangents"/>
 
 With a key(s) selected, the break tangents button will separate the incoming and outgoing tangents of a key so they can be individually manipulated.
 
 #### Unifying a Key's Tangents
 
-<img src="/img/tools/ACE/unifyTangents.jpg" title="Unified Tangents"/>
+<img src="/img/tools/ACE/unifyTangents.webp" title="Unified Tangents"/>
 
 With a key(s) selected, the unify tangents button will unite the incoming and outgoing tangents of a key so they can be manipulated together.
 
 #### Stepping a Key's Tangents
 
-<img src="/img/tools/ACE/stepTangents.jpg" title="Step Tangents"/>
+<img src="/img/tools/ACE/stepTangents.webp" title="Step Tangents"/>
 
 With a key(s) selected, the step tangents button will create a flat incoming and outgoing tangent relative to the previous and following key. This is useful when blocking out positions or poses common in the animation process. You can think of stepped tangents as a series of static positions with no computer interpolation between them.
 
 ### Canvas
 
-<img src="/img/tools/ACE/canvas.jpg" title="ACE Canvas"/>
+<img src="/img/tools/ACE/canvas.webp" title="ACE Canvas"/>
 
 The Canvas is the main `play` area in ACE. This is where you manipulate curves and keys to create the perfect animations.
 
@@ -188,37 +188,37 @@ The Play Head hovers above the active frame number of the animation. New keys wi
 
 ### Play Controls
 
-<img src="/img/tools/ACE/playControls.jpg" title="ACE Play Controls"/>
+<img src="/img/tools/ACE/playControls.webp" title="ACE Play Controls"/>
 
 The play controls offer easy options to navigate through the timeline.
 
 #### First and Last Frames
 
-<img src="/img/tools/ACE/firstLast.jpg" title="First Last Frames"/>
+<img src="/img/tools/ACE/firstLast.webp" title="First Last Frames"/>
 
 The first and last frame buttons will move the Play Head to the first and last frames respectively.
 
 #### Previous and Next Frames
 
-<img src="/img/tools/ACE/previousNext.jpg" title="Previous Next Frames"/>
+<img src="/img/tools/ACE/previousNext.webp" title="Previous Next Frames"/>
 
 The previous and next frame buttons will move the Play Head to the previous or next frame respectively. You can also use the `left` and `right` arrow keys to advance forward or back one frame as well.
 
 #### Previous and Next Keys
 
-<img src="/img/tools/ACE/prevKeyNextKey.jpg" title="Previous Next Key"/>
+<img src="/img/tools/ACE/prevKeyNextKey.webp" title="Previous Next Key"/>
 
 The previous and next Key buttons will move the Play Head to the previous or next key respectively. You can also use the `up` and `down` arrow keys to advance forward or back one key as well.
 
 #### Playing an Animation
 
-<img src="/img/tools/ACE/playButtons.jpg" title="Play Buttons"/>
+<img src="/img/tools/ACE/playButtons.webp" title="Play Buttons"/>
 
 The play forward and backwards buttons will play the animation forward or backward respectively, at the specified framerate (fps) in the Edit Menu. The play buttons will play from the starting frame of the play range to the ending frame of the play range. You can also use the `spacebar` key to play the animation in the forward direction. There is no hotkey to play the animation in the reverse direction, because we are not animals.
 
 ### Play Range
 
-<img src="/img/tools/ACE/playRange.jpg" title="ACE Play Range"/>
+<img src="/img/tools/ACE/playRange.webp" title="ACE Play Range"/>
 
 The Play Range represents the starting and ending frames when you use one of the play buttons. These buttons allow you to play a subset of an entire animation.
 

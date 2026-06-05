@@ -35,7 +35,7 @@ Check out an example here: <Playground id="#KNE0O#1327" title="Get First Mesh Hi
 
 (The following descriptions will reference this example. All line references are from the most recent example link)
 
-![Raycast simple](/img/how_to/raycast01.jpg)
+![Raycast simple](/img/how_to/raycast01.webp)
 
 In all our playgrounds, we will imagine that our character is the main box at the center.
 It will shoot laser beams continually forward and detect which enemy (other boxes) is hit.
@@ -86,7 +86,7 @@ It is a filter to choose which meshes will be selectable:
 
 <Playground id="#KNE0O#18" title="Predicate Function Example" description="Simple example of the predicate function with ray picking."/>
 
-![Raycast predicate](/img/how_to/raycast02.jpg)
+![Raycast predicate](/img/how_to/raycast02.webp)
 
 We added a new function predicate _(line #54)_:
 
@@ -139,7 +139,7 @@ We can use `scene.multiPickWithRay` if we don't want that the ray to stop at the
 
  <Playground id="#KNE0O#19" title="Get All Meshes Hit By Ray" description="Simple example of getting all meshes hit by a ray."/>
 
-![Raycast multipick](/img/how_to/raycast02.jpg)
+![Raycast multipick](/img/how_to/raycast02.webp)
 
 The picking result will be an array _(line #68)_.
 

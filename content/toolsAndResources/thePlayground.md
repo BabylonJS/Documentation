@@ -29,13 +29,13 @@ You can write the code in JavaScript or Typescript. The playground software comp
 
 ### Scene creation functions
 
-Usually you'll want to place your scene creation code in the already defined `createScene` function. But sometimes, you might want to substitute it for the `delayCreateScene` function, which allows you to return a scene without a camera (because for instance you plan to create the camera after an asynchronous mesh load, like: <Playground id="TVHK90#113" title="delayCreateScene example" description="An example of a Playground scene defined using the delayCreateScene function" image="/img/playgroundsAndNMEs/delayCreateSceneExample.png"/>).
+Usually you'll want to place your scene creation code in the already defined `createScene` function. But sometimes, you might want to substitute it for the `delayCreateScene` function, which allows you to return a scene without a camera (because for instance you plan to create the camera after an asynchronous mesh load, like: <Playground id="TVHK90#113" title="delayCreateScene example" description="An example of a Playground scene defined using the delayCreateScene function" image="/img/playgroundsAndNMEs/delayCreateSceneExample.webp"/>).
 
-You can also override the engine creation by defining the `createEngine` function. This can be useful if you want to test a scene without antialiasing, for example: <Playground id="#NCWBUU#1" title="createEngine example" description="How to use createEngine on the playground to customize engine creation" image="/img/playgroundsAndNMEs/createEnginePG.png"/>
+You can also override the engine creation by defining the `createEngine` function. This can be useful if you want to test a scene without antialiasing, for example: <Playground id="#NCWBUU#1" title="createEngine example" description="How to use createEngine on the playground to customize engine creation" image="/img/playgroundsAndNMEs/createEnginePG.webp"/>
 
 ## Overview
 
-![Playground Overview](/img/how_to/Introduction/playground.jpg)
+![Playground Overview](/img/how_to/Introduction/playground.webp)
 
 The Playground consists of four areas:
 
@@ -48,11 +48,11 @@ The space for the coding editor and rendering area can be adjusted by dragging t
 
 ## The Menu
 
-![Playground Menu](/img/how_to/Introduction/pgmenu.jpg)
+![Playground Menu](/img/how_to/Introduction/pgmenu.webp)
 
 In Typescript mode the menu has an orange color theme:
 
-![Playground Typescript Menu](/img/how_to/Introduction/pgmenu_ts.jpg)
+![Playground Typescript Menu](/img/how_to/Introduction/pgmenu_ts.webp)
 
 ### Large Screen
 
@@ -79,7 +79,7 @@ In Typescript mode the menu has an orange color theme:
 
 ### Small Screens
 
-![Playground Typescript Menu](/img/how_to/Introduction/smallScreensPG.png)
+![Playground Typescript Menu](/img/how_to/Introduction/smallScreensPG.webp)
 
 - **Menu**: Contains Run, New, Clear, Save and Zip as submenus.
 - **Code/Scene**: Bottom Left Corner - switch between Code and Scene views.
@@ -110,11 +110,11 @@ You can have fun showing directly your playground embedded into your message, us
 <iframe src="https://playground.babylonjs.com/frame.html#6F0LKI#2" width="400px" height="250px"></iframe>
 ```
 
-![playground forum sharing ways](/img/features/pgsupport/pg-forum-sharing-ways.jpg)
+![playground forum sharing ways](/img/features/pgsupport/pg-forum-sharing-ways.webp)
 
 ## Compilation Errors
 
-![compilation error popup](/img/features/pgsupport/pg-compilation-error.jpg)
+![compilation error popup](/img/features/pgsupport/pg-compilation-error.webp)
 
 Any errors in your playground are flagged with a red pop-up box containing limited information. After making an adjustment to your code, you need not close the compilation error pop-up. It should close automatically at the next Run, if all errors have been corrected.
 

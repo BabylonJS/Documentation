@@ -58,7 +58,7 @@ const deriveImageUrl = (metadata: MarkdownMetadata, rawMarkdown: string) => {
         } else {
             const idPosition = playground.indexOf('id="');
             const imageId = playground.substr(idPosition + 4).split('"')[0];
-            metadata.imageUrl = `/img/playgroundsAndNMEs/pg${imageId.replace(/#/g, "-")}.png`;
+            metadata.imageUrl = `/img/playgroundsAndNMEs/pg${imageId.replace(/#/g, "-")}.webp`;
         }
     }
 };

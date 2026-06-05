@@ -1,6 +1,6 @@
 ---
 title: Timeline Control
-image: /img/pageImages/timelineControl.jpg
+image: /img/pageImages/timelineControl.webp
 description: The Babylon.js Timeline Control is a web control built on top of Babylon.js that accelerates some of the typical features associated with video timelines.
 keywords: web controls, hardware accelerated, 2D, timeline, video, thumbnails
 further-reading:
@@ -18,7 +18,7 @@ One of the inherent issue encountered while scrolling in a video timeline built 
 
 In order to increase the reactivity of the web page, we rely here on WebGL through Babylon.js to create an easy to reuse control displaying a video timeline.
 
-![Timeline](/img/features/controls/timeline.png)
+![Timeline](/img/features/controls/timeline.webp)
 
 ## How to use
 

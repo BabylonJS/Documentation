@@ -12,7 +12,7 @@ video-content:
 
 Morph targets are a new feature introduced with Babylon.js v3.0.
 
-![Morph Target Before and After](/img/how_to/morphtargets.jpg)
+![Morph Target Before and After](/img/how_to/morphtargets.webp)
 
 ## Basics
 
@@ -161,7 +161,7 @@ You can animate multiple morphs on the same mesh by creating a new animation for
 
 The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). To use a Node Material in a mesh with Morph Targets, you need to add the Morph Target node to it so that vertex positions, normals and uvs properly respond to the effects of the morph:
 
-![Use Morph Target with Node Material](/img/how_to/morphtargetnode.png)
+![Use Morph Target with Node Material](/img/how_to/morphtargetnode.webp)
 
 <Playground id="#HPV2TZ#299" title="Using Node Material with Morph Targets" description="Use Morph Target node on the Node Material"/>
 

@@ -1,6 +1,6 @@
 ---
 title: Loading Assets From Memory
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: Learn how to load assets directly from memory.
 keywords: advanced, memory, optimization
 further-reading:

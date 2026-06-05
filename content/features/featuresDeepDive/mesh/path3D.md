@@ -101,7 +101,7 @@ The `getClosestPositionTo` function returns the position, from 0.0 to 1.0, of th
 
 For any vector there are an infinite number of vectors at right angles to it.
 
-![Multiple Normals](/img/how_to/Mesh/tangentnormals.jpg)
+![Multiple Normals](/img/how_to/Mesh/tangentnormals.webp)
 
 In creating a `Path3D` object Babylon.js assigns a default direction for the normal. If you want to set the direction of the normal yourself, you need to pass a vector for a second parameter to `Path3D` on creation or on update.
 
@@ -118,7 +118,7 @@ The normal will be the projection of your parameter vector onto the plane orthog
 
 As seen in the diagram below, when the parameter is a vertical vector (black), this is projected onto the plane orthogonal to the tangent vector (red) to form the normal (green).
 
-![Curve Normal](/img/how_to/Mesh/planenormal.jpg)
+![Curve Normal](/img/how_to/Mesh/planenormal.webp)
 
 The playground example shows what happens as the vector setting the normal direction is rotated.
 

@@ -19,11 +19,11 @@ The build function takes two optional parameters: the first is a Boolean and is 
 ## Constraints
 The polygon and any holes inside it must be [simple](https://en.wikipedia.org/wiki/Simple_polygon), that is no overlapping sides. Holes should be wholly inside the polygon and should not be too close to the sides of the polygon or to each other otherwise the mesh will be malformed. This [algorithm](http://geomalgorithms.com/a09-_intersect-3.html#Simple-Polygons) is one you can use to check if a polygon is simple.
 
-![Safe Construction](/img/how_to/PolyMeshBuild/pmberr1.jpg)
+![Safe Construction](/img/how_to/PolyMeshBuild/pmberr1.webp)
 
-![Unsafe Construction](/img/how_to/PolyMeshBuild/pmberr2.jpg)
+![Unsafe Construction](/img/how_to/PolyMeshBuild/pmberr2.webp)
 
-![Unsafe Construction](/img/how_to/PolyMeshBuild/pmberr3.jpg)
+![Unsafe Construction](/img/how_to/PolyMeshBuild/pmberr3.webp)
 
 ## Usage
 ```javascript

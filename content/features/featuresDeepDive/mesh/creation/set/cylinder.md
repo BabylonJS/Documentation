@@ -45,7 +45,7 @@ Arc <Playground id="#QANVC6#3" title="Create an Arc" description="Simple example
 
 Cake Slice: <Playground id="#QANVC6#2240" title="Create a Cake Slice" description="Simple example of creating a cake slice."/>
 
-![can label and top](/img/how_to/apply-material-to-faces/logo_label.jpg)
+![can label and top](/img/how_to/apply-material-to-faces/logo_label.webp)
 
 Cylinder with faceUVs <Playground id="#QANVC6#4" title="Create a Cylinder With Face UVs" description="Simple example of creating a cylinder with face UVs."/>
 

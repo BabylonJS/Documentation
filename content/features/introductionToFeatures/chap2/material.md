@@ -56,8 +56,8 @@ roof.material = roofMat;
 box.material = boxMat;
 ```
 
-<Playground id="#KBS9I5#71" title="Adding Materials To Your Objects'" description="A playground demonstrating how to add materials to the objects in your scene." image="/img/playgroundsAndNMEs/gettingStartedMaterials.jpg"/>
+<Playground id="#KBS9I5#71" title="Adding Materials To Your Objects'" description="A playground demonstrating how to add materials to the objects in your scene." image="/img/playgroundsAndNMEs/gettingStartedMaterials.webp"/>
 
-![house 2](/img/getstarted/house2.png)
+![house 2](/img/getstarted/house2.webp)
 
 Having stone walls with no doors or windows is not an interesting look for a house. Also when you look closely you can see that each side uses the same image and on some sides it is rotated. 

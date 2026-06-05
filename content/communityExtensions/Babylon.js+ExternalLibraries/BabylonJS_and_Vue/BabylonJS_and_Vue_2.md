@@ -160,7 +160,7 @@ label {
 
 That's all, we can run our example by issuing the `npm run serve` command in the terminal. You should see this image. FPS should be displayed in the left upper corner.
 
-![Running the FPS by callback example](/img/resources/vue/bjs-vue-doc-2.png)
+![Running the FPS by callback example](/img/resources/vue/bjs-vue-doc-2.webp)
 
 ## Passing data from BabylonJS to Vue using an exposed Engine object
 
@@ -339,7 +339,7 @@ export default {
 
 You can now start the app and you should see the following. Click on the button to move the green cube upwards.
 
-![Running the Vue 2 BabylonJS no expose sample](/img/resources/vue/bjs-vue-doc-3.png)
+![Running the Vue 2 BabylonJS no expose sample](/img/resources/vue/bjs-vue-doc-3.webp)
 
 ## Sending data from Vue to BabylonJS and vice versa with an exposed BabylonJS Vector3 object
 
@@ -474,7 +474,7 @@ export default {
 
 After running the app, you should see this screen:
 
-![Running the Vue to BabylonJS expose Vector3 sample](/img/resources/vue/bjs-vue-doc-4.png)
+![Running the Vue to BabylonJS expose Vector3 sample](/img/resources/vue/bjs-vue-doc-4.webp)
 
 ## Sending data from Vue to BabylonJS with an exposed BabylonJS Engine and Scene object
 

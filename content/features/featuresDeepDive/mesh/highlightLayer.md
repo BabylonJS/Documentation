@@ -18,7 +18,7 @@ How often did you search to highlight some of your meshes in a scene? Sounds eas
 
 If you ever needed it, this tutorial is made for you.
 
-![illustration](/img/how_to/highlight-mesh/introduction.png)
+![illustration](/img/how_to/highlight-mesh/introduction.webp)
 
 ## How to use?
 

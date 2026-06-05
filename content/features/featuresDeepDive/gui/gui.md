@@ -61,7 +61,7 @@ In this mode, Babylon.GUI will cover the entire screen and will rescale to alway
 const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("myUI");
 ```
 
-Here is an example of a simple fullscreen mode GUI: <Playground id="#XCPP9Y#1" title="Fullscreen GUI Example" description="Simple example of adding a fullscreen BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI1.jpg" isMain={true} category="GUI"/>
+Here is an example of a simple fullscreen mode GUI: <Playground id="#XCPP9Y#1" title="Fullscreen GUI Example" description="Simple example of adding a fullscreen BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI1.webp" isMain={true} category="GUI"/>
 
 By default the ratio between rendering resolution and texture size is 1. But you can force it to different values with `advancedTexture.renderScale`. This could be useful if you want crisper texts for instance.
 
@@ -89,9 +89,9 @@ In this mode, BABYLON.GUI will be used as a texture for a given mesh. You will h
 const advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(myPlane, 1024, 1024);
 ```
 
-Here is an example of a simple texture mode GUI: <Playground id="#ZI9AK7#1" title="Texture Mode GUI Example" description="Simple example of adding a texture mode BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI2.jpg"/>
+Here is an example of a simple texture mode GUI: <Playground id="#ZI9AK7#1" title="Texture Mode GUI Example" description="Simple example of adding a texture mode BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI2.webp"/>
 
-Here is the same example but now using “billboardMode = all” where the GUI will always face the camera: <Playground id="#ZI9AK7#1214" title="Texture Mode With Camera Facing GUI Example" description="Simple example of adding a texture mode BabylonGUI to your scene with camera facing." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI2.jpg"/>
+Here is the same example but now using “billboardMode = all” where the GUI will always face the camera: <Playground id="#ZI9AK7#1214" title="Texture Mode With Camera Facing GUI Example" description="Simple example of adding a texture mode BabylonGUI to your scene with camera facing." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI2.webp"/>
 
 Please note that handling pointer move events could be costly on complex meshes, so you can turn off supporting pointer move events with a fourth parameter:
 
@@ -103,7 +103,7 @@ Once you have an AdvancedDynamicTexture object, you can start adding controls.
 
 ## Loading from Snippet Server
 
-Here is an example of loading an AdvancedDynamicTexture from the Snippet Server: <Playground id="#AJA7KA#50" title="Loading GUI from Snippet Server" description="Simple demo of loading a texture from the Snippet Server and accessing the controls." image="/img/playgroundsAndNMEs/pg-AJA7KA-8.png"/>
+Here is an example of loading an AdvancedDynamicTexture from the Snippet Server: <Playground id="#AJA7KA#50" title="Loading GUI from Snippet Server" description="Simple demo of loading a texture from the Snippet Server and accessing the controls." image="/img/playgroundsAndNMEs/pg-AJA7KA-8.webp"/>
 
 ## Debugging
 
@@ -131,15 +131,15 @@ To use the clipboard events, they first need to be enabled by calling `registerC
 
 Here is an example on how to use clipboard observables:
 
-- To create new meshes: <Playground id="#S0IW99#1" title="Clipboard Observable Mesh Creation Example" description="Simple example of creating a mesh using the clipboard observable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI3.jpg"/>
-- To create new textblocks from clipboard data: <Playground id="#AY28VL#4" title="Clipboard Observable Textblock Example" description="Simple example of creating new textblocks from clipboard data." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI4.jpg"/>
+- To create new meshes: <Playground id="#S0IW99#1" title="Clipboard Observable Mesh Creation Example" description="Simple example of creating a mesh using the clipboard observable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI3.webp"/>
+- To create new textblocks from clipboard data: <Playground id="#AY28VL#4" title="Clipboard Observable Textblock Example" description="Simple example of creating new textblocks from clipboard data." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI4.webp"/>
 
 You can also define that a control is invisible to events (so you can click through it for instance). To do so, just call `control.isHitTestVisible`.
 
 Please note that `onPointerMoveObservable`, `onPointerDownObservable`, `onPointerUpObservable`, `onPointerClickObservable` will receive a Vector2 parameter containing the pointer coordinates. If you want to get the pointer coordinates in local control space, you have to call `control.getLocalCoordinates(coordinates)`.
 
-Here is an example of how to use observables: <Playground id="#XCPP9Y#121" title="Observables Example" description="Simple example demonstrating observables." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI5.jpg"/>
-Here is an example of how to use the onPointerClickObservable: <Playground id="#7RH606" title="onPointerClickObservable Example" description="Simple example demonstrating the onPointerClickObservable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI6.jpg"/>
+Here is an example of how to use observables: <Playground id="#XCPP9Y#121" title="Observables Example" description="Simple example demonstrating observables." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI5.webp"/>
+Here is an example of how to use the onPointerClickObservable: <Playground id="#7RH606" title="onPointerClickObservable Example" description="Simple example demonstrating the onPointerClickObservable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI6.webp"/>
 
 ### Alignments
 
@@ -152,7 +152,7 @@ You can define the alignments used by your control with the following properties
 
 Values can be taken from `BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_*` and `BABYLON.GUI.Control.VERTICAL_ALIGNMENT_*`.
 
-Here is an example of how to use alignments: <Playground id="#XCPP9Y#13" title="Alignments Example" description="Simple example demonstrating how to use gui alignments." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI7.jpg" isMain={true} category="GUI"/>
+Here is an example of how to use alignments: <Playground id="#XCPP9Y#13" title="Alignments Example" description="Simple example demonstrating how to use gui alignments." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI7.webp" isMain={true} category="GUI"/>
 
 ### Position and size
 
@@ -194,7 +194,7 @@ Here is an example of how to use and update positions and sizes: <Playground id=
 All controls can be moved to track position of a mesh.
 To do this, just call `control.linkWithMesh(mesh)`. You can then offset the position with `control.linkOffsetX` and `control.linkOffsetY`.
 
-Here is an example of a trackable label: <Playground id="#XCPP9Y#16" title="Trackable Label Example" description="Simple example of a trackable gui label." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI9.jpg"/>
+Here is an example of a trackable label: <Playground id="#XCPP9Y#16" title="Trackable Label Example" description="Simple example of a trackable gui label." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI9.webp"/>
 
 Please note that controls that want to track position of a mesh must be at root level (at AdvancedDynamicTexture level).
 
@@ -202,7 +202,7 @@ You can also move a control to a specific coordinates in your scene with `contro
 
 For Line control, you can also attach the second point to a control with `line.connectedControl = control`. In this case the `x2` and `y2` properties are used to offset the second point from the connected control.
 
-With these 2 options, you can create a complete trackable label: <Playground id="#XCPP9Y#20" title="Complete Trackable Label Example" description="Complete example of a trackable gui label." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI10.jpg"/>
+With these 2 options, you can create a complete trackable label: <Playground id="#XCPP9Y#20" title="Complete Trackable Label Example" description="Complete example of a trackable gui label." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI10.webp"/>
 
 **Tracking positions features only work when the AdvancedDynamicTexture is in fullscreen mode**
 
@@ -223,7 +223,7 @@ In order to use both idealWidth and idealHeight, set both of them, and set `myAd
 When window width is smaller than window height - idealWidth will be used, otherwise - idealHeight will be used.
 This is a good solution for when your canvas can be resized to varying width : height ratios.
 
-Here is an example of how to use horizontal adaptive scaling: <Playground id="#XCPP9Y#39" title="Horizontal Adaptive Scaling Example" description="Simple example of horizontal adaptive scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI11.jpg" isMain={true} category="GUI"/>
+Here is an example of how to use horizontal adaptive scaling: <Playground id="#XCPP9Y#39" title="Horizontal Adaptive Scaling Example" description="Simple example of horizontal adaptive scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI11.webp" isMain={true} category="GUI"/>
 
 ### Rotation and Scaling
 
@@ -239,7 +239,7 @@ Controls can be transformed with the following properties:
 
 **Please be aware that transformations are done at rendering level so after all computations.** This means that alignment or positioning will be done first without taking transform in account.
 
-Here is an example of how to use rotation and scaling: <Playground id="#XCPP9Y#22" title="Rotation and Scaling Example" description="Simple example of rotation and scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI12.jpg"  isMain={true} category="GUI"/>
+Here is an example of how to use rotation and scaling: <Playground id="#XCPP9Y#22" title="Rotation and Scaling Example" description="Simple example of rotation and scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI12.webp"  isMain={true} category="GUI"/>
 
 ### Optimization
 
@@ -247,7 +247,7 @@ For complex controls (like the ColorPicker for instance), you can turn on render
 
 Starting with Babylon.js v4.0 the GUI system uses the Invalidate Rect optimization which allows the renderer to only update portions of the texture. If you want to turn it off, you can call `adtTexture.useInvalidateRectOptimization = false`
 
-- <Playground id="#GBNTXK" title="GUI Optimization Example" description="Simple example of GUI optimization." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI13.jpg"/>
+- <Playground id="#GBNTXK" title="GUI Optimization Example" description="Simple example of GUI optimization." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI13.webp"/>
 
 ## Controls
 
@@ -272,7 +272,7 @@ All controls share the following properties:
 | shadowOffsetY (0)        | number  | the offset of the shadow on the y axis                                                                                                                                                                                                                                          |
 | shadowColor (#000)       | string  | the color of the shadow                                                                                                                                                                                                                                                         |
 | isPointerBlocker (false) | boolean | make sure gui events are triggered before the scene events                                                                                                                                                                                                                      |
-| hoverCursor ("")         | string  | the cursor to use when mouse is over the control, need to have isPointerBlocker set to true <Playground id="#XCPP9Y#888" title="HoverCursor Example" description="Simple example using the hoverCursor control." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI14.jpg"/> |
+| hoverCursor ("")         | string  | the cursor to use when mouse is over the control, need to have isPointerBlocker set to true <Playground id="#XCPP9Y#888" title="HoverCursor Example" description="Simple example using the hoverCursor control." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI14.webp"/> |
 | overlapGroup             | number  | The overlapGroup which the control belongs to or undefined to exclude from moving the control to a non overlapping poisition.<Playground id="#BMW0VQ#3" title="OverlapGroup example" description="Simple example using the overlapGroup property of the control." />            |
 | overlapDeltaMultiplier   | number  | The speed of the movement of the control when used with `AdvancedDynamicTexture`'s `moveToNonOverlappedPosition` method. See the playground above.                                                                                                                              |
 
@@ -292,7 +292,7 @@ You can also control the control visibility with `control.isVisible = false`. Wh
 
 ### TextBlock
 
-The TextBlock is a simple control used to display text: <Playground id="#XCPP9Y#2" title="Simple TextBlock Example" description="Simple example of adding a textBlock to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI15.jpg" isMain={true} category="GUI"/>
+The TextBlock is a simple control used to display text: <Playground id="#XCPP9Y#2" title="Simple TextBlock Example" description="Simple example of adding a textBlock to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI15.webp" isMain={true} category="GUI"/>
 
 Here are the properties you can define:
 
@@ -314,7 +314,7 @@ The control currently provides 1 observable:
 | ----------------------- | -------------------------------- |
 | onTextChangedObservable | Raised when the text has changed |
 
-Please note that to get crisp texts you have to ensure that your rendering resolution is aligned with the screen: <Playground id="#2ARI2W#10" title="Crisp Text Resolution Example" description="Simple example showing how to get crisp text by matching the screen resolution." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI16.jpg"/>
+Please note that to get crisp texts you have to ensure that your rendering resolution is aligned with the screen: <Playground id="#2ARI2W#10" title="Crisp Text Resolution Example" description="Simple example showing how to get crisp text by matching the screen resolution." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI16.webp"/>
 
 On this example you can see on line #3 that we force the engine to get the same DPI as the screen.
 Then on lines #10 and #11 we scale the GUI to align with the screen resolution.
@@ -331,7 +331,7 @@ You can configure vertical line spacing between lines in pixels or percentage va
 
 **lineSpacing should be used with textWrapping set to true.**
 
-You can try it here: <Playground id="#44KYLP" title="Simple Line Spacing Example" description="Simple example of line spacing." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI17.jpg"/>
+You can try it here: <Playground id="#44KYLP" title="Simple Line Spacing Example" description="Simple example of line spacing." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI17.webp"/>
 
 ### Resize to Fit
 
@@ -343,7 +343,7 @@ This property allows you to change the text and font of a TextBlock without havi
 
 ## InputText
 
-The InputText is a control used to let users insert text in a single line: <Playground id="#UWS0TS" title="InputText Example" description="Simple example of InputText." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI18.jpg"/>
+The InputText is a control used to let users insert text in a single line: <Playground id="#UWS0TS" title="InputText Example" description="Simple example of InputText." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI18.webp"/>
 
 Here are the properties you can define:
 
@@ -404,9 +404,9 @@ For example, if the handler wants to limit the control to only accept numerical 
 
 Please note that the observable is only triggered by printable keys, that is, keys that can be added to the text, and not by control keys like backspace and enter.
 
-Here's an example showing two inputs, one which only accepts numerical keys and one which has simple dead key support: <Playground id="#I1Y5YT#1" title="Restricted Input Example" description="Simple example of restricting input for specific character types." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI19.jpg"/>
+Here's an example showing two inputs, one which only accepts numerical keys and one which has simple dead key support: <Playground id="#I1Y5YT#1" title="Restricted Input Example" description="Simple example of restricting input for specific character types." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI19.webp"/>
 
-InputText also supports clipboardObservables, here's an example: <Playground id="#UWS0TS#20" title="InputText With ClipboardObservable" description="Simple example showing InputText with a clipboardObservable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI20.jpg"/>
+InputText also supports clipboardObservables, here's an example: <Playground id="#UWS0TS#20" title="InputText With ClipboardObservable" description="Simple example showing InputText with a clipboardObservable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI20.webp"/>
 
 ## InputTextArea
 
@@ -416,7 +416,7 @@ The InputTextArea is a control used to display editable text across multiple lin
 const inputTextArea = new BABYLON.GUI.InputTextArea("input", "Some initial text");
 ```
 
-You can try it here: <Playground id="#NVAEWD#7" title="InputTextArea Example" description="Simple example of InputTextArea." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI49.jpg"/>
+You can try it here: <Playground id="#NVAEWD#7" title="InputTextArea Example" description="Simple example of InputTextArea." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI49.webp"/>
 
 InputTextArea behaves the same as the InputText control but it also has these additional properties:
 
@@ -425,11 +425,11 @@ InputTextArea behaves the same as the InputText control but it also has these ad
 | autoStretchHeight (true) | boolean      | The control will resize vertically to adapt to text size      |
 | maxHeight (100%)         | valueAndUnit | The maximum height allowed if autoStretchWidth is set to true |
 
-Here's an example of an InputTextArea using the additional properties: <Playground id="#NVAEWD#8" title="InputTextArea AutoStretchHeight Example" description="Example of InputTextArea with autoStretchHeight enabled" image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI50.jpg"/>
+Here's an example of an InputTextArea using the additional properties: <Playground id="#NVAEWD#8" title="InputTextArea AutoStretchHeight Example" description="Example of InputTextArea with autoStretchHeight enabled" image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI50.webp"/>
 
 ## InputPassword
 
-The InputPassword is a control that shows the entered characters as bullets and is thus suited for entering passwords: <Playground id="#UB58DY" title="InputPassword Example" description="Simple example showing how to add an InputPassword control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI21.jpg"/>
+The InputPassword is a control that shows the entered characters as bullets and is thus suited for entering passwords: <Playground id="#UB58DY" title="InputPassword Example" description="Simple example showing how to add an InputPassword control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI21.webp"/>
 
 Otherwise it behaves the same as the InputText control and has the same properties as shown above.
 
@@ -449,7 +449,7 @@ There are three kinds of buttons available out of the box:
 const button = BABYLON.GUI.Button.CreateImageButton("but", "Click Me", "textures/grass.png");
 ```
 
-You can try it here: <Playground id="#XCPP9Y#3" title="Button Example" description="Simple example showing how to add a Button control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI22.jpg"  isMain={true} category="GUI"/>
+You can try it here: <Playground id="#XCPP9Y#3" title="Button Example" description="Simple example showing how to add a Button control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI22.webp"  isMain={true} category="GUI"/>
 
 - ImageWithCenterTextButton: An image button made with an image background and a centered text overlay.
 
@@ -457,7 +457,7 @@ You can try it here: <Playground id="#XCPP9Y#3" title="Button Example" descripti
 const button = BABYLON.GUI.Button.CreateImageWithCenterTextButton("but", "Click Me", "textures/grass.png");
 ```
 
-You can try it here: <Playground id="#PLTRBV" title="ImageWithCenterTextButton Example" description="Simple example showing how to add an ImageWithCenterTextButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI23.jpg"/>
+You can try it here: <Playground id="#PLTRBV" title="ImageWithCenterTextButton Example" description="Simple example showing how to add an ImageWithCenterTextButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI23.webp"/>
 
 - SimpleButton: A simple button with text only
 
@@ -465,7 +465,7 @@ You can try it here: <Playground id="#PLTRBV" title="ImageWithCenterTextButton E
 const button = BABYLON.GUI.Button.CreateSimpleButton("but", "Click Me");
 ```
 
-You can try it here: <Playground id="#XCPP9Y#4" title="SimpleButton Example" description="Simple example showing how to add a SimpleButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI24.jpg"/>
+You can try it here: <Playground id="#XCPP9Y#4" title="SimpleButton Example" description="Simple example showing how to add a SimpleButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI24.webp"/>
 
 - ImageOnlyButton:
 
@@ -473,7 +473,7 @@ You can try it here: <Playground id="#XCPP9Y#4" title="SimpleButton Example" des
 const button = BABYLON.GUI.Button.CreateImageOnlyButton("but", "textures/grass.png");
 ```
 
-You can try it here: <Playground id="#XCPP9Y#28" title="ImageOnlyButton Example" description="Simple example showing how to add an ImageOnlyButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI25.jpg"/>
+You can try it here: <Playground id="#XCPP9Y#28" title="ImageOnlyButton Example" description="Simple example showing how to add an ImageOnlyButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI25.webp"/>
 
 Please also note that by default buttons will handle hit testing based on their bounding info. If you want to have embedded controls to handle the picking you can call `button.delegatePickingToChildren = true`
 
@@ -535,7 +535,7 @@ The control is rendered using the following properties:
 | background     | string | black   | Background color                                                                                                                                         |
 | checkSizeRatio | number | 0.8     | Define the ratio used to compute the size of the inner checkbox (0.8 by default, which means the inner check size is equal to 80% of the control itself) |
 
-Here is an example of a checkbox: <Playground id="#U9AC0N#2" title="Checkbox Example" description="Simple example showing how to add a Checkbox control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI26.jpg"/>
+Here is an example of a checkbox: <Playground id="#U9AC0N#2" title="Checkbox Example" description="Simple example showing how to add a Checkbox control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI26.webp"/>
 
 ## RadioButton
 
@@ -553,7 +553,7 @@ The control is rendered using the following properties:
 | checkSizeRatio | number | 0.8          | Define the ratio used to compute the size of the inner checkbox (0.8 by default, which means the inner check size is equal to 80% of the control itself) |
 | group          | string | empty string | Use the group property to gather radio buttons working on the same value set                                                                             |
 
-Here is an example of a radiobutton: <Playground id="#U9AC0N#13" title="RadioButton Example" description="Simple example showing how to add a RadioButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI27.jpg"/>
+Here is an example of a radiobutton: <Playground id="#U9AC0N#13" title="RadioButton Example" description="Simple example showing how to add a RadioButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI27.webp"/>
 
 ## Slider
 
@@ -579,7 +579,7 @@ The control is rendered using the following properties:
 
 When using vertical slider, you have to make sure that height is bigger than width. The opposite has to be true when using `isVertical = false`.
 
-Here is an example of a slider: <Playground id="#U9AC0N#1" title="Slider Example" description="Simple example showing how to add a Slider control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI28.jpg"/>
+Here is an example of a slider: <Playground id="#U9AC0N#1" title="Slider Example" description="Simple example showing how to add a Slider control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI28.webp"/>
 
 ## ImageBasedSlider
 
@@ -598,7 +598,7 @@ It is rendered using the following properties:
 | isThumbClamped  | boolean      | false   | Indicates if the thumb should be clamped                                      |
 | isVertical      | boolean      | false   | Indicates that the slider will be rendered vertically instead of horizontally |
 
-Here is an example of a sliders and image based sliders: <Playground id="#HATGQZ" title="ImageBasedSlider Example" description="Simple example showing how to add a ImageBasedSlider control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI29.jpg"/>
+Here is an example of a sliders and image based sliders: <Playground id="#HATGQZ" title="ImageBasedSlider Example" description="Simple example showing how to add a ImageBasedSlider control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI29.webp"/>
 
 ## Line
 
@@ -615,7 +615,7 @@ Here are the properties you can define:
 | dash      | array of numbers | Empty array | Defines the size of the dashes   |
 | lineWidth | number           | 1           | Width in pixel                   |
 
-Here is an example of a line: <Playground id="#XCPP9Y#6" title="Line Example" description="Simple example showing how to add a Line control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI30.jpg"/>
+Here is an example of a line: <Playground id="#XCPP9Y#6" title="Line Example" description="Simple example showing how to add a Line control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI30.webp"/>
 
 ## MultiLine
 
@@ -644,7 +644,7 @@ Here are the properties you can define in MultiLine:
 | dash      | array of numbers | Empty array | Defines the size of the dashes |
 | lineWidth | number           | 1           | Width in pixel                 |
 
-Here is an example of a MultiLine combining meshes, a control and a point: <Playground id="#H03KNW#2" title="MultiLine Example" description="Simple example showing how to add a MultiLine control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI31.jpg"/>
+Here is an example of a MultiLine combining meshes, a control and a point: <Playground id="#H03KNW#2" title="MultiLine Example" description="Simple example showing how to add a MultiLine control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI31.webp"/>
 
 ## Image
 
@@ -658,7 +658,7 @@ You can control the stretch used by the image with `image.stretch` property. You
 - BABYLON.GUI.Image.STRETCH_FILL: Scale the image to fill the container (This is the default value)
 - BABYLON.GUI.Image.STRETCH_UNIFORM: Scale the image to fill the container but maintain aspect ratio
 - BABYLON.GUI.Image.STRETCH_EXTEND: Scale the container to adapt to the image size.
-- BABYLON.GUI.Image.STRETCH_NINE_PATCH: Scale the image using a [nine patch technique](http://wiresareobsolete.com/2010/06/9-patches/). You have to either define the `sliceLeft`, `sliceRight`, `sliceTop` and `sliceBottom` properties or store data into your image (in the first and last rows and columns) and call `image.populateNinePatchSlicesFromImage = true` to read that data. Demo: <Playground id="#G5H9IN#2" title="Stretch_Nine_Patch Example" description="Simple example showing how to add an Image control with Stretch_Nine_Patch to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI32.jpg"/>
+- BABYLON.GUI.Image.STRETCH_NINE_PATCH: Scale the image using a [nine patch technique](http://wiresareobsolete.com/2010/06/9-patches/). You have to either define the `sliceLeft`, `sliceRight`, `sliceTop` and `sliceBottom` properties or store data into your image (in the first and last rows and columns) and call `image.populateNinePatchSlicesFromImage = true` to read that data. Demo: <Playground id="#G5H9IN#2" title="Stretch_Nine_Patch Example" description="Simple example showing how to add an Image control with Stretch_Nine_Patch to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI32.webp"/>
 
 You may want to have the Image control adapt its size to the source image. To do so just call `image.autoScale = true`.
 
@@ -674,15 +674,15 @@ You can also define which part of the source image you want to use with the foll
 - sourceWidth: width of the source image you want to use (in pixel)
 - sourceHeight: height of the source image you want to use (in pixel)
 
-Here is an example of an image: <Playground id="#XCPP9Y#7" title="Image Example" description="Simple example showing how to add an Image control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI33.jpg"/>
+Here is an example of an image: <Playground id="#XCPP9Y#7" title="Image Example" description="Simple example showing how to add an Image control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI33.webp"/>
 
-You can use animation sheet in the image using properties `image.cellId`, `image.cellWidth`, `image.cellHeight`. <Playground id="#K60448#10" title="Image With Sprite Sheet Example" description="Simple example showing how to add an Image with a sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI34.jpg"/>
+You can use animation sheet in the image using properties `image.cellId`, `image.cellWidth`, `image.cellHeight`. <Playground id="#K60448#10" title="Image With Sprite Sheet Example" description="Simple example showing how to add an Image with a sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI34.webp"/>
 
 You can also apply stretch to animation sheet using `image.stretch` property.
 
-<Playground id="#K60448#1" title="Image With Stretched Sprite Sheet Example 1" description="Simple example showing how to add an Image with a stretched sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI35.jpg"/>
+<Playground id="#K60448#1" title="Image With Stretched Sprite Sheet Example 1" description="Simple example showing how to add an Image with a stretched sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI35.webp"/>
 
-<Playground id="#K60448#2" title="Image With Stretched Sprite Sheet Example 2" description="Simple example showing how to add an Image with a stretched sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI36.jpg"/>
+<Playground id="#K60448#2" title="Image With Stretched Sprite Sheet Example 2" description="Simple example showing how to add an Image with a stretched sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI36.webp"/>
 
 ### Pointer events
 
@@ -698,7 +698,7 @@ Pre-requisite: a valid single layer SVG document with width, height, viewbox def
 
 `onSVGAttributesComputedObservable` will trigger when the sourceLeft, sourceTop, sourceWidth, sourceHeight attributes are automatically computed. You can create custom SVG buttons that are built from multiple SVG assets (glow, text, images etc) for even cleaner code.
 
-Here is an example that uses SVG assets for images and buttons: <Playground id="#E5CARD" title="SVG Asset GUI Example" description="Simple example using SVG assets for gui elements." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI37.jpg"/>
+Here is an example that uses SVG assets for images and buttons: <Playground id="#E5CARD" title="SVG Asset GUI Example" description="Simple example using SVG assets for gui elements." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI37.webp"/>
 
 Known issue: The batch loading process requires the entire SVG icon sheet to be loaded as a HTMLObjectElement in the DOM. On certain browsers, you may notice a quick flash of the icon sheet on the canvas as the assets load. To alleviate this, you may employ [a loading screen](/features/featuresDeepDive/scene/customLoadingScreen).
 
@@ -714,7 +714,7 @@ The control is rendered using the following properties:
 | -------- | ---------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
 | size     | string or number | "200px" | The size, width, and height property will always be the same value since the color picker can only be a square. |
 
-Here is an example of a color picker: <Playground id="#91I2RE#1" title="ColorPicker Example" description="Simple example showing how to add a ColorPicker control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI38.jpg"/>
+Here is an example of a color picker: <Playground id="#91I2RE#1" title="ColorPicker Example" description="Simple example showing how to add a ColorPicker control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI38.webp"/>
 
 ## DisplayGrid
 
@@ -733,7 +733,7 @@ The control is rendered using the following properties:
 | majorLineColor     | string | "White"    | Defines the color of the major lines     |
 | majorLineFrequency | number | 5          | Defines the frequency of major lines     |
 
-Here is an example of a display grid: <Playground id="#747U9T" title="DisplayGrid Example" description="Simple example showing how to add a DisplayGrid control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI39.jpg"/>
+Here is an example of a display grid: <Playground id="#747U9T" title="DisplayGrid Example" description="Simple example showing how to add a DisplayGrid control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI39.webp"/>
 
 ## VirtualKeyboard
 
@@ -804,7 +804,7 @@ addKeysRow([" "], [{ width: "200px" }]);
 
 Every time a key is pressed the `onKeyPressObservable` observable is triggered. But you can also rely on `keyboard.connect(inputText)` to automatically connect a VirtualKeyboard to an InputText. In this case, the keyboard will only appear when the InputText will be focused and all key pressed events will be sent to the InputText.
 
-You can find a complete demo here: <Playground id="#S7L7FE" title="VirtualKeyboard Events Example" description="Simple example showing how to add VirtualKeyboard Events to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI40.jpg"/>
+You can find a complete demo here: <Playground id="#S7L7FE" title="VirtualKeyboard Events Example" description="Simple example showing how to add VirtualKeyboard Events to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI40.webp"/>
 
 ## Containers
 
@@ -823,7 +823,7 @@ You can decide to have your containers to adapt their size to their children by 
 - adaptHeightToChildren (false by default)
 
 If you set one of these properties to true, the associated dimension (width, height or both) will be computed based on direct children size as long as it is defined in pixel (size cannot be defined in percentage because this will generate an infinite loop as the child will need the parent size and the parent will need the child size)
-You can find a demo here: <Playground id="#GL5SIM" title="Adaptative size Example" description="Simple example showing how to use adaptative sizing in your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI41.jpg"/>
+You can find a demo here: <Playground id="#GL5SIM" title="Adaptative size Example" description="Simple example showing how to use adaptative sizing in your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI41.webp"/>
 
 ### Make your controls non-overlapping
 
@@ -847,7 +847,7 @@ container.clipContent = true;
 
 Please note that not clipping children may generate issues with `adt.useInvalidateRectOptimization` so it is recommended to turn this optimization off if you want to use unclipped children.
 
-You can find a demo here: <Playground id="#LBF8S2#38" title="Clipping Example" description="Simple example showing how to use clipping in your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI42.jpg"/>
+You can find a demo here: <Playground id="#LBF8S2#38" title="Clipping Example" description="Simple example showing how to use clipping in your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI42.webp"/>
 
 ### Rectangle
 
@@ -858,7 +858,7 @@ The Rectangle is a rectangular container with the following properties:
 | thickness    | number | 1       | Thickness of the border                                         |
 | cornerRadius | number | 0       | Size in pixel of each corner. Used to create rounded rectangles |
 
-Here is an example of a rectangle control: <Playground id="#XCPP9Y#8" title="Rectangle Example" description="Simple example showing how to add a Rectangle control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI43.jpg"/>
+Here is an example of a rectangle control: <Playground id="#XCPP9Y#8" title="Rectangle Example" description="Simple example showing how to add a Rectangle control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI43.webp"/>
 
 ### Ellipse
 
@@ -869,7 +869,7 @@ The Ellipse is an ellipsoidal container with the following properties:
 | thickness | number | 1       | Thickness of the border                                             |
 | arc       | number | 1       | Used to create arcs. Ranges between 0 and 1 (CW), or 0 and -1 (CCW) |
 
-Here is an example of an ellipse control: <Playground id="#XCPP9Y#10" title="Ellipse Example" description="Simple example showing how to add an Ellipse control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI44.jpg"/>
+Here is an example of an ellipse control: <Playground id="#XCPP9Y#10" title="Ellipse Example" description="Simple example showing how to add an Ellipse control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI44.webp"/>
 
 ### StackPanel
 
@@ -882,7 +882,7 @@ If the panel is vertical, its height will depend on the children, while its widt
 | ---------- | ------- | ------- | ------------------------ |
 | isVertical | boolean | true    | Orientation of the panel |
 
-Here is an example of a StackPanel: <Playground id="#XCPP9Y#11" title="StackPanel Example" description="Simple example showing how to add a StackPanel control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI45.jpg"/>
+Here is an example of a StackPanel: <Playground id="#XCPP9Y#11" title="StackPanel Example" description="Simple example showing how to add a StackPanel control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI45.webp"/>
 
 ### ScrollViewer
 
@@ -952,7 +952,7 @@ You can get the list of controls in a specific cell by calling:
 const controls = grid.getChildrenAt(2, 3);
 ```
 
-Here is an example of a Grid: <Playground id="#KX33X8#1" title="Grid Example" description="Simple example showing how to add a Grid control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI46.jpg"/>
+Here is an example of a Grid: <Playground id="#KX33X8#1" title="Grid Example" description="Simple example showing how to add a Grid control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI46.webp"/>
 
 ## Styles
 
@@ -980,7 +980,7 @@ Here is the lsit of properties supported by styles so far:
 
 Please note that if a control has a style, then the style values are used instead of values directly defined on the control itself.
 
-You can find a demo here: <Playground id="#5N4JIS" title="Styles Example" description="Simple example showing how to add a Styles control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI47.jpg"/>
+You can find a demo here: <Playground id="#5N4JIS" title="Styles Example" description="Simple example showing how to add a Styles control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI47.webp"/>
 
 ## Helpers
 
@@ -1011,7 +1011,7 @@ You can also clone the entire ADT by using the same method: <Playground id="#XCP
 
 In order to not apply postprocesses to your GUI, you will have to use a multi-cameras approach: one for your main scene and one for your GUI.
 
-You can find an implementation example here: <Playground id="#U9AC0N#58" title="LayerMask Example" description="Simple example showing how to add a LayerMask control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI48.jpg"/>
+You can find an implementation example here: <Playground id="#U9AC0N#58" title="LayerMask Example" description="Simple example showing how to add a LayerMask control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI48.webp"/>
 
 The key point is to use the camera.layerMask property to isolate your GUI:
 

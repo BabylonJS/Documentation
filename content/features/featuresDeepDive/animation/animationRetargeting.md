@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Animation Retargeting](/img/animationRetargeting/intro.jpg)
+![Animation Retargeting](/img/animationRetargeting/intro.webp)
 
 ## What is animation retargeting?
 
@@ -140,13 +140,13 @@ retargeted.play(true);
 
 This PG shows a concrete example of retargeting:
 
-<Playground id="#K1QFZD#2" image="/img/playgroundsAndNMEs/pg-K1QFZD-1.png" title="Retargeted animation" description="Example of retargeting a hip-hop animation to a character" isMain={true} category="Animation"/>
+<Playground id="#K1QFZD#2" image="/img/playgroundsAndNMEs/pg-K1QFZD-1.webp" title="Retargeted animation" description="Example of retargeting a hip-hop animation to a character" isMain={true} category="Animation"/>
 
 ## The Animation Retargeting Tool
 
-![Animation Retargeting Tool](/img/animationRetargeting/tool.jpg)
+![Animation Retargeting Tool](/img/animationRetargeting/tool.webp)
 
-Link to the tool: <Playground id="#RJQC3F#15" image="/img/playgroundsAndNMEs/pg-RJQC3F-9.png" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true} category="Animation"/>
+Link to the tool: <Playground id="#RJQC3F#15" image="/img/playgroundsAndNMEs/pg-RJQC3F-9.webp" title="Animation Retargeting Tool" description="Tool to help retarget animations to characters" isMain={true} category="Animation"/>
 
 The Animation Retargeting Tool is an interactive playground that lets you experiment with retargeting without writing any code. The scene is split into two viewports: the left half shows the **avatar** (the target character that will be animated), and the right half shows the **reference skeleton** derived from the source animation file. A panel on the right side of the screen groups all the controls.
 
@@ -160,7 +160,7 @@ The following options affect how the mesh is loaded and displayed:
 
   | Update rest pose **enabled** | Update rest pose **disabled** |
   |---|---|
-  | ![Dude with update rest pose enabled](/img/animationRetargeting/updateRestPose_enabled.jpg!400) | ![Dude with update rest pose disabled](/img/animationRetargeting/updateRestPose_disabled.jpg!400) |
+  | ![Dude with update rest pose enabled](/img/animationRetargeting/updateRestPose_enabled.webp!400) | ![Dude with update rest pose disabled](/img/animationRetargeting/updateRestPose_disabled.webp!400) |
   | ![Walking animation, update rest pose enabled](/img/animationRetargeting/updateRestPose_enabled_walk.webp!400) | ![Walking animation, update rest pose disabled](/img/animationRetargeting/updateRestPose_disabled_walk.webp!400) |
 
 - **Rescale** — when enabled, the character is scaled down to fit the viewport if it is larger than a reference size. Useful for assets that use real-world units.
@@ -173,7 +173,7 @@ The following options affect how the mesh is loaded and displayed:
 
 The **Avatar Gizmo** section lets you manually adjust bone transforms in the rest pose to fine-tune the reference pose before retargeting. Enable the gizmo with the **Enabled** checkbox (only available while the avatar is in rest pose), then click on a bone in the left viewport to select it. The selected bone is highlighted with a red sphere. Use the **Type** dropdown to switch between Position, Rotation, and Scale gizmos. The read-only **Selected node** field shows the name of the currently selected bone.
 
-![Avatar Gizmo with skeleton and selected bone](/img/animationRetargeting/avatarGizmo.jpg)
+![Avatar Gizmo with skeleton and selected bone](/img/animationRetargeting/avatarGizmo.webp)
 
 ### Loading an animation
 

@@ -35,7 +35,7 @@ Once these properties are configured, the physics is not preview-able in the Edi
 
 In the following example, the box and ground already have an impostor set to `BoxImpostor` where the box has a mass of 1 and the ground has a mass of 0 (to stay static).
 
-![SettingPhysics](/img/extensions/Editor/UsingPhysics/setting_physics.gif)
+![SettingPhysics](/img/extensions/Editor/UsingPhysics/setting_physics.webp)
 
 ## Changing gravity
 When selecting the scene in the scene graph, there are 2 editable gravity properties:
@@ -44,12 +44,12 @@ When selecting the scene in the scene graph, there are 2 editable gravity proper
 
 According to the wanted effect, both gravity values can be distinct. In the `Physics` folder of the scene inspector the gravity applied by the physics engine can be customized:
 
-![SettingGravity](/img/extensions/Editor/UsingPhysics/setting_gravity.gif)
+![SettingGravity](/img/extensions/Editor/UsingPhysics/setting_gravity.webp)
 
 ## Choosing physics engine
 Using the inspector, the scene's properties allow to change the physics engine that should be used by the project. By default, `CannonJS` is used and can be replaced by OimoJS and AmmoJS. Changing the physics engine can be done without having to reset or redefine the impostors already existing.
 
-![SettingEngine](/img/extensions/Editor/UsingPhysics/setting_engine.gif)
+![SettingEngine](/img/extensions/Editor/UsingPhysics/setting_engine.webp)
 
 Once desired physics engine is selected, the project must be updated as well. In fact, by default the project templates are using `CannonJS` where the library is imported in the `index.html` file. In case of using `OimoJS` for example, this import must be replaced by the one that imports `OimoJS`. The default template looks like:
 

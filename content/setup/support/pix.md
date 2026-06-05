@@ -12,9 +12,9 @@ video-content:
 
 [PIX](https://devblogs.microsoft.com/pix/) is a performance tuning and debugging tool from Microsoft for DirectX-based applications on Windows. It allows you to capture and analyze GPU workloads, inspect draw calls, profile frame timing, and debug shaders. When used with Babylon.js running on a WebGPU-enabled browser such as Chrome, PIX provides deep visibility into the rendering pipeline, helping you identify performance bottlenecks, verify that GPU resources are being used efficiently, and diagnose visual artifacts at the API level.
 
-![Babylon.js PIX 0](/img/pix/pix-ui-0.png)
+![Babylon.js PIX 0](/img/pix/pix-ui-0.webp)
 
-![Babylon.js PIX 1](/img/pix/pix-ui-1.png)
+![Babylon.js PIX 1](/img/pix/pix-ui-1.webp)
 
 ## Prerequisites
 
@@ -32,25 +32,25 @@ https://www.nuget.org/packages/WinPixEventRuntime
 
 Enable developer settings in the NVIDIA Control Panel:
 
-![NVIDIA Control Panel](/img/pix/pix-nvcp-0.png)
+![NVIDIA Control Panel](/img/pix/pix-nvcp-0.webp)
 
 Allow access to GPU counters:
 
-![NVIDIA Control Panel](/img/pix/pix-nvcp-1.png)
+![NVIDIA Control Panel](/img/pix/pix-nvcp-1.webp)
 
 Enable Developer Mode in Windows Settings:
 
-![Windows Settings](/img/pix/pix-win-settings.png)
+![Windows Settings](/img/pix/pix-win-settings.webp)
 
 ## Launching the Process
 
 Launch PIX with **administrator privileges** (right-click and select "Run as administrator"). This is required for PIX to access GPU hardware counters and inject into the Chrome GPU process.
 
-![PIX As Administrator](/img/pix/pix-as-admin.png)
+![PIX As Administrator](/img/pix/pix-as-admin.webp)
 
 In PIX, select **Launch Process** from the home screen and configure it with the following settings:
 
-![PIX Launch Process](/img/pix/pix-launch-process.png)
+![PIX Launch Process](/img/pix/pix-launch-process.webp)
 
 **Executable Path:** `<Chrome Installation Directory>/chrome.exe`
 
@@ -76,21 +76,21 @@ In PIX, select **Launch Process** from the home screen and configure it with the
 
 A GPU capture records a single frame of rendering activity, letting you inspect every draw call, resource binding, and pipeline state in detail. After launching Chrome through PIX, click the **GPU Capture** button (camera icon) on the PIX toolbar to capture the current frame. Once the capture completes, PIX opens an analysis view where you can step through each API call, examine textures and buffers at any point in the frame, and debug shaders directly.
 
-![PIX GPU Capture](/img/pix/pix-gpu-capture.png)
+![PIX GPU Capture](/img/pix/pix-gpu-capture.webp)
 
 ## Timing Capture
 
 A timing capture profiles GPU and CPU activity over a span of multiple frames, giving you a timeline view of how work is distributed. Unlike a GPU capture, a timing capture requires you to manually attach to the correct Chrome process. Launch the process as described above, then use **Attach to Process**:
 
-![PIX Timing Capture Configuration Windows](/img/pix/pix-timing-capture.png)
+![PIX Timing Capture Configuration Windows](/img/pix/pix-timing-capture.webp)
 
 Select the Chrome process whose command line contains `--type=gpu-process`.
 
-![PIX Attach To Process Dialog](/img/pix/pix-attach.png)
+![PIX Attach To Process Dialog](/img/pix/pix-attach.webp)
 
 Once attached, click the **Timing Capture** button (stopwatch icon) on the PIX toolbar to begin recording, let the scene run for the desired duration, then click the button again to stop. The resulting timeline shows GPU queue utilization, command list execution, and hardware counter data, making it straightforward to identify bottlenecks such as GPU-bound passes, excessive state changes, or pipeline stalls.
 
-![PIX Toolbar With Timing Capture](/img/pix/pix-start-capture.png)
+![PIX Toolbar With Timing Capture](/img/pix/pix-start-capture.webp)
 
 ## Additional Resources
 

@@ -16,7 +16,7 @@ the currently browsed folder.
 
 Each time a file has been added, its thumbnail will be computed if its type is recognized and supported.
 
-![AddingFiles](/img/extensions/Editor/AddingFiles/adding-files.gif)
+![AddingFiles](/img/extensions/Editor/AddingFiles/adding-files.webp)
 
 ## Supported meshes formats
 * .babylon

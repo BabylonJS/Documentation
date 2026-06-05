@@ -28,6 +28,6 @@ In your browser address bar add **/example.html/** to end of the url address to 
 
 ### Description
 
-![Basic Web project](/img/quickstart/basicproj.png)
+![Basic Web project](/img/quickstart/basicproj.webp)
 
 The _index.html_ only uses babylon.js whereas _example.html_ uses the loader and gui files in addition.

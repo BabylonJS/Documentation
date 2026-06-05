@@ -1,6 +1,6 @@
 ---
 title: Babylon.js Features
-image: /img/defaultImage.png
+image: /img/defaultImage.webp
 description: Learn all about the breadth and depth of features that come with Babylon.js
 keywords: features, feature, capabilities, engine
 further-reading:

@@ -12,7 +12,7 @@ video-content:
 
 How do you achieve a good and appropriately realistic environment for your game or app? We will start off with simple scene `clearColor` (background color), then talk briefly about scene `ambientColor`, then on to 6-texture skyboxes, and then fog to give an illusion of depth to your scenes.
 
-![Environment](/img/how_to/13.JPG)
+![Environment](/img/how_to/13.webp)
 
 _A picture showing Babylon.js fog in action_
 
@@ -93,7 +93,7 @@ scene.fogColor = new BABYLON.Color3(0.9, 0.9, 0.85);
 
 See, we told you it was easy.
 
-If you want to see and play with the playground scene for this tutorial, you can check it out here: <Playground id="#7G0IQW" title="Simple Fog Example" description="Simple example of how to add fog to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro2.jpg" isMain={true} category="Environment"/>
+If you want to see and play with the playground scene for this tutorial, you can check it out here: <Playground id="#7G0IQW" title="Simple Fog Example" description="Simple example of how to add fog to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro2.webp" isMain={true} category="Environment"/>
 
 ### Skybox
 

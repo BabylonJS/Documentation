@@ -28,7 +28,7 @@ The steering will be based on a simplified Ackerman steering system. In the true
 the rotation of the left and right front wheels will be different. For the purposes of this simulation they will
 be taken to be the same.
 
-![Ackerman Steering](/img/samples/ackerman.jpg)
+![Ackerman Steering](/img/samples/ackerman.webp)
 
 The front wheel pivots and the rear wheel supports form a rectangle with a distance L between the front and rear and a distance A
 between the two front wheels. When the front inside wheel is turned through an angle of theta the centre of rotation is where the
@@ -74,7 +74,7 @@ r * psiFO =  D\*sqrt((R + A)\*(R + A) + L\*L) and so psiFO = D\*sqrt((R + A)\*(R
 At any point when the front wheels are turned the centre of rotation and the turning radius R need to be recalculated.
 The following diagram indicates the procedure.
 
-![Centre of Rotation](/img/samples/car3.jpg)
+![Centre of Rotation](/img/samples/car3.webp)
 
 ## Applying the Calculations
 

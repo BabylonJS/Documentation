@@ -18,7 +18,7 @@ Emissive meshes are equivalent to self lit meshes. Both the emissive color and t
 
 But how could we easily make the glow around those self lit areas ?
 
-![illustration](/img/how_to/glow-layer/introduction.jpg)
+![illustration](/img/how_to/glow-layer/introduction.webp)
 
 ## How to use ?
 

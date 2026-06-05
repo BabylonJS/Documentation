@@ -34,7 +34,7 @@ const ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("gdhm", url_to_heig
 
 The following image is used for the height map in the first examples
 
-![height map](/img/how_to/HeightMap/heightMap.png)  
+![height map](/img/how_to/HeightMap/heightMap.webp)  
 Low subdivisions: <Playground id="#LQ4LI1" title="Create Ground From A HeightMap - Low Subdivisions" description="Simple example of creating ground from a heightmap with low subdivision."/>
 High subdivisions: <Playground id="#LQ4LI1#1" title="Create Ground From A HeightMap - High Subdivisions" description="Simple example of creating ground from a heightmap with high subdivision."/>
 
