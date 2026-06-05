@@ -163,7 +163,7 @@ const getBabylonLiteRelativeMarkdownFiles = async () => {
 };
 
 const createPlaceholderPageData = (): IDocumentationPageProps => {
-    const content = "Babylon Lite documentation is being prepared. This temporary page keeps the Lite documentation area, menu, search, and GitHub link separated while the real documentation is authored.";
+    const content = "Babylon Lite documentation is coming on June 17. Please check back then.";
     return {
         id: ["lite"],
         breadcrumbs: [
@@ -174,7 +174,7 @@ const createPlaceholderPageData = (): IDocumentationPageProps => {
         ],
         metadata: {
             title: docsFlavors.lite.label,
-            description: "Temporary placeholder for Babylon Lite documentation.",
+            description: "Babylon Lite documentation is coming on June 17.",
             keywords: "babylon lite, documentation",
             imageUrl: "",
             robots: "noindex, nofollow",

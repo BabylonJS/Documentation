@@ -19,14 +19,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             props: {
                 id,
                 cssArray: [],
-                contentNode: `<div class="col-content"><h1>${docsFlavor.label} API</h1><p>Babylon Lite API documentation will appear here once the Babylon Lite repository is public.</p></div>`,
+                contentNode: `<div class="col-content"><h1>${docsFlavor.label} API</h1><p>Babylon Lite API documentation is coming on June 17. Please check back then.</p></div>`,
                 breadcrumbs: [
                     { name: docsFlavor.label, url: docsFlavor.basePath },
                     { name: "API", url: docsFlavor.apiPath },
                 ],
                 metadata: {
                     title: `${docsFlavor.label} API`,
-                    description: "Temporary placeholder for Babylon Lite API documentation.",
+                    description: "Babylon Lite API documentation is coming on June 17.",
                     keywords: "babylon lite, api, typedoc",
                     imageUrl: "",
                     robots: "noindex, nofollow",
