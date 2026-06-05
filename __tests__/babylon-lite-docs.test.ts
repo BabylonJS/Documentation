@@ -22,6 +22,15 @@ afterEach(() => {
 describe("Babylon Lite documentation integration", () => {
     it("builds a flavor-scoped content graph from a Lite docs root", () => {
         writeFixture(
+            "00-start.md",
+            `---
+title: Start Here
+description: Start with Babylon Lite.
+---
+# Start Here
+`,
+        );
+        writeFixture(
             "porting-guide.md",
             `---
 title: Porting Guide
@@ -44,15 +53,15 @@ See the render loop.
         const documentationItems = createDocumentationSearchIndex(graph, "lite");
         const playgroundItems = createPlaygroundSearchIndex(graph, "lite");
 
-        expect(graph.pages.map((page) => page.route)).toEqual(["/lite/architecture/00-overview", "/lite"]);
-        expect(graph.pagesByRoute["/lite"].metadata.title).toBe("Porting Guide");
-        expect(graph.pagesByRoute["/lite"].previousId).toEqual(["lite", "architecture", "00-overview"]);
-        expect(documentationItems.map((item) => item.flavor)).toEqual(["lite", "lite"]);
+        expect(graph.pages.map((page) => page.route)).toEqual(["/lite", "/lite/architecture/00-overview", "/lite/porting-guide"]);
+        expect(graph.pagesByRoute["/lite"].metadata.title).toBe("Start Here");
+        expect(graph.pagesByRoute["/lite"].nextId).toEqual(["lite", "architecture", "00-overview"]);
+        expect(documentationItems.map((item) => item.flavor)).toEqual(["lite", "lite", "lite"]);
         expect(playgroundItems).toEqual([
             expect.objectContaining({
                 flavor: "lite",
                 playgroundId: "ABC#1",
-                documentationPage: "/lite",
+                documentationPage: "/lite/porting-guide",
             }),
         ]);
     });

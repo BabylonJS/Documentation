@@ -59,9 +59,20 @@ const getMarkdownFiles = (directory: string, files: string[] = []): string[] => 
 
 const idsFromRelativeFile = (relativeFile: string) => relativeFile.replace(/\.md$/, "").split("/");
 
-const routeIdFromRelativeFile = (relativeFile: string) => {
+const getLandingRelativeFile = (relativeFiles: string[]) => relativeFiles.find((relativeFile) => !relativeFile.includes("/")) ?? relativeFiles[0];
+
+const withLandingRelativeFileFirst = (relativeFiles: string[]) => {
+    const landingRelativeFile = getLandingRelativeFile(relativeFiles);
+    return landingRelativeFile ? [landingRelativeFile, ...relativeFiles.filter((relativeFile) => relativeFile !== landingRelativeFile)] : relativeFiles;
+};
+
+const routeIdFromRelativeFile = (relativeFile: string, landingRelativeFile?: string) => {
+    if (relativeFile === landingRelativeFile) {
+        return ["lite"];
+    }
+
     const ids = idsFromRelativeFile(relativeFile);
-    return ids[0] === "porting-guide" ? ["lite"] : ["lite", ...ids];
+    return ["lite", ...ids];
 };
 
 const relativeFileFromIds = (ids: string[]) => `${ids.join("/")}.md`;
@@ -193,8 +204,10 @@ const createPlaceholderPageData = (): IDocumentationPageProps => {
 };
 
 export const getBabylonLiteDocPaths = async () => {
-    const paths = (await getBabylonLiteRelativeMarkdownFiles()).map((relativeFile) => ({ params: { id: ["lite", ...idsFromRelativeFile(relativeFile)] } }));
-    return [{ params: { id: ["lite"] } }, ...paths];
+    const relativeFiles = await getBabylonLiteRelativeMarkdownFiles();
+    const landingRelativeFile = getLandingRelativeFile(relativeFiles);
+    const paths = withLandingRelativeFileFirst(relativeFiles).map((relativeFile) => ({ params: { id: routeIdFromRelativeFile(relativeFile, landingRelativeFile) } }));
+    return paths.length ? paths : [{ params: { id: ["lite"] } }];
 };
 
 export const getBabylonLiteMenuItems = async (): Promise<IMenuItem[] | undefined> => {
@@ -202,6 +215,8 @@ export const getBabylonLiteMenuItems = async (): Promise<IMenuItem[] | undefined
     if (!relativeFiles.length) {
         return undefined;
     }
+    const landingRelativeFile = getLandingRelativeFile(relativeFiles);
+    const orderedRelativeFiles = withLandingRelativeFileFirst(relativeFiles);
 
     const rootItems: IMenuItem[] = [];
     const rootItemsByPath = new Map<string, IMenuItem>();
@@ -226,10 +241,10 @@ export const getBabylonLiteMenuItems = async (): Promise<IMenuItem[] | undefined
         return item;
     };
 
-    for (const relativeFile of relativeFiles) {
+    for (const relativeFile of orderedRelativeFiles) {
         const ids = idsFromRelativeFile(relativeFile);
-        const displayIds = ids[0] === "porting-guide" ? ["porting-guide"] : ids;
-        const urlIds = ids[0] === "porting-guide" ? [] : ids;
+        const displayIds = ids;
+        const urlIds = relativeFile === landingRelativeFile ? [] : ids;
 
         displayIds.forEach((part, index) => {
             const pathParts = displayIds.slice(0, index + 1);
@@ -245,10 +260,11 @@ export const getBabylonLiteMenuItems = async (): Promise<IMenuItem[] | undefined
     }
 
     return rootItems.sort((left, right) => {
-        if (left.name === "Porting Guide") {
+        const landingName = titleFromSlug(basename(landingRelativeFile, ".md"));
+        if (left.name === landingName) {
             return -1;
         }
-        if (right.name === "Porting Guide") {
+        if (right.name === landingName) {
             return 1;
         }
         return left.name.localeCompare(right.name);
@@ -262,7 +278,9 @@ export const getBabylonLitePageData = async (id: string[]): Promise<IDocumentati
     }
 
     const liteIds = id.slice(1);
-    const effectiveIds = liteIds.length ? liteIds : ["porting-guide"];
+    const relativeFiles = await getBabylonLiteRelativeMarkdownFiles();
+    const landingRelativeFile = getLandingRelativeFile(relativeFiles);
+    const effectiveIds = liteIds.length ? liteIds : idsFromRelativeFile(landingRelativeFile);
     const relativeFile = relativeFileFromIds(effectiveIds);
     const fullPath = join(docsRoot, relativeFile);
 
@@ -361,16 +379,17 @@ const buildDefaultMetadata = (title: string): MarkdownMetadata => ({
 });
 
 const createBabylonLiteContentGraphFromDocsRoot = (docsRoot: string): ContentGraph => {
-    const files = getMarkdownFiles(docsRoot)
+    const files = withLandingRelativeFileFirst(getMarkdownFiles(docsRoot)
         .map((filePath) => relative(docsRoot, filePath).replace(/\\/g, "/"))
-        .sort();
+        .sort());
+    const landingRelativeFile = getLandingRelativeFile(files);
 
     const pages: ContentGraphPage[] = files.map((relativeFile, index) => {
         const fullPath = join(docsRoot, relativeFile);
         const rawMarkdown = readFileSync(fullPath, "utf-8");
         const { content, frontmatter } = parseMarkdownFrontmatter(rawMarkdown);
         const effectiveIds = idsFromRelativeFile(relativeFile);
-        const id = routeIdFromRelativeFile(relativeFile);
+        const id = routeIdFromRelativeFile(relativeFile, landingRelativeFile);
         const title = getTitleFromContent(content, titleFromSlug(basename(relativeFile, ".md")));
         const metadata = buildDefaultMetadata(title);
         applyFrontmatter(metadata, frontmatter);
@@ -392,8 +411,8 @@ const createBabylonLiteContentGraphFromDocsRoot = (docsRoot: string): ContentGra
                 })),
             ],
             childIds: [],
-            previousId: index > 0 ? routeIdFromRelativeFile(files[index - 1]) : undefined,
-            nextId: index < files.length - 1 ? routeIdFromRelativeFile(files[index + 1]) : undefined,
+            previousId: index > 0 ? routeIdFromRelativeFile(files[index - 1], landingRelativeFile) : undefined,
+            nextId: index < files.length - 1 ? routeIdFromRelativeFile(files[index + 1], landingRelativeFile) : undefined,
             furtherReading: metadata.furtherReading,
             internalLinks: extractInternalLinks(content),
             examples: extractExampleReferences(content),
