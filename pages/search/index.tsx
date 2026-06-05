@@ -9,12 +9,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import { IDocumentSearchResult, IPlaygroundSearchResult, queryIndex } from "../../lib/frontendUtils/searchQuery.utils";
 import { InlineExampleComponent } from "../../components/contentComponents/inlineExample.component";
 import { ExamplesComponent } from "../../components/contentComponents/example.component";
-import { IExampleLink } from "../../lib/content.interfaces";
+import { IExampleLink, IMenuItem } from "../../lib/content.interfaces";
 import { docsFlavors, type DocsFlavorId } from "../../lib/docsFlavors";
 
 import styles from "../documentationPage.module.scss";
 
-export const SearchResults: FunctionComponent<{ flavorId?: DocsFlavorId }> = ({ flavorId = "babylon" }) => {
+export const SearchResults: FunctionComponent<{ flavorId?: DocsFlavorId; flavorMenuItems?: IMenuItem[] }> = ({ flavorId = "babylon", flavorMenuItems }) => {
     const router = useRouter();
     const docsFlavor = docsFlavors[flavorId];
     const query = (router.query.q as string) || (router.query.bjsq as string);
@@ -119,6 +119,7 @@ export const SearchResults: FunctionComponent<{ flavorId?: DocsFlavorId }> = ({ 
                 robots: query || results.length ? "noindex, nofollow" : "index, follow",
             }}
             id={docsFlavor.id === "lite" ? ["lite", "search"] : ["search"]}
+            flavorMenuItems={flavorMenuItems}
         >
             <>
                 {!results.length && !loading && (

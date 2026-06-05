@@ -64,23 +64,13 @@ const cloneRepo = (tmpPath: string, config: TypeDocConfig, version: string): str
     return repoDir;
 };
 
-export const buildTypeDocArtifacts = async (title: string = typedocConfig.title, baseLocation: string = "typedoc", config: TypeDocConfig = typedocConfig, options: BuildTypeDocArtifactsOptions = {}) => {
+const buildTypeDocArtifactsFromRepoDir = async (repoDir: string, title: string, baseLocation: string, config: TypeDocConfig, options: BuildTypeDocArtifactsOptions = {}) => {
     const basePath = getTypeDocBasePath(baseLocation);
     const tmpPath = path.join(process.cwd(), ".temp", baseLocation);
     const basePathResolved = path.resolve(basePath);
 
-    if (options.force || process.env.TYPEDOC_FORCE_REBUILD === "1") {
-        console.log("making sure directory is empty", basePathResolved);
-        rmSync(tmpPath, { recursive: true, force: true });
-    }
-
     if (!existsSync(path.join(basePathResolved, "files", "index.html"))) {
         console.log("generating API docs, patience is required");
-
-        const resolvedVersion = resolveVersion(config);
-        console.log(`Resolved version: ${resolvedVersion}`);
-
-        const repoDir = cloneRepo(tmpPath, config, resolvedVersion);
         const wrapperDir = path.join(tmpPath, "typedoc-wrappers");
         mkdirSync(wrapperDir, { recursive: true });
         const entryPoints: string[] = [];
@@ -166,6 +156,28 @@ export const buildTypeDocArtifacts = async (title: string = typedocConfig.title,
     }
 
     return getTypeDocFiles(baseLocation);
+};
+
+export const buildTypeDocArtifacts = async (title: string = typedocConfig.title, baseLocation: string = "typedoc", config: TypeDocConfig = typedocConfig, options: BuildTypeDocArtifactsOptions = {}) => {
+    const tmpPath = path.join(process.cwd(), ".temp", baseLocation);
+    if (options.force || process.env.TYPEDOC_FORCE_REBUILD === "1") {
+        console.log("making sure directory is empty", path.resolve(getTypeDocBasePath(baseLocation)));
+        rmSync(tmpPath, { recursive: true, force: true });
+    }
+    const resolvedVersion = resolveVersion(config);
+    console.log(`Resolved version: ${resolvedVersion}`);
+    const repoDir = cloneRepo(tmpPath, config, resolvedVersion);
+    return buildTypeDocArtifactsFromRepoDir(repoDir, title, baseLocation, config, options);
+};
+
+export const buildTypeDocArtifactsFromRepository = async (repoDir: string, title: string, baseLocation: string, config: TypeDocConfig, options: BuildTypeDocArtifactsOptions = {}) => {
+    if (options.force || process.env.TYPEDOC_FORCE_REBUILD === "1") {
+        const tmpPath = path.join(process.cwd(), ".temp", baseLocation);
+        console.log("making sure directory is empty", path.resolve(getTypeDocBasePath(baseLocation)));
+        rmSync(tmpPath, { recursive: true, force: true });
+    }
+
+    return buildTypeDocArtifactsFromRepoDir(repoDir, title, baseLocation, config, options);
 };
 
 export const generateTypeDoc = buildTypeDocArtifacts;

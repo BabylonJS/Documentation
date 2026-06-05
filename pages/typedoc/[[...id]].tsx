@@ -3,6 +3,7 @@ import { GetStaticPaths } from "next";
 import { getAPIPageData, getTypeDocStaticPaths } from "../../lib/buildUtils/typedoc.utils";
 import { parseNode } from "../../lib/buildUtils/parser.utils";
 import { MarkdownMetadata } from "../../lib/interfaces";
+import { IMenuItem } from "../../lib/content.interfaces";
 import Layout from "../../components/layout.component";
 import { TypeDocSearch } from "../../components/typedocSearch.component";
 import Head from "next/head";
@@ -21,72 +22,76 @@ export interface ApiPageProps {
         name: string;
         url: string;
     }[];
+    flavorMenuItems?: IMenuItem[];
 }
-export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray = [], metadata, id, breadcrumbs, redirect }) => {
-    if (!contentNode && !redirect) {
-        return <></>;
-    }
-    const ref = useRef<HTMLDivElement>(null);
-    const html = redirect ? "" : parseNode(contentNode).result;
-    const children = html || <></>;
-    const router = useRouter();
-    useEffect(() => {
-        getIcons();
-        if (location.hash) {
-            const el = document.getElementById(location.hash.slice(1));
-            if (el) {
-                el.scrollIntoView();
-            }
+export const createApiPage = (baseLocation: string, routeIdPrefix: string[]) => {
+    const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray = [], metadata, id, breadcrumbs, flavorMenuItems, redirect }) => {
+        if (!contentNode && !redirect) {
+            return <></>;
         }
-    }, []);
-    useEffect(() => {
-        setTimeout(() => updateUseElements());
-        if (location.pathname.endsWith("/")) history.replaceState({}, "ReplaceState", location.href.replace(location.pathname, location.pathname.substring(0, location.pathname.length - 1)));
-        if (redirect) {
-            router.replace(redirect + window.location.hash);
-        } else {
-            const onhashchange = () => {
-                if (location.hash === "") {
-                    document.querySelector(".col-content")?.scrollTo({ behavior: "auto", top: 0, left: 0 });
-                } else {
-                    const el = document.getElementById(location.hash.slice(1));
-                    if (el) {
-                        el.scrollIntoView();
-                    }
+        const ref = useRef<HTMLDivElement>(null);
+        const html = redirect ? "" : parseNode(contentNode, baseLocation).result;
+        const children = html || <></>;
+        const router = useRouter();
+        useEffect(() => {
+            getIcons();
+            if (location.hash) {
+                const el = document.getElementById(location.hash.slice(1));
+                if (el) {
+                    el.scrollIntoView();
                 }
-                if (location.pathname.endsWith("/")) history.replaceState({}, "ReplaceState", location.href.replace(location.pathname, location.pathname.substring(0, location.pathname.length - 1)));
-            };
-            window.addEventListener("hashchange", onhashchange);
-            return () => {
-                window.removeEventListener("hashchange", onhashchange);
-            };
+            }
+        }, []);
+        useEffect(() => {
+            setTimeout(() => updateUseElements());
+            if (location.pathname.endsWith("/")) history.replaceState({}, "ReplaceState", location.href.replace(location.pathname, location.pathname.substring(0, location.pathname.length - 1)));
+            if (redirect) {
+                router.replace(redirect + window.location.hash);
+            } else {
+                const onhashchange = () => {
+                    if (location.hash === "") {
+                        document.querySelector(".col-content")?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+                    } else {
+                        const el = document.getElementById(location.hash.slice(1));
+                        if (el) {
+                            el.scrollIntoView();
+                        }
+                    }
+                    if (location.pathname.endsWith("/")) history.replaceState({}, "ReplaceState", location.href.replace(location.pathname, location.pathname.substring(0, location.pathname.length - 1)));
+                };
+                window.addEventListener("hashchange", onhashchange);
+                return () => {
+                    window.removeEventListener("hashchange", onhashchange);
+                };
+            }
+        }, [id]);
+
+        if (redirect) {
+            return <></>;
         }
-    }, [id]);
 
-    // do not render if redirecting
-
-    if (redirect) {
-        return <></>;
-    }
-
-    return (
-        <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={["typedoc", ...id]}>
-            <Head>
-                {cssArray.map((css, idx) => {
-                    return (
-                        <style key={`css-${idx}`} type="text/css">
-                            {css}
-                        </style>
-                    );
-                })}
-            </Head>
-            <div ref={ref} className="api-container" style={{ position: "relative" }}>
-                <TypeDocSearch baseLocation="typedoc" id={id} />
-                {children}
-            </div>
-        </Layout>
-    );
+        return (
+            <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={[...routeIdPrefix, ...id]} flavorMenuItems={flavorMenuItems}>
+                <Head>
+                    {cssArray.map((css, idx) => {
+                        return (
+                            <style key={`css-${idx}`} type="text/css">
+                                {css}
+                            </style>
+                        );
+                    })}
+                </Head>
+                <div ref={ref} className="api-container" style={{ position: "relative" }}>
+                    <TypeDocSearch baseLocation={baseLocation} id={id} />
+                    {children}
+                </div>
+            </Layout>
+        );
+    };
+    return ApiPage;
 };
+
+export const ApiPage = createApiPage("typedoc", ["typedoc"]);
 
 export default ApiPage;
 
@@ -96,7 +101,7 @@ export interface IAPIParsedUrlQuery extends ParsedUrlQuery {
 
 export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery>*/ = async ({ params }: { params: any }) => {
     const id = params.id?.length ? params.id : ["index"];
-    const content = await getAPIPageData(id);
+    const content = await getAPIPageData(id, "typedoc");
     if (content.redirect) {
         return {
             props: {

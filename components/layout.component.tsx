@@ -29,7 +29,7 @@ const menuStructure = generateMenuStructure();
 
 // TODO default image for documents with no image
 
-export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false }) => {
+export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, flavorMenuItems, disableMetadataAugmentation = false }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
@@ -91,7 +91,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
           };
 
     const docsFlavor = getDocsFlavorFromId(id);
-    const flavorMenuStructure = docsFlavor.menuItems ?? menuStructure;
+    const flavorMenuStructure = flavorMenuItems ?? docsFlavor.menuItems ?? menuStructure;
     const MenuStructure = <SideMenu items={flavorMenuStructure} selected={`/${id.join("/")}`} currentFlavorId={docsFlavor.id}></SideMenu>;
     const indexOfQuery = router.asPath.indexOf("?");
     const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : indexOfQuery !== -1 ? router.asPath.substring(0, indexOfQuery) : router.asPath);
