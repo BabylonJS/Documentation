@@ -1,6 +1,6 @@
 ---
 title: Legacy
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: Babylon.js legacy features
 keywords: legacy, backwards-compatibility
 further-reading:

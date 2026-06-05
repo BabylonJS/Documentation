@@ -72,7 +72,7 @@ video-content:
 
 Creating shaders can be a very dense and complicated process, often requiring knowledge of glsl and a strong understanding of how shaders work. Starting with Babylon.js 4.1, the Node Material Editor was introduced. This amazing tool is a visual editor allowing you to connect blocks together to make shaders. It's really that simple. 
 
-<img src="/img/how_to/Materials/nme1.jpg" title="Babylon.js Node Material Editor"/>
+<img src="/img/how_to/Materials/nme1.webp" title="Babylon.js Node Material Editor"/>
 
 You can jump in and play around with it here: <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials."/>
 
@@ -86,4 +86,4 @@ You can also dive into the API that powers it all here: [API documentation.](/ty
 
 A handy pro tip in the Node Material Editor Preview Window is the ability to CTRL+Hover to see the RGB values.
 
-<img src="/img/how_to/Materials/nmeRGBTrick.jpg" title="Babylon.js Node Material Editor"/>
+<img src="/img/how_to/Materials/nmeRGBTrick.webp" title="Babylon.js Node Material Editor"/>

@@ -16,7 +16,7 @@ We are going to add a very simple car that moves through the village.
 
 No matter how simple a car needs wheels and we have to combine the body of the car and the wheels. 
 
-![car model](/img/getstarted/carmodel.png)
+![car model](/img/getstarted/carmodel.webp)
 
 Using merge meshes to combine them would result in the wheels not being able to rotate. Instead we set the body of the car as a parent of each wheel.
 
@@ -30,7 +30,7 @@ Any use of position, scaling and rotation on the parent will also be applied to 
 
 You can vary the values in the following playground to see the effect on the parent and child.
 
-<Playground id="#GMEI6U#1715" title="Understanding Parenting" description="Simple playground to help demonstrate parenting." image="/img/playgroundsAndNMEs/gettingStartedParents.jpg"/>
+<Playground id="#GMEI6U#1715" title="Understanding Parenting" description="Simple playground to help demonstrate parenting." image="/img/playgroundsAndNMEs/gettingStartedParents.webp"/>
 
 Now we are ready to build the car and afterwards to animate it.
 

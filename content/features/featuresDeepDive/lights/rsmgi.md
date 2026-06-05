@@ -9,8 +9,8 @@ video-content:
 ---
 |Without GI|With GI|
 |----------|-------|
-|![Without GI](/img/features/rsmgi/intro2_nogi.jpg!500)|![With GI](/img/features/rsmgi/intro2_gi.jpg!500)|
-|![Without GI](/img/features/rsmgi/intro_nogi.jpg!500)|![With GI](/img/features/rsmgi/intro_gi.jpg!500)|
+|![Without GI](/img/features/rsmgi/intro2_nogi.webp!500)|![With GI](/img/features/rsmgi/intro2_gi.webp!500)|
+|![Without GI](/img/features/rsmgi/intro_nogi.webp!500)|![With GI](/img/features/rsmgi/intro_gi.webp!500)|
 
 ## Introduction
 
@@ -29,7 +29,7 @@ One of the main uses we foresee is in the context of e-commerce, to better ancho
 
 |Without GI|With GI|
 |----------|-------|
-|![Without GI](/img/features/rsmgi/shoe_nogi.jpg!500)|![With GI](/img/features/rsmgi/shoe_gi.jpg!500)|
+|![Without GI](/img/features/rsmgi/shoe_nogi.webp!500)|![With GI](/img/features/rsmgi/shoe_gi.webp!500)|
 
 The differences are subtle, just look at the shoe support and the backdrop (click to enlarge).
 
@@ -46,7 +46,7 @@ For example, the Light Propagation Volumes algorithm, first used in [CryEngine 3
 
 [Uncharted 4](https://advances.realtimerendering.com/s2016/) (scroll down to **"Temporal Antialiasing in Uncharted 4"**, slide 71 in the PPT file) also uses RSM to manage the light projected by the spotlight in certain parts of the game (albeit with Temporal Anti Aliasing, to spread the calculation over several frames):
 
-![Uncharted 4 spotlight](/img/features/rsmgi/uncharted4_rsm.jpg)
+![Uncharted 4 spotlight](/img/features/rsmgi/uncharted4_rsm.webp)
 
 Notice the red light bleeding to the ceiling and statue.
 
@@ -56,7 +56,7 @@ RSM works by rendering the scene from the point of view of light - exactly as we
 
 | Position texture | Normal texture | Flux texture |
 |------------------|----------------|--------------|
-|![Position texture](/img/features/rsmgi/rsm_position.jpg!320)|![Normal texture](/img/features/rsmgi/rsm_normal.jpg!320)|![Flux texture](/img/features/rsmgi/rsm_flux.jpg!320)|
+|![Position texture](/img/features/rsmgi/rsm_position.webp!320)|![Normal texture](/img/features/rsmgi/rsm_normal.webp!320)|![Flux texture](/img/features/rsmgi/rsm_flux.webp!320)|
 
 (the flux texture appears as an ellipse because the light used in the scene is a spotlight)
 
@@ -78,12 +78,12 @@ We could, however, still have many VPLs inside this circle, so another parameter
 
 As we only take a limited number of samples to calculate the GI contribution to a pixel, artifacts will be clearly visible (the images below only show the GI contribution):
 
-|![Shoe](/img/features/rsmgi/shoe_noblur.jpg!500)|![Cornell](/img/features/rsmgi/cornell_noblur.jpg!537x484)|
+|![Shoe](/img/features/rsmgi/shoe_noblur.webp!500)|![Cornell](/img/features/rsmgi/cornell_noblur.webp!537x484)|
 |-|-|
 
 <br/>That's why we've set up a blur pass to deal with these artifacts:
 
-|![Shoe](/img/features/rsmgi/shoe_blur.jpg!500)|![Cornell](/img/features/rsmgi/cornell_blur.jpg!547x487)|
+|![Shoe](/img/features/rsmgi/shoe_blur.webp!500)|![Cornell](/img/features/rsmgi/cornell_blur.webp!547x487)|
 |-|-|
 
 <br/>There are a number of parameters linked to the blur pass, which we'll describe later in the appropriate section.
@@ -142,7 +142,7 @@ The output in this mode can be quite different from when it is deactivated, beca
 
 |useFullTexture = false|useFullTexture = true|
 |-|-|
-|![useFullTexture=false](/img/features/rsmgi/cornell_fulltexture_false.jpg!500)|![useFullTexture=true](/img/features/rsmgi/cornell_fulltexture_true.jpg!500)|
+|![useFullTexture=false](/img/features/rsmgi/cornell_fulltexture_false.webp!500)|![useFullTexture=true](/img/features/rsmgi/cornell_fulltexture_true.webp!500)|
 
 
 
@@ -164,7 +164,7 @@ These are the main properties to set when configuring a GI RSM. `GIRSM.intensity
 
 |radius = 0.2|radius = 0.6|
 |-|-|
-|![radius=0.2](/img/features/rsmgi/radius0_2.jpg!498)|![radius=0.6](/img/features/rsmgi/radius0_6.jpg!498)|
+|![radius=0.2](/img/features/rsmgi/radius0_2.webp!498)|![radius=0.6](/img/features/rsmgi/radius0_6.webp!498)|
 
 <Playground id="#VW8IG3#103" title="radius parameter" description="Changing the radius parameter of GIRSM"/>
 
@@ -180,7 +180,7 @@ For example, here are two images using the `useFullTexture=true` mode, with diff
 
 |edgeArtifact = 0.004|edgeArtifact = 0.420|
 |-|-|
-|![edgeArtifact=0.004](/img/features/rsmgi/edgeArtifact0_004.jpg!497)|![edgeArtifact=0.42](/img/features/rsmgi/edgeArtifact0_42.jpg!497)|
+|![edgeArtifact=0.004](/img/features/rsmgi/edgeArtifact0_004.webp!497)|![edgeArtifact=0.42](/img/features/rsmgi/edgeArtifact0_42.webp!497)|
 
 <Playground id="#VW8IG3#104" title="edgeArtifactCorrection parameter" description="Changing the edgeArtifactCorrection parameter of GIRSM"/>
 
@@ -192,7 +192,7 @@ As we only take a limited number of samples to calculate the GI contribution for
 
 |Final image|GI only|
 |-|-|
-|![Banding final picture](/img/features/rsmgi/banding_full.jpg!496)|![Banding GI only](/img/features/rsmgi/banding_gi.jpg!496)|
+|![Banding final picture](/img/features/rsmgi/banding_full.webp!496)|![Banding GI only](/img/features/rsmgi/banding_gi.webp!496)|
 
 <Playground id="#VW8IG3#105" title="Banding" description="Example of banding"/>
 
@@ -200,7 +200,7 @@ You can trade banding for noise by setting `GIRSM.rotateSample = true`. You'll a
 
 |noiseFactor=6|noiseFactor=500|
 |-|-|
-|![Noise factor too small](/img/features/rsmgi/noise_too_small.jpg!497)|![Noise factor ok](/img/features/rsmgi/noise_ok.jpg!497)|
+|![Noise factor too small](/img/features/rsmgi/noise_too_small.webp!497)|![Noise factor ok](/img/features/rsmgi/noise_ok.webp!497)|
 
 <Playground id="#VW8IG3#106" title="Noise" description="Example of noise"/>
 
@@ -218,7 +218,7 @@ As you can see in [Improving result](#improving-result), we need a blur pass to 
 
 |Without blur|Simple blur|
 |-|-|
-|![No blur](/img/features/rsmgi/cornell_noblur2.jpg!489)|![Simple blur](/img/features/rsmgi/cornell_simpleblur.jpg!489)|
+|![No blur](/img/features/rsmgi/cornell_noblur2.webp!489)|![Simple blur](/img/features/rsmgi/cornell_simpleblur.webp!489)|
 
 What we need is called [bilateral blur](https://en.wikipedia.org/wiki/Bilateral_filter), because it preserves the characteristics of an image. Here, we want to take into account the normal and depth of each pixel to decide whether to blur or not: if the normal or depth from one pixel to another is too different, we won't blur the pixel. This means we need the normal and depth for every pixel in the scene: the geometry buffer renderer is used internally to generate the normal and depth textures.
 
@@ -226,7 +226,7 @@ You can see the difference between a simple blur and a bilateral blur in these i
 
 |Simple blur|Bilateral blur|
 |-|-|
-|![No blur](/img/features/rsmgi/cornell_simpleblur.jpg!489)|![Simple blur](/img/features/rsmgi/cornell_bilateralblur.jpg!489)|
+|![No blur](/img/features/rsmgi/cornell_simpleblur.webp!489)|![Simple blur](/img/features/rsmgi/cornell_bilateralblur.webp!489)|
 
 <br/>Also, it should be noted that if you use the [full texture mode](#full-texture-mode), you may not need the blur pass: you should perform some tests and disable this pass if you don't need it, as you will save performance by doing so.
 
@@ -238,13 +238,13 @@ Values depend on the scale of your scene. For example:
 
 |Normal threshold=0.01|Normal threshold=0.15|
 |-|-|
-|![No blur](/img/features/rsmgi/shoe_normal_01.jpg!500)|![Simple blur](/img/features/rsmgi/shoe_normal_15.jpg!500)|
+|![No blur](/img/features/rsmgi/shoe_normal_01.webp!500)|![Simple blur](/img/features/rsmgi/shoe_normal_15.webp!500)|
 
 <br/>
 
 |Normal threshold=0.35|Normal threshold=0.8|
 |-|-|
-|![No blur](/img/features/rsmgi/shoe_normal_35.jpg!500)|![Simple blur](/img/features/rsmgi/shoe_normal_80.jpg!500)|
+|![No blur](/img/features/rsmgi/shoe_normal_35.webp!500)|![Simple blur](/img/features/rsmgi/shoe_normal_80.webp!500)|
 
 <Playground id="#VW8IG3#107" title="Normal threshold parameter" description="Changing the blurNormalThreshold parameter of GIRSMManager"/>
 
@@ -256,7 +256,7 @@ As you can see, values between 0.15 and 0.35 are correct, but 0.01 is too low (n
 
 |Blur kernel=4|blur kernel=14|
 |-|-|
-|![No blur](/img/features/rsmgi/cornell_blurkernel_4.jpg!500)|![Simple blur](/img/features/rsmgi/cornell_blurkernel_14.jpg!500)|
+|![No blur](/img/features/rsmgi/cornell_blurkernel_4.webp!500)|![Simple blur](/img/features/rsmgi/cornell_blurkernel_14.webp!500)|
 
 <Playground id="#VW8IG3#108" title="blurKernel parameter" description="Changing the blurKernel parameter of GIRSMManager"/>
 
@@ -266,7 +266,7 @@ Try to use the lowest possible value, as higher values mean greater consumption 
 
 |useQualityBlur=false|useQualityBlur=true|
 |-|-|
-|![Without quality blur](/img/features/rsmgi/suzanne_wo_qualityblur.jpg!500)|![With quality blur](/img/features/rsmgi/suzanne_w_qualityblur.jpg!500)|
+|![Without quality blur](/img/features/rsmgi/suzanne_wo_qualityblur.webp!500)|![With quality blur](/img/features/rsmgi/suzanne_w_qualityblur.webp!500)|
 
 Click on the images to enlarge and see the differences (look at the eyes, nose, ear, mouth).
 
@@ -276,7 +276,7 @@ When the GI texture is smaller than the output texture, an upsampling pass is pe
 
 |upsamplingKernel=1|upsamplingKernel=6|
 |-|-|
-|![upsamplingKernel=1](/img/features/rsmgi/suzanne_upsampling_1.jpg!500)|![upsamplingKernel=6](/img/features/rsmgi/suzanne_upsampling_6.jpg!500)|
+|![upsamplingKernel=1](/img/features/rsmgi/suzanne_upsampling_1.webp!500)|![upsamplingKernel=6](/img/features/rsmgi/suzanne_upsampling_6.webp!500)|
 
 Click on the images to enlarge and see the differences.
 
@@ -288,7 +288,7 @@ If `GIRSMManager.fullSizeBlur` is **true**, blur post-processing will be perform
 
 |fullSizeBlur=false|fullSizeBlur=true|
 |-|-|
-|![fullSizeBlur=false](/img/features/rsmgi/cornell_wo_fullsizeblur.jpg!500)|![fullSizeBlur=true](/img/features/rsmgi/cornell_w_fullsizeblur.jpg!500)|
+|![fullSizeBlur=false](/img/features/rsmgi/cornell_wo_fullsizeblur.webp!500)|![fullSizeBlur=true](/img/features/rsmgi/cornell_w_fullsizeblur.webp!500)|
 
 The `upsamplingKernel` parameter has been set to 1 in the first screenshot to better see the difference. In addition, the GI texture is 16 times smaller than the output texture (width and height are 4 times smaller) in both screenshots.
 
@@ -308,8 +308,8 @@ For example, here are two screenshots taken with an RSM texture the size of the 
 
 |RSM size: 1022x927|RSM size: 26x24|
 |-|-|
-|![RSM full](/img/features/rsmgi/rsm_size_big.jpg!500)|![RSM small](/img/features/rsmgi/rsm_size_small.jpg!500)|
-|![RSM full](/img/features/rsmgi/rsm_size_big2.jpg!500)|![RSM small](/img/features/rsmgi/rsm_size_small2.jpg!500)|
+|![RSM full](/img/features/rsmgi/rsm_size_big.webp!500)|![RSM small](/img/features/rsmgi/rsm_size_small.webp!500)|
+|![RSM full](/img/features/rsmgi/rsm_size_big2.webp!500)|![RSM small](/img/features/rsmgi/rsm_size_small2.webp!500)|
 
 <Playground id="#VW8IG3#109" title="RSM size 35x smaller in each dimension" description="RSM size 35x smaller in each dimension"/>
 
@@ -321,11 +321,11 @@ As far as GI texture size is concerned, you won't be able to use such extreme va
 
 |GI size: 1022x927|GI size: 511x463|
 |-|-|
-|![GI full size](/img/features/rsmgi/gi_full_size.jpg!506)|![GI 1/4 size](/img/features/rsmgi/gi_2_size.jpg!506)|
+|![GI full size](/img/features/rsmgi/gi_full_size.webp!506)|![GI 1/4 size](/img/features/rsmgi/gi_2_size.webp!506)|
 
 |GI size: 255x231|GI size: 128x116|
 |-|-|
-|![GI 1/16 size](/img/features/rsmgi/gi_4_size.jpg!506)|![GI 1/64 size](/img/features/rsmgi/gi_8_size.jpg!506)|
+|![GI 1/16 size](/img/features/rsmgi/gi_4_size.webp!506)|![GI 1/64 size](/img/features/rsmgi/gi_8_size.webp!506)|
 
 Blur will help improving the end result (as you could see in the section above), but you still won't be able to use values as low as in the RSM case. In any case, you should try to use the lowest possible values, to limit the GPU time spent to generate the texture.
 

@@ -24,7 +24,7 @@ You can check draw calls by using: [spector.js](https://spector.babylonjs.com/).
 
 Again, the more meshes you have, the more draw calls you'll have. My character mesh, although a "single mesh" in Blender, was split into separate meshes when imported into babylon because I used separate materials for different colors. What I did to reduce this was to use a color palette texture material + UV mapping. This is actually the process I had used for the environment.
 
-![character palette](/img/how_to/create-a-game/characteruv.png)
+![character palette](/img/how_to/create-a-game/characteruv.webp)
 
 ### Environment
 
@@ -77,7 +77,7 @@ this._light = light;
 ```
 
 2. Rather than using the lightSphere to find nearby meshes, I decided to just assign the meshes to lights manually in Blender. What I did was name empties with the name of the lantern plus "lights". Every mesh lit by a lantern would be a child of this empty. (Empties in blender translate to TransformNodes in babylon)
-   ![lanterns in blender](/img/how_to/create-a-game/lanternlights.png)
+   ![lanterns in blender](/img/how_to/create-a-game/lanternlights.webp)
 
 3. \_findNearestMeshes would now push the meshes belonging to the lantern's corresponding light.
 

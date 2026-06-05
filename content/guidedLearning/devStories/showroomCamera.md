@@ -31,7 +31,7 @@ such a subset, I finally reached the biggest question: **how would I
 develop a Babylon Utility so that it could be distributed, and perhaps
 even sold, for use by other people in their own projects?**
 
-![How do I distribute Babylon Utilities?](/img/devStories/showroomCamera/showroom_camera_question.png)
+![How do I distribute Babylon Utilities?](/img/devStories/showroomCamera/showroom_camera_question.webp)
 
 Commercial 3D engines tend to provide commercial solutions to this problem;
 the Unity Asset Store, for example, is Unity's solution. As a fully free
@@ -53,7 +53,7 @@ projects.
     commercial NPM registry that makes it easy to buy and sell access to
     NPM packages hosted there.
 
-![With NPM and PrivJs!](/img/devStories/showroomCamera/showroom_camera_answer.png)
+![With NPM and PrivJs!](/img/devStories/showroomCamera/showroom_camera_answer.webp)
 
 And that's how I created the Showroom Camera, a Babylon Utility that
 adds a specialized camera to serve needs specific to e-commerce scenarios,
@@ -77,7 +77,7 @@ but with a few key differences worth elaborating on.
     following the first six steps from the
     [first section of the _Fruit Fallin_ Dev Story](./fruitFalling#moving-playground-code-into-a-development-repo).
 
-    ![New repo](/img/devStories/showroomCamera/01_new_repo.png)
+    ![New repo](/img/devStories/showroomCamera/01_new_repo.webp)
 
     After that point, I deviated from that Dev Story since I wasn't
     porting over code that was originally in the Playground.
@@ -89,28 +89,28 @@ but with a few key differences worth elaborating on.
     standalone experience, instead of creating an entry point I created
     a class that would contain a demo/test scene.
 
-    ![Showroom Camera Demo](/img/devStories/showroomCamera/02_showroom_camera_demo_file.png)
+    ![Showroom Camera Demo](/img/devStories/showroomCamera/02_showroom_camera_demo_file.webp)
 
 1.  Into this scene, I moved all the code and infrastructure from
     playground.ts and playgroundRunner.ts (doing some light refactoring as I
     went), again with the goal of being able to delete those files since
     they were not a part of my Babylon Utility.
 
-    ![Move Playground-like functionaility to demo scene](/img/devStories/showroomCamera/03_demo_code_port.png)
+    ![Move Playground-like functionaility to demo scene](/img/devStories/showroomCamera/03_demo_code_port.webp)
 
 1.  To finish this process, I changed the exports in index.ts...
 
-    ![index.ts changes](/img/devStories/showroomCamera/04_index_ts_and_deletions.png)
+    ![index.ts changes](/img/devStories/showroomCamera/04_index_ts_and_deletions.webp)
 
 1.  ...and modified the `test_package` to invoke my demo scene instead of
     the deleted playgroundRunner.ts entry point.
 
-    ![test_package changes](/img/devStories/showroomCamera/05_test_package_changes.png)
+    ![test_package changes](/img/devStories/showroomCamera/05_test_package_changes.webp)
 
 1.  Finally, I ran the test app (`npm run dev`) and checked to make sure
     my refactoring hadn't changed any behavior.
 
-    ![Make sure everything looks good](/img/devStories/showroomCamera/06_all_looks_same.png)
+    ![Make sure everything looks good](/img/devStories/showroomCamera/06_all_looks_same.webp)
 
 Again, this setup was simply to get my repo ready to develop a Babylon
 Utility rather than a standalone experience or a Playground port. With
@@ -207,7 +207,7 @@ developers, not just my own shipping vehicles.
 
 1. I added a README.
 
-   ![Add a README](/img/devStories/showroomCamera/07_readme.png)
+   ![Add a README](/img/devStories/showroomCamera/07_readme.webp)
 
    Note that this isn't the README in the root directory of NPM Package
    Template repository; that README won't be published because only the
@@ -221,13 +221,13 @@ developers, not just my own shipping vehicles.
    `ShowroomCamera`, which will presumably already have their own
    dependencies on `@babylonjs/core`, to resolve versions.
 
-   ![Update package.json](/img/devStories/showroomCamera/08_package_json.png)
+   ![Update package.json](/img/devStories/showroomCamera/08_package_json.webp)
 
 1. ```
    npm publish
    ```
 
-   ![Publish to NPM](/img/devStories/showroomCamera/09_npm_published.png!420)
+   ![Publish to NPM](/img/devStories/showroomCamera/09_npm_published.webp!420)
 
 ### Uploading to Sell on PrivJs.com
 
@@ -245,7 +245,7 @@ pleasantly surprised to find the process very easy.
    instructions they provided for publishing an NPM package on their
    registry.
 
-   ![PrivJs instructions](/img/devStories/showroomCamera/10_privjs_instructions.png)
+   ![PrivJs instructions](/img/devStories/showroomCamera/10_privjs_instructions.webp)
 
    Seems simple enough.
 
@@ -253,7 +253,7 @@ pleasantly surprised to find the process very easy.
    [to publish on npmjs.com](#uploading-to-share-on-npmjs.com),
    with the exception that I changed the `publishConfig` a bit.
 
-   ![Update package.json for PrivJs](/img/devStories/showroomCamera/11_package_json_privjs.png)
+   ![Update package.json for PrivJs](/img/devStories/showroomCamera/11_package_json_privjs.webp)
 
    As a side-note, I also had to update my version because I had already
    published on npmjs.com and PrivJs, which is aware of npmjs.com,
@@ -263,7 +263,7 @@ pleasantly surprised to find the process very easy.
    npm login --registry https://r.privjs.com
    ```
 
-   ![PrivJs login](/img/devStories/showroomCamera/12_privjs_login.png)
+   ![PrivJs login](/img/devStories/showroomCamera/12_privjs_login.webp)
 
 1. ```
    npm publish
@@ -273,7 +273,7 @@ pleasantly surprised to find the process very easy.
    setting prices, so it's unclear whether I'm ever going to make a
    profit on this.
 
-   ![PrivJs listing](/img/devStories/showroomCamera/13_privjs_listing.png)
+   ![PrivJs listing](/img/devStories/showroomCamera/13_privjs_listing.webp)
 
 Boom! Soup.
 

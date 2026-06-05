@@ -14,7 +14,7 @@ BABYLON.EdgesRenderer is a tool used to render edges on top of a mesh. Edges are
 
 ## How to use it
 
-![Edge Renderer](/img/edgesRenderer.jpg)
+![Edge Renderer](/img/edgesRenderer.webp)
 
 You can enable edges rendering like this:
 
@@ -55,16 +55,16 @@ PG: <Playground id="#7BY3TM" title="Edge Rendering Example 2" description="Simpl
 
 The EdgesRenderer is the last component of a [rendering group](/features/featuresDeepDive/materials/advanced/transparent_rendering#rendering-groups) to be rendered, which can effect rendering when there are transparent meshes other than the one using the renderer. See this scene for an example:
 
-![Edges rendering over transparent object](/img/features/edgesRenderer/edgesRenderer1.png)
+![Edges rendering over transparent object](/img/features/edgesRenderer/edgesRenderer1.webp)
 
 <Playground id="#TYAHX#282" title="Edge renderer and Transparent Meshes" description="Shows the interaction between an edge renderer in an object and another, transparent, object."/>
 
 You may notice that both the back box and the ground's edges renderers are rendering on top of the front, partially transparent mesh. That happens because the edges rendering happen after all other steps in the scene, even after the transparent (alpha blended) meshes are rendered. For more information on the rendering order of meshes, check the [Transparent Rendering](features/featuresDeepDive/materials/advanced/transparent_rendering#rendering-order) page. There are two possible solutions to this. One is to set the transparent objects' rendering group id to a higher value than the meshes with the edges renderer:
 
-![Solution 1](/img/features/edgesRenderer/edgesRenderer2.png)
+![Solution 1](/img/features/edgesRenderer/edgesRenderer2.webp)
 
 And another is to set `forceDepthWrite = true` on the transparent material:
 
-![Solution 2](/img/features/edgesRenderer/edgesRenderer3.png)
+![Solution 2](/img/features/edgesRenderer/edgesRenderer3.webp)
 
 Note that in this case, the edges renderer won't show up behind the transparent mesh.

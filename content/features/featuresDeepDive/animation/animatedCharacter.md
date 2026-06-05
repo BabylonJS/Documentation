@@ -32,7 +32,7 @@ The first step is to create a character (a low poly character in this example). 
 
 <Youtube id="E5HnnGcGvmc"/>
 
-![Create Character in Blender](/img/how_to/animatedCharact/createCharact.jpg)
+![Create Character in Blender](/img/how_to/animatedCharact/createCharact.webp)
 
 Once done with the creation of the model, the next step is to bring it to life by adding animations. The easy way to animate a character is with [**Mixamo**](https://www.mixamo.com). Grant Abbit goes over it in details in this video.
 
@@ -43,11 +43,11 @@ It involves going through the following:
 - In Blender, export the model as an .FBX file and upload it on Mixamo
 - In Mixamo, start with auto-rigging the model: after mapping key points of the model (e.g. chin, wrist, elbows etc… ), a rigging algorithm creates the skeleton onto which the animations will be applied
 
-![Rig Character in Mixamo](/img/how_to/animatedCharact/rigCharact.jpg)
+![Rig Character in Mixamo](/img/how_to/animatedCharact/rigCharact.webp)
 
 - Then pick an animation, "Walk" for instance, and download the result as a .FBX file
 
-![Anim Character in Mixamo](/img/how_to/animatedCharact/animCharact.jpg)
+![Anim Character in Mixamo](/img/how_to/animatedCharact/animCharact.webp)
 
 ## Add and combine several animations into a character
 
@@ -61,7 +61,7 @@ It involves importing all the FBX files into an empty Blender project making sur
 
 The result is exported as a .GLB file and the animation information can be seen by drag and dropping the file in the [**Sandbox**](https://sandbox.babylonjs.com/) as Animation Groups (the .GLB file example is available [**here**](https://assets.babylonjs.com/meshes/HVGirl.glb)).
 
-![View Character in Sandbox](/img/how_to/animatedCharact/viewCharact.jpg)
+![View Character in Sandbox](/img/how_to/animatedCharact/viewCharact.webp)
 
 ## Control the movement of the animated character with the keyboard
 
@@ -88,11 +88,11 @@ BABYLON.ImportMeshAsync("https://assets.babylonjs.com/meshes/HVGirl.glb", scene)
 });
 ```
 
-<Playground id="#Z6SWJU#1144" title="Load Model and Play Animation Group" description="Simple example of loading a gltf/glb asset and playing the animation groups tha come with it." image="/img/playgroundsAndNMEs/divingDeeperAnimatedCharacter1.jpg" isMain={true} category="Animation"/>
+<Playground id="#Z6SWJU#1144" title="Load Model and Play Animation Group" description="Simple example of loading a gltf/glb asset and playing the animation groups tha come with it." image="/img/playgroundsAndNMEs/divingDeeperAnimatedCharacter1.webp" isMain={true} category="Animation"/>
 
 The names of the AnimationGroups can be found in the Sandbox via the Inspector, by loading the model and selecting the Animation Group in the Scene Explorer.
 
-![View animation info](/img/how_to/animatedCharact/viewAnim.jpg)
+![View animation info](/img/how_to/animatedCharact/viewAnim.webp)
 
 By default the animationGroups[0] is played when loading a model with an animation Group. To stop it:
 
@@ -163,7 +163,7 @@ if (keydown) {
 }
 ```
 
-<Playground id="#AHQEIB#17" title="Load a Character with Keyboard Control" description="Load a character and control it's animations with the keyboard." image="/img/playgroundsAndNMEs/divingDeeperAnimatedCharacter2.jpg"/>
+<Playground id="#AHQEIB#17" title="Load a Character with Keyboard Control" description="Load a character and control it's animations with the keyboard." image="/img/playgroundsAndNMEs/divingDeeperAnimatedCharacter2.webp"/>
 
 This simple example can be enhanced:
 

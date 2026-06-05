@@ -1,6 +1,6 @@
 ---
 title: Available Node Material Blocks
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: The Node Material is a simple, highly customizable material that you can build yourself piece by piece. Combined with the powerful node-based editor, you can easily create stunning custom GPU shaders and FX for your Babylon.js scenes.
 keywords: shaders, glsl, node editor, graphics, GPU program, material, NME, Node Material, Node Material Editor
 further-reading:

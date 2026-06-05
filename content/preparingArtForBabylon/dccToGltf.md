@@ -25,19 +25,19 @@ To start, choose File > Export > glTF 2.0 (.glb/.gltf) to open the export option
 ### Format
 Once you have the export window open, choose the export format from the format drop down. You can include a text string for copyright as well as a checkbox to save the export settings for the next time you export your asset.
 
-![Blender glTF Exporter - Format](/img/assetPipeline/dccToGltf/blender_0008_format.png) 
+![Blender glTF Exporter - Format](/img/assetPipeline/dccToGltf/blender_0008_format.webp) 
 
 ### Include
 The first set of Include options allow you to control what parts of your scene will be exported based on what is selected, what is visible, what is renderable, or what is in the active collection. You can also use combinations of options to drill down further. For example, you could choose to export only visible, selected objects in the active collection and ignore anything that does not meet those requirements.
 
 The second set of Include options enable export of scene custom properties, cameras, or punctual lights. These options will add some scene-level elements to the export outside the standard mesh, materials, and textures. Some of these options will require extensions to the glTF 2.0 core specification, but if the option is checked the exported .glTF file will include any needed references.
 
-![Blender glTF Exporter - Include](/img/assetPipeline/dccToGltf/blender_0007_include.png) 
+![Blender glTF Exporter - Include](/img/assetPipeline/dccToGltf/blender_0007_include.webp) 
 
 ### Transform
 The options for transform are the simplest to understand. The glTF specification defines +Y as up in the scene coordinate system. Blender’s coordinate system defines +Z as up, which would result in your asset being in an incorrect orientation when rendered. Checking this option will automatically convert the Blender coordinate system to match the glTF coordinate system and keep your asset in the same orientation as it was authored.
 
-![Blender glTF Exporter - Transform](/img/assetPipeline/dccToGltf/blender_0006_transform.png) 
+![Blender glTF Exporter - Transform](/img/assetPipeline/dccToGltf/blender_0006_transform.webp) 
 
 ### Geometry
 The Geometry options in Blender give you some control over what is written into the .glTF file. You may want to enable or disable these options to control the size of the glTF file or to pass specific data from Blender to the renderer to control the asset's render at runtime. A good example of this is tangent data. There are times when you may want to include tangent data for specific shaders or if your tangents are authored in a particular way. If this data is present in the file the renderer won't calculate it at runtime. On the other hand, if you don’t mind the renderer calculating the tangent data at runtime, excluding tangent data from the export will make the resulting .glTF file smaller.
@@ -57,12 +57,12 @@ Materials can be exported as you normally would or not at all. There is also a t
 #### Images
 Images can be exported either automatically, matching image format - .png or .jpg - of the original file. You can also override the original image format to save all images without an alpha channel as .jpg files. Usually, a .jpg file will be smaller than a .png file due to the compression used. However, the .jpg compression will cause problems if you are using a channel-packed image - for example an image with AO in the R channel, Roughness in the G channel, and Metallic in the B channel. The lossy compression of JPEG will quantize pixel values across all three channels which will result in pixel values from your individual packed textures being changed based on the pixel values of the other channels. In the case of channel-packed textures, you will want to make sure export .png files since that compression scheme isn’t lossy and does not compress data across channels. 
 
-![Blender glTF Exporter - Geometry](/img/assetPipeline/dccToGltf/blender_0005_geometry.png) 
+![Blender glTF Exporter - Geometry](/img/assetPipeline/dccToGltf/blender_0005_geometry.webp) 
 
 #### Compression
 The Compression option is exactly what it sounds like. This option gives you the ability to quantize data types in the exported file to reduce the overall file size. You can set a general compression ratio or you can set quantization levels for specific data types with higher numbers reflecting more quantization and a smaller file size. Obviously, you will want to test out the quantization levels to find the best trade-off between file size and the authored design of your asset.   
  
-![Blender glTF Exporter - Compression](/img/assetPipeline/dccToGltf/blender_0004_compression.png) 
+![Blender glTF Exporter - Compression](/img/assetPipeline/dccToGltf/blender_0004_compression.webp) 
 
 ### Animation
 The Animation options allow you to enable or disable entire sections of the animation data. Expanding each of those sections will give you more fine control over individual options that pertain to each type of animation data.
@@ -70,7 +70,7 @@ The Animation options allow you to enable or disable entire sections of the anim
 #### Use Current Frame
 Use current frame allows you to specify the default frame you want your asset to be exported in. This is helpful if you want your asset in a particular pose when it is loaded. Otherwise, the file will be exported in the rest pose of the rig.
 
-![Blender glTF Exporter - Current Frame](/img/assetPipeline/dccToGltf/blender_0003_currentFrame.png) 
+![Blender glTF Exporter - Current Frame](/img/assetPipeline/dccToGltf/blender_0003_currentFrame.webp) 
 
 #### Limit to Playback Range
 Limit to Playback Range will clip exported animations only to the selected playback range. This can be useful if you want to split your animation timeline between several files to load as needed.
@@ -84,17 +84,17 @@ The Always Sample Animation parameter works in concert with the sampling rate. E
 #### Group By NLA Track
 Group By NLA Track is used to separate nonlinear animation tracks into their own animation clips. This can be useful if you author individual animations using the nonlinear animation graph rather than authoring your animations sequentially in the timeline. Working this way can help with organization by labeling your individual animations. You can simply enable Group by NLA Track at export time to write each track into its own clip. If you need to blend the tracks in your nonlinear animations together to get your desired motion, disabling the Group by NLA Track will write the animation data based solely on the timeline and not individual tracks.
 
-![Blender glTF Exporter - Animation](/img/assetPipeline/dccToGltf/blender_0002_animation.png) 
+![Blender glTF Exporter - Animation](/img/assetPipeline/dccToGltf/blender_0002_animation.webp) 
 
 #### Shape Keys
 Enabling the Shape Keys parameter is required if you have any shape key animation in your scene. If this parameter is disabled, no shape key animation will be exported into your file. If the parameter is enabled, you also have the choice of exporting Shape Key Normals and Shape Key Tangents. Including the normals and tangents of your shape keys will increase the exported file size, so only include them if you need to. For the most part, you can probably forego the Shape Key Tangents parameter and let the renderer calculate them at run time. In the case of the Shape Key Normals parameter, you will likely want to keep this enabled unless your shape keys do nothing to change the surface normals of your mesh. If that is the case, you can disable this parameter as well. 
 
-![Blender glTF Exporter - Shape Keys](/img/assetPipeline/dccToGltf/blender_0001_shapeKeys.png) 
+![Blender glTF Exporter - Shape Keys](/img/assetPipeline/dccToGltf/blender_0001_shapeKeys.webp) 
 
 #### Skinning
 The Skinning parameter needs to be enabled to export animation on any skinned mesh - specifically any mesh driven by an armature. If this parameter is disabled, any skeleton and skinning information present in your scene will be excluded from the export. If you want to export only the mesh attached to an armature, disabling this parameter will easily allow it. With the Skinning parameter enabled, you get access to the Include All Bone Influences parameter. This parameter, when enabled, will export weights from every bone that influences every vertex. Typically, you do not want more than 4 bones to influence any vertex as individual glTF renderers may not support more than four bone influences per vertex. Babylon.js does support more than four bones influencing a single vertex, but if you need your glTF to render consistently across different renderers it would be advisable to stick to only four bone influences per vertex. Leaving this parameter unchecked will ensure you have no more than four bone influences per vertex, even if your authored file does. 
  
-![Blender glTF Exporter - Skinning](/img/assetPipeline/dccToGltf/blender_0000_skinning.png) 
+![Blender glTF Exporter - Skinning](/img/assetPipeline/dccToGltf/blender_0000_skinning.webp) 
 
 ## AutoDesk 3ds Max and Maya
 The Autodesk applications, 3ds Max and Maya, are at slightly different points on the roadmap to exporting files conformant to the glTF 2.0 specification. Currently, 3ds Max has a path to export to glTF, but it does not have a full implementation of the glTF specification so you may not find that all features of the format are supported through that export path. Maya, on the other hand, does not have an export path to glTF at the moment. The export pipeline supporting the full glTF 2.0 specification is on the roadmap for future development for both applications, but we have no visibility when that will land in the products.
@@ -110,9 +110,9 @@ If you decide on using a transition file to move your asset to a DCC tool that h
 
 That said, let’s break down the options for the exporters. This document will be a quick overview as we already have more in-depth documentation about the exporters. 
 
-![3ds Max glTF Exporter](/img/assetPipeline/dccToGltf/maxExporter.png) 
+![3ds Max glTF Exporter](/img/assetPipeline/dccToGltf/maxExporter.webp) 
 
-![Maya glTF Exporter](/img/assetPipeline/dccToGltf/mayaExporter.png)
+![Maya glTF Exporter](/img/assetPipeline/dccToGltf/mayaExporter.webp)
 
 
 ### Common Parameters

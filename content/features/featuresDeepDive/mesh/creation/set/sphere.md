@@ -36,13 +36,13 @@ const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", options, scene); //sce
 
 ### Examples
 
-<Playground id="#WIR77Z" title="Create a Sphere" description="Simple example of creating a sphere." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes6.jpg" isMain={true} category="Mesh"/>
+<Playground id="#WIR77Z" title="Create a Sphere" description="Simple example of creating a sphere." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes6.webp" isMain={true} category="Mesh"/>
 
-<Playground id="#WIR77Z#1" title="Create a Ellipsoid" description="Simple example of creating a ellipsoid." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes7.jpg"/>
+<Playground id="#WIR77Z#1" title="Create a Ellipsoid" description="Simple example of creating a ellipsoid." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes7.webp"/>
 
-<Playground id="#WIR77Z#2" title="Create an Arc" description="Simple example of creating an arc." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes8.jpg"/>
+<Playground id="#WIR77Z#2" title="Create an Arc" description="Simple example of creating an arc." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes8.webp"/>
 
-<Playground id="#WIR77Z#3" title="Create an Arc and Slice" description="Simple example of creating an arc and slice." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes9.jpg"/>
+<Playground id="#WIR77Z#3" title="Create an Arc and Slice" description="Simple example of creating an arc and slice." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes9.webp"/>
 
 ## Mesh
 

@@ -177,7 +177,7 @@ function computeOffset(
 
 The `time` parameter can be retrieved directly from the used `BakedVertexAnimationManager` via `manager.time`.
 
-<Playground id="#3NIXCL#707" title="Vertex Texture Animations on thin instances at offset" description="An example of playing VATs on thin instances with specific offset."/>
+<Playground id="#3NIXCL#737" title="Vertex Texture Animations on thin instances at offset" description="An example of playing VATs on thin instances with specific offset."/>
 
 
 ## Serializing and loading VATs

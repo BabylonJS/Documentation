@@ -1,6 +1,6 @@
 ---
 title: Node Material
-image: /img/pageImages/nodeMaterial.jpg
+image: /img/pageImages/nodeMaterial.webp
 description: The Node Material is a simple, highly customizable material that you can build yourself piece by piece. Combined with the powerful node-based editor, you can easily create stunning custom GPU shaders and FX for your Babylon.js scenes.
 keywords: shaders, glsl, node editor, graphics, GPU program, material, NME, Node Material, Node Material Editor
 further-reading:
@@ -311,7 +311,7 @@ Now that you've learned how the system works and understand how you can use it t
 
 The [Node Material Editor](/toolsAndResources/nme) is an incredibly powerful tool that allows you to create and connect blocks in a simple visual editor.
 
-![NME](/img/how_to/Materials/nme.jpg)
+![NME](/img/how_to/Materials/nme.webp)
 
 To invoke the editor you can call `nodematerial.edit()` but this code must be called inside a user interaction (like a click event). You can also call it through the Inspector:
 
@@ -322,7 +322,7 @@ scene.debugLayer.select(nodeMaterial);
 
 When selected in the Inspector, you can find an edit button in the Node Material property pane.
 
-You can also use a standalone version of the editor here: <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nmeDefault.jpg"/>
+You can also use a standalone version of the editor here: <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nmeDefault.webp"/>
 
 Learn more about the [Node Material Editor here](/toolsAndResources/nme).
 
@@ -331,7 +331,7 @@ Learn more about the [Node Material Editor here](/toolsAndResources/nme).
 Node materials are now able to render with either the popular WebGL API or the newer [WebGPU API](/setup/support/webGPU) which allows node material to leverage a device's graphics processing unit (GPU). To define which API should be used by a node material, you can set up that option in the constructor or simply set the `nodeMaterial.shaderLanguage` parameter to `BABYLON.ShaderLanguage.WGSL`.
 
 Inside the Node Material Editor, you have an option to choose which engine to use during creation time:
-![Engine toggle for WebGL and WebGPU](/img/tools/nme/engineSwitch.jpg)
+![Engine toggle for WebGL and WebGPU](/img/tools/nme/engineSwitch.webp)
 
 The assigned engine parameter will NOT be saved in the node material's json file allowing you to still choose the correct version at runtime.
 
@@ -339,9 +339,9 @@ The assigned engine parameter will NOT be saved in the node material's json file
 
 As a training exercise and to show what is possible to do with the Node Material Editor, the `StandardMaterial` has been recreated in the NME:
 
-- <NME id="#AT7YY5#6" title="Full Standard Material NME" description="A Node Material Editor setup of the full standard material." image="/img/playgroundsAndNMEs/NMEfullStandardMaterial.jpg"/>
-- <NME id="#AT7YY5#7" title="Standard Material Without Alpha NME" description="A Node Material Editor setup of the standard material without alpha support." image="/img/playgroundsAndNMEs/NMEstandardMaterialNoAlpha.jpg"/>
-- <Playground id="#M5VQE9#19" title="Playground of Standard Material and NME Standard Material" description="Playground to compare the existing `StandardMaterial` and the corresponding Node Material." image="/img/playgroundsAndNMEs/PGstandardMaterialNMEstandardMaterial.jpg" isMain={true} category="Node Material"/>
+- <NME id="#AT7YY5#6" title="Full Standard Material NME" description="A Node Material Editor setup of the full standard material." image="/img/playgroundsAndNMEs/NMEfullStandardMaterial.webp"/>
+- <NME id="#AT7YY5#7" title="Standard Material Without Alpha NME" description="A Node Material Editor setup of the standard material without alpha support." image="/img/playgroundsAndNMEs/NMEstandardMaterialNoAlpha.webp"/>
+- <Playground id="#M5VQE9#19" title="Playground of Standard Material and NME Standard Material" description="Playground to compare the existing `StandardMaterial` and the corresponding Node Material." image="/img/playgroundsAndNMEs/PGstandardMaterialNMEstandardMaterial.webp" isMain={true} category="Node Material"/>
 
 Note that the only difference between the full material and the material without alpha support is that nothing is wire to the `fragmentOutput.a` input. If you don't need alpha support, you should use the "non alpha" node material as alpha-based materials have some constraints:
 
@@ -399,23 +399,23 @@ Lerp(a, b, gradient)
 
 Example:
 
-![Emissive](/img/how_to/Materials/nme_lerp.png)
+![Emissive](/img/how_to/Materials/nme_lerp.webp)
 
 If `EMISSIVE` is set to 0, the output is `vEmissiveColor`, else it is the color from the emissive map. In effect, the `EMISSIVE` boolean lets you choose to use either the constant `vEmissiveColor` color or the color from the texture map as the emissive color.
 
 The **Lerp** block will also accept more than a numerical value for `gradient`. The `gradient` input also accepts textures - either single channel or RGB - to determine which output is passed for each pixel. A `gradient` pixel with value 0.0 passes the corresponding pixel from `a` where a value of 0.0 would pass the corresponding pixel from `b`. A value between 0.0 and 1.0 will pass a blend of the values of the corresponding pixel from `a` and `b` mixed at the ratio of the value in `gradient`. If the texture is a single channel texture, each of the RGB channels from `a` and `b` are mixed at the same amount. If the texture in `gradient` is an RGB texture, each of the RGB channels of `a` and `b` will be mixed at the ratio of the corresponding `gradient` channel. In other words, the red channel of `gradient` will determine the mix of the pixels in the red channels of `a` and `b`.
 
-![Texture Blending](/img/tools/nme/lerpExample.jpg)
+![Texture Blending](/img/tools/nme/lerpExample.webp)
 
 The **Lerp** node is often used for techniques like blending tiling textures to hide repeated patterns or to "splat" textures in specific areas of a mesh. This can also be helpful for creating terrain meshes where it is desireable to scatter patches of dirt or grass on a ground plane in a randomly generated procedural method.
 
-- <Playground id="#KR6748" title="Blending Tiling Textures" description="Blending tiling textures to hide repeating elements." image="/img/playgroundsAndNMEs/tilingTextureBlend.jpg" isMain={true} category="Materials"/>
+- <Playground id="#KR6748" title="Blending Tiling Textures" description="Blending tiling textures to hide repeating elements." image="/img/playgroundsAndNMEs/tilingTextureBlend.webp" isMain={true} category="Materials"/>
 
 #### Discarding the fragment based on alpha cutoff value
 
 This construct is meant to discard the fragment if alpha testing is enabled and if the alpha value is below some threshold value (cutoff value). It looks like this:
 
-![Discard](/img/how_to/Materials/nme_discard.png)
+![Discard](/img/how_to/Materials/nme_discard.webp)
 
 As you can see, the `alphaCutOff` node is not directly connected to the `cutoff` input of **Discard** (the **Discard** block will discard the fragment if the `value` input is lower than the `cutoff` input). That's because we need to let the user enable or disable this feature.
 
@@ -436,10 +436,10 @@ To do so you will need to drop a `Loop" block and connect an input value. That v
 To aggregate the value you will need to wire a `StorageRead` and `StorageWrite` block to the loopID port of the `Loop` block. These 2 blocks will give you access to the running value of the aggregated variable.
 
 Here is an example where the loop is simply adding a shade of red to a black color 10 times:
-<NME id="#N2ROVF" title="Node Material Editor Simple Loop Example" description="Using a loop block to accumlate a color" image="/img/playgroundsAndNMEs/simple-loop.png"/>
+<NME id="#N2ROVF" title="Node Material Editor Simple Loop Example" description="Using a loop block to accumlate a color" image="/img/playgroundsAndNMEs/simple-loop.webp"/>
 
 Of course you can do far more like a texture blur:
-<NME id="#OXJ1ND" title="Node Material Editor Loop Example" description="Using a loop block to blur a texture" image="/img/playgroundsAndNMEs/texture-blur.png"/>
+<NME id="#OXJ1ND" title="Node Material Editor Loop Example" description="Using a loop block to blur a texture" image="/img/playgroundsAndNMEs/texture-blur.webp"/>
 
 Please keep in mind that loops have to be used cautiously as they can add a lot of computations to your shaders.
 
@@ -465,9 +465,9 @@ Here's an example of how to load a saved shader file and apply it to a mesh.
 
 ### Sharing unique URLs
 
-When using the <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nmeDefault.jpg"/>, you can have an additional option to save your work using a unique URL (like the Playground for instance). You can then share these urls (which are immutable).
+When using the <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nmeDefault.webp"/>, you can have an additional option to save your work using a unique URL (like the Playground for instance). You can then share these urls (which are immutable).
 
-Example: <NME id="#2F999G" title="Node Material Editor Unique URL Example" description="Example Node Material Editor saved with a unique URL." image="/img/playgroundsAndNMEs/NMEsnippetServerSaveExample.jpg"/>
+Example: <NME id="#2F999G" title="Node Material Editor Unique URL Example" description="Example Node Material Editor saved with a unique URL." image="/img/playgroundsAndNMEs/NMEsnippetServerSaveExample.webp"/>
 
 ### Loading from a snippet (unique URL)
 
@@ -504,9 +504,9 @@ And then from there you could have used the Inspector to edit it (The inspector 
 Here are some node material examples that you can use "as is" or extend with the NME:
 
 - <Playground id="#9B0DNU#36" title="Incredible NME Ocean Shader" description="Incredible NME Ocean Shader." isMain={true} category="Node Material"/>
-- <NME id="#I4DJ9Z" title="GridMaterial Recreated in the Node Material Editor" description="Example Node Material Recreation of the GridMaterial." image="/img/playgroundsAndNMEs/NMEgridMaterial.jpg" isMain={true} category="Materials"/>
-- <NME id="#YDGZCJ" title="'Mist' Post Process in the Node Material Editor" description="Example Node Material 'Mist' Post Process Effect." image="/img/playgroundsAndNMEs/NMEmistPostProcess.jpg"/>
-- <NME id="#D0USYC" title="'Dissolve' Post Process in the Node Material Editor" description="Example Node Material 'Dissolve' Post Process Effect." image="/img/playgroundsAndNMEs/NMEdissolvePostProcess.jpg"/>
-- <Playground id="#VJY6H3" title="Nine Patch with NME" description="Example Node Material for Nine Patch Texture Scaling" image="/img/playgroundsAndNMEs/ninePatchNME.jpg" isMain={true} category="Materials"/>
-- <Playground id="#7ILX7T" title="Water Refraction with RTT" description="Render Target Texture used to simulate water refraction." image="/img/playgroundsAndNMEs/NMEwaterRefractionRTT.jpg" isMain={true} category="Materials"/>
-- <Playground id="#4QH8JM#147" title="Pulse Wave Shader" description="A wave of color that washes over simple geometry similar to a radar ping." image="/img/playgroundsAndNMEs/pulseWave.jpg" isMain={true} category="Materials"/>
+- <NME id="#I4DJ9Z" title="GridMaterial Recreated in the Node Material Editor" description="Example Node Material Recreation of the GridMaterial." image="/img/playgroundsAndNMEs/NMEgridMaterial.webp" isMain={true} category="Materials"/>
+- <NME id="#YDGZCJ" title="'Mist' Post Process in the Node Material Editor" description="Example Node Material 'Mist' Post Process Effect." image="/img/playgroundsAndNMEs/NMEmistPostProcess.webp"/>
+- <NME id="#D0USYC" title="'Dissolve' Post Process in the Node Material Editor" description="Example Node Material 'Dissolve' Post Process Effect." image="/img/playgroundsAndNMEs/NMEdissolvePostProcess.webp"/>
+- <Playground id="#VJY6H3" title="Nine Patch with NME" description="Example Node Material for Nine Patch Texture Scaling" image="/img/playgroundsAndNMEs/ninePatchNME.webp" isMain={true} category="Materials"/>
+- <Playground id="#7ILX7T" title="Water Refraction with RTT" description="Render Target Texture used to simulate water refraction." image="/img/playgroundsAndNMEs/NMEwaterRefractionRTT.webp" isMain={true} category="Materials"/>
+- <Playground id="#4QH8JM#147" title="Pulse Wave Shader" description="A wave of color that washes over simple geometry similar to a radar ping." image="/img/playgroundsAndNMEs/pulseWave.webp" isMain={true} category="Materials"/>

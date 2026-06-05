@@ -1,6 +1,6 @@
 ---
 title: Resizer Control
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: The Babylon.js Resizer Control is a web control built on top of Babylon.js in order to accelerate the resizing of pictures in web pages with blazing fast speed.
 keywords: web controls, hardware accelerated, 2D, resize, scale, images
 further-reading:
@@ -18,7 +18,7 @@ It regularly happens on the web that one needs to resize a picture on demand. It
 
 Also this component can come in as a pair with the [Timeline](./timeline) and helps resizing thumbnails before uploading them to the GPU without relying on a separate canvas element and thus preventing the extra copies required.
 
-![Resizer](/img/features/controls/resizer.png)
+![Resizer](/img/features/controls/resizer.webp)
 
 ## How to use
 

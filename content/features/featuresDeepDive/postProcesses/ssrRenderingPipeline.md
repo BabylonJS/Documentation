@@ -34,9 +34,9 @@ Ray tracing is also used in some games to render reflections. However, it is not
 Here is a comparison of the rendering with and without the activation of the SSR rendering pipeline:
 | With SSR | Without SSR |
 | --- | --- |
-| ![With SSR](/img/how_to/ssrRenderingPipeline/intro_with_ssr.jpg!500) | ![Without SSR](/img/how_to/ssrRenderingPipeline/intro_without_ssr.jpg!500) |
-| ![With SSR](/img/how_to/ssrRenderingPipeline/intro_with_ssr_balls.jpg!500) | ![Without SSR](/img/how_to/ssrRenderingPipeline/intro_without_ssr_balls.jpg!500) |
-| ![With SSR](/img/how_to/ssrRenderingPipeline/intro_with_ssr_brainstem.jpg!500) | ![Without SSR](/img/how_to/ssrRenderingPipeline/intro_without_ssr_brainstem.jpg!500) |
+| ![With SSR](/img/how_to/ssrRenderingPipeline/intro_with_ssr.webp!500) | ![Without SSR](/img/how_to/ssrRenderingPipeline/intro_without_ssr.webp!500) |
+| ![With SSR](/img/how_to/ssrRenderingPipeline/intro_with_ssr_balls.webp!500) | ![Without SSR](/img/how_to/ssrRenderingPipeline/intro_without_ssr_balls.webp!500) |
+| ![With SSR](/img/how_to/ssrRenderingPipeline/intro_with_ssr_brainstem.webp!500) | ![Without SSR](/img/how_to/ssrRenderingPipeline/intro_without_ssr_brainstem.webp!500) |
 
 Here are the playgrounds that generated the above images:
 
@@ -115,7 +115,7 @@ ssr.debug = true;
 For example
 | Without debug | With debug |
 | --- | --- |
-| ![Without debug](/img/how_to/ssrRenderingPipeline/intro_with_ssr.jpg!500) | ![With debug](/img/how_to/ssrRenderingPipeline/intro_with_ssr_debug.jpg!500) |
+| ![Without debug](/img/how_to/ssrRenderingPipeline/intro_with_ssr.webp!500) | ![With debug](/img/how_to/ssrRenderingPipeline/intro_with_ssr_debug.webp!500) |
 
 The meaning of the colors is as follows:
 * blue: the ray has reached the maximum distance (we have reached `maxDistance`)
@@ -139,26 +139,26 @@ You would normally choose the pre-pass renderer because the reflectivity color i
 Here is an example of a scene using MSAA with the geometric buffer and the pre-pass renderer:
 | Geometry Buffer | Pre-Pass |
 | --- | --- |
-| ![Geometry buffer](/img/how_to/ssrRenderingPipeline/msaa_geometry_buffer.jpg!500) | ![Pre-pass](/img/how_to/ssrRenderingPipeline/msaa_pre_pass.jpg!500) |
+| ![Geometry buffer](/img/how_to/ssrRenderingPipeline/msaa_geometry_buffer.webp!500) | ![Pre-pass](/img/how_to/ssrRenderingPipeline/msaa_pre_pass.webp!500) |
 
 Look inside the red rectangle to see the artifacts.
 
 It's even worse if you turn on the automatic thickness calculation:
 | Geometry Buffer | Pre-Pass |
 | --- | --- |
-| ![Geometry buffer](/img/how_to/ssrRenderingPipeline/msaa_geometry_buffer_auto_thickness.jpg!500) | ![Pre-pass](/img/how_to/ssrRenderingPipeline/msaa_pre_pass_auto_thickness.jpg!500) |
+| ![Geometry buffer](/img/how_to/ssrRenderingPipeline/msaa_geometry_buffer_auto_thickness.webp!500) | ![Pre-pass](/img/how_to/ssrRenderingPipeline/msaa_pre_pass_auto_thickness.webp!500) |
 
 Note that the artifacts depend on your scene. Try to spot them in the image on the right:
 | Pre-Pass without MSAA | Pre-Pass with MSAA |
 | --- | --- |
-| ![Pre-Pass without MSAA](/img/how_to/ssrRenderingPipeline/pre_pass_hillvalley.jpg!500) | ![Pre-Pass with MSAA](/img/how_to/ssrRenderingPipeline/msaa_pre_pass_hillvalley.jpg!500) |
+| ![Pre-Pass without MSAA](/img/how_to/ssrRenderingPipeline/pre_pass_hillvalley.webp!500) | ![Pre-Pass with MSAA](/img/how_to/ssrRenderingPipeline/msaa_pre_pass_hillvalley.webp!500) |
 
 The artifacts are barely visible, so in this scene using MSAA might be a valid option.
 
 Instead of MSAA, you can use FXAA if you want anti-aliasing in the case of pre-pass rendering:
 | Geometry Buffer with MSAA | Pre-Pass with FXAA |
 | --- | --- |
-| ![Geometry Buffer with MSAA](/img/how_to/ssrRenderingPipeline/msaa_geometry_buffer_auto_thickness.jpg!500) | ![Pre-Pass with FXAA](/img/how_to/ssrRenderingPipeline/fxaa_pre_pass_auto_thickness.jpg!500) |
+| ![Geometry Buffer with MSAA](/img/how_to/ssrRenderingPipeline/msaa_geometry_buffer_auto_thickness.webp!500) | ![Pre-Pass with FXAA](/img/how_to/ssrRenderingPipeline/fxaa_pre_pass_auto_thickness.webp!500) |
 
 Here is the PG used in these examples: <Playground id="#PIZ1GK#1046" title="Comparison of the MRT renderers" description="Comparison when using the geometry buffer or the pre-pass renderer with screen space reflections"/>
 
@@ -168,7 +168,7 @@ Also, one thing to note about the pre-pass renderer is that you have the option 
 
 | 32 bits float depth texture                                                                           | 16 bits float depth texture                                                                    |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ![32 bits float depth texture](/img/how_to/ssrRenderingPipeline/geometry_buffer_sphere_debug.jpg!500) | ![16 bits float depth texture](/img/how_to/ssrRenderingPipeline/pre_pass_sphere_debug.jpg!500) |
+| ![32 bits float depth texture](/img/how_to/ssrRenderingPipeline/geometry_buffer_sphere_debug.webp!500) | ![16 bits float depth texture](/img/how_to/ssrRenderingPipeline/pre_pass_sphere_debug.webp!500) |
 
 Note: `ssr.clipToFrustum` has been set to `false` to take these screenshots because the artifacts are more visible with a yellow background than with a blue one!
 
@@ -180,7 +180,7 @@ You can solve the problem by keeping the default texture with a depth of 32 bits
 ssr.selfCollisionNumSkip = 2;
 ```
 
-![16 bits float depth texture with selfCollisionNumSkip=2](/img/how_to/ssrRenderingPipeline/pre_pass_sphere_skip_2_debug.jpg!500)
+![16 bits float depth texture with selfCollisionNumSkip=2](/img/how_to/ssrRenderingPipeline/pre_pass_sphere_skip_2_debug.webp!500)
 
 Here is the corresponding PG for this screenshot: <Playground id="#PIZ1GK#1047" title="16 bits float depth texture and skip to 2" description="16 bits float depth texture and skip to 2"/>
 
@@ -201,11 +201,11 @@ Thus, we know that we have crossed the boundary of the object rendered at the lo
 
 | Thickness 0                                                                | Thickness 0.5                                                                  |
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| ![Thickness 0](/img/how_to/ssrRenderingPipeline/balls_thickness_0.jpg!500) | ![Thickness 0.5](/img/how_to/ssrRenderingPipeline/balls_thickness_0_5.jpg!500) |
+| ![Thickness 0](/img/how_to/ssrRenderingPipeline/balls_thickness_0.webp!500) | ![Thickness 0.5](/img/how_to/ssrRenderingPipeline/balls_thickness_0_5.webp!500) |
 
 | Thickness 1                                                                | Thickness 4                                                                |
 | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| ![Thickness 1](/img/how_to/ssrRenderingPipeline/balls_thickness_1.jpg!500) | ![Thickness 1](/img/how_to/ssrRenderingPipeline/balls_thickness_4.jpg!500) |
+| ![Thickness 1](/img/how_to/ssrRenderingPipeline/balls_thickness_1.webp!500) | ![Thickness 1](/img/how_to/ssrRenderingPipeline/balls_thickness_4.webp!500) |
 
 As you can see in the mirror and on the floor, the reflections of the objects expand but only in a linear way, the shape of the sphere is not preserved because we use a constant thickness value.
 
@@ -215,7 +215,7 @@ The SSR pipeline also supports a more accurate method of calculating thickness, 
 
 | Thickness 1                                                                | Thickness 0 with automatic thickness computation                                                                     |
 | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| ![Thickness 1](/img/how_to/ssrRenderingPipeline/balls_thickness_1.jpg!500) | ![Thickness 0 with automatic thickness computation](/img/how_to/ssrRenderingPipeline/balls_auto_thickness_0.jpg!500) |
+| ![Thickness 1](/img/how_to/ssrRenderingPipeline/balls_thickness_1.webp!500) | ![Thickness 0 with automatic thickness computation](/img/how_to/ssrRenderingPipeline/balls_auto_thickness_0.webp!500) |
 
 Here is the corresponding PG: <Playground id="#PIZ1GK#1044" title="SSR Rendering Pipeline Example (Balls)" description="Mirror and Balls scene with screen space reflections"/>
 
@@ -278,13 +278,13 @@ As mentioned above, the blur is based on the roughness of the material:
 If the roughness is 0, the blur will have no effect because the surface is perfectly smooth. If you still want to get some blur even in this case, you can use the `roughnessFactor` property (default: 0.2), which acts as an additional global roughness:
 | `blurDispersionStrength = 0.0`, `roughnessFactor = 0` | `blurDispersionStrength = 0.05`, `roughnessFactor = 0` |
 | --- | --- |
-| ![Non blurred scene](/img/how_to/ssrRenderingPipeline/ssr_noblur_roughnessfactor_0.jpg!500) | ![Blur with roughnessFactor = 0](/img/how_to/ssrRenderingPipeline/ssr_blur_roughnessfactor_0.jpg!500) |
+| ![Non blurred scene](/img/how_to/ssrRenderingPipeline/ssr_noblur_roughnessfactor_0.webp!500) | ![Blur with roughnessFactor = 0](/img/how_to/ssrRenderingPipeline/ssr_blur_roughnessfactor_0.webp!500) |
 
 In this scene, all materials are standard materials with no specular texture, so their roughness is 0. The two screenshots are identical because the final roughness is 0 for all materials, even if we give a non-zero value to `blurDispersionStrength`.
 
 | `blurDispersionStrength = 0.05`, `roughnessFactor = 0.1`                                                  | `blurDispersionStrength = 0.05`, `roughnessFactor = 0.5`                                                  |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| ![Blur with roughnessFactor = 0.1](/img/how_to/ssrRenderingPipeline/ssr_blur_roughnessfactor_0_1.jpg!500) | ![Blur with roughnessFactor = 0.5](/img/how_to/ssrRenderingPipeline/ssr_blur_roughnessfactor_0_5.jpg!500) |
+| ![Blur with roughnessFactor = 0.1](/img/how_to/ssrRenderingPipeline/ssr_blur_roughnessfactor_0_1.webp!500) | ![Blur with roughnessFactor = 0.5](/img/how_to/ssrRenderingPipeline/ssr_blur_roughnessfactor_0_5.webp!500) |
 
 By setting a non-zero value to `roughnessFactor`, you increase the final roughness and the blur now has a visible effect.
 
@@ -296,7 +296,7 @@ Using a value greater than 0 will save some performance and generally have littl
 Note that when blur is not enabled, `roughnessFactor` is used as a factor to modulate the jitter of the starting point of the reflected ray:
 | no blur, `roughnessFactor = 0.05` | no blur, `roughnessFactor = 0.2` |
 | --- | --- |
-| ![Jitter with roughnessFactor = 0.05](/img/how_to/ssrRenderingPipeline/ssr_jittering_roughnessfactor_0_05.jpg!500) | ![Blur with roughnessFactor = 0.5](/img/how_to/ssrRenderingPipeline/ssr_jittering_roughnessfactor_0_2.jpg!500) |
+| ![Jitter with roughnessFactor = 0.05](/img/how_to/ssrRenderingPipeline/ssr_jittering_roughnessfactor_0_05.webp!500) | ![Blur with roughnessFactor = 0.5](/img/how_to/ssrRenderingPipeline/ssr_jittering_roughnessfactor_0_2.webp!500) |
 
 As you can see, jittering produces noise, so it's up to you to turn it on or off depending on your needs. Also note that for jittering to be effective, the roughness must be non-zero, as the base value of jittering depends only on the roughness: the `roughnessFactor` property will only reduce or amplify the effect as a multiplication factor.
 
@@ -307,11 +307,11 @@ The `reflectivityThreshold` parameter is used to discard pixels whose reflectivi
 For example, in this scene, `reflectivityThreshold` has been set to 0.001 :
 | `reflectivityThreshold = 0` | Debug view |
 | --- | --- |
-| ![SSR with reflectivityThreshold = 0](/img/how_to/ssrRenderingPipeline/ssr_ball_rthreshold_0.jpg!500) | ![Debug view of the scene](/img/how_to/ssrRenderingPipeline/ssr_ball_rthreshold_0_debug.jpg!500) |
+| ![SSR with reflectivityThreshold = 0](/img/how_to/ssrRenderingPipeline/ssr_ball_rthreshold_0.webp!500) | ![Debug view of the scene](/img/how_to/ssrRenderingPipeline/ssr_ball_rthreshold_0_debug.webp!500) |
 
 Using the debug view, we can see that the reflections are calculated on the sphere, but taking them into account makes no difference visually because the `metallic` property of the material is 0 and the `roughness` is 1, so the reflectivity is very low (0.04). By setting `reflectivityThreshold` to `0.04` (the default value), these reflections are no longer calculated:
 
-![SSR with reflectivityThreshold = 0.04](/img/how_to/ssrRenderingPipeline/ssr_ball_rthreshold_0_04.jpg!500)
+![SSR with reflectivityThreshold = 0.04](/img/how_to/ssrRenderingPipeline/ssr_ball_rthreshold_0_04.webp!500)
 
 ### Color space
 
@@ -330,8 +330,8 @@ This setting can be useful if you want PBR materials to show reflections even wh
 Note that the rendering can be quite different if you use `useFresnel = true`, everything will look more reflective:
 | `useFresnel = false` | `useFresnel = true` |
 | --- | --- |
-| ![useFresnel = false](/img/how_to/ssrRenderingPipeline/hillvalley_usefresnel_false.jpg!500) | ![useFresnel = true](/img/how_to/ssrRenderingPipeline/hillvalley_usefresnel_true.jpg!500) |
-| ![useFresnel = false](/img/how_to/ssrRenderingPipeline/balls_usefresnel_false.jpg!500) | ![useFresnel = true](/img/how_to/ssrRenderingPipeline/balls_usefresnel_true.jpg!500) |
+| ![useFresnel = false](/img/how_to/ssrRenderingPipeline/hillvalley_usefresnel_false.webp!500) | ![useFresnel = true](/img/how_to/ssrRenderingPipeline/hillvalley_usefresnel_true.webp!500) |
+| ![useFresnel = false](/img/how_to/ssrRenderingPipeline/balls_usefresnel_false.webp!500) | ![useFresnel = true](/img/how_to/ssrRenderingPipeline/balls_usefresnel_true.webp!500) |
 
 In the second example, the blue sphere has a PBR material applied, with `metallic = 0` and `roughness = 0`.
 Note that `reflectivityThreshold` has been lowered to 0.001, as reflections would not have been calculated with the default value of 0.04!
@@ -347,23 +347,23 @@ This section describes the most common artifacts and explains how to correct the
 
 These artifacts and how to correct them have already been described in the **Geometry Buffer or Pre-Pass Rendering section**, subsection [Using MSAA](#using-msaa).
 As an illustration, here is what artifacts can look like:
-![Artifacts caused by MSAA](/img/how_to/ssrRenderingPipeline/msaa_pre_pass_auto_thickness.jpg!500)
+![Artifacts caused by MSAA](/img/how_to/ssrRenderingPipeline/msaa_pre_pass_auto_thickness.webp!500)
 
 ### Depth buffer accuracy artifacts
 
 These artifacts and how to correct them have already been described in the **Geometric buffer or Pre-Pass rendering section**, subsection [Depth texture type](#depth-texture-type).
 As an illustration, here is what artifacts can look like:
-![Artifacts caused by depth buffer precision](/img/how_to/ssrRenderingPipeline/artifacts_prepass_depth_precision.jpg!500)
+![Artifacts caused by depth buffer precision](/img/how_to/ssrRenderingPipeline/artifacts_prepass_depth_precision.webp!500)
 
 ### Artifacts with transparent meshes
 
 You should note that the Pre-Pass renderer handles transparent meshes better than the geometry buffer renderer when using the opacity texture:
 | Geometry Buffer | Pre-Pass |
 | --- | --- |
-| ![Geometry Buffer with transparent mesh](/img/how_to/ssrRenderingPipeline/geometry_buffer_automatic_thickness_mesh_transparent.jpg!500) | ![Pre-Pass with transparent mesh](/img/how_to/ssrRenderingPipeline/prepass_automatic_thickness_mesh_transparent.jpg!500) |
+| ![Geometry Buffer with transparent mesh](/img/how_to/ssrRenderingPipeline/geometry_buffer_automatic_thickness_mesh_transparent.webp!500) | ![Pre-Pass with transparent mesh](/img/how_to/ssrRenderingPipeline/prepass_automatic_thickness_mesh_transparent.webp!500) |
 
 It's still not perfect, you can get artifacts even with the pre-pass renderer (exaggerated by putting a full mirror surface) :
-![Artifacts with transparent meshes and pre-pass renderer](/img/how_to/ssrRenderingPipeline/artifacts_prepass_automatic_thickness_mesh_transparent.jpg!500)
+![Artifacts with transparent meshes and pre-pass renderer](/img/how_to/ssrRenderingPipeline/artifacts_prepass_automatic_thickness_mesh_transparent.webp!500)
 
 Here is the corresponding PG: <Playground id="#PIZ1GK#1048" title="SSR Artifacts (transparent meshes with prepass renderer)" description="SSR Artifacts with the prepass renderer and transparent meshes"/>
 
@@ -375,7 +375,7 @@ For automatic thickness calculation (`enableAutomaticThicknessComputation = true
 
 | This plane does not have a back face                                                                  | Some of the objects of the robot don't have back faces                                                |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| ![Artifacts with plane](/img/how_to/ssrRenderingPipeline/artifacts_automatic_thickness_plane.jpg!500) | ![Artifacts with robot](/img/how_to/ssrRenderingPipeline/artifacts_automatic_thickness_robot.jpg!500) |
+| ![Artifacts with plane](/img/how_to/ssrRenderingPipeline/artifacts_automatic_thickness_plane.webp!500) | ![Artifacts with robot](/img/how_to/ssrRenderingPipeline/artifacts_automatic_thickness_robot.webp!500) |
 
 The solution is to make sure that all objects have back sides:
 
@@ -397,7 +397,7 @@ Since this is usually what you want, `true` is the default value for `backfaceFo
 You will get the same kind of artifacts if you do not:
 | Artifacts when using transparent material | Artifacts fixed |
 | --- | --- |
-| ![Artifacts with transparent mesh](/img/how_to/ssrRenderingPipeline/artifacts_automatic_thickness_mesh_transparent.jpg!500) | ![Artifacts fixed with transparent meshes](/img/how_to/ssrRenderingPipeline/noartifacts_automatic_thickness_mesh_transparent.jpg!500) |
+| ![Artifacts with transparent mesh](/img/how_to/ssrRenderingPipeline/artifacts_automatic_thickness_mesh_transparent.webp!500) | ![Artifacts fixed with transparent meshes](/img/how_to/ssrRenderingPipeline/noartifacts_automatic_thickness_mesh_transparent.webp!500) |
 
 Here is the PG corresponding to the screenshot on the right: <Playground id="#PIZ1GK#1051" title="SSR No Artifacts (automatic thickness transparent meshes)" description="SSR No Artifact with automatic thickness computation and transparent meshes"/>
 
@@ -429,12 +429,12 @@ Since this is what you expect by default, `true` is the default value for `atten
 Reflections should be attenuated according to the distance the ray travels before reaching an intersection, and also according to the number of steps we have taken before calculating that intersection. Indeed, if/when we reach the maximum distance/maximum number of steps, we want a smooth transition between what we generated before and after reaching the limit:
 | Hard transition when `maxDistance` reached | Hard transition when `maxSteps` reached |
 | --- | --- |
-| ![Hard transition with maxDistance](/img/how_to/ssrRenderingPipeline/artifacts_hardtransition_maxdistance.jpg!500) | ![Hard transition with maxSteps](/img/how_to/ssrRenderingPipeline/artifacts_hardtransition_maxsteps.jpg!500) |
+| ![Hard transition with maxDistance](/img/how_to/ssrRenderingPipeline/artifacts_hardtransition_maxdistance.webp!500) | ![Hard transition with maxSteps](/img/how_to/ssrRenderingPipeline/artifacts_hardtransition_maxsteps.webp!500) |
 
 If we enable `attenuateIntersectionDistance` in the first case, and `attenuateIntersectionIterations` in the second, we get :
 | Soft transition when `maxDistance` reached | Soft transition when `maxSteps` reached |
 | --- | --- |
-| ![Soft transition with maxDistance](/img/how_to/ssrRenderingPipeline/artifacts_softtransition_maxdistance.jpg!500) | ![Soft transition with maxSteps](/img/how_to/ssrRenderingPipeline/artifacts_softtransition_maxsteps.jpg!500) |
+| ![Soft transition with maxDistance](/img/how_to/ssrRenderingPipeline/artifacts_softtransition_maxdistance.webp!500) | ![Soft transition with maxSteps](/img/how_to/ssrRenderingPipeline/artifacts_softtransition_maxsteps.webp!500) |
 
 This is normally the behavior you want, that's why these two parameters are enabled by default.
 
@@ -443,7 +443,7 @@ This is normally the behavior you want, that's why these two parameters are enab
 Reflected rays coming towards the camera should normally be ignored for intersection purposes (by setting `attenuateFacingCamera = true`), because they will usually hit an object in the back and we only know their colors in the front. However, having a bad reflection can sometimes be better than having no reflection at all, especially if a blur is applied (making the "bad" reflection less obvious):
 | `attenuateFacingCamera = false` | `attenuateFacingCamera = true` |
 | --- | --- |
-| ![No attenuation for rays facing the camera](/img/how_to/ssrRenderingPipeline/artifacts_facingcamera_noattenuation.jpg!500) | ![Rays facing the camera attenuated](/img/how_to/ssrRenderingPipeline/artifacts_facingcamera_attenuation.jpg!500) |
+| ![No attenuation for rays facing the camera](/img/how_to/ssrRenderingPipeline/artifacts_facingcamera_noattenuation.webp!500) | ![Rays facing the camera attenuated](/img/how_to/ssrRenderingPipeline/artifacts_facingcamera_attenuation.webp!500) |
 
 As you can see, when the rays facing the camera are not attenuated, we get a "backward" reflection for the gas pumps. These reflections are false because we can't reflect the back of the pumps, but it's not obvious in the screenshot and in the motion + a little blur would probably fool many people! That's why the `attenuateFacingCamera` parameter is `false` by default.
 
@@ -454,7 +454,7 @@ Here is the PG corresponding to the screenshot on the left: <Playground id="#PIZ
 `attenuateBackfaceReflection` is used for the same purpose as `attenuateFacingCamera` and can remove artifacts that the latter cannot. For example
 | `attenuateBackfaceReflection = false` | `attenuateBackfaceReflection = true` |
 | --- | --- |
-| ![No attenuation for back face reflections](/img/how_to/ssrRenderingPipeline/artifacts_backface_noattenuation.jpg!500) | ![Attenuation for back face reflections](/img/how_to/ssrRenderingPipeline/artifacts_backface_attenuation.jpg!500) |
+| ![No attenuation for back face reflections](/img/how_to/ssrRenderingPipeline/artifacts_backface_noattenuation.webp!500) | ![Attenuation for back face reflections](/img/how_to/ssrRenderingPipeline/artifacts_backface_attenuation.webp!500) |
 
 The rays reflected from the window that hit the "20" panel make an angle with the direction of the view, which is too large for `attenuateFacingCamera` to remove the reflections, but `attenuateBackfaceReflection` is able to do so. This is because it checks the angle between the reflected ray and the normal to the point of intersection, and if they point in the same direction, it attenuates/suppresses the reflections.
 
@@ -470,30 +470,30 @@ When a reflected ray doesn't hit anything (either because there is no geometry t
 If you don't provide an environment texture, you will usually see obvious differences between the pixels for which we were able to find a reflected pixel and those for which we were not:
 | No environment texture | Debug view |
 | --- | --- |
-| ![No environment texture](/img/how_to/ssrRenderingPipeline/sponza_ssr_noenvmap.jpg!500) | ![Attenuation for back face reflections](/img/how_to/ssrRenderingPipeline/sponza_ssr_noenvmap_debug.jpg!500) |
+| ![No environment texture](/img/how_to/ssrRenderingPipeline/sponza_ssr_noenvmap.webp!500) | ![Attenuation for back face reflections](/img/how_to/ssrRenderingPipeline/sponza_ssr_noenvmap_debug.webp!500) |
 
 The debug view helps to understand what's going on: the lighter pixels on the left screenshot correspond to pixels for which no intersection could be calculated (blue or red on the right screenshot), so we ended up using the original color of the ground for the SSR effect, which is a bit lighter than the pixel that would normally be reflected.
 
 Using an environment texture can help mask these artifacts, as long as the environment texture matches the local environment well! The best way to generate such textures is to use a reflection probe. The probe captures the local environment by rendering the scene as a cube texture from the probe position.
 
 For the screenshot below, a probe was created roughly in the center of the courtyard and was defined as a [local cube map](/features/featuresDeepDive/materials/using/reflectionTexture#local-cubemaps) by providing a bounding box for the cube, which is roughly the size of the courtyard:
-![With environment texture](/img/how_to/ssrRenderingPipeline/sponza_ssr_envmap.jpg!500)
+![With environment texture](/img/how_to/ssrRenderingPipeline/sponza_ssr_envmap.webp!500)
 
 Note that since the environment texture comes from a reflection probe, you need to set `ssr.environmentTextureIsProbe` to `true` (a probe cube texture is treated differently than an ordinary cube texture because the Y-axis is reversed).
 
 If you look closely, you will see that some reflections are not quite right, and if you move around, you will see reflections that are clearly misplaced:
-![With environment texture](/img/how_to/ssrRenderingPipeline/sponza_ssr_envmap_misplaced.jpg!500)
+![With environment texture](/img/how_to/ssrRenderingPipeline/sponza_ssr_envmap_misplaced.webp!500)
 
 One way to mitigate these artifacts would be to use several cube maps, depending on where you are in the scene, and not to use one global cube map for the whole scene.
 
-Here is the PG corresponding to the scene with the local cube map: <Playground id="#PIZ1GK#1094" title="SSR using local cube map" description="SSR using a local cube map for the environment texture" image="/img/playgroundsAndNMEs/pg-PIZ1GK-1040.png" />
+Here is the PG corresponding to the scene with the local cube map: <Playground id="#PIZ1GK#1094" title="SSR using local cube map" description="SSR using a local cube map for the environment texture" image="/img/playgroundsAndNMEs/pg-PIZ1GK-1040.webp" />
 
 #### Managing self-intersections
 
 As explained in [How-ssr-is-working](#how-ssr-works), the starting point of the reflected ray is shifted to avoid self-intersections and false reflections. The `selfCollisionNumSkip` property controls how many iterations to skip at the start before considering an intersection legitimate. While a value of 1 works well in most cases, it is sometimes necessary to increase this value a bit:
 | `selfCollisionNumSkip = 1` | `selfCollisionNumSkip = 2` |
 | --- | --- |
-| ![selfCollisionNumSkip = 1](/img/how_to/ssrRenderingPipeline/hillvalley_skip_1.jpg!500) | ![selfCollisionNumSkip = 2](/img/how_to/ssrRenderingPipeline/hillvalley_skip_2.jpg!500) |
+| ![selfCollisionNumSkip = 1](/img/how_to/ssrRenderingPipeline/hillvalley_skip_1.webp!500) | ![selfCollisionNumSkip = 2](/img/how_to/ssrRenderingPipeline/hillvalley_skip_2.webp!500) |
 
 ## Optimize SSR in your scenes
 

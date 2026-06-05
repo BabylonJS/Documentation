@@ -17,14 +17,14 @@ This way, you can choose what best suits your needs.
 
 ## Layer tasks
 
-<H3Image title="FrameGraphGlowLayerTask" image="/img/frameGraph/task_glow.jpg" alt="Glow layer"/>
+<H3Image title="FrameGraphGlowLayerTask" image="/img/frameGraph/task_glow.webp" alt="Glow layer"/>
 
 Provides the same functionalities as the [glow layer](/features/featuresDeepDive/mesh/glowLayer) class.
 
 [Link to the class](/typedoc/classes/babylon.framegraphglowlayertask)
 
-<Playground id="#GCG2Z7#5" image="/img/playgroundsAndNMEs/pg-GCG2Z7-3.png" title="Glow layer" description="Example of a frame graph using the glow layer task" isMain={false}/>
-<Playground id="#GCG2Z7#6" image="/img/playgroundsAndNMEs/pg-GCG2Z7-2.png" title="Glow layer (NRG)" description="Example of a node render graph using the glow layer block" isMain={false}/>
+<Playground id="#GCG2Z7#5" image="/img/playgroundsAndNMEs/pg-GCG2Z7-3.webp" title="Glow layer" description="Example of a frame graph using the glow layer task" isMain={false}/>
+<Playground id="#GCG2Z7#6" image="/img/playgroundsAndNMEs/pg-GCG2Z7-2.webp" title="Glow layer (NRG)" description="Example of a node render graph using the glow layer block" isMain={false}/>
 
 Inputs:
 * **targetTexture**. The target texture to apply the effect layer to. The effect will be blended with the contents of this texture.
@@ -39,14 +39,14 @@ Properties:
 Outputs:
 * **outputTexture**. The output texture of the task (same underlying texture as **targetTexture**, but the handle will be different).
 
-<H3Image title="FrameGraphHighlightLayerTask" image="/img/frameGraph/task_highlight.jpg" alt="Highlight layer"/>
+<H3Image title="FrameGraphHighlightLayerTask" image="/img/frameGraph/task_highlight.webp" alt="Highlight layer"/>
 
 Provides the same functionalities as the [highlight layer](/features/featuresDeepDive/mesh/highlightLayer) class.
 
 [Link to the class](/typedoc/classes/babylon.framegraphhighlightlayertask)
 
-<Playground id="#PV8OLY#35" image="/img/playgroundsAndNMEs/pg-PV8OLY-28.png" title="Highlight layer" description="Example of a frame graph using the highlight layer task" isMain={false}/>
-<Playground id="#PV8OLY#36" image="/img/playgroundsAndNMEs/pg-PV8OLY-29.png" title="Highlight layer (NRG)" description="Example of a node render graph using the highlight layer block" isMain={false}/>
+<Playground id="#PV8OLY#35" image="/img/playgroundsAndNMEs/pg-PV8OLY-28.webp" title="Highlight layer" description="Example of a frame graph using the highlight layer task" isMain={false}/>
+<Playground id="#PV8OLY#36" image="/img/playgroundsAndNMEs/pg-PV8OLY-29.webp" title="Highlight layer (NRG)" description="Example of a node render graph using the highlight layer block" isMain={false}/>
 
 Inputs:
 * **targetTexture**. The target texture to apply the effect layer to. The effect will be blended with the contents of this texture.
@@ -64,7 +64,7 @@ Outputs:
 
 Note that the **objectRendererTask** you define for the corresponding property must use a depth texture with a stencil aspect. An exception will be thrown if this is not the case.
 
-<H3Image title="FrameGraphSelectionOutlineLayerTask" image="/img/frameGraph/task_selectionoutline.jpg" alt="Selection Outline layer"/>
+<H3Image title="FrameGraphSelectionOutlineLayerTask" image="/img/frameGraph/task_selectionoutline.webp" alt="Selection Outline layer"/>
 
 Provides the same functionalities as the [Selection outline layer](/features/featuresDeepDive/mesh/selectionOutlineLayer) class.
 
@@ -90,14 +90,14 @@ Outputs:
 
 ## Miscellaneous tasks
 
-<H3Image title="FrameGraphComputeShaderTask" image="/img/frameGraph/task_computeshader.jpg" alt="Compute shader"/>
+<H3Image title="FrameGraphComputeShaderTask" image="/img/frameGraph/task_computeshader.webp" alt="Compute shader"/>
 
 Task used to execute a compute shader (WebGPU only).
 
 [Link to the class](/typedoc/classes/babylon.framegraphcomputeshadertask)
 
-<Playground engine="webgpu" id="#KOBPUW#18" image="/img/playgroundsAndNMEs/pg-KOBPUW-11.png" title="Compute shader task" description="Example of a frame graph using the compute shader task" isMain={false}/>
-<Playground engine="webgpu" id="#KOBPUW#19" image="/img/playgroundsAndNMEs/pg-KOBPUW-14.png" title="Compute shader task (NRG)" description="Example of a node render graph using the compute shader block" isMain={true} category="Frame Graph"/>
+<Playground engine="webgpu" id="#KOBPUW#18" image="/img/playgroundsAndNMEs/pg-KOBPUW-11.webp" title="Compute shader task" description="Example of a frame graph using the compute shader task" isMain={false}/>
+<Playground engine="webgpu" id="#KOBPUW#19" image="/img/playgroundsAndNMEs/pg-KOBPUW-14.webp" title="Compute shader task (NRG)" description="Example of a node render graph using the compute shader block" isMain={true} category="Frame Graph"/>
 
 Inputs:
 * **dispatchSize**. Defines the dispatch size for the compute shader.
@@ -111,14 +111,14 @@ The compute shader created by the class is accessible via the **computeShader** 
 
 You can create uniform buffers directly via the `FrameGraphComputeShaderTask` class by calling the `createUniformBuffer(name, description, autoUpdate)` method. The advantage over creating the buffer by calling `new UniformBuffer()` is that, by default (see the **autoUpdate** parameter in `createUniformBuffer`), the `UniformBuffer.update()` method will be called automatically before the compute shader is run. Also, the buffer will be automatically disposed when the task is disposed.
 
-<H3Image title="FrameGraphCullObjectsTask" image="/img/frameGraph/task_cull.jpg" alt="Cull meshes"/>
+<H3Image title="FrameGraphCullObjectsTask" image="/img/frameGraph/task_cull.webp" alt="Cull meshes"/>
 
 Task used to cull objects that are not visible.
 
 [Link to the class](/typedoc/classes/babylon.framegraphcullobjectstask)
 
-<Playground id="#MJDYB1#15" image="/img/playgroundsAndNMEs/pg-MJDYB1-6.png" title="Cull task" description="Example of a frame graph using the cull task" isMain={false}/>
-<Playground id="#MJDYB1#16" image="/img/playgroundsAndNMEs/pg-MJDYB1-8.png" title="Cull task (NRG)" description="Example of a node render graph using the cull block" isMain={false}/>
+<Playground id="#MJDYB1#15" image="/img/playgroundsAndNMEs/pg-MJDYB1-6.webp" title="Cull task" description="Example of a frame graph using the cull task" isMain={false}/>
+<Playground id="#MJDYB1#16" image="/img/playgroundsAndNMEs/pg-MJDYB1-8.webp" title="Cull task (NRG)" description="Example of a node render graph using the cull block" isMain={false}/>
 
 Inputs:
 * **objectList**. The object list to cull.
@@ -134,14 +134,14 @@ Notes:
 * If meshes are frozen, culling is not performed and the last culling result before switching to frozen mode is reused
 * If the task is disabled, the list of output objects (**outputObjectList**) is identical to the list of input objects (**objectList**).
 
-<H3Image title="FrameGraphExecuteTask" image="/img/frameGraph/task_execute.jpg" alt="Execute task"/>
+<H3Image title="FrameGraphExecuteTask" image="/img/frameGraph/task_execute.webp" alt="Execute task"/>
 
 Task used to execute a custom function.
 
 [Link to the class](/typedoc/classes/babylon.framegraphexecutetask)
 
-<Playground id="#SUEU9U#110" image="/img/playgroundsAndNMEs/pg-SUEU9U-10.png" title="Execute task" description="Example of a frame graph using the execute task" isMain={false}/>
-<Playground id="#SUEU9U#133" image="/img/playgroundsAndNMEs/pg-SUEU9U-11.png" title="Execute task (NRG)" description="Example of a node render graph using the execute block" isMain={false}/>
+<Playground id="#SUEU9U#110" image="/img/playgroundsAndNMEs/pg-SUEU9U-10.webp" title="Execute task" description="Example of a frame graph using the execute task" isMain={false}/>
+<Playground id="#SUEU9U#133" image="/img/playgroundsAndNMEs/pg-SUEU9U-11.webp" title="Execute task (NRG)" description="Example of a node render graph using the execute block" isMain={false}/>
 
 Inputs:
 * **func**. The function to execute when the task is enabled.
@@ -151,14 +151,14 @@ Inputs:
 
 You can use this task for any custom process you want to run during the execution of the frame graph. In the PG example above, we use it to increment a counter each time the task is executed.
 
-<H3Image title="FrameGraphGUITask" image="/img/frameGraph/task_gui.jpg" alt="GUI"/>
+<H3Image title="FrameGraphGUITask" image="/img/frameGraph/task_gui.webp" alt="GUI"/>
 
 Task that renders a GUI texture.
 
 [Link to the class](/typedoc/classes/babylon.gui.framegraphguitask)
 
-<Playground id="#SUEU9U#111" image="/img/playgroundsAndNMEs/pg-SUEU9U-77.png" title="GUI task" description="Example of a frame graph using the gui task" isMain={false}/>
-<Playground id="#SUEU9U#134" image="/img/playgroundsAndNMEs/pg-SUEU9U-78.png" title="GUI task (NRG)" description="Example of a node render graph using the gui block" isMain={false}/>
+<Playground id="#SUEU9U#111" image="/img/playgroundsAndNMEs/pg-SUEU9U-77.webp" title="GUI task" description="Example of a frame graph using the gui task" isMain={false}/>
+<Playground id="#SUEU9U#134" image="/img/playgroundsAndNMEs/pg-SUEU9U-78.webp" title="GUI task (NRG)" description="Example of a node render graph using the gui block" isMain={false}/>
 
 Inputs:
 * **targetTexture**. The target texture to render the GUI to.
@@ -174,14 +174,14 @@ Outputs:
 
 Note that you can provide an existing instance of `AdvancedDynamicTexture` at construction time (third parameter of the constructor), but you must ensure that the **useStandalone** property is set to *true*, as this is required for correct use in frame graphs!
 
-<H3Image title="FrameGraphLightingVolumeTask" image="/img/frameGraph/task_lightingvolume.jpg" alt="Lighting volume"/>
+<H3Image title="FrameGraphLightingVolumeTask" image="/img/frameGraph/task_lightingvolume.webp" alt="Lighting volume"/>
 
 Task used to create a lighting volume from a directional light's shadow generator.
 
 [Link to the class](/typedoc/classes/babylon.framegraphlightingvolumetask)
 
 <Playground engine="webgpu" id="#3VH0AC#13" title="Lighting volume task" description="Example of a frame graph using the lighting volume task" isMain={false}/>
-<Playground engine="webgpu" id="#3VH0AC#15" image="/img/playgroundsAndNMEs/pg-3VH0AC-13.png" title="Lighting volume task (NRG)" description="Example of a node render graph using the lighting volume block" isMain={false}/>
+<Playground engine="webgpu" id="#3VH0AC#15" image="/img/playgroundsAndNMEs/pg-3VH0AC-13.webp" title="Lighting volume task (NRG)" description="Example of a node render graph using the lighting volume block" isMain={false}/>
 
 Inputs:
 * **shadowGenerator**. The shadow generator used to create the lighting volume.
@@ -228,39 +228,39 @@ Since these properties are common to all post-process tasks, we will not repeat 
 
 In addition, all these tasks are wrappers around existing post-process classes. You should therefore refer to the documentation for these classes (for each task in the following sections, we provide a link to the corresponding post-process class) to find out which specific properties are available for each task: you can access these properties via **postProcessTask.postProcess**.
 
-<H3Image title="FrameGraphAnaglyphTask" image="/img/frameGraph/task_anaglyph.jpg" alt="Anaglyph post-process"/>
+<H3Image title="FrameGraphAnaglyphTask" image="/img/frameGraph/task_anaglyph.webp" alt="Anaglyph post-process"/>
 
 Task which applies an anaglyph post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphanaglyphtask)
 
-<Playground id="#SUEU9U#112" image="/img/playgroundsAndNMEs/pg-SUEU9U-12.png" title="Anaglyph task" description="Example of a frame graph using the anaglyph task" isMain={false}/>
-<Playground id="#SUEU9U#135" image="/img/playgroundsAndNMEs/pg-SUEU9U-13.png" title="Anaglyph task (NRG)" description="Example of a node render graph using the anaglyph block" isMain={false}/>
+<Playground id="#SUEU9U#112" image="/img/playgroundsAndNMEs/pg-SUEU9U-12.webp" title="Anaglyph task" description="Example of a frame graph using the anaglyph task" isMain={false}/>
+<Playground id="#SUEU9U#135" image="/img/playgroundsAndNMEs/pg-SUEU9U-13.webp" title="Anaglyph task (NRG)" description="Example of a node render graph using the anaglyph block" isMain={false}/>
 
 Inputs:
 * **leftTexture**. The texture to use as the left texture.
 
-<H3Image title="FrameGraphBlackAndWhiteTask" image="/img/frameGraph/task_blackandwhite.jpg" alt="Black and white post-process"/>
+<H3Image title="FrameGraphBlackAndWhiteTask" image="/img/frameGraph/task_blackandwhite.webp" alt="Black and white post-process"/>
 
 Task which applies a black and white post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphblackandwhitetask)
 
-<Playground id="#SUEU9U#113" image="/img/playgroundsAndNMEs/pg-SUEU9U-14.png" title="Black and white task" description="Example of a frame graph using the black and white task" isMain={false}/>
-<Playground id="#SUEU9U#136" image="/img/playgroundsAndNMEs/pg-SUEU9U-15.png" title="Black and white task (NRG)" description="Example of a node render graph using the black and white block" isMain={false}/>
+<Playground id="#SUEU9U#113" image="/img/playgroundsAndNMEs/pg-SUEU9U-14.webp" title="Black and white task" description="Example of a frame graph using the black and white task" isMain={false}/>
+<Playground id="#SUEU9U#136" image="/img/playgroundsAndNMEs/pg-SUEU9U-15.webp" title="Black and white task (NRG)" description="Example of a node render graph using the black and white block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinblackandwhitepostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphBloomTask" image="/img/frameGraph/task_bloom.jpg" alt="Bloom post-process"/>
+<H3Image title="FrameGraphBloomTask" image="/img/frameGraph/task_bloom.webp" alt="Bloom post-process"/>
 
 Task which applies a bloom post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphbloomtask)
 
-<Playground id="#SUEU9U#114" image="/img/playgroundsAndNMEs/pg-SUEU9U-16.png" title="Bloom task" description="Example of a frame graph using the bloom task" isMain={false}/>
-<Playground id="#SUEU9U#137" image="/img/playgroundsAndNMEs/pg-SUEU9U-17.png" title="Bloom task (NRG)" description="Example of a node render graph using the bloom block" isMain={false}/>
+<Playground id="#SUEU9U#114" image="/img/playgroundsAndNMEs/pg-SUEU9U-16.webp" title="Bloom task" description="Example of a frame graph using the bloom task" isMain={false}/>
+<Playground id="#SUEU9U#137" image="/img/playgroundsAndNMEs/pg-SUEU9U-17.webp" title="Bloom task (NRG)" description="Example of a node render graph using the bloom block" isMain={false}/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -282,40 +282,40 @@ Outputs:
 
 Note that you can set **weight**, **kernel**, **threshold**, and **hdr** at construction time (these are constructor parameters). You can change these values later via the **bloom** property, except for **hdr**, which is only a construction parameter.
 
-<H3Image title="FrameGraphBlurTask" image="/img/frameGraph/task_blur.jpg" alt="Blur post-process"/>
+<H3Image title="FrameGraphBlurTask" image="/img/frameGraph/task_blur.webp" alt="Blur post-process"/>
 
 Task which applies a blur post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphblurtask)
 
-<Playground id="#SUEU9U#115" image="/img/playgroundsAndNMEs/pg-SUEU9U-18.png" title="Blur task" description="Example of a frame graph using the blur task" isMain={false}/>
-<Playground id="#SUEU9U#138" image="/img/playgroundsAndNMEs/pg-SUEU9U-19.png" title="Blur task (NRG)" description="Example of a node render graph using the blur block" isMain={false}/>
+<Playground id="#SUEU9U#115" image="/img/playgroundsAndNMEs/pg-SUEU9U-18.webp" title="Blur task" description="Example of a frame graph using the blur task" isMain={false}/>
+<Playground id="#SUEU9U#138" image="/img/playgroundsAndNMEs/pg-SUEU9U-19.webp" title="Blur task (NRG)" description="Example of a node render graph using the blur block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinblurpostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphChromaticAberrationTask" image="/img/frameGraph/task_chromaticaberration.jpg" alt="Chromatic aberration post-process"/>
+<H3Image title="FrameGraphChromaticAberrationTask" image="/img/frameGraph/task_chromaticaberration.webp" alt="Chromatic aberration post-process"/>
 
 Task which applies a chromatic aberration post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphchromaticaberrationtask)
 
-<Playground id="#SUEU9U#116" image="/img/playgroundsAndNMEs/pg-SUEU9U-21.png" title="Chromatic aberration task" description="Example of a frame graph using the chromatic aberration task" isMain={false}/>
-<Playground id="#SUEU9U#139" image="/img/playgroundsAndNMEs/pg-SUEU9U-22.png" title="Chromatic aberration task (NRG)" description="Example of a node render graph using the chromatic aberration block" isMain={false}/>
+<Playground id="#SUEU9U#116" image="/img/playgroundsAndNMEs/pg-SUEU9U-21.webp" title="Chromatic aberration task" description="Example of a frame graph using the chromatic aberration task" isMain={false}/>
+<Playground id="#SUEU9U#139" image="/img/playgroundsAndNMEs/pg-SUEU9U-22.webp" title="Chromatic aberration task (NRG)" description="Example of a node render graph using the chromatic aberration block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinchromaticaberrationpostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphCircleOfConfusionTask" image="/img/frameGraph/task_circleofconfusion.jpg" alt="Circle of confusion post-process"/>
+<H3Image title="FrameGraphCircleOfConfusionTask" image="/img/frameGraph/task_circleofconfusion.webp" alt="Circle of confusion post-process"/>
 
 Task which applies a circle of confusion post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphcircleofconfusiontask)
 
-<Playground id="#SUEU9U#117" image="/img/playgroundsAndNMEs/pg-SUEU9U-25.png" title="Circle of confusion task" description="Example of a frame graph using the circle of confusion task" isMain={false}/>
-<Playground id="#SUEU9U#154" image="/img/playgroundsAndNMEs/pg-SUEU9U-24.png" title="Circle of confusion task (NRG)" description="Example of a node render graph using the circle of confusion block" isMain={false}/>
+<Playground id="#SUEU9U#117" image="/img/playgroundsAndNMEs/pg-SUEU9U-25.webp" title="Circle of confusion task" description="Example of a frame graph using the circle of confusion task" isMain={false}/>
+<Playground id="#SUEU9U#154" image="/img/playgroundsAndNMEs/pg-SUEU9U-24.webp" title="Circle of confusion task (NRG)" description="Example of a node render graph using the circle of confusion block" isMain={false}/>
 
 Inputs:
 * **depthTexture**. The depth texture to use for the circle of confusion effect. It must store camera space depth (Z coordinate).
@@ -327,52 +327,52 @@ Properties:
 * [postProcess](/typedoc/classes/babylon.thincircleofconfusionpostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphColorCorrectionTask" image="/img/frameGraph/task_colorcorrection.jpg" alt="Color correction post-process"/>
+<H3Image title="FrameGraphColorCorrectionTask" image="/img/frameGraph/task_colorcorrection.webp" alt="Color correction post-process"/>
 
 Task which applies a color correction post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphcolorcorrectiontask)
 
-<Playground id="#SUEU9U#118" image="/img/playgroundsAndNMEs/pg-SUEU9U-26.png" title="Color correction task" description="Example of a frame graph using the color correction task" isMain={false}/>
-<Playground id="#SUEU9U#141" image="/img/playgroundsAndNMEs/pg-SUEU9U-27.png" title="Color correction task (NRG)" description="Example of a node render graph using the color correction block" isMain={false}/>
+<Playground id="#SUEU9U#118" image="/img/playgroundsAndNMEs/pg-SUEU9U-26.webp" title="Color correction task" description="Example of a frame graph using the color correction task" isMain={false}/>
+<Playground id="#SUEU9U#141" image="/img/playgroundsAndNMEs/pg-SUEU9U-27.webp" title="Color correction task (NRG)" description="Example of a node render graph using the color correction block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thincolorcorrectionpostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphConvolutionTask" image="/img/frameGraph/task_convolution.jpg" alt="Convolution post-process"/>
+<H3Image title="FrameGraphConvolutionTask" image="/img/frameGraph/task_convolution.webp" alt="Convolution post-process"/>
 
 Task which applies a convolution post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphconvolutiontask)
 
-<Playground id="#SUEU9U#119" image="/img/playgroundsAndNMEs/pg-SUEU9U-28.png" title="Convolution task" description="Example of a frame graph using the convolution task" isMain={false}/>
-<Playground id="#SUEU9U#142" image="/img/playgroundsAndNMEs/pg-SUEU9U-29.png" title="Convolution task (NRG)" description="Example of a node render graph using the convolution block" isMain={false}/>
+<Playground id="#SUEU9U#119" image="/img/playgroundsAndNMEs/pg-SUEU9U-28.webp" title="Convolution task" description="Example of a frame graph using the convolution task" isMain={false}/>
+<Playground id="#SUEU9U#142" image="/img/playgroundsAndNMEs/pg-SUEU9U-29.webp" title="Convolution task (NRG)" description="Example of a node render graph using the convolution block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinconvolutionpostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphCustomPostProcessTask" image="/img/frameGraph/task_custompostprocess.jpg" alt="Custom post-process"/>
+<H3Image title="FrameGraphCustomPostProcessTask" image="/img/frameGraph/task_custompostprocess.webp" alt="Custom post-process"/>
 
 Task which applies a custom post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphcustompostprocesstask)
 
-<Playground id="#R33LVG#6" image="/img/playgroundsAndNMEs/pg-R33LVG-2.png" title="Custom task" description="Example of a frame graph using the custom task" isMain={false}/>
+<Playground id="#R33LVG#6" image="/img/playgroundsAndNMEs/pg-R33LVG-2.webp" title="Custom task" description="Example of a frame graph using the custom task" isMain={false}/>
 
 Inputs:
 * **onApplyObservable**. Observable triggered when bind is called for the post process. Use this to set custom uniforms (see example playground).
 <br/>
 
-<H3Image title="FrameGraphDepthOfFieldTask" image="/img/frameGraph/task_depthoffield.jpg" alt="Depth of field post-process"/>
+<H3Image title="FrameGraphDepthOfFieldTask" image="/img/frameGraph/task_depthoffield.webp" alt="Depth of field post-process"/>
 
 Task which applies a depth of field post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphdepthoffieldtask)
 
-<Playground id="#SUEU9U#120" image="/img/playgroundsAndNMEs/pg-SUEU9U-31.png" title="Depth of field task" description="Example of a frame graph using the depth of field task" isMain={false}/>
-<Playground id="#SUEU9U#155" image="/img/playgroundsAndNMEs/pg-SUEU9U-32.png" title="Depth of field task (NRG)" description="Example of a node render graph using the depth of field block" isMain={false}/>
+<Playground id="#SUEU9U#120" image="/img/playgroundsAndNMEs/pg-SUEU9U-31.webp" title="Depth of field task" description="Example of a frame graph using the depth of field task" isMain={false}/>
+<Playground id="#SUEU9U#155" image="/img/playgroundsAndNMEs/pg-SUEU9U-32.webp" title="Depth of field task (NRG)" description="Example of a node render graph using the depth of field block" isMain={false}/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -397,66 +397,66 @@ Outputs:
 
 Note that **hdr** can only be set at construction time (it is a constructor parameter).
 
-<H3Image title="FrameGraphExtractHighlightsTask" image="/img/frameGraph/task_extracthighlights.jpg" alt="Extract highlights post-process"/>
+<H3Image title="FrameGraphExtractHighlightsTask" image="/img/frameGraph/task_extracthighlights.webp" alt="Extract highlights post-process"/>
 
 Task which applies a extract highlights post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphextracthighlightstask)
 
-<Playground id="#SUEU9U#121" image="/img/playgroundsAndNMEs/pg-SUEU9U-33.png" title="Extract highlights task" description="Example of a frame graph using the extract highlights task" isMain={false}/>
-<Playground id="#SUEU9U#144" image="/img/playgroundsAndNMEs/pg-SUEU9U-34.png" title="Extract highlights task (NRG)" description="Example of a node render graph using the extract highlights block" isMain={false}/>
+<Playground id="#SUEU9U#121" image="/img/playgroundsAndNMEs/pg-SUEU9U-33.webp" title="Extract highlights task" description="Example of a frame graph using the extract highlights task" isMain={false}/>
+<Playground id="#SUEU9U#144" image="/img/playgroundsAndNMEs/pg-SUEU9U-34.webp" title="Extract highlights task (NRG)" description="Example of a node render graph using the extract highlights block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinextracthighlightspostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphFilterTask" image="/img/frameGraph/task_filter.jpg" alt="Filter post-process"/>
+<H3Image title="FrameGraphFilterTask" image="/img/frameGraph/task_filter.webp" alt="Filter post-process"/>
 
 Task which applies a filter post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphfiltertask)
 
-<Playground id="#SUEU9U#122" image="/img/playgroundsAndNMEs/pg-SUEU9U-35.png" title="Filter task" description="Example of a frame graph using the filter task" isMain={false}/>
-<Playground id="#SUEU9U#145" image="/img/playgroundsAndNMEs/pg-SUEU9U-36.png" title="Filter task (NRG)" description="Example of a node render graph using the filter block" isMain={false}/>
+<Playground id="#SUEU9U#122" image="/img/playgroundsAndNMEs/pg-SUEU9U-35.webp" title="Filter task" description="Example of a frame graph using the filter task" isMain={false}/>
+<Playground id="#SUEU9U#145" image="/img/playgroundsAndNMEs/pg-SUEU9U-36.webp" title="Filter task (NRG)" description="Example of a node render graph using the filter block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinfilterpostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphFXAATask" image="/img/frameGraph/task_fxaa.jpg" alt="FXAA post-process"/>
+<H3Image title="FrameGraphFXAATask" image="/img/frameGraph/task_fxaa.webp" alt="FXAA post-process"/>
 
 Task which applies a FXAA post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphfxaatask)
 
-<Playground id="#SUEU9U#123" image="/img/playgroundsAndNMEs/pg-SUEU9U-37.png" title="FXAA task" description="Example of a frame graph using the FXAA task" isMain={false}/>
-<Playground id="#SUEU9U#146" image="/img/playgroundsAndNMEs/pg-SUEU9U-38.png" title="FXAA task (NRG)" description="Example of a node render graph using the FXAA block" isMain={false}/>
+<Playground id="#SUEU9U#123" image="/img/playgroundsAndNMEs/pg-SUEU9U-37.webp" title="FXAA task" description="Example of a frame graph using the FXAA task" isMain={false}/>
+<Playground id="#SUEU9U#146" image="/img/playgroundsAndNMEs/pg-SUEU9U-38.webp" title="FXAA task (NRG)" description="Example of a node render graph using the FXAA block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinfxaapostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphGrainTask" image="/img/frameGraph/task_grain.jpg" alt="Grain post-process"/>
+<H3Image title="FrameGraphGrainTask" image="/img/frameGraph/task_grain.webp" alt="Grain post-process"/>
 
 Task which applies a grain post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphgraintask)
 
-<Playground id="#SUEU9U#124" image="/img/playgroundsAndNMEs/pg-SUEU9U-39.png" title="Grain task" description="Example of a frame graph using the grain task" isMain={false}/>
-<Playground id="#SUEU9U#147" image="/img/playgroundsAndNMEs/pg-SUEU9U-40.png" title="Grain task (NRG)" description="Example of a node render graph using the grain block" isMain={false}/>
+<Playground id="#SUEU9U#124" image="/img/playgroundsAndNMEs/pg-SUEU9U-39.webp" title="Grain task" description="Example of a frame graph using the grain task" isMain={false}/>
+<Playground id="#SUEU9U#147" image="/img/playgroundsAndNMEs/pg-SUEU9U-40.webp" title="Grain task (NRG)" description="Example of a node render graph using the grain block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thingrainpostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphImageProcessingTask" image="/img/frameGraph/task_imageprocessing.jpg" alt="Image processing post-process"/>
+<H3Image title="FrameGraphImageProcessingTask" image="/img/frameGraph/task_imageprocessing.webp" alt="Image processing post-process"/>
 
 Task which applies a image processing post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphimageprocessingtask)
 
-<Playground id="#SUEU9U#125" image="/img/playgroundsAndNMEs/pg-SUEU9U-45.png" title="Image processing task" description="Example of a frame graph using the image processing task" isMain={false}/>
-<Playground id="#SUEU9U#148" image="/img/playgroundsAndNMEs/pg-SUEU9U-46.png" title="Image processing task (NRG)" description="Example of a node render graph using the image processing block" isMain={false}/>
+<Playground id="#SUEU9U#125" image="/img/playgroundsAndNMEs/pg-SUEU9U-45.webp" title="Image processing task" description="Example of a frame graph using the image processing task" isMain={false}/>
+<Playground id="#SUEU9U#148" image="/img/playgroundsAndNMEs/pg-SUEU9U-46.webp" title="Image processing task (NRG)" description="Example of a node render graph using the image processing block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinimageprocessingpostprocess). The properties of the post-process.
@@ -465,15 +465,15 @@ Properties:
 If you use this post-process, you will probably want to set **disableImageProcessing = true** on the object render that renders the texture to which the image processing is applied.
 Alternatively, you can also set `FrameGraphImageProcessingTask.postProcess.fromLinearSpace = false` to indicate that the source texture is in gamma space.
 
-<H3Image title="FrameGraphMotionBlurTask" image="/img/frameGraph/task_motionblur.jpg" alt="Motion blur post-process"/>
+<H3Image title="FrameGraphMotionBlurTask" image="/img/frameGraph/task_motionblur.webp" alt="Motion blur post-process"/>
 
 Task which applies a motion blur post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphmotionblurtask)
 
-<Playground id="#YB006J#790" image="/img/playgroundsAndNMEs/pg-YB006J-746.png" title="Motion blur task (screen based)" description="Example of a frame graph using the motion blur task (screen based)" isMain={false}/>
-<Playground id="#YB006J#791" image="/img/playgroundsAndNMEs/pg-YB006J-749.png" title="Motion blur task (object based)" description="Example of a frame graph using the motion blur task (object based)" isMain={false}/>
-<Playground id="#YB006J#794" image="/img/playgroundsAndNMEs/pg-YB006J-753.png" title="Motion blur task (NRG)" description="Example of a node render graph using the motion blur block" isMain={false}/>
+<Playground id="#YB006J#790" image="/img/playgroundsAndNMEs/pg-YB006J-746.webp" title="Motion blur task (screen based)" description="Example of a frame graph using the motion blur task (screen based)" isMain={false}/>
+<Playground id="#YB006J#791" image="/img/playgroundsAndNMEs/pg-YB006J-749.webp" title="Motion blur task (object based)" description="Example of a frame graph using the motion blur task (object based)" isMain={false}/>
+<Playground id="#YB006J#794" image="/img/playgroundsAndNMEs/pg-YB006J-753.webp" title="Motion blur task (NRG)" description="Example of a node render graph using the motion blur block" isMain={false}/>
 
 Inputs:
 * **velocityTexture** (optional). The velocity texture to use for the motion blur effect. Needed for object-based motion blur.
@@ -492,14 +492,14 @@ If the appropriate texture is not connected according to the current motion blur
 
 Both of these textures can be generated by the [FrameGraphGeometryRendererTask](#framegraphgeometryrenderertask) task (see below).
 
-<H3Image title="FrameGraphScreenSpaceCurvatureTask" image="/img/frameGraph/task_screenspacecurvature.jpg" alt="Screen space curvature post-process"/>
+<H3Image title="FrameGraphScreenSpaceCurvatureTask" image="/img/frameGraph/task_screenspacecurvature.webp" alt="Screen space curvature post-process"/>
 
 Task which applies a screen space curvature post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphscreenspacecurvaturetask)
 
-<Playground id="#SUEU9U#126" image="/img/playgroundsAndNMEs/pg-SUEU9U-47.png" title="Screen space curvature task" description="Example of a frame graph using the screen space curvature task" isMain={false}/>
-<Playground id="#SUEU9U#158" image="/img/playgroundsAndNMEs/pg-SUEU9U-48.png" title="Screen space curvature task (NRG)" description="Example of a node render graph using the screen space curvature block" isMain={false}/>
+<Playground id="#SUEU9U#126" image="/img/playgroundsAndNMEs/pg-SUEU9U-47.webp" title="Screen space curvature task" description="Example of a frame graph using the screen space curvature task" isMain={false}/>
+<Playground id="#SUEU9U#158" image="/img/playgroundsAndNMEs/pg-SUEU9U-48.webp" title="Screen space curvature task (NRG)" description="Example of a node render graph using the screen space curvature block" isMain={false}/>
 
 Inputs:
 * **normalTexture**. The normal texture to use for the screen space curvature effect. It must store normals in camera view space.
@@ -509,27 +509,27 @@ Properties:
 * [postProcess](/typedoc/classes/babylon.thinscreenspacecurvaturepostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphSharpenTask" image="/img/frameGraph/task_sharpen.jpg" alt="Sharpen post-process"/>
+<H3Image title="FrameGraphSharpenTask" image="/img/frameGraph/task_sharpen.webp" alt="Sharpen post-process"/>
 
 Task which applies a sharpen post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphsharpentask)
 
-<Playground id="#SUEU9U#127" image="/img/playgroundsAndNMEs/pg-SUEU9U-49.png" title="Sharpen task" description="Example of a frame graph using the sharpen task" isMain={false}/>
-<Playground id="#SUEU9U#150" image="/img/playgroundsAndNMEs/pg-SUEU9U-58.png" title="Sharpen task (NRG)" description="Example of a node render graph using the sharpen block" isMain={false}/>
+<Playground id="#SUEU9U#127" image="/img/playgroundsAndNMEs/pg-SUEU9U-49.webp" title="Sharpen task" description="Example of a frame graph using the sharpen task" isMain={false}/>
+<Playground id="#SUEU9U#150" image="/img/playgroundsAndNMEs/pg-SUEU9U-58.webp" title="Sharpen task (NRG)" description="Example of a node render graph using the sharpen block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thinsharpenpostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphSSAO2RenderingPipelineTask" image="/img/frameGraph/task_ssao2.jpg" alt="SSAO2 post-process"/>
+<H3Image title="FrameGraphSSAO2RenderingPipelineTask" image="/img/frameGraph/task_ssao2.webp" alt="SSAO2 post-process"/>
 
 Task which applies a screen-space ambient occlusion post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphssao2renderingpipelinetask)
 
-<Playground id="#SUEU9U#128" image="/img/playgroundsAndNMEs/pg-SUEU9U-51.png" title="SSAO2 task" description="Example of a frame graph using the SSAO2 task" isMain={false}/>
-<Playground id="#SUEU9U#156" image="/img/playgroundsAndNMEs/pg-SUEU9U-52.png" title="SSAO2 task (NRG)" description="Example of a node render graph using the SSAO2 block" isMain={false}/>
+<Playground id="#SUEU9U#128" image="/img/playgroundsAndNMEs/pg-SUEU9U-51.webp" title="SSAO2 task" description="Example of a frame graph using the SSAO2 task" isMain={false}/>
+<Playground id="#SUEU9U#156" image="/img/playgroundsAndNMEs/pg-SUEU9U-52.webp" title="SSAO2 task (NRG)" description="Example of a node render graph using the SSAO2 block" isMain={false}/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -556,14 +556,14 @@ Outputs:
 
 Note that you can set **ratioSSAO**, **ratioBlur** and **textureType** only at construction time (these are constructor parameters).
 
-<H3Image title="FrameGraphSSRRenderingPipelineTask" image="/img/frameGraph/task_ssr.jpg" alt="SSR post-process"/>
+<H3Image title="FrameGraphSSRRenderingPipelineTask" image="/img/frameGraph/task_ssr.webp" alt="SSR post-process"/>
 
 Task which applies a screen-space reflection post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphssrrenderingpipelinetask)
 
-<Playground id="#SUEU9U#129" image="/img/playgroundsAndNMEs/pg-SUEU9U-54.png" title="SSR task" description="Example of a frame graph using the SSR task" isMain={false}/>
-<Playground id="#PIZ1GK#2388" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2373.png" title="SSR task (NRG)" description="Example of a node render graph using the SSR block" isMain={true} category="Frame Graph"/>
+<Playground id="#SUEU9U#129" image="/img/playgroundsAndNMEs/pg-SUEU9U-54.webp" title="SSR task" description="Example of a frame graph using the SSR task" isMain={false}/>
+<Playground id="#PIZ1GK#2388" image="/img/playgroundsAndNMEs/pg-PIZ1GK-2373.webp" title="SSR task (NRG)" description="Example of a node render graph using the SSR block" isMain={true} category="Frame Graph"/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -596,13 +596,13 @@ If you programmatically change the blur strength value (the `FrameGraphSSRRender
 
 Refer to [Screen Space Reflections (SSR) Rendering Pipeline](/features/featuresDeepDive/postProcesses/SSRRenderingPipeline) for more information on SSR and the parameters you can use to adjust the effect.
 
-<H3Image title="FrameGraphTAATask" image="/img/frameGraph/task_taa.jpg" alt="TAA post-process"/>
+<H3Image title="FrameGraphTAATask" image="/img/frameGraph/task_taa.webp" alt="TAA post-process"/>
 
 Task which applies a temporal anti-aliasing post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphtaatask)
 
-<Playground id="#OWGOUN#19" image="/img/playgroundsAndNMEs/pg-OWGOUN-15.png" title="TAA task" description="Example of a frame graph using the TAA task" isMain={false}/>
+<Playground id="#OWGOUN#19" image="/img/playgroundsAndNMEs/pg-OWGOUN-15.webp" title="TAA task" description="Example of a frame graph using the TAA task" isMain={false}/>
 
 Inputs:
 * **objectRendererTask**. The object renderer task used to render the scene objects.
@@ -622,27 +622,27 @@ In addition, when using TAA post-processing, you probably don't want to use MSAA
 
 Refer to [Temporal Anti-Aliasing (TAA) Rendering Pipeline](/features/featuresDeepDive/postProcesses/TAARenderingPipeline) for more information on TAA and the parameters you can use to adjust the effect.
 
-<H3Image title="FrameGraphTonemapTask" image="/img/frameGraph/task_tonemap.jpg" alt="Tonemap post-process"/>
+<H3Image title="FrameGraphTonemapTask" image="/img/frameGraph/task_tonemap.webp" alt="Tonemap post-process"/>
 
 Task which applies a tonemap post-process.
 
 [Link to the class](/typedoc/classes/babylon.framegraphtonemaptask)
 
-<Playground id="#SUEU9U#130" image="/img/playgroundsAndNMEs/pg-SUEU9U-55.png" title="Tonemap task" description="Example of a frame graph using the tonemap task" isMain={false}/>
-<Playground id="#SUEU9U#152" image="/img/playgroundsAndNMEs/pg-SUEU9U-57.png" title="Tonemap task (NRG)" description="Example of a node render graph using the tonemap block" isMain={false}/>
+<Playground id="#SUEU9U#130" image="/img/playgroundsAndNMEs/pg-SUEU9U-55.webp" title="Tonemap task" description="Example of a frame graph using the tonemap task" isMain={false}/>
+<Playground id="#SUEU9U#152" image="/img/playgroundsAndNMEs/pg-SUEU9U-57.webp" title="Tonemap task (NRG)" description="Example of a node render graph using the tonemap block" isMain={false}/>
 
 Properties:
 * [postProcess](/typedoc/classes/babylon.thintonemappostprocess). The properties of the post-process.
 <br/>
 
-<H3Image title="FrameGraphVolumetricLightingTask" image="/img/frameGraph/task_volumetriclighting.jpg" alt="Volumetric lighting post-process"/>
+<H3Image title="FrameGraphVolumetricLightingTask" image="/img/frameGraph/task_volumetriclighting.webp" alt="Volumetric lighting post-process"/>
 
 A frame graph task that performs volumetric lighting.
 
 [Link to the class](/typedoc/classes/babylon.framegraphvolumetriclightingtask)
 
-<Playground engine="webgpu" id="#WLGEJB#45" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task" isMain={false}/>
-<Playground engine="webgpu" id="#WLGEJB#46" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.png" title="Volumetric lighting (NRG)" description="Example of a node render graph using the volumetric lighting block" isMain={true} category="Frame Graph"/>
+<Playground engine="webgpu" id="#WLGEJB#45" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.webp" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task" isMain={false}/>
+<Playground engine="webgpu" id="#WLGEJB#46" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.webp" title="Volumetric lighting (NRG)" description="Example of a node render graph using the volumetric lighting block" isMain={true} category="Frame Graph"/>
 
 This post-process **doesn't share** the common properties of post-processes!
 
@@ -670,14 +670,14 @@ The **extinction** property will only work if **enableExtinction** is set to *tr
 
 ## Rendering tasks
 
-<H3Image title="FrameGraphObjectRendererTask" image="/img/frameGraph/task_objectrenderer.jpg" alt="Object renderer"/>
+<H3Image title="FrameGraphObjectRendererTask" image="/img/frameGraph/task_objectrenderer.webp" alt="Object renderer"/>
 
 Task used to render objects to a texture.
 
 [Link to the class](/typedoc/classes/babylon.framegraphobjectrenderertask)
 
-<Playground id="#IG8NRC#88" image="/img/playgroundsAndNMEs/pg-IG8NRC-82.png" title="Object renderer task" description="Example of a frame graph using the object renderer task" isMain={false}/>
-<Playground id="#IG8NRC#89" image="/img/playgroundsAndNMEs/pg-IG8NRC-81.png" title="Object renderer task (NRG)" description="Example of a node render graph using the object renderer block" isMain={false}/>
+<Playground id="#IG8NRC#88" image="/img/playgroundsAndNMEs/pg-IG8NRC-82.webp" title="Object renderer task" description="Example of a frame graph using the object renderer task" isMain={false}/>
+<Playground id="#IG8NRC#89" image="/img/playgroundsAndNMEs/pg-IG8NRC-81.webp" title="Object renderer task (NRG)" description="Example of a node render graph using the object renderer block" isMain={false}/>
 
 Inputs:
 * **targetTexture**. The target texture(s) where the objects will be rendered. Define an array of handles if you want to use multi-target rendering (see below for more details).
@@ -725,17 +725,17 @@ Note that this class supports multi-target rendering, which means you can render
 <br/><br/>
 To illustrate the use of this mode, here are two playgrounds:
 
-<Playground id="#XSNYAU#164" image="/img/playgroundsAndNMEs/pg-XSNYAU-160.png" title="Object renderer task (multi RTT)" description="Example of a frame graph using the object renderer task (multi RTT)" isMain={false}/>
-<Playground id="#XSNYAU#160" image="/img/playgroundsAndNMEs/pg-XSNYAU-160.png" title="Object renderer task (multi RTT) (NRG)" description="Example of a node render graph using the object renderer block (multi RTT)" isMain={false}/>
+<Playground id="#XSNYAU#164" image="/img/playgroundsAndNMEs/pg-XSNYAU-160.webp" title="Object renderer task (multi RTT)" description="Example of a frame graph using the object renderer task (multi RTT)" isMain={false}/>
+<Playground id="#XSNYAU#160" image="/img/playgroundsAndNMEs/pg-XSNYAU-160.webp" title="Object renderer task (multi RTT) (NRG)" description="Example of a node render graph using the object renderer block (multi RTT)" isMain={false}/>
 
-<H3Image title="FrameGraphGeometryRendererTask" image="/img/frameGraph/task_geometryrenderer.jpg" alt="Geometry renderer"/>
+<H3Image title="FrameGraphGeometryRendererTask" image="/img/frameGraph/task_geometryrenderer.webp" alt="Geometry renderer"/>
 
 Task used to render geometry to a set of textures.
 
 [Link to the class](/typedoc/classes/babylon.framegraphgeometryrenderertask)
 
-<Playground id="#ARI9J5#6" image="/img/playgroundsAndNMEs/pg-ARI9J5-1.png" title="Geometry renderer task" description="Example of a frame graph using the geometry renderer task" isMain={false}/>
-<Playground id="#SUEU9U#157" image="/img/playgroundsAndNMEs/pg-SUEU9U-74.png" title="Geometry renderer task (NRG)" description="Example of a node render graph using the geometry renderer block" isMain={false}/>
+<Playground id="#ARI9J5#6" image="/img/playgroundsAndNMEs/pg-ARI9J5-1.webp" title="Geometry renderer task" description="Example of a frame graph using the geometry renderer task" isMain={false}/>
+<Playground id="#SUEU9U#157" image="/img/playgroundsAndNMEs/pg-SUEU9U-74.webp" title="Geometry renderer task (NRG)" description="Example of a node render graph using the geometry renderer block" isMain={false}/>
 
 <br/><br/>
 
@@ -793,7 +793,7 @@ However, this task can also render a scene, similar to how `FrameGraphObjectRend
 
 **Important**: If you do not plan to use **outputTexture**, do not set anything in the **targetTexture** input property! If you connect something to **targetTexture**, the texture will be generated, even if it is not used via **outputTexture**.
 
-<H3Image title="FrameGraphShadowGeneratorTask" image="/img/frameGraph/task_shadowgenerator.jpg" alt="Shadow generator"/>
+<H3Image title="FrameGraphShadowGeneratorTask" image="/img/frameGraph/task_shadowgenerator.webp" alt="Shadow generator"/>
 
 Task used to generate shadows from a list of objects.
 
@@ -801,9 +801,9 @@ Task used to generate shadows from a list of objects.
 
 [Link to the class (CSM)](/typedoc/classes/babylon.framegraphcascadedshadowgeneratortask)
 
-<Playground id="#JWKDME#189" image="/img/playgroundsAndNMEs/pg-JWKDME-175.png" title="Shadow generator task" description="Example of a frame graph using the shadow generator task" isMain={false}/>
-<Playground id="#JWKDME#190" image="/img/playgroundsAndNMEs/pg-JWKDME-174.png" title="Shadow generator task (NRG)" description="Example of a node render graph using the shadow generator block" isMain={false}/>
-<Playground id="#JWKDME#198" image="/img/playgroundsAndNMEs/pg-JWKDME-176.png" title="Cascaded shadow generator task (NRG)" description="Example of a node render graph using the cascaded shadow generator block" isMain={false}/>
+<Playground id="#JWKDME#189" image="/img/playgroundsAndNMEs/pg-JWKDME-175.webp" title="Shadow generator task" description="Example of a frame graph using the shadow generator task" isMain={false}/>
+<Playground id="#JWKDME#190" image="/img/playgroundsAndNMEs/pg-JWKDME-174.webp" title="Shadow generator task (NRG)" description="Example of a node render graph using the shadow generator block" isMain={false}/>
+<Playground id="#JWKDME#198" image="/img/playgroundsAndNMEs/pg-JWKDME-176.webp" title="Cascaded shadow generator task (NRG)" description="Example of a node render graph using the cascaded shadow generator block" isMain={false}/>
 
 Inputs:
 * **objectList**. The object list that generates shadows.
@@ -855,14 +855,14 @@ You may be surprised to see a **camera** input, because the scene is rendered fr
 
 Refer to [Shadows](/features/featuresDeepDive/lights/shadows) for general information about shadows, and [Cascaded Shadow Maps](/features/featuresDeepDive/lights/shadows_csm) for specific information about cascaded shadow maps.
 
-<H3Image title="FrameGraphUtilityLayerRendererTask" image="/img/frameGraph/task_utilitylayerrenderer.jpg" alt="Utility layer renderer"/>
+<H3Image title="FrameGraphUtilityLayerRendererTask" image="/img/frameGraph/task_utilitylayerrenderer.webp" alt="Utility layer renderer"/>
 
 Task used to render an utility layer.
 
 [Link to the class](/typedoc/classes/babylon.framegraphutilitylayerrenderertask)
 
-<Playground id="#SUEU9U#131" image="/img/playgroundsAndNMEs/pg-SUEU9U-85.png" title="Utility layer renderer task" description="Example of a frame graph using the utility layer renderer task" isMain={false}/>
-<Playground id="#SUEU9U#132" image="/img/playgroundsAndNMEs/pg-SUEU9U-84.png" title="Utility layer renderer task (NRG)" description="Example of a node render graph using the utility layer renderer block" isMain={false}/>
+<Playground id="#SUEU9U#131" image="/img/playgroundsAndNMEs/pg-SUEU9U-85.webp" title="Utility layer renderer task" description="Example of a frame graph using the utility layer renderer task" isMain={false}/>
+<Playground id="#SUEU9U#132" image="/img/playgroundsAndNMEs/pg-SUEU9U-84.webp" title="Utility layer renderer task (NRG)" description="Example of a node render graph using the utility layer renderer block" isMain={false}/>
 
 Inputs:
 * **targetTexture**. The target texture of the task.
@@ -944,14 +944,14 @@ Outputs:
 * **outputTexture**. The output texture (same as **targetTexture**, but the handle may be different).
 <br/>
 
-<H3Image title="FrameGraphGenerateMipMapsTask" image="/img/frameGraph/task_generatemipmaps.jpg" alt="Generate mipmaps"/>
+<H3Image title="FrameGraphGenerateMipMapsTask" image="/img/frameGraph/task_generatemipmaps.webp" alt="Generate mipmaps"/>
 
 Task which generates mipmaps for a texture.
 
 [Link to the class](/typedoc/classes/babylon.framegraphgeneratemipmapstask)
 
-<Playground id="#4QES4Q#4" image="/img/playgroundsAndNMEs/pg-4QES4Q-1.png" title="Generate mipmaps task" description="Example of a frame graph using the generate mipmaps task" isMain={false}/>
-<Playground id="#4QES4Q#5" image="/img/playgroundsAndNMEs/pg-4QES4Q-2.png" title="Generate mipmaps task (NRG)" description="Example of a node render graph using the generate mipmaps block" isMain={true} category="Frame Graph"/>
+<Playground id="#4QES4Q#4" image="/img/playgroundsAndNMEs/pg-4QES4Q-1.webp" title="Generate mipmaps task" description="Example of a frame graph using the generate mipmaps task" isMain={false}/>
+<Playground id="#4QES4Q#5" image="/img/playgroundsAndNMEs/pg-4QES4Q-2.webp" title="Generate mipmaps task (NRG)" description="Example of a node render graph using the generate mipmaps block" isMain={true} category="Frame Graph"/>
 
 Inputs:
 * **targetTexture**. The texture to generate mipmaps for.

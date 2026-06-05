@@ -75,6 +75,12 @@ steps:
       DEPLOYMENT_SERVER: $(DEPLOYMENT_SERVER)
       DEPLOY_TOKEN: $(DEPLOY_TOKEN)
 
+  - script: npm run upload:search -- --clear
+    displayName: Upload search indexes
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    env:
+      SEARCH_API_KEY: $(SEARCH_API_KEY)
+
   - task: GitHubComment@0
     displayName: Comment PR snapshot location
     condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))

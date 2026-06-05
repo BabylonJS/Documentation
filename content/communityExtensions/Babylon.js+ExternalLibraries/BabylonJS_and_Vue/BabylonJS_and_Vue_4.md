@@ -36,7 +36,7 @@ We don't want our Vue code to know about BabylonJS implementation details, we wa
 
 This examples uses Mitt bus (https://github.com/developit/mitt), but you can use any messaging bus. In Vue2 you can use `new Vue()` to create a bus.
 
-![](/img/resources/vue/vue-messages-01.png)
+![](/img/resources/vue/vue-messages-01.webp)
 
 `assets` - you all know
 `bus` - the Mitt bus wrappers
@@ -51,11 +51,11 @@ Now that we can use messaging to communicate between Vue and BabylonJS, how abou
 
 Let's introduce an interface for our message bus. I will show you only the `AsyncBus` implementation. The synchronous bus is pretty much the same. This interface must be implemented by our bus.
 
-![](/img/resources/vue/vue-messages-02.png)
+![](/img/resources/vue/vue-messages-02.webp)
 
 as seen in `AsyncBus.ts` it implements this interface.
 
-![](/img/resources/vue/vue-messages-03.png)
+![](/img/resources/vue/vue-messages-03.webp)
 
 `AsyncBus` is just a facade and uses the Mitt bus under the hood, but adds asynchronicity to our messaging.
 
@@ -69,22 +69,22 @@ Let's jump to Vue!
 
 This example uses `App.vue` for the whole UI, but you should not put everything here and it is a good idea to have a `router` at hand and of course use pages/layouts/views/components for better modularity of your project.
 
-![](/img/resources/vue/vue-messages-04.png)
+![](/img/resources/vue/vue-messages-04.webp)
 
 First of all you have to import our `SceneDirector` class and create an instance so you can call it's methods.
 
-![](/img/resources/vue/vue-messages-05.png)
+![](/img/resources/vue/vue-messages-05.webp)
 
 The example application comes with three methods. As you can see, all methods are `async`. I marked some `void`, because I just don't want to `await` methods returning `void` for now. However the `getMeshnames` method has a return type of `string[]` and I am interested in the result, so I must use `await` here.
 
 ## Scene Director methods
 
 Ok, so let's se our method implementation in the Scene Director.
-![](/img/resources/vue/vue-messages-06.png)
+![](/img/resources/vue/vue-messages-06.webp)
 
 All we do here is calling a helper method called `asyncCommand`
 
-![](/img/resources/vue/vue-messages-07.png)
+![](/img/resources/vue/vue-messages-07.webp)
 
 where we need to specify the message type and if we have something to send, the `payload`.
 
@@ -92,7 +92,7 @@ where we need to specify the message type and if we have something to send, the 
 
 We have to specify, what messages are we going to send through our bus, so we have this:
 
-![](/img/resources/vue/vue-messages-08.png)
+![](/img/resources/vue/vue-messages-08.webp)
 
 There are two types of messages, just for better readability, you can put them under one enum if you like so. `SceneDirectorEventBusMessages`, these are sent by Vue towards BabylonJS and obviously the second one is moving from BabylonJS towards Vue.
 
@@ -101,32 +101,32 @@ It is a good idea not to create a message type for every single action, for exam
 ## BabylonJS scene
 
 You simply register your message subscriptions by modifying this method:
-![](/img/resources/vue/vue-messages-09.png)
+![](/img/resources/vue/vue-messages-09.webp)
 So it maps message types to functions.
 
 Let's have a look at the functions:
 `addMarble` adds a new marble (maybe atoms should be a better name, just look at the page screenshot below)
 
-![](/img/resources/vue/vue-messages-10.png)
+![](/img/resources/vue/vue-messages-10.webp)
 As seen on the screenshot above, every mapped method receives a command. The `payload` stuff has to be clear for all of you, if not, you can access the `payload` sent by the `SceneDirector` here, in our case the `name` of the marble.
 
 `addMarbleByName` just does this:
 
-![](/img/resources/vue/vue-messages-11.png)
+![](/img/resources/vue/vue-messages-11.webp)
 
 The very important thing here is to call `this.commandFinished(sceneDirectorCommand)` after you method has finished. If you started an animation and want to wait for it, no problem, just call `this.commandFinished(sceneDirectorCommand)` in your animation end callback.
 
 If you want to send a message towards Vue, you can use
 
-![](/img/resources/vue/vue-messages-12.png)
+![](/img/resources/vue/vue-messages-12.webp)
 
 where `this.emitCommand` is just a helper method
 
-![](/img/resources/vue/vue-messages-13.png)
+![](/img/resources/vue/vue-messages-13.webp)
 
 and don't forget to register your message in `SceneDirector` (`MySceneDirector` in our example)
 
-![](/img/resources/vue/vue-messages-14.png)
+![](/img/resources/vue/vue-messages-14.webp)
 
 Unregistering events is a must also :) Just take your time :slight_smile:
 
@@ -134,21 +134,21 @@ Unregistering events is a must also :) Just take your time :slight_smile:
 
 In `App.vue` we can `use` some data from the `SceneDirector`
 
-![](/img/resources/vue/vue-messages-15.png)
+![](/img/resources/vue/vue-messages-15.webp)
 
 what is a simple `ref`:
 
-![](/img/resources/vue/vue-messages-16.png)
+![](/img/resources/vue/vue-messages-16.webp)
 
 and whenever a `MarbleSelected` message arrives we just set the ref's `value`
 
-![](/img/resources/vue/vue-messages-17.png)
+![](/img/resources/vue/vue-messages-17.webp)
 
 **You should always prefer loosely coupled architecture of your solution, so you would rather use a callback instead of ref so you don't have to reference any Vue object in SceneDirector**. That way you could change Vue for any other framework and you don't have to rewrite any BJS related method. The Vue `ref` is used here just as an example of how to use refs. However if you are going to stick with Vue, `ref` is the way.
 
 ## The example app
 
-![](/img/resources/vue/vue-messages-18.png)
+![](/img/resources/vue/vue-messages-18.webp)
 
 The app creates 40 marbles on startup. You can add a marble by entering its name to the text input and hit Add marble. Remove marbles will remove some of the marbles with each click. The last button will query the scene for all mesh names in the scene and will print it out to the console. The methods are described above in the ##Vue page## section.
 
@@ -160,7 +160,7 @@ So we have a message drive scene?! You can easily move your BabylonJS scene to a
 
 Example of a `getMeshNames` message flow from the `SceneDirector` to `MarbleScene` and back to `SceneDirector` and finally gets `console.logged` in `App.vue`
 
-![](/img/resources/vue/vue-messages-19.png)
+![](/img/resources/vue/vue-messages-19.webp)
 
 ## Links
 

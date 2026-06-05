@@ -167,7 +167,7 @@ assetsManager.load();
 ```
 
 - You can see a live demo [here](https://www.babylonjs.com/scenes/assets)
-- Playground demo: <Playground id="#ZJYNY#0" title="Asset Manager Example" description="Simple Example of using the asset manager in your scene." image="/img/playgroundsAndNMEs/divingDeeperAssetManager1.jpg"/>
+- Playground demo: <Playground id="#ZJYNY#0" title="Asset Manager Example" description="Simple Example of using the asset manager in your scene." image="/img/playgroundsAndNMEs/divingDeeperAssetManager1.webp"/>
 
 ## Available tasks
 
@@ -320,7 +320,7 @@ public texture: EquiRectangularCubeTexture;
 
 By default, the AssetsManager will display a loading screen while loading assets:
 
-<img src="/img/features/scene/loader.jpg" title="Babylon.js Loading Spinner"/>
+<img src="/img/features/scene/loader.webp" title="Babylon.js Loading Spinner"/>
 
 If you want to disable the loading screen, you have to set `useDefaultLoadingScreen` to false:
 

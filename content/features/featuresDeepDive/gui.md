@@ -17,7 +17,7 @@ When you want a GUI that works in VR or within the 3D space it's the only option
 
 It is integrated within the playground. For your own projects it has to be loaded as well as Babylon.js.
 
-<Playground id="#NGS9AU" title="Simple GUI Slider Example" description="Simple example of adding a GUI slider to your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI1.jpg"/>
+<Playground id="#NGS9AU" title="Simple GUI Slider Example" description="Simple example of adding a GUI slider to your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI1.webp"/>
 
 ----------
 
@@ -31,19 +31,19 @@ Other possible GUIs are:
 
 The external [dat.GUI](https://github.com/dataarts/dat.gui) is integrated within the playground. For your own projects it has to be loaded as well as Babylon.js.
 
-<Playground id="#NGS9AU#1" title="dat.GUI Example" description="Simple example of using the dat.GUI system in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI3.jpg"/>
+<Playground id="#NGS9AU#1" title="dat.GUI Example" description="Simple example of using the dat.GUI system in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI3.webp"/>
 
 ## HTML GUI
 
 Since Babylon.js is in JavaScript it is possible to use HTML and CSS to overlay the Babylon.js scene.
 
-<Playground id="#1AHPN5" title="HTML GUI Example" description="Simple example of using HTML GUI elements in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI4.jpg"/>
+<Playground id="#1AHPN5" title="HTML GUI Example" description="Simple example of using HTML GUI elements in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI4.webp"/>
 
 ### HtmlMesh
 
 The [HtmlMesh](/addons/htmlMesh) extension for BabylonJS allows for HTML content to be incorporated into a scene either as a scene mesh that can occlude and be occluded by other meshes or as an overlay (similar to the HTML GUI example above, but using a mesh so it can be positioned using stadard transforms, parented to other meshes, dragged, and scaled using gizmos, etc...).
 
-<Playground id="#HVHYJC#82" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.png"/>
+<Playground id="#HVHYJC#82" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.webp"/>
 
 ## Comparison of GUI Options
 

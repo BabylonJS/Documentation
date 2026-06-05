@@ -89,7 +89,7 @@ The NoiseProceduralTexture exposes the following properties:
 - persistence: Defines the level of persistence (0.8 by default)
 - animationSpeedFactor: Gets or sets animation speed factor (default is 1)
 
-<Playground id="#K9GLE6#49" title="Experiment With Noise Properties" description="Simple example for you to experiment with noise properties." image="/img/playgroundsAndNMEs/divingDeeperProceduralTexture1.jpg"/>
+<Playground id="#K9GLE6#49" title="Experiment With Noise Properties" description="Simple example for you to experiment with noise properties." image="/img/playgroundsAndNMEs/divingDeeperProceduralTexture1.webp"/>
 
 ## Using Standard Procedural Textures
 

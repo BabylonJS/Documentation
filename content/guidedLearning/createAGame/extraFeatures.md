@@ -20,11 +20,11 @@ Image based lighting is really great if you want to give some ambient light to y
 
 This is what the game scene looks like before using IBL:
 
-![without IBL](/img/how_to/create-a-game/withoutIBL.png)
+![without IBL](/img/how_to/create-a-game/withoutIBL.webp)
 
 This is what it looks like after we add IBL:
 
-![with IBL](/img/how_to/create-a-game/withIBL.png)
+![with IBL](/img/how_to/create-a-game/withIBL.webp)
 
 ```javascript
 const envHdri = CubeTexture.CreateFromPrefilteredData("textures/envtext.env", scene);
@@ -40,7 +40,7 @@ It's especially helpful when you need the player to be able to see areas they ca
 
 Another thing I've added for an extra boost of visual effect is a glow layer. The [glow layer](/features/featuresDeepDive/mesh/glowLayer) is super easy to set up and can add a lot to a dark scene. I used it primarily with the lanterns since I wanted their light to be emphasized.
 
-![without GL](/img/how_to/create-a-game/withoutGL.png) ![withGL](/img/how_to/create-a-game/withGL.png)
+![without GL](/img/how_to/create-a-game/withoutGL.webp) ![withGL](/img/how_to/create-a-game/withGL.webp)
 
 It really only takes 2 lines!
 

@@ -45,7 +45,7 @@ For example, we want a cone to follow along a path point first and with the heig
 
 Below is an image showing the cone axes and the path tangents, normals and binormals at the start of the path before any alignment with the path takes place
 
-![Align Axes](/img/how_to/Mesh/alignaxes.png)
+![Align Axes](/img/how_to/Mesh/alignaxes.webp)
 
 Our example requires the y axis of the cone to lie along the tangents of the path. Placing the x axis of the cone along the normals of the path would leave the z axis pointing in the opposite direction to the path binormals. This gives us the y axis along the tangents, the x axis along the binormals and the z axis along the normals. This is option 4
 

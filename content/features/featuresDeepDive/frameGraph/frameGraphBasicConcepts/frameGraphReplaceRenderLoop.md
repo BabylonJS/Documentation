@@ -111,7 +111,7 @@ engine.onResizeObservable.add(async () => {
 await frameGraph.buildAsync();
 ```
 
-Here's the PG corresponding to this example: <Playground id="#6HFJ0J" image="/img/playgroundsAndNMEs/pg-9YU4C5-12.png" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (manual use of the frame graph classes)"/>
+Here's the PG corresponding to this example: <Playground id="#6HFJ0J" image="/img/playgroundsAndNMEs/pg-9YU4C5-12.webp" title="Frame Graph basic example" description="Basic frame graph example in replacement of the scene render loop (manual use of the frame graph classes)"/>
 
 ## Using a node render graph
 
@@ -128,7 +128,7 @@ await nrg.buildAsync();
 ```
 That's all you need to make it work with a node render graph!
 
-The full PG: <Playground id="#9YU4C5#113" image="/img/playgroundsAndNMEs/pg-9YU4C5-11.png" title="Node Render Graph basic example" description="Basic node render graph example in replacement of the scene render loop"/>
+The full PG: <Playground id="#9YU4C5#113" image="/img/playgroundsAndNMEs/pg-9YU4C5-11.webp" title="Node Render Graph basic example" description="Basic node render graph example in replacement of the scene render loop"/>
 
 By default, calling `nrg.buildAsync()` will also assign the frame graph to `scene.frameGraph`.
 

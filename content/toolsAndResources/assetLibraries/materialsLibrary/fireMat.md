@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Fire material](/img/extensions/materials/fire.png)
+![Fire material](/img/extensions/materials/fire.webp)
 
 ## Using the fire material
 

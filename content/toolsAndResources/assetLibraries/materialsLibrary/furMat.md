@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Fur material high](/img/extensions/materials/furHigh.png)
+![Fur material high](/img/extensions/materials/furHigh.webp)
 
 Fur material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.furMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.furMaterial.js)
 
@@ -82,7 +82,7 @@ First, deactivate the high level (activated by default so following line MUST be
 furMaterial.highLevelFur = false;
 ```
 
-![Fur material](/img/extensions/materials/fur.png)
+![Fur material](/img/extensions/materials/fur.webp)
 
 Demos can be found at:
 PG: <Playground id="#EUCNP#6" title="Fur Material" description="Example using low level mode"/>  

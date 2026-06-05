@@ -23,7 +23,7 @@ Please make sure, that your Vue app was correctly installed and it can be run wi
 The goal of this tutorial is to show how to connect the two frameworks together and not how to use these frameworks alone. You need to be familiar with both frameworks at basic level to get started.
 
 After installing and testing your Vue app you should end up with a very similar directory structure for Vue 3 and Vue 2 also:
-![New Vue project directory structure](/img/resources/vue/bjs-vue-doc-1.png)
+![New Vue project directory structure](/img/resources/vue/bjs-vue-doc-1.webp)
 
 ## Installing BabylonJS
 

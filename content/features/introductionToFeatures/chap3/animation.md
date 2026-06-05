@@ -54,7 +54,7 @@ wheelRB.animations.push(animWheel);
 scene.beginAnimation(wheelRB, 0, 30, true);
 ```
 
-<Playground id="#KDPAQ9#14" title="Simple Wheel Animation" description="Simple demonstration of animating one of the car's wheels." image="/img/playgroundsAndNMEs/gettingStartedWheelAnimation1.jpg"/>
+<Playground id="#KDPAQ9#14" title="Simple Wheel Animation" description="Simple demonstration of animating one of the car's wheels." image="/img/playgroundsAndNMEs/gettingStartedWheelAnimation1.webp"/>
 
 Since all the wheels rotate the same we can use the same animation for all.
 
@@ -80,6 +80,6 @@ BABYLON.ImportMeshAsync("url to model car" + "car.babylon").then(() => {
 });
 ```
 
-<Playground id="#KDPAQ9#15" title="Animating All 4 Wheels" description="Adding the wheel animation to all 4 tires." image="/img/playgroundsAndNMEs/gettingStartedWheelAnimation2.jpg"/>
+<Playground id="#KDPAQ9#15" title="Animating All 4 Wheels" description="Adding the wheel animation to all 4 tires." image="/img/playgroundsAndNMEs/gettingStartedWheelAnimation2.webp"/>
 
 We can now animate the car itself and add it into the village

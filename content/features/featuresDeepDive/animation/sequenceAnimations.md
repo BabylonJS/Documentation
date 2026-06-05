@@ -27,7 +27,7 @@ Spot Lights - with spheres to show position
 
 ### Sequence Timetable
 
-![Time Table](/img/how_to/Animations/seq1.jpg)
+![Time Table](/img/how_to/Animations/seq1.webp)
 
 For each performer you create an animation with key points for each timed event.
 
@@ -187,4 +187,4 @@ scene.beginDirectAnimation(spotLights[0], [lightDimmer], 0, 25 * frameRate, fals
 scene.beginDirectAnimation(spotLights[1], [lightDimmer.clone()], 0, 25 * frameRate, false);
 ```
 
-<Playground id="#2L26P1#8" title="Finished Animation Sequence Example" description="An example of sequencing animations one after another." image="/img/playgroundsAndNMEs/divingDeeperAnimationSequence.jpg"/>
+<Playground id="#2L26P1#8" title="Finished Animation Sequence Example" description="An example of sequencing animations one after another." image="/img/playgroundsAndNMEs/divingDeeperAnimationSequence.webp"/>

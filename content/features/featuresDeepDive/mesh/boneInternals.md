@@ -21,7 +21,7 @@ This means that `Bone` implements its own position/rotation/scale properties, an
 
 Bones only appear as child nodes of a skeleton, under the **Skeletons** entry in the Inspector:
 
-![Skeletons in Inspector](/img/features/boneInternals/skeletonsInInspector.jpg)
+![Skeletons in Inspector](/img/features/boneInternals/skeletonsInInspector.webp)
 
 Bones have a `length` property, which is not used directly by the class. It's mainly used by the [BoneIKController](/typedoc/classes/babylon.boneikcontroller) class, which needs it for leaf bones.
 The last bone in a chain is not connected to any other bone, so it's not possible to calculate its length (which is in fact the distance between the bone's position and the position of the child bone).
@@ -86,7 +86,7 @@ Let's take an example to support this explanation:
 
 | Mesh | Skeleton view | Skeleton hierarchy |
 |-|-|-|
-| ![Mesh](/img/features/boneInternals/character.jpg!250) | ![Skeleton view](/img/features/boneInternals/character_skeleton.jpg!250) | ![Skeleton hierarchy](/img/features/boneInternals/character_skeleton_hierarchy.jpg) |
+| ![Mesh](/img/features/boneInternals/character.webp!250) | ![Skeleton view](/img/features/boneInternals/character_skeleton.webp!250) | ![Skeleton hierarchy](/img/features/boneInternals/character_skeleton_hierarchy.webp) |
 
 Here's the PG we'll be using throughout this section, which can also be used as an example of how to create a skeleton and bones programmatically:
 
@@ -107,7 +107,7 @@ However, this initial transformation is totally arbitrary. We could also pass a 
 
 | No translation, no rotation | Translation at shoulder, no rotation |
 |-|-|
-| ![No translation, no rotation](/img/features/boneInternals/character_skeleton_no_bind_transfo.jpg!400) | ![Translation at shoulder, no rotation](/img/features/boneInternals/character_skeleton_bind_translation.jpg!400) |
+| ![No translation, no rotation](/img/features/boneInternals/character_skeleton_no_bind_transfo.webp!400) | ![Translation at shoulder, no rotation](/img/features/boneInternals/character_skeleton_bind_translation.webp!400) |
 
 <Playground id="#4IUBBK#4" title="Identity matrix for the bind matrix" description="Using the identity matrix for the bind matrix"/>
 
@@ -128,7 +128,7 @@ See:
 
 | Translation at shoulder, no rotation | Natural translation/rotation |
 |-|-|
-| ![Translation at shoulder, no rotation](/img/features/boneInternals/character_skeleton_bind_translation_rotz45.jpg!400) | ![Natural translation/orientation](/img/features/boneInternals/character_skeleton_rotz45.jpg!400) |
+| ![Translation at shoulder, no rotation](/img/features/boneInternals/character_skeleton_bind_translation_rotz45.webp!400) | ![Natural translation/orientation](/img/features/boneInternals/character_skeleton_rotz45.webp!400) |
 
 <Playground id="#4IUBBK#5" title="Translation at shoulder, no rotation for the bind matrix" description="Using a bind matrix with translation only"/>
 
@@ -144,7 +144,7 @@ Using a translation (0,0,0) for the **bind** matrix makes things even more diffi
 
 | 45° rotation around Z | 45° rotation around Z and (1.2, 0.08, 0) translation |
 |-|-|
-| ![45° rotation around Z](/img/features/boneInternals/character_skeleton_no_bind_rotz45.jpg!400) | ![45° rotation around Z and (1.2, 0.08, 0) translation](/img/features/boneInternals/character_skeleton_no_bind_rotz45_transl.jpg!400) |
+| ![45° rotation around Z](/img/features/boneInternals/character_skeleton_no_bind_rotz45.webp!400) | ![45° rotation around Z and (1.2, 0.08, 0) translation](/img/features/boneInternals/character_skeleton_no_bind_rotz45_transl.webp!400) |
 
 <Playground id="#4IUBBK#6" title="No translation, no rotation for the bind matrix" description="Using a bind matrix with translation only"/>
 

@@ -48,7 +48,7 @@ For a minimal code example, see the [Usage section](https://github.com/NASA-AMMO
 - **[Google Map Tiles with GeospatialCamera](https://demos.babylonjs.com/3d-tiles)** — Loads Google Map 3D Tiles and uses the `GeospatialCamera` for globe-style navigation.
   - [Github code powering the above demo](https://github.com/BabylonJS/Demos/blob/main/3d-tiles/src/index.ts)
 
-<img src="/img/playgroundsAndNMEs/3dTiles.png" width="800" title="3D Tiles Loader using NASA/AMMOS 3DTilesRenderer/babylonjs"/>
+<img src="/img/playgroundsAndNMEs/3dTiles.webp" width="800" title="3D Tiles Loader using NASA/AMMOS 3DTilesRenderer/babylonjs"/>
 
 - **[Simple 3D Tiles with ArcRotateCamera](https://nasa-ammos.github.io/3DTilesRendererJS/babylonjs/index.html)** — Loads a freely available 3D Tiles dataset and uses an `ArcRotateCamera` to orbit and navigate around the model. No API token required.
   - [Github code powering above demo](https://github.com/NASA-AMMOS/3DTilesRendererJS/blob/c1ddd97479dab3e28b76ece4779c0808d7f28dad/example/babylonjs/index.js)

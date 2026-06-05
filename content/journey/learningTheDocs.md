@@ -1,6 +1,6 @@
 ---
 title: Learning The Docs
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: A quick overview of how the Babylon.js documentation is layed out.
 keywords: start, guide, first, learn, begin, beginner, journey, overview, docs
 further-reading:
@@ -30,23 +30,23 @@ The documentation page layout has several features that you'll want to know abou
 
 To start, the left most panel is the navigation pane. This pane is how you navigate to where you'd like to go.
 
-![Navigation Pane](/img/home/home1.jpg)
+![Navigation Pane](/img/home/home1.webp)
 
 Next is the content pane. It's in the middle, and you guessed it, it contains the main content and information.
 
-![Content Pane](/img/home/home2.jpg)
+![Content Pane](/img/home/home2.webp)
 
 Some pages have a lot of information that's organized into sub sections. The table of contents pane makes it easy to navigate lengthier pages.
 
-![Table of Contents](/img/home/home4.jpg)
+![Table of Contents](/img/home/home4.webp)
 
 The panel on the right is the examples pane. It provides quick access to every playground (live examples) on the current page.
 
-![Examples Pane](/img/home/home3.jpg)
+![Examples Pane](/img/home/home3.webp)
 
 Lastly, if you select any one of the examples in the examples pane, it will load that example inside of the playground pane at the top of the page content.
 
-![Examples Pane](/img/home/home5.jpg)
+![Examples Pane](/img/home/home5.webp)
 
 ## A note on versioning
 

@@ -61,7 +61,7 @@ scene.onAfterRenderObservable.add(() => {
 });
 ```
 
-The full PG: <Playground id="#RM56RY#27" image="/img/playgroundsAndNMEs/pg-RM56RY-12.png" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (manual use of the frame graph classes)"/>
+The full PG: <Playground id="#RM56RY#27" image="/img/playgroundsAndNMEs/pg-RM56RY-12.webp" title="Frame Graph basic example" description="Basic frame graph example in addition to the scene render loop (manual use of the frame graph classes)"/>
 
 ## Using a node render graph
 
@@ -70,7 +70,7 @@ As before, let's do the same thing but using a node render graph.
 Here is the node render graph: https://nrge.babylonjs.com/#FAPQIH#1
 
 It is a very simple graph. We apply a bloom and then a black and white post-process to the input texture. Note that the source texture is defined as “External”, because it will be provided by external code:
-![Graph](/img/frameGraph/external_graph_bloom_bnw.jpg)
+![Graph](/img/frameGraph/external_graph_bloom_bnw.webp)
 
 The javascript code:
 ```javascript
@@ -105,4 +105,4 @@ Note that we have deactivated the automatic building of the graph when resizing 
 
 Also note the parameters passed to `nrg.buildAsync(dontBuildFrameGraph = false, waitForReadiness = true, setAsSceneFrameGraph = false)`: the first two parameters have their default values, but the third is set to *false* so that the frame graph is not defined at the scene level!
 
-The full PG: <Playground id="#RM56RY#29" image="/img/playgroundsAndNMEs/pg-RM56RY-21.png" title="Node Render Graph basic example" description="Basic node render graph example in addition to the scene render loop"/>
+The full PG: <Playground id="#RM56RY#29" image="/img/playgroundsAndNMEs/pg-RM56RY-21.webp" title="Node Render Graph basic example" description="Basic node render graph example in addition to the scene render loop"/>

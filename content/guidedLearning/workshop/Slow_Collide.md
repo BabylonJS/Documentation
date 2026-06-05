@@ -26,7 +26,7 @@ In Fig 14 the positions of the four pink particles are shown as at frame 1. Each
 
 Given that the dark red particles reaches position (x, y, 0) when its speed reaches twice the velocity of the pink particles then the necessary positions for their start are shown in Fig 15.
 
-![Fig 15](/img/samples/collide14.jpg)
+![Fig 15](/img/samples/collide14.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 15
 
 The following Playgrounds use four such sets of particles, to produce four particles that combine to give one particle a speed four times that of the original particles. In each case the higher two groups are set in the XY plane and the lower two groups are in the YZ plane. 

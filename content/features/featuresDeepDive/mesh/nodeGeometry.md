@@ -22,7 +22,7 @@ Several reasons come to mind:
 
 Here is a complete example of an advanced `NodeGeometry` which is used to generate a city with different buildings:
 
-<Playground id="#PYY6XE#79" title="Using NodeGeometry to generate a procedural city" description="Using NodeGeometry to generate a procedural city" image="/img/how_to/nge/01.jpg"/>
+<Playground id="#PYY6XE#79" title="Using NodeGeometry to generate a procedural city" description="Using NodeGeometry to generate a procedural city" image="/img/how_to/nge/01.webp"/>
 
 ## How to Use
 
@@ -126,7 +126,7 @@ nodegeo.build();
 The `setPositionsBlock` will call the `RandomBlock` once per vertex to generate the final mesh:
 
 
-![Using NodeGeometry to generate a random based sphere](/img/how_to/nge/02.jpg)
+![Using NodeGeometry to generate a random based sphere](/img/how_to/nge/02.webp)
 
 ## Contextual Values
 
@@ -204,20 +204,20 @@ nodegeo.build();
 ```
 
 Which will generate the following mesh:
-![Using NodeGeometry to generate a random based sphere](/img/how_to/nge/03.jpg)
+![Using NodeGeometry to generate a random based sphere](/img/how_to/nge/03.webp)
 
 
 To better understand the graph, here is a visual representation. See the section on the [Node Geometry Editor](/features/featuresDeepDive/mesh/nodeGeometry#node-geometry-editor) below.
-![NodeGeometry representation](/img/how_to/nge/04.jpg)
+![NodeGeometry representation](/img/how_to/nge/04.webp)
 
 Please note that we used the `VectorConverter` to produce a Vector3 out of the `RandomBlock` generating a float.
 We are also using the `MathBlock` twice to get Add and Multiply operations. We also have access to all trigonometry operations with the `GeometryTrigonometryBlock`.
 
 To complete this graph, we need to add a `ComputeNormalsBlock` to make sure the normals are rebuilt using the new positions:
-![NodeGeometry representation](/img/how_to/nge/06.jpg)
+![NodeGeometry representation](/img/how_to/nge/06.webp)
 
 This will produce our weird random based sphere:
-![Using NodeGeometry to generate a random based sphere](/img/how_to/nge/05.jpg)
+![Using NodeGeometry to generate a random based sphere](/img/how_to/nge/05.webp)
 
 The list of available contextual values contains the following:
 - positions: Contextual value pointing at the positions array of the active geometry
@@ -245,10 +245,10 @@ Ok, now it is time to really unleash the core power of the `NodeGeometry`!
 With the `InstantiateOnVerticesBlock` class and the `InstantiateOnFacesBlock` class, you have the opportunity to instantiate a new geometry per vertex - or multiple times per face.
 
 So let's look at this graph:
-![Using InstantiateOnVerticesBlock](/img/how_to/nge/08.jpg)
+![Using InstantiateOnVerticesBlock](/img/how_to/nge/08.webp)
 
 The `InstantiateOnVerticesBlock` block is used to place a box on each vertex of the sphere:
-![Instancing boxes on a sphere](/img/how_to/nge/09.jpg)
+![Instancing boxes on a sphere](/img/how_to/nge/09.webp)
 
 You can apply rotation or scaling per instance by connecting values to the `rotation` and `scaling` inputs.
 
@@ -276,12 +276,12 @@ The `ConditionalBlock` is the central block if we want to control what is going 
 
 For instance we can decide to have a new sphere made of boxes but we want one hemisphere to use one material and the other hemisphere to use another.
 This graph will do it:
-![Instancing boxes on a sphere with different material per hemisphere](/img/how_to/nge/16.jpg)
+![Instancing boxes on a sphere with different material per hemisphere](/img/how_to/nge/16.webp)
 
 The `ConditionBlock` is used here with a Greater than setup and will then pick the value 0 or 1 based on the y value of the normal. The normal that is evaluated belongs to the active geometry. In this case, the active geomerty is the sphere as the sphere is the manipulated by the `InstantiateOnFacesBlock` block. If the y value of the normal is greater than 0.2 then it will pass a value of 0 to the `SetMaterialIDBlock`. Otherwise it will pass a value of 1.
 
 The outcome:
-![Instancing boxes on a sphere with different material per hemisphere](/img/how_to/nge/17.jpg)
+![Instancing boxes on a sphere with different material per hemisphere](/img/how_to/nge/17.webp)
 
 ## Random and Noise
 
@@ -290,26 +290,26 @@ In order to get random values, we have already seen the `RandomBlock`. However, 
 This block will generate a noise pattern based on a Perlin noise algorithm.
 
 Here is our example again with the `SetPositions` block:
-![Using noise pattern](/img/how_to/nge/10.jpg)
+![Using noise pattern](/img/how_to/nge/10.webp)
 
 Which will produce this mesh:
-![Using noise pattern to generate a sphere](/img/how_to/nge/11.jpg)
+![Using noise pattern to generate a sphere](/img/how_to/nge/11.webp)
 
 ## Material ID
 
 If working with multiple mesh sources is desired, we can merge them easily with the `MergeBlock`:
-![using MergeBlock in a graph](/img/how_to/nge/12.jpg)
+![using MergeBlock in a graph](/img/how_to/nge/12.webp)
 
 Which will generate this mesh:
-![Using MergeBlock to merge multiple geometries](/img/how_to/nge/13.jpg)
+![Using MergeBlock to merge multiple geometries](/img/how_to/nge/13.webp)
 
 The generated mesh will be made of one unified geometry and be rendered with one draw call.
 
 But we can go further and actually attach a material ID per geometry with the `SetMaterialID` block:
-![using MergeBlock and SetMaterialID in a graph](/img/how_to/nge/14.jpg)
+![using MergeBlock and SetMaterialID in a graph](/img/how_to/nge/14.webp)
 
 Which will generate this mesh:
-![using MergeBlock and SetMaterialID for a mesh](/img/how_to/nge/15.jpg)
+![using MergeBlock and SetMaterialID for a mesh](/img/how_to/nge/15.webp)
 
 The mesh will now have a list of subMeshes in `mesh.subMeshes` and will be rendered with a [MultiMaterial](/features/featuresDeepDive/materials/using/multiMaterials) using one material per ID.
 
@@ -378,7 +378,7 @@ The order of operations here is important. If node geometry is built and then we
 The `NodeGeometry` class uses the CPU to process data. Which means that we have to be cautious if expecting to generate several meshes.
 
 For instance let's take this graph:
-![Instancing meshes on a sphere](/img/how_to/nge/07.jpg)
+![Instancing meshes on a sphere](/img/how_to/nge/07.webp)
 
 We can see that the `InstantiateOnVerticesBlock` will call the Transform of the geometry flow for each vertex of the sphere. Note the use of the `MergeBlock` to combine multiple geometries. In this case, as nothing in the instance part of the graph is using contextual values - such as reading positions or normals - we can ask the `GeometryTransformBlock` to not reevaluate its context on each call.
 
@@ -390,11 +390,11 @@ myBlock.evaluateContext = false;
 ## Iterating and Debugging
 When creating `NodeGeometry` in a scene, it can always be edited simply by launching the Node Geometry Editor with the `NodeGeometry` mesh selected in the inspector. The **Edit** button to launch the Node Geometry Editor can be found under the _Node Geometry_ section of the mesh properties which appears right after the _Transforms_ section. 
 
-![The button to open the Node Geometry Editor shown in the Node Geometry section of mesh properties](/img/tools/nge/nodeGeoEditButton.jpg)
+![The button to open the Node Geometry Editor shown in the Node Geometry section of mesh properties](/img/tools/nge/nodeGeoEditButton.webp)
 
 Launching the editor from here will connect the editor to the scene allowing changes to the graph to be reflected in the scene. This is similar to the Node Material Editor with one specific difference. Where the Node Material Editor will automatically update the material in the scene whenever there is a change to the graph, the Node Geometry Editor requires a manual refresh to update the generated mesh. This is due to the increased time needed to build the graph and generate a new mesh which would cause performance issues if updates were forced with each change. To update the Node Geometry mesh in the connected scene, simply click on an empty part of the graph to get the top level options in the properties panel of the editor. Under the Sync section, there will be two buttons, one labeled **Update mesh in scene** and the second labeled **Rebuild**. 
 
-![Pressing the Update mesh in scene button in the Sync category will regenerate the mesh in the connected scene to reflect any updates to the graph](/img/tools/nge/updateMeshInScene.jpg)
+![Pressing the Update mesh in scene button in the Sync category will regenerate the mesh in the connected scene to reflect any updates to the graph](/img/tools/nge/updateMeshInScene.webp)
 
 The **Update in scene** button will regenerate the mesh in the scene based on the current graph, so any changes made to the graph will be reflected in the new mesh. The **Rebuild** button will only rebuild the graph within the tool, which will update the mesh generated in the preview window. While the graph automatically rebuilds with every change to the graph, the rebuild button is useful when the graph includes nodes that produce procedurally generated output like `Random` or `Instantiate`. Pressing the rebuild node will allow testing of the graph to see the types of output generated by procedural nodes without needing to make a change to the graph itself. 
 

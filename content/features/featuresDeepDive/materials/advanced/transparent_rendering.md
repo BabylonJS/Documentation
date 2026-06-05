@@ -23,7 +23,7 @@ Rendering objects without a depth buffer would require resorting to an old-schoo
 Testing against a depth buffer during render is a very common technique, simple to implement and performance-inexpensive. However, things get more complicated for non-opaque objects, as a depth buffer can't be used anymore (since these objects don't completely hide what's behind them).
 
 This is what a depth buffer looks like for a scene which contains only opaque meshes:
-![Opaque only meshes](/img/resources/transparency_meshes_rendering/opaque-depth-buffer.jpg)
+![Opaque only meshes](/img/resources/transparency_meshes_rendering/opaque-depth-buffer.webp)
 
 ## Rendering Order
 
@@ -95,7 +95,7 @@ These meshes have translucent parts that may have an alpha value of 0.0 (complet
 Also, note that backface culling is pretty much obligatory for alpha blended meshes, otherwise polygons from the front and the back of the objects will be garbled (unless you use a depth pre-pass)
 
 This is what a depth buffer looks like for a scene that contains each of those type of meshes:
-![All kinds of meshes](/img/resources/transparency_meshes_rendering/alpha-depth-buffer.jpg)
+![All kinds of meshes](/img/resources/transparency_meshes_rendering/alpha-depth-buffer.webp)
 
 _In this scene, the sphere is alpha tested, the base blocks are opaque and the pillars are alpha blended. As you can see, the alpha blended meshes are **not** written to the depth buffer!_
 
@@ -144,7 +144,7 @@ Notes:
 
 Occasionally, you may have some of your meshes falling into the wrong category, e.g. an alpha tested mesh unnecessarily marked as alpha blended, or a mesh staying opaque when it shouldn't. This will give you weird glitches, which can sometimes be very annoying. You should refer to this article to check how your meshes and materials properties are set.
 
-You're welcome to use this example to experiment on the different things explained here: <Playground id="#1PHYB0#81" title="Transparency Rendering Example" description="Simple example to experiment and understand how transparency is handled." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering1.jpg"/> Pressing F9 will switch between normal render and depth buffer render.
+You're welcome to use this example to experiment on the different things explained here: <Playground id="#1PHYB0#81" title="Transparency Rendering Example" description="Simple example to experiment and understand how transparency is handled." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering1.webp"/> Pressing F9 will switch between normal render and depth buffer render.
 
 It's important to note that these categories are evaluated from top to bottom, so if a mesh is considered as an alpha blended mesh, it can't be alpha tested at the same time, which is something you may need/want to do nonetheless! Enter the `transparencyMode` property.
 
@@ -172,7 +172,7 @@ If `transparencyMode` equals:
 - Material.MATERIAL_ALPHATESTANDBLEND. Mesh will be both alpha tested and alpha blended
   - a difference between standard and PBR materials is that for PBR materials the alpha channel of the albedo texture is still used even if `useAlphaFromAlbedoTexture` is set to `false`, which is different from the standard material where the alpha channel of the diffuse texture is not used if `useAlphaFromDiffuseTexture` is set to `false`
 
-You're welcome to use this example to experiment on the different values of `transparencyMode` for both the standard and PBR materials: <Playground id="#TMDNDM" title="Transparency Modes Example" description="Simple example to experiment with different transparencyMode values." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering2.jpg"/>
+You're welcome to use this example to experiment on the different values of `transparencyMode` for both the standard and PBR materials: <Playground id="#TMDNDM" title="Transparency Modes Example" description="Simple example to experiment with different transparencyMode values." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering2.webp"/>
 
 ## Things To Do And Not To Do
 
@@ -197,18 +197,18 @@ This may help you with visible seams between meshes and other similar issues.
 
 ## Concave meshes and transparency
 
-The transparent concave meshes render obviously with the same rules as explained before: <Playground id="#1PLV5Z" title="Concave Meshes And Transparency Example 1" description="Simple example of transparency and concave meshes." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering3.jpg"/>
+The transparent concave meshes render obviously with the same rules as explained before: <Playground id="#1PLV5Z" title="Concave Meshes And Transparency Example 1" description="Simple example of transparency and concave meshes." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering3.webp"/>
 
-For some reasons (example : camera flying from outside to inside a sphere), you may want to remove the backface culling in order to also render the back side of the mesh : <Playground id="#1PLV5Z#1" title="Concave Meshes And Transparency Example 2" description="Simple example of transparency and concave meshes with removed backface culling." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering4.jpg"/>
+For some reasons (example : camera flying from outside to inside a sphere), you may want to remove the backface culling in order to also render the back side of the mesh : <Playground id="#1PLV5Z#1" title="Concave Meshes And Transparency Example 2" description="Simple example of transparency and concave meshes with removed backface culling." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering4.webp"/>
 
 As you can notice, the transparency rendering rules may lead to some weird things making some parts of the mesh geometries visible.  
-In this very case, an acceptable workaround would then be to enable the backface culling but to build the meshes as double sided with the parameter `sideOrientation` set to `BABYLON.Mesh.DOUBLESIDE`: <Playground id="#1PLV5Z#2" title="Concave Meshes And Transparency Example 3" description="Simple example of transparency and concave meshes with double sided meshes." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering5.jpg"/>
+In this very case, an acceptable workaround would then be to enable the backface culling but to build the meshes as double sided with the parameter `sideOrientation` set to `BABYLON.Mesh.DOUBLESIDE`: <Playground id="#1PLV5Z#2" title="Concave Meshes And Transparency Example 3" description="Simple example of transparency and concave meshes with double sided meshes." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering5.webp"/>
 
-Other option will be to rely on depth pre-pass: <Playground id="#1PLV5Z#16" title="Concave Meshes And Transparency Example 4" description="Simple example of transparency and concave meshes with depth pre-pass." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering6.jpg"/>
+Other option will be to rely on depth pre-pass: <Playground id="#1PLV5Z#16" title="Concave Meshes And Transparency Example 4" description="Simple example of transparency and concave meshes with depth pre-pass." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering6.webp"/>
 
 At last, if you accept to spend some CPU cycles to get a correct self transparency, you can use the FacetData feature and enable the [facet depth sort](/features/featuresDeepDive/mesh/facetData#facet-depth-sort).
 
-Example, depth sorted on the left, standard on the right: <Playground id="#FWKUY0#1" title="Concave Meshes And Transparency Example 5" description="Simple example of transparency and concave meshes with facet depth sort." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering7.jpg"/>
+Example, depth sorted on the left, standard on the right: <Playground id="#FWKUY0#1" title="Concave Meshes And Transparency Example 5" description="Simple example of transparency and concave meshes with facet depth sort." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering7.webp"/>
 
 ## Order Independent Transparency
 
@@ -235,7 +235,7 @@ This effect is only compatible with WebGL 2 and WebGPU.
 
 ### Known limitations
 
-- Due to the way rendering groups work currently, to display an AxesViewer in a scene with order independent transparency, you'll need to force it to use the rendering group 0: <Playground id="#T8UQTA#217" title="Order independent transparency and AxesViewer workaround" description="Workaround to display an AxesViewer in a scene with OIT" image="/img/playgroundsAndNMEs/oitAxesViewer.png"/>
+- Due to the way rendering groups work currently, to display an AxesViewer in a scene with order independent transparency, you'll need to force it to use the rendering group 0: <Playground id="#T8UQTA#217" title="Order independent transparency and AxesViewer workaround" description="Workaround to display an AxesViewer in a scene with OIT" image="/img/playgroundsAndNMEs/oitAxesViewer.webp"/>
 - OIT won't work with refraction textures as the technique just blends pixels at the same location.
 - Post processes where OIT is confirmed to not work:
   - Anti-aliasing

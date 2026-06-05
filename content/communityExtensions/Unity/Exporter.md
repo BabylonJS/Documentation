@@ -10,7 +10,7 @@ video-content:
 
 **Note:** The scene exporter panel is the primary toolkit interface. It must be opened or docked to enable the toolkit features during project development.
 
-![Scene Exporter](/img/exporters/unity/exporter.jpg)
+![Scene Exporter](/img/exporters/unity/exporter.webp)
 
 ## Global Export Options
 
@@ -26,7 +26,7 @@ video-content:
 
 ## Default Engine Options
 
-![Engine Options](/img/exporters/unity/engine.jpg)
+![Engine Options](/img/exporters/unity/engine.webp)
 
 * Enable Physics Engine   - Enables or disables the built-in physics engine.
 
@@ -46,7 +46,7 @@ video-content:
 
 ## Terrain Builder Options
 
-![Terrain Options](/img/exporters/unity/terrain.jpg)
+![Terrain Options](/img/exporters/unity/terrain.webp)
 
 * Terrain Scale Factor    - Sets the shader texture scale factor for all terrain splatmaps.
 
@@ -58,7 +58,7 @@ video-content:
 
 ## Collision System Options
 
-![Collision Options](/img/exporters/unity/collision.jpg)
+![Collision Options](/img/exporters/unity/collision.webp)
 
 * Enable Collisions       - Enable built-in collision mesh system.
 
@@ -76,7 +76,7 @@ video-content:
 
 ## Lightmap Baking Options
 
-![Lightmap Options](/img/exporters/unity/lightmap.jpg)
+![Lightmap Options](/img/exporters/unity/lightmap.webp)
 
 * Export Lightmaps        - Enable built-in shadow lightmap baking system.
 
@@ -90,7 +90,7 @@ video-content:
 
 ## Project Compiler Options
 
-![Compiler Options](/img/exporters/unity/compilers.jpg)
+![Compiler Options](/img/exporters/unity/compilers.webp)
 
 * Build Typescript Files  - Enables or disables optional runtime script compiler.
 
@@ -100,7 +100,7 @@ video-content:
 
 ## Windows Platform Options
 
-![Windows Options](/img/exporters/unity/windows.jpg)
+![Windows Options](/img/exporters/unity/windows.webp)
 
 * Launching Mode          - Specifies UWP Application initial window state.
 
@@ -114,7 +114,7 @@ video-content:
 
 ## Toolkit Exporter Options
 
-![Export Options](/img/exporters/unity/export.jpg)
+![Export Options](/img/exporters/unity/export.webp)
 
 * Attach Unity Editor     - Enables the built-in toolkit play to build and preview features.
 
@@ -148,7 +148,7 @@ video-content:
 
 ## Scene Builder Options
 
-![Builder Options](/img/exporters/unity/builder.jpg)
+![Builder Options](/img/exporters/unity/builder.webp)
 
 * Compile Script          - Compiles the projects typescript files only with no previewing
 
@@ -163,7 +163,7 @@ video-content:
 
 ## Output Window
 
-![Output Window](/img/exporters/unity/output.jpg)
+![Output Window](/img/exporters/unity/output.webp)
 
 The output window traces the toolkit export progress for every build. Any exported camera, light or mesh detail information will appear in this window. The output window can be docked to the editor during game development for easy access.
 

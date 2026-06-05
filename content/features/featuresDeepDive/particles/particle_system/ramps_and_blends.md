@@ -16,7 +16,7 @@ video-content:
 
 Ramp gradients produce a gradient color texture by assigning a color to an index between 0 and 1.
 
-![ramp gradient](/img/how_to/Particles/rampgrad.png)
+![ramp gradient](/img/how_to/Particles/rampgrad.webp)
 
 To produce a gradient color texture, such as the color bar above, you need the *addRampGradient* method:
 

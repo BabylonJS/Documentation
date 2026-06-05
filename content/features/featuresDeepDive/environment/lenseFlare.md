@@ -12,7 +12,7 @@ video-content:
 
 Babylon.js allows you to simply create lens flares effect:
 
-![Lens flares](/img/features/lensFlare.jpg)
+![Lens flares](/img/features/lensFlare.webp)
 
 <Playground id="#TQ67L1#5" title="Lens Flares" description="Show how to create a lens flares" />
 

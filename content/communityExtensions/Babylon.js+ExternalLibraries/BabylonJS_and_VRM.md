@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![VRM top header](/img/resources/babylonjs_and_vrm/vrm_topheader.png)
+![VRM top header](/img/resources/babylonjs_and_vrm/vrm_topheader.webp)
 
 ## What is VRM?
 
@@ -32,7 +32,7 @@ PG: <Playground id="#K5W35Y" title="VRM" description="Example of loading a VRM f
 
 For example, once write some animation code, all VRM models can animate it!
 
-![VRM Same Code Animation](/img/resources/babylonjs_and_vrm/vrm-samecode-animation.gif)
+![VRM Same Code Animation](/img/resources/babylonjs_and_vrm/vrm-samecode-animation.webp)
 
 ```javascript
 // example code

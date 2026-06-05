@@ -110,7 +110,7 @@ PG: <Playground id="#GLLBLZ#3" title="IsoVector Test 2" description="Rotations o
 
 This is the code needed to produce the primary triangle (Fig 1) with Iso and Cartesian vertices ordered by x for each row.
 
-![facet vertices](/img/snippets/geo25.png)  
+![facet vertices](/img/snippets/geo25.webp)  
 Fig 1 Internal Facet Vertices
 
 ```javascript
@@ -212,7 +212,7 @@ PG: <Playground id="#GLLBLZ#12" title="Primary Triangle Test 1" description="Pri
 
 We have based the facet triangles on the net of Fig 2 now with added vertex labels.
 
-![facet vertices labelled](/img/snippets/geo26.png)  
+![facet vertices labelled](/img/snippets/geo26.webp)  
 Fig 2 Icosahedron Net with Vertex Labels.
 
 Where each side is of length 2, and with origin at the center of the icosahedron Table 1 gives the (x, y, z) position of each of the twelve vertices where &phi; = (1 + &Sqrt;5) / 2

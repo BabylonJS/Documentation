@@ -12,7 +12,7 @@ video-content:
 
 Babylon.js supports bones animations for your meshes.
 
-![Bones](/img/how_to/bones-skeletons/bones.jpg)
+![Bones](/img/how_to/bones-skeletons/bones.webp)
 
 Basically a skeleton (`BABYLON.Skeleton`) contains a hierarchy of bones (`BABYLON.Bone`). A bone is defined by a name, a parent (can be null) and a transformation matrix.
 
@@ -81,7 +81,7 @@ A complete running example can be found here: <Playground id="#92Y727#462" title
 
 The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). To use a Node Material in a mesh with bones, you need to add the Bones node to it so that the bone influences are correctly computed:
 
-![Use Instances with Node Material](/img/how_to/bones-node.png)
+![Use Instances with Node Material](/img/how_to/bones-node.webp)
 
 <Playground id="#92Y727#463" title="Using Node Material with Bones" description="Use Bones node on the Node Material"/>
 

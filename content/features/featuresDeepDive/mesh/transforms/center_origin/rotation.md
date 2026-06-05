@@ -14,7 +14,7 @@ Rotation in 3D space is always tricky. The order in which rotations are applied 
 
 To help in visualizing orientation this asymmetric mesh is used in examples
 
-![The Pilot](/img/how_to/Mesh/pilot.jpg)
+![The Pilot](/img/how_to/Mesh/pilot.webp)
 
 The most straight forward method to change the orientation of a mesh is the rotation property.
 
@@ -63,7 +63,7 @@ The order is - a rotation of beta about the local y axis, then alpha about the l
 The following sequence of images shows this order of rotation.  
 Red x axis, green y axis, blue z axis.
 
-![Local Rotation](/img/getstarted/rotateorder.png)
+![Local Rotation](/img/getstarted/rotateorder.webp)
 
 From 0 rotation rotate &pi;/2 about y, then &pi;/2 about x, then &pi;/2 about z.
 

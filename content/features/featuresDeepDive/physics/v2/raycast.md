@@ -69,6 +69,6 @@ physicsEngine.raycastToRef(start, end, raycastResult, {collideWith: 3});
 
 Here's a diagram of the operation for the second example's test on shapeA (which does not collide with the ray):
 
-![Diagram of the ray collision test](/img/features/physics/raycast_diagram.png)
+![Diagram of the ray collision test](/img/features/physics/raycast_diagram.webp)
 
 <Playground id="#PY59V9#7" title="Raycast Filtering Example" description="Example of the raycast filtering feature" isMain={true} category="Physics" />

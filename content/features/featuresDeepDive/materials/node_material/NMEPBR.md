@@ -1,6 +1,6 @@
 ---
 title: Node Material and PBR
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: Using Physically Based Rendering with the Node Material.
 keywords: shaders, glsl, node editor, graphics, GPU program, material, NME, Node Material, Node Material Editor
 further-reading:
@@ -15,17 +15,17 @@ It is incredibly easy to utilize Physically Based Rendering with Node Materials 
 You can use these playgrounds and materials as starting points for your own experiments to create PBR materials in the NME (note that the node material may take some time to load in the PG - the mesh will stay black until the material is loaded):
 
 -   Full use of all PBR blocks:
--   PG: <Playground id="#D8AK3Z#44" title="PBR Blocks Playground" description="Playground of the full use of PBR blocks in NME." image="/img/playgroundsAndNMEs/PGPBRNME.jpg" isMain={true} category="Node Material"/>
--   Material: <NME id="#EPY8BV#6" title="PBR Blocks NME" description="Node Material Editor of the full use of PBR blocks." image="/img/playgroundsAndNMEs/NMEPBRNME.jpg"/>
+-   PG: <Playground id="#D8AK3Z#44" title="PBR Blocks Playground" description="Playground of the full use of PBR blocks in NME." image="/img/playgroundsAndNMEs/PGPBRNME.webp" isMain={true} category="Node Material"/>
+-   Material: <NME id="#EPY8BV#6" title="PBR Blocks NME" description="Node Material Editor of the full use of PBR blocks." image="/img/playgroundsAndNMEs/NMEPBRNME.webp"/>
 -   PBR material with sheen only:
-    -   PG: <Playground id="#MUX769#4" title="PBR Blocks Sheen Only Playground" description="Playground of PBR blocks in NME using sheen only." image="/img/playgroundsAndNMEs/PGPBRSheenNME.jpg"/>
-    -   Material: <NME id="#V3R0KJ" title="PBR Blocks Sheen Only NME" description="Node Material Editor of PBR blocks using sheen only." image="/img/playgroundsAndNMEs/NMEPBRSheenNME.jpg"/>
+    -   PG: <Playground id="#MUX769#4" title="PBR Blocks Sheen Only Playground" description="Playground of PBR blocks in NME using sheen only." image="/img/playgroundsAndNMEs/PGPBRSheenNME.webp"/>
+    -   Material: <NME id="#V3R0KJ" title="PBR Blocks Sheen Only NME" description="Node Material Editor of PBR blocks using sheen only." image="/img/playgroundsAndNMEs/NMEPBRSheenNME.webp"/>
 -   PBR material with clear coat only:
-    -   PG: <Playground id="#0XSPF6#6" title="PBR Blocks Clear Coat Only NME" description="Playground of PBR blocks in NME using clear coat only." image="/img/playgroundsAndNMEs/PGPBRclearCoatNME.jpg"/>
-    -   Material: <NME id="#C3NEY1#4" title="PBR Blocks Sheen Only NME" description="Node Material Editor of PBR blocks using clear coat only." image="/img/playgroundsAndNMEs/NMEPBRclearCoatNME.jpg"/>
+    -   PG: <Playground id="#0XSPF6#6" title="PBR Blocks Clear Coat Only NME" description="Playground of PBR blocks in NME using clear coat only." image="/img/playgroundsAndNMEs/PGPBRclearCoatNME.webp"/>
+    -   Material: <NME id="#C3NEY1#4" title="PBR Blocks Sheen Only NME" description="Node Material Editor of PBR blocks using clear coat only." image="/img/playgroundsAndNMEs/NMEPBRclearCoatNME.webp"/>
 -   PBR material with sub surface only:
-    -   PG: <Playground id="#7QAN2T#8" title="PBR Blocks sub surface Only Playground" description="Playground of PBR blocks in NME using sub surface only." image="/img/playgroundsAndNMEs/PGPBRsubSurfaceNME.jpg"/>
-    -   Material: <NME id="#100NDL#1" title="PBR Blocks sub surface Only NME" description="Node Material Editor of PBR blocks using sub surface only." image="/img/playgroundsAndNMEs/NMEPBRsubSurfaceNME.jpg"/>
+    -   PG: <Playground id="#7QAN2T#8" title="PBR Blocks sub surface Only Playground" description="Playground of PBR blocks in NME using sub surface only." image="/img/playgroundsAndNMEs/PGPBRsubSurfaceNME.webp"/>
+    -   Material: <NME id="#100NDL#1" title="PBR Blocks sub surface Only NME" description="Node Material Editor of PBR blocks using sub surface only." image="/img/playgroundsAndNMEs/NMEPBRsubSurfaceNME.webp"/>
 
 The inputs of the different PBR blocks are using the same names as in the `PBRMetallicRoughnessMaterial` class, so you can refer to [this doc](/typedoc/classes/babylon.pbrmetallicroughnessmaterial) for explanations about them.
 
@@ -33,11 +33,11 @@ Some of the parameters are available as properties when clicking on the block in
 
 For eg, for `Reflection`:
 
-![Reflection properties](/img/how_to/Materials/nme_reflection_prop.png)
+![Reflection properties](/img/how_to/Materials/nme_reflection_prop.webp)
 
 Or for `PBRMetallicRoughness`:
 
-![PBR properties](/img/how_to/Materials/nme_pbr_prop.png)
+![PBR properties](/img/how_to/Materials/nme_pbr_prop.webp)
 
 As for the standard `PBRMaterial`, if no texture is provided for the **Reflection** / **Refraction** texture, the one declared at the scene level (`scene.environmentTexture`) is used instead.
 

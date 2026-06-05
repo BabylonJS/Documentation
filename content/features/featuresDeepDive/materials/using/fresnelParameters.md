@@ -10,7 +10,7 @@ video-content:
 
 Babylon.js 1.14 introduced new parameters for the StandardMaterial: _FresnelParameters_.
 
-![](/img/how_to/Fresnel/fresnel.jpg)
+![](/img/how_to/Fresnel/fresnel.webp)
 
 There are 5 of them:
 
@@ -39,7 +39,7 @@ material.reflectionFresnelParameters.leftColor = BABYLON.Color3.White();
 material.reflectionFresnelParameters.rightColor = BABYLON.Color3.Black();
 ```
 
-![](/img/how_to/Fresnel/fresnel01.jpg)
+![](/img/how_to/Fresnel/fresnel01.webp)
 
 Conversely, if you only want reflection in the center:
 
@@ -48,7 +48,7 @@ material.reflectionFresnelParameters.leftColor = BABYLON.Color3.Black();
 material.reflectionFresnelParameters.rightColor = BABYLON.Color3.White();
 ```
 
-![](/img/how_to/Fresnel/fresnel02.jpg)
+![](/img/how_to/Fresnel/fresnel02.webp)
 
 By using ```bias``` and ```power``` properties, you can control how the fresnel is computed along the surface of the object according to this formula:
 
@@ -67,7 +67,7 @@ material.reflectionFresnelParameters.power = 4;
 
 ...generates the following rendering:
 
-![](/img/how_to/Fresnel/fresnel03.jpg)
+![](/img/how_to/Fresnel/fresnel03.webp)
 
 ## How to use it
 
@@ -102,5 +102,5 @@ material.opacityFresnelParameters.leftColor = BABYLON.Color3.White();
 material.opacityFresnelParameters.rightColor = BABYLON.Color3.Black();
 ```
 
-<Playground id="#22KZUW#6" title="Fresnel Refraction" description="Simple example of using fresnel refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperFresnel1.jpg"/>
-<Playground id="#AQZJ4C#0" title="Fresnel Parameters" description="Simple example for you to explore fresnel parameters in your scene." image="/img/playgroundsAndNMEs/divingDeeperFresnel2.jpg"/>
+<Playground id="#22KZUW#6" title="Fresnel Refraction" description="Simple example of using fresnel refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperFresnel1.webp"/>
+<Playground id="#AQZJ4C#0" title="Fresnel Parameters" description="Simple example for you to explore fresnel parameters in your scene." image="/img/playgroundsAndNMEs/divingDeeperFresnel2.webp"/>

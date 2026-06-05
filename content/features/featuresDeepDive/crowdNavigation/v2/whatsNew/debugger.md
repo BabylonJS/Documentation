@@ -108,7 +108,7 @@ debug.drawNavMeshPolysWithFlags(navigationPlugin.navMesh, 1, 0x0000ff);
 
 This function visualizes the off-mesh connections as well as seen on the image:
 
-<img src="/img/extensions/navigation/debug-offmesh.png" title="Offmesh connections visualized in a debug layer" width="30%" />
+<img src="/img/extensions/navigation/debug-offmesh.webp" title="Offmesh connections visualized in a debug layer" width="30%" />
 
 #### Examples
 
@@ -135,15 +135,15 @@ You can then visualize the intermediate data as follows:
 debug.draw(navigationPlugin.navMesh, navigationPlugin.intermediates, scene, ADDONS.DebugLayerOption.COMPACT_HEIGHTFIELD_DISTANCE);
 ```
 
-<img src="/img/extensions/navigation/debug-heightfield-distance.png" title="Heighfield distance debug layer" width="30%" />
+<img src="/img/extensions/navigation/debug-heightfield-distance.webp" title="Heighfield distance debug layer" width="30%" />
 
 #### Polymesh detail
 
-<img src="/img/extensions/navigation/debug-poly-mesh-detail.png" title="Polymesh detail debug layer" width="30%" />
+<img src="/img/extensions/navigation/debug-poly-mesh-detail.webp" title="Polymesh detail debug layer" width="30%" />
 
 #### BV tree
 
-<img src="/img/extensions/navigation/debug-bv-tree.png" title="BV tree detail debug layer" width="30%" />
+<img src="/img/extensions/navigation/debug-bv-tree.webp" title="BV tree detail debug layer" width="30%" />
 
 ### The createDebugNavMesh function
 

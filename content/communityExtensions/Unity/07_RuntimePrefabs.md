@@ -38,7 +38,7 @@ If you experiment with overriding properties but then decide you preferred the d
 
 ## Babylon Prefab Layer
 
-![Prefab Layer](/img/exporters/unity/prefablayer.jpg)
+![Prefab Layer](/img/exporters/unity/prefablayer.webp)
 
 The prefab layer can prepare your objects to take advantage of the toolkit's deep cloning to instantiate game object prefabs at runtime. This step is required to use _ **Unity Style Prefabs** _ in a web browser environment. Web games cannot directly instantiate a prefab from disk, so game objects intended to be used as runtime prefabs must be present but disabled in the scene.
 

@@ -33,13 +33,13 @@ describe("Content Graph", () => {
                 type: "pg",
                 id: "#HVHYJC#82",
                 title: "HtmlMesh Example",
-                imageUrl: "/img/playgroundsAndNMEs/htmlMeshPG.png",
+                imageUrl: "/img/playgroundsAndNMEs/htmlMeshPG.webp",
             }),
             expect.objectContaining({
                 type: "pg",
                 id: "#B17TC7#210",
                 title: "HtmlMesh Box Example",
-                imageUrl: "/img/playgroundsAndNMEs/HtmlMeshBoxPG.png",
+                imageUrl: "/img/playgroundsAndNMEs/HtmlMeshBoxPG.webp",
             }),
         ]);
     });

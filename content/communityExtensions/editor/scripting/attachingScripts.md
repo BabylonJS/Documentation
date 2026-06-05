@@ -38,7 +38,7 @@ In the assets browser panel, just browse the `src` folder click `Add -> TypeScri
 
 **Note: when no extension provided, the `.ts` extension is automatically added.**
 
-![AddingScript](/img/extensions/Editor/AttachingScripts/addingscript.gif)
+![AddingScript](/img/extensions/Editor/AttachingScripts/addingscript.webp)
 
 ## Attaching a script
 
@@ -48,7 +48,7 @@ We named our script `cube.ts` and it'll be attached to the cube in our scene for
 
 **Note: only one script can be attached to an object but one script can be attached to multiple objects in the scene.**
 
-![AttachingScript](/img/extensions/Editor/AttachingScripts/attachingscript.gif)
+![AttachingScript](/img/extensions/Editor/AttachingScripts/attachingscript.webp)
 
 ## Opening the project in VSCode and focus on the script
 To help locating the project and scripts in our workspace, we can open `Visual Studio Code` directly from the Editor. Also, the Editor can open scripts directly.
@@ -56,7 +56,7 @@ To help locating the project and scripts in our workspace, we can open `Visual S
 * To open `Visual Studio Code`, just select `File -> Open Visual Studio Code` in the toolbar.
 * To open a script, simply `double-click` the desired script in the assets browser panel.
 
-![OpeningVSCodeAndScripts](/img/extensions/Editor/AttachingScripts/openingvscodeandscript.gif)
+![OpeningVSCodeAndScripts](/img/extensions/Editor/AttachingScripts/openingvscodeandscript.webp)
 
 ## Understanding scripts
 
@@ -66,7 +66,7 @@ Scripts are used to specialize an object. That means it'll be attached to an exi
 
 By default, a script is named `MyScript` and it can be renamed. Also, a script extends, by default, the class `Node` of Babylon.JS. Here, we attached the script to a cube, which is a mesh. Let's extend `Mesh` instead of `Node` so we'll have auto-completion for `Mesh` when typing `this`:
 
-![RenamingAndExtend](/img/extensions/Editor/AttachingScripts/renamingandextend.gif)
+![RenamingAndExtend](/img/extensions/Editor/AttachingScripts/renamingandextend.webp)
 
 ## Customizing scripts in editor
 
@@ -89,7 +89,7 @@ The `@visibleInInspector` decorator has the given arguments:
 On the property is decorated and the script saved, the inspector is updated automatically and shows the newly
 decorated property.
 
-![UsingDecorators](/img/extensions/Editor/AttachingScripts/decorators.gif)
+![UsingDecorators](/img/extensions/Editor/AttachingScripts/decorators.webp)
 
 ## Rotating the cube using the attached script
 
@@ -109,7 +109,7 @@ This will watch ALL the TypeScript files and repack the dist files.
 Using the editor, simply open the preferences, go to the `Workspace` section and enable the automatic watch
 (if not enabled):
 
-![WatchingWebPack](/img/extensions/Editor/AttachingScripts/watchingwebpack.gif)
+![WatchingWebPack](/img/extensions/Editor/AttachingScripts/watchingwebpack.webp)
 
 Now, let's rotate the cube using our customized property `_speed` and run the game. In this tutorial, the `onStart` function is not used. When one of these functions is not used, it can be removed.
 
@@ -117,7 +117,7 @@ Once the scene is being played, each decorated property supports live update. In
 decorated property value is modified in the inspector, the linked element in the scene being played has its
 decorated property updated.
 
-![RotatingCube](/img/extensions/Editor/AttachingScripts/rotatingcube.gif)
+![RotatingCube](/img/extensions/Editor/AttachingScripts/rotatingcube.webp)
 
 ## Managing scripts
 

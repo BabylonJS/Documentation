@@ -74,7 +74,7 @@ Follow the steps in the [ESM/NPM Support docs](/setup/frameworkPackages/es6Suppo
 Use one of scene loader functions to load a glTF asset.
 See [Load from any file type](/features/featuresDeepDive/importers/loadingFileTypes).
 
-See an example here: <Playground id="#WGZLGJ#11018" title="Load a glTF Asset" description="Simple example showing how load a .glTF asset into your scene." image="/img/playgroundsAndNMEs/divingDeeperglTF1.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#WGZLGJ#11018" title="Load a glTF Asset" description="Simple example showing how load a .glTF asset into your scene." image="/img/playgroundsAndNMEs/divingDeeperglTF1.webp" isMain={true} category="Import"/>
 
 ## Extensions
 

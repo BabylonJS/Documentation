@@ -33,7 +33,7 @@ Single sided: <Playground id="#Q9VZS9#4" title="Create a Single Sided Plane" des
 Double sided: <Playground id="#Q9VZS9#2" title="Create a Double Sided Plane" description="Simple example of creating a double sided plane."/>
 
 Using this image  
-![Two Tile Pattern](/img/how_to/Mesh/tiles2.jpg)  
+![Two Tile Pattern](/img/how_to/Mesh/tiles2.webp)  
 to texture the front and back  
 front and back <Playground id="#Q9VZS9#3" title="Front and Back Texture" description="Simple example of assigning front and back textures to a plane."/>
 

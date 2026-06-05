@@ -16,7 +16,7 @@ With this plugin, you can also export your project to glTF 2.0 format (https://g
 
 All you need to do is choose **gltf** as **Output format**.
 
-![glTF export window](/img/exporters/Maya_to_glTF/1_gltf_export_window.jpg)
+![glTF export window](/img/exporters/Maya_to_glTF/1_gltf_export_window.webp)
 
 The plugin exports to babylon format before converting it to glTF.
 The notable exported files are the .gltf and .bin ones.
@@ -99,7 +99,7 @@ Currently, two PBR materials are exported:
 
 Involved parameters are highlighted bellow and described in the following sections.
 
-![Maya Stingray PBS material parameters](/img/exporters/Maya_to_glTF/2_gltf_stingray_pbs.jpg)
+![Maya Stingray PBS material parameters](/img/exporters/Maya_to_glTF/2_gltf_stingray_pbs.webp)
 
 ## Preset Material
 
@@ -135,7 +135,7 @@ When both checkboxes are unchecked, the attributes are used as normal.
 
 In glTF format, the metallic and roughness maps are combined together:
 
-![glTF metallic and roughness maps combined](/img/exporters/Maya_to_glTF/3_gltf_metallic_roughness_combined.jpg)
+![glTF metallic and roughness maps combined](/img/exporters/Maya_to_glTF/3_gltf_metallic_roughness_combined.webp)
 
 In Maya, metallic and roughness maps are black and white images (R=G=B).
 
@@ -149,7 +149,7 @@ Note that the duration of this process scales with images size and may have a se
 
 You can also merge your metallic and roughness maps and use this file for both property in Maya :
 
-![glTF metallic and roughness maps combined](/img/exporters/Maya_to_glTF/3_gltf_Hypershade_MR_Merged.png)
+![glTF metallic and roughness maps combined](/img/exporters/Maya_to_glTF/3_gltf_Hypershade_MR_Merged.webp)
 
 In that way the exporter wont merge the metallic and roughness map and the export duration is going to be faster.
 
@@ -161,11 +161,11 @@ As seen before, in glTF format, the metallic and roughness maps are combined tog
 
 For the ambient occlusion map, the red channel is going to be used:
 
-![glTF metallic, roughness and ambient occlusion maps combined](/img/exporters/Maya_to_glTF/ManualMergeORM.png)
+![glTF metallic, roughness and ambient occlusion maps combined](/img/exporters/Maya_to_glTF/ManualMergeORM.webp)
 
 You can merge the metallic, roughness and occlusion maps in order to use only one texture for the three :
 
-![glTF metallic, roughness and ambient occlusion maps combined](/img/exporters/Maya_to_glTF/3_gltf_Hypershade_OMR_Merged.png)
+![glTF metallic, roughness and ambient occlusion maps combined](/img/exporters/Maya_to_glTF/3_gltf_Hypershade_OMR_Merged.webp)
 
 In that way the result is going to be lighter than with an Ambiant Occlusion map and a Metallic Roughness.
 
@@ -181,7 +181,7 @@ Thus the emissive map is assumed to be already premultiplied by the emissive int
 
 Involved parameters are highlighted bellow and described in the following sections.
 
-![glTF AiStandardSurface material parameters](/img/exporters/Maya_to_glTF/4_gltf_aiStandardSurface_material_editor.png)
+![glTF AiStandardSurface material parameters](/img/exporters/Maya_to_glTF/4_gltf_aiStandardSurface_material_editor.webp)
 
 Remember to use Arnold lights when rendering with Arnold or your scene will look black! _Physical Sky_ is a good all corner one if you don't know which one to use.
 
@@ -197,7 +197,7 @@ Note that by default, the _Base Weight_ attribute is set to 0.8. This means that
 
 In order to make material opacity relevant, you must specify meshes to not be _Opaque_:
 
-![glTF Arnold opaque in shader editor](/img/exporters/Maya_to_glTF/ShapeEditor_ArnoldOpaque.png)
+![glTF Arnold opaque in shader editor](/img/exporters/Maya_to_glTF/ShapeEditor_ArnoldOpaque.webp)
 
 This Arnold attribute must be unchecked for each mesh you wish material opacity to be taken into account.
 
@@ -207,13 +207,13 @@ Babylon and glTF formats don't have such Mesh attribute. When facing a case wher
 
 You can use 2 different textures, one for _Base Color_ and one for _Opacity_.
 
-![glTF AiStandardSurface hypershade base color and alpha maps split](/img/exporters/Maya_to_glTF/Hypershade_BaseColorAlpha_Split.jpg)
+![glTF AiStandardSurface hypershade base color and alpha maps split](/img/exporters/Maya_to_glTF/Hypershade_BaseColorAlpha_Split.webp)
 
 The material _Opacity_ is bound to the file texture _Out Transparency_.
 
 In glTF format, a single texture is used to describe both parameters. The exporter automatically combines them together:
 
-![glTF base color and alpha maps combined](/img/exporters/Maya_to_glTF/3_gltf_baseColor_alpha_combined.jpg)
+![glTF base color and alpha maps combined](/img/exporters/Maya_to_glTF/3_gltf_baseColor_alpha_combined.webp)
 
 If a map is not provided, the attribute value is applied to all pixels when creating merged texture.
 
@@ -225,7 +225,7 @@ Also the duration of this process scales with images size and may have a severe 
 
 Alternatively, you can provide a single texture used in both _Base color_ and _Opacity_. In this case, the map is assumed to be already merged.
 
-![glTF AiStandardSurface hypershade and base color and alpha maps already merged](/img/exporters/Maya_to_glTF/Hypershade_BaseColorAlpha_Merged.png)
+![glTF AiStandardSurface hypershade and base color and alpha maps already merged](/img/exporters/Maya_to_glTF/Hypershade_BaseColorAlpha_Merged.webp)
 
 The material _Opacity_ is binded to the file texture _Out Transparency_.
 
@@ -239,13 +239,13 @@ You can use 2 black and white textures or a single colored texture with merged d
 
 You can use 2 different textures, one for _Metalness_ and one for _Specular Roughness_. Those maps are black and white images (R=G=B).
 
-![glTF AiStandardSurface hypershade metallic and roughness split](/img/exporters/Maya_to_glTF/Hypershade_MetallicRoughness_Split.png)
+![glTF AiStandardSurface hypershade metallic and roughness split](/img/exporters/Maya_to_glTF/Hypershade_MetallicRoughness_Split.webp)
 
-Note that when setting a map by clicking on the ![glTF Maya texture shortcut icon](/img/exporters/Maya_to_glTF/BlackWhiteSquareIcon.png) icon next to _Metalness_ or _Specular Roughness_ attribute in the material editor window, the default file texture channel is _Out Alpha_. You may need to remove the link and instead use one of the _Out Color_ channel. Even though any _Out Color_ channel would be correct as they are all the equal, you are advised as a good practice to use the blue one for _Metalness_ and the green one for _Specular Roughness_.
+Note that when setting a map by clicking on the ![glTF Maya texture shortcut icon](/img/exporters/Maya_to_glTF/BlackWhiteSquareIcon.webp) icon next to _Metalness_ or _Specular Roughness_ attribute in the material editor window, the default file texture channel is _Out Alpha_. You may need to remove the link and instead use one of the _Out Color_ channel. Even though any _Out Color_ channel would be correct as they are all the equal, you are advised as a good practice to use the blue one for _Metalness_ and the green one for _Specular Roughness_.
 
 In glTF format, a single texture is used to describe both parameters: metallic is stored in blue channel, roughness in green. The exporter automatically combines metalness and roughness maps together:
 
-![glTF metallic and roughness maps combined](/img/exporters/Maya_to_glTF/3_gltf_metallic_roughness_combined.jpg)
+![glTF metallic and roughness maps combined](/img/exporters/Maya_to_glTF/3_gltf_metallic_roughness_combined.webp)
 
 If a map is not provided, the attribute value is applied to all pixels when creating merged texture.
 
@@ -267,7 +267,7 @@ Such texture defines:
 - the **R**oughness in Green channel and is assigned to the material _Specular Roughness_
 - the **M**etalness in Blue channel and is assigned to the material _Metalness_
 
-![glTF AiStandardSurface hypershade ORM map](/img/exporters/Maya_to_glTF/Hypershade_ORM_Merged.png)
+![glTF AiStandardSurface hypershade ORM map](/img/exporters/Maya_to_glTF/Hypershade_ORM_Merged.webp)
 
 The exporter does not merge textures for you, but instead assumes the texture provided is already merged.
 
@@ -307,11 +307,11 @@ To obtain such texture, either:
 
 - create the image manually, using 1 channel from each of the 3 images, with a software like Photoshop.
 
-![glTF occlusion, roughness and metallic maps combined](/img/exporters/Maya_to_glTF/ManualMergeORM.png)
+![glTF occlusion, roughness and metallic maps combined](/img/exporters/Maya_to_glTF/ManualMergeORM.webp)
 
 - export the textures from a 3D painting software using ORM configuration. From Substance Painter:
 
-![glTF substance painter export window with ORM configuration](/img/exporters/Maya_to_glTF/SubstancePainterExportORM.png)
+![glTF substance painter export window with ORM configuration](/img/exporters/Maya_to_glTF/SubstancePainterExportORM.webp)
 
 Using _Unreal Engine 4 (Packed)_ configuration, the occlusion, roughness and metallic are combined together into a single ORM texture.
 
@@ -333,9 +333,9 @@ Native materials are enhanced to have extra attributes in a dedicated node. A Ba
 
 Here is an example for 3 different materials:
 
-![Maya babylon material attributes nodes](/img/exporters/Maya/BabylonMaterialAttributes_LargeView.jpg)
+![Maya babylon material attributes nodes](/img/exporters/Maya/BabylonMaterialAttributes_LargeView.webp)
 
-![Maya babylon material attributes details](/img/exporters/Maya/BabylonMaterialAttributes_AllNodes.jpg)
+![Maya babylon material attributes details](/img/exporters/Maya/BabylonMaterialAttributes_AllNodes.webp)
 
 Most Babylon attributes are common to all materials:
 
@@ -350,11 +350,11 @@ Most Babylon attributes are common to all materials:
 
 You can add custom attributes to Meshes, Materials, Lights and Cameras with the attributes window (_Modify > Add Attribute..._) and it adds them in the extra attributes of those objects.
 
-![native attributes window](/img/exporters/Maya/9_attribute_window.png)
+![native attributes window](/img/exporters/Maya/9_attribute_window.webp)
 
 In glTF, the custom attributes are added as extras.
 
-![custom attributes as extras](/img/exporters/Maya/CustomAttributes_Extras.png)
+![custom attributes as extras](/img/exporters/Maya/CustomAttributes_Extras.webp)
 
 Note that the custom attributes are added to the node, not to the mesh or light component itself.
 
@@ -369,7 +369,7 @@ You can export multiple animations clips and play one of them depending on the s
 
 To setup the animations clips (also named animation groups) click on the **Babylon** tab on the top menu, and click on **Animation groups**.
 
-![Maya animation groups window](/img/exporters/Maya_to_glTF/animation_groups_window.jpg)
+![Maya animation groups window](/img/exporters/Maya_to_glTF/animation_groups_window.webp)
 
 Features are explained below:
 

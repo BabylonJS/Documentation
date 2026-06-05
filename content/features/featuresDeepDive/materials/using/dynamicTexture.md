@@ -10,7 +10,7 @@ video-content:
 
 A dynamic texture works by creating a canvas onto which you can draw using all the facilities of the [HTML5 Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).
 
-![dynamic texture](/img/how_to/dyntext.png)
+![dynamic texture](/img/how_to/dyntext.webp)
 
 ## Creating and Applying
 
@@ -38,7 +38,7 @@ mesh.material = myMaterial;
 ## Attaching to a Canvas
 An existing canvas can be used to define the size of a `dynamicTexture` when passed an an `option` parameter during creation as seen above. In addition to referencing the size of the canvas, the created `dynamicTexture` will also attach itself to that referenced canvas. This means that the `dynamicTexture` will duplicate whatever is rendered to that referenced canvas when `dynamicTexture.update()` is called. 
 
-<Playground id="#RLDCOV" title="Attach to Canvas" description="Copying contents of canvas to a dynamic texture." image="/img/playgroundsAndNMEs/dynamicTextureReferencingCanvas.jpg"/>
+<Playground id="#RLDCOV" title="Attach to Canvas" description="Copying contents of canvas to a dynamic texture." image="/img/playgroundsAndNMEs/dynamicTextureReferencingCanvas.webp"/>
 
 ## Writing Text
 
@@ -57,7 +57,7 @@ Here are the parameters:
 - invertY: boolean, true by default in which case y is the distance from the top, when false, y is distance from the bottom and the letters reversed;
 - update: boolean, true by default, the dynamic texture will immediately be updated.
 
-<Playground id="#5ZCGRM#2" title="Drawing Text" description="Simple example of drawing text with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture1.jpg"/>
+<Playground id="#5ZCGRM#2" title="Drawing Text" description="Simple example of drawing text with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture1.webp"/>
 
 ## Canvas Methods
 
@@ -93,7 +93,7 @@ myDynamicTexture.update();
 
 **Note:** use `update(false)` if you do not want to use `invertY`.
 
-<Playground id="#5ZCGRM#3" title="Drawing A Curve" description="Simple example of drawing a circle with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture2.jpg"/>
+<Playground id="#5ZCGRM#3" title="Drawing A Curve" description="Simple example of drawing a circle with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture2.webp"/>
 
 ### Images
 
@@ -121,7 +121,7 @@ img.onload = function() {
 }
 ```
 
-<Playground id="#5ZCGRM#4" title="Adding An Image" description="Simple example of adding an image with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture3.jpg"/>
+<Playground id="#5ZCGRM#4" title="Adding An Image" description="Simple example of adding an image with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture3.webp"/>
 
 ### Transformations
 
@@ -154,14 +154,14 @@ ctx.restore();
 
 ```
 
-<Playground id="#6XFI1A" title="Translate and Rotate Rectangle" description="Simple example of transforming a rectangle on a dynamic texture" image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture8.jpg"/>
+<Playground id="#6XFI1A" title="Translate and Rotate Rectangle" description="Simple example of transforming a rectangle on a dynamic texture" image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture8.webp"/>
 
 
 ## Playground Combination
 
 This playground combines all the above techniques.
 
-<Playground id="#5ZCGRM#1" title="All Dynamic Texture Techniques" description="Simple example of all of the dynamic texture techniques." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture4.jpg"/>
+<Playground id="#5ZCGRM#1" title="All Dynamic Texture Techniques" description="Simple example of all of the dynamic texture techniques." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture4.webp"/>
 
 ## Text and Area Matching
 
@@ -215,7 +215,7 @@ mat.diffuseTexture = dynamicTexture;
 plane.material = mat;
 ```
 
-<Playground id="#TMHF80#1" title="Fit Text To Plane" description="Simple example of fitting text to a plane with a dynamic texture." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture5.jpg"/>
+<Playground id="#TMHF80#1" title="Fit Text To Plane" description="Simple example of fitting text to a plane with a dynamic texture." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture5.webp"/>
 
 ### Fit an Area to Text
 
@@ -251,7 +251,7 @@ const plane = BABYLON.MeshBuilder.CreatePlane("plane", { width: planeWidth, heig
 plane.material = mat;
 ```
 
-<Playground id="#TMHF80" title="Fit Plane To Text" description="Simple example of fitting a plane to text with a dynamic texture." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture6.jpg"/>
+<Playground id="#TMHF80" title="Fit Plane To Text" description="Simple example of fitting a plane to text with a dynamic texture." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture6.webp"/>
 
 ## Serialization
 
@@ -261,10 +261,10 @@ The dynamic texture can be serialized with the scene using `SceneSerializer.Seri
 
 This playground demonstrates serializing a dynamic texture associated with a material on a mesh:
 
-<Playground id="#FU0ES5" title="Drawing Text and a Curve Texture Serialized Mesh" description="Simple example of drawing text and a curve texture serialized mesh." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture7.jpg"/>
+<Playground id="#FU0ES5" title="Drawing Text and a Curve Texture Serialized Mesh" description="Simple example of drawing text and a curve texture serialized mesh." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture7.webp"/>
 
 ## Dynamic Texture Example
-![product customization with dynamic texture](/img/how_to/productCustomizationDynamicTexture.png)
+![product customization with dynamic texture](/img/how_to/productCustomizationDynamicTexture.webp)
 
 This playground example incorporates a user-manipulated dynamic texture allowing the customization of an asset. This scene demonstrates many of the previous concepts and shows why dynamic textures are a great way to provide users with interactive scene materials.
 

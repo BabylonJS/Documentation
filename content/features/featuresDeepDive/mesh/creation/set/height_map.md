@@ -15,7 +15,7 @@ Height-maps are easy to use, customizable yet produce impressive terrain:
 
 >  What we are going to try and achieve
 
-![HeightMap](/img/how_to/HeightMap/14.png)
+![HeightMap](/img/how_to/HeightMap/14.webp)
 
 ## How to do this?
 
@@ -23,7 +23,7 @@ Height-maps are easy to use, customizable yet produce impressive terrain:
 
 Understanding height maps is the main objective of this tutorial. A height map is simply a gray-scale texture. Each pixel in the texture maps onto the height of a point on a plane, thus the name height-map. The whiter the pixel the higher the displacement, the darker the lesser the displacement. From the variations of gray within the texture we can map out a terrain. For this example we shall use the following texture: 
 
-![HeightMap3](/img/how_to/HeightMap/worldHeightMap.jpg)
+![HeightMap3](/img/how_to/HeightMap/worldHeightMap.webp)
 
 > To help you generate height-map textures (like the one above), you can use software such as [Terragen](https://planetside.co.uk/free-downloads/terragen-4-free-download/), or [Picogen ](https://picogen.org/downloads.php.html)(free).
 
@@ -64,17 +64,17 @@ The following are options, third parameter, used to construct the height-mapped 
 * **minHeight**: Lowest point on the plane
 * **maxHeight**: Highest point on the plane
 * **subdivisions**: How detailed should our height-mapped plane be. Higher for higher poly count and therefore better visual quality. As seen below:
-* ![HeightMap4](/img/how_to/HeightMap/14-2.png)
+* ![HeightMap4](/img/how_to/HeightMap/14-2.webp)
 
 ----
 
 > Now we can see a 3d representation of the earth's surface on a plane!
 
-![HeightMap4](/img/how_to/HeightMap/14-3.png)
+![HeightMap4](/img/how_to/HeightMap/14-3.webp)
 
 Another example showing basic lighting, height-maps and a [skybox](/features/featuresDeepDive/environment/environment_introduction) in use!
 
-![HeightMap5](/img/how_to/HeightMap/14-4.png)
+![HeightMap5](/img/how_to/HeightMap/14-4.webp)
 
 ### Tips.
 

@@ -37,7 +37,7 @@ Baking using matrices <Playground id="#6AH5EL#1" title="Baking Using Matrices" d
 
 When baking scaling the normals are simply scaled in their current direction and so baking a scale can often give unrealistic results for lighting. To correct this normals need to be recomputed. This is illustrated in the following picture: 
 
-![Normals illustration](/img/resources/baking-transforms/normals.png) 
+![Normals illustration](/img/resources/baking-transforms/normals.webp) 
 
 _In the above picture, you can see an untransformed mesh on the left, the same mesh with a baked scaling along the X axis in the middle and on the right, the mesh with its normals correctly recomputed._
 

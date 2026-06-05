@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Generated Tree ](/img/extensions/trees/quick1.png)
+![Generated Tree ](/img/extensions/trees/quick1.webp)
 
 The function QuickTreeGenerator uses a sphere with randomized vertices to generate a tree.
 

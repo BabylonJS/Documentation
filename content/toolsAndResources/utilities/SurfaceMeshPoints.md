@@ -35,7 +35,7 @@ var indices = mesh.getIndices();
 
 For each facet, F,  in turn obtain the three facet vertex positions, vertex0, vertex1 and vertex2 using the positions array. From these construct vectors, <u>vec0</u>, <u>vec1</u> and <u>vec2</u>, along each side of the triangle. Using the lengths of the sides calculate the area of the triangle. For a value 0  &le; &lambda; &le; 1,&nbsp; &lambda;<u>vec0</u> and &lambda;<u>vec1</u> will form two sides of a triangle similar to the facet. So when also given a value 0  &le; &mu; &le; 1,&nbsp; &lambda;<u>vec0</u> and &lambda;&mu;<u>vec1</u> will give a point inside the facet. The range of values for &lambda; and &mu; will determine all points within the facet. Hence random values for  &lambda; and &mu; will give random points on the facet plane.
 
-![Find point](/img/samples/manypoints.jpg)
+![Find point](/img/samples/manypoints.webp)
 
 ```javascript
 lamda = BABYLON.Scalar.RandomRange(0, 1);	

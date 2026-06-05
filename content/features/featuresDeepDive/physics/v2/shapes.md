@@ -29,7 +29,7 @@ const shape = new BABYLON.PhysicsShapeSphere(
 );
 ```
 
-![Sphere Shape](/img/features/physics/sphere_shape.png)
+![Sphere Shape](/img/features/physics/sphere_shape.webp)
 
 A sphere is probably the simplest shape that can be simulated. The sphere is described by a single point for the center and a radius.
 
@@ -42,7 +42,7 @@ const shape = new BABYLON.PhysicsShapeCylinder(
 );
 ```
 
-![Cylinder Shape](/img/features/physics/cylinder_shape.png)
+![Cylinder Shape](/img/features/physics/cylinder_shape.webp)
 
 A cylinder shape is described by two points and a radius. It's a great choice for barrels, wheels, and glasses.
 
@@ -55,7 +55,7 @@ const shape = new BABYLON.PhysicsShapeCapsule(
 );
 ```
 
-![Capsule Shape](/img/features/physics/capsule_shape.png) Capsules are similar to cylinders, but have two half-spheres on each end. These are a great choice for character limbs (sometimes called ragdolls.)
+![Capsule Shape](/img/features/physics/capsule_shape.webp) Capsules are similar to cylinders, but have two half-spheres on each end. These are a great choice for character limbs (sometimes called ragdolls.)
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeBox(
@@ -146,7 +146,7 @@ var shape = new BABYLON.PhysicsShapeHeightField(
 ```
 
 The following image shows a comparison of the Container, Mesh and Convex Hull shapes, from left to right:
-![Comparison](/img/features/physics/shapes_comparison.png)
+![Comparison](/img/features/physics/shapes_comparison.webp)
 
 <Playground id="#Z8HTUN#1" title="Simple scene" description="Simple falling sphere created with body and shape"/>
 <Playground id="#EC934B" title="Simple ground mesh example with Havok Physics" description="Simple example of creating a ground collision mesh using the Mesh shape type"/>

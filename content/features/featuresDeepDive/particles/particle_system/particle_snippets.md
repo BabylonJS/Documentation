@@ -12,7 +12,7 @@ video-content:
 
 Starting with Babylon.js v4.2, you can save, load, and edit particle systems using the Inspector. These code snippets are saved on the Babylon.js snippet server. Make a note of the snippet ID shown when you save it.
 
-![Snippet](/img/how_to/Particles/snippet_screen.png)
+![Snippet](/img/how_to/Particles/snippet_screen.webp)
 
 When you have a snippet ID, you can easily load the particle system using the following code:
 

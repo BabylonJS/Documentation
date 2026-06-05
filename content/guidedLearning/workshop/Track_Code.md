@@ -14,9 +14,9 @@ This page explains the design behind the 'createTrack' function which you use to
 
 Matrices are used since they are the fundamental operations needed to combine rotations in a given order. To produce the final rotation of a carriage at any point all the following rotations: tilt; swivel; lean; turn; need to be combined.
 
-![tilt and swivel track](/img/snippets/rail1.jpg) track tilt (yellow angle) and swivel (purple angle)
+![tilt and swivel track](/img/snippets/rail1.webp) track tilt (yellow angle) and swivel (purple angle)
 
-![lean and turn carriage](/img/snippets/rail2.jpg) carriage lean and turn
+![lean and turn carriage](/img/snippets/rail2.webp) carriage lean and turn
 
 ## Obtaining the Track Data
 

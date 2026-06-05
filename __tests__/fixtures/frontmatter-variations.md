@@ -1,7 +1,7 @@
 ---
 title: Frontmatter Variations Test
 image: /img/pageImages/testPage.jpg
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: Tests various frontmatter field combinations
 keywords: frontmatter, metadata, gray-matter
 further-reading:

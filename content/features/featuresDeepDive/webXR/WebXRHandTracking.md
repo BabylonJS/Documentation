@@ -43,7 +43,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 
 This will enable basic hand support - 25 hidden spheres will be created for each hand, and each hand will have the default hand mesh loaded and enabled:
 
-![BabylonJS WebXR Hand tracking mesh](/img/how_to/xr/xrHandTrackingMesh.jpg)
+![BabylonJS WebXR Hand tracking mesh](/img/how_to/xr/xrHandTrackingMesh.webp)
 
 ### Configuration Options
 
@@ -68,7 +68,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 
 This will disable the mesh load and will enable the 25 points to be shown (defaults to 25 spheres per hand):
 
-![BabylonJS WebXR Hand tracking spheres](/img/how_to/xr/handTrackingSpheres.jpg)
+![BabylonJS WebXR Hand tracking spheres](/img/how_to/xr/handTrackingSpheres.webp)
 
 If you want to provide different hand meshes (for example if you want to have your users wear gloves) it is recommended to take the current RHS (right hand system) hand meshes from the [hand meshes](https://github.com/BabylonJS/Assets/tree/master/meshes/HandMeshes) assets directory and modify them. Otherwise you will need to create your own skeleton/bones and weight the skin correctly.
 
@@ -137,7 +137,7 @@ As mentioned before, WebXR allows us to track 25 points per hand. Those points a
 
 It looks roughly like this:
 
-![BabylonJS WebXR Hand tracking spheres](/img/how_to/xr/handTrackingSpheres.jpg).
+![BabylonJS WebXR Hand tracking spheres](/img/how_to/xr/handTrackingSpheres.webp).
 
 Each of those 25 points has an InstancedMesh created upon enabling the hand tracking feature. Those meshes can be used for physics, gesture recognition, collision detection and more. The default mesh is a sphere. To provide a different mesh use the `sourceMesh` option:
 
@@ -305,7 +305,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 
 Notice that you can't define the mass. that is because the tracked joints will always have mass `0` to prevent them from constantly "falling down" towards the center of gravity.
 
-<Playground id="#X7Y4H8#73" title="Hand tracking with physics" description="A simple example of a hands-enabled physics playground" image="/img/how_to/xr/handTrackingSpheres.jpg"/>
+<Playground id="#X7Y4H8#73" title="Hand tracking with physics" description="A simple example of a hands-enabled physics playground" image="/img/how_to/xr/handTrackingSpheres.webp"/>
 
 
 ### Microgestures
@@ -314,7 +314,7 @@ The Oculus Quest Browser includes support for hand tracking microgestures throug
 
 This extension introduces five boolean input states per hand (`menu` - only left hand, `swipe-left`, `swipe-right`, `swipe-forward`, `swipe-backward`, `tap-thumb`), enabling fine-grained interaction detection. The image below shows how to perform each microgesture:
 
-<img src="/img/how_to/xr/hand-tracking-microgestures.png" title="Hand tracking microgestures" alt="Hand tracking microgestures" width="500" height="900" />
+<img src="/img/how_to/xr/hand-tracking-microgestures.webp" title="Hand tracking microgestures" alt="Hand tracking microgestures" width="500" height="900" />
 <br/><br/>
 
 If you're using ES6 modules with tree-shaking, make sure to import the controller to ensure its initialization.

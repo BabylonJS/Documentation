@@ -157,7 +157,7 @@ When enabling the MultiMaterial in the SPS, this value is set to zero for every 
 ## Solid Particle Systems and Node Materials
 As was mentioned above, setting `useModelMaterial` to true on the SPS constructor will allow the material assigned to an added mesh to be used with the SPS mesh's `multimaterial`. This material can be any type of material defined in the engine, including a node material. Using a node material can give added flexibility to the SPS mesh as it can be authored to work in concert with the `initParticles` and `updateParticle` methods to create a striking render. 
 
-![Example of node material on SPS showing a series of spheres emitted into a cylindrical area with varying metallic values, random roughness values and colors that range from blue and yellow-orange at the top to purple and red at the bottom](/img/how_to/Particles/sps_nme_render.jpg)
+![Example of node material on SPS showing a series of spheres emitted into a cylindrical area with varying metallic values, random roughness values and colors that range from blue and yellow-orange at the top to purple and red at the bottom](/img/how_to/Particles/sps_nme_render.webp)
 
 This render shows a solid particle system using a node material employing `PBRMetallicRoughness` nodes, random metallic and roughness values, world position-based base color gradients, and randomized color pairings. Normally, setting `useModelMaterial` in the SPS constructor is all that is needed but there are a couple of considerations to keep in mind. 
 

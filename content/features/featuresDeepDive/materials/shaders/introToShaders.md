@@ -65,7 +65,7 @@ Shaders are written in Graphics Library Shader Language (GLSL) and come in two p
 
 Fragment Shaders are sometimes referred to as Pixel Shaders.
 
-![Shaders](/img/how_to/Shaders/shade1.jpg)
+![Shaders](/img/how_to/Shaders/shade1.webp)
 
 ## Passing Variables
 
@@ -76,7 +76,7 @@ Data can be passed from the Vertex Shader to the Fragment Shader with variables 
 A vital uniform variable to declare in the Vertex Shader is `worldViewProjection` as theBabylon.js Engine uses this to
 pass scene 3D - 2D projection data to the Vertex Shader.
 
-![Pass Variables](/img/how_to/Shaders/shade2.jpg)
+![Pass Variables](/img/how_to/Shaders/shade2.webp)
 
 ## Variable types
 
@@ -158,7 +158,7 @@ void main(void) {
 }
 ```
 
-![Shader Code](/img/how_to/Shaders/shade3.jpg)
+![Shader Code](/img/how_to/Shaders/shade3.webp)
 
 ## Putting Shader Code in Babylon.js
 

@@ -29,7 +29,7 @@ A quick survey of the technique will help to understand the different properties
 CSM works by subdividing the view frustum (frustum of the camera, meaning what the camera can see) into several subfrusta, each of them being called a cascade (hence the name of the technique):
 
 **Figure 1. View frustum partitionning (picture from \[[1](#references)\])**
-![View frustum partitionning](/img/babylon101/csm/view-frustums-partitioned-arbitrarily.png)
+![View frustum partitionning](/img/babylon101/csm/view-frustums-partitioned-arbitrarily.webp)
 
 The subdivision of the camera frustum is done either linearly (each subfrustum has the same length) or logarithmically (the length of the first subfrustum is a lot smaller than the length of the last one). It can also be a combination of the linear and logarithmic splitting, a `lambda` parameter being used to combine both (a `0` value means the splitting is fully linear, `1` means it is fully logarithmic, and a value in-between implies a mix of both).
 
@@ -40,7 +40,7 @@ For each subfrustum, a shadow map is generated, in much the same way the standar
 When rendering a mesh, the right shadow map is determined for a given pixel and is sampled to get the shadow level.
 
 **Figure 2. Cascade rendering (picture from \[[1](#references)\])**
-![Cascade rendering](/img/babylon101/csm/interval-based-cascade-selection.jpg)
+![Cascade rendering](/img/babylon101/csm/interval-based-cascade-selection.webp)
 
 In figure 2, pixels pertaining to different cascades are drawn with different colors, so that they are clearly visible.
 
@@ -49,7 +49,7 @@ In figure 2, pixels pertaining to different cascades are drawn with different co
 Sometimes, there can be visible seams between cascades:
 
 **Figure 3. Cascade seams (picture from \[[1](#references)\])**
-![Cascade seams](/img/babylon101/csm/cascade-seams.jpg)
+![Cascade seams](/img/babylon101/csm/cascade-seams.webp)
 
 A blend parameter can be used to smooth the transition (see picture on the right in figure 3).
 
@@ -113,7 +113,7 @@ csmShadowGenerator.numCascades = 3;
 ```
 
 **Figure 4. num cascades is 2 on the left, 4 on the right**
-![numCascades](/img/babylon101/csm/numcascades-parameter.jpg)
+![numCascades](/img/babylon101/csm/numcascades-parameter.webp)
 
 ### lambda (default: 0.5)
 
@@ -124,7 +124,7 @@ csmShadowGenerator.lambda = 0.5;
 ```
 
 **Figure 5. lambda=0.5 on the left, lambda=0.7 on the right**
-![lambda](/img/babylon101/csm/lambda-parameter.jpg)
+![lambda](/img/babylon101/csm/lambda-parameter.webp)
 
 The right value (between 0 and 1) depends on your scene and how the camera is to be used: near the ground or high in the sky. You should experiment with different values and see what works best for you.
 
@@ -137,7 +137,7 @@ csmShadowGenerator.cascadeBlendPercentage = 0.05;
 ```
 
 **Figure 6. Cascade blend (picture from \[[1](#references)\])**
-![cascadeBlendPercentage](/img/babylon101/csm/cascade-seams.jpg)
+![cascadeBlendPercentage](/img/babylon101/csm/cascade-seams.webp)
 
 It's a percentage value between 0 and 1. Try to use small values, else you may get rendering artifacts.
 
@@ -152,14 +152,14 @@ csmShadowGenerator.stabilizeCascades = true;
 Note however that you will lose some precision in the shadow rendering, so use it only if you need it.
 
 **Figure 7. Precision lost when stabilization enabled (left: enabled, right: disabled)**
-![stabilizeCascades](/img/babylon101/csm/stabilize-parameter.jpg)
+![stabilizeCascades](/img/babylon101/csm/stabilize-parameter.webp)
 
 ### shadowMaxZ
 
 It's the limit beyond which shadows are not displayed. It defaults to `camera.maxZ` when constructing the generator.
 
 **Figure 8. shadowMaxZ equal to camera.maxZ on the left, is smaller on the right**
-![shadowMaxZ](/img/babylon101/csm/shadowmaxz-parameter.jpg)
+![shadowMaxZ](/img/babylon101/csm/shadowmaxz-parameter.webp)
 
 ### depthClamp (default: true)
 
@@ -172,7 +172,7 @@ Note that this property is incompatible with PCSS filtering, so it won't be used
 When enabled, the cascades are materialized by different colors on the screen:
 
 **Figure 9. Cascade rendering (picture from \[[1](#references)\])**
-![Cascade rendering](/img/babylon101/csm/interval-based-cascade-selection.jpg)
+![Cascade rendering](/img/babylon101/csm/interval-based-cascade-selection.webp)
 
 ### freezeShadowCastersBoundingInfo (default: false) and shadowCastersBoundingInfo
 
@@ -191,7 +191,7 @@ csmShadowGenerator.autoCalcDepthBounds = true;
 ```
 
 **Figure 10. Same settings for both sides, except for `autoCalcDepthBounds = true` on the right**
-![autoCalcDepthBounds](/img/babylon101/csm/sdsm-first-pass.jpg)
+![autoCalcDepthBounds](/img/babylon101/csm/sdsm-first-pass.webp)
 
 When enabled, a depth rendering pass is first performed (with an internally created depth renderer or with the one you provide by calling `setDepthRenderer`). Then, a min/max reducing is applied on the depth map to compute the minimal and maximal depth values of the map and those values are used as inputs for the `setMinMaxDistance()` function.
 
@@ -226,7 +226,7 @@ csmShadowGenerator.penumbraDarkness = 0.7;
 ```
 
 **Figure 11. Value of 0.7 on the left, 0.17 on the right**
-![penumbraDarkness](/img/babylon101/csm/penumbra-darkness.jpg)
+![penumbraDarkness](/img/babylon101/csm/penumbra-darkness.webp)
 
 ## Culling
 
@@ -260,18 +260,18 @@ Perhaps the most important parameter to set is the camera `maxZ` property! Indee
 In the Playground samples, the camera `maxZ` value is generally not explicitly set and so ends up with a value of `10000`, which is too large for most of the cases. See:
 
 **Figure 12. Standard shadows and CSM shadows on PG example**
-![CSM and bad camera range](/img/babylon101/csm/bad-camera-maxz.jpg)
+![CSM and bad camera range](/img/babylon101/csm/bad-camera-maxz.webp)
 
 It's the very first sample linked in the [Shadow](/features/introductionToFeatures/chap7/shadows) page (left part of the picture) where `ShadowGenerator` has simply been changed to `CascadedShadowGenerator` (right part of the picture). As you can see, the shadows on the right are very bad because the `camera.maxZ` value is not set and so is equal to `10000`.
 
 Now, if we set `camera.maxZ` to `200`:
 
 **Figure 13. Same sample with CSM and good camera.maxZ**
-![CSM and good camera range](/img/babylon101/csm/good-camera-maxz.jpg)
+![CSM and good camera range](/img/babylon101/csm/good-camera-maxz.webp)
 
 Much better!
 
-Here's the updated PG: <Playground id="#IIZ9UU#36" title="Cascaded Shadow Map Example 2" description="Simple Example of using the CSM system in your scene." image="/img/playgroundsAndNMEs/divingDeeperCSM2.jpg"/>
+Here's the updated PG: <Playground id="#IIZ9UU#36" title="Cascaded Shadow Map Example 2" description="Simple Example of using the CSM system in your scene." image="/img/playgroundsAndNMEs/divingDeeperCSM2.webp"/>
 
 ## Changing the camera near / far planes
 
@@ -282,14 +282,14 @@ However, the splits must also be recomputed if the camera near and/or far planes
 Here's what happens if you change `camera.maxZ` after the generator is created without calling `splitFrustum()`:
 
 **Figure 14. Failing calling `splitFrustum`**
-![Fail calling splitFrustum](/img/babylon101/csm/splitfrustum_nok.jpg)
+![Fail calling splitFrustum](/img/babylon101/csm/splitfrustum_nok.webp)
 
-PG: <Playground id="#IIZ9UU#41" title="Failing to Call SplitFrustum" description="Failing to call splitFrustum." image="/img/playgroundsAndNMEs/divingDeeperCSM3.jpg"/>
+PG: <Playground id="#IIZ9UU#41" title="Failing to Call SplitFrustum" description="Failing to call splitFrustum." image="/img/playgroundsAndNMEs/divingDeeperCSM3.webp"/>
 
 **Figure 15. `splitFrustum` called**
-![splitFrustum called](/img/babylon101/csm/splitfrustum_ok.jpg)
+![splitFrustum called](/img/babylon101/csm/splitfrustum_ok.webp)
 
-PG: <Playground id="#IIZ9UU#37" title="Calling SplitFrustum" description="Successfully calling splitFrustum." image="/img/playgroundsAndNMEs/divingDeeperCSM4.jpg"/>
+PG: <Playground id="#IIZ9UU#37" title="Calling SplitFrustum" description="Successfully calling splitFrustum." image="/img/playgroundsAndNMEs/divingDeeperCSM4.webp"/>
 
 ## Optimizing for speed
 
@@ -317,7 +317,7 @@ Best shadow quality is generally achieved by:
 - setting `filteringQuality` to high
 
 **Figure 16. Comparing quality**
-![High quality](/img/babylon101/csm/high-quality.jpg)
+![High quality](/img/babylon101/csm/high-quality.webp)
 
 On the left:
 
@@ -340,7 +340,7 @@ On the right:
 For comparison sake, here is the same part rendered with the standard `ShadowGenerator` (far right, map size is 2048x2048):
 
 **Figure 17. Comparing with standard `ShadowGenerator`**
-![Comparison](/img/babylon101/csm/comparison-with-standard.jpg)
+![Comparison](/img/babylon101/csm/comparison-with-standard.webp)
 
 ## References
 

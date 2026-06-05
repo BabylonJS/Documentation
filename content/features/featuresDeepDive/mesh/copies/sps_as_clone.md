@@ -48,4 +48,4 @@ SPS.setParticles(); //apply the properties and display the mesh
 ```
 
 ## Example
-Copying a tetrahedron: <Playground id="#GKUCQP" title="Copying a Tetrahedron" description="Simple example of copying a tetrahdedron." image="/img/playgroundsAndNMEs/PGNMEProceduralTexture.jpg"/>
+Copying a tetrahedron: <Playground id="#GKUCQP" title="Copying a Tetrahedron" description="Simple example of copying a tetrahdedron." image="/img/playgroundsAndNMEs/PGNMEProceduralTexture.webp"/>

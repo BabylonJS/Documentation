@@ -241,7 +241,7 @@ describe("Links and Images", () => {
     it("should preserve image sources", async () => {
         const raw = loadFixture("links-and-images.md");
         const result = await serializeMarkdown(raw);
-        expect(result.compiledSource).toContain("/img/features/animation/horse_frames.jpg");
+        expect(result.compiledSource).toContain("/img/features/animation/horse_frames.webp");
     });
 });
 

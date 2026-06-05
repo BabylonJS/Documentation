@@ -59,11 +59,11 @@ List of available effects:
 
 | Effect name   | Image                                             | Playground                                                                                          |
 | ------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| **sun**       | ![sun](/img/how_to/Particles/sun.jpg)             | <Playground id="#MX2Z99#172" title="Particle Sun Demo" description="Particle Sun Demo."/>             |
-| **smoke**     | ![smoke](/img/how_to/Particles/smoke.jpg)         | <Playground id="#MX2Z99#173" title="Particle Smoke Demo" description="Particle Smoke Demo."/>         |
-| **rain**      | ![rain](/img/how_to/Particles/rain.jpg)           | <Playground id="#MX2Z99#175" title="Particle Rain Demo" description="Particle Rain Demo."/>           |
-| **fire**      | ![fire](/img/how_to/Particles/fire.jpg)           | <Playground id="#I2D9MM#18" title="Particle Fire Demo" description="Particle Fire Demo."/>           |
-| **explosion** | ![explosion](/img/how_to/Particles/explosion.jpg) | <Playground id="#MX2Z99#177" title="Particle Explosion Demo" description="Particle Explosion Demo."/> |
+| **sun**       | ![sun](/img/how_to/Particles/sun.webp)             | <Playground id="#MX2Z99#172" title="Particle Sun Demo" description="Particle Sun Demo."/>             |
+| **smoke**     | ![smoke](/img/how_to/Particles/smoke.webp)         | <Playground id="#MX2Z99#173" title="Particle Smoke Demo" description="Particle Smoke Demo."/>         |
+| **rain**      | ![rain](/img/how_to/Particles/rain.webp)           | <Playground id="#MX2Z99#175" title="Particle Rain Demo" description="Particle Rain Demo."/>           |
+| **fire**      | ![fire](/img/how_to/Particles/fire.webp)           | <Playground id="#I2D9MM#18" title="Particle Fire Demo" description="Particle Fire Demo."/>           |
+| **explosion** | ![explosion](/img/how_to/Particles/explosion.webp) | <Playground id="#MX2Z99#177" title="Particle Explosion Demo" description="Particle Explosion Demo."/> |
 
 ## Custom ParticleSets
 

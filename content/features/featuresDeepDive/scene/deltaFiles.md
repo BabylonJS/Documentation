@@ -100,11 +100,11 @@ You can play with this code on this Playground: <Playground id="#MPD4TQ#1" title
 
 You can also use the Inspector to record your delta. To do so, jump to the Tools tab and select the [Start recording] button in the Replay section:
 
-![Replay section](/img/how_to/scene/inspector-record.jpg)
+![Replay section](/img/how_to/scene/inspector-record.webp)
 
 When you are done with your recording, go to the same place and hit the [Generate delta file]:
 
-![Replay section](/img/how_to/scene/inspector-generate.jpg)
+![Replay section](/img/how_to/scene/inspector-generate.webp)
 
 This will download the file locally.
 

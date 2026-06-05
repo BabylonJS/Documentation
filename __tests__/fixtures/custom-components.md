@@ -11,13 +11,13 @@ video-content:
 
 <Playground id="#2KRNG9" title="Basic Scene" description="A simple scene setup"/>
 
-<Playground id="#HVHYJC#82" title="HtmlMesh Example" description="Example of using HtmlMesh" image="/img/playgroundsAndNMEs/htmlMeshPG.png"/>
+<Playground id="#HVHYJC#82" title="HtmlMesh Example" description="Example of using HtmlMesh" image="/img/playgroundsAndNMEs/htmlMeshPG.webp"/>
 
-<Playground id="#YX6IB8#758" engine="webgpu" title="Ocean Demo" description="Ocean simulation" image="/img/extensions/webgpu/ocean.png" isMain={true} category="WebGPU"/>
+<Playground id="#YX6IB8#758" engine="webgpu" title="Ocean Demo" description="Ocean simulation" image="/img/extensions/webgpu/ocean.webp" isMain={true} category="WebGPU"/>
 
 ## Node Material Editor
 
-<NME id="#3WEKUZ#1" title="Custom Perlin2D" description="A node material with Perlin2D block" image="/img/playgroundsAndNMEs/NMEPerlin2DCustomBlock.jpg"/>
+<NME id="#3WEKUZ#1" title="Custom Perlin2D" description="A node material with Perlin2D block" image="/img/playgroundsAndNMEs/NMEPerlin2DCustomBlock.webp"/>
 
 <nme id="" title="NME Editor" description="The starting basic template"/>
 

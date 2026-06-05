@@ -16,7 +16,7 @@ video-content:
 
 When the same texture is tiled many times across a large surface, the human eye picks up the repetition very quickly — what should look like a continuous patch of grass, sand, or rock turns into an obvious grid pattern. The screenshot below shows this: a 5×5 tiling of the same `grass.png` texture, with the grid clearly visible.
 
-![Default tiling — repetition is visible](/img/how_to/Materials/textureRepetition_grass_none.png)
+![Default tiling — repetition is visible](/img/how_to/Materials/textureRepetition_grass_none.webp)
 
 Starting with Babylon.js v9.7.0, every material exposes a `textureRepetitionMode` property that can apply one of four repetition-breaking techniques to all the surface textures (albedo / diffuse, bump, ambient, specular, emissive, etc.) sampled by the material.
 
@@ -52,11 +52,11 @@ All shots below use the same UV scale, same camera, and same lighting.
 
 | Mode | Grass | Rock |
 |---|---|---|
-| None | ![](/img/how_to/Materials/textureRepetition_grass_none.png!300) | ![](/img/how_to/Materials/textureRepetition_rock_none.png!300) |
-| Noise blend | ![](/img/how_to/Materials/textureRepetition_grass_noiseBlend.png!300) | ![](/img/how_to/Materials/textureRepetition_rock_noiseBlend.png!300) |
-| Hex tiling | ![](/img/how_to/Materials/textureRepetition_grass_hexTiling.png!300) | ![](/img/how_to/Materials/textureRepetition_rock_hexTiling.png!300) |
-| Tile randomization | ![](/img/how_to/Materials/textureRepetition_grass_tileRandomization.png!300) | ![](/img/how_to/Materials/textureRepetition_rock_tileRandomization.png!300) |
-| Voronoi bombing | ![](/img/how_to/Materials/textureRepetition_grass_voronoiBombing.png!300) | ![](/img/how_to/Materials/textureRepetition_rock_voronoiBombing.png!300) |
+| None | ![](/img/how_to/Materials/textureRepetition_grass_none.webp!300) | ![](/img/how_to/Materials/textureRepetition_rock_none.webp!300) |
+| Noise blend | ![](/img/how_to/Materials/textureRepetition_grass_noiseBlend.webp!300) | ![](/img/how_to/Materials/textureRepetition_rock_noiseBlend.webp!300) |
+| Hex tiling | ![](/img/how_to/Materials/textureRepetition_grass_hexTiling.webp!300) | ![](/img/how_to/Materials/textureRepetition_rock_hexTiling.webp!300) |
+| Tile randomization | ![](/img/how_to/Materials/textureRepetition_grass_tileRandomization.webp!300) | ![](/img/how_to/Materials/textureRepetition_rock_tileRandomization.webp!300) |
+| Voronoi bombing | ![](/img/how_to/Materials/textureRepetition_grass_voronoiBombing.webp!300) | ![](/img/how_to/Materials/textureRepetition_rock_voronoiBombing.webp!300) |
 
 ## Hex Tiling Parameters
 
@@ -93,7 +93,7 @@ The following textures are intentionally **not** affected, even when a non-defau
 
 ## Live Demo
 
-<Playground id="#HUOG6P#2" title="Texture Repetition Breaking — Interactive Demo" description="Drag the yellow line to compare original tiling (left) with the chosen breaking method (right)." image="/img/how_to/Materials/textureRepetition_grass_hexTiling.png"/>
+<Playground id="#HUOG6P#2" title="Texture Repetition Breaking — Interactive Demo" description="Drag the yellow line to compare original tiling (left) with the chosen breaking method (right)." image="/img/how_to/Materials/textureRepetition_grass_hexTiling.webp"/>
 
 The demo lets you switch:
 

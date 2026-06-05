@@ -80,6 +80,6 @@ Texture individual particles: <Playground id="#GLZ1PX#5" title="Individually Tex
 
 While it can be useful to have an SPS that will not change, for example to represent an asteroid field or city buildings
 
-![Immutable](/img/how_to/Particles/sps1.png)  
+![Immutable](/img/how_to/Particles/sps1.webp)  
 
 there is much more you can do with an SPS.

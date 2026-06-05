@@ -22,7 +22,7 @@ PG: <Playground id="#ZXI9H#4" title="Fireworks Base Playground" description="Pla
 Here's the modified playground
 PG: <Playground id="#IR1S8R#10" title="Fireworks Modified Playground" description="Playground Modified Rocket."/>
 
-![fireworks](/img/how_to/create-a-game/fireworks.gif)
+![fireworks](/img/how_to/create-a-game/fireworks.webp)
 
 ## Setting Up the Particle Systems
 
@@ -213,7 +213,7 @@ I made a function [\_createSparkles](https://github.com/BabylonJS/SummerFestival
 
 In order to toggle this on/off when the sparkler goes out, I just passed the object into _startSparklerTimer_ and _stopSparklerTimer_ then called sparkler.start() and sparkler.stop() respectively.
 
-![sparklerTimeout](/img/how_to/create-a-game/sparklergoingout.gif)
+![sparklerTimeout](/img/how_to/create-a-game/sparklergoingout.webp)
 
 You can look at how I made the particle system in this playground
 PG: <Playground id="#6EGCCM" title="Flower Sparkler Playground" description="Playground demonstration of flower sparkler."/>
@@ -222,7 +222,7 @@ PG: <Playground id="#6EGCCM" title="Flower Sparkler Playground" description="Pla
 
 I wanted to give some sort of extra feedback to the player when they lit a lantern so that it felt like an accomplishment. I decided to add this really simple star particle system.
 
-![lightlantern](/img/how_to/create-a-game/lightinglantern.gif)
+![lightlantern](/img/how_to/create-a-game/lightinglantern.webp)
 
 I created a [\_loadStars](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/lantern.ts#L75) function that made the particle system and called it in the Lantern constructor. Then, when _setEmissiveTexture_ is called, I started the particle system.
 

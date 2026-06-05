@@ -1,6 +1,6 @@
 ---
 title: Node Material Particle Shaders
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: Learn how to create Particle Shaders using the Node Material.
 keywords: shaders, glsl, node editor, graphics, GPU program, material, NME, Node Material, Node Material Editor, particle, shader
 further-reading:
@@ -14,7 +14,7 @@ Starting with Babylon.js v4.2, you can now create particle shaders (to be used w
 
 You need simply to change the mode to _Particle_:
 
-![Particle choice](/img/how_to/Materials/particleMenu.png)
+![Particle choice](/img/how_to/Materials/particleMenu.webp)
 
 Some blocks are made unavailable in this mode (they are hidden from the block list), as they have no meaning: the mesh, post process and animation blocks.
 
@@ -33,8 +33,8 @@ When you have created your particle shader in the NME, you can link the material
 nodeMaterial.createEffectForParticles(particleSystem);
 ```
 
-PG: <Playground id="#J9J6CG#1" title="NME Particle Shaders Example" description="Playground example of using the Node Material Editor to create Particle Shaders." image="/img/playgroundsAndNMEs/PGNMEParticleShader.jpg" isMain={true} category="Node Material"/>
+PG: <Playground id="#J9J6CG#1" title="NME Particle Shaders Example" description="Playground example of using the Node Material Editor to create Particle Shaders." image="/img/playgroundsAndNMEs/PGNMEParticleShader.webp" isMain={true} category="Node Material"/>
 
-The full fragment shader used by default by the particle system can be recreated in the NME: <NME id="#X3PJMQ#1" title="NME Full Default Fragment Shader" description="Node Material Editor setup of the default fragment shader for particle systems." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShader.jpg"/>
+The full fragment shader used by default by the particle system can be recreated in the NME: <NME id="#X3PJMQ#1" title="NME Full Default Fragment Shader" description="Node Material Editor setup of the default fragment shader for particle systems." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShader.webp"/>
 
-As explained above, if you want to use this material for GPU particle systems, you should remove the use of the `ParticleTextureMask` block: <NME id="#X3PJMQ#2" title="NME Full Default Fragment Shader GPU Version" description="Node Material Editor setup of the default fragment shader for particle systems on the GPU." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShaderGPU.jpg"/>
+As explained above, if you want to use this material for GPU particle systems, you should remove the use of the `ParticleTextureMask` block: <NME id="#X3PJMQ#2" title="NME Full Default Fragment Shader GPU Version" description="Node Material Editor setup of the default fragment shader for particle systems on the GPU." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShaderGPU.webp"/>

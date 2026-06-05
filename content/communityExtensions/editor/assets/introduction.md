@@ -30,12 +30,12 @@ The Assets Browser panel is composed of 2 resizable panes:
 
 Each time a directory is selected in the tree (left pane), the right pane is updated to show its content.
 
-![SelectDirectoryTree](/img/extensions/Editor/AssetsIntroduction/select-directory-tree.gif)
+![SelectDirectoryTree](/img/extensions/Editor/AssetsIntroduction/select-directory-tree.webp)
 
 The right pane also contains a stack of opened folders. This stack is used to know the currently browsed path
 and can be clicked to quickly access a specified directory available in the stack.
 
-![UseStack](/img/extensions/Editor/AssetsIntroduction/use-stack.gif)
+![UseStack](/img/extensions/Editor/AssetsIntroduction/use-stack.webp)
 
 ## Using favorites
 
@@ -43,14 +43,14 @@ On top of the directory tree, 2 favorites shortcuts are available:
 * `All Materials`: shows the list of all available materials assets that have been instantiated (used) in the current scene.
 * `All Textures`: as for materials, shows the list of all available textures assets that have been instantiated (used) in the current scene.
 
-![UsingFavorites](/img/extensions/Editor/AssetsIntroduction/using-favorites.gif)
+![UsingFavorites](/img/extensions/Editor/AssetsIntroduction/using-favorites.webp)
 
 ## Creating A New Folder
 
 New folders can be created at any time. Just right-click empty space in the panel, select `New Directory...` and
 type the name of the folder to create. Once accepted, a new folder will be created in the currently browsed folder.
 
-![CreatingFolder](/img/extensions/Editor/AssetsIntroduction/creating-folder.gif)
+![CreatingFolder](/img/extensions/Editor/AssetsIntroduction/creating-folder.webp)
 
 ## Selecting Files
 
@@ -60,7 +60,7 @@ As any other file browser, multiple files can be selected using either:
 
 **Note: rectangle selection is not yet available and is still WIP.**
 
-![SelectingFiles](/img/extensions/Editor/AssetsIntroduction/selecting-files.gif)
+![SelectingFiles](/img/extensions/Editor/AssetsIntroduction/selecting-files.webp)
 
 ## Moving Files
 
@@ -70,8 +70,8 @@ are updated automatically by the editor (materials, textures, sounds, etc.).
 Until the project is saved, the editor creates a temporary file named `links.json` located at `${workspacePath}/projects/links.json`.
 This json file stores the last moving actions for each moved file in order to, if the project has been closed before saving, retrieve the real path for linked assets (like materials textures).
 
-![MovingFiles](/img/extensions/Editor/AssetsIntroduction/moving-files.gif)
+![MovingFiles](/img/extensions/Editor/AssetsIntroduction/moving-files.webp)
 
 Drag'n'drop is also supported in the tree
 
-![MovingFiles](/img/extensions/Editor/AssetsIntroduction/moving-files-tree.gif)
+![MovingFiles](/img/extensions/Editor/AssetsIntroduction/moving-files-tree.webp)

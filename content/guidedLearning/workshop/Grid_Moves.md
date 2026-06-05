@@ -29,7 +29,7 @@ When two particles collide in a perfectly elastic collision the Newtonian laws o
 
 For a particle to just touch a wall the wall position must be of the form (2p + 1)r, p an integer.
 
-![Fig 9](/img/samples/collide8.jpg)  
+![Fig 9](/img/samples/collide8.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 9
 
 ## The Particles
@@ -39,12 +39,12 @@ Now having constrained the positions of the walls to ensure that the particles r
 If the particles have an odd number of cubes between them they will meet only when overlapping completely. To ensure they meet
 in a touching position they need to have an even number of cubes between them, as in Fig 10.
 
-![Fig 10](/img/samples/collide9.jpg)  
+![Fig 10](/img/samples/collide9.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 10
 
 Take two particles a distance 4 cubes apart in the x direction and 2 in the y direction, one travelling upwards and the other to the left, as in Fig 11.
 
-![Fig 11](/img/samples/collide10.jpg)  
+![Fig 11](/img/samples/collide10.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 11
 
 After two frames it is clear that the two particles would collide. The first issue is that they do not actually touch or intersect. There are two ways to overcome this. One way is to make the diameter of the particle equal to the length of a diagonal across the cube. The second is to state that a collision takes place when the distance between the positions of two particles is less than or equal to the length of a diagonal of the cube.
@@ -52,7 +52,7 @@ After two frames it is clear that the two particles would collide. The first iss
 The second issue is more subtle and relates to the velocities of the particles after the collision. Fig 12 shows the velocities and positions
 before and after a collision.
 
-![Fig 12](/img/samples/collide11.jpg)  
+![Fig 12](/img/samples/collide11.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 12
 
 Consider a situation when two particles collide and obey the Newtonian rules.
@@ -74,12 +74,12 @@ These at least ensure that speeds in the x, y and z directions are maintained an
 
 What about collisions between particles in these cases? To ensure contact, by just touching alone, then we have already seen that there must be an even number of cubes between them. Placing particles in the box so this conditions exists is not straightforward so simplify this to - every particle has two cubes between them. This means that placing a particle at the cube origin and counting cube positions from this point every cube with position of the form (3m, 3n, 3p), and only these cube positions, has a particle in it. Should one particle be missing then there will be two particles with an odd number of cubes between them which could meet by overlapping, as in Fig 13.
 
-![Fig 13](/img/samples/collide12.jpg)  
+![Fig 13](/img/samples/collide12.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 13
 
 However setting random velocities to such particles could lead to a situation such as in Fig 14 which would again lead to particles totally overlapping.
 
-![Fig 14](/img/samples/collide13.jpg)  
+![Fig 14](/img/samples/collide13.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 14
 
 Keeping the speed restrictions in the x, y and z directions to 2r and dropping the condition that particles can only make contact by touch and letting them fully overlap allows us to place the particles in any random cube. Movement is still within the grid cubes and particles will touch but not overlap the walls of the box.

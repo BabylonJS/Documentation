@@ -12,7 +12,7 @@ video-content:
 
 Babylon.js has a sprite system with many features and components. Babylon.js 4.2 introduced a new tool to make it simple and easy to leverage this powerful system. The Babylon.js Sprite Editor. Built right into [The Inspector](/legacy/inspector), creating sprite managers and controlling sprites is now as easy as right-clicking!
 
-<img src="/img/tools/spriteEditor.jpg" title="Babylon.js Sprite Editor"/>
+<img src="/img/tools/spriteEditor.webp" title="Babylon.js Sprite Editor"/>
 
 You can jump in and play around with it here: <Playground id="#G3Q7GR#1" title="Sprite Editor" description="Simple example of sprites using the sprite editor."/>
 

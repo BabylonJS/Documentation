@@ -19,7 +19,7 @@ Each parameter that can be set for the source Geometry can either be set by conn
 
 If there is a set of connected properties - such as size, width, height, and depth - the more specific properties take precedence over the more general properties. In other words, if values are passed to size AND width then the parameter passed to width will apply to the width of the Geometry and height and depth will take their values from size. In this way, it is normal to see values wired to both general and specific properties at the same time. If, however, there are values passed to size, width, height, and depth then the value passed to size is not used at all and is not needed.
 
-<H3Image title="Box" image="/img/tools/nge/boxNode.jpg" alt="Box source node"/>
+<H3Image title="Box" image="/img/tools/nge/boxNode.webp" alt="Box source node"/>
 This source node creates a box to the dimensions given at the resolution set by subdivisions as follows. 
 
 #### Properties
@@ -53,7 +53,7 @@ Note that these properties only appear when there is nothing connected to the co
 #### Outputs
 - **geometry** is the generated box and fulfills the requirement for at least one geometry in the graph.
 
-<H3Image title="Capsule" image="/img/tools/nge/capsuleNode.jpg" alt="Capsule source node"/>
+<H3Image title="Capsule" image="/img/tools/nge/capsuleNode.webp" alt="Capsule source node"/>
 This source node creates a capsule to the dimensions given at the resolution set by tessellation and subdivisions as follows. 
 
 #### Properties
@@ -79,7 +79,7 @@ Note that these properties only appear when there is nothing connected to the co
 #### Outputs
 - **geometry** is the generated capsule and fulfills the requirement for at least one geometry in the graph.
 
-<H3Image title="Cylinder" image="/img/tools/nge/cylinderNode.jpg" alt="Cylinder source node"/>
+<H3Image title="Cylinder" image="/img/tools/nge/cylinderNode.webp" alt="Cylinder source node"/>
 This source node creates a cylinder to the dimensions given at the resolution set by tessellation and subdivisions. It can be created as a complete cylinder, or a partial cylinder as follows. 
 
 #### Properties
@@ -111,7 +111,7 @@ Note that these properties only appear when there is nothing connected to the co
 #### Outputs
 - **geometry** is the generated cylinder and fulfills the requirement for at least one geometry in the graph.
 
-<H3Image title="Disc" image="/img/tools/nge/discNode.jpg" alt="Disc source node"/>
+<H3Image title="Disc" image="/img/tools/nge/discNode.webp" alt="Disc source node"/>
 This source node creates a disc using the given radius the resolution set by tessellation. It can be created as a complete disc, or a partial disc as follows. 
 
 #### Properties
@@ -135,7 +135,7 @@ Note that these properties only appear when there is nothing connected to the co
 #### Outputs
 - **geometry** is the generated disc and fulfills the requirement for at least one geometry in the graph.
 
-<H3Image title="Grid" image="/img/tools/nge/gridNode.jpg" alt="Grid source node"/>
+<H3Image title="Grid" image="/img/tools/nge/gridNode.webp" alt="Grid source node"/>
 This source node creates a 2D grid to the dimensions given at the resolution set by subdivisions as follows. 
 
 #### Properties
@@ -163,7 +163,7 @@ Note that these properties only appear when there is nothing connected to the co
 #### Outputs
 - **geometry** is the generated grid and fulfills the requirement for at least one geometry in the graph.
 
-<H3Image title="Icosphere" image="/img/tools/nge/icosphereNode.jpg" alt="Icosphere source node"/>
+<H3Image title="Icosphere" image="/img/tools/nge/icosphereNode.webp" alt="Icosphere source node"/>
 This source node creates an icosphere at the radius given and the resolution set by subdivisions as follows. 
 
 #### Properties
@@ -191,7 +191,7 @@ Note that these properties only appear when there is nothing connected to the co
 #### Outputs
 - **geometry** is the generated icosphere and fulfills the requirement for at least one geometry in the graph.
 
-<H3Image title="Mesh" image="/img/tools/nge/meshNode.jpg" alt="Mesh source node"/>
+<H3Image title="Mesh" image="/img/tools/nge/meshNode.webp" alt="Mesh source node"/>
 This source node holds a mesh loaded from disk or attached from the scene. This node has no inputs because all properties come from the loaded mesh. Meshes can be assigned to this node in code by using [the following method](/typedoc/classes/BABYLON.NodeGeometry#getBlockByName). 
 ``` javascript
 NodeGeometry.getBlockByName("meshBlockName").mesh = myMesh;
@@ -211,7 +211,7 @@ Once a mesh is loaded into the node, it will behave like any other geometry sour
 #### Outputs
 - **geometry** is the loaded mesh and fulfills the requirement for at least one geometry in the graph.
 
-<H3Image title="Null" image="/img/tools/nge/nullNode.jpg" alt="Null source node"/>
+<H3Image title="Null" image="/img/tools/nge/nullNode.webp" alt="Null source node"/>
 This source node is empty and adds a null to the geometry flow. This node is used mainly to add some randomness when instantiating geometry on another geometry source by randomly instantiating null geometry. This null does not render anything and is free in terms of calculations which makes it excellent at adding randomness to the geometry flow.
 
 #### Debug Infos
@@ -221,7 +221,7 @@ This source node is empty and adds a null to the geometry flow. This node is use
 #### Outputs
 - **geometry** is null, but still fulfills the requirement for at least one geometry in the graph.
 
-<H3Image title="Plane" image="/img/tools/nge/planeNode.jpg" alt="Plane source node"/>
+<H3Image title="Plane" image="/img/tools/nge/planeNode.webp" alt="Plane source node"/>
 This source node creates a plane to the dimensions given as follows. The plane is created with exactly one subdivision, no more. If control over subdivisions is desired, use [Grid](/toolsAndResources/nge/customFrames#grid) instead.
 
 #### Properties
@@ -245,7 +245,7 @@ Note that these properties only appear when there is nothing connected to the co
 #### Outputs
 - **geometry** is the generated plane and fulfills the requirement for at least one geometry in the graph.
 
-<H3Image title="Point List" image="/img/tools/nge/pointList.jpg" alt="Point List Node"/>
+<H3Image title="Point List" image="/img/tools/nge/pointList.webp" alt="Point List Node"/>
 The Point List is exactly as it sounds, a list of points (Vector3's). In the properties window, a user can add specific Vector3 points to the list manually. Those points are then output with the geometry output port.
 
 #### Debug Infos
@@ -255,7 +255,7 @@ The Point List is exactly as it sounds, a list of points (Vector3's). In the pro
 #### Outputs
 - **geometry** is the user-defined list of points.
 
-<H3Image title="Sphere" image="/img/tools/nge/sphereNode.jpg" alt="Sphere source node"/>
+<H3Image title="Sphere" image="/img/tools/nge/sphereNode.webp" alt="Sphere source node"/>
 This source node creates a sphere of the given diameter at the resolution set by segments. It can be created as a complete or a partial sphere as follows. 
 
 #### Properties
@@ -287,7 +287,7 @@ Note that these properties only appear when there is nothing connected to the co
 #### Outputs
 - **geometry** is the generated sphere and fulfills the requirement for at least one geometry in the graph.
 
-<H3Image title="Torus" image="/img/tools/nge/torusNode.jpg" alt="Torus source node"/>
+<H3Image title="Torus" image="/img/tools/nge/torusNode.webp" alt="Torus source node"/>
 This source node creates a torus of the given diameter at the resolution set by tessellation as follows.
 
 #### Properties
@@ -318,7 +318,7 @@ Input nodes consist of basic value types used to set properties on other nodes. 
 - **Contextual value** assigns the source of the data for any input set to a contextual value. The sources available depend on the data type selected for the input node. For example, choosing a Int contextual value allows access to vertex IDs and choosing a Vector3 contextual value would offer vertex positions.
 - **Visible on frame** is a boolean which allows any input contained within a frame to be visible in the INPUTS list of the properties panel for a frame. Simply enable the boolean and then whenever a frame is selected - expanded or collapsed - any visible input can have its value changed directly in the frame properties panel.
 
-<H3Image title="Float" image="/img/tools/nge/floatNode.jpg" alt="Float input node"/>
+<H3Image title="Float" image="/img/tools/nge/floatNode.webp" alt="Float input node"/>
 This input node represents a Float value rounded to four decimal places. The node contains the following properties which can be set in the properties panel. 
 
 #### Debug Infos
@@ -335,7 +335,7 @@ This input node represents a Float value rounded to four decimal places. The nod
 #### Outputs
 - **value** is the Float value set on the node. 
 
-<H3Image title="Int" image="/img/tools/nge/intNode.jpg" alt="Integer node"/>
+<H3Image title="Int" image="/img/tools/nge/intNode.webp" alt="Integer node"/>
 This input node represents an integer value and contains the following properties which can be set in the properties panel. 
 
 #### Debug Infos
@@ -352,7 +352,7 @@ This input node represents an integer value and contains the following propertie
 #### Outputs
 - **value** is the integer value set on the node. 
 
-<H3Image title="Vector2" image="/img/tools/nge/vector2Node.jpg" alt="Vector2 node"/>
+<H3Image title="Vector2" image="/img/tools/nge/vector2Node.webp" alt="Vector2 node"/>
 This input node represents a Vector2 value and contains the following properties which can be set in the properties panel. 
 
 #### Debug Infos
@@ -367,7 +367,7 @@ This input node represents a Vector2 value and contains the following properties
 #### Outputs
 - **value** is the Vector2 value set on the node.
 
-<H3Image title="Vector3" image="/img/tools/nge/vector3Node.jpg" alt="Vector3 node"/>
+<H3Image title="Vector3" image="/img/tools/nge/vector3Node.webp" alt="Vector3 node"/>
 This input node represents a Vector3 value and contains the following properties which can be set in the properties panel. 
 
 #### Debug Infos
@@ -382,7 +382,7 @@ This input node represents a Vector3 value and contains the following properties
 #### Outputs
 - **value** is the Vector3 value set on the node. 
 
-<H3Image title="Vector4" image="/img/tools/nge/vector4Node.jpg" alt="Vector4 node"/>
+<H3Image title="Vector4" image="/img/tools/nge/vector4Node.webp" alt="Vector4 node"/>
 This input node represents a Vector4 value and contains the following properties which can be set in the properties panel. 
 
 #### Debug Infos
@@ -399,7 +399,7 @@ This input node represents a Vector4 value and contains the following properties
 
 ## Interpolation
 Interpolation nodes derive a value based on an input value range or an input value limit. 
-<H3Image title="Lerp" image="/img/tools/nge/lerp.jpg" alt="LERP node"/>
+<H3Image title="Lerp" image="/img/tools/nge/lerp.webp" alt="LERP node"/>
 This node will derive a value between the two input values based on the gradient value.   
 
 #### Debug Infos
@@ -414,7 +414,7 @@ This node will derive a value between the two input values based on the gradient
 #### Outputs
 - **output** is the value that will match the type of the left and right input values and is a value derived from the range of the left input to the right input at the position of the gradient. 
 
-<H3Image title="NLerp" image="/img/tools/nge/nLerp.jpg" alt="NLERP node"/>
+<H3Image title="NLerp" image="/img/tools/nge/nLerp.webp" alt="NLERP node"/>
 This node will derive a normalized value between the two input values based on the gradient value.   
 
 #### Debug Infos
@@ -429,7 +429,7 @@ This node will derive a normalized value between the two input values based on t
 #### Outputs
 - **output** is the value that will match the type of the left and right input values and is a normalized value derived from the range of the left input to the right input at the position of the gradient. 
 
-<H3Image title="Smooth Step" image="/img/tools/nge/smoothStep.jpg" alt="Smooth Step node"/>
+<H3Image title="Smooth Step" image="/img/tools/nge/smoothStep.webp" alt="Smooth Step node"/>
 This node will return a gradient value between 0.0 and 1.0 depending on how the input value compares with edge0 and edge1.
 
 #### Debug Infos
@@ -444,7 +444,7 @@ This node will return a gradient value between 0.0 and 1.0 depending on how the 
 #### Outputs
 - **output** is a float value between 0.0 and 1.0. If the input value is less than edge0, the output value will be 0.0. If the input value is equal to or greater than edge0 and less than edge1 the output value will be a corresponding value between 0.0 and 1.0 based on its position between edge0 and edge1. If the input value is greater than or equal to edge1, the output value will be 1.0. 
 
-<H3Image title="Step" image="/img/tools/nge/step.jpg" alt="Step node"/>
+<H3Image title="Step" image="/img/tools/nge/step.webp" alt="Step node"/>
 This node will return a value of 0.0 or 1.0 depending on if the input value is less than or greater than the value connected to edge.   
 
 #### Debug Infos
@@ -461,7 +461,7 @@ This node will return a value of 0.0 or 1.0 depending on if the input value is l
 ## Color Management
 Color management nodes modifies the value of the color input connected to the node in a specific way. These are useful for controlling vertex colors or textures used in the graph.
 
-<H3Image title="Desaturate" image="/img/tools/nge/desaturate.jpg" alt="Desaturate node"/>
+<H3Image title="Desaturate" image="/img/tools/nge/desaturate.webp" alt="Desaturate node"/>
 This node will modify each component of a connected Vector3 input to a value that is averaged with the other components to a degree as set by the level input.   
 
 #### Properties
@@ -478,7 +478,7 @@ This node will modify each component of a connected Vector3 input to a value tha
 #### Outputs
 - **output** is a Vector3 value that has been modified by averaging the three components to the degree determined by the value of level.
 
-<H3Image title="Posterize" image="/img/tools/nge/posterize.jpg" alt="Posterize node"/>
+<H3Image title="Posterize" image="/img/tools/nge/posterize.webp" alt="Posterize node"/>
 This node will modify each component of a connected input to reduce the number of possible values between 0.0 and 1.0 based on the value of the steps input.   
 
 #### Debug Infos
@@ -492,7 +492,7 @@ This node will modify each component of a connected input to reduce the number o
 #### Outputs
 - **output** matches the type of the input and is represented only by a number of values that matches the steps input.
 
-<H3Image title="Replace Color" image="/img/tools/nge/replaceColor.jpg" alt="Replace Color node"/>
+<H3Image title="Replace Color" image="/img/tools/nge/replaceColor.webp" alt="Replace Color node"/>
 This node will replace any color that matches the reference input within range of the distance input with the color connected to the replacement input.   
 
 #### Debug Infos
@@ -511,11 +511,11 @@ This node will replace any color that matches the reference input within range o
 ## Contextual
 Contextual nodes consist of values derived from the closest source associated with a contextual node in the graph. The way to determine what source is referenced by a contextual value is to trace wires from the contextual value node until finding a node that has a reference that could supply the context. For contextual nodes that reference geometric values like position or normal, trace wires to the first node that references geometry, and this will be the source that is being referenced.
 
-![Tracing contextual values to their source geometry](/img/tools/nge/tracingContext.jpg)
+![Tracing contextual values to their source geometry](/img/tools/nge/tracingContext.webp)
 
 In addition to geometric contextual values, there are other types of contextual values. One of them being LoopID which is a contextual value for the iteration of a node that loops. In this case, tracing wires to the first node that is iterable would be the source for the contextual value.  
 
-![Tracing non-geometric contextual values to their source](/img/tools/nge/tracingContext2.jpg)
+![Tracing non-geometric contextual values to their source](/img/tools/nge/tracingContext2.webp)
 
 To help in identifying what source is feeding a contextual value, the graph will highlight the node providing the source of the contextual value when selecting any contextual value as can be seen in the images above. The playground below can be used to experiment with contextual values and better understand how they reference their source.
 
@@ -524,7 +524,7 @@ Contextual nodes are typically an array of values determined by the components o
 - **Mode** allows the node to be defined as a user-defined value or a contextual value of any type. User-defined values are just as they seem, the user assigned a constant value to the node. A contextual value is derived from the closest geometry node associated with this node. Changing mode to a different value can also change the type of data the node represents. For example, a CollectionID contextual node can be updated to a Vector2 contextual value which will change the data type supplied by the node. Be aware of this when changing mode as it can affect connections to other nodes. Note that if mode is changed to user-defined, the node will no longer display *Contextual value* but will instead show *Visible on frame*, *Min*, *Max*, and *Value* in the node properties.
 - **Contextual value** assigns the source of the data for any input set to a contextual value. The sources available depend on the data type selected for the input node. For example, choosing a Int contextual value allows access to vertex IDs and choosing a Vector3 contextual value would offer vertex positions.
 
-<H3Image title="CollectionID" image="/img/tools/nge/collectionIDNode.jpg" alt="Collection ID node"/>
+<H3Image title="CollectionID" image="/img/tools/nge/collectionIDNode.webp" alt="Collection ID node"/>
 This contextual node represents the ID of a source geometry in a collection. This data is pulled from geometry associated with a collection node. 
 
 #### Debug Infos
@@ -538,7 +538,7 @@ This contextual node represents the ID of a source geometry in a collection. Thi
 #### Outputs
 - **value** is an integer representing the Collection ID of an associated geometry. 
 
-<H3Image title="Colors" image="/img/tools/nge/colorsNode.jpg" alt="Colors node"/>
+<H3Image title="Colors" image="/img/tools/nge/colorsNode.webp" alt="Colors node"/>
 This contextual node represents an array of vertex colors from a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
 #### Debug Infos
@@ -552,7 +552,7 @@ This contextual node represents an array of vertex colors from a source geometry
 #### Outputs
 - **value** is a Vector4 representing the colors of each vertex of an associated geometry. 
 
-<H3Image title="FaceID" image="/img/tools/nge/faceIDNode.jpg" alt="Face ID node"/>
+<H3Image title="FaceID" image="/img/tools/nge/faceIDNode.webp" alt="Face ID node"/>
 This contextual node represents an array of the IDs for each face of a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
 #### Debug Infos
@@ -566,7 +566,7 @@ This contextual node represents an array of the IDs for each face of a source ge
 #### Outputs
 - **value** is an integer representing the IDs for each face of an associated geometry. 
 
-<H3Image title="GeometryID" image="/img/tools/nge/geometryIDNode.jpg" alt="Geometry ID node"/>
+<H3Image title="GeometryID" image="/img/tools/nge/geometryIDNode.webp" alt="Geometry ID node"/>
 This contextual node represents the ID for a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
 #### Debug Infos
@@ -580,7 +580,7 @@ This contextual node represents the ID for a source geometry. This data is pulle
 #### Outputs
 - **value** is an integer representing the ID for associated geometry. 
 
-<H3Image title="InstanceID" image="/img/tools/nge/instanceID.jpg" alt="Instance ID node"/>
+<H3Image title="InstanceID" image="/img/tools/nge/instanceID.webp" alt="Instance ID node"/>
 This contextual node represents the ID for an instance of a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
 #### Debug Infos
@@ -594,7 +594,7 @@ This contextual node represents the ID for an instance of a source geometry. Thi
 #### Outputs
 - **value** is an integer representing the ID for associated geometry instance. 
 
-<H3Image title="LoopID" image="/img/tools/nge/loopIDNode.jpg" alt="LoopID node"/>
+<H3Image title="LoopID" image="/img/tools/nge/loopIDNode.webp" alt="LoopID node"/>
 This contextual node represents the ID of the loop iteration of an associated node with a count input like the Instantiate node. This node can be used to increment values such as those driving the transform of the translation, rotation, or scale of an associated geometry being instantiated through a loop. This data is pulled from an iterable node associated with this contextual node through a connection to a shared node. 
 
 #### Debug Infos
@@ -608,7 +608,7 @@ This contextual node represents the ID of the loop iteration of an associated no
 #### Outputs
 - **value** is an integer representing the ID of the iteration of the associated loop. 
 
-<H3Image title="Normals" image="/img/tools/nge/normalsNode.jpg" alt="Normals node"/>
+<H3Image title="Normals" image="/img/tools/nge/normalsNode.webp" alt="Normals node"/>
 This contextual node represents an array of vertex normals from a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
 #### Debug Infos
@@ -622,7 +622,7 @@ This contextual node represents an array of vertex normals from a source geometr
 #### Outputs
 - **value** is a Vector3 value representing the normals of each vertex of an associated geometry. 
 
-<H3Image title="Positions" image="/img/tools/nge/positionsNode.jpg" alt="Positions node"/>
+<H3Image title="Positions" image="/img/tools/nge/positionsNode.webp" alt="Positions node"/>
 This contextual node represents an array of vertex positions from a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
 #### Debug Infos
@@ -636,7 +636,7 @@ This contextual node represents an array of vertex positions from a source geome
 #### Outputs
 - **value** is a Vector3 value representing the positions of each vertex of an associated geometry. 
 
-<H3Image title="Tangents" image="/img/tools/nge/tangentsNode.jpg" alt="Tangents node"/>
+<H3Image title="Tangents" image="/img/tools/nge/tangentsNode.webp" alt="Tangents node"/>
 This contextual node represents an array of vertex tangents from a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
 #### Debug Infos
@@ -650,7 +650,7 @@ This contextual node represents an array of vertex tangents from a source geomet
 #### Outputs
 - **value** is a Vector4 value representing the tangents of each vertex of an associated geometry. 
 
-<H3Image title="UVs" image="/img/tools/nge/uvNode.jpg" alt="UV node"/>
+<H3Image title="UVs" image="/img/tools/nge/uvNode.webp" alt="UV node"/>
 This contextual node is actually six different nodes, each one representing an array of UV coordinates for each vertex from a particular UV set from a source geometry. Each node represents a different UV set of the six supported UV sets for a mesh in Babylon.js. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
 #### Debug Infos
@@ -664,7 +664,7 @@ This contextual node is actually six different nodes, each one representing an a
 #### Outputs
 - **value** is a Vector2 value representing the UV coordinates of each vertex of an associated geometry. 
 
-<H3Image title="VertexID" image="/img/tools/nge/vertexIDNode.jpg" alt="Vertex ID node"/>
+<H3Image title="VertexID" image="/img/tools/nge/vertexIDNode.webp" alt="Vertex ID node"/>
 This contextual node represents an array of vertex IDs from a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
 #### Debug Infos
@@ -683,7 +683,7 @@ Logical nodes are used to branch a node graph by performing a test between two F
 
 - **ifTrue and ifFalse** ports on each logical node do not need to be connected to anything for the node to function. If a node is connected to ifTrue or ifFalse, that node will be passed when appropriate condition is met. If nothing is connected to ifTrue or ifFalse, the node will output 1.0 and 0.0 respectively. This allows for successive logical tests by testing if the previous logical test was true (1.0) or false (0.0) without the need to wire Float nodes for ifTrue and ifFalse in the graph.
 
-<H3Image title="And" image="/img/tools/nge/andNode.jpg" alt="And node"/>
+<H3Image title="And" image="/img/tools/nge/andNode.webp" alt="And node"/>
 This logical node tests if the Float value in the left port and the right port are both not equal to 0.0. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
 #### Properties
@@ -705,7 +705,7 @@ This logical node tests if the Float value in the left port and the right port a
 #### Outputs
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If one or both ports for ifTrue and ifFalse are not connected, the output passes 1.0 if the test returns true and 0.0 if the test returns false.
 
-<H3Image title="Equal" image="/img/tools/nge/equalNode.jpg" alt="Equal node"/>
+<H3Image title="Equal" image="/img/tools/nge/equalNode.webp" alt="Equal node"/>
 This logical node tests if the Float value in the left port and the right port are both equal to one another. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
 #### Properties
@@ -727,7 +727,7 @@ This logical node tests if the Float value in the left port and the right port a
 #### Outputs
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If one or both ports for ifTrue and ifFalse are not connected, the output passes 1.0 if the test returns true and 0.0 if the test returns false.
 
-<H3Image title="GreaterOrEqual" image="/img/tools/nge/greaterOrEqualNode.jpg" alt="Greater Or Equal node"/>
+<H3Image title="GreaterOrEqual" image="/img/tools/nge/greaterOrEqualNode.webp" alt="Greater Or Equal node"/>
 This logical node tests if the Float value in the left port is greater than or equal to the Floating point value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
 #### Properties
@@ -749,7 +749,7 @@ This logical node tests if the Float value in the left port is greater than or e
 #### Outputs
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If one or both ports for ifTrue and ifFalse are not connected, the output passes 1.0 if the test returns true and 0.0 if the test returns false.
 
-<H3Image title="GreaterThan" image="/img/tools/nge/greaterThanNode.jpg" alt="Greater Than node"/>
+<H3Image title="GreaterThan" image="/img/tools/nge/greaterThanNode.webp" alt="Greater Than node"/>
 This logical node tests if the Float value in the left port is greater than the Floating point value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
 #### Properties
@@ -771,7 +771,7 @@ This logical node tests if the Float value in the left port is greater than the 
 #### Outputs
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If one or both ports for ifTrue and ifFalse are not connected, the output passes 1.0 if the test returns true and 0.0 if the test returns false.
 
-<H3Image title="LessOrEqual" image="/img/tools/nge/lessOrEqualNode.jpg" alt="Less Or Equal node"/>
+<H3Image title="LessOrEqual" image="/img/tools/nge/lessOrEqualNode.webp" alt="Less Or Equal node"/>
 This logical node tests if the Float value in the left port is less than or equal to the Floating point value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
 #### Properties
@@ -793,7 +793,7 @@ This logical node tests if the Float value in the left port is less than or equa
 #### Outputs
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If one or both ports for ifTrue and ifFalse are not connected, the output passes 1.0 if the test returns true and 0.0 if the test returns false.
 
-<H3Image title="LessThan" image="/img/tools/nge/lessThan.jpg" alt="Less Than node"/>
+<H3Image title="LessThan" image="/img/tools/nge/lessThan.webp" alt="Less Than node"/>
 This logical node tests if the Float value in the left port is less than the Floating point value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
 #### Properties
@@ -815,7 +815,7 @@ This logical node tests if the Float value in the left port is less than the Flo
 #### Outputs
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If one or both ports for ifTrue and ifFalse are not connected, the output passes 1.0 if the test returns true and 0.0 if the test returns false.
 
-<H3Image title="NotEqual" image="/img/tools/nge/notEqualNode.jpg" alt="Not Equal node"/>
+<H3Image title="NotEqual" image="/img/tools/nge/notEqualNode.webp" alt="Not Equal node"/>
 This logical node tests if the Float value in the left port is not equal to the Floating point value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
 #### Properties
@@ -837,7 +837,7 @@ This logical node tests if the Float value in the left port is not equal to the 
 #### Outputs
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If one or both ports for ifTrue and ifFalse are not connected, the output passes 1.0 if the test returns true and 0.0 if the test returns false.
 
-<H3Image title="Or" image="/img/tools/nge/orNode.jpg" alt="Or node"/>
+<H3Image title="Or" image="/img/tools/nge/orNode.webp" alt="Or node"/>
 This logical node tests if either the left port or the right port contain a Floating point value not equal to 0.0. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
 #### Properties
@@ -859,7 +859,7 @@ This logical node tests if either the left port or the right port contain a Floa
 #### Outputs
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If one or both ports for ifTrue and ifFalse are not connected, the output passes 1.0 if the test returns true and 0.0 if the test returns false.
 
-<H3Image title="Xor" image="/img/tools/nge/xorNode.jpg" alt="Xor node"/>
+<H3Image title="Xor" image="/img/tools/nge/xorNode.webp" alt="Xor node"/>
 This logical node tests for an exclusive or so that if either the left port or the right port contains a Float value not equal to 0.0 the test returns true. However, if both the left and right ports contain Float values not equal to 0.0 the test returns false. Only one of the two ports may contain a value not equal to 0.0 to test as true. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
 #### Properties
@@ -884,7 +884,7 @@ This logical node tests for an exclusive or so that if either the left port or t
 ## Math: Standard
 These nodes are simple mathematical operations like add, subtract, min, max, or round. The nodes in this section are some of the most used nodes in any of our node graph tools. They are very straight forward, but many of the nodes in this set have features that are worth calling out specifically. 
 
-<H3Image title="Add" image="/img/tools/nge/addNode.jpg" alt="Add node"/>
+<H3Image title="Add" image="/img/tools/nge/addNode.webp" alt="Add node"/>
 This is a simple math node which adds two inputs together. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot add mixed types. The type of the node first connected to an input determines the type for the node output. 
 
 #### Debug Infos
@@ -901,7 +901,7 @@ This is a simple math node which adds two inputs together. This node can support
 #### Outputs
 - **output** is the sum of the left and right inputs and matches type with the values connected to left and right. 
 
-<H3Image title="Ceiling" image="/img/tools/nge/ceilingNode.jpg" alt="Ceiling node"/>
+<H3Image title="Ceiling" image="/img/tools/nge/ceilingNode.webp" alt="Ceiling node"/>
 This is a simple function which transforms the input to the smallest whole number that is greater than or equal to the input. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -917,7 +917,7 @@ This is a simple function which transforms the input to the smallest whole numbe
 #### Outputs
 - **output** is the transformed value from the input and matches type with the value connected to input. 
 
-<H3Image title="Clamp" image="/img/tools/nge/clampNode.jpg" alt="Clamp node"/>
+<H3Image title="Clamp" image="/img/tools/nge/clampNode.webp" alt="Clamp node"/>
 This is a simple function which limits the input value to the range set by the minimum and maximum properties on the node. If the input is below the minimum, it is clamped to the minimum value. If it is over the maximum value, it is clamped to the maximum value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -934,7 +934,7 @@ This is a simple function which limits the input value to the range set by the m
 #### Outputs
 - **output** is the clamped value from the input and matches type with the value connected to input. 
 
-<H3Image title="Divide" image="/img/tools/nge/divideNode.jpg" alt="Divide node"/>
+<H3Image title="Divide" image="/img/tools/nge/divideNode.webp" alt="Divide node"/>
 This is a simple math node which divides the left input by the right input. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot divide mixed types. The type of the node first connected to an input determines the type for the node output. 
 
 #### Debug Infos
@@ -951,7 +951,7 @@ This is a simple math node which divides the left input by the right input. This
 #### Outputs
 - **output** is the quotient of the left input divided by the right input and matches type with the values connected to left and right. 
 
-<H3Image title="Floor" image="/img/tools/nge/floorNode.jpg" alt="Floor node"/>
+<H3Image title="Floor" image="/img/tools/nge/floorNode.webp" alt="Floor node"/>
 This is a simple function which transforms the input to the largest whole number that is less than or equal to the input. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -967,7 +967,7 @@ This is a simple function which transforms the input to the largest whole number
 #### Outputs
 - **output** is the transformed value from the input and matches type with the value connected to input. 
 
-<H3Image title="IntFloatConverter" image="/img/tools/nge/intFloatConverterNode.jpg" alt="Integer float converter node"/>
+<H3Image title="IntFloatConverter" image="/img/tools/nge/intFloatConverterNode.webp" alt="Integer float converter node"/>
 This is a simple function which converts the input type to either a Float or an integer. This node uses specific data types and does not allow connection to nodes that are not defined as Float or Int. While the node appears to allow connections to both the Float and Int inputs, the node will only use the first value connected if more than one is present. In the case of this node, if both inputs are connected, the outputs will both use the input connected to Float for the value to convert.
 
 #### Debug Infos
@@ -983,7 +983,7 @@ Note that call count and execution count appear twice on this node, once for Int
 - **float** is the value from the first input connected to the node transformed to type Float. 
 - **int** is the value from the first input connected to the node transformed to type Int. 
 
-<H3Image title="MapRange" image="/img/tools/nge/mapRangeNode.jpg" alt="Map range node"/>
+<H3Image title="MapRange" image="/img/tools/nge/mapRangeNode.webp" alt="Map range node"/>
 This is a simple function to remap a value in relation to one numerical range to a corresponding value in relation to another numerical range. There is no stipulation that the value be within the original numerical range to remap it. This node accepts values that are type Float, Int, Vector2, Vector3, or Vector4.
 
 #### Properties
@@ -1006,7 +1006,7 @@ This is a simple function to remap a value in relation to one numerical range to
 #### Outputs
 - **output** is the value of the input converted into the target range in a type that matches the input value. 
 
-<H3Image title="Max" image="/img/tools/nge/maxNode.jpg" alt="Max node"/>
+<H3Image title="Max" image="/img/tools/nge/maxNode.webp" alt="Max node"/>
 This is a simple math node which returns the larger value between the left input and the right input. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot evaluate mixed types. The type of the node first connected to an input determines the type for the node output. 
 
 #### Debug Infos
@@ -1023,7 +1023,7 @@ This is a simple math node which returns the larger value between the left input
 #### Outputs
 - **output** is the larger value between the left input and the right input and matches type with the values connected to left and right. 
 
-<H3Image title="Min" image="/img/tools/nge/minNode.jpg" alt="Min node"/>
+<H3Image title="Min" image="/img/tools/nge/minNode.webp" alt="Min node"/>
 This is a simple math node which returns the smaller value between the left input and the right input. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot evaluate mixed types. The type of the node first connected to an input determines the type for the node output. 
 
 #### Debug Infos
@@ -1040,7 +1040,7 @@ This is a simple math node which returns the smaller value between the left inpu
 #### Outputs
 - **output** is the smaller value between the left input and the right input and matches type with the values connected to left and right. 
 
-<H3Image title="Mod" image="/img/tools/nge/mod.jpg" alt="Mod node"/>
+<H3Image title="Mod" image="/img/tools/nge/mod.webp" alt="Mod node"/>
 This is a simple math node which returns the remainder of the euclidean division of one number by another. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot evaluate mixed types. The type of the node first connected to an input determines the type for the node output. 
 
 #### Debug Infos
@@ -1054,7 +1054,7 @@ This is a simple math node which returns the remainder of the euclidean division
 #### Outputs
 - **output** is the remainder of the Euclidean division of the left input by the right input and matches type with the values connected to left and right. 
 
-<H3Image title="Multiply" image="/img/tools/nge/multiplyNode.jpg" alt="Multiply node"/>
+<H3Image title="Multiply" image="/img/tools/nge/multiplyNode.webp" alt="Multiply node"/>
 This is a simple math node which multiplies the left input and the right input. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though this node is a little different than other nodes that require matching types between left and right inputs. This node can also act as a scale node where a Vector is scaled by a scalar value of type Float. To do this, first connect a Vector to the left input which will set the type for the output port. Second connect a Float to the right input of the node which will act as the scalar. This is the only math node where input types can be mixed, and these mixed input types need to be connected in one specific way. Remember, the left input can take any type and the right input can either take a matching type to multiply normally, or a Float type to be used as a scalar for the value connected to the left input.
 
 #### Debug Infos
@@ -1071,7 +1071,7 @@ This is a simple math node which multiplies the left input and the right input. 
 #### Outputs
 - **output** is the product of the left input multiplied by the right input and matches type with the values connected to the left input. The right input does not influence the output type in any way. 
 
-<H3Image title="Negate" image="/img/tools/nge/negateNode.jpg" alt="Negate node"/>
+<H3Image title="Negate" image="/img/tools/nge/negateNode.webp" alt="Negate node"/>
 This is a simple function which changes the sign of the input by multiplying it by -1.0. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1087,7 +1087,7 @@ This is a simple function which changes the sign of the input by multiplying it 
 #### Outputs
 - **output** is the transformed value from the input and matches type with the value connected to input. 
 
-<H3Image title="OneMinus" image="/img/tools/nge/oneMinusNode.jpg" alt="OneMinus node"/>
+<H3Image title="OneMinus" image="/img/tools/nge/oneMinusNode.webp" alt="OneMinus node"/>
 This is a shortcut function which subtracts the input value from 1.0. When this function is applied to a value in the range of 0.0 to 1.0 the result will be an inversion of the input on that scale of 0.0 to 1.0. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Properties
@@ -1101,7 +1101,7 @@ This is a shortcut function which subtracts the input value from 1.0. When this 
 #### Outputs
 - **output** is the transformed value from the input and matches type with the value connected to input. 
 
-<H3Image title="Reciprocal" image="/img/tools/nge/reciprocalNode.jpg" alt="Reciprocal node"/>
+<H3Image title="Reciprocal" image="/img/tools/nge/reciprocalNode.webp" alt="Reciprocal node"/>
 This is a shortcut function which divides 1.0 by the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1117,7 +1117,7 @@ This is a shortcut function which divides 1.0 by the input value. This node can 
 #### Outputs
 - **output** is the transformed value from the input and matches type with the value connected to input. 
 
-<H3Image title="Round" image="/img/tools/nge/roundNode.jpg" alt="Round node"/>
+<H3Image title="Round" image="/img/tools/nge/roundNode.webp" alt="Round node"/>
 This is a simple function which transforms the input to the nearest whole number. The nearest whole number is determined by considering the fractional portion of the number. If that fractional portion is greater than or equal to 0.5, the input is transformed into the smallest whole number greater than the input. If the fractional portion is less than 0.5, the input is transformed to the largest whole number less than the input. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1133,7 +1133,7 @@ This is a simple function which transforms the input to the nearest whole number
 #### Outputs
 - **output** is the transformed value from the input and matches type with the value connected to input. 
 
-<H3Image title="Sign" image="/img/tools/nge/signNode.jpg" alt="Sign node"/>
+<H3Image title="Sign" image="/img/tools/nge/signNode.webp" alt="Sign node"/>
 This is a simple function to return whether an input is positive, negative, or exactly 0.0. If the input is negative this node will return a value of -1.0. If the input is exactly 0.0, the node will return a value of 0.0. Finally, if the value is positive the node will return a value of 1.0. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1149,7 +1149,7 @@ This is a simple function to return whether an input is positive, negative, or e
 #### Outputs
 - **output** returns -1.0 for a negative value in input, 0.0 for a value of 0.0 in input, and 1.0 for a positive value in input. 
 
-<H3Image title="Square Root" image="/img/tools/nge/sqrtNode.jpg" alt="Square root node"/>
+<H3Image title="Square Root" image="/img/tools/nge/sqrtNode.webp" alt="Square root node"/>
 This is a simple function to return the principle square root of a nonnegative value connected to the input port. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1165,7 +1165,7 @@ This is a simple function to return the principle square root of a nonnegative v
 #### Outputs
 - **output** is the principle square root of the input value in a type that matches the input value type. 
 
-<H3Image title="Subtract" image="/img/tools/nge/subtractNode.jpg" alt="Subtract node"/>
+<H3Image title="Subtract" image="/img/tools/nge/subtractNode.webp" alt="Subtract node"/>
 This is a simple math node which subtracts the right input from the left input. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot add mixed types. The type of the node first connected to an input determines the type for the node output. 
 
 #### Debug Infos
@@ -1185,7 +1185,7 @@ This is a simple math node which subtracts the right input from the left input. 
 ## Math: Scientific
 These nodes are a collection of more complex mathematical functions, mostly trigonometric. They are all very straight forward nodes with one input and one output. All nodes in this set can support Float, Int, Vector2, Vector3, and Vector4 types.
 
-<H3Image title="Abs" image="/img/tools/nge/absNode.jpg" alt="Absolute node"/>
+<H3Image title="Abs" image="/img/tools/nge/absNode.webp" alt="Absolute node"/>
 This is a simple function to return the absolute value of the input, which is always a positive value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1201,7 +1201,7 @@ This is a simple function to return the absolute value of the input, which is al
 #### Outputs
 - **output** is the absolute value of the input value in a type that matches the input value type. 
 
-<H3Image title="ArcCos" image="/img/tools/nge/arcCosNode.jpg" alt="Arc cosine node"/>
+<H3Image title="ArcCos" image="/img/tools/nge/arcCosNode.webp" alt="Arc cosine node"/>
 This function returns the inverse cosine of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1217,7 +1217,7 @@ This function returns the inverse cosine of the input value. This node can suppo
 #### Outputs
 - **output** is the inverse cosine of the input value in a type that matches the input value type. 
 
-<H3Image title="ArcSin" image="/img/tools/nge/arcSinNode.jpg" alt="Arc sine node"/>
+<H3Image title="ArcSin" image="/img/tools/nge/arcSinNode.webp" alt="Arc sine node"/>
 This function returns the inverse sine of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1233,7 +1233,7 @@ This function returns the inverse sine of the input value. This node can support
 #### Outputs
 - **output** is the inverse sine of the input value in a type that matches the input value type. 
 
-<H3Image title="ArcTan2" image="/img/tools/nge/arcTan2.jpg" alt="Arc tangent 2 node"/>
+<H3Image title="ArcTan2" image="/img/tools/nge/arcTan2.webp" alt="Arc tangent 2 node"/>
 This function returns the angle in radians between the X axis and a line to the (X,Y) coordinates. This node can support Float, Int, Vector2, Vector3, and Vector4 types and the function will be computed for each component pair connected to the X and Y inputs. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1247,7 +1247,7 @@ This function returns the angle in radians between the X axis and a line to the 
 #### Outputs
 - **output** is the angle in radians per component of the input type. If the input type is float, the output will be a single angle represented in radians as a float. If the input is a Vector3, the output will be three angles computed per component pair from the X and Y inputs represented in radians as a Vector3.  
 
-<H3Image title="ArcTan" image="/img/tools/nge/arcTanNode.jpg" alt="Arc tangent node"/>
+<H3Image title="ArcTan" image="/img/tools/nge/arcTanNode.webp" alt="Arc tangent node"/>
 This function returns the inverse tangent of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1263,7 +1263,7 @@ This function returns the inverse tangent of the input value. This node can supp
 #### Outputs
 - **output** is the inverse tangent of the input value in a type that matches the input value type. 
 
-<H3Image title="Cos" image="/img/tools/nge/cosNode.jpg" alt="Cosine node"/>
+<H3Image title="Cos" image="/img/tools/nge/cosNode.webp" alt="Cosine node"/>
 This function returns the cosine of the input and assumes radians for the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1279,7 +1279,7 @@ This function returns the cosine of the input and assumes radians for the input 
 #### Outputs
 - **output** is the cosine of the input value in a type that matches the input value type. 
 
-<H3Image title="Exp2" image="/img/tools/nge/exp2.jpg" alt="Exponent 2 node"/>
+<H3Image title="Exp2" image="/img/tools/nge/exp2.webp" alt="Exponent 2 node"/>
 This function returns the base-2 exponential function of a given number connected to the input. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1295,7 +1295,7 @@ This function returns the base-2 exponential function of a given number connecte
 #### Outputs
 - **output** is a nonnegative number representing the base-2 raised to the power of the input value in a type that matches the input value type. 
 
-<H3Image title="Exp" image="/img/tools/nge/expNode.jpg" alt="Exponent node"/>
+<H3Image title="Exp" image="/img/tools/nge/expNode.webp" alt="Exponent node"/>
 This function returns the base of the natural logarithm, approximately 2.718, raised to the power of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1311,7 +1311,7 @@ This function returns the base of the natural logarithm, approximately 2.718, ra
 #### Outputs
 - **output** is a nonnegative number representing the base of the natural logarithm raised to the power of the input value in a type that matches the input value type. 
 
-<H3Image title="Fract" image="/img/tools/nge/fract.jpg" alt="Fract node"/>
+<H3Image title="Fract" image="/img/tools/nge/fract.webp" alt="Fract node"/>
 This function returns the fractional part of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1324,7 +1324,7 @@ This function returns the fractional part of the input value. This node can supp
 #### Outputs
 - **output** is the fractional portion - including 0 - of the input value in a type that matches the input value type. 
 
-<H3Image title="Log" image="/img/tools/nge/logNode.jpg" alt="Logarithm node"/>
+<H3Image title="Log" image="/img/tools/nge/logNode.webp" alt="Logarithm node"/>
 This function returns a value representing the power that the base of the natural logarithm, approximately 2.718, is raised to equal the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1340,7 +1340,7 @@ This function returns a value representing the power that the base of the natura
 #### Outputs
 - **output** is a number representing the power that the base of the natural logarithm, approximately 2.718, is raised to equal the input value in a type that matches the input value type. 
 
-<H3Image title="Pow" image="/img/tools/nge/pow.jpg" alt="Pow node"/>
+<H3Image title="Pow" image="/img/tools/nge/pow.webp" alt="Pow node"/>
 This function returns a value representing the base value raised to the power of an exponent value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1354,7 +1354,7 @@ This function returns a value representing the base value raised to the power of
 #### Outputs
 - **output** is the value of the base value raised to the power of the exponent per component in a type that matches the input value type. 
 
-<H3Image title="Sin" image="/img/tools/nge/sinNode.jpg" alt="Sine node"/>
+<H3Image title="Sin" image="/img/tools/nge/sinNode.webp" alt="Sine node"/>
 This function returns the sine of the input and assumes radians for the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1370,7 +1370,7 @@ This function returns the sine of the input and assumes radians for the input va
 #### Outputs
 - **output** is the sine of the input value in a type that matches the input value type. 
 
-<H3Image title="Tan" image="/img/tools/nge/tanNode.jpg" alt="Tangent node"/>
+<H3Image title="Tan" image="/img/tools/nge/tanNode.webp" alt="Tangent node"/>
 This function returns the tangent of the input and assumes radians for the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1386,7 +1386,7 @@ This function returns the tangent of the input and assumes radians for the input
 #### Outputs
 - **output** is the tangent of the input value in a type that matches the input value type. 
 
-<H3Image title="ToDegrees" image="/img/tools/nge/toDegreesNode.jpg" alt="To degrees node"/>
+<H3Image title="ToDegrees" image="/img/tools/nge/toDegreesNode.webp" alt="To degrees node"/>
 This function converts the input value from radians to degrees. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1402,7 +1402,7 @@ This function converts the input value from radians to degrees. This node can su
 #### Outputs
 - **output** is the conversion of input value in radians to a value using degrees in a type that matches the input value type. 
 
-<H3Image title="ToRadians" image="/img/tools/nge/toRadiansNode.jpg" alt="To radians node"/>
+<H3Image title="ToRadians" image="/img/tools/nge/toRadiansNode.webp" alt="To radians node"/>
 This function converts the input value from degrees to radians. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1421,7 +1421,7 @@ This function converts the input value from degrees to radians. This node can su
 ## Math: Vector
 These nodes are used to transform or convert vectors derived from geometry or user defined. As the name of the category suggests, these nodes support Vector2, Vector3, and Vector4 types.
 
-<H3Image title="Bounding" image="/img/tools/nge/bounding.jpg" alt="Bounding node"/>
+<H3Image title="Bounding" image="/img/tools/nge/bounding.webp" alt="Bounding node"/>
 This node will return information about the bounding box of the connected geometry. The input must be a geometry node and the values output are two Vector3 coordinates that represents the minimum and maximum bounds of the geometry.
 
 #### Debug Infos
@@ -1436,7 +1436,7 @@ Note that call count and execution count appear twice on this node, once for min
 - **min** is a Vector3 that represents the minimum values of the bounding box. 
 - **max** is a Vector3 that represents the maximum values of the bounding box. 
 
-<H3Image title="Cross" image="/img/tools/nge/cross.jpg" alt="Cross node"/>
+<H3Image title="Cross" image="/img/tools/nge/cross.webp" alt="Cross node"/>
 This node will return a vector that is perpendicular to the vectors connected to the left and right inputs. This node supports both Vector3 and Vector4 types and returns a Vector3.
 
 #### Debug Infos
@@ -1450,7 +1450,7 @@ This node will return a vector that is perpendicular to the vectors connected to
 #### Outputs
 - **output** is a Vector3 that represents a vector that is perpendicular to both the left and right vectors. 
 
-<H3Image title="Curve" image="/img/tools/nge/curve.jpg" alt="Curve node"/>
+<H3Image title="Curve" image="/img/tools/nge/curve.webp" alt="Curve node"/>
 This node will apply a specific chosen curve function to the input data to modify it based on the applied curve. This node supports Float, Int, Vector2, Vector3, and Vector4 data types.
 
 #### Debug Infos
@@ -1466,7 +1466,7 @@ This node will apply a specific chosen curve function to the input data to modif
 #### Outputs
 - **output** is the transformation of the input data by a specific curve function and will match the type of the input data. If the input data has multiple components, the curve function will be applied to each component individually. 
 
-<H3Image title="Distance" image="/img/tools/nge/distance.jpg" alt="Distance node"/>
+<H3Image title="Distance" image="/img/tools/nge/distance.webp" alt="Distance node"/>
 This node will calculate the distance between two coordinates. This node supports Vector2, Vector3, and Vector4 data types.
 
 #### Debug Infos
@@ -1480,7 +1480,7 @@ This node will calculate the distance between two coordinates. This node support
 #### Outputs
 - **output** is the distance between the left and right inputs represented as a value of Float type.
 
-<H3Image title="Dot" image="/img/tools/nge/dot.jpg" alt="Dot node"/>
+<H3Image title="Dot" image="/img/tools/nge/dot.webp" alt="Dot node"/>
 This node will calculate the dot product between the two inputs, which is the cosine of the angle between the vectors when both vectors are normalized. This node supports Vector2, Vector3, and Vector4 data types.
 
 #### Debug Infos
@@ -1494,7 +1494,7 @@ This node will calculate the dot product between the two inputs, which is the co
 #### Outputs
 - **output** represents the cosine of the angle between the left input and the right input as a value of Float type.
 
-<H3Image title="Length" image="/img/tools/nge/length.jpg" alt="Length node"/>
+<H3Image title="Length" image="/img/tools/nge/length.webp" alt="Length node"/>
 This node will calculate the magnitude of a vector. This node supports Vector2, Vector3, and Vector4 data types.
 
 #### Debug Infos
@@ -1507,7 +1507,7 @@ This node will calculate the magnitude of a vector. This node supports Vector2, 
 #### Outputs
 - **output** represents the magnitude of the input vector as a value of Float type.
 
-<H3Image title="Normalize" image="/img/tools/nge/normalizeNode.jpg" alt="Normalize node"/>
+<H3Image title="Normalize" image="/img/tools/nge/normalizeNode.webp" alt="Normalize node"/>
 This function transforms the input vector into a unit vector of length 1.0. This node can support Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Debug Infos
@@ -1520,7 +1520,7 @@ This function transforms the input vector into a unit vector of length 1.0. This
 #### Outputs
 - **output** is the unit vector of length 1.0 transformed from the input vector in a type that matches the input value type. 
 
-<H3Image title="Rotate2D" image="/img/tools/nge/rotate2d.jpg" alt="Rotate 2D node"/>
+<H3Image title="Rotate2D" image="/img/tools/nge/rotate2d.webp" alt="Rotate 2D node"/>
 This function transforms the Vector2 input by rotating it the amount in radians supplied by the input connected to angle. This node only accepts a Vector2 to transform and a Float for angle in radians.
 
 #### Debug Infos
@@ -1534,7 +1534,7 @@ This function transforms the Vector2 input by rotating it the amount in radians 
 #### Outputs
 - **output** is a Vector2 type value that is the result of the rotation transformation. 
 
-<H3Image title="Transform" image="/img/tools/nge/transformNode.jpg" alt="Transform node"/>
+<H3Image title="Transform" image="/img/tools/nge/transformNode.webp" alt="Transform node"/>
 This function transforms the input geometry using either a custom Matrix or a Vector3 input for translation, rotation, and scaling. The required input for this node is the geometry input and the output will also be geometry. The rest of the inputs are optional, but if providing a Matrix input to the node, the translation, rotation, and scale inputs will be ignored as the Matrix takes precedence over the individual transform inputs. 
 
 #### Properties
@@ -1559,7 +1559,7 @@ This function transforms the input geometry using either a custom Matrix or a Ve
 #### Outputs
 - **output** is the geometry after transformation and is always type geometry. 
 
-<H3Image title="VectorConverter" image="/img/tools/nge/converterNode.jpg" alt="Vector converter node"/>
+<H3Image title="VectorConverter" image="/img/tools/nge/converterNode.webp" alt="Vector converter node"/>
 This node is used to either split a vector into its components or assemble components into a vector. This node has a lot of utility for introducing a change into one or more components of a vector based on the need of the user. It can also be used to swizzle components or assemble components in several ways to make up a vector. Each input will override the narrower inputs below it. For example, a Vector4 connected to the xyzw input will override any values connected to xyz, xy, zw, x, y, z, or w. The process is the same for each input so any value connected to the xy input will override any values connected to the x and y inputs. 
 
 The values provided by the outputs depend entirely on the values connected to the inputs. The node will work from the top input down and assemble a Vector4 value which can then be referenced from any of the outputs. If there is a component of the Vector4 output that was not defined in the input, the value of that component will be 0.0. This means if you only connect values to the x, y, and z inputs there will still be a Vector4 value available in the xyzw output that has 0.0 for the value of w. Since the inputs work from the top down, the VectorConverter will work with various combinations. For example, connecting values to the xy input as well as the z and w inputs will create a complete Vector4 value with no overrides. However, if connecting values to the xyz input as well as the z and w inputs will create a Vector4 of the xyz input and the w input, ignoring the value connected to the z input. 
@@ -1592,7 +1592,7 @@ Note that call count and execution count appear eight times on this node, once f
 ## Matrices
 These nodes are used to create transformation matrices to transform geometry in a variety of ways. Depending on the node, the inputs expect either Float or Vector3 types but the output for all of these nodes is type Matrix.
 
-<H3Image title="Align" image="/img/tools/nge/alignNode.jpg" alt="Align node"/>
+<H3Image title="Align" image="/img/tools/nge/alignNode.webp" alt="Align node"/>
 This node generates a rotation matrix to rotate from a source Vector3 to a target Vector3. This node only supports the Vector3 type as input and generates only the Matrix type as an output. 
 
 #### Properties
@@ -1610,7 +1610,7 @@ This node generates a rotation matrix to rotate from a source Vector3 to a targe
 #### Outputs
 - **matrix** is the rotation Matrix derived from rotating the source vector to the target vector and can be applied to any matrix transformation input. 
 
-<H3Image title="Matrix Compose" image="/img/tools/nge/matrixComposeNode.jpg" alt="Matrix compose node"/>
+<H3Image title="Matrix Compose" image="/img/tools/nge/matrixComposeNode.webp" alt="Matrix compose node"/>
 This takes two Matrix inputs and composes them into a new Matrix containing both transformations. As expected, the Matrix connected to the matrix0 input is the first transformation and the Matrix connected to matrix1 is the second transformation. If needing to combine more than two transformation matrices, it is possible to chain Matrix Compose nodes by connecting the previous Matrix Compose output to the matrix0 input and a new Matrix to the matrix1 input.  
 
 #### Debug Infos
@@ -1625,7 +1625,7 @@ This takes two Matrix inputs and composes them into a new Matrix containing both
 - **output** is the composed transformation Matrix. 
 
 
-<H3Image title="RotationX" image="/img/tools/nge/rotationXNode.jpg" alt="Rotation X node"/>
+<H3Image title="RotationX" image="/img/tools/nge/rotationXNode.webp" alt="Rotation X node"/>
 This node generates a rotation Matrix for rotating geometry around the X axis by a value in radians. 
 
 #### Debug Infos
@@ -1638,7 +1638,7 @@ This node generates a rotation Matrix for rotating geometry around the X axis by
 #### Outputs
 - **matrix** is the transformation Matrix that can be applied to a Transform node attached to geometry. 
 
-<H3Image title="RotationY" image="/img/tools/nge/rotationYNode.jpg" alt="Rotation Y node"/>
+<H3Image title="RotationY" image="/img/tools/nge/rotationYNode.webp" alt="Rotation Y node"/>
 This node generates a rotation Matrix for rotating geometry around the Y axis by a value in radians. 
 
 #### Debug Infos
@@ -1651,7 +1651,7 @@ This node generates a rotation Matrix for rotating geometry around the Y axis by
 #### Outputs
 - **matrix** is the transformation Matrix that can be applied to a Transform node attached to geometry. 
 
-<H3Image title="RotationZ" image="/img/tools/nge/rotationZNode.jpg" alt="Rotation Z node"/>
+<H3Image title="RotationZ" image="/img/tools/nge/rotationZNode.webp" alt="Rotation Z node"/>
 This node generates a rotation Matrix for rotating geometry around the Z axis by a value in radians. 
 
 #### Debug Infos
@@ -1664,7 +1664,7 @@ This node generates a rotation Matrix for rotating geometry around the Z axis by
 #### Outputs
 - **matrix** is the transformation Matrix that can be applied to a Transform node attached to geometry. 
 
-<H3Image title="Scaling" image="/img/tools/nge/scalingNode.jpg" alt="Scaling node"/>
+<H3Image title="Scaling" image="/img/tools/nge/scalingNode.webp" alt="Scaling node"/>
 This node generates a scaling Matrix for setting the scale of geometry. 
 
 #### Debug Infos
@@ -1677,7 +1677,7 @@ This node generates a scaling Matrix for setting the scale of geometry.
 #### Outputs
 - **matrix** is the transformation Matrix that can be applied to a Transform node attached to geometry. 
 
-<H3Image title="Translation" image="/img/tools/nge/translationNode.jpg" alt="Translation node"/>
+<H3Image title="Translation" image="/img/tools/nge/translationNode.webp" alt="Translation node"/>
 This node generates a translation Matrix for setting the translation of geometry. 
 
 #### Debug Infos
@@ -1693,7 +1693,7 @@ This node generates a translation Matrix for setting the translation of geometry
 ## Instances
 These nodes are used to create instances of input geometry in one of several different methods. In all cases, multiple instances of a specific, non-null geometry are created but the differences come in where they are instantiated and how many instances are created. Several of these nodes use a separate piece of geometry to drive position and location for instances, but this can also be done by setting positions and count manually. Each node in this set, however, outputs only the instanced geometry and not the source geometry used to generate positions and/or number of instances. Additionally, these nodes generate a single geometry rather than individual instances, so there is no need to merge them after these nodes.
 
-<H3Image title="Instantiate" image="/img/tools/nge/instantiateNode.jpg" alt="Instantiate node"/>
+<H3Image title="Instantiate" image="/img/tools/nge/instantiateNode.webp" alt="Instantiate node"/>
 This node generates instances of non-null geometry wired to an input based on the count input. If a null geometry is passed to the node during an iteration, the node will continue to iterate until the required number of non-null instances are created. These instances will be output as a single geometry rather than multiple instanced meshes. The transform of each instance is taken from the matrix input which will override the inputs below it OR is taken from the inputs for position, rotation, and scaling. Like the Vector Converter node, if the matrix input is connected then position, rotation, and scaling are ignored as the matrix input will account for the entire transformation of the instance.
 
 #### Properties
@@ -1720,7 +1720,7 @@ This node generates instances of non-null geometry wired to an input based on th
 #### Outputs
 - **output** is the geometry generated from the node. No matter how many instances were created with this node, the output will be a single geometry that has been automatically merged. 
 
-<H3Image title="Instantiate Linear" image="/img/tools/nge/instantiateLinearNode.jpg" alt="Instantiate Linear node"/>
+<H3Image title="Instantiate Linear" image="/img/tools/nge/instantiateLinearNode.webp" alt="Instantiate Linear node"/>
 This node generates instances of non-null geometry wired to the input based on the count input. These instances are created in a straight line offsetting each instance by the value of direction. If a null geometry is passed to the node during an iteration, the node will continue to iterate until the required number of non-null instances are created. These instances will be output as a single geometry rather than multiple instanced meshes. 
 
 #### Properties
@@ -1746,7 +1746,7 @@ This node generates instances of non-null geometry wired to the input based on t
 #### Outputs
 - **output** is the geometry generated from the node. No matter how many instances were created with this node, the output will be a single geometry that has been automatically merged. 
 
-<H3Image title="InstantiateOnFaces" image="/img/tools/nge/instantiateOnFacesNode.jpg" alt="Instantiate on faces node"/>
+<H3Image title="InstantiateOnFaces" image="/img/tools/nge/instantiateOnFacesNode.webp" alt="Instantiate on faces node"/>
 This node generates instances of non-null geometry wired to the instance input on this node. If a null geometry is passed to the node during an iteration, the node will continue to iterate until the required number of non-null instances are created. These instances will be output as a single geometry rather than multiple instanced meshes. The instance positions are driven by a source geometry connected to the geometry input. Each instance will be distributed across the available faces of the source mesh. The position of each mesh will be a randomly generated position coplanar with and within the bounds of the target face. If there are fewer instances than faces on the source geometry, not every face will be assigned an instance. However, if there are more instances than faces in the source mesh, each face in the source mesh will be assigned one or more instances. If there is a connection made to the matrix input of this node, the transformation of each instance will be driven from this input. Any connections made to the matrix input will override any connections made to the inputs below it. If nothing is connected to the matrix input, the transformation is taken from any connections to inputs for position, rotation, and scaling.
 
 #### Properties
@@ -1772,7 +1772,7 @@ This node generates instances of non-null geometry wired to the instance input o
 #### Outputs
 - **output** is the geometry generated from the node. No matter how many instances were created with this node, the output will be a single geometry that has been automatically merged. 
 
-<H3Image title="InstantiateOnVertices" image="/img/tools/nge/instantiateOnVerticesNode.jpg" alt="Instantiate on vertices node"/>
+<H3Image title="InstantiateOnVertices" image="/img/tools/nge/instantiateOnVerticesNode.webp" alt="Instantiate on vertices node"/>
 This node generates instances of non-null geometry wired to the instance input on this node. If a null geometry is passed to the node during an iteration, the node will continue to iterate until the required number of non-null instances are created. These instances will be output as a single geometry rather than multiple instanced meshes. The instance positions are driven by a source geometry connected to the geometry input. The number of instances created will be determined by the vertex count of the source geometry and the density input value using a 0.0 - 1.0 range. Density defines the percentage of randomly selected vertices that will have an instance created at its position and each will receive exactly one instance. If there is a connection made to the matrix input of this node, the transformation of each instance will be driven from this input. Any connections made to the matrix input will override any connections made to the inputs below it. If nothing is connected to the matrix input, the transformation is taken from any connections to inputs for position, rotation, and scaling.
 
 #### Properties
@@ -1799,7 +1799,7 @@ This node generates instances of non-null geometry wired to the instance input o
 #### Outputs
 - **output** is the geometry generated from the node. No matter how many instances were created with this node, the output will be a single geometry that has been automatically merged. 
 
-<H3Image title="InstantiateOnVolume" image="/img/tools/nge/instantiateOnVolume.jpg" alt="Instantiate on volume node"/>
+<H3Image title="InstantiateOnVolume" image="/img/tools/nge/instantiateOnVolume.webp" alt="Instantiate on volume node"/>
 This node generates instances of non-null geometry wired to the instance input on this node. If a null geometry is passed to the node during an iteration, the node will continue to iterate until the required number of non-null instances are created. These instances will be output as a single geometry rather than multiple instanced meshes. The instance positions are driven by a source geometry connected to the geometry input. All instances created will be positioned randomly within the source mesh volume. The number of instances created will be determined by the value connected to the count input on the node. If there is a connection made to the matrix input of this node, the transformation of each instance will be driven from this input. Any connections made to the matrix input will override any connections made to the inputs below it. If nothing is connected to the matrix input, the transformation is taken from any connections to inputs for position, rotation, and scaling.
 
 Note that this node needs to make several ray casts to ensure all instances fall within the volume of the source mesh so this node can be quite slow. Keeping the source mesh simple and the number of instances few will help optimize the time this node requires, but expect this node to be resource intensive whenever it is used.  
@@ -1830,7 +1830,7 @@ Note that this node needs to make several ray casts to ensure all instances fall
 ## Misc
 These nodes are largely to help with organization and debugging a graph, but there is also some utility to be found in them. Node graphs are notorious for being difficult to read once they get complex due to the spaghetti of wires that often occurs within large graphs. That's where both the teleport nodes and the elbow node come in. These nodes help reduce some of the wire complexity in graphs, making them much easier to read. Debugging the graph can also be challenging especially when large arrays of values are being pushed through the graph. The debug node is crucial for being able to see values passed along any wire at any point. Lastly, the GeometryInfo node can be used as easily to debug the graph as it can to drive logic within.
 
-<H3Image title="Debug" image="/img/tools/nge/debugNode.jpg" alt="Debug node"/>
+<H3Image title="Debug" image="/img/tools/nge/debugNode.webp" alt="Debug node"/>
 The debug node is a very simple node that can be connected to Float, Int, Vector2, Vector3, Vector4, and Matrix types. While the node can be manually connected between two nodes, simply dropping a debug from the graph on an existing wire of a supported type will automatically connect the node in the middle of the existing wire. Alternatively a debug node can be inserted into an existing wire simply by holding crtl and left clicking any compatible wire. And while these methods of quickly inserting a debug node require it to be inserted between two nodes, the debug node does not require a connection to its output to function. It can be a terminal node in the graph if needed to debug a value that isn't easily connected back to the graph flow.
 
 The node doesn't do any calculations in the graph, only displays the values carried along the wire in the properties panel. Simply select the node and the panel will display whatever value is being passed. This also works for iterable nodes that may contain an array of values. Since the debug node is only used to display information in the UI, there is no cost to the node and debug nodes can be left within a graph much like an elbow node if desired.
@@ -1847,7 +1847,7 @@ The node doesn't do any calculations in the graph, only displays the values carr
 #### Outputs
 - **output** is a passthrough of the value connected to input of the same type. Note that the debug node only works if it is connected to a path that reaches the GeometryOutput node. If the output does not connect to GeometryOutput at some point, this node won't be evaluated and will not show any debug values when selected.
 
-<H3Image title="Elbow" image="/img/tools/nge/elbowNode.jpg" alt="Elbow node"/>
+<H3Image title="Elbow" image="/img/tools/nge/elbowNode.webp" alt="Elbow node"/>
 The elbow node is an organizational node to help route wires within a graph. It is a passthrough node that supports Float, Int, Vector2, Vector3, Vector4, Matrix, and Geometry types. The use for this node is just to re-route wires to help with graph organization and it adds no time to the graph calculations so many can be used with no sacrifice to performance. Elbow nodes can be used sequentially as well to perform multiple bends in a wire to detour around congested areas of the graph. Like any other node, an elbow also supports multiple connections to its output port so it can be used to split one wire into many when needed.
 
 #### Debug Infos
@@ -1860,7 +1860,7 @@ The elbow node is an organizational node to help route wires within a graph. It 
 #### Outputs
 - **output** is a passthrough of the value connected to input of the same type.
 
-<H3Image title="GeometryInfo" image="/img/tools/nge/geometryInfoNode.jpg" alt="Geometry info node"/>
+<H3Image title="GeometryInfo" image="/img/tools/nge/geometryInfoNode.webp" alt="Geometry info node"/>
 This node is also a passthrough node for the Geometry type which adds no time to a graph. It does perform one important task which is supplying access to information about the associated geometry at this specific point of the graph. There may be need to access information like vertex count for debugging purposes which can be fed directly to a debug node. Alternatively, the collectionID of the geometry might be needed to help drive logic in the graph through nodes like equal. This node is flexible enough to fit many different needs which is why it has been added to this group.
 
 #### Debug Infos
@@ -1878,7 +1878,7 @@ Note that call count and execution count appear five times on this node, once fo
 - **verticesCount** is an Int representing the total number of vertices in this Geometry.
 - **facesCount** is an Int representing the total number of faces in this Geometry.
 
-<H3Image title="Interceptor" image="/img/tools/nge/interceptor.jpg" alt="Interceptor node"/>
+<H3Image title="Interceptor" image="/img/tools/nge/interceptor.webp" alt="Interceptor node"/>
 The Interceptor node can very simply be thought of as a "code insertion" point. With this node serves as a hook within a node tree to pass custom code to the graph to be executed at a specific point in the calculation of the node geometry. This allows you to easily customize and modify your existing Node Geometry Tree with just about anything you could imagine wanting to do. 
 
 See this playground example to see it in action: <Playground id="#QGTNH5" title="Interceptor Example" description="Simple example of the Interceptor Node."/>
@@ -1893,13 +1893,13 @@ See this playground example to see it in action: <Playground id="#QGTNH5" title=
 #### Outputs
 - **output** is a passthrough of the value connected to input of the same type. 
 
-<H3Image title="TeleportIn" image="/img/tools/nge/teleportInNode.jpg" alt="Teleport in node"/>
+<H3Image title="TeleportIn" image="/img/tools/nge/teleportInNode.webp" alt="Teleport in node"/>
 This node is an organizational node to help reduce the complexity of overlapping wires within a graph. It is a passthrough node that supports all data types. This node works in conjunction with the TeleportOut node to make a connection, often far across a graph, without the need for a wire. This node can be connected to any node to create a reference to the value passed by the connected node. When connecting the TeleportIn node to another node, it is important to rename this node to a unique name as this name will be referenced by the TeleportOut node. On the TeleportOut node, selecting the name used by this node as the entry point will create a reference to the value connected to the TeleportIn node. In this way, a single value can be used in several places of a graph without the need to stretch wires across the graph.
 
 #### Inputs
 - **input** can be connected to a node providing a Float, Int, Vector2, Vector3, Vector4, Matrix, or Geometry type.
 
-<H3Image title="TeleportOut" image="/img/tools/nge/teleportOutNode.jpg" alt="Teleport out node"/>
+<H3Image title="TeleportOut" image="/img/tools/nge/teleportOutNode.webp" alt="Teleport out node"/>
 This node is an organizational node to help reduce the complexity of overlapping wires within a graph. It is a passthrough node that supports Float, Int, Vector2, Vector3, Vector4, Matrix, and Geometry types. This node works in conjunction with the TeleportIn node to make a connection, often far across a graph, without the need for a wire. Setting the entry point property on this node will tell the node which value to reference. Each TeleportIn node in the graph will be available to the TeleportOut node and it can be changed just by selecting a new entry point if needed. In this way, a single value can be used in several places of a graph without the need to stretch wires across the graph.
 
 #### Debug Infos
@@ -1915,7 +1915,7 @@ This node is an organizational node to help reduce the complexity of overlapping
 ## Updates
 These nodes will update connected geometry in one of several ways. It could be assigning it to a collection, merging with other geometry, or setting one of the various properties of geometry like colors, material IDs, normals, positions, tangents, or UVs. These nodes, like the math nodes, are some of the most commonly used nodes as they perform very important operations for creating geometry.
 
-<H3Image title="Aggregator" image="/img/tools/nge/aggregator.jpg" alt="Aggregator node"/>
+<H3Image title="Aggregator" image="/img/tools/nge/aggregator.webp" alt="Aggregator node"/>
 This node parses through provided data to provide the min, max, or sum of the data provided. It most commonly works when provided geometry and a subset of the positional data of the vertices of that geometry. 
 
 In the example below, the desired outcome is to place a plane on a box, at the exact position of the second to last edge in Y from the top. No matter how many subdivisions the cube has, the plane will always appear at the second to last edge in the Y direction from the top.
@@ -1950,7 +1950,7 @@ Try adjusting the Int slider being passed to the subdivisionsY value of the Box 
 #### Outputs
 - **output** is the resulting float from the aggregator operation (min, max, sum)
 
-<H3Image title="Boolean" image="/img/tools/nge/boolean.jpg" alt="Boolean node"/>
+<H3Image title="Boolean" image="/img/tools/nge/boolean.webp" alt="Boolean node"/>
 This node will create a new mesh from the intersection of the two meshes connected to the inputs depending on the operation chosen. Note that this operation works best when both geometry inputs have a moderately high and relatively similar subdivision count. If the two geometry inputs have low resolution or big differences between them in resolution the resulting mesh can be poorly triangulated. The result of the boolean operation will be a newly constructed triangle list removing any vertices that are eliminated by the chosen operation. Because this is a newly generated mesh, previous mesh attributes like UVs will be removed and need to be authored for this new mesh. 
 
 #### Debug Infos
@@ -1968,7 +1968,7 @@ This node will create a new mesh from the intersection of the two meshes connect
 #### Outputs
 - **output** is the resulting mesh from the boolean operation.
 
-<H3Image title="CleanGeometry" image="/img/tools/nge/cleanGeometry.jpg" alt="Clean Geometry Node"/>
+<H3Image title="CleanGeometry" image="/img/tools/nge/cleanGeometry.webp" alt="Clean Geometry Node"/>
 It is possible to end up with geometry where the faces are inverted from what the user expects to see, even after using the "Compute Normals" node. The Clean Geometry node attempts to resolve this by recalculating the normal direction of surfaces. 
 
 #### Debug Infos
@@ -1984,7 +1984,7 @@ It is possible to end up with geometry where the faces are inverted from what th
 #### Outputs
 - **output** is the geometry after computing normals.
 
-<H3Image title="Collection" image="/img/tools/nge/collectionNode.jpg" alt="Collection node"/>
+<H3Image title="Collection" image="/img/tools/nge/collectionNode.webp" alt="Collection node"/>
 This node creates a collection of up to 10 geometry inputs. When used in conjunction with one of the instantiate nodes, the collection will provide one random geometry from the collection per iteration of the instantiate node. This allows for more randomization when creating a procedural mesh. The collection also provides a unique collection ID to each included geometry to help drive logic within the graph. The collection ID can be accessed with the GeometryInfo node. 
 
 #### Debug Infos
@@ -2009,7 +2009,7 @@ This node creates a collection of up to 10 geometry inputs. When used in conjunc
 #### Outputs
 - **output** is a randomly selected geometry from those available through connected inputs.
 
-<H3Image title="ComputeNormals" image="/img/tools/nge/computeNormalsNode.jpg" alt="Compute normals node"/>
+<H3Image title="ComputeNormals" image="/img/tools/nge/computeNormalsNode.webp" alt="Compute normals node"/>
 There are times when it is necessary to recompute normals when creating geometry. This node is simply there to handle any computations of normals that are needed. 
 
 #### Debug Infos
@@ -2022,7 +2022,7 @@ There are times when it is necessary to recompute normals when creating geometry
 #### Outputs
 - **output** is the geometry after computing normals.
 
-<H3Image title="Lattice" image="/img/tools/nge/lattice.jpg" alt="Lattice Node"/>
+<H3Image title="Lattice" image="/img/tools/nge/lattice.webp" alt="Lattice Node"/>
 The lattice places a simplified "cage" over your geometry, allowing you to manipulate the geometry from a higher and simplified level. You can think of it as a deformer based on a simplified mesh. The lattice tool is a handy way to make larger manipulations to an already detailed piece of geometry.
 
 There are a couple of special things to note about the lattice node. In the 3D example below, the white cone represents the geometry passed to the lattice node and the wireframe box represents the lattice cage placed around the geometry. The lattice cage is automatically mapped to the bounding box of the geometry that's connected to it. Each manipulation point of the lattice is known as a "Lattice ID." Much like vertices, these Lattice ID's are each represented by a Vector3. In the case of the 3D example below, the resolutionX, resolutionY, and resolutionZ are all set to 3 and you can see the Vector3 ID of each point on the lattice cage. Note that the lattice ID of (0,0,0) is always mapped to the lowest x,y,z point of the bounding box surrounding the geometry. 
@@ -2031,15 +2031,15 @@ There are a couple of special things to note about the lattice node. In the 3D e
 
 Manipulating the lattice IDs is very similar to how you modify vertices in the Node Geometry Editor. Have a look at this example: <NGE id="#FF8N3Q#5" title="Lattice Example" description="Simple example of the Lattice Node."/>
 
-<img src="/img/tools/nge/latticeExample1.jpg" title="LatticeExample1" alt="Lattice Example 1"/>
+<img src="/img/tools/nge/latticeExample1.webp" title="LatticeExample1" alt="Lattice Example 1"/>
 
 You start by connecting geometry to the input port of the Lattice node and connect the output geometry port of the lattice node to the Geometry Output node. This step creates the "cage" around the input cylinder.
 
-<img src="/img/tools/nge/latticeExample2.jpg" title="LatticeExample2" alt="Lattice Example 2"/>
+<img src="/img/tools/nge/latticeExample2.webp" title="LatticeExample2" alt="Lattice Example 2"/>
 
 Next, you specify the lattice IDs of the cage that you'd like to manipulate. In the case of the image above, we are targeting any lattice ID that has the same y value as defined by an input slider. Note the use of the Lattice ID node here.
 
-<img src="/img/tools/nge/latticeExample3.jpg" title="LatticeExample3" alt="Lattice Example 3"/>
+<img src="/img/tools/nge/latticeExample3.webp" title="LatticeExample3" alt="Lattice Example 3"/>
 
 Lastly, manipulating the Lattice Control values will apply the modification to the Lattice. In the case above, the Lattice Control node is passed to the Equal node's ifFalse port. This means that when the Y value of a Lattice ID is NOT equal to the slider, don't do anything. Or in more simple terms, apply nothing. In the case of the evaluation being "True" we modify the Lattice Control, multiplying the X and Z values by 1.5. 
 
@@ -2060,7 +2060,7 @@ The Lattice tool is incredibly powerful for making large sweeping modifications 
 #### Outputs
 - **output** is the geometry after computing normals.
 
-<H3Image title="Mapping" image="/img/tools/nge/mappingNode.jpg" alt="Mapping node"/>
+<H3Image title="Mapping" image="/img/tools/nge/mappingNode.webp" alt="Mapping node"/>
 When working with geometry, it is often necessary to create a new UV mapping for it such as when the geometry has been optimized or if an additional UV set is desired. This node will create new set of UV coordinates for the geometry based on the projection method selected. The available projections are spherical, cylindrical, and cubic and more may be added in the future. Simply pass the positions contextual value to the position input and a Vector3 to the center input to define the center of the projection and create UV coordinates for each vertex.
 
 #### Properties
@@ -2081,7 +2081,7 @@ When working with geometry, it is often necessary to create a new UV mapping for
 #### Outputs
 - **uv** is the UV set generated for the mesh. This output would be connected to a SetUVs node to apply the UV set to the geometry.
 
-<H3Image title="Merge" image="/img/tools/nge/mergeNode.jpg" alt="Merge node"/>
+<H3Image title="Merge" image="/img/tools/nge/mergeNode.webp" alt="Merge node"/>
 A common operation when creating procedural geometry is to merge two or more different meshes. This node will merge up to five geometry inputs into one using a simple merge. This node does not do any type of boolean operation and does not change the vertex lists or UV coordinates at all. If multiple meshes are merged which have different material IDs, a MultiMaterial will be created and assigned to keep the original material breaks of each geometry. When using the Merge node, please note that the advanced property Evaluate Context is disabled by default for performance reasons. If the prior context is not evaluated then any procedural generation of values done before the merge node will be executed only once. If the output of that merge node is then used in any instantiate loop, all instances will be exactly the same. If it is desired that merged geometry built procedurally be unique with each instance, the Evaluate Context property on the Merge node must be enabled. Remember that enabling Evaluate Context on a merge node will increase the time needed to generate the final geometry, so it is important to be prudent on how many nodes must be evaluated before merging, especially if the output of the merge is then used as the source for instancing. 
 
 #### Debug Infos
@@ -2101,7 +2101,7 @@ A common operation when creating procedural geometry is to merge two or more dif
 #### Outputs
 - **output** is the merged geometry made from those available through connected inputs.
 
-<H3Image title="Optimize" image="/img/tools/nge/optimizeNode.jpg" alt="Optimize node"/>
+<H3Image title="Optimize" image="/img/tools/nge/optimizeNode.webp" alt="Optimize node"/>
 There are times when a geometry will have unwelded vertices where multiple vertices occupy the same position. This is common when using glTF files as the specification states that vertices that lie on a UV seam should be split for optimization reasons. If working with geometry that has unwelded vertices that need to be merged, use the optimize node. This node does a simple operation that merges any vertices that share the same position within a certain epsilon. This operation is destructive in that it creates a new triangle list and deletes all vertex parameters other than positions. This means that any mesh that has been optimized will need new normals, tangents, and vertex colors. Typically, the first node connected after an Optimize node would be a ComputeNormals node.
 
 #### Debug Infos
@@ -2118,7 +2118,7 @@ There are times when a geometry will have unwelded vertices where multiple verti
 #### Outputs
 - **output** is the optimized geometry which will no longer have a UV mapping if one existed.
 
-<H3Image title="SetColors" image="/img/tools/nge/setColorsNode.jpg" alt="Set colors node"/>
+<H3Image title="SetColors" image="/img/tools/nge/setColorsNode.webp" alt="Set colors node"/>
 This node is one of the several which are responsible for defining geometry properties. This node will set the color of each vertex in the geometry according to the Vector4 value provided to the node. 
 
 #### Debug Infos
@@ -2135,7 +2135,7 @@ This node is one of the several which are responsible for defining geometry prop
 #### Outputs
 - **output** is the geometry after defining a property with this node.
 
-<H3Image title="SetMaterialID" image="/img/tools/nge/setMaterialIDNode.jpg" alt="Set Material ID node"/>
+<H3Image title="SetMaterialID" image="/img/tools/nge/setMaterialIDNode.webp" alt="Set Material ID node"/>
 This node is one of the several which are responsible for defining geometry properties. This node will set the material ID of each vertex in the geometry according to the Int value provided to the node. 
 
 #### Properties
@@ -2155,7 +2155,7 @@ This node is one of the several which are responsible for defining geometry prop
 #### Outputs
 - **output** is the geometry after defining a property with this node.
 
-<H3Image title="SetNormals" image="/img/tools/nge/setNormalsNode.jpg" alt="Set normals node"/>
+<H3Image title="SetNormals" image="/img/tools/nge/setNormalsNode.webp" alt="Set normals node"/>
 This node is one of the several which are responsible for defining geometry properties. This node will set the normals of each vertex in the geometry according to the Vector3 value provided to the node. 
 
 #### Debug Infos
@@ -2172,7 +2172,7 @@ This node is one of the several which are responsible for defining geometry prop
 #### Outputs
 - **output** is the geometry after defining a property with this node.
 
-<H3Image title="SetPositions" image="/img/tools/nge/setPositionsNode.jpg" alt="Set positions node"/>
+<H3Image title="SetPositions" image="/img/tools/nge/setPositionsNode.webp" alt="Set positions node"/>
 This node is one of the several which are responsible for defining geometry properties. This node will set the positions of each vertex in the geometry according to the Vector3 value provided to the node. 
 
 #### Debug Infos
@@ -2189,7 +2189,7 @@ This node is one of the several which are responsible for defining geometry prop
 #### Outputs
 - **output** is the geometry after defining a property with this node.
 
-<H3Image title="SetTangents" image="/img/tools/nge/setTangentsNode.jpg" alt="Set tangents node"/>
+<H3Image title="SetTangents" image="/img/tools/nge/setTangentsNode.webp" alt="Set tangents node"/>
 This node is one of the several which are responsible for defining geometry properties. This node will set the tangents of each vertex in the geometry according to the Vector4 value provided to the node. 
 
 #### Debug Infos
@@ -2206,7 +2206,7 @@ This node is one of the several which are responsible for defining geometry prop
 #### Outputs
 - **output** is the geometry after defining a property with this node.
 
-<H3Image title="SetUVs" image="/img/tools/nge/setUVsNode.jpg" alt="Set UVs node"/>
+<H3Image title="SetUVs" image="/img/tools/nge/setUVsNode.webp" alt="Set UVs node"/>
 This node is one of the several which are responsible for defining geometry properties. This node will set the UVs of each vertex in the geometry according to the Vector2 value provided to the node. Using this node, a new UV set can be saved to any of the six available UV sets that the engine supports. Simply choose which set is desired in the Texture coordinates index property to assign the UV coordinates to that set.
 
 #### Debug Infos
@@ -2224,7 +2224,7 @@ This node is one of the several which are responsible for defining geometry prop
 #### Outputs
 - **output** is the geometry after defining a property with this node.
 
-<H3Image title="Subdivide" image="/img/tools/nge/subdivide.jpg" alt="Subdivide node"/>
+<H3Image title="Subdivide" image="/img/tools/nge/subdivide.webp" alt="Subdivide node"/>
 The subdivide node divides geometry into smaller polygons.
 
 In this example, a box is subdivided into a spherical shape: <NGE id="#X7L4SK" title="Subdivide Example" description="Simple example of the Subidivide Node."/>
@@ -2246,7 +2246,7 @@ In this example, a box is subdivided into a spherical shape: <NGE id="#X7L4SK" t
 ## Noises
 These nodes are used to create randomize values used for various operations in procedural geometry creation. 
 
-<H3Image title="Noise" image="/img/tools/nge/noiseNode.jpg" alt="Noise node"/>
+<H3Image title="Noise" image="/img/tools/nge/noiseNode.webp" alt="Noise node"/>
 This node provides a simple 3D Perlin noise to generate a volume of randomized values between 0.0 and 1.0. The properties of the noise can be set to create a range of different value patterns. 
 
 #### Properties
@@ -2268,7 +2268,7 @@ This node provides a simple 3D Perlin noise to generate a volume of randomized v
 #### Outputs
 - **output** is the noise texture as a Float type.
 
-<H3Image title="Random" image="/img/tools/nge/randomNode.jpg" alt="Random node"/>
+<H3Image title="Random" image="/img/tools/nge/randomNode.webp" alt="Random node"/>
 This node provides a random value between a minimum value and a maximum value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. When using this node with iterable nodes, the node will return a new random value per iteration. Iterable nodes include SetColors, SetNormals, SetPositions, SetTangents, and SetUVs as the operations are performed for every vertex in the geometry. If a random node is used before one of these iterable nodes, a new random value will be generated for each iteration. This is also true for all of the instantiate nodes where the node will loop a certain number of times based on inputs. For more control, the Random node also has an advanced property to lock the value per loop so that the random value will be the same for each iteration or loop. Note that this property only applies to the nearest iteration or loop being performed by a node. This means if a Random node feeds a SetColor node which in turn feeds an Instantiate node, locking the value per loop will apply only to the SetColor node and not the Instantiate node. 
 
 #### Debug Infos
@@ -2288,7 +2288,7 @@ This node provides a random value between a minimum value and a maximum value. T
 ## Textures
 Texture data can be loaded and cached to be made available to the graph. Texture data can be used for operations like instantiating meshes based on texture values at a given UV coordinate or for assigning vertex color to a mesh. Using textures in the graph require both a Texture node and a Texture Fetch node. The Texture node takes care of the loading and caching of the Texture data while the Texture Fetch takes care of returning specific Texture data based on UV coordinate. Unlike Texture nodes in the Node Material Editor, Texture data is not rendered on the mesh directly but instead used for driving instantiation or setting mesh properties.
 
-<H3Image title="Texture" image="/img/tools/nge/textureNode.jpg" alt="Texture node"/>
+<H3Image title="Texture" image="/img/tools/nge/textureNode.webp" alt="Texture node"/>
 This node is responsible for caching Texture data that is loaded by this node. This can be either through manually loading a texture with the Load property or through assigning a texture to the node in code.   
 
 #### Debug Infos
@@ -2305,7 +2305,7 @@ This node is responsible for caching Texture data that is loaded by this node. T
 #### Outputs
 - **texture** is the cached Texture data associated with this node. The icon on the output is unique to Texture data because this node can only be connected to a Texture Fetch node which is needed to access the cached Texture data.
 
-<H3Image title="Texture Fetch" image="/img/tools/nge/textureFetchNode.jpg" alt="Texture Fetch node"/>
+<H3Image title="Texture Fetch" image="/img/tools/nge/textureFetchNode.webp" alt="Texture Fetch node"/>
 This node is responsible for returning Texture data cached by the Texture node at a given UV coordinate. This node will only accept input connections from the Texture node.   
 
 #### Debug Infos
@@ -2331,7 +2331,7 @@ Note that call count and execution count appear six times on this node, once for
 ## Output Nodes
 These are required nodes for the graph to create an output geometry.
 
-<H3Image title="Geometry Output" image="/img/tools/nge/geometryOutputNode.jpg" alt="Geometry output node"/>
+<H3Image title="Geometry Output" image="/img/tools/nge/geometryOutputNode.webp" alt="Geometry output node"/>
 This node is required to create the geometry and whatever is connected to this node is the final geometry for the graph. This node does not have any special considerations for use, but there are some useful things to know about it. Selecting the node will display useful information about the geometry output that is rendered which include vertices, faces, build time, and sub-meshes. The node also gives stats about if the geometry has normals, vertex colors, UVs and the number of sets, tangents, matrix weights, and matrix indices. 
 
 #### Input

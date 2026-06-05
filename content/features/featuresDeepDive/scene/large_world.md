@@ -33,7 +33,7 @@ From the perspective of your application code, nothing changes — meshes are st
 
 ## Examples
 
-<Playground id="#5U0N0Q" title="Large World Rendering Demo" description="Side-by-side comparison of rendering with and without floating origin enabled. Move the camera to see jitter" image="/img/playgroundsAndNMEs/floatingOriginMain.png" />
+<Playground id="#5U0N0Q" title="Large World Rendering Demo" description="Side-by-side comparison of rendering with and without floating origin enabled. Move the camera to see jitter" image="/img/playgroundsAndNMEs/floatingOriginMain.webp" />
 ## Quick Start
 
 The simplest way to enable floating origin is at the engine level:
@@ -203,8 +203,8 @@ When called without a position, `setGravity` and `getGravity` operate on all reg
 
 ## Physics Examples
 
-<Playground id="#9NRVWK" title="Havok+FloatingOrigin Stacked Boxes" description="Side-by-side view of havok physics far from world origin, with floatingorigin mode enabled/disabled" image="/img/playgroundsAndNMEs/havokFloatingOriginStacked.png"/>
+<Playground id="#9NRVWK" title="Havok+FloatingOrigin Stacked Boxes" description="Side-by-side view of havok physics far from world origin, with floatingorigin mode enabled/disabled" image="/img/playgroundsAndNMEs/havokFloatingOriginStacked.webp"/>
 
-<Playground id="#24ZAQP" title="Havok+FloatingOrigin BoomBox" description="Side by side of havok physics with floating origin enabled / disabled" image="/img/playgroundsAndNMEs/havokBoombox.png" />
+<Playground id="#24ZAQP" title="Havok+FloatingOrigin BoomBox" description="Side by side of havok physics with floating origin enabled / disabled" image="/img/playgroundsAndNMEs/havokBoombox.webp" />
 
-<Playground id="#7N17MT#26" title="Havok Multi-Region with Dynamic Re-Regioning" description="Demonstrates multi-region physics with dynamic re-regioning. Use 'Launch Ball' to test physics drift collision across regions, and 'Move Box' to test teleporting bodies between regions." image="/img/playgroundsAndNMEs/havokFloatingOrigin.png" />
+<Playground id="#7N17MT#26" title="Havok Multi-Region with Dynamic Re-Regioning" description="Demonstrates multi-region physics with dynamic re-regioning. Use 'Launch Ball' to test physics drift collision across regions, and 'Move Box' to test teleporting bodies between regions." image="/img/playgroundsAndNMEs/havokFloatingOrigin.webp" />

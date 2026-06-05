@@ -29,7 +29,7 @@ Note that if you share a Smart Filter that uses custom assets or blocks, the per
 
 ## Navigating SFE
 
-![LAYOUT](/img/how_to/smart-filters/sfe-layout.png)
+![LAYOUT](/img/how_to/smart-filters/sfe-layout.webp)
 
 1. The Block Library is on the left
    - Click "Add..." in "Custom Blocks" to add a custom block to the library (see _Custom Blocks_ below for details)

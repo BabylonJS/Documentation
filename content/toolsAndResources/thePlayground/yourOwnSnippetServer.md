@@ -18,7 +18,7 @@ To check out what is the minimum expected of a Snippet Server, let's take a look
 
 In this reference implementation, the snippets are armazened in a directory called `data`, while another directory, called `metadata`, stores the latest version of each snippet ID. And what is a "snippet ID" and a "version", you may ask? If you look at any URL that is saved in our tools, you can see it has two parts:
 
-![Example of a snippet ID: https://playground.babylonjs.com/#CBGEQX#2, with a red arrow pointing from the section "CBGEQX" to the words "snippet ID" and a blue arrow pointing from the number 2 to the word "version" ](/img/tools/Playground/snippet_url.png)
+![Example of a snippet ID: https://playground.babylonjs.com/#CBGEQX#2, with a red arrow pointing from the section "CBGEQX" to the words "snippet ID" and a blue arrow pointing from the number 2 to the word "version" ](/img/tools/Playground/snippet_url.webp)
 
 In the example: `https://playground.babylonjs.com/#CBGEQX#2`, the section `CBGEQX#2` is the snippet URL, with everything before the # being the snippet ID, and the number after it being the snippet version. The first version of a snippet may not have a explicit version number. We use a 5-character string for our snippet IDs, but that isn't a requirement. You do need to have the `#<version>` section, through.
 
@@ -115,7 +115,7 @@ And that's all you need for your own Snippet Server! You can add more functional
 
 Now that you have a server up and running, you'll want to point your Babylon library and tools to it. This can be accomplished by [making a copy of the Babylon repository locally](/contribute/toBabylon/HowToContribute) and changing instances of the URL "https://snippet.babylonjs.com" to your own Snippet Server URL. You can use the same instance of the server for all cases, or you can have separate instances with separate URLs for separate functionalities like Node Material, Animation, etc. To make it easier to find all these URLs, you can use the "CTRL+SHIFT+F" shortcut on Visual Studio Code (if that's your IDE of choice):
 
-![Example of using the Search function of Visual Studio Code to search for "https://snippet.babylonjs.com"](/img/tools/Playground/snippet_search.png)
+![Example of using the Search function of Visual Studio Code to search for "https://snippet.babylonjs.com"](/img/tools/Playground/snippet_search.webp)
 
 ## A Note About CORS
 

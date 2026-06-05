@@ -47,7 +47,7 @@ The default actions are:
 
 Optional actions are:
 
-1. MouseWheel - The scroll wheel on a mouse or scroll actions on a touchpad. <Playground id="#DWPQ9R#1" title="Adding Scroll Wheel to Universal Camera" description="A simple example of adding scroll wheel functionality to the universal camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro1.jpg"/>
+1. MouseWheel - The scroll wheel on a mouse or scroll actions on a touchpad. <Playground id="#DWPQ9R#1" title="Adding Scroll Wheel to Universal Camera" description="A simple example of adding scroll wheel functionality to the universal camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro1.webp"/>
 
 ### Note
 
@@ -66,7 +66,7 @@ camera.setTarget(BABYLON.Vector3.Zero());
 camera.attachControl(canvas, true);
 ```
 
-<Playground id="#DWPQ9R#1" title="Universal Camera Example" description="A simple example of how to construct a universal camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.jpg" isMain={true} category="Cameras"/>
+<Playground id="#DWPQ9R#1" title="Universal Camera Example" description="A simple example of how to construct a universal camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.webp" isMain={true} category="Cameras"/>
 
 ## Arc Rotate Camera
 
@@ -80,7 +80,7 @@ Think of this camera as one orbiting its target position, or more imaginatively 
 
 Here is an illustration:
 
-![arc rotate camera](/img/how_to/camalphabeta.jpg)
+![arc rotate camera](/img/how_to/camalphabeta.webp)
 
 Setting `beta` to 0 or PI can, for technical reasons, cause problems, so in this situation, `beta` is offset by 0.1 radians (about 0.6 degrees).
 
@@ -106,7 +106,7 @@ The following optional `ArcRotateCamera` properties can also be handy:
 
 Here's a Playground that shows how the camera moves, including what happens when the upVector (direction that camera treats as "up") is changed:
 
-  <Playground id="#GB1AW7#21" title="ArcRotateCamera Rotation Example" description="A demo showing how the camera moves with changes to alpha, beta, and the camera's upVector" image="/img/playgroundsAndNMEs/pg-GB1AW7-21.jpg" isMain={true} category="Cameras"/>
+  <Playground id="#GB1AW7#21" title="ArcRotateCamera Rotation Example" description="A demo showing how the camera moves with changes to alpha, beta, and the camera's upVector" image="/img/playgroundsAndNMEs/pg-GB1AW7-21.webp" isMain={true} category="Cameras"/>
 
 ### Constructing an Arc Rotate Camera
 
@@ -121,7 +121,7 @@ camera.setPosition(new BABYLON.Vector3(0, 0, 20));
 camera.attachControl(canvas, true);
 ```
 
-<Playground id="#SRZRWV#839" title="arcRotate Camera Example" description="A simple example of how to construct an arcRotate camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.jpg" isMain={true} category="Cameras"/>
+<Playground id="#SRZRWV#839" title="arcRotate Camera Example" description="A simple example of how to construct an arcRotate camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.webp" isMain={true} category="Cameras"/>
 
 By default, panning with an `ArcRotateCamera` is also possible by using <kbd>Ctrl</kbd> + <kbd>left mouse button</kbd>. You can use <kbd>right mouse button</kbd> instead by setting `useCtrlForPanning` to `false` in the `attachControl` call :
 
@@ -137,7 +137,7 @@ camera.panningSensibility = 0;
 
 Here's a demo demonstrating some of these things, along with other features of the ArcRotateCamera:
 
-<Playground id="#3B5W22#29" title="ArcRotateCamera Offset Demo" description="A demonstration of setting targetScreenOffset" image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro6.jpg" isMain={true} category="Cameras"/>
+<Playground id="#3B5W22#29" title="ArcRotateCamera Offset Demo" description="A demonstration of setting targetScreenOffset" image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro6.webp" isMain={true} category="Cameras"/>
 
 ## FollowCamera
 
@@ -183,7 +183,7 @@ camera.target = targetMesh; // version 2.4 and earlier
 camera.lockedTarget = targetMesh; //version 2.5 onwards
 ```
 
-<Playground id="#SRZRWV#6" title="Follow Camera Example" description="A simple example of how to construct a follow camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro3.jpg" isMain={true} category="Cameras"/>
+<Playground id="#SRZRWV#6" title="Follow Camera Example" description="A simple example of how to construct a follow camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro3.webp" isMain={true} category="Cameras"/>
 
 ## AnaglyphCameras
 
@@ -228,7 +228,7 @@ camera.moveSensibility = 10;
 camera.attachControl(canvas, true);
 ```
 
-<Playground id="#SRZRWV#3" title="Device Orientation Camera Example" description="A simple example of how to construct a Device Orientation camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro4.jpg" isMain={true} category="Cameras"/>
+<Playground id="#SRZRWV#3" title="Device Orientation Camera Example" description="A simple example of how to construct a Device Orientation camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro4.webp" isMain={true} category="Cameras"/>
 
 ## Virtual Joysticks Camera
 
@@ -281,7 +281,7 @@ The [VRDeviceOrientationFreeCamera](/typedoc/classes/babylon.vrdeviceorientation
 
 Example (requires a VR device):
 
-<Playground id="#SRZRWV#4" title="VR Device Orientation Camera Example" description="A simple example of how to construct a VR Device Orientation camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro5.jpg"/>
+<Playground id="#SRZRWV#4" title="VR Device Orientation Camera Example" description="A simple example of how to construct a VR Device Orientation camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro5.webp"/>
 
 ## Constructing a VR Device Orientation Free Camera
 
@@ -383,9 +383,9 @@ If you want to change user inputs based upon user preferences, customize one of 
 ## Correcting perspective projection
 
 If you are doing applications like architectural rendering, you may encounter the need to compensate for perspective tilting of vertical lines.
-Let's consider this case : you are rendering a tall building from a human eye point of view. Naturally, vertical lines will converge towards a vanishing point, like on [this playground](https://playground.babylonjs.com/#L20FJ4#15) : ![Screenshot of the tilted vertical lines](/img/how_to/tilted-vertical.jpg).
+Let's consider this case : you are rendering a tall building from a human eye point of view. Naturally, vertical lines will converge towards a vanishing point, like on [this playground](https://playground.babylonjs.com/#L20FJ4#15) : ![Screenshot of the tilted vertical lines](/img/how_to/tilted-vertical.webp).
 
-While this is realistic, it may be visually unappealing. If the angle between those lines stays quite low, it may be interesting to consider correcting the perspective correction, using `camera.applyVerticalCorrection()`. This method will automatically compute the vertical correction to apply regarding the current camera pitch angle : ![Screenshot of the corrected vertical lines](/img/how_to/corrected-vertical.jpg).
+While this is realistic, it may be visually unappealing. If the angle between those lines stays quite low, it may be interesting to consider correcting the perspective correction, using `camera.applyVerticalCorrection()`. This method will automatically compute the vertical correction to apply regarding the current camera pitch angle : ![Screenshot of the corrected vertical lines](/img/how_to/corrected-vertical.webp).
 
 And if you want further control other the camera projection plane tilting, you can mess with the `camera.projectionPlaneTilt` property.
 See [this forum post](https://forum.babylonjs.com/t/add-vertical-shift-to-3ds-max-exporter-babylon-cameras/17480/16) for more information.

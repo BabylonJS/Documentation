@@ -67,7 +67,7 @@ the main Vaporwear watch asset.
     etc.) could be included in the secondary files while still allowing
     the main asset file to remain as small as possible.
 
-    ![File size](/img/devStories/vaporwearConfigurator/chapter_art/01_file_size.png)
+    ![File size](/img/devStories/vaporwearConfigurator/chapter_art/01_file_size.webp)
 
 1.  **Animations**: In different parts of the site, the watch was supposed
     to adopt two different poses: wrapped "up" as though on a wrist and
@@ -78,7 +78,7 @@ the main Vaporwear watch asset.
     one to go "up" and one to go "down." He even added a little spin to the
     animation, just for style.
 
-    ![Blender NLA](/img/devStories/vaporwearConfigurator/chapter_art/02_nla.png)
+    ![Blender NLA](/img/devStories/vaporwearConfigurator/chapter_art/02_nla.webp)
 
 1.  **Materials**: While a key goal of main asset was to stay small by
     leaving most of the materials to be downloaded later in another file,
@@ -87,7 +87,7 @@ the main Vaporwear watch asset.
     materials included with the main asset were as small as possible while
     still looking good.
 
-    ![Main material](/img/devStories/vaporwearConfigurator/chapter_art/03_main_material.png)
+    ![Main material](/img/devStories/vaporwearConfigurator/chapter_art/03_main_material.webp)
 
 1.  **Watch Face**: The face of the watch was supposed to be dynamic,
     showing the actual time, and Diane had told the team she would take
@@ -98,7 +98,7 @@ the main Vaporwear watch asset.
     make the provided watch face texture as small and useless as he wanted
     to since it would never be seen in the rendering anyway.
 
-    ![Watch face texture](/img/devStories/vaporwearConfigurator/chapter_art/04_face_texture.png)
+    ![Watch face texture](/img/devStories/vaporwearConfigurator/chapter_art/04_face_texture.webp)
 
 While working on the main asset, Carlos periodically wanted to check that
 the asset would render the way he expected it to in the final experience.
@@ -115,7 +115,7 @@ real experience on the Vaporwear site. Thus, by viewing his model using
 that Sandbox, he could be sure he was seeing the model (animations and all)
 the same way that customers eventually would.
 
-![Watch in sandbox](/img/devStories/vaporwearConfigurator/chapter_art/05_watch_in_sandbox.png)
+![Watch in sandbox](/img/devStories/vaporwearConfigurator/chapter_art/05_watch_in_sandbox.webp)
 
 Note that the main asset's visuals weren't the only things that would be
 included in the main asset file; small amounts of data for
@@ -176,7 +176,7 @@ noteworthy "tricks."
     watch's skeleton, and the studs should correctly position themselves
     and animate as the watch's skeleton animates.
 
-    ![Watch laying flat](/img/devStories/vaporwearConfigurator/chapter_art/06_watch_flat.png)
+    ![Watch laying flat](/img/devStories/vaporwearConfigurator/chapter_art/06_watch_flat.webp)
 
 1.  **Instancing**: The four "studs" were identical, and this provided an
     opportunity for Carlos to give a little boost to the eventual rendering
@@ -189,7 +189,7 @@ noteworthy "tricks."
     so Carlos did that with the studs in order to help them render more
     efficiently.
 
-    ![Studs as linked meshes](/img/devStories/vaporwearConfigurator/chapter_art/07_studs_linked.png)
+    ![Studs as linked meshes](/img/devStories/vaporwearConfigurator/chapter_art/07_studs_linked.webp)
 
 1.  **Materials**: As with the main asset, the "studs" asset was created
     to contain specific geometry, not a materials collection, so Carlos
@@ -206,7 +206,7 @@ Commerce-certified Sandbox. He was even able to use the
 to modify the gemstone material as a preview of what it would look like
 with another material.
 
-![Studs material modification](/img/devStories/vaporwearConfigurator/chapter_art/08_studs_in_sandbox_modified.png)
+![Studs material modification](/img/devStories/vaporwearConfigurator/chapter_art/08_studs_in_sandbox_modified.webp)
 
 ### Additional Materials File
 
@@ -229,7 +229,7 @@ without sacrificing visual quality.
     impact on the file size as geometry in general tends to be far, far
     smaller than textures, but it was still better to not waste space.
 
-    ![Materials quads](/img/devStories/vaporwearConfigurator/chapter_art/09_material_quads.png)
+    ![Materials quads](/img/devStories/vaporwearConfigurator/chapter_art/09_material_quads.webp)
 
 1.  **PBR parameters**: A much more impactful measure was to exclude
     certain textures when those textures could effectively be replaced
@@ -241,7 +241,7 @@ without sacrificing visual quality.
     Vaporwear that doing this didn't impact the rendering negatively,
     but in every case they were unable to discern a difference.
 
-    ![Omitted textures](/img/devStories/vaporwearConfigurator/chapter_art/10_omitted_textures.png)
+    ![Omitted textures](/img/devStories/vaporwearConfigurator/chapter_art/10_omitted_textures.webp)
 
 1.  **Texture resolution**: The last and most powerful trick Carlos used
     to manage file size was to change the resolution of the PBR textures.
@@ -251,7 +251,7 @@ without sacrificing visual quality.
     very close, and ultimately Carlos was able to reduce the resolution
     of every material texture by at least _some_ amount.
 
-    ![Larger and smaller textures](/img/devStories/vaporwearConfigurator/chapter_art/11_big_next_to_small.png)
+    ![Larger and smaller textures](/img/devStories/vaporwearConfigurator/chapter_art/11_big_next_to_small.webp)
 
 1.  (**Addendum:** Another trick that can also be worth trying is using
     JPEGs instead of PNGs for the texture files. This is a trick that
@@ -289,7 +289,7 @@ for Carlos to set up in Blender.
     motion, so Carlos ended up with four named empty transforms, each with
     an animation that moved it.
 
-    ![Matchmove nulls](/img/devStories/vaporwearConfigurator/chapter_art/12_matchmove_nulls.png)
+    ![Matchmove nulls](/img/devStories/vaporwearConfigurator/chapter_art/12_matchmove_nulls.webp)
 
 1.  Creating the parameters for the "arc-rotate" camera state was not as
     precise -- the camera in that state was interactive, so its motion
@@ -303,7 +303,7 @@ for Carlos to set up in Blender.
     also served to specify the starting position for the "arc-rotate"
     state.
 
-    ![Camera overall](/img/devStories/vaporwearConfigurator/chapter_art/13_camera_overall.png)
+    ![Camera overall](/img/devStories/vaporwearConfigurator/chapter_art/13_camera_overall.webp)
 
 An important note is that these camera motions were exported as part of the
 main asset GLB, not additional geometry or materials GLBs. This was
@@ -319,7 +319,7 @@ _Hotspots_ are points of interest in the 3D scene that can be tracked
 so that 2D UI (markers, labels, etc.) can be connected to specific
 locations in the 3D scene.
 
-![Hotspot](/img/devStories/vaporwearConfigurator/chapter_art/14_hotspot.png)
+![Hotspot](/img/devStories/vaporwearConfigurator/chapter_art/14_hotspot.webp)
 
 The design for the Vaporwear site featured three hotspots, two of which
 would be visible during a "matchmoving" state and one of which would
@@ -332,7 +332,7 @@ hotspots were and when they should be visible.
     Carlos simply created a named empty transform to mark the point of
     interest.
 
-    ![Hotspot nulls](/img/devStories/vaporwearConfigurator/chapter_art/15_hotspot_nulls.png)
+    ![Hotspot nulls](/img/devStories/vaporwearConfigurator/chapter_art/15_hotspot_nulls.webp)
 
 1.  Specifying visibility for the hotspots in the "matchmoving" state
     was also simple. Because the motion of the camera was fully determined
@@ -347,7 +347,7 @@ hotspots were and when they should be visible.
     simply have to check the visibility indicator's local position to
     determine whether the hotspot was visible or not.
 
-    ![Hotspot visibility](/img/devStories/vaporwearConfigurator/chapter_art/16_hotspot_visibility.png)
+    ![Hotspot visibility](/img/devStories/vaporwearConfigurator/chapter_art/16_hotspot_visibility.webp)
 
 1.  Specifying visibility for the hotspot in the "arc-rotate" state had to
     be done differently because the camera's motion in that state would be
@@ -361,7 +361,7 @@ hotspots were and when they should be visible.
     to the hotspot itself and used the local X position of that transform
     to specify the dot product threshold.
 
-    ![Arc-rotate hotspot](/img/devStories/vaporwearConfigurator/chapter_art/17_arc-rotate_hotspot.png)
+    ![Arc-rotate hotspot](/img/devStories/vaporwearConfigurator/chapter_art/17_arc-rotate_hotspot.webp)
 
 As with the camera motions, these hotspot parameters were added to the
 main asset file: they were very small and could be needed very early in

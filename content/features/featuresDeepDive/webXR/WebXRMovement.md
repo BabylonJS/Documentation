@@ -43,7 +43,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, "latest", {
 });
 ```
 
-<Playground id="#AZML8U" title="Movement with controllers" description="A simple example of controller movement with collisions and gravity" image="/img/how_to/xr/xr-movement-playground.png"/>
+<Playground id="#AZML8U" title="Movement with controllers" description="A simple example of controller movement with collisions and gravity" image="/img/how_to/xr/xr-movement-playground.webp"/>
 
 It is also possible to use the controller to set the movement direction. To do that you need to disable the head-direction settings. You can optionally define which hand will control the rotation:
 
@@ -59,7 +59,7 @@ const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MO
 });
 ```
 
-<Playground id="#AZML8U#242" title="Movement with controllers, direction with controller" description="A simple example of controller movement with collisions and gravity using the controller as direction" image="/img/how_to/xr/xr-movement-playground.png"/>
+<Playground id="#AZML8U#242" title="Movement with controllers, direction with controller" description="A simple example of controller movement with collisions and gravity using the controller as direction" image="/img/how_to/xr/xr-movement-playground.webp"/>
 
 ### Movement Configuration Options
 

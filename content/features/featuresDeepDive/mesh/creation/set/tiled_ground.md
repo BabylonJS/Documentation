@@ -63,7 +63,7 @@ Chess Board: <Playground id="#8VDULN" title="Create a Chess Board" description="
 
 Using these two materials
 
-![grass](/img/how_to/Materials/grass.png) ![rock](/img/how_to/Materials/rock.png)
+![grass](/img/how_to/Materials/grass.webp) ![rock](/img/how_to/Materials/rock.webp)
 
 <Playground id="#8VDULN#1" title="Create a Chess Board With Grass And Rock" description="Simple example of creating a chess board with grass and rock textures."/>
 

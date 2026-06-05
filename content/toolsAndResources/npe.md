@@ -13,17 +13,17 @@ The Node Particle Editor will be familiar for anyone who has already used the No
 
 The tool is available as a stand alone experience by visiting [Node Particle Editor](https://npe.babylonjs.com) and can also be opened from the inspector when selecting any Node Particle System in the scene.
 
-![Node Particle Editor Edit Button](/img/tools/npe/npeButton1.png)
+![Node Particle Editor Edit Button](/img/tools/npe/npeButton1.webp)
 
 Additionally, when you select a regular particle system in the scene, you will have the option to view its representation as a Node Particle System.
 
-![Node Particle Editor View As Button](/img/tools/npe/npeButton2.png)
+![Node Particle Editor View As Button](/img/tools/npe/npeButton2.webp)
 
 ## Interface
 
 The interface for the editor is broken into 4 main sections as can be seen below. The node list is the entire list of available blocks that can be dragged onto the graph. At the top of the list is a search box to help narrow the list. The graph is the workspace for arranging the blocks to create the particle system flow. There is a panel for parameters and controls on the right side of the window which displays any parameters available to the currently selected block. If nothing on the graph is selected, this panel shows controls for the tool itself to load, save, or change default settings. In the bottom right is the preview window which displays the current particle system output in real-time. Lastly, at the bottom of the window is the console log panel which gives information about the build status of the current graph.
 
-![Babylon.js Node Particle Editor](/img/tools/npe/npeWindow.png)
+![Babylon.js Node Particle Editor](/img/tools/npe/npeWindow.webp)
 
 The image above shows several types of blocks available in the graph. At minimum, all particle system graphs need exactly one **System** block and at least one **Emitter** block that creates particles. The System block is the core of every particle system, defining properties like particle capacity, blend modes, and billboard settings. Note that the inputs and outputs on the blocks share colors that give hints on what can be connected. 
 
@@ -35,17 +35,17 @@ Adding blocks to the graph is one of the most common actions taken while working
 
 The second method is to press the space bar for a shortcut to open a search window with a full block list at the mouse position on the graph. Once the window is open, we can simply start typing to enter a keyword in the search bar. Once the list is filtered, use either the mouse to click the desired block or use the arrow keys to highlight the desired block and press enter. This will drop the block at the mouse position when the shortcut was invoked. If a wire was selected when the shortcut was opened, the editor will attempt to connect the block in the middle of the connection that was selected. If the block to be placed contains compatible inputs and outputs, a connection will be made.
 
-![Press space bar for shortcut to search bar to filter node list which appears at the mouse position](/img/tools/npe/nodeAddShortcut.png)
+![Press space bar for shortcut to search bar to filter node list which appears at the mouse position](/img/tools/npe/nodeAddShortcut.webp)
 
 There is one other shortcut to quickly add blocks in a contextual manner. For most block inputs with a defined type, we can simply click on the input and drag to the left of the block which will drag out a dashed wire of the type the input expects. Once the mouse button is released, an input block of the correct type will be dropped. For example, clicking on a Vector3 input and dragging left will automatically create a Vector3 input block when released.
 
-![Click and drag from node input to drop an automatically connected node of the appropriate type on release of the mouse button](/img/tools/npe/dragAddNode.png)
+![Click and drag from node input to drop an automatically connected node of the appropriate type on release of the mouse button](/img/tools/npe/dragAddNode.webp)
 
 ## Connecting Nodes Together
 
 Blocks usually have one or more inputs and one or more outputs, though there are blocks that have only inputs or only outputs. What is common to all blocks is that each individual block has requirements for the data that passes through it. These requirements typically take the form of data types that the blocks expect for their calculations. To easily tell what type of data a block expects, look at the input and output icons on the block. To help decipher the icons, please refer to the legend below:
 
-![Input type iconography](/img/tools/npe/inputTypes.png)
+![Input type iconography](/img/tools/npe/inputTypes.webp)
 
 The most common data types are **Float**, **Vector3**, and **Color4** which are used for numeric values, positions/directions, and colors respectively. The **Particle** type is specific to the Node Particle Editor and represents the particle data stream that flows from emitters through update blocks to the system output.
 
@@ -53,13 +53,13 @@ The most common data types are **Float**, **Vector3**, and **Color4** which are 
 
 Anytime a block requires a specific input to be wired, the console log will display an error saying the graph cannot be evaluated until all required inputs have been connected.
 
-![Required connections are displayed in console log](/img/tools/npe/requiredConnection.png)
+![Required connections are displayed in console log](/img/tools/npe/requiredConnection.webp)
 
 ### Shortcuts for Connecting Nodes
 
 There are several shortcuts to help speed up connecting blocks which can save a lot of mouse clicks. The first is dropping a block onto an existing wire to automatically connect compatible inputs and outputs. The block needs to already be in the graph for this to work, so drag it from the block list to the graph first. Then when dragging the block over a wire, the wire will highlight if the dragged block has inputs that are compatible with the data type represented by the wire. When releasing the mouse button, the editor will attempt to connect both inputs and outputs of the new block to maintain the original flow for the graph. There are, however, instances where a new block dropped on a wire in this way will still prevent the graph from being evaluated, mostly due to the new block having requirements that are not met.
 
-![Dropping an unconnected node on a compatible wire will attempt to insert the node into the flow](/img/tools/npe/dragInsertNode.png)
+![Dropping an unconnected node on a compatible wire will attempt to insert the node into the flow](/img/tools/npe/dragInsertNode.webp)
 
 Another shortcut to be aware of is really two different actions that are performed with a similar shortcut. The first allows a quick deletion of a connection simply by holding alt and left clicking an input port or output port. However, if alt is held and the left mouse button is clicked and held on a port, instead of deleting the wire, the wire is disconnected from the port allowing the connection to be moved from one port to another.
 
@@ -71,31 +71,31 @@ When working with any node graph tool, organization can make a big difference in
 
 Every block can be assigned a custom name in the parameters panel. Naming can be done just to help us remember what the block is doing or it can be done to enable us to get a particular block from our code to set a value. No matter what a block is named, the original block type is still visible in the parameters panel so renaming a block won't cause any confusion about what the block is doing.
 
-![Selected nodes can have their name edited in the parameters panel.](/img/tools/npe/namingNodes.png)
+![Selected nodes can have their name edited in the parameters panel.](/img/tools/npe/namingNodes.webp)
 
 ### Node Comments
 
 The name of a block is a limited way of communicating what a block is doing. If a longer explanation is required, a comment can be added to a block which will display on the graph above the block. The limitation here is that the comment will maintain the same width as the block and wrap lines as necessary. This means that very long comments aren't great to use on blocks as they can be harder to read and require a clear graph behind them to be read.
 
-![To give more context to a node, enter a comment in the parameters panel to display the comment above the node in the graph.](/img/tools/npe/nodeComments.png)
+![To give more context to a node, enter a comment in the parameters panel to display the comment above the node in the graph.](/img/tools/npe/nodeComments.webp)
 
 ### Frames
 
 To help group blocks together visually, frames can be drawn around them by pressing and holding the shift key while clicking and dragging a selection around the desired blocks. Clicking and dragging the header bar of the frame will move all blocks contained within the frame with the frame. It can be resized by hovering the pointer on a side or corner of the frame to fine tune the blocks that the frame encompasses.
 
-![Frames can be drawn around nodes to help visually organize the graph and allow multiple nodes to be moved at once.](/img/tools/npe/graphFrames.png)
+![Frames can be drawn around nodes to help visually organize the graph and allow multiple nodes to be moved at once.](/img/tools/npe/graphFrames.webp)
 
 Frames can also be customized to help them stand out when looking at a graph. They can be given custom names and colors right in the parameters panel. Importantly, comments can also be added to frames and are displayed at the top of the frame. Comments will text wrap at the width of the frame so this is the best way to leave longer comments in the graph to describe what a section of the graph is doing.
 
-![Frame names and colors can be set in the parameters panel. Long comments can be left on frames which will always display at the top of the frame.](/img/tools/npe/customizeFrame.png)
+![Frame names and colors can be set in the parameters panel. Long comments can be left on frames which will always display at the top of the frame.](/img/tools/npe/customizeFrame.webp)
 
 Note that on the header bar for a frame there is a close button to remove the frame. Right next to the close button is a collapse button which will collapse the frame and all contained blocks to a small format that tries to mirror the size of common blocks. The frame name and comment are still visible when a frame is collapsed. Any wire that crossed the border of the frame when expanded will become an input or output on the collapsed frame. This allows even more organization of the graph by minimizing sections of the graph and saving space. Any wire connected to the inputs and outputs on a collapsed frame will be routed to the original blocks inside the collapsed frame.
 
-![Frames can be collapsed to hide all nodes within and take up less space on the graph.](/img/tools/npe/collapsedFrame.png)
+![Frames can be collapsed to hide all nodes within and take up less space on the graph.](/img/tools/npe/collapsedFrame.webp)
 
 The names of the inputs and outputs are taken from the name of the input or output where the wire originated. To help with clarity, however, by clicking on any input or output on a collapsed frame, the parameters panel will display an option to set a custom name. This allows collapsed frames to be more specific about where the port will lead inside the frame when collapsed. Expanding the frame will retain the original block positions and wires passing outside the frame. Note that an input or output that was renamed when collapsed will retain the custom name when expanded.
 
-![To make a collapsed frame more user friendly, click on an input or output to change the name of the port.](/img/tools/npe/customOutputName.png)
+![To make a collapsed frame more user friendly, click on an input or output to change the name of the port.](/img/tools/npe/customOutputName.webp)
 
 ### Custom Frames
 
@@ -103,18 +103,18 @@ Frames also enable reuse of parts of your graph elsewhere. If there is a part of
 
 From there the custom frame can be dragged into the graph as any other block and will place in collapsed form to reduce the amount of needed space. Custom frames also appear in search results so searching in either the block list or the shortcut block list opened with the space bar will return custom blocks to make adding them even faster. Once in the graph, it acts like any other frame and can be expanded, collapsed, and arranged in any manner desired. The frames can also be directly edited in the graph or changed completely. In this way, custom frames can act like a template bringing in common collections of blocks to a graph and speeding the process of creating particle systems.
 
-![Exporting a frame allows for import of the frame to the node list while retaining the frame comments to display on hover and is searchable](/img/tools/npe/exportFrameFlow.png)
+![Exporting a frame allows for import of the frame to the node list while retaining the frame comments to display on hover and is searchable](/img/tools/npe/exportFrameFlow.webp)
 
 ### Wire Elbows
 
 When working with graph editors, one of the ways it can be hard to read comes from the natural process of wires connecting different blocks turning into spaghetti. If it is not clear which path a wire is taking because it crosses or overlaps other wires or sits beneath other blocks, comprehension of the graph goes down and it takes longer to understand what the flow is actually doing. Where frames help organize blocks, elbows help organize the wires in a graph.
 
-![A graph with many overlapping wires becomes hard to read as it is unclear which nodes are connected due to the inability to trace wires](/img/tools/npe/elbowNode1.png)
+![A graph with many overlapping wires becomes hard to read as it is unclear which nodes are connected due to the inability to trace wires](/img/tools/npe/elbowNode1.webp)
 
 
 Elbow blocks can help to re-route wires in a graph allowing the user to bend and/or redirect wires into a more readable format. Adding an elbow is like any other block where it can be added from the block list or the search shortcut accessed with the space bar. However, there is a simpler way to add an elbow to a wire. Simply hover the cursor over a wire that needs an elbow and the wire will highlight. Next, hold the option key (or alt on Windows) while left-clicking the mouse on the wire. An elbow will be added to the wire at the cursor position at which point it can be moved around or be the source for more connections to other blocks as seen below.
 
-![Elbows can redirect wires to a more readable path as well as serve as a connection point for additional nodes](/img/tools/npe/elbowNode2.png)
+![Elbows can redirect wires to a more readable path as well as serve as a connection point for additional nodes](/img/tools/npe/elbowNode2.webp)
 
 ## Editor Options
 
@@ -133,7 +133,7 @@ When clicking on an empty portion of the graph, the parameters panel will displa
 - **Load from snippet server** will load a particle system graph from the snippet server using a snippet ID.
 - **Save to snippet server** will save the current particle system graph to the snippet server and generate a snippet ID that can be parsed into an experience with only the snippet ID. This is a great option for sharing graphs or for prototyping, but isn't a good choice for production as the snippet server exists outside a project's local infrastructure and should not be relied upon for uptime when a project is live.
 
-![Options for the graph color, grid, and zoom including save and load actions](/img/tools/npe/npeOptions.png)
+![Options for the graph color, grid, and zoom including save and load actions](/img/tools/npe/npeOptions.webp)
 
 ## Understanding Particle Flow
 
@@ -173,13 +173,13 @@ The typical flow in a particle system graph follows this pattern:
 
 Multiple emitters and update chains can feed into a single System block, allowing complex particle behaviors to be composed from simple building blocks.
 
-![Example of a Particle System with the Create and Update phases highlighted](/img/tools/npe/02.jpg)
+![Example of a Particle System with the Create and Update phases highlighted](/img/tools/npe/02.webp)
 
 ## Iterating and Debugging
 
 When creating a Node Particle System in a scene, it can always be edited simply by launching the Node Particle Editor with the particle system selected in the inspector. The **Edit** button to launch the Node Particle Editor can be found under the particle system properties which appear when the system is selected.
 
-![Node Particle Editor Edit Button](/img/tools/npe/npeButton1.png)
+![Node Particle Editor Edit Button](/img/tools/npe/npeButton1.webp)
 
 Launching the editor from here will connect the editor to the scene allowing changes to the graph to be reflected in the scene. The Node Particle Editor will automatically update the particle system in the scene whenever there is a change to the graph, providing immediate visual feedback.
 

@@ -1,6 +1,6 @@
 ---
 title: Your Journey Starts Here
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: The very beginning of EVERYONE's Babylon journey.
 keywords: start, guide, first, learn, begin, beginner, journey
 further-reading:

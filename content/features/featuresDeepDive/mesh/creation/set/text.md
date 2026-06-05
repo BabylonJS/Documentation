@@ -57,7 +57,7 @@ We are also offering already exported fonts on assets.babylonjs.com:
 
 ### Examples
 
-Hello world: <Playground id="#6I2RMN#2" title="Create a 3d text" description="Simple example of creating a 3d text." image="/img/playgroundsAndNMEs/createText.jpg"/>
+Hello world: <Playground id="#6I2RMN#2" title="Create a 3d text" description="Simple example of creating a 3d text." image="/img/playgroundsAndNMEs/createText.webp"/>
 
 ### Controlling letters texture mapping and colors
 
