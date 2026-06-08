@@ -234,8 +234,7 @@ export const getBabylonLiteDocPaths = async () => {
     return paths.length ? paths : [{ params: { id: ["lite"] } }];
 };
 
-export const getBabylonLiteMenuItems = async (): Promise<IMenuItem[] | undefined> => {
-    const relativeFiles = await getBabylonLiteRelativeMarkdownFiles();
+export const buildBabylonLiteMenuItemsFromRelativeFiles = (relativeFiles: string[]): IMenuItem[] | undefined => {
     if (!relativeFiles.length) {
         return undefined;
     }
@@ -283,16 +282,11 @@ export const getBabylonLiteMenuItems = async (): Promise<IMenuItem[] | undefined
         }
     }
 
-    return rootItems.sort((left, right) => {
-        const landingName = titleFromSlug(basename(landingRelativeFile, ".md"));
-        if (left.name === landingName) {
-            return -1;
-        }
-        if (right.name === landingName) {
-            return 1;
-        }
-        return left.name.localeCompare(right.name);
-    });
+    return rootItems;
+};
+
+export const getBabylonLiteMenuItems = async (): Promise<IMenuItem[] | undefined> => {
+    return buildBabylonLiteMenuItemsFromRelativeFiles(await getBabylonLiteRelativeMarkdownFiles());
 };
 
 export const getBabylonLitePageData = async (id: string[]): Promise<IDocumentationPageProps> => {

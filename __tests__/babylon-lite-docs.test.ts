@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, rmSync, writeFileSync } from "fs";
 import { join } from "path";
 import { afterEach, describe, expect, it } from "vitest";
 
-import { buildBabylonLiteContentGraphFromDocsRoot } from "../lib/babylonLiteDocs";
+import { buildBabylonLiteContentGraphFromDocsRoot, buildBabylonLiteMenuItemsFromRelativeFiles } from "../lib/babylonLiteDocs";
 import { createDocumentationSearchIndex, createPlaygroundSearchIndex } from "../lib/contentGraph/staticArtifacts";
 
 const fixtureRoot = join(process.cwd(), ".temp", "babylon-lite-docs-test");
@@ -18,6 +18,7 @@ afterEach(() => {
         rmSync(fixtureRoot, { recursive: true, force: true });
     }
 });
+
 
 describe("Babylon Lite documentation integration", () => {
     it("builds a flavor-scoped content graph from a Lite docs root", () => {
@@ -64,5 +65,17 @@ See the render loop.
                 documentationPage: "/lite/porting-guide",
             }),
         ]);
+    });
+
+    it("keeps top-level menu items in folder and file name order", () => {
+        const menuItems = buildBabylonLiteMenuItemsFromRelativeFiles([
+            "00-welcome.md",
+            "01-porting-guide.md",
+            "architecture/00-overview.md",
+            "architecture/01-shadow-generator.md",
+        ]);
+
+        expect(menuItems?.map((item) => item.name)).toEqual(["Welcome", "Porting Guide", "Architecture"]);
+        expect(menuItems?.map((item) => item.url)).toEqual(["/lite", "/lite/01-porting-guide", "/lite/architecture/00-overview"]);
     });
 });
