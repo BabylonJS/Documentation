@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync } from "fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync } from "fs";
 import { basename, join, relative, resolve } from "path";
 
 import matter from "gray-matter";
@@ -18,6 +18,7 @@ const babylonLiteTempRepoDirectory = join(babylonLiteTempDirectory, "repo");
 const babylonLiteDocsRelativeRoot = join("docs", "lite");
 const babylonLiteTypeDocTempDirectory = join(process.cwd(), ".temp", "lite", "typedoc");
 const babylonLiteTypeDocSearchDirectory = join(process.cwd(), "public", "api-search", "lite-typedoc");
+const babylonLitePublicDirectory = join(process.cwd(), "public", "lite");
 const localBabylonLiteRepositoryCandidates = ["../Babylon-Lite", "../babylon-lite"];
 
 let cachedRepositoryPath: Promise<string | undefined> | undefined;
@@ -55,6 +56,23 @@ const getMarkdownFiles = (directory: string, files: string[] = []): string[] => 
     }
 
     return files;
+};
+
+const copyStaticFiles = (sourceDirectory: string, targetDirectory: string) => {
+    if (!existsSync(sourceDirectory)) {
+        return;
+    }
+
+    for (const entry of readdirSync(sourceDirectory).sort()) {
+        const sourcePath = join(sourceDirectory, entry);
+        const targetPath = join(targetDirectory, entry);
+        if (statSync(sourcePath).isDirectory()) {
+            copyStaticFiles(sourcePath, targetPath);
+        } else if (!entry.endsWith(".md")) {
+            mkdirSync(targetDirectory, { recursive: true });
+            copyFileSync(sourcePath, targetPath);
+        }
+    }
 };
 
 const idsFromRelativeFile = (relativeFile: string) => relativeFile.replace(/\.md$/, "").split("/");
@@ -165,7 +183,13 @@ export const getBabylonLiteRepositoryPath = async () => {
 
 const getBabylonLiteDocsRoot = async () => {
     const repositoryPath = await getBabylonLiteRepositoryPath();
-    return repositoryPath ? join(repositoryPath, babylonLiteDocsRelativeRoot) : undefined;
+    if (!repositoryPath) {
+        return undefined;
+    }
+
+    const docsRoot = join(repositoryPath, babylonLiteDocsRelativeRoot);
+    copyStaticFiles(docsRoot, babylonLitePublicDirectory);
+    return docsRoot;
 };
 
 const getBabylonLiteRelativeMarkdownFiles = async () => {
