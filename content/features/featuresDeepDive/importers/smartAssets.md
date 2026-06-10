@@ -29,14 +29,15 @@ The SAM API is a set of module-level functions on `BABYLON`. There is no class t
 
 ## Quick start
 
-This playground registers a glTF and a standalone texture under stable keys, lists the registry, looks up the smart-asset key for a runtime mesh, and demonstrates reload, unload, and remove on a timer. Open the developer console to follow along.
+This playground registers a glTF and a standalone texture under stable keys, then opens the Inspector V2 **Project Authoring** (Smart Assets) pane and runs a timed tour of the API — reload, add-and-bind a texture, unload, reload, swap a URL, and remove — so you can watch the **Assets** list update live. Open the developer console to follow each step.
 
-<Playground id="#XA2XP2#0" title="Smart Assets - Basics" description="Register, load, query, reload, and unload assets through the SmartAssetManager API." />
+<Playground id="#CNWWA5#0" title="Smart Assets - Basics" description="Register, load, bind, reload, swap, and remove assets while watching the Inspector Smart Assets pane." />
 
 The pattern is intentionally minimal:
 
 ```javascript
-const sam = BABYLON.GetSmartAssetManager(scene);
+// No GetSmartAssetManager() call is needed — the per-scene manager is created
+// lazily the first time you load (or register) an asset.
 
 // Register + load a glTF in one call. Returns the AssetContainer.
 await BABYLON.LoadSmartAssetAsync(scene, "boombox", "https://playground.babylonjs.com/scenes/BoomBox/BoomBox.gltf");
@@ -75,7 +76,7 @@ When a texture key doesn't already have a `displayName`, SAM sets it to the key.
 
 | Function | Purpose |
 | --- | --- |
-| `GetSmartAssetManager(scene)` | Returns (and lazily creates) the manager for a scene. |
+| `GetSmartAssetManager(scene)` | Returns (and lazily creates) the manager for a scene. **Not required before loading** — `Load*`/`Register*` create the manager for you. Only call it when you need the manager instance directly (e.g. to set `onAssetNotFound` or subscribe to `onChangedObservable`). |
 | `GetAllSmartAssets(scene)` | A read-only `Map<key, url>` of every registered entry. |
 | `FindSmartAssetKeyForObject(scene, object)` | Reverse lookup: returns the key that owns a runtime `Node` / `Material` / `BaseTexture` / `AnimationGroup`, or `undefined` if the object was created locally. |
 | `AddSmartAssetManagerCreatedObserver(callback)` | Notified once for each new manager (useful for inspector services). |
@@ -105,8 +106,6 @@ Instead of registering assets one at a time, you can describe the whole set as a
 
 `SerializeSmartAssetManagerMap(scene, baseUrl?)` rebuilds the same document from the live registry, so the format round-trips cleanly. Pass a `baseUrl` to relativize URLs that share its prefix.
 
-<Playground id="#CG5YUR#0" title="Smart Assets - Asset Map" description="Load a declarative asset map and round-trip it back to JSON." />
-
 Asset maps are also the asset layer of the [`.babylonproj`](/toolsAndResources/inspectorv2/projectFile) project file format; the project file just adds an overrides section and a companion `.babylon` for user-created objects on top of the same JSON.
 
 ## Binding textures to materials
@@ -123,7 +122,7 @@ mat.albedoTexture = findTexture("albedo");
 
 Re-registering the same key with a new URL atomically swaps the underlying texture; bindings made through the helper above pick up the new texture without any extra work.
 
-<Playground id="#D39B4M#0" title="Smart Assets - Textures and Material Binding" description="Load textures via SAM and bind them to PBR material slots." />
+<Playground id="#ETJUZH#0" title="Smart Assets - Textures and Material Binding" description="Load textures via SAM and bind them to PBR material slots." />
 
 This is the exact pattern the `.babylonproj` loader uses to re-attach user-authored materials to SAM-tracked textures after a round trip — see [Project Files](/toolsAndResources/inspectorv2/projectFile#companion-babylon-and-texture-bindings).
 
@@ -132,6 +131,9 @@ This is the exact pattern the `.babylonproj` loader uses to re-attach user-autho
 If a registered URL fails to load (404, dead `blob:` URL backed by a closed `FileSystemFileHandle`, moved local file, ...), SAM calls the optional `onAssetNotFound` callback. Return a replacement URL string or `File` object to retry, or `null` to give up.
 
 ```javascript
+// GetSmartAssetManager() is not an init step — loading an asset already created
+// the manager. You only fetch the handle here because attaching a callback needs
+// the instance. (The manager is also created on demand if you call this first.)
 const sam = BABYLON.GetSmartAssetManager(scene);
 
 sam.onAssetNotFound = async (key, expectedUrl) => {
@@ -144,9 +146,18 @@ sam.onAssetNotFound = async (key, expectedUrl) => {
 };
 ```
 
-The retry also **rewrites the registry**, so subsequent reloads use the resolved URL directly. This is what makes a `.babylonproj` resilient to being reopened on a machine where the user's local file paths have changed: the project's [Project Authoring](/toolsAndResources/inspectorv2/projectFile) pane wires `onAssetNotFound` to a file picker.
+The retry also **rewrites the registry**, so subsequent reloads use the resolved URL directly. This is what makes a `.babylonproj` resilient to being reopened on a machine where the user's local file paths have changed.
 
-<Playground id="#QFH8OY#0" title="Smart Assets - onAssetNotFound Fallback" description="Recover from a broken asset URL via the onAssetNotFound resolver." />
+You don't have to build the file-picker UI yourself. Inspector V2 ships a ready-made missing-asset prompt — assign `inspectorAssetNotFoundHandler` (or call `installInspectorAssetNotFoundHandler(sam)`, both public `@babylonjs/inspector-v2` exports) and a failed load shows a *"Locate the file or click Skip"* dialog with a native file picker; the chosen file is returned to SAM as the replacement. This is exactly how the Inspector's [Project Authoring](/toolsAndResources/inspectorv2/projectFile) pane wires `onAssetNotFound`, and any app that opens Inspector V2 can reuse it:
+
+```javascript
+// Requires Inspector V2 to be open (it hosts the prompt).
+sam.onAssetNotFound = BABYLON.INSPECTOR.inspectorAssetNotFoundHandler;
+```
+
+The playground below uses this built-in prompt: when the broken URL fails, click **Locate File…** and pick any `.glb`/`.gltf` (or Skip).
+
+<Playground id="#L83X13#0" title="Smart Assets - onAssetNotFound Fallback" description="Recover from a broken asset URL using the Inspector's built-in file-picker prompt." />
 
 ## How SAM tracks runtime objects
 
