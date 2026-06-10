@@ -76,7 +76,7 @@ When a texture key doesn't already have a `displayName`, SAM sets it to the key.
 
 | Function | Purpose |
 | --- | --- |
-| `GetSmartAssetManager(scene)` | Returns (and lazily creates) the manager for a scene. |
+| `GetSmartAssetManager(scene)` | Returns (and lazily creates) the manager for a scene. **Not required before loading** — `Load*`/`Register*` create the manager for you. Only call it when you need the manager instance directly (e.g. to set `onAssetNotFound` or subscribe to `onChangedObservable`). |
 | `GetAllSmartAssets(scene)` | A read-only `Map<key, url>` of every registered entry. |
 | `FindSmartAssetKeyForObject(scene, object)` | Reverse lookup: returns the key that owns a runtime `Node` / `Material` / `BaseTexture` / `AnimationGroup`, or `undefined` if the object was created locally. |
 | `AddSmartAssetManagerCreatedObserver(callback)` | Notified once for each new manager (useful for inspector services). |
@@ -131,6 +131,9 @@ This is the exact pattern the `.babylonproj` loader uses to re-attach user-autho
 If a registered URL fails to load (404, dead `blob:` URL backed by a closed `FileSystemFileHandle`, moved local file, ...), SAM calls the optional `onAssetNotFound` callback. Return a replacement URL string or `File` object to retry, or `null` to give up.
 
 ```javascript
+// GetSmartAssetManager() is not an init step — loading an asset already created
+// the manager. You only fetch the handle here because attaching a callback needs
+// the instance. (The manager is also created on demand if you call this first.)
 const sam = BABYLON.GetSmartAssetManager(scene);
 
 sam.onAssetNotFound = async (key, expectedUrl) => {
