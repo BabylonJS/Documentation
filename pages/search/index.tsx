@@ -9,12 +9,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import { IDocumentSearchResult, IPlaygroundSearchResult, queryIndex } from "../../lib/frontendUtils/searchQuery.utils";
 import { InlineExampleComponent } from "../../components/contentComponents/inlineExample.component";
 import { ExamplesComponent } from "../../components/contentComponents/example.component";
-import { IExampleLink } from "../../lib/content.interfaces";
+import { IExampleLink, IMenuItem } from "../../lib/content.interfaces";
+import { docsFlavors, type DocsFlavorId } from "../../lib/docsFlavors";
 
 import styles from "../documentationPage.module.scss";
 
-export const SearchResults: FunctionComponent<{}> = () => {
+export const SearchResults: FunctionComponent<{ flavorId?: DocsFlavorId; flavorMenuItems?: IMenuItem[] }> = ({ flavorId = "babylon", flavorMenuItems }) => {
     const router = useRouter();
+    const docsFlavor = docsFlavors[flavorId];
     const query = (router.query.q as string) || (router.query.bjsq as string);
     const [results, setResults] = useState<IDocumentSearchResult[]>([]);
     const [pgResults, setPGResults] = useState<IPlaygroundSearchResult[]>([]);
@@ -36,7 +38,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
         setSearchTerm(query);
         setLoading(true);
         setNoResults(false);
-        queryIndex<IDocumentSearchResult>(query)
+        queryIndex<IDocumentSearchResult>(query, "documents", docsFlavor.id)
             .then((results) => {
                 setResults(results);
                 if (results.length === 0) {
@@ -47,12 +49,12 @@ export const SearchResults: FunctionComponent<{}> = () => {
             .catch(() => {
                 setLoading(false);
             });
-        queryIndex<IPlaygroundSearchResult>(query, "playgrounds")
+        queryIndex<IPlaygroundSearchResult>(query, "playgrounds", docsFlavor.id)
             .then((results) => {
                 setPGResults(results);
             })
             .catch(() => {});
-    }, [query]);
+    }, [query, docsFlavor.id]);
 
     const handleApiOnly = (event: ChangeEvent<HTMLInputElement>) => {
         setApiOnly(event.target.checked);
@@ -68,7 +70,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
         <form
             onSubmit={(e) => {
                 e.preventDefault();
-                router.push("/search?q=" + searchTerm);
+                router.push(`${docsFlavor.searchPath}?q=${encodeURIComponent(searchTerm)}`);
                 return false;
             }}
             noValidate
@@ -108,15 +110,16 @@ export const SearchResults: FunctionComponent<{}> = () => {
 
     return (
         <Layout
-            breadcrumbs={generateBreadcrumbs()}
+            breadcrumbs={generateBreadcrumbs(docsFlavor.id)}
             metadata={{
-                title: query ? "Search results: " + query : "Search Page",
-                description: "Search page for Babylon.js documentation site. Search for documents and code examples",
+                title: query ? `${docsFlavor.label} search results: ${query}` : `${docsFlavor.label} Search Page`,
+                description: `Search page for ${docsFlavor.label} documentation site. Search for documents and code examples`,
                 imageUrl: "",
                 keywords: "search, documentation, query, examples, playground",
                 robots: query || results.length ? "noindex, nofollow" : "index, follow",
             }}
-            id={["search"]}
+            id={docsFlavor.id === "lite" ? ["lite", "search"] : ["search"]}
+            flavorMenuItems={flavorMenuItems}
         >
             <>
                 {!results.length && !loading && (
@@ -255,11 +258,24 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, any> = async
     return { props: {} };
 };
 
-export const generateBreadcrumbs = () => {
+export const generateBreadcrumbs = (flavorId: DocsFlavorId = "babylon") => {
+    if (flavorId === "lite") {
+        return [
+            {
+                name: docsFlavors.lite.label,
+                url: docsFlavors.lite.basePath,
+            },
+            {
+                name: "Search",
+                url: docsFlavors.lite.searchPath,
+            },
+        ];
+    }
+
     return [
         {
             name: "Search",
-            url: "/search",
+            url: docsFlavors.babylon.searchPath,
         },
     ];
 };

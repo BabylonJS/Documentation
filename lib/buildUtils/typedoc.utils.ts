@@ -55,7 +55,7 @@ export const generateBreadcrumbs = (html: HTMLElement, id: string[], baseLocatio
     });
     // Prepend a root "API" breadcrumb that links to the index page
     breadcrumbs.unshift({
-        name: baseLocation === "typedoc" ? "API" : "Viewer API",
+        name: baseLocation === "typedoc" ? "API" : baseLocation === "lite/typedoc" ? "Babylon Lite API" : "Viewer API",
         url: "/" + baseLocation,
     });
     return breadcrumbs;
@@ -87,9 +87,10 @@ export const getAPIPageData = async (id: string[], baseLocation: string = "typed
     const root = parse(html);
     const head = root.querySelector("head");
     const cssArray: string[] = [];
+    const apiLabel = baseLocation === "lite/typedoc" ? "Babylon Lite API" : baseLocation === "typedoc" ? "Babylon.js API" : "Babylon Viewer API";
     const metadata: MarkdownMetadata = {
-        title: "Babylon.js API",
-        description: "[Babylon.js API]",
+        title: apiLabel,
+        description: `[${apiLabel}]`,
         keywords: "babylonjs, babylon.js, api, " + baseLocation + "," + id.join(","),
     };
     const titleNode = head!.querySelector("title")!.firstChild;

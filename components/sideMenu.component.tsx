@@ -10,13 +10,15 @@ import FilterIcon from "@mui/icons-material/FilterList";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { Box } from "@mui/system";
 import { BaseUrlContext } from "../pages/_app";
+import { docsFlavorList, type DocsFlavorId } from "../lib/docsFlavors";
 
 export interface ISideMenuProps {
     items: IMenuItem[];
     selected: string;
+    currentFlavorId?: DocsFlavorId;
 }
 
-export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected }) => {
+export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected, currentFlavorId = "babylon" }) => {
     const [opened, setOpened] = useState<string[]>([]);
     const [filter, setFilter] = useState<string>("");
     const [toggleFilter, setToggleFilter] = useState<boolean>();
@@ -152,6 +154,48 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                 margin: "16px",
             }}
         >
+            <Box
+                sx={{
+                    display: "flex",
+                    border: `1px solid ${theme.palette.divider}`,
+                    borderRadius: 1,
+                    overflow: "hidden",
+                    marginRight: "34px",
+                    marginBottom: 2,
+                    backgroundColor: theme.palette.background.paper,
+                    "& a": {
+                        flex: 1,
+                        textDecoration: "none",
+                    },
+                }}
+                aria-label="Documentation flavor"
+            >
+                {docsFlavorList.map((flavor) => {
+                    const selectedFlavor = flavor.id === currentFlavorId;
+                    return (
+                        <Link key={flavor.id} href={baseUrl + (flavor.basePath || "/")}>
+                            <Box
+                                component="span"
+                                sx={{
+                                    display: "block",
+                                    padding: theme.spacing(0.75, 1),
+                                    textAlign: "center",
+                                    fontWeight: selectedFlavor ? 800 : 500,
+                                    color: selectedFlavor ? theme.palette.primary.contrastText : theme.customPalette.sideMenu.textColor,
+                                    backgroundColor: selectedFlavor ? theme.palette.primary.main : "transparent",
+                                    whiteSpace: "nowrap",
+                                    fontSize: 14,
+                                    "&:hover": {
+                                        backgroundColor: selectedFlavor ? theme.palette.primary.dark : theme.palette.action.hover,
+                                    },
+                                }}
+                            >
+                                {flavor.label}
+                            </Box>
+                        </Link>
+                    );
+                })}
+            </Box>
             <Box
                 sx={{
                     transition: "height 0.2s",

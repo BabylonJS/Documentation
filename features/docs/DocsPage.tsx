@@ -38,7 +38,7 @@ const RedirectNotice: FunctionComponent<{ redirectTo: string }> = ({ redirectTo 
     );
 };
 
-const DocsPageContent: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, mdxContent, childPages, id, previous, next, relatedArticles, relatedExternalLinks, gitHubUrl }) => {
+const DocsPageContent: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, mdxContent, childPages, id, previous, next, relatedArticles, relatedExternalLinks, gitHubUrl, flavorMenuItems }) => {
     const markdownRef = useRef<HTMLDivElement>(null);
     const examples = useExamplePanel(markdownRef);
     const tableOfContents = useDocsTableOfContents();
@@ -59,7 +59,7 @@ const DocsPageContent: FunctionComponent<IDocumentationPageProps> = ({ breadcrum
     };
 
     return (
-        <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
+        <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id} flavorMenuItems={flavorMenuItems}>
             <DocumentationContextProvider examples={examples} tableOfContents={tableOfContents}>
                 <div className={styles["documentation-container"]}>
                     <div className={styles["markdown-and-playground"]}>

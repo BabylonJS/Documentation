@@ -9,6 +9,7 @@ import { IDocumentationPageProps } from "../content.interfaces";
 export const markdownDirectory = "content/";
 
 import vercelConfig from "../../redirects.json";
+import { docsFlavors } from "../docsFlavors";
 
 const childPageData: Record<string, IDocumentationPageProps> = {};
 
@@ -217,7 +218,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         }
     }
 
-    const gitHubUrl = `https://github.com/BabylonJS/Documentation/blob/master/content/${docItem.content}.md`;
+    const gitHubUrl = `${docsFlavors.babylon.documentationGithubUrl}/${docItem.content}.md`;
 
     const pageProps = {
         id,

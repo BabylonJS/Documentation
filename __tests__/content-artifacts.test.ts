@@ -82,6 +82,7 @@ describe("Static Content Artifacts", () => {
 
         expect(item).toMatchObject({
             id: "L2RvY3MvcGFnZQ==",
+            flavor: "babylon",
             path: "/docs/page",
             isApi: false,
             title: "Docs Page",
@@ -91,6 +92,27 @@ describe("Static Content Artifacts", () => {
             categories: ["Docs", "Page"],
             imageUrl: "/img/example.png",
             videoLink: "video-id",
+        });
+    });
+
+    it("creates flavor-specific search records", () => {
+        const graph = createGraph([
+            createPage({
+                examples: [{ type: "pg", id: "ABC#1", title: "Lite example" }],
+            }),
+        ]);
+
+        const [documentationItem] = createDocumentationSearchIndex(graph, "lite");
+        const [playgroundItem] = createPlaygroundSearchIndex(graph, "lite");
+
+        expect(documentationItem).toMatchObject({
+            id: "L2RvY3MvcGFnZQ==",
+            flavor: "lite",
+        });
+        expect(playgroundItem).toMatchObject({
+            id: "bGl0ZTpBQkMjMQ==",
+            flavor: "lite",
+            playgroundId: "ABC#1",
         });
     });
 
@@ -110,7 +132,8 @@ describe("Static Content Artifacts", () => {
 
         expect(items).toEqual([
             expect.objectContaining({
-                id: "QUJDIzE=",
+                id: "YmFieWxvbjpBQkMjMQ==",
+                flavor: "babylon",
                 playgroundId: "ABC#1",
                 title: "Replacement",
                 imageUrl: "/img/custom.png",

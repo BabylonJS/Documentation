@@ -77,6 +77,7 @@ export interface IPageProps {
     previous?: IPageProps;
     lastModified?: string;
     gitHubUrl?: string;
+    flavorMenuItems?: IMenuItem[];
 }
 export interface IDocumentationPageProps extends IPageProps {
     content?: string;

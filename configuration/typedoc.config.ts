@@ -82,4 +82,17 @@ export const viewerConfig: TypeDocConfig = {
     ],
 };
 
+export const babylonLiteConfig: TypeDocConfig = {
+    githubRepo: "BabylonJS/Babylon-Lite",
+    version: "latest",
+    title: "Babylon Lite API",
+    packages: [
+        {
+            npmPackage: "babylon-lite",
+            repoPath: "packages/babylon-lite",
+            entryPoint: "packages/babylon-lite/src/index.ts",
+        },
+    ],
+};
+
 export default config;
