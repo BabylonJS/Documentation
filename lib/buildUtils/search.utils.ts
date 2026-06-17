@@ -138,14 +138,24 @@ export const clearPlaygroundIndex = async (flavorId: DocsFlavorId = "babylon") =
             headers,
         });
     };
-    let result = (await (await getResults()).json());
+    let response = await getResults();
+    let result = await response.json();
+    if (!response.ok || !Array.isArray(result.value)) {
+        console.log("Could not read playgrounds index, skipping clear.", result);
+        return;
+    }
     const values = [];
     while (result["@odata.nextLink"]) {
         values.push(...result.value);
-        result = (await (await getResults(result["@search.nextPageParameters"])).json());
+        response = await getResults(result["@search.nextPageParameters"]);
+        result = await response.json();
+        if (!response.ok || !Array.isArray(result.value)) {
+            break;
+        }
     }
-    values.push(...result.value);
-        
+    if (Array.isArray(result.value)) {
+        values.push(...result.value);
+    }
 
     const filtered = values && (values as Array<ISearchResult>);
     while (filtered.length) {
@@ -205,12 +215,23 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
         });
     };
     const values = [];
-    let result = (await (await getResults()).json());
+    let response = await getResults();
+    let result = await response.json();
+    if (!response.ok || !Array.isArray(result.value)) {
+        console.log("Could not read documents index, skipping clear.", result);
+        return;
+    }
     while (result["@odata.nextLink"]) {
         values.push(...result.value);
-        result = (await (await getResults(result["@search.nextPageParameters"])).json());
+        response = await getResults(result["@search.nextPageParameters"]);
+        result = await response.json();
+        if (!response.ok || !Array.isArray(result.value)) {
+            break;
+        }
     }
-    values.push(...result.value);
+    if (Array.isArray(result.value)) {
+        values.push(...result.value);
+    }
     const filtered = values && (values as Array<IDocumentSearchResult>).filter((res) => !doNotDelete.includes(res.path));
     while (filtered.length) {
         const toDelete = filtered.splice(0, 1000);
