@@ -4,6 +4,8 @@ import { ParsedUrlQuery } from "querystring";
 import { DocsPage } from "../features/docs/DocsPage";
 import { getRedirect, getRedirects, isRedirect } from "../lib/buildUtils/redirects";
 import { getPageData } from "../lib/buildUtils/tools";
+import { isLiteDocsPath } from "../lib/docsFlavors";
+import { getBabylonLiteDocPaths, getBabylonLitePageData } from "../lib/babylonLiteDocs";
 import { compileMarkdown } from "../lib/markdown/compileMarkdown";
 
 export const DocumentationPage = DocsPage;
@@ -16,6 +18,14 @@ export interface IDocumentationParsedUrlQuery extends ParsedUrlQuery {
 }
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async ({ params }) => {
+    if (isLiteDocsPath(params!.id)) {
+        const props = await getBabylonLitePageData(params!.id);
+        props.mdxContent = await compileMarkdown(props.content ?? "");
+        return {
+            props,
+        };
+    }
+
     if (isRedirect(params!.id)) {
         return {
             props: {
@@ -40,7 +50,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // This is done since index is not a part of this dynamic URL mapping.
     paths.shift();
     return {
-        paths: [...paths, ...redirects],
+        paths: [...paths, ...(await getBabylonLiteDocPaths()), ...redirects],
         fallback: false,
     };
 };

@@ -37,6 +37,7 @@ yarn-error.log*
 # generated search indices (built from TypeDoc output)
 public/api-search/
 public/*-search-index.json
+public/lite/
 
 # vercel
 .vercel
