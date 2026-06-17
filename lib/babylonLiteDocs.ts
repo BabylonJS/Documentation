@@ -158,7 +158,9 @@ const clonePublicBabylonLiteRepository = () => {
 
     const env = { ...process.env, GIT_TERMINAL_PROMPT: "0" };
     execSync(`git clone --depth 1 --filter=blob:none --sparse ${babylonLiteRepositoryUrl} ${babylonLiteTempRepoDirectory}`, { stdio: "inherit", env });
-    execSync("git sparse-checkout set docs packages/babylon-lite package.json tsconfig.base.json typedoc.json", { cwd: babylonLiteTempRepoDirectory, stdio: "inherit", env });
+    // Cone mode (the default) only accepts directories; top-level files such as package.json,
+    // tsconfig.base.json and typedoc.json are always checked out automatically.
+    execSync("git sparse-checkout set docs packages/babylon-lite", { cwd: babylonLiteTempRepoDirectory, stdio: "inherit", env });
 
     return babylonLiteTempRepoDirectory;
 };
