@@ -122,6 +122,18 @@ const readJson = (filePath: string) => JSON.parse(readFileSync(filePath, "utf-8"
 const hasBabylonLiteDocs = (repositoryPath: string) => existsSync(join(repositoryPath, babylonLiteDocsRelativeRoot));
 
 const getLocalBabylonLiteRepositoryPath = () => {
+    // Resolving local sibling checkouts (e.g. "../Babylon-Lite") is a development
+    // convenience only. During a production `next build`, Turbopack statically
+    // analyses `resolve(candidate)` below, treats the relative literals as a
+    // file-tracing pattern, and — because they escape the project root — matches
+    // the entire project (22k+ files). That bloated trace is what triggers the
+    // hard "Encountered unexpected file in NFT list" error. Gating on NODE_ENV
+    // lets Next dead-code-eliminate this branch (and the resolve() calls) in
+    // production, where the repository is cloned into .temp (a statically-scoped
+    // process.cwd() path) instead.
+    if (process.env.NODE_ENV === "production") {
+        return undefined;
+    }
     return localBabylonLiteRepositoryCandidates
         .map((candidate) => resolve(candidate))
         .find(hasBabylonLiteDocs);
