@@ -260,6 +260,84 @@ Vertex preprocessors are:
 
 <Playground id="#CQH0FN#9" title="Gaussian Splatting Material Plugin" description="Demonstrates a working material plugin on a GaussianSplattingMaterial and how custom uniforms differ from standard materials."/>
 
+## Streaming large scenes with LOD (Experimental)
+
+<Alert severity="warning">
+LOD streaming is an experimental feature. Its API (the `GaussianSplattingStream` class, its options and properties) may change in future releases.
+</Alert>
+
+Very large Gaussian Splatting captures (hundreds of millions of splats, several gigabytes) do not fit in memory and cannot be rendered at full detail everywhere at once. Babylon.js can stream such scenes from a PlayCanvas-style **streamed SOG** bundle described by a `lod-meta.json` file: the scene is split into a spatial octree of chunks, each available at several levels of detail (LOD). Only the LODs needed for the current point of view are downloaded, GPU-decoded and rendered, and far/off-screen chunks use coarser levels.
+
+The coarsest LOD of every chunk is streamed first as a permanent base layer, so the whole scene becomes visible quickly with no holes; finer LODs then stream in on demand as the camera approaches, and a chunk only switches to a finer level once its data is ready, so transitions never flash or leave gaps.
+
+### Loading a streamed SOG
+
+Point any of the standard loaders at the `lod-meta.json` file. A node named `GaussianSplattingStream` is created automatically:
+
+```javascript
+BABYLON.AppendSceneAsync("https://example.com/myScene/lod-meta.json", scene);
+```
+
+`GaussianSplattingStream` extends `GaussianSplattingMesh`, so it integrates with sorting, shadows and the rest of the Gaussian Splatting pipeline. It works on both WebGL2 and WebGPU.
+
+### Tuning options
+
+To control LOD behaviour and memory usage, construct the stream directly from the parsed metadata instead of relying on the loader defaults:
+
+```javascript
+const rootUrl = "https://example.com/myScene/";
+const metadata = await (await fetch(rootUrl + "lod-meta.json")).json();
+
+const stream = new BABYLON.GaussianSplattingStream("GaussianSplattingStream", metadata, rootUrl, scene, {
+    // Memory eviction / true streaming: cap resident splats so the scene can exceed
+    // what fits in a single full-dataset buffer. Unreferenced chunks are evicted once
+    // they have not been rendered for `evictionCooldownFrames` frames.
+    memoryBudgetMb: 512,        // GPU budget for resident splats (MB)
+    // maxResidentSplats: 4_000_000, // alternative: budget expressed as a splat count
+    evictionCooldownFrames: 100,
+
+    // LOD selection (distance-based, PlayCanvas-compatible defaults)
+    lodBaseDistance: 5,         // distance of the first LOD transition
+    lodMultiplier: 3,           // geometric ratio between successive transitions
+    maxDetailLod: 0,            // 0 = allow full detail; higher = coarser maximum detail
+
+    // Download manager (concurrency cap, retries and queuing)
+    maxConcurrentDownloads: 2,
+    maxDownloadRetries: 2,
+});
+
+await stream.whenSettledAsync();
+```
+
+When a `memoryBudgetMb` (or `maxResidentSplats`) is set and is smaller than the whole dataset, LOD files are streamed through a fixed-size work buffer and unreferenced files are evicted to stay within budget — this is what allows datasets far larger than a single buffer to be displayed. When left unset, the work buffer is sized for the entire dataset and nothing is evicted.
+
+### Useful properties and methods
+
+- `maxDetailLod` — finest LOD any chunk may render (`0` = full detail). Raise it to trade detail for performance; changes apply in real time.
+- `maxLodLevel` — coarsest LOD level index available in the scene (upper bound for `maxDetailLod`).
+- `frustumCulling` — when `true` (default), off-screen chunks are biased to their coarsest LOD instead of full detail (they stay in the render set so they appear instantly when the camera turns).
+- `evaluateOptimalLods(camera)` — forces a re-evaluation of the per-chunk target LODs for a given camera.
+- `debugDisplay` / `debugLodSource` — draw a wireframe box per chunk, colored by LOD level, to visualize streaming.
+- `whenSettledAsync(stableFrames = 3)` — returns a promise that resolves once every chunk reachable from the **current** camera position has finished downloading, decoding and depth-sorting, and the result has been rendered. This is intended for deterministic automated testing and screenshot/image comparison. Keep the camera still while awaiting it (a moving camera keeps changing the target LODs, so the scene never settles). If no render loop is running yet (for example when awaited inside an async `createScene`), it drives rendering itself so it never deadlocks.
+
+<Playground id="#418POI#12" title="Streamed SOG with LOD" description="Loads a large scene from a lod-meta.json streamed SOG bundle and waits for it to settle."/>
+
+### Generating a streamed SOG with splat-transform
+
+A `lod-meta.json` bundle is produced from a single `.ply` capture with [SplatTransform](https://github.com/playcanvas/splat-transform), PlayCanvas' CLI tool. Install it, then write a `lod-meta.json` output (the `.lod-meta.json` extension triggers multi-LOD streaming output):
+
+```bash
+npm install -g @playcanvas/splat-transform
+
+# Generate a multi-LOD streamed SOG bundle (writes lod-meta.json plus the SOG chunk files)
+splat-transform input.ply output/lod-meta.json
+
+# Tune chunking: approximate Gaussians per chunk (in thousands) and chunk extent (in meters)
+splat-transform input.ply -C 512 -X 16 output/lod-meta.json
+```
+
+The output folder contains `lod-meta.json` alongside the SOG chunk files it references. Host the whole folder and point Babylon.js at the `lod-meta.json` URL. See PlayCanvas' [Generating Streamed SOG](https://developer.playcanvas.com/user-manual/splat-transform/#generating-lod-format) guide for an end-to-end walkthrough and the full option list.
+
 ## File format conversion
 
 SplatTransform is a CLI tool for converting and editing Gaussian splats: https://github.com/playcanvas/splat-transform
