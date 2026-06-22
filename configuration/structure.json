@@ -1007,6 +1007,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/materials/using/videoTexture"
                                         },
+                                        "htmlTexture": {
+                                            "friendlyName": "HTML Textures",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/materials/using/htmlTexture"
+                                        },
                                         "reflectionTexture": {
                                             "friendlyName": "Reflections and Refractions",
                                             "children": {},
