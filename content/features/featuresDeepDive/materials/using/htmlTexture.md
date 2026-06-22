@@ -18,12 +18,13 @@ It also ships with optional **interaction managers** that route Babylon pointer 
 
 ## Browser support
 
-The underlying API is experimental and not yet broadly shipped. You can run `HtmlTexture` in two ways:
+The underlying API is experimental and not yet broadly shipped. `HtmlTexture` renders through the first available of these paths:
 
-- **Natively**, in a browser that exposes the API (for example, Chrome Canary with `chrome://flags/#canvas-draw-element` enabled).
+- **Natively**, in a browser that exposes the API (for example, Chrome Canary with `chrome://flags/#canvas-draw-element` enabled). This is the fastest path: the browser copies the laid-out element straight into the GPU texture.
 - **Via a polyfill**, using [`three-html-render`](https://github.com/repalash/three-html-render), installed through the helper in `@babylonjs/addons` (see [Enabling the polyfill](#enabling-the-polyfill) below).
+- **Via the built-in SVG fallback**, which works in any modern browser with no extra setup (see [The built-in SVG fallback](#the-built-in-svg-fallback) below). This is the default when neither of the above is present.
 
-When neither is available, `HtmlTexture` logs a one-time warning and renders nothing — it never throws — so it is safe to include in code that also runs on unsupported browsers.
+Because the SVG fallback is enabled by default, `HtmlTexture` renders in regular browsers out of the box. It never throws, so it is safe to include in code that also runs on browsers without the native API.
 
 Both **WebGL2** and **WebGPU** engines are supported; the correct upload path is selected automatically.
 
@@ -51,16 +52,17 @@ The element is hosted inside a hidden `<canvas layoutsubtree>` that Babylon adds
 
 The third constructor argument is an `IHtmlTextureOptions` object:
 
-| Option            | Default                            | Description                                                                         |
-| ----------------- | ---------------------------------- | ----------------------------------------------------------------------------------- |
-| `scene`           | —                                  | The scene the texture belongs to. Provide either `scene` or `engine`.               |
-| `engine`          | —                                  | The engine to use, when no scene is available.                                      |
-| `width`           | element `offsetWidth`, then `256`  | Texture width in pixels.                                                            |
-| `height`          | element `offsetHeight`, then `256` | Texture height in pixels.                                                           |
-| `generateMipMaps` | `false`                            | Whether mip maps are generated.                                                     |
-| `samplingMode`    | `TEXTURE_BILINEAR_SAMPLINGMODE`    | The texture sampling mode.                                                          |
-| `format`          | `TEXTUREFORMAT_RGBA`               | The texture format.                                                                 |
-| `autoUpdate`      | `true`                             | When `true`, the texture refreshes whenever the host canvas reports a paint change. |
+| Option            | Default                            | Description                                                                                                                                       |
+| ----------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `scene`           | —                                  | The scene the texture belongs to. Provide either `scene` or `engine`.                                                                             |
+| `engine`          | —                                  | The engine to use, when no scene is available.                                                                                                    |
+| `width`           | element `offsetWidth`, then `256`  | Texture width in pixels.                                                                                                                          |
+| `height`          | element `offsetHeight`, then `256` | Texture height in pixels.                                                                                                                         |
+| `generateMipMaps` | `false`                            | Whether mip maps are generated.                                                                                                                   |
+| `samplingMode`    | `TEXTURE_BILINEAR_SAMPLINGMODE`    | The texture sampling mode.                                                                                                                        |
+| `format`          | `TEXTUREFORMAT_RGBA`               | The texture format.                                                                                                                               |
+| `autoUpdate`      | `true`                             | When `true`, the texture refreshes whenever the host canvas reports a paint change.                                                               |
+| `useSvgFallback`  | `true`                             | When `true`, render through the built-in SVG fallback if the native (or polyfilled) API is unavailable. Set to `false` to require the native API. |
 
 ## Updating the texture
 
@@ -83,6 +85,24 @@ htmlTexture.onLoadObservable.addOnce(() => {
 ```
 
 Call `htmlTexture.dispose()` when you are done; it removes the hidden host canvas and releases the GPU texture.
+
+## The built-in SVG fallback
+
+When the native WICG API (or its polyfill) is unavailable, `HtmlTexture` falls back to rasterizing the element through an SVG [`<foreignObject>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject). The element is serialized, wrapped in an SVG image, and uploaded to the texture as a [Dynamic Texture](/features/featuresDeepDive/materials/using/dynamicTexture). This works in any modern browser with no flags or extra dependencies, so it is the default behavior.
+
+The fallback is convenient but less capable than the native path. Keep these caveats in mind:
+
+- **Inline styles only.** External stylesheets and `<link>`-ed CSS are not applied; style the element (or its children) inline, or inject a `<style>` element into the serialized subtree.
+- **Same-origin resources.** Cross-origin images, fonts, and other external resources taint the snapshot and cause the fallback to fail; the texture logs a one-time warning when this happens.
+- **Static snapshot.** The fallback captures the DOM as it is at update time. Interactive states that the browser computes during real rendering — `:hover`, focus rings, native form-control state, running scripts — are not reflected.
+- **Heavier than the native copy.** Each update serializes the DOM and decodes an image, so prefer driving updates explicitly (rather than per-frame) for complex content.
+
+To require the native API and skip the fallback entirely, pass `useSvgFallback: false`. The texture then logs a one-time warning and renders nothing when the native API is missing.
+
+```javascript
+// Only render when the native WICG API (or polyfill) is available.
+const htmlTexture = new BABYLON.HtmlTexture("html", el, { scene, useSvgFallback: false });
+```
 
 ## Interaction
 
@@ -186,5 +206,6 @@ const createScene = async function () {
 
 - The API is experimental; behavior and availability may change as the WICG specification evolves.
 - Cross-origin content (for example, third-party `<iframe>`s) cannot be rasterized, mirroring the browser's tainted-canvas rules.
+- The built-in SVG fallback only captures same-origin, inline-styled content as a static snapshot; see [The built-in SVG fallback](#the-built-in-svg-fallback) for details, or set `useSvgFallback: false` to require the native API.
 - The overlay `HtmlInteractionManager` is screen-aligned and does not perspective-correct steeply oblique faces; use the raycast manager for those.
 - Synthetic pointer forwarding (`HtmlRaycastInteractionManager`) delivers pointer events, but not native keyboard or IME input into rasterized form fields; use the overlay manager when real text input is required.
