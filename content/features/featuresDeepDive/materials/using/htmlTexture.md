@@ -105,6 +105,14 @@ new BABYLON.HtmlRaycastInteractionManager(scene, htmlTexture, plane);
 | `backFaceCulling` | `true`            | Ignore hits on back-facing geometry.                                              |
 | `invertY`         | `true`            | Whether the texture content is stored Y-inverted, used when mapping UV to pixels. |
 
+> Because it relies on scene picking, `HtmlRaycastInteractionManager` requires the `Ray` side-effect import when you consume `@babylonjs/core` as ES modules. Add it once, anywhere in your app:
+>
+> ```javascript
+> import "@babylonjs/core/Culling/ray";
+> ```
+>
+> The UMD bundle and the Playground include this automatically. `HtmlInteractionManager` (below) does not need it.
+
 ### Overlay interaction (planar meshes)
 
 `HtmlInteractionManager` positions the **real DOM element** as a screen-aligned overlay over the projected face of a planar mesh, so the browser hit-tests it natively. This preserves full native fidelity — focus, text selection, and form input — at the cost of being limited to flat, camera-facing surfaces (it applies position, size, and in-plane rotation, not a full perspective skew).
