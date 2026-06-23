@@ -104,6 +104,11 @@ export const clearPlaygroundIndex = async (flavorId: DocsFlavorId = "babylon") =
         return;
     }
     console.log("clearing playgrounds index.");
+    // Legacy playground documents were indexed before the `flavor` field existed and used an
+    // un-prefixed id (`base64(playgroundId)`), so a plain `flavor eq 'babylon'` filter never
+    // matched them and left duplicates behind. When clearing the default babylon flavor, also
+    // remove those legacy documents (flavor missing/null).
+    const filter = flavorId === "babylon" ? `flavor eq '${flavorId}' or flavor eq null` : `flavor eq '${flavorId}'`;
     // get all elements
     const getResults = async (params?: { top?: number, skip?: number }) => {
         return await fetch(getUrl("search", "playgrounds"), {
@@ -111,7 +116,7 @@ export const clearPlaygroundIndex = async (flavorId: DocsFlavorId = "babylon") =
             method: "POST",
             
             body: JSON.stringify({
-                filter: `flavor eq '${flavorId}'`,
+                filter,
                 top: 10000,
                 ...params
             }),
