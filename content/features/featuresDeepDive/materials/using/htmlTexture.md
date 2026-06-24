@@ -16,12 +16,20 @@ Unlike a [Dynamic Texture](/features/featuresDeepDive/materials/using/dynamicTex
 
 It also ships with optional **interaction managers** that route Babylon pointer events back to the DOM, so the rendered HTML can stay interactive (buttons, links, hover states) on a 3D surface.
 
+## Examples
+
+<Playground id="#C9MWZC#2" title="HTML Texture Control Panel" description="An interactive HTML control panel (theme swatches, counter, toggle and animated progress bar) rendered onto a plane as an HtmlTexture."/>
+
+<Playground id="#8RDVXG#1" title="Multiple HTML Textures" description="Two independent HtmlTextures — a live counter and an interactive button card — each on its own rotating plane."/>
+
+Both demos load the polyfill from a CDN so they run in any browser (see [Enabling the polyfill](#enabling-the-polyfill)).
+
 ## Browser support
 
 The underlying API is experimental and not yet broadly shipped. `HtmlTexture` renders through the first available of these paths:
 
 - **Natively**, in a browser that exposes the API (for example, Chrome Canary with `chrome://flags/#canvas-draw-element` enabled). This is the fastest path: the browser copies the laid-out element straight into the GPU texture.
-- **Via a polyfill**, using [`three-html-render`](https://github.com/repalash/three-html-render), installed through the helper in `@babylonjs/addons` (see [Enabling the polyfill](#enabling-the-polyfill) below).
+- **Via a polyfill**, using [`three-html-render`](https://github.com/repalash/three-html-render), installed through the helper in `@babylonjs/core` (see [Enabling the polyfill](#enabling-the-polyfill) below).
 - **Via the built-in SVG fallback**, which works in any modern browser with no extra setup (see [The built-in SVG fallback](#the-built-in-svg-fallback) below). This is the default when neither of the above is present.
 
 Because the SVG fallback is enabled by default, `HtmlTexture` renders in regular browsers out of the box. It never throws, so it is safe to include in code that also runs on browsers without the native API.
@@ -152,25 +160,51 @@ Both managers expose a `dispose()` method that detaches their observers.
 
 ## Enabling the polyfill
 
-When the native API is not present, install the polyfill helper from `@babylonjs/addons`. It lazily imports `three-html-render` only when needed, so it never adds to your bundle unless it is actually used.
+When the native API is not present, install the polyfill helper from `@babylonjs/core`. It lazily imports `three-html-render` only when needed, so it never adds to your bundle unless it is actually used.
 
 ```javascript
-import { InstallHtmlInCanvasPolyfill } from "@babylonjs/addons/htmlInCanvas";
+import { InstallHtmlInCanvasPolyfill } from "@babylonjs/core/Materials/Textures/HTML/htmlInCanvasPolyfill";
 
 // No-op when the API is supported natively; installs the polyfill otherwise.
 await InstallHtmlInCanvasPolyfill();
 ```
 
-Helpers available in `@babylonjs/addons`:
+Helpers available in `@babylonjs/core`:
 
 - `IsHtmlInCanvasSupportedNatively()` — returns `true` when the browser exposes the API natively.
 - `InstallHtmlInCanvasPolyfill(options?)` — installs the polyfill and resolves to `true` when it was installed. By default it is a no-op when native support is present; pass `{ force: true }` to install regardless. Appending `?polyfillHIC` to the page URL also forces installation.
 - `UninstallHtmlInCanvasPolyfill()` — removes a previously installed polyfill.
 
+### In the Playground
+
+The Playground's UMD bundle can't dynamically import the polyfill package, so load the self-installing CDN build with a `<script>` tag before creating any `HtmlTexture`. The script installs itself on load, is idempotent, and no-ops when the native API is present:
+
+```javascript
+const ensureHtmlInCanvasAsync = function () {
+    if ("captureElementImage" in HTMLCanvasElement.prototype) {
+        return Promise.resolve();
+    }
+    if (document.querySelector("script[data-hic-polyfill]")) {
+        return Promise.resolve();
+    }
+    return new Promise(function (resolve, reject) {
+        const script = document.createElement("script");
+        script.src = "https://cdn.jsdelivr.net/npm/three-html-render@0.1.2/dist/polyfill.js";
+        script.dataset.hicPolyfill = "";
+        script.onload = function () { resolve(); };
+        script.onerror = function () { reject(new Error("Failed to load the HTML-in-Canvas polyfill")); };
+        document.head.appendChild(script);
+    });
+};
+
+// at the top of your async createScene, before building any HtmlTexture:
+await ensureHtmlInCanvasAsync();
+```
+
 ## Putting it together
 
 ```javascript
-import { InstallHtmlInCanvasPolyfill } from "@babylonjs/addons/htmlInCanvas";
+import { InstallHtmlInCanvasPolyfill } from "@babylonjs/core/Materials/Textures/HTML/htmlInCanvasPolyfill";
 
 const createScene = async function () {
   const scene = new BABYLON.Scene(engine);
