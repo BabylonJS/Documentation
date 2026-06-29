@@ -24,7 +24,9 @@ The goal is simple:
 - Click a specific mesh in the preview scene.
 - Log a message when that mesh is picked.
 
-You can try it in the hosted editor here: [Flow Graph Editor](https://flowgraph.babylonjs.com)
+You can open the finished graph straight in the hosted editor, already wired up: [Open this graph in the Flow Graph Editor](https://flowgraph.babylonjs.com/#X35TVY#0)
+
+To build it yourself from an empty canvas, open the editor here instead: [Flow Graph Editor](https://flowgraph.babylonjs.com). The steps below walk through wiring it.
 
 ## Blocks Used
 

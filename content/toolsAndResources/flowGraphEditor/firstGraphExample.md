@@ -24,7 +24,9 @@ This example walks through a tiny graph that runs on the editor's default scene 
 4. Connect them.
 5. Run the graph and inspect the result.
 
-You can try it in the live editor here: [Flow Graph Editor](https://flowgraph.babylonjs.com)
+You can open the finished graph straight in the hosted editor, fully wired and ready to run: [Open this graph in the Flow Graph Editor](https://flowgraph.babylonjs.com/#WAHSBR#0)
+
+If you would rather build it from scratch, start with an empty editor instead: [Flow Graph Editor](https://flowgraph.babylonjs.com). The steps below walk through wiring it yourself.
 
 ## Goal
 
