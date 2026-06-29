@@ -22,6 +22,10 @@ Open this step in the editor: [#LQF05M](https://flowgraph.babylonjs.com/#LQF05M)
 
 ![Movement graph: keyboard input and a per-frame velocity update](/img/tools/flowGraphEditor/tutorial/movement.webp)
 
+Run this step:
+
+<Playground id="#HLH9ZK#0" title="Babylon Bros - Move" description="Tutorial step: drive the hero left and right with the arrow keys, powered by flow graph #LQF05M." category="Flow Graph"/>
+
 ## Blocks Used
 
 - `KeyDownEvent`, `KeyUpEvent` (Events)

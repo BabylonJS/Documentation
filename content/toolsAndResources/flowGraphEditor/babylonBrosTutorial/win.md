@@ -18,6 +18,10 @@ Open this step in the editor: [#FQTQ83](https://flowgraph.babylonjs.com/#FQTQ83)
 
 ![The complete Babylon Bros graph with the win handler in place](/img/tools/flowGraphEditor/tutorial/win.webp)
 
+Run this step:
+
+<Playground id="#HC9TNG#0" title="Babylon Bros - Win" description="Tutorial step: the complete game with the win condition, powered by flow graph #FQTQ83." category="Flow Graph"/>
+
 ## Blocks Used
 
 - `PhysicsCollisionEvent` (flag)

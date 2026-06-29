@@ -18,6 +18,10 @@ Open this step in the editor: [#XR3NO0](https://flowgraph.babylonjs.com/#XR3NO0)
 
 ![Enemy graph: stomp-versus-hurt branches and a hurt custom event](/img/tools/flowGraphEditor/tutorial/enemies.webp)
 
+Run this step:
+
+<Playground id="#BGZZ3S#0" title="Babylon Bros - Enemies" description="Tutorial step: stomp enemies or take damage, powered by flow graph #XR3NO0." category="Flow Graph"/>
+
 ## Blocks Used
 
 - `PhysicsCollisionEvent` (per enemy body)

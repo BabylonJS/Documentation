@@ -20,6 +20,10 @@ Open this step in the editor: [#RZIR69](https://flowgraph.babylonjs.com/#RZIR69)
 
 ![Jump graph: Space event, ground-check branch, impulse and sound](/img/tools/flowGraphEditor/tutorial/jump.webp)
 
+Run this step:
+
+<Playground id="#BHLQUF#0" title="Babylon Bros - Jump" description="Tutorial step: run and jump with Space, powered by flow graph #RZIR69." category="Flow Graph"/>
+
 ## Blocks Used
 
 - `KeyDownEvent` (Space)

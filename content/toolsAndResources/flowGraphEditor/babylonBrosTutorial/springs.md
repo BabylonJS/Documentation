@@ -18,6 +18,10 @@ Open this step in the editor: [#RB4AJX](https://flowgraph.babylonjs.com/#RB4AJX)
 
 ![Spring graph: collision while descending launches the hero upward](/img/tools/flowGraphEditor/tutorial/springs.webp)
 
+Run this step:
+
+<Playground id="#OII5YL#0" title="Babylon Bros - Springs" description="Tutorial step: bounce on spring pads, powered by flow graph #RB4AJX." category="Flow Graph"/>
+
 ## Blocks Used
 
 - `PhysicsCollisionEvent` (spring body)

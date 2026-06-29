@@ -20,6 +20,10 @@ Open this step in the editor: [#PJ6NXB](https://flowgraph.babylonjs.com/#PJ6NXB)
 
 ![Coin graph: collision triggers a collect custom event that updates score](/img/tools/flowGraphEditor/tutorial/coins.webp)
 
+Run this step:
+
+<Playground id="#ZI8UZP#0" title="Babylon Bros - Coins" description="Tutorial step: move, jump, and collect coins, powered by flow graph #PJ6NXB." category="Flow Graph"/>
+
 ## Blocks Used
 
 - `PhysicsCollisionEvent` (per question block / coin)
