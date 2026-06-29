@@ -18,7 +18,7 @@ This tutorial is about authoring interactions in the editor, not about modeling.
 
 You can run the finished scene here:
 
-<Playground id="#P41T6E#1" title="Babylon Bros Scene" description="The inert Babylon Bros scene used as the starting point for the Flow Graph tutorial. All interaction is added later in the editor." category="Flow Graph"/>
+<Playground id="#P41T6E#2" title="Babylon Bros Scene" description="The inert Babylon Bros scene used as the starting point for the Flow Graph tutorial. All interaction is added later in the editor." category="Flow Graph"/>
 
 ## The Scene Is Intentionally Inert
 

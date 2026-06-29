@@ -14,7 +14,9 @@ further-reading:
 
 Make `spring_1` and `spring_2` launch the hero when he lands on them. Bounce only when the hero is descending, so it feels like a real spring.
 
-Open this step in the editor: [#GE2270](https://flowgraph.babylonjs.com/#GE2270) (scene `P41T6E#1`).
+Open this step in the editor: [#RB4AJX](https://flowgraph.babylonjs.com/#RB4AJX) (scene `P41T6E#2`).
+
+![Spring graph: collision while descending launches the hero upward](/img/tools/flowGraphEditor/tutorial/springs.webp)
 
 ## Blocks Used
 
@@ -45,4 +47,4 @@ Group the spring logic and paste it for `spring_2`, re-targeting the collision b
 
 ## Test And Save
 
-Run and bounce on a spring. Save; match `#GE2270`. Continue with [Step 6 - Enemies](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/enemies).
+Run and bounce on a spring. Save; match `#RB4AJX`. Continue with [Step 6 - Enemies](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/enemies).

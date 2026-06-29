@@ -18,7 +18,9 @@ video-content:
 
 Make the hero run left and right with the arrow keys. The pattern is: keyboard events set a direction variable, and a per-frame tick converts that direction into physics velocity.
 
-Open this step in the editor: [#2J4PCY](https://flowgraph.babylonjs.com/#2J4PCY) (load scene `P41T6E#1` in the preview).
+Open this step in the editor: [#LQF05M](https://flowgraph.babylonjs.com/#LQF05M) (load scene `P41T6E#2` in the preview).
+
+![Movement graph: keyboard input and a per-frame velocity update](/img/tools/flowGraphEditor/tutorial/movement.webp)
 
 ## Blocks Used
 
@@ -54,4 +56,4 @@ Press Start and use the arrow keys in the preview. The hero should run. Turn on 
 
 ## Save
 
-Save to the snippet server. Your graph should match `#2J4PCY`. Continue with [Step 3 - Add Jumping](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/jump).
+Save to the snippet server. Your graph should match `#LQF05M`. Continue with [Step 3 - Add Jumping](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/jump).

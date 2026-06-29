@@ -14,7 +14,9 @@ further-reading:
 
 Enemies (`goomba_1`, `goomba_2`, `flyer_1`, the spiky hazard) react two ways: a stomp from above defeats them and bounces the hero, while a side touch hurts the hero. This reuses the `collect`/`hurt` custom-event pattern.
 
-Open this step in the editor: [#11YDFB](https://flowgraph.babylonjs.com/#11YDFB) (scene `P41T6E#1`).
+Open this step in the editor: [#XR3NO0](https://flowgraph.babylonjs.com/#XR3NO0) (scene `P41T6E#2`).
+
+![Enemy graph: stomp-versus-hurt branches and a hurt custom event](/img/tools/flowGraphEditor/tutorial/enemies.webp)
 
 ## Blocks Used
 
@@ -45,4 +47,4 @@ You now have many near-identical clusters. Lean on copy/paste, smart groups, and
 
 ## Test And Save
 
-Run and try stomping vs side-hitting enemies. Save; match `#11YDFB`. Continue with [Step 7 - Win Condition](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/win).
+Run and try stomping vs side-hitting enemies. Save; match `#XR3NO0`. Continue with [Step 7 - Win Condition](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/win).

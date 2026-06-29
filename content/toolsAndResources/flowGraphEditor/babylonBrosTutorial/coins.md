@@ -16,7 +16,9 @@ further-reading:
 
 When the hero collects a coin, increase a score, log it, and play a sound. This introduces custom events to decouple "something was collected" from "update score".
 
-Open this step in the editor: [#A7KEG8](https://flowgraph.babylonjs.com/#A7KEG8) (scene `P41T6E#1`).
+Open this step in the editor: [#PJ6NXB](https://flowgraph.babylonjs.com/#PJ6NXB) (scene `P41T6E#2`).
+
+![Coin graph: collision triggers a collect custom event that updates score](/img/tools/flowGraphEditor/tutorial/coins.webp)
 
 ## Blocks Used
 
@@ -47,4 +49,4 @@ Build the first block fully, group it (`Ctrl/Cmd+G`), copy/paste, and re-target.
 
 ## Test And Save
 
-Run, collect coins, watch the score log. Save; match `#A7KEG8`. Continue with [Step 5 - Spring Bounces](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/springs).
+Run, collect coins, watch the score log. Save; match `#PJ6NXB`. Continue with [Step 5 - Spring Bounces](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/springs).

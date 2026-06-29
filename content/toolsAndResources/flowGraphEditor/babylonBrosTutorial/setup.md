@@ -18,7 +18,7 @@ Open the [Flow Graph Editor](https://flowgraph.babylonjs.com). It starts with a 
 
 ## Load The Scene Snippet
 
-In the Scene Preview panel, enter the scene snippet ID `P41T6E#1` and press `Enter` to load it. The preview switches to the platformer level, and its meshes, animation groups, and sounds become available to scene-aware pickers.
+In the Scene Preview panel, enter the scene snippet ID `P41T6E#2` and press `Enter` to load it. The preview switches to the platformer level, and its meshes, animation groups, and sounds become available to scene-aware pickers.
 
 That scene context is shared by every graph and execution context, so you only load it once.
 

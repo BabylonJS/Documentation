@@ -16,7 +16,9 @@ further-reading:
 
 Make the hero jump on `Space`, but only when grounded, and play a sound. This adds your first conditional branch.
 
-Open this step in the editor: [#9L4YN3](https://flowgraph.babylonjs.com/#9L4YN3) (scene `P41T6E#1`).
+Open this step in the editor: [#RZIR69](https://flowgraph.babylonjs.com/#RZIR69) (scene `P41T6E#2`).
+
+![Jump graph: Space event, ground-check branch, impulse and sound](/img/tools/flowGraphEditor/tutorial/jump.webp)
 
 ## Blocks Used
 
@@ -47,4 +49,4 @@ On the `true` path, add `ApplyImpulse` on the `hero` body with an upward vector,
 
 ## Test And Save
 
-Run, then jump with `Space` while moving. Save the graph; it should match `#9L4YN3`. Continue with [Step 4 - Collect Coins](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/coins).
+Run, then jump with `Space` while moving. Save the graph; it should match `#RZIR69`. Continue with [Step 4 - Collect Coins](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/coins).
