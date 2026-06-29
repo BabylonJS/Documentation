@@ -27,7 +27,7 @@ As at this point in our world all the houses will use the same material we will 
 
 Before we do that we combine the building functions to produce a house of width 1 or 2, a detached or semi-detached house respectively.
 
-<Playground id="#KBS9I5#77" title="Expanding the House Building Function" description="A playground expanding the house building function to accept a width of 1 or 2 for a detached or semi-detached house." image="/img/playgroundsAndNMEs/gettingStartedCopies1.jpg"/>
+<Playground id="#KBS9I5#77" title="Expanding the House Building Function" description="A playground expanding the house building function to accept a width of 1 or 2 for a detached or semi-detached house." image="/img/playgroundsAndNMEs/gettingStartedCopies1.webp"/>
 
 We now enlarge the ground and increase the camera radius a little to fit several house on and be able to view them.
 To begin we build one house of each type and position them. Afterwards we will create instances of these for the remaining houses. After deciding on the type, position and orientation for the other houses we will use a loop to create them.
@@ -48,17 +48,17 @@ for (let i = 0; i < places.length; i++) {
 }
 ```
 
-<Playground id="#KBS9I5#78" title="Creating Multiple House Instances" description="A playground demonstrating how to create instances of a 3D object." image="/img/playgroundsAndNMEs/gettingStartedCopies2.jpg"/>
+<Playground id="#KBS9I5#78" title="Creating Multiple House Instances" description="A playground demonstrating how to create instances of a 3D object." image="/img/playgroundsAndNMEs/gettingStartedCopies2.webp"/>
 
-![Village 1](/img/getstarted/village1.png)
+![Village 1](/img/getstarted/village1.webp)
 
 As before, in order to keep the upper parts of the playground editor for newer code we will put the building of these houses into a function.
 
-<Playground id="#KBS9I5#79" title="Wrapping Instances Into a Function" description="Wrapping the house instancing loop into a function." image="/img/playgroundsAndNMEs/gettingStartedCopies2.jpg"/>
+<Playground id="#KBS9I5#79" title="Wrapping Instances Into a Function" description="Wrapping the house instancing loop into a function." image="/img/playgroundsAndNMEs/gettingStartedCopies2.webp"/>
 
 Now the world we are building is a little more complex let's take a file of the village and re-visit viewing it as part of a web site we want to enhance.
 
-<Playground id="#KBS9I5#80" title="Importing the Village as a .glb File" description="An example of how to load a .glb of the starting village into your scene." image="/img/playgroundsAndNMEs/gettingStartedCopies2.jpg"/>
+<Playground id="#KBS9I5#80" title="Importing the Village as a .glb File" description="An example of how to load a .glb of the starting village into your scene." image="/img/playgroundsAndNMEs/gettingStartedCopies2.webp"/>
 
 
 

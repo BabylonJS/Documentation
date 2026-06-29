@@ -16,8 +16,8 @@ Before I began any of the art asset creation, I used Pinterest to collect all of
 
 I made some really rough sketches of how I wanted the character and environment to look. The environment was the most vague as I wasn't sure in the beginning how I wanted the feel of the game to be. I went back in with more detail for the character reference to help with modeling.
 
-![characterDesigns](/img/how_to/create-a-game/characterDesigns.jpeg)
-![characterRef](/img/how_to/create-a-game/characterref.jpeg)
+![characterDesigns](/img/how_to/create-a-game/characterDesigns.webp)
+![characterRef](/img/how_to/create-a-game/characterref.webp)
 
 This is also where I started thinking about what color palette I wanted to use. Similar to the pixel-art games I usually make, I wanted to use a limited color palette to keep it consistent and bring everything together. Colors aren't usually my strength, so I just try to keep a set of colors I think work well together and go from there. This is where looking for color palettes on pinterest is really helpful.
 
@@ -29,14 +29,14 @@ The first time was to get a player model done for animation and movement testing
 - When animated, the mesh had a lot of clipping since I made the body and clothes separately. The weight painting was a difficult process to try and minimize clipping as much as possible.
 - This model also uses emissive materials rather than PBR (which means it would be self-lit), so in the final version I changed these to PBR since we needed the scene to be dark and lit by the lanterns and player's light only.
 
-![firstModel](/img/how_to/create-a-game/firstModel.png)
+![firstModel](/img/how_to/create-a-game/firstModel.webp)
 
 The second one, I had troubles with the animations after rigging, so I decided to restart the whole process since my model must have been messed up somewhere. I referenced a ton of different rigging videos. Here are some of the videos were particularly helpful:
 - [Royal Skies LLC Blender 2.8 Speed Tutorials](https://www.youtube.com/watch?v=f6vgICNCVxQ&list=PLZpDYt0cyiuu-sxJKbuYh8OjtgmXNacCV)
 
 The third one is the one that's in the game right now! In order to fix the clipping problem I had with the other models, I joined all of the separate meshes. This made coloring the model really difficult, and I had to go back and clean up the areas where they were joined to make sure there weren't too many extra vertices. The weight painting process took a while, but at this point I was starting to get familiar with the process.
 
-![finalModel](/img/how_to/create-a-game/finalPlayerModel.png)
+![finalModel](/img/how_to/create-a-game/finalPlayerModel.webp)
 
 These are some of the tutorials I watched for the animation process:
 - [3D Animation Hub's Jump Animation](https://www.youtube.com/watch?v=VvTEovuTCgA)

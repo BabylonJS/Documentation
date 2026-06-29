@@ -1,6 +1,6 @@
 ---
 title: Network Physical Synchronization (based on ammojs + colyseus)
-image: /img/resources/networking/colyseus_ammojs/d1.gif
+image: /img/resources/networking/colyseus_ammojs/d1.webp
 description: Learn to develop Network Physical Synchronization by colyseus
 keywords: colyseus, multiplayer, networking, ammojs, server
 further-reading:
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Wireframe](/img/resources/networking/colyseus_ammojs/d1.gif)
+![Wireframe](/img/resources/networking/colyseus_ammojs/d1.webp)
 
 This guide will help you realize the synchronization of network physical effects based on colyseus. This is a very simple demonstration. It does not include any server verification. Collision and detection only occur on the player's client. The server is responsible for synchronizing the data of physical effects and allocating the permissions of physical calculation;
 
@@ -82,14 +82,14 @@ Yes, that's it
 First, we create a box and ground, and add physics to it,the ground represents the scene, and the box represents the interactive objects in the scene (such as a football played by many people)
 
 ```javascript
-scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new AmmoJSPlugin(true, Ammo));
+scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new BABYLON.HavokPlugin(true, havokInstance));
 var ground = BABYLON.MeshBuilder.CreateGround("ground1", { width: 160, height: 160, subdivisions: 2 }, scene);
 ground.position.y = -5;
-ground.physicsImpostor = new BABYLON.PhysicsImpostor(ground, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, friction: 0.5, restitution: 0.7 }, scene);
+const groundAggregate = new BABYLON.PhysicsAggregate(ground, BABYLON.PhysicsShapeType.BOX, { mass: 0, friction: 0.5, restitution: 0.7 }, scene);
 
 var box = BABYLON.MeshBuilder.CreateBox("box", { size: 2 }, scene);
 box.position.y = 1;
-box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 1, restitution: 0.9 }, scene);
+const boxAggregate = new BABYLON.PhysicsAggregate(box, BABYLON.PhysicsShapeType.BOX, { mass: 1, restitution: 0.9 }, scene);
 box.material = new BABYLON.StandardMaterial("s-mat", scene);
 box.material.diffuseColor = new BABYLON.Color3(0, 0, 1);
 box.material.emissiveTexture = new BABYLON.Texture("./src/grass.png", scene);
@@ -125,7 +125,7 @@ window.addEventListener("keydown", function (e) {
   } else if (e.which === Keycode.DOWN) {
     keyboard.y = -10;
   }
-  playerViews[sessionId].physicsImpostor.setLinearVelocity(new BABYLON.Vector3(keyboard.x, 0, keyboard.y));
+  playerViews[sessionId].physics.body.setLinearVelocity(new BABYLON.Vector3(keyboard.x, 0, keyboard.y));
 });
 
 window.addEventListener("keyup", function (e) {
@@ -139,7 +139,7 @@ window.addEventListener("keyup", function (e) {
     keyboard.y = 0;
   }
 
-  playerViews[sessionId].physicsImpostor.setLinearVelocity(new BABYLON.Vector3(0, 0, 0));
+  playerViews[sessionId].physics.body.setLinearVelocity(new BABYLON.Vector3(0, 0, 0));
 });
 ```
 
@@ -201,7 +201,7 @@ player.position.onChange = () => {
     if (Math.abs(playerViews[key].position.x) < 0.2 && Math.abs(playerViews[key].position.y) < 0.5 && Math.abs(playerViews[key].position.x) < 0.2) {
       playerViews[key].position = new BABYLON.Vector3(player.position.x, player.position.y, player.position.z);
     } else {
-      playerViews[key].physicsImpostor.setLinearVelocity(new BABYLON.Vector3((player.position.x - playerViews[key].position.x) * 10, (player.position.y - playerViews[key].position.y) * 10, (player.position.z - playerViews[key].position.z) * 10));
+      playerViews[key].physics.body.setLinearVelocity(new BABYLON.Vector3((player.position.x - playerViews[key].position.x) * 10, (player.position.y - playerViews[key].position.y) * 10, (player.position.z - playerViews[key].position.z) * 10));
 
       playerViews[key].rotationQuaternion = BABYLON.Quaternion.Slerp(playerViews[key].rotationQuaternion, new BABYLON.Quaternion(player.quaternion.x, player.quaternion.y, player.quaternion.z, player.quaternion.w), 0.4);
     }
@@ -297,7 +297,8 @@ If other players collide with the box, the targetid will be replaced by the sess
 ```javascript
 if (key === room.sessionId) {
   //...
-  box.physicsImpostor.registerOnPhysicsCollide(playerViews[sessionId].physicsImpostor, function (main, collided) {
+  boxAggregate.body.setCollisionCallbackEnabled(true);
+  boxAggregate.body.getCollisionObservable().add((event) => {
     room.send("boxUpdate", {
       targetId: sessionId,
       position: { x: box.position.x, y: box.position.y, z: box.position.z },
@@ -313,7 +314,7 @@ Now, we have completed all the functions!!!
 
 ## Please enjoy the final effect
 
-![Wireframe](/img/resources/networking/colyseus_ammojs/d2.gif)
+![Wireframe](/img/resources/networking/colyseus_ammojs/d2.webp)
 
 ## Homework
 

@@ -17,7 +17,7 @@ import { AnchorWrapper } from "../../components/wrappers/anchorWrapper.component
  * This is an example of a simple unified plugin that can be used to make changes to the code.
  * @param options Options to pass to the plugin
  */
-export const testPlugin: Plugin<[any?] | [Processor?, any?]> = (options) => {
+export const testPlugin: Plugin<any[]> = function (options: any) {
     const visitor = (node: any /*, index, parent*/) => {
         var props = node.properties as { [key: string]: string };
         if (node.tagName === "a" && props.href.indexOf("p") !== -1) {
@@ -30,7 +30,7 @@ export const testPlugin: Plugin<[any?] | [Processor?, any?]> = (options) => {
     };
 };
 
-export const addPlaygroundSearch: Plugin<[any?] | [Processor?, any?]> = (options) => {
+export const addPlaygroundSearch: Plugin<any[]> = function (options: any) {
     const visitor = (node: any /*, index, parent*/) => {
         var props = node.properties as { [key: string]: any };
         const classes = (props.className || []) as string[];
@@ -68,12 +68,15 @@ export const addPlaygroundSearch: Plugin<[any?] | [Processor?, any?]> = (options
     };
 };
 
-export const apiLinkParserPlugin: () => Plugin<[any?] | [Processor?, any?]> = (baseLocation = "typedoc") => {
+export const apiLinkParserPlugin = (baseLocation = "typedoc"): Plugin => {
     return () => {
         const visitor = (node: any /*, index, parent*/) => {
-            var props = node.properties as { [key: string]: any };
+            var props = (node.properties ||= {}) as { [key: string]: any };
             if (node.tagName === "a" && props.href && !props.href.startsWith("http") && props.href.indexOf("/") !== -1 && props.href[0] !== ".") {
                 props.href = `/${baseLocation}/${props.href}`;
+            }
+            if (node.tagName === "use" && props.href?.includes("#icon-")) {
+                props.href = props.href.replace(/.*#/, "#");
             }
             if (node.tagName === "input") {
                 props.readonly = true;
@@ -89,9 +92,9 @@ export const apiLinkParserPlugin: () => Plugin<[any?] | [Processor?, any?]> = (b
 export const parseNode = (htmlContent: string, baseLocation = "typedoc") => {
     // const parsed = unified().use(html).stringify(node);
     var processor = unified()
-        .use(parse)
+        .use(parse, { fragment: true })
         .use(highlight)
-        .use(apiLinkParserPlugin.call(null, baseLocation))
+        .use(apiLinkParserPlugin(baseLocation))
         .use(addPlaygroundSearch)
         .use(rehype2react, {
             Fragment,

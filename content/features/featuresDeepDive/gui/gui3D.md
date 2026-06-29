@@ -91,7 +91,7 @@ The panel will automatically arrange its content every time you add a new contro
 
 You can specify the distance between elements with `panel.margin = 0.02`.
 
-See it in action here: <Playground id="#HJZBRG#0" title="3D GUI StackPanel" description="Simple example showing how to add a 3D GUI StackPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI1.jpg"/>
+See it in action here: <Playground id="#HJZBRG#0" title="3D GUI StackPanel" description="Simple example showing how to add a 3D GUI StackPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI1.webp"/>
 
 ### VolumeBasedPanel
 
@@ -136,9 +136,9 @@ panel.radius = 5;
 
 The radius property is used to define the radius of the hosting sphere.
 
-See it in action here: <Playground id="#HB4C01#9" title="3D GUI SpherePanel" description="Simple example showing how to add a 3D GUI SpherePanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI2.jpg"/>
+See it in action here: <Playground id="#HB4C01#9" title="3D GUI SpherePanel" description="Simple example showing how to add a 3D GUI SpherePanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI2.webp"/>
 
-![SpherePanel](/img/how_to/gui/SpherePanel.jpg)
+![SpherePanel](/img/how_to/gui/SpherePanel.webp)
 
 #### CylinderPanel
 
@@ -151,9 +151,9 @@ panel.radius = 5;
 
 The radius property is used to define the radius of the hosting cylinder.
 
-See it in action here: <Playground id="#HB4C01#8" title="3D GUI CylinderPanel" description="Simple example showing how to add a 3D GUI CylinderPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI3.jpg"/>
+See it in action here: <Playground id="#HB4C01#8" title="3D GUI CylinderPanel" description="Simple example showing how to add a 3D GUI CylinderPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI3.webp"/>
 
-![CylinderPanel](/img/how_to/gui/CylinderPanel.jpg)
+![CylinderPanel](/img/how_to/gui/CylinderPanel.webp)
 
 #### PlanePanel
 
@@ -163,9 +163,9 @@ The `PlanePanel` container can be used to dispatch item on the surface of a plan
 const panel = new BABYLON.GUI.PlanePanel();
 ```
 
-See it in action here: <Playground id="#HB4C01#7" title="3D GUI PlanePanel" description="Simple example showing how to add a 3D GUI PlanePanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI4.jpg"/>
+See it in action here: <Playground id="#HB4C01#7" title="3D GUI PlanePanel" description="Simple example showing how to add a 3D GUI PlanePanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI4.webp"/>
 
-![PlanePanel](/img/how_to/gui/PlanePanel.jpg)
+![PlanePanel](/img/how_to/gui/PlanePanel.webp)
 
 #### ScatterPanel
 
@@ -178,9 +178,9 @@ panel.iterations = 100;
 
 The iterations property is used to define the number of iteration to use to scatter the controls (100 by default)
 
-![ScatterPanel](/img/how_to/gui/ScatterPanel.jpg)
+![ScatterPanel](/img/how_to/gui/ScatterPanel.webp)
 
-See it in action here: <Playground id="#HB4C01#6" title="3D GUI ScatterPanel" description="Simple example showing how to add a 3D GUI ScatterPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI5.jpg"/>
+See it in action here: <Playground id="#HB4C01#6" title="3D GUI ScatterPanel" description="Simple example showing how to add a 3D GUI ScatterPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI5.webp"/>
 
 ## Controls
 
@@ -252,7 +252,7 @@ You can use the following properties to change the texture resolution:
 - `contentResolution`: Gets or sets the texture resolution used to render content (512 by default)
 - `contentScaleRatio`: Gets or sets the texture scale ratio used to render content (2 by default)
 
-See it in action here: <Playground id="#2YZFA0#0" title="3D GUI Button3D Control" description="Simple example showing how to add a 3D GUI Button3D to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI6.jpg"/>
+See it in action here: <Playground id="#2YZFA0#0" title="3D GUI Button3D Control" description="Simple example showing how to add a 3D GUI Button3D to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI6.webp"/>
 
 ### MeshButton3D
 
@@ -273,7 +273,7 @@ pushButton.pointerOutAnimation = () => {
 };
 ```
 
-See it in action here: <Playground id="#8Y780Y#20" title="MeshButton3D Demo" description="Demo of the MeshButton3D control." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI8.jpg"/>
+See it in action here: <Playground id="#8Y780Y#20" title="MeshButton3D Demo" description="Demo of the MeshButton3D control." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI8.webp"/>
 
 ### HolographicButton
 
@@ -284,9 +284,9 @@ An `HolographicButton` can be defined with two properties:
 - `text`: Gets or sets text for the button
 - `imageUrl`: Gets or sets the image url for the button
 
-![Babylon.GUI](/img/how_to/gui/MRTK_HolographicButton.jpg)
+![Babylon.GUI](/img/how_to/gui/MRTK_HolographicButton.webp)
 
-See it in action here: <Playground id="#2YZFA0#2" title="3D GUI HolographicButton Control" description="Simple example showing how to add a 3D GUI HolographicButton to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI7.jpg"/>
+See it in action here: <Playground id="#2YZFA0#2" title="3D GUI HolographicButton Control" description="Simple example showing how to add a 3D GUI HolographicButton to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI7.webp"/>
 
 Please note that you can overwrite the default content but you need to do it after the call to addControl:
 

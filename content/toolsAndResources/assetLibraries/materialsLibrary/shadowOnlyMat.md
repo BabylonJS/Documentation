@@ -10,7 +10,7 @@ video-content:
 
 ## General
 
-![Screenshot](/img/extensions/materials/shadowOnly.jpg)
+![Screenshot](/img/extensions/materials/shadowOnly.webp)
 
 The goal of the ShadowOnlyMaterial is to display only shadows casted by a light on a receiving object. It is mostly useful when you want to display shadow on a transparent canvas (on top of your existing DOM).
 
@@ -25,7 +25,7 @@ A demo can be found here: PG: <Playground id="#1KF7V1" title="Shadow Only Materi
 ShadowOnly material is dead simple to use. Just apply it as material to any mesh where you want to display only shadow:
 
 ```
-var ground = BABYLON.Mesh.CreatePlane('ground', 1000, scene)
+var ground = BABYLON.MeshBuilder.CreatePlane('ground', { size: 1000 }, scene)
 ground.rotation.x = Math.PI / 2
 ground.material = new BABYLON.ShadowOnlyMaterial('shadowOnly', scene)
 ground.receiveShadows = true

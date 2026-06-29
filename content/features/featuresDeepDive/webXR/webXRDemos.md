@@ -43,7 +43,7 @@ Notice that no changes were made in the XR code, and that the scene works perfec
 
 ```javascript
 // GUI
-var plane = BABYLON.Mesh.CreatePlane("plane", 1);
+var plane = BABYLON.MeshBuilder.CreatePlane("plane", { size: 1 });
 plane.position = new BABYLON.Vector3(1.4, 1.5, 0.4);
 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(plane);
 var panel = new BABYLON.GUI.StackPanel();
@@ -69,8 +69,8 @@ panel.addControl(picker);
 <Playground id="#9K3MRA#2" title="WebXR Color Picker" description="Simple WebXR color picker example." isMain={true} category="WebXR"/>
 
 ## AR demo
-![playground](/img/how_to/xr/ARPortal.jpg)
-<Playground id="#M3G924" title="AR Portal" description="WebXR AR Portal" isMain={true} category="WebXR" image="/img/how_to/xr/ARPortal.jpg"/>
+![playground](/img/how_to/xr/ARPortal.webp)
+<Playground id="#M3G924" title="AR Portal" description="WebXR AR Portal" isMain={true} category="WebXR" image="/img/how_to/xr/ARPortal.webp"/>
 
 ## Other demos
 

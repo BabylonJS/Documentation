@@ -359,7 +359,7 @@ var polygon_triangulation = new BABYLON.PolygonMeshBuilder(
 var polygon = polygon_triangulation.build(false, 0.01);
 ```
 
-A simple use case for planes is showing them in your scene using polygons. An example for that can be found at the WebXR Plane Detection demo: <Playground id="#98TM63" title="WebXR Plane Detection Demo" description="WebXR Plane Detection Demo" image="/img/playgroundsAndNMEs/vrglasses.png"/>
+A simple use case for planes is showing them in your scene using polygons. An example for that can be found at the WebXR Plane Detection demo: <Playground id="#98TM63" title="WebXR Plane Detection Demo" description="WebXR Plane Detection Demo" image="/img/playgroundsAndNMEs/vrglasses.webp"/>
 
 ### Background remover
 
@@ -652,9 +652,9 @@ depthSensing.onGetDepthInMetersAvailable.add((getDepthInMeters) => {
 });
 ```
 
-<Playground id="#KDWCZY#601" title="Placing A Mesh In Space with depth sensing" description="See how depth sensing works when adding models to the real world" image="/img/playgroundsAndNMEs/vrglasses.png"/>
+<Playground id="#KDWCZY#601" title="Placing A Mesh In Space with depth sensing" description="See how depth sensing works when adding models to the real world" image="/img/playgroundsAndNMEs/vrglasses.webp"/>
 
 ## Demos
 
-<Playground id="#GG06BQ#97" title="XR Measurement Tape" description="XR Measurement Tape Demo" image="/img/playgroundsAndNMEs/vrglasses.png"/>
-<Playground id="#KDWCZY" title="Placing A Mesh In Space" description="Simple example of placing a mesh in space." image="/img/playgroundsAndNMEs/vrglasses.png"/>
+<Playground id="#GG06BQ#97" title="XR Measurement Tape" description="XR Measurement Tape Demo" image="/img/playgroundsAndNMEs/vrglasses.webp"/>
+<Playground id="#KDWCZY" title="Placing A Mesh In Space" description="Simple example of placing a mesh in space." image="/img/playgroundsAndNMEs/vrglasses.webp"/>

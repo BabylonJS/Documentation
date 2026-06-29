@@ -17,7 +17,7 @@ This page is a breakdown of each block available in the Node Particle Editor. Th
 
 System node blocks provide the core system configuration and global values used throughout the particle graph. Every graph requires a System block, and the other blocks in this group provide time-based and positional system-level data.
 
-<H3Image title="System" image="/img/tools/npe/systemNode.png" alt="System node"/>
+<H3Image title="System" image="/img/tools/npe/systemNode.webp" alt="System node"/>
 
 This is the core block that finalizes the particle system configuration. Every particle system graph must have exactly one System block, and it must be the last block in the chain. It manages particle capacity, rendering settings, blend modes, and emission rates. All emitter and update chains must eventually connect to this block. The block also handles sub-emitter triggers through the onStart and onEnd inputs, allowing particle systems to spawn other particle systems.
 
@@ -54,7 +54,7 @@ This is the core block that finalizes the particle system configuration. Every p
 
 - **system** is the finalized particle system instance and can be connected to other system inputs or used as the final output.
 
-<H3Image title="Time" image="/img/tools/npe/timeNode.png" alt="Time node"/>
+<H3Image title="Time" image="/img/tools/npe/timeNode.webp" alt="Time node"/>
 
 This block provides the current system time in milliseconds. It gives access to the global elapsed time since the particle system started and is useful for creating time-based animations, oscillations, or synchronized effects. Combine with trigonometry blocks like Sin or Cos for wave patterns, or with math blocks for custom timing functions.
 
@@ -62,7 +62,7 @@ This block provides the current system time in milliseconds. It gives access to 
 
 - **output** is the current time in milliseconds as a Float value.
 
-<H3Image title="Delta" image="/img/tools/npe/deltaNode.png" alt="Delta node"/>
+<H3Image title="Delta" image="/img/tools/npe/deltaNode.webp" alt="Delta node"/>
 
 This block provides the time the frame takes based on FPS and update. This value is a constant and does not measure the time since the last frame. It is essential for frame-rate-independent particle behaviors and should be used to scale velocity, rotation speed, or any time-dependent calculation so that the result is consistent regardless of frame rate.
 
@@ -70,14 +70,14 @@ This block provides the time the frame takes based on FPS and update. This value
 
 - **output** the delta time as a constant value for all frames based on update speed and fps of the renderer as a Float value.
 
-<H3Image title="Emitter Position" image="/img/tools/npe/emitterPositionNode.png" alt="Emitter Position node"/>
+<H3Image title="Emitter Position" image="/img/tools/npe/emitterPositionNode.webp" alt="Emitter Position node"/>
 This block provides the world-space position of the particle system emitter. It is useful for calculating distances from the emitter, creating effects relative to the emitter origin, or implementing custom attraction or repulsion toward the emitter. The value updates each frame if the emitter is moving.
 
 #### Outputs
 
 - **output** is the emitter position in world space as a Vector3 value.
 
-<H3Image title="Camera Position" image="/img/tools/npe/cameraPositionNode.png" alt="Camera Position node"/>
+<H3Image title="Camera Position" image="/img/tools/npe/cameraPositionNode.webp" alt="Camera Position node"/>
 This block provides the world-space position of the active camera in the scene. It is useful for view-dependent effects such as particles that react to camera distance, billboard adjustments, or depth-based fading. Combine with math blocks to calculate camera-to-particle distances.
 
 #### Outputs
@@ -88,7 +88,7 @@ This block provides the world-space position of the active camera in the scene. 
 
 Setup blocks handle particle creation and sprite sheet configuration. Every particle system graph needs a Create Particle block as the starting point for its emission chain.
 
-<H3Image title="Create Particle" image="/img/tools/npe/createParticleNode.png" alt="Create Particle node"/>
+<H3Image title="Create Particle" image="/img/tools/npe/createParticleNode.webp" alt="Create Particle node"/>
 This block creates new particles and initializes their properties. It is the first block in an emission chain and must be placed before shape emitter blocks.
 
 #### Inputs
@@ -105,7 +105,7 @@ This block creates new particles and initializes their properties. It is the fir
 
 - **particle** is the created particle system instance ready to be connected to a shape emitter block.
 
-<H3Image title="Setup Sprite Sheet" image="/img/tools/npe/setupSpriteSheetNode.png" alt="Setup Sprite Sheet node"/>
+<H3Image title="Setup Sprite Sheet" image="/img/tools/npe/setupSpriteSheetNode.webp" alt="Setup Sprite Sheet node"/>
 This block configures sprite sheet animation for particles, enabling animated sprite effects. It is used in conjunction with a texture input on the System block where the texture should contain a sprite sheet as a grid of sprite frames. All sprite parameters are configured through the properties panel.
 
 #### Properties
@@ -130,7 +130,7 @@ This block configures sprite sheet animation for particles, enabling animated sp
 
 Shape blocks define the spatial distribution of particles, controlling where they spawn and in which direction they move initially. Every particle system needs at least one shape emitter block connected after the Create Particle block. All shape blocks take a particle input and output a particle type that flows through the graph to update blocks and eventually to the System block.
 
-<H3Image title="Box Shape" image="/img/tools/npe/boxShapeNode.png" alt="Box Shape node"/>
+<H3Image title="Box Shape" image="/img/tools/npe/boxShapeNode.webp" alt="Box Shape node"/>
 This emitter creates particles at random positions within a box volume with customizable directional vectors. Particles spawn at random positions within the box defined by minEmitBox and maxEmitBox, and initial direction vectors are randomized between direction1 and direction2 vectors.
 
 #### Inputs
@@ -145,7 +145,7 @@ This emitter creates particles at random positions within a box volume with cust
 
 - **output** is the particle system with the box emitter applied.
 
-<H3Image title="Cone Shape" image="/img/tools/npe/coneShapeNode.png" alt="Cone Shape node"/>
+<H3Image title="Cone Shape" image="/img/tools/npe/coneShapeNode.webp" alt="Cone Shape node"/>
 This emitter creates particles from a cone shape with customizable spread angle and radius range. When emitFromSpawnPointOnly is false, particles spawn along the cone surface. The directionRandomizer is automatically used unless both direction1 and direction2 inputs are connected, which override the automatic direction calculation.
 
 #### Properties
@@ -167,7 +167,7 @@ This emitter creates particles from a cone shape with customizable spread angle 
 
 - **output** is the particle system with the cone emitter applied.
 
-<H3Image title="Sphere Shape" image="/img/tools/npe/sphereShapeNode.png" alt="Sphere Shape node"/>
+<H3Image title="Sphere Shape" image="/img/tools/npe/sphereShapeNode.webp" alt="Sphere Shape node"/>
 This emitter creates particles from a spherical surface with optional hemispheric mode. It uses proper spherical distribution with polar coordinates to ensure even particle distribution across the sphere surface. When isHemispheric is enabled, emission is restricted to the top half of the sphere.
 
 #### Properties
@@ -187,7 +187,7 @@ This emitter creates particles from a spherical surface with optional hemispheri
 
 - **output** is the particle system with the sphere emitter applied.
 
-<H3Image title="Point Shape" image="/img/tools/npe/pointShapeNode.png" alt="Point Shape node"/>
+<H3Image title="Point Shape" image="/img/tools/npe/pointShapeNode.webp" alt="Point Shape node"/>
 
 This is the simplest emitter block. All particles spawn at the emitter origin and the block only controls the initial direction which is randomized between direction1 and direction2.
 
@@ -201,7 +201,7 @@ This is the simplest emitter block. All particles spawn at the emitter origin an
 
 - **output** is the particle system with the point emitter applied.
 
-<H3Image title="Custom Shape" image="/img/tools/npe/customShapeNode.png" alt="Custom Shape node"/>
+<H3Image title="Custom Shape" image="/img/tools/npe/customShapeNode.webp" alt="Custom Shape node"/>
 
 This emitter allows complete control over particle emission using custom user-defined generator functions. These functions must be assigned programmatically in code, not through the UI. If particleDestinationGenerator is provided without particleDirectionGenerator, particle direction is automatically calculated from the destination and lifetime.
 
@@ -219,7 +219,7 @@ This emitter allows complete control over particle emission using custom user-de
 
 - **output** is the particle system with the custom emitter applied.
 
-<H3Image title="Cylinder Shape" image="/img/tools/npe/cylinderShapeNode.png" alt="Cylinder Shape node"/>
+<H3Image title="Cylinder Shape" image="/img/tools/npe/cylinderShapeNode.webp" alt="Cylinder Shape node"/>
 
 This emitter creates particles from a cylinder surface with proper circular distribution. It uses a spherical distribution algorithm for circular positioning to avoid clustering. Direction is based on surface normals unless custom direction inputs are connected.
 
@@ -237,7 +237,7 @@ This emitter creates particles from a cylinder surface with proper circular dist
 
 - **output** is the particle system with the cylinder emitter applied.
 
-<H3Image title="Mesh Shape" image="/img/tools/npe/meshShapeNode.png" alt="Mesh Shape node"/>
+<H3Image title="Mesh Shape" image="/img/tools/npe/meshShapeNode.webp" alt="Mesh Shape node"/>
 
 This emitter creates particles from a mesh surface using random triangles with barycentric interpolation. It caches vertex positions, normals, and color data from the source mesh for efficient sampling and uses barycentric coordinates to smoothly distribute particles across triangle surfaces.
 
@@ -262,7 +262,7 @@ This emitter creates particles from a mesh surface using random triangles with b
 
 Update blocks update particle properties during their lifetime. They are placed between emitter blocks and the System block to create dynamic particle behaviors. Update blocks execute every frame for each active particle, allowing properties like color, size, position, and rotation to change over time. Multiple update blocks can be chained together to create complex behaviors, and the order matters as blocks execute in the order they are connected.
 
-<H3Image title="Update Direction" image="/img/tools/npe/updateDirectionNode.png" alt="Update Direction node"/>
+<H3Image title="Update Direction" image="/img/tools/npe/updateDirectionNode.webp" alt="Update Direction node"/>
 
 This block updates the particle velocity direction during simulation. It only executes if the direction input is connected. It can be used to create wind effects, vortices, or attraction and repulsion behaviors when combined with math blocks.
 
@@ -275,7 +275,7 @@ This block updates the particle velocity direction during simulation. It only ex
 
 - **output** is the updated particle stream.
 
-<H3Image title="Update Position" image="/img/tools/npe/updatePositionNode.png" alt="Update Position node"/>
+<H3Image title="Update Position" image="/img/tools/npe/updatePositionNode.webp" alt="Update Position node"/>
 
 This block updates particle position during simulation, and will ignore parameters set during particle creation unless contextual inputs like position and scaled direction are a part of the graph connected to this block's input. It only executes if the position input is connected and can be used for completely custom particle paths or to constrain particles to specific surfaces.
 
@@ -288,7 +288,7 @@ This block updates particle position during simulation, and will ignore paramete
 
 - **output** is the updated particle stream.
 
-<H3Image title="Update Color" image="/img/tools/npe/updateColorNode.png" alt="Update Color node"/>
+<H3Image title="Update Color" image="/img/tools/npe/updateColorNode.webp" alt="Update Color node"/>
 
 This block updates particle color during simulation, and will ignore parameters set during particle creation unless contextual inputs like current color and color step are a part of the graph connected to this block's input. It only executes if the color input is connected and is useful for creating dynamic color effects based on gradients, noise, or other procedural sources.
 
@@ -301,7 +301,7 @@ This block updates particle color during simulation, and will ignore parameters 
 
 - **output** is the updated particle stream.
 
-<H3Image title="Update Scale" image="/img/tools/npe/updateScaleNode.png" alt="Update Scale node"/>
+<H3Image title="Update Scale" image="/img/tools/npe/updateScaleNode.webp" alt="Update Scale node"/>
 
 This block updates particle scale during simulation, and will ignore parameters set during particle creation unless contextual inputs like current scale are a part of the graph connected to this block's input. It provides separate control over X and Y dimensions, allowing particles to stretch or squash. It is useful for creating motion blur effects or non-uniform particle shapes.
 
@@ -314,7 +314,7 @@ This block updates particle scale during simulation, and will ignore parameters 
 
 - **output** is the updated particle stream.
 
-<H3Image title="Update Size" image="/img/tools/npe/updateSizeNode.png" alt="Update Size node"/>
+<H3Image title="Update Size" image="/img/tools/npe/updateSizeNode.webp" alt="Update Size node"/>
 
 This block updates particle size during simulation, and will ignore parameters set during particle creation unless contextual inputs like current size are a part of the graph connected to this block's input. It is a scalar size adjustment that affects particle scale uniformly and is commonly used with gradients to fade particles in and out or pulse based on lifetime.
 
@@ -327,7 +327,7 @@ This block updates particle size during simulation, and will ignore parameters s
 
 - **output** is the updated particle stream.
 
-<H3Image title="Update Angle" image="/img/tools/npe/updateAngleNode.png" alt="Update Angle node"/>
+<H3Image title="Update Angle" image="/img/tools/npe/updateAngleNode.webp" alt="Update Angle node"/>
 
 This block updates particle rotation angle during simulation. It sets the rotation of the particle's quad using its local pivot point and will ignore parameters set for angle in particle creation unless the contextual input for angle is part of the graph connected to this block's input. This block is useful for spinning particles or aligning particles with their direction of motion.
 
@@ -340,7 +340,7 @@ This block updates particle rotation angle during simulation. It sets the rotati
 
 - **output** is the updated particle stream.
 
-<H3Image title="Update Age" image="/img/tools/npe/updateAgeNode.png" alt="Update Age node"/>
+<H3Image title="Update Age" image="/img/tools/npe/updateAgeNode.webp" alt="Update Age node"/>
 
 This block updates particle age during simulation, and will ignore parameters set during particle creation unless contextual inputs like current age are a part of the graph connected to this block's input. It only executes if the age input is connected and can be used to create custom lifetime behaviors or synchronize particles with external timers.
 
@@ -353,7 +353,7 @@ This block updates particle age during simulation, and will ignore parameters se
 
 - **output** is the updated particle stream.
 
-<H3Image title="Basic Color Update" image="/img/tools/npe/basicColorUpdateNode.png" alt="Basic Color Update node"/>
+<H3Image title="Basic Color Update" image="/img/tools/npe/basicColorUpdateNode.webp" alt="Basic Color Update node"/>
 
 This block is necessary to interpolate a particle's color between the color input and the colorDead input on the Create Particle block. If this block is not included in the graph the particle will only inherit the value from the color input and the colorDead input will be ignored. This block uses the particle's color step value calculated from the lifetime of the particle. Each frame, the block adds the particle's scaled color step to its current color and clamps alpha to a minimum of zero. This is the standard way to interpolate color from the initial color toward the dead color over the particle's lifetime. This block has no additional inputs beyond the particle stream as it uses the color step values computed from the initial color and colorDead set in the Create Particle block.
 
@@ -365,7 +365,7 @@ This block is necessary to interpolate a particle's color between the color inpu
 
 - **output** is the updated particle stream.
 
-<H3Image title="Basic Position Update" image="/img/tools/npe/basicPositionUpdateNode.png" alt="Basic Position Update node"/>
+<H3Image title="Basic Position Update" image="/img/tools/npe/basicPositionUpdateNode.webp" alt="Basic Position Update node"/>
 
 This block applies the default position update each frame using the particle's direction and direction scale using the emitPower input on the Create Particle block and a direction calculated from the emitter shape block. Each frame, it adds the direction vector scaled by the direction scale to the particle position. This is the standard velocity-based movement for particles. This block has no additional inputs beyond the particle stream as it uses the direction values set during particle creation and any modifications from other update blocks.
 
@@ -377,7 +377,7 @@ This block applies the default position update each frame using the particle's d
 
 - **output** is the updated particle stream.
 
-<H3Image title="Basic Sprite Update" image="/img/tools/npe/basicSpriteUpdateNode.png" alt="Basic Sprite Update node"/>
+<H3Image title="Basic Sprite Update" image="/img/tools/npe/basicSpriteUpdateNode.webp" alt="Basic Sprite Update node"/>
 
 This block updates the sprite sheet cell index each frame, automatically advancing through the sprite animation. It uses the sprite parameters configured in the Setup Sprite Sheet block to determine animation speed, looping, and cell boundaries. This block has no additional inputs beyond the particle stream.
 
@@ -389,7 +389,7 @@ This block updates the sprite sheet cell index each frame, automatically advanci
 
 - **output** is the updated particle stream.
 
-<H3Image title="Update Sprite Cell Index" image="/img/tools/npe/updateSpriteCellIndexNode.png" alt="Update Sprite Cell Index node"/>
+<H3Image title="Update Sprite Cell Index" image="/img/tools/npe/updateSpriteCellIndexNode.webp" alt="Update Sprite Cell Index node"/>
 
 This block replaces the Sprite Cell Change Speed value on the Setup Sprite Sheet block to update the sprite sheet cell index in the way calculated by the graph attached to the input of this block. This allows finite control over which sprite frame is displayed at any point in the particle's lifetime. It is useful for creating custom animation patterns or synchronizing sprite animation with other particle properties. Float values connected to the cellIndex input are floored to integer.
 
@@ -402,7 +402,7 @@ This block replaces the Sprite Cell Change Speed value on the Setup Sprite Sheet
 
 - **output** is the updated particle stream.
 
-<H3Image title="Update Flow Map" image="/img/tools/npe/updateFlowMapNode.png" alt="Update Flow Map node"/>
+<H3Image title="Update Flow Map" image="/img/tools/npe/updateFlowMapNode.webp" alt="Update Flow Map node"/>
 
 This block updates particle movement using a flow map texture, creating flowing or swirling patterns. It reads RGB values from the flow map texture to determine particle movement direction where Red, Green, and Blue channels encode XYZ direction. It is useful for creating water flow, wind fields, or guided particle paths.
 
@@ -416,7 +416,7 @@ This block updates particle movement using a flow map texture, creating flowing 
 
 - **output** is the updated particle stream.
 
-<H3Image title="Update Noise" image="/img/tools/npe/updateNoiseNode.png" alt="Update Noise node"/>
+<H3Image title="Update Noise" image="/img/tools/npe/updateNoiseNode.webp" alt="Update Noise node"/>
 
 This block applies noise to particle velocities for organic randomness. It uses a noise texture to add natural-looking randomness to particle motion by modifying particle direction. The strength is a Vector3 allowing independent control over each axis. It is possible to make this noise dynamic by updating the texture connected to the noiseTexture input of this block each render loop in the code driving the scene. This can be useful for smoke, fire, and magical effects.
 
@@ -430,7 +430,7 @@ This block applies noise to particle velocities for organic randomness. It uses 
 
 - **output** is the updated particle stream.
 
-<H3Image title="Update Attractor" image="/img/tools/npe/updateAttractorNode.png" alt="Update Attractor node"/>
+<H3Image title="Update Attractor" image="/img/tools/npe/updateAttractorNode.webp" alt="Update Attractor node"/>
 
 This block applies attraction or repulsion forces to particles toward or away from a single target point. It uses inverse-distance-squared falloff to create gravitational-like effects where particles closer to the attractor experience stronger forces. The force is added to the existing particle velocity rather than replacing it, and the strength can be negative for repulsion. Use multiples of this block to create several attractors, one per block, or update the position input in real time to create complex particle motion as they move across a scene.
 
@@ -444,7 +444,7 @@ This block applies attraction or repulsion forces to particles toward or away fr
 
 - **output** is the updated particle stream.
 
-<H3Image title="Align Angle" image="/img/tools/npe/alignAngleNode.png" alt="Align Angle node"/>
+<H3Image title="Align Angle" image="/img/tools/npe/alignAngleNode.webp" alt="Align Angle node"/>
 
 This block updates particle rotation to match their direction of movement by calculating the rotation angle from the particle velocity direction in camera view space. The alignment property allows adding a constant offset to the calculated angle. It is useful for making elongated particles like sparks or streaks point in their direction of travel and works best with STRETCHED billboard mode.
 
@@ -464,7 +464,7 @@ This block updates particle rotation to match their direction of movement by cal
 
 Input blocks provide constant values that can be edited in the properties panel and accessed from code at runtime. They are the source of numeric values, colors, vectors, and textures that drive particle behavior. All input blocks can be named and accessed programmatically to dynamically change values at runtime.
 
-<H3Image title="Float" image="/img/tools/npe/floatNode.png" alt="Float node"/>
+<H3Image title="Float" image="/img/tools/npe/floatNode.webp" alt="Float node"/>
 
 This input block represents a Float value. The value can be set in the properties panel.
 
@@ -482,7 +482,7 @@ This input block represents a Float value. The value can be set in the propertie
 
 - **output** is the Float value set on the block.
 
-<H3Image title="Vector2" image="/img/tools/npe/vector2Node.png" alt="Vector2 node"/>
+<H3Image title="Vector2" image="/img/tools/npe/vector2Node.webp" alt="Vector2 node"/>
 
 This input block represents a Vector2 value. The value can be set in the properties panel by expanding the input fields for each component.
 
@@ -498,7 +498,7 @@ This input block represents a Vector2 value. The value can be set in the propert
 
 - **output** is the Vector2 value set on the block.
 
-<H3Image title="Vector3" image="/img/tools/npe/vector3Node.png" alt="Vector3 node"/>
+<H3Image title="Vector3" image="/img/tools/npe/vector3Node.webp" alt="Vector3 node"/>
 
 This input block represents a Vector3 value. The value can be set in the properties panel by expanding the input fields for each component.
 
@@ -514,7 +514,7 @@ This input block represents a Vector3 value. The value can be set in the propert
 
 - **output** is the Vector3 value set on the block.
 
-<H3Image title="Int" image="/img/tools/npe/intNode.png" alt="Int node"/>
+<H3Image title="Int" image="/img/tools/npe/intNode.webp" alt="Int node"/>
 
 This input block represents an integer value. The value can be set in the properties panel.
 
@@ -530,7 +530,7 @@ This input block represents an integer value. The value can be set in the proper
 
 - **output** is the integer value set on the block.
 
-<H3Image title="Texture" image="/img/tools/npe/textureNode.png" alt="Texture node"/>
+<H3Image title="Texture" image="/img/tools/npe/textureNode.webp" alt="Texture node"/>
 
 This block provides a texture that can be used as input to the System block, flow map blocks, noise blocks, or any other block requiring texture input. Textures can be loaded from URLs or selected from scene assets.
 
@@ -544,7 +544,7 @@ This block provides a texture that can be used as input to the System block, flo
 
 - **output** is the texture resource.
 
-<H3Image title="Color4" image="/img/tools/npe/color4Node.png" alt="Color4 node"/>
+<H3Image title="Color4" image="/img/tools/npe/color4Node.webp" alt="Color4 node"/>
 
 This input block represents an RGBA color value. The value can be set using the color picker in the properties panel.
 
@@ -564,7 +564,7 @@ This input block represents an RGBA color value. The value can be set using the 
 
 Contextual blocks provide read access to per-particle properties during the update phase. They output the current value of a particle attribute and are used to build expressions that reference particle state. All contextual blocks have a single output and no inputs as they read the current particle's data at evaluation time. These blocks are essential for creating dynamic particle behaviors that respond to each particle's individual state.
 
-<H3Image title="Position" image="/img/tools/npe/positionNode.png" alt="Position node"/>
+<H3Image title="Position" image="/img/tools/npe/positionNode.webp" alt="Position node"/>
 
 This contextual block returns the current position of the particle as a Vector3 value.
 
@@ -577,7 +577,7 @@ This contextual block returns the current position of the particle as a Vector3 
 
 - **output** is the particle's current position as a Vector3 value.
 
-<H3Image title="Direction" image="/img/tools/npe/directionNode.png" alt="Direction node"/>
+<H3Image title="Direction" image="/img/tools/npe/directionNode.webp" alt="Direction node"/>
 
 This contextual block returns the current direction or velocity vector of the particle as a Vector3 value.
 
@@ -590,7 +590,7 @@ This contextual block returns the current direction or velocity vector of the pa
 
 - **output** is the particle's current direction vector as a Vector3 value.
 
-<H3Image title="Direction Scale" image="/img/tools/npe/directionScaleNode.png" alt="Direction Scale node"/>
+<H3Image title="Direction Scale" image="/img/tools/npe/directionScaleNode.webp" alt="Direction Scale node"/>
 
 This contextual block returns the direction scale factor of the particle, which is the multiplier applied to direction when computing position updates.
 
@@ -603,7 +603,7 @@ This contextual block returns the direction scale factor of the particle, which 
 
 - **output** is the particle's direction scale as a Float value.
 
-<H3Image title="Scaled Direction" image="/img/tools/npe/scaledDirectionNode.png" alt="Scaled Direction node"/>
+<H3Image title="Scaled Direction" image="/img/tools/npe/scaledDirectionNode.webp" alt="Scaled Direction node"/>
 
 This contextual block returns the direction vector already multiplied by the direction scale. This is the effective velocity used in position updates.
 
@@ -616,7 +616,7 @@ This contextual block returns the direction vector already multiplied by the dir
 
 - **output** is the particle's scaled direction vector as a Vector3 value.
 
-<H3Image title="Color" image="/img/tools/npe/colorNode.png" alt="Color node"/>
+<H3Image title="Color" image="/img/tools/npe/colorNode.webp" alt="Color node"/>
 
 This contextual block returns the current color of the particle.
 
@@ -629,7 +629,7 @@ This contextual block returns the current color of the particle.
 
 - **output** is the particle's current color as a Color4 value.
 
-<H3Image title="Age" image="/img/tools/npe/ageNode.png" alt="Age node"/>
+<H3Image title="Age" image="/img/tools/npe/ageNode.webp" alt="Age node"/>
 
 This contextual block returns the current age of the particle in seconds since it was created.
 
@@ -642,7 +642,7 @@ This contextual block returns the current age of the particle in seconds since i
 
 - **output** is the particle's age in seconds as a Float value.
 
-<H3Image title="Lifetime" image="/img/tools/npe/lifetimeNode.png" alt="Lifetime node"/>
+<H3Image title="Lifetime" image="/img/tools/npe/lifetimeNode.webp" alt="Lifetime node"/>
 
 This contextual block returns the total lifetime of the particle in seconds as set by the Create Particle block.
 
@@ -655,7 +655,7 @@ This contextual block returns the total lifetime of the particle in seconds as s
 
 - **output** is the particle's total lifetime in seconds as a Float value.
 
-<H3Image title="Scale" image="/img/tools/npe/scaleNode.png" alt="Scale node"/>
+<H3Image title="Scale" image="/img/tools/npe/scaleNode.webp" alt="Scale node"/>
 
 This contextual block returns the current scale of the particle.
 
@@ -668,7 +668,7 @@ This contextual block returns the current scale of the particle.
 
 - **output** is the particle's current scale as a Vector2 value.
 
-<H3Image title="Size" image="/img/tools/npe/sizeNode.png" alt="Size node"/>
+<H3Image title="Size" image="/img/tools/npe/sizeNode.webp" alt="Size node"/>
 
 This contextual block returns the current uniform size of the particle.
 
@@ -681,7 +681,7 @@ This contextual block returns the current uniform size of the particle.
 
 - **output** is the particle's current size as a Float value.
 
-<H3Image title="Age Gradient" image="/img/tools/npe/ageGradientNode.png" alt="Age Gradient node"/>
+<H3Image title="Age Gradient" image="/img/tools/npe/ageGradientNode.webp" alt="Age Gradient node"/>
 
 This contextual block returns the particle's age divided by its lifetime, giving a normalized value from 0 at birth to 1 at death. This is the most commonly used contextual block for driving gradients and interpolation over a particle's life. Connect it to the gradient input of Lerp, Gradient, or Gradient Value blocks to create time-based transitions.
 
@@ -694,7 +694,7 @@ This contextual block returns the particle's age divided by its lifetime, giving
 
 - **output** is the particle's normalized age as a Float value in the range of 0 to 1.
 
-<H3Image title="Angle" image="/img/tools/npe/angleNode.png" alt="Angle node"/>
+<H3Image title="Angle" image="/img/tools/npe/angleNode.webp" alt="Angle node"/>
 
 This contextual block returns the current rotation angle of the particle in radians.
 
@@ -707,7 +707,7 @@ This contextual block returns the current rotation angle of the particle in radi
 
 - **output** is the particle's current rotation angle as a Float value.
 
-<H3Image title="Initial Color" image="/img/tools/npe/initialColorNode.png" alt="Initial Color node"/>
+<H3Image title="Initial Color" image="/img/tools/npe/initialColorNode.webp" alt="Initial Color node"/>
 This contextual block returns the initial color that was assigned to the particle at creation time.
 
 #### Properties
@@ -719,7 +719,7 @@ This contextual block returns the initial color that was assigned to the particl
 
 - **output** is the particle's initial color as a Color4 value.
 
-<H3Image title="Color Dead" image="/img/tools/npe/colorDeadNode.png" alt="Color Dead node"/>
+<H3Image title="Color Dead" image="/img/tools/npe/colorDeadNode.webp" alt="Color Dead node"/>
 
 This contextual block returns the dead color that was assigned to the particle at creation time. This is the target color the particle will reach at the end of its lifetime.
 
@@ -732,7 +732,7 @@ This contextual block returns the dead color that was assigned to the particle a
 
 - **output** is the particle's dead color as a Color4 value.
 
-<H3Image title="Sprite Cell End" image="/img/tools/npe/spriteCellEndNode.png" alt="Sprite Cell End node"/>
+<H3Image title="Sprite Cell End" image="/img/tools/npe/spriteCellEndNode.webp" alt="Sprite Cell End node"/>
 
 This contextual block returns the ending sprite cell index for the particle's sprite animation.
 
@@ -745,7 +745,7 @@ This contextual block returns the ending sprite cell index for the particle's sp
 
 - **output** is the sprite cell end index as an Int value.
 
-<H3Image title="Sprite Cell Start" image="/img/tools/npe/spriteCellStartNode.png" alt="Sprite Cell Start node"/>
+<H3Image title="Sprite Cell Start" image="/img/tools/npe/spriteCellStartNode.webp" alt="Sprite Cell Start node"/>
 
 This contextual block returns the starting sprite cell index for the particle's sprite animation.
 
@@ -758,7 +758,7 @@ This contextual block returns the starting sprite cell index for the particle's 
 
 - **output** is the sprite cell start index as an Int value.
 
-<H3Image title="Sprite Cell Index" image="/img/tools/npe/spriteCellIndexNode.png" alt="Sprite Cell Index node"/>
+<H3Image title="Sprite Cell Index" image="/img/tools/npe/spriteCellIndexNode.webp" alt="Sprite Cell Index node"/>
 
 This contextual block returns the current sprite cell index being displayed for the particle.
 
@@ -771,7 +771,7 @@ This contextual block returns the current sprite cell index being displayed for 
 
 - **output** is the current sprite cell index as an Int value.
 
-<H3Image title="Initial Direction" image="/img/tools/npe/initialDirectionNode.png" alt="Initial Direction node"/>
+<H3Image title="Initial Direction" image="/img/tools/npe/initialDirectionNode.webp" alt="Initial Direction node"/>
 
 This contextual block returns the initial direction vector that was assigned to the particle at creation time.
 
@@ -784,7 +784,7 @@ This contextual block returns the initial direction vector that was assigned to 
 
 - **output** is the particle's initial direction as a Vector3 value.
 
-<H3Image title="Color Step" image="/img/tools/npe/colorStepNode.png" alt="Color Step node"/>
+<H3Image title="Color Step" image="/img/tools/npe/colorStepNode.webp" alt="Color Step node"/>
 
 This contextual block returns the color step value which is the per-frame color change that is applied by the Basic Color Update block. The color step is computed from the difference between the initial color and dead color divided by the particle's lifetime.
 
@@ -797,7 +797,7 @@ This contextual block returns the color step value which is the per-frame color 
 
 - **output** is the particle's color step as a Color4 value.
 
-<H3Image title="Scaled Color Step" image="/img/tools/npe/scaledColorStepNode.png" alt="Scaled Color Step node"/>
+<H3Image title="Scaled Color Step" image="/img/tools/npe/scaledColorStepNode.webp" alt="Scaled Color Step node"/>
 
 This contextual block returns the color step value already scaled by the system's update speed.
 
@@ -814,7 +814,7 @@ This contextual block returns the color step value already scaled by the system'
 
 These blocks are simple mathematical operations like add, subtract, min, max, or round. The blocks in this section are some of the most used blocks in any particle graph. They are very straightforward, but many of the blocks in this set support multiple types including Float, Int, Vector2, Vector3, and Color4 and operate component-wise on vectors and colors.
 
-<H3Image title="Add" image="/img/tools/npe/addNode.png" alt="Add node"/>
+<H3Image title="Add" image="/img/tools/npe/addNode.webp" alt="Add node"/>
 
 This is a simple math block which adds two inputs together. This block can support Float, Int, Vector2, Vector3, and Color4 types, though the block cannot add mixed types with the exception of one case. A float value can be connected to the right input of this block and that value will be used for the operation on each channel of the type connected to the left input. The type of the block first connected to an input determines the type for the block output, but a float can be connected to the right input in any case regardless of the type that has automatically been set.
 
@@ -831,7 +831,7 @@ This is a simple math block which adds two inputs together. This block can suppo
 
 - **output** is the sum of the left and right inputs and matches the type of the value connected to the left input.
 
-<H3Image title="Divide" image="/img/tools/npe/divideNode.png" alt="Divide node"/>
+<H3Image title="Divide" image="/img/tools/npe/divideNode.webp" alt="Divide node"/>
 
 This is a simple math block which divides the left input by the right input. This block can support Float, Int, Vector2, Vector3, and Color4 types, though the block cannot divide mixed types with the exception of one case. A float value can be connected to the right input of this block and that value will be used for the operation on each channel of the type connected to the left input. The type of the block first connected to an input determines the type for the block output, but a float can be connected to the right input in any case regardless of the type that has automatically been set.
 
@@ -848,7 +848,7 @@ This is a simple math block which divides the left input by the right input. Thi
 
 - **output** is the quotient of the left input divided by the right input and matches the type of the value connected to the left input.
 
-<H3Image title="Max" image="/img/tools/npe/maxNode.png" alt="Max node"/>
+<H3Image title="Max" image="/img/tools/npe/maxNode.webp" alt="Max node"/>
 
 This is a simple math block which returns the larger value between the left input and the right input. This block can support Float, Int, Vector2, Vector3, and Color4 types, though the block cannot evaluate mixed types with the exception of one case. A float value can be connected to the right input of this block and that value will be used for the operation on each channel of the type connected to the left input. The type of the block first connected to an input determines the type for the block output, but a float can be connected to the right input in any case regardless of the type that has automatically been set.
 
@@ -865,7 +865,7 @@ This is a simple math block which returns the larger value between the left inpu
 
 - **output** is the larger value between the left input and the right input and matches the type of the value connected to the left input.
 
-<H3Image title="Min" image="/img/tools/npe/minNode.png" alt="Min node"/>
+<H3Image title="Min" image="/img/tools/npe/minNode.webp" alt="Min node"/>
 
 This is a simple math block which returns the smaller value between the left input and the right input. This block can support Float, Int, Vector2, Vector3, and Color4 types, though the block cannot evaluate mixed types with the exception of one case. A float value can be connected to the right input of this block and that value will be used for the operation on each channel of the type connected to the left input. The type of the block first connected to an input determines the type for the block output, but a float can be connected to the right input in any case regardless of the type that has automatically been set.
 
@@ -882,7 +882,7 @@ This is a simple math block which returns the smaller value between the left inp
 
 - **output** is the smaller value between the left input and the right input and matches the type of the value connected to the left input.
 
-<H3Image title="Multiply" image="/img/tools/npe/multiplyNode.png" alt="Multiply node"/>
+<H3Image title="Multiply" image="/img/tools/npe/multiplyNode.webp" alt="Multiply node"/>
 
 This is a simple math block which multiplies the left input and the right input. This block can support Float, Int, Vector2, Vector3, and Color4 types, though the block cannot multiply mixed types with the exception of one case. A float value can be connected to the right input of this block and that value will be used for the operation on each channel of the type connected to the left input. The type of the block first connected to an input determines the type for the block output, but a float can be connected to the right input in any case regardless of the type that has automatically been set.
 
@@ -899,7 +899,7 @@ This is a simple math block which multiplies the left input and the right input.
 
 - **output** is the product of the left input multiplied by the right input and matches the type of the value connected to the left input.
 
-<H3Image title="Subtract" image="/img/tools/npe/subtractNode.png" alt="Subtract node"/>
+<H3Image title="Subtract" image="/img/tools/npe/subtractNode.webp" alt="Subtract node"/>
 
 This is a simple math block which subtracts the right input from the left input. This block can support Float, Int, Vector2, Vector3, and Color4 types, though the block cannot evaluate mixed types with the exception of one case. A float value can be connected to the right input of this block and that value will be used for the operation on each channel of the type connected to the left input. The type of the block first connected to an input determines the type for the block output, but a float can be connected to the right input in any case regardless of the type that has automatically been set.
 
@@ -916,7 +916,7 @@ This is a simple math block which subtracts the right input from the left input.
 
 - **output** is the difference of the right input subtracted from the left input and matches the type of the value connected to the left input.
 
-<H3Image title="Modulo" image="/img/tools/npe/moduloNode.png" alt="Modulo node"/>
+<H3Image title="Modulo" image="/img/tools/npe/moduloNode.webp" alt="Modulo node"/>
 
 This is a simple math block which returns the remainder of the division of the left input by the right input. This block only supports Float and Int types. The type of the block first connected to an input determines the type for the block output.
 
@@ -933,7 +933,7 @@ This is a simple math block which returns the remainder of the division of the l
 
 - **output** is the remainder of the left input divided by the right input and matches the type of the value connected to the left input.
 
-<H3Image title="Pow" image="/img/tools/npe/powNode.png" alt="Pow node"/>
+<H3Image title="Pow" image="/img/tools/npe/powNode.webp" alt="Pow node"/>
 
 This is a simple math block which raises the left input to the power of the right input. This block only supports Float and Int types. The type of the block first connected to an input determines the type for the block output.
 
@@ -950,7 +950,7 @@ This is a simple math block which raises the left input to the power of the righ
 
 - **output** is the result of the left input raised to the power of the right input and matches the type of the value connected to the left input.
 
-<H3Image title="Negate" image="/img/tools/npe/negateNode.png" alt="Negate node"/>
+<H3Image title="Negate" image="/img/tools/npe/negateNode.webp" alt="Negate node"/>
 
 This is a simple function which changes the sign of the input by multiplying it by -1. This block can support Float, Int, Vector2, Vector3, and Color4 types and operates component-wise. The type for the block connected to the input determines the type for the block output.
 
@@ -966,7 +966,7 @@ This is a simple function which changes the sign of the input by multiplying it 
 
 - **output** is the negated value from the input and matches type with the value connected to input.
 
-<H3Image title="One Minus" image="/img/tools/npe/oneMinusNode.png" alt="One Minus node"/>
+<H3Image title="One Minus" image="/img/tools/npe/oneMinusNode.webp" alt="One Minus node"/>
 
 This is a shortcut function which subtracts the input value from 1. When this function is applied to a value in the range of 0 to 1 the result will be an inversion of the input on that scale. This is useful for inverting normalized values such as converting an age gradient that goes from 0 to 1 into one that goes from 1 to 0 for fade-out effects. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -982,7 +982,7 @@ This is a shortcut function which subtracts the input value from 1. When this fu
 
 - **output** is the transformed value from the input and matches type with the value connected to input.
 
-<H3Image title="Reciprocal" image="/img/tools/npe/reciprocalNode.png" alt="Reciprocal node"/>
+<H3Image title="Reciprocal" image="/img/tools/npe/reciprocalNode.webp" alt="Reciprocal node"/>
 
 This is a shortcut function which divides 1 by the input value. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -998,7 +998,7 @@ This is a shortcut function which divides 1 by the input value. This block can s
 
 - **output** is the transformed value from the input and matches type with the value connected to input.
 
-<H3Image title="Sign" image="/img/tools/npe/signNode.png" alt="Sign node"/>
+<H3Image title="Sign" image="/img/tools/npe/signNode.webp" alt="Sign node"/>
 
 This is a simple function to return whether an input is positive, negative, or exactly zero. If the input is negative this block will return a value of -1. If the input is exactly zero, the block will return a value of 0. If the value is positive the block will return a value of 1. This block can support Float, Int, Vector2, Vector3, and Color4 types and operates component-wise. The type for the block connected to the input determines the type for the block output.
 
@@ -1014,7 +1014,7 @@ This is a simple function to return whether an input is positive, negative, or e
 
 - **output** returns -1 for a negative value in input, 0 for a value of zero in input, and 1 for a positive value in input.
 
-<H3Image title="Sqrt" image="/img/tools/npe/sqrtNode.png" alt="Sqrt node"/>
+<H3Image title="Sqrt" image="/img/tools/npe/sqrtNode.webp" alt="Sqrt node"/>
 
 This is a simple function to return the principal square root of a nonnegative value connected to the input port. This block can support Float, Int, Vector2, Vector3, and Color4 types and operates component-wise. The type for the block connected to the input determines the type for the block output.
 
@@ -1030,7 +1030,7 @@ This is a simple function to return the principal square root of a nonnegative v
 
 - **output** is the principal square root of the input value in a type that matches the input value type.
 
-<H3Image title="Round" image="/img/tools/npe/roundNode.png" alt="Round node"/>
+<H3Image title="Round" image="/img/tools/npe/roundNode.webp" alt="Round node"/>
 
 This is a simple function which transforms the input to the nearest whole number. This block can support Float, Int, Vector2, Vector3, and Color4 types and operates component-wise. The type for the block connected to the input determines the type for the block output.
 
@@ -1046,7 +1046,7 @@ This is a simple function which transforms the input to the nearest whole number
 
 - **output** is the rounded value from the input and matches type with the value connected to input.
 
-<H3Image title="Floor" image="/img/tools/npe/floorNode.png" alt="Floor node"/>
+<H3Image title="Floor" image="/img/tools/npe/floorNode.webp" alt="Floor node"/>
 
 This is a simple function which transforms the input to the largest whole number that is less than or equal to the input. This block can support Float, Int, Vector2, Vector3, and Color4 types and operates component-wise. The type for the block connected to the input determines the type for the block output.
 
@@ -1062,7 +1062,7 @@ This is a simple function which transforms the input to the largest whole number
 
 - **output** is the transformed value from the input and matches type with the value connected to input.
 
-<H3Image title="Ceiling" image="/img/tools/npe/ceilingNode.png" alt="Ceiling node"/>
+<H3Image title="Ceiling" image="/img/tools/npe/ceilingNode.webp" alt="Ceiling node"/>
 
 This is a simple function which transforms the input to the smallest whole number that is greater than or equal to the input. This block can support Float, Int, Vector2, Vector3, and Color4 types and operates component-wise. The type for the block connected to the input determines the type for the block output.
 
@@ -1078,7 +1078,7 @@ This is a simple function which transforms the input to the smallest whole numbe
 
 - **output** is the transformed value from the input and matches type with the value connected to input.
 
-<H3Image title="Float To Int" image="/img/tools/npe/floatToIntNode.png" alt="Float To Int node"/>
+<H3Image title="Float To Int" image="/img/tools/npe/floatToIntNode.webp" alt="Float To Int node"/>
 
 This block converts a floating-point value to an integer using a configurable operation. The operation property controls how the decimal portion is handled. It is useful for sprite cell indices or discrete parameter values.
 
@@ -1094,7 +1094,7 @@ This block converts a floating-point value to an integer using a configurable op
 
 - **output** is the converted integer value.
 
-<H3Image title="Dot" image="/img/tools/npe/dotNode.png" alt="Dot node"/>
+<H3Image title="Dot" image="/img/tools/npe/dotNode.webp" alt="Dot node"/>
 
 This block computes the dot product of two Vector3 inputs, returning a scalar value. The dot product returns the cosine of the angle between two vectors when those vectors are normalized. It is useful for angle calculations, projection, and determining how parallel two vectors are.
 
@@ -1111,7 +1111,7 @@ This block computes the dot product of two Vector3 inputs, returning a scalar va
 
 - **output** is the dot product of the two vectors as a Float value.
 
-<H3Image title="Distance" image="/img/tools/npe/distanceNode.png" alt="Distance node"/>
+<H3Image title="Distance" image="/img/tools/npe/distanceNode.webp" alt="Distance node"/>
 
 This block computes the Euclidean distance between two Vector3 positions. It is useful for proximity checks, distance-based fading, or triggering behaviors when particles are within a certain range of a target.
 
@@ -1128,7 +1128,7 @@ This block computes the Euclidean distance between two Vector3 positions. It is 
 
 - **output** is the distance between the two positions as a Float value.
 
-<H3Image title="Clamp" image="/img/tools/npe/clampNode.png" alt="Clamp node"/>
+<H3Image title="Clamp" image="/img/tools/npe/clampNode.webp" alt="Clamp node"/>
 
 This is a simple function which limits the input value to the range set by the minimum and maximum inputs. If the input is below the minimum, it is clamped to the minimum value. If it is over the maximum value, it is clamped to the maximum value. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the value input determines the type for the block output.
 
@@ -1146,7 +1146,7 @@ This is a simple function which limits the input value to the range set by the m
 
 These blocks are a collection of more complex mathematical functions, mostly trigonometric. They are all very straightforward blocks with one input and one output. All blocks in this set can support Float, Int, Vector2, Vector3, and Color4 types and operate component-wise.
 
-<H3Image title="Abs" image="/img/tools/npe/absNode.png" alt="Abs node"/>
+<H3Image title="Abs" image="/img/tools/npe/absNode.webp" alt="Abs node"/>
 
 This is a simple function to return the absolute value of the input, which is always a positive value. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1162,7 +1162,7 @@ This is a simple function to return the absolute value of the input, which is al
 
 - **output** is the absolute value of the input value in a type that matches the input value type.
 
-<H3Image title="ArcCos" image="/img/tools/npe/arcCosNode.png" alt="ArcCos node"/>
+<H3Image title="ArcCos" image="/img/tools/npe/arcCosNode.webp" alt="ArcCos node"/>
 
 This function returns the inverse cosine of the input value. The input should be in the range of -1 to 1 and the result is in radians. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1178,7 +1178,7 @@ This function returns the inverse cosine of the input value. The input should be
 
 - **output** is the inverse cosine of the input value in a type that matches the input value type.
 
-<H3Image title="ArcSin" image="/img/tools/npe/arcSinNode.png" alt="ArcSin node"/>
+<H3Image title="ArcSin" image="/img/tools/npe/arcSinNode.webp" alt="ArcSin node"/>
 
 This function returns the inverse sine of the input value. The input should be in the range of -1 to 1 and the result is in radians. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1194,7 +1194,7 @@ This function returns the inverse sine of the input value. The input should be i
 
 - **output** is the inverse sine of the input value in a type that matches the input value type.
 
-<H3Image title="ArcTan" image="/img/tools/npe/arcTanNode.png" alt="ArcTan node"/>
+<H3Image title="ArcTan" image="/img/tools/npe/arcTanNode.webp" alt="ArcTan node"/>
 
 This function returns the inverse tangent of the input value with the result in radians. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1210,7 +1210,7 @@ This function returns the inverse tangent of the input value with the result in 
 
 - **output** is the inverse tangent of the input value in a type that matches the input value type.
 
-<H3Image title="Cos" image="/img/tools/npe/cosNode.png" alt="Cos node"/>
+<H3Image title="Cos" image="/img/tools/npe/cosNode.webp" alt="Cos node"/>
 
 This function returns the cosine of the input angle in radians. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1226,7 +1226,7 @@ This function returns the cosine of the input angle in radians. This block can s
 
 - **output** is the cosine of the input value in a type that matches the input value type.
 
-<H3Image title="Exp" image="/img/tools/npe/expNode.png" alt="Exp node"/>
+<H3Image title="Exp" image="/img/tools/npe/expNode.webp" alt="Exp node"/>
 
 This function returns e raised to the power of the input value. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1242,7 +1242,7 @@ This function returns e raised to the power of the input value. This block can s
 
 - **output** is e raised to the power of the input value in a type that matches the input value type.
 
-<H3Image title="Exp2" image="/img/tools/npe/exp2Node.png" alt="Exp2 node"/>
+<H3Image title="Exp2" image="/img/tools/npe/exp2Node.webp" alt="Exp2 node"/>
 
 This function returns 2 raised to the power of the input value. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1258,7 +1258,7 @@ This function returns 2 raised to the power of the input value. This block can s
 
 - **output** is 2 raised to the power of the input value in a type that matches the input value type.
 
-<H3Image title="Log" image="/img/tools/npe/logNode.png" alt="Log node"/>
+<H3Image title="Log" image="/img/tools/npe/logNode.webp" alt="Log node"/>
 
 This function returns the natural logarithm of the input value. The input must be positive. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1274,7 +1274,7 @@ This function returns the natural logarithm of the input value. The input must b
 
 - **output** is the natural logarithm of the input value in a type that matches the input value type.
 
-<H3Image title="Sin" image="/img/tools/npe/sinNode.png" alt="Sin node"/>
+<H3Image title="Sin" image="/img/tools/npe/sinNode.webp" alt="Sin node"/>
 
 This function returns the sine of the input angle in radians. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1290,7 +1290,7 @@ This function returns the sine of the input angle in radians. This block can sup
 
 - **output** is the sine of the input value in a type that matches the input value type.
 
-<H3Image title="Tan" image="/img/tools/npe/tanNode.png" alt="Tan node"/>
+<H3Image title="Tan" image="/img/tools/npe/tanNode.webp" alt="Tan node"/>
 
 This function returns the tangent of the input angle in radians. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1306,7 +1306,7 @@ This function returns the tangent of the input angle in radians. This block can 
 
 - **output** is the tangent of the input value in a type that matches the input value type.
 
-<H3Image title="To Degrees" image="/img/tools/npe/toDegreesNode.png" alt="To Degrees node"/>
+<H3Image title="To Degrees" image="/img/tools/npe/toDegreesNode.webp" alt="To Degrees node"/>
 
 This function converts a value from radians to degrees. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1322,7 +1322,7 @@ This function converts a value from radians to degrees. This block can support F
 
 - **output** is the angle converted to degrees in a type that matches the input value type.
 
-<H3Image title="To Radians" image="/img/tools/npe/toRadiansNode.png" alt="To Radians node"/>
+<H3Image title="To Radians" image="/img/tools/npe/toRadiansNode.webp" alt="To Radians node"/>
 
 This function converts a value from degrees to radians. This block can support Float, Int, Vector2, Vector3, and Color4 types. The type for the block connected to the input determines the type for the block output.
 
@@ -1338,7 +1338,7 @@ This function converts a value from degrees to radians. This block can support F
 
 - **output** is the angle converted to radians in a type that matches the input value type.
 
-<H3Image title="Fract" image="/img/tools/npe/fractNode.png" alt="Fract node"/>
+<H3Image title="Fract" image="/img/tools/npe/fractNode.webp" alt="Fract node"/>
 
 This function returns only the fractional part of a floating-point number. For a value of 3.7 the result would be 0.7. This is useful for creating repeating patterns, wrapping values, or extracting the decimal portion for oscillation effects. This block can support Float, Int, Vector2, Vector3, and Color4 types and operates component-wise. The type for the block connected to the input determines the type for the block output.
 
@@ -1354,7 +1354,7 @@ This function returns only the fractional part of a floating-point number. For a
 
 - **output** is the fractional part of the input value in a type that matches the input value type.
 
-<H3Image title="Vector Length" image="/img/tools/npe/vectorLengthNode.png" alt="Vector Length node"/>
+<H3Image title="Vector Length" image="/img/tools/npe/vectorLengthNode.webp" alt="Vector Length node"/>
 
 This block calculates the length or magnitude of a vector. It computes the Euclidean distance from the origin and is useful for speed calculations such as finding the length of a direction vector, distance checks, or normalizing vectors when combined with division.
 
@@ -1372,7 +1372,7 @@ Logical blocks are used to branch a particle graph by performing a test between 
 
 - **ifTrue and ifFalse** ports on each logical block do not need to be connected to anything for the block to function. If a block is connected to ifTrue or ifFalse, that value will be passed when the appropriate condition is met. If nothing is connected to ifTrue or ifFalse, the block will output 1.0 and 0.0 respectively. This allows for successive logical tests by testing if the previous logical test was true or false without the need to wire Float blocks for ifTrue and ifFalse in the graph.
 
-<H3Image title="Equal" image="/img/tools/npe/equalNode.png" alt="Equal node"/>
+<H3Image title="Equal" image="/img/tools/npe/equalNode.webp" alt="Equal node"/>
 
 This logical block tests if the Float value in the left port and the right port are both equal to one another within the epsilon tolerance. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed.
 
@@ -1392,7 +1392,7 @@ This logical block tests if the Float value in the left port and the right port 
 
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If a port for ifTrue or ifFalse is not connected, the output passes either 1.0 or 0.0 for that condition based on if the unconnected port is ifTrue or ifFalse.
 
-<H3Image title="Not Equal" image="/img/tools/npe/notEqualNode.png" alt="Not Equal node"/>
+<H3Image title="Not Equal" image="/img/tools/npe/notEqualNode.webp" alt="Not Equal node"/>
 
 This logical block tests if the Float value in the left port and the right port are not equal to one another outside the epsilon tolerance. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed.
 
@@ -1412,7 +1412,7 @@ This logical block tests if the Float value in the left port and the right port 
 
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If a port for ifTrue or ifFalse is not connected, the output passes either 1.0 or 0.0 for that condition based on if the unconnected port is ifTrue or ifFalse.
 
-<H3Image title="Less Than" image="/img/tools/npe/lessThanNode.png" alt="Less Than node"/>
+<H3Image title="Less Than" image="/img/tools/npe/lessThanNode.webp" alt="Less Than node"/>
 This logical block tests if the Float value in the left port is less than the Float value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed.
 
 #### Advanced
@@ -1431,7 +1431,7 @@ This logical block tests if the Float value in the left port is less than the Fl
 
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If a port for ifTrue or ifFalse is not connected, the output passes either 1.0 or 0.0 for that condition based on if the unconnected port is ifTrue or ifFalse.
 
-<H3Image title="Less Or Equal" image="/img/tools/npe/lessOrEqualNode.png" alt="Less Or Equal node"/>
+<H3Image title="Less Or Equal" image="/img/tools/npe/lessOrEqualNode.webp" alt="Less Or Equal node"/>
 
 This logical block tests if the Float value in the left port is less than or equal to the Float value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed.
 
@@ -1451,7 +1451,7 @@ This logical block tests if the Float value in the left port is less than or equ
 
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If a port for ifTrue or ifFalse is not connected, the output passes either 1.0 or 0.0 for that condition based on if the unconnected port is ifTrue or ifFalse.
 
-<H3Image title="Greater Than" image="/img/tools/npe/greaterThanNode.png" alt="Greater Than node"/>
+<H3Image title="Greater Than" image="/img/tools/npe/greaterThanNode.webp" alt="Greater Than node"/>
 
 This logical block tests if the Float value in the left port is greater than the Float value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed.
 
@@ -1471,7 +1471,7 @@ This logical block tests if the Float value in the left port is greater than the
 
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If a port for ifTrue or ifFalse is not connected, the output passes either 1.0 or 0.0 for that condition based on if the unconnected port is ifTrue or ifFalse.
 
-<H3Image title="Greater Or Equal" image="/img/tools/npe/greaterOrEqualNode.png" alt="Greater Or Equal node"/>
+<H3Image title="Greater Or Equal" image="/img/tools/npe/greaterOrEqualNode.webp" alt="Greater Or Equal node"/>
 
 This logical block tests if the Float value in the left port is greater than or equal to the Float value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed.
 
@@ -1491,7 +1491,7 @@ This logical block tests if the Float value in the left port is greater than or 
 
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If a port for ifTrue or ifFalse is not connected, the output passes either 1.0 or 0.0 for that condition based on if the unconnected port is ifTrue or ifFalse.
 
-<H3Image title="Xor" image="/img/tools/npe/xorNode.png" alt="Xor node"/>
+<H3Image title="Xor" image="/img/tools/npe/xorNode.webp" alt="Xor node"/>
 
 This logical block tests if exactly one of the left port or the right port contains a Float value not equal to 0.0, but not both. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed.
 
@@ -1511,7 +1511,7 @@ This logical block tests if exactly one of the left port or the right port conta
 
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If a port for ifTrue or ifFalse is not connected, the output passes either 1.0 or 0.0 for that condition based on if the unconnected port is ifTrue or ifFalse.
 
-<H3Image title="Or" image="/img/tools/npe/orNode.png" alt="Or node"/>
+<H3Image title="Or" image="/img/tools/npe/orNode.webp" alt="Or node"/>
 
 This logical block tests if either the left port or the right port contain a Float value not equal to 0.0. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed.
 
@@ -1531,7 +1531,7 @@ This logical block tests if either the left port or the right port contain a Flo
 
 - **output** is the value attached to ifTrue if the test returns true or the value attached to ifFalse if the test returns false. If a port for ifTrue or ifFalse is not connected, the output passes either 1.0 or 0.0 for that condition based on if the unconnected port is ifTrue or ifFalse.
 
-<H3Image title="And" image="/img/tools/npe/andNode.png" alt="And node"/>
+<H3Image title="And" image="/img/tools/npe/andNode.webp" alt="And node"/>
 
 This logical block tests if the Float value in the left port and the right port are both not equal to 0.0. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed.
 
@@ -1555,7 +1555,7 @@ This logical block tests if the Float value in the left port and the right port 
 
 Interpolation blocks derive a value based on an input value range or an input value limit. They are essential for creating time-based particle effects and smooth transitions.
 
-<H3Image title="Lerp" image="/img/tools/npe/lerpNode.png" alt="Lerp node"/>
+<H3Image title="Lerp" image="/img/tools/npe/lerpNode.webp" alt="Lerp node"/>
 
 This block will derive a value between the two input values based on the gradient value. It works with Float, Vector2, Vector3, and Color4 types.
 
@@ -1569,7 +1569,7 @@ This block will derive a value between the two input values based on the gradien
 
 - **output** is the value that will match the type of the left and right input values and is a value derived from the range of the left input to the right input at the position of the gradient.
 
-<H3Image title="Gradient Value" image="/img/tools/npe/gradientValueNode.png" alt="Gradient Value node"/>
+<H3Image title="Gradient Value" image="/img/tools/npe/gradientValueNode.webp" alt="Gradient Value node"/>
 
 This block defines a single value entry in a gradient. It is used as input to the Gradient block to define value stops at specific positions along the gradient. This block does not function alone and must be connected to a Gradient block's value inputs.
 
@@ -1585,7 +1585,7 @@ This block defines a single value entry in a gradient. It is used as input to th
 
 - **output** is the gradient entry which converts to the appropriate gradient type for connection to a Gradient block.
 
-<H3Image title="Gradient" image="/img/tools/npe/gradientNode.png" alt="Gradient node"/>
+<H3Image title="Gradient" image="/img/tools/npe/gradientNode.webp" alt="Gradient node"/>
 
 This block interpolates between multiple Gradient Value entries based on an input gradient position. Connect the Age Gradient contextual block to the gradient input for lifetime-based transitions. The block dynamically adds new value inputs as Gradient Value blocks are connected.
 
@@ -1598,7 +1598,7 @@ This block interpolates between multiple Gradient Value entries based on an inpu
 
 - **output** is the interpolated value at the sampled position and matches the type of the connected gradient value entries.
 
-<H3Image title="NLerp" image="/img/tools/npe/nlerpNode.png" alt="NLerp node"/>
+<H3Image title="NLerp" image="/img/tools/npe/nlerpNode.webp" alt="NLerp node"/>
 This block will derive a normalized value between the two input values based on the gradient value. It performs linear interpolation and then normalizes the result. This is more efficient than spherical interpolation for direction vectors when approximate results are acceptable.
 
 #### Inputs
@@ -1609,7 +1609,7 @@ This block will derive a normalized value between the two input values based on 
 #### Outputs
 - **output** is the value that will match the type of the left and right input values and is a normalized value derived from the range of the left input to the right input at the position of the gradient.
 
-<H3Image title="Smooth Step" image="/img/tools/npe/smoothStepNode.png" alt="Smooth Step node"/>
+<H3Image title="Smooth Step" image="/img/tools/npe/smoothStepNode.webp" alt="Smooth Step node"/>
 
 This block will return a gradient value between 0 and 1 depending on how the input value compares with edge0 and edge1. It uses the formula 3x² - 2x³ for smooth transitions which produces a more natural-looking result than linear interpolation for fades and transitions. This block can support Float, Int, Vector2, Vector3, and Color4 types, though the block cannot operate on mixed types with the exception of one case. A float value can be connected to the right input of this block and that value will be used for the operation on each channel of the type connected to the left input. The type of the block first connected to an input determines the type for the block output, but a float can be connected to the right input in any case regardless of the type that has automatically been set.
 
@@ -1623,7 +1623,7 @@ This block will return a gradient value between 0 and 1 depending on how the inp
 
 - **output** is a value between 0 and 1 that matches the input type. If the input value is less than edge0, the output value will be 0. If the input value is between edge0 and edge1, the output will be a smooth interpolation. If the input value is greater than or equal to edge1, the output value will be 1.
 
-<H3Image title="Step" image="/img/tools/npe/stepNode.png" alt="Step node"/>
+<H3Image title="Step" image="/img/tools/npe/stepNode.webp" alt="Step node"/>
 This block will return a value of 0 or 1 depending on if the input value is less than or greater than the value connected to edge. It creates hard transitions without interpolation and is useful for binary decisions, triggers, or creating discrete states in particle behavior. This block can support Float, Int, Vector2, Vector3, and Color4 types, though the block cannot operate on mixed types with the exception of one case. A float value can be connected to the right input of this block and that value will be used for the operation on each channel of the type connected to the left input. The type of the block first connected to an input determines the type for the block output, but a float can be connected to the right input in any case regardless of the type that has automatically been set.
 
 #### Inputs
@@ -1639,7 +1639,7 @@ This block will return a value of 0 or 1 depending on if the input value is less
 
 Miscellaneous utility blocks for type conversion, randomization, debugging, graph organization, and special effects.
 
-<H3Image title="Converter" image="/img/tools/npe/converterNode.png" alt="Converter node"/>
+<H3Image title="Converter" image="/img/tools/npe/converterNode.webp" alt="Converter node"/>
 
 This block decomposes and recomposes values between Color4, Vector3, Vector2, and individual Float components. It enables bidirectional conversion allowing extraction of individual components from vectors and colors as well as constructing them from individual values. Input values take priority from higher-dimensional inputs so a connected Color4 will populate all component outputs.
 
@@ -1665,7 +1665,7 @@ This block decomposes and recomposes values between Color4, Vector3, Vector2, an
 - **z** is the Z or B component as a float.
 - **w** is the W or A component as a float.
 
-<H3Image title="Random" image="/img/tools/npe/randomNode.png" alt="Random node"/>
+<H3Image title="Random" image="/img/tools/npe/randomNode.webp" alt="Random node"/>
 
 This block generates random values within a specified range. It supports Float, Vector2, Vector3, and Color4 types with component-wise randomization. The lockMode property controls when random values are regenerated which is important for controlling consistency of randomization across particles and frames.
 
@@ -1682,7 +1682,7 @@ This block generates random values within a specified range. It supports Float, 
 
 - **output** is a random value between min and max and matches type with the values connected to min and max.
 
-<H3Image title="Debug" image="/img/tools/npe/debugNode.png" alt="Debug node"/>
+<H3Image title="Debug" image="/img/tools/npe/debugNode.webp" alt="Debug node"/>
 
 This block outputs debug information to the console for troubleshooting. The value passes through unchanged, allowing debug blocks to be inserted anywhere in the flow for inspection without affecting particle behavior.
 
@@ -1698,7 +1698,7 @@ This block outputs debug information to the console for troubleshooting. The val
 
 - **output** is the pass-through of the input value in the same type.
 
-<H3Image title="Elbow" image="/img/tools/npe/elbowNode.png" alt="Elbow node"/>
+<H3Image title="Elbow" image="/img/tools/npe/elbowNode.webp" alt="Elbow node"/>
 
 This is a purely organizational block that helps route wires for better graph readability. It has no functional impact on particle behavior and simply passes values through while allowing wires to be bent and routed for clarity. It can be quickly added to wires by option or alt-clicking on a wire.
 
@@ -1710,7 +1710,7 @@ This is a purely organizational block that helps route wires for better graph re
 
 - **output** is the same value as the input in the same type.
 
-<H3Image title="Teleport In" image="/img/tools/npe/teleportInNode.png" alt="Teleport In node"/>
+<H3Image title="Teleport In" image="/img/tools/npe/teleportInNode.webp" alt="Teleport In node"/>
 
 This block creates an entry point that sends data to one or more corresponding Teleport Out blocks without a visible wire. It reduces wire clutter by allowing data to jump across the graph without visible connections. A single Teleport In can feed multiple Teleport Out blocks, effectively duplicating the data stream. The data type is preserved through the teleport. To distinguish each Teleport In block, give it a unique name which will be added to a list of possible connections found in a Teleport Out block's properites.
 
@@ -1718,7 +1718,7 @@ This block creates an entry point that sends data to one or more corresponding T
 
 - **input** is connected to any block whose value should be teleported.
 
-<H3Image title="Teleport Out" image="/img/tools/npe/teleportOutNode.png" alt="Teleport Out node"/>
+<H3Image title="Teleport Out" image="/img/tools/npe/teleportOutNode.webp" alt="Teleport Out node"/>
 
 This block receives data from a corresponding Teleport In block. It must be linked to a Teleport In block which can be selected from the properties panel. The output type matches the input type of the corresponding Teleport In block.
 
@@ -1730,7 +1730,7 @@ This block receives data from a corresponding Teleport In block. It must be link
 
 - **output** is the value received from the linked Teleport In block and matches the type of the teleported value.
 
-<H3Image title="Local Variable" image="/img/tools/npe/localVariableNode.png" alt="Local Variable node"/>
+<H3Image title="Local Variable" image="/img/tools/npe/localVariableNode.webp" alt="Local Variable node"/>
 
 This block stores and reuses a value to avoid redundant calculations and improve graph readability. It acts like a variable in code by storing a snapshot of the value that can be reused multiple times without recalculating. It is useful for organizing complex graphs, avoiding duplicate calculations, and improving performance when the same computed value is needed in multiple places.
 
@@ -1750,7 +1750,7 @@ This block stores and reuses a value to avoid redundant calculations and improve
 
 Trigger blocks enable sub-emitter functionality, allowing particle systems to spawn other particle systems based on conditions.
 
-<H3Image title="Trigger" image="/img/tools/npe/triggerNode.png" alt="Trigger node"/>
+<H3Image title="Trigger" image="/img/tools/npe/triggerNode.webp" alt="Trigger node"/>
 
 This block triggers a sub-emitter particle system when a condition is met during particle updates. When the condition input evaluates to a non-zero value, the block spawns a clone of the connected system at the current particle's position. The limit property prevents excessive sub-emitter spawning and the delay property rate-limits trigger activations. Sub-emitters are automatically disposed when the parent system is disposed. Connect a separate System block with its own particle graph to the system input to define the sub-emitter behavior.
 

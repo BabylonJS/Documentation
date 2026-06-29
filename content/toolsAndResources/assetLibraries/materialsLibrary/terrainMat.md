@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Terrain Material](/img/extensions/materials/terrain.jpg)
+![Terrain Material](/img/extensions/materials/terrain.webp)
 
 ## Playground example
 
@@ -23,12 +23,12 @@ The terrain material works with at least 4 textures:
 
 In other words, the Mixmap texture mixes the 3 diffuse textures thanks to the color channels RGB.
 A Mixmap texture looks like (result on the screenshot above):
-![](/img/extensions/materials/terrainMixMap.png)
+![](/img/extensions/materials/terrainMixMap.webp)
 
 The method applied by the terrain material is also called "texture splatting".
 
 ```
-var terrain = BABYLON.Mesh.CreateGroundFromHeightMap("terrain", "heightMap.png", 100, 100, 100, 0, 10, scene, false);
+var terrain = BABYLON.MeshBuilder.CreateGroundFromHeightMap("terrain", "heightMap.png", { width: 100, height: 100, subdivisions: 100, minHeight: 0, maxHeight: 10 }, scene);
 
 var terrainMaterial = new BABYLON.TerrainMaterial("terrainMaterial", scene);
 terrainMaterial.mixTexture = new BABYLON.Texture("mixMap.png", scene);

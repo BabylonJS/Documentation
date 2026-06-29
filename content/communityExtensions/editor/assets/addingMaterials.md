@@ -19,7 +19,7 @@ Common materials `Standard`, `PBR`and `Node` are supported as well as most of th
 the [Materials Library](https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary).
 Once a material has been added to the assets, its preview (thumbnail) is created automatically.
 
-![CreatingMaterial](/img/extensions/Editor/AddingMaterials/creating-material.gif)
+![CreatingMaterial](/img/extensions/Editor/AddingMaterials/creating-material.webp)
 
 ## Assigning A Material
 
@@ -32,12 +32,12 @@ to be assigned on the mesh.
 
 Example drag'n'dropping a material asset on a mesh in the `Preview Panel`:
 
-![DropInPreview](/img/extensions/Editor/AddingMaterials/drop-in-preview.gif)
+![DropInPreview](/img/extensions/Editor/AddingMaterials/drop-in-preview.webp)
 
 Example selecting a mesh in the graph or the scene and drag'n'dropping a material asset in
 the inspector's field `Material`:
 
-![DropInInspector](/img/extensions/Editor/AddingMaterials/drop-in-inspector.gif)
+![DropInInspector](/img/extensions/Editor/AddingMaterials/drop-in-inspector.webp)
 
 ## Editing A Material
 
@@ -46,7 +46,7 @@ Once clicked, the inspector is updated to show the editable properties of the ma
 
 If the material has not been instantiated, assign the material first on a mesh. Else, the inspector will not be instantiated because the instance of the material can't be found.
 
-![EditingMaterial](/img/extensions/Editor/AddingMaterials/editing-material.gif)
+![EditingMaterial](/img/extensions/Editor/AddingMaterials/editing-material.webp)
 
 ## Refreshing Thumbnail
 
@@ -56,4 +56,4 @@ multiple texture asset have been changed, the thumbnail will not be necessarily 
 To update the thumbnail of materials, simply select the materials in the assets browser, `right-click` them
 and select `Refresh Preview`.
 
-![RefreshingThumbnails](/img/extensions/Editor/AddingMaterials/refreshing-thumbnails.gif)
+![RefreshingThumbnails](/img/extensions/Editor/AddingMaterials/refreshing-thumbnails.webp)

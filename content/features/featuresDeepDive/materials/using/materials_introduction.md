@@ -52,7 +52,7 @@ mesh.material = myMaterial;
 
 To give an idea on how the material diffuse color reacts to the diffuse light color the following playground example shows how different color materials react to white, red, green and blue diffuse spot lights.
 
-<Playground id="#20OAV9#325" title="Material Color Reaction to Light Color" description="Simple example of material color reacting to light color." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro1.jpg" isMain={true} category="Materials"/>
+<Playground id="#20OAV9#325" title="Material Color Reaction to Light Color" description="Simple example of material color reacting to light color." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro1.webp" isMain={true} category="Materials"/>
 
 This reaction of
 
@@ -63,7 +63,7 @@ This reaction of
 
 to white, red, green and blue diffuse spot lights can also be seen in the following image.
 
-![ Spot Light](/img/how_to/Materials/spots1.png)
+![ Spot Light](/img/how_to/Materials/spots1.webp)
 
 ## Ambient Color Example
 
@@ -71,9 +71,9 @@ In the image below all spheres are lit by the same hemispheric light, with _diff
 
 When a scene ambient color component is set to 0, for example red, then whatever the value for red in the material ambient color it will have no effect.
 
-![Ambient](/img/how_to/Materials/ambient1.png)
+![Ambient](/img/how_to/Materials/ambient1.webp)
 
-<Playground id="#20OAV9#14" title="Use of Ambient Color" description="Simple example of using ambient color in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro2.jpg"/>
+<Playground id="#20OAV9#14" title="Use of Ambient Color" description="Simple example of using ambient color in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro2.webp"/>
 
 ## Transparent Color Example
 
@@ -83,7 +83,7 @@ Transparency is achieved by setting a materials _alpha_ property from 0 (invisib
 myMaterial.alpha = 0.5;
 ```
 
-<Playground id="#20OAV9#16" title="Material Transparency" description="Simple example of using transparency in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro3.jpg" isMain={true} category="Materials"/>
+<Playground id="#20OAV9#16" title="Material Transparency" description="Simple example of using transparency in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro3.webp" isMain={true} category="Materials"/>
 
 ## Texture
 
@@ -115,9 +115,9 @@ Note: When no normals are specified, Babylon's standard material will compute th
 
 In this image all spheres are lit by the same hemispheric light, with _diffuse_ red and _groundColor_ green. The first sphere has a diffuse texture, the middle an emissive texture and the one on the right has material with red diffuse color and an ambient texture.
 
-![Texture](/img/how_to/Materials/texture1.png)
+![Texture](/img/how_to/Materials/texture1.webp)
 
-<Playground id="#20OAV9#15" title="Material with Diffuse, Emissive, and Ambient Textures" description="Simple example of using diffuse, emissive, and ambient textures in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro4.jpg" isMain={true} category="Materials"/>
+<Playground id="#20OAV9#15" title="Material with Diffuse, Emissive, and Ambient Textures" description="Simple example of using diffuse, emissive, and ambient textures in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro4.webp" isMain={true} category="Materials"/>
 
 ## Transparent Texture Examples
 
@@ -127,12 +127,12 @@ For colors, the transparency is achieved by setting a materials _alpha_ property
 myMaterial.alpha = 0.5;
 ```
 
-<Playground id="#20OAV9#17" title="Transparent Texture Example" description="Simple example of transparent textures in your scene." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro5.jpg"/>
+<Playground id="#20OAV9#17" title="Transparent Texture Example" description="Simple example of transparent textures in your scene." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro5.webp"/>
 
 In addition, the image used for the texture might already have a transparency setting, such as this picture of a dog from wikimedia commons,
 which has a transparent background;
 
-![A dog](/img/how_to/Materials/dog.png)
+![A dog](/img/how_to/Materials/dog.webp)
 
 In this case we set the _hasAlpha_ property of the **texture** to true.
 
@@ -140,7 +140,7 @@ In this case we set the _hasAlpha_ property of the **texture** to true.
 myMaterial.diffuseTexture.hasAlpha = true;
 ```
 
-<Playground id="#YDO1F#18" title="Transparent Background Example" description="Simple example of a transparent background in your scene." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro6.jpg"/>
+<Playground id="#YDO1F#18" title="Transparent Background Example" description="Simple example of a transparent background in your scene." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro6.webp"/>
 
 For the back faces of the cube to be visible through the transparent areas of the front faces we have to deal with back-face culling.
 
@@ -161,9 +161,9 @@ When _backFaceCulling_ is false the back faces are not removed during rendering,
 
 | Back Face Culling True                      | Back Face Culling False                      |
 | ------------------------------------------- | -------------------------------------------- |
-| ![BFC True](/img/how_to/Materials/bfc2.png) | ![BFC False](/img/how_to/Materials/bfc1.png) |
+| ![BFC True](/img/how_to/Materials/bfc2.webp) | ![BFC False](/img/how_to/Materials/bfc1.webp) |
 
-<Playground id="#YDO1F#20" title="Backface Culling Example" description="Simple example of using backface culling." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro7.jpg"/>
+<Playground id="#YDO1F#20" title="Backface Culling Example" description="Simple example of using backface culling." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro7.webp"/>
 
 Note that backface culling is one aspect of face culling: you can also perform frontface culling if you wish! Backface culling is much more commonly used than frontface culling, but in some cases you may want to enable frontface culling. To do so, set the material property _cullBackFaces_ to **false**. Note that you must always set _backFaceCulling_ to **true** to enable culling! _backFaceCulling_ is misnamed for historical reasons, and in order to maintain backward compatibility, we cannot rename it to _faceCulling_.
 
@@ -177,14 +177,14 @@ materialSphere1.wireframe = true;
 
 The output of enabling wireframe mode on the material is to display the wireframe using a line renderer, while still displaying the specific properties defined by the material including color, specularity, and alpha. Note that wireframe mode ignores the value for _backFaceCulling_ on the material because there is no backface any longer. Instead, lines are rendered on mesh edges and the concept of "back face" is no longer applicable. 
 
-![wireframe mode on a sphere](/img/how_to/Materials/04-3.png)
+![wireframe mode on a sphere](/img/how_to/Materials/04-3.webp)
 
-<Playground id="#T8KESP" title="Wireframe Example" description="Simple example enabling wireframe on a material." image="/img/playgroundsAndNMEs/wireframeMode.jpg"/>
+<Playground id="#T8KESP" title="Wireframe Example" description="Simple example enabling wireframe on a material." image="/img/playgroundsAndNMEs/wireframeMode.webp"/>
 
 This will work with any material available in Babylon.js such as _StandardMaterial_, _PBRMaterial_, and even _NodeMaterial_. This is because the accessor is inherited from the _Material_ class, enabling every material in the engine to take advantage of it. Controlling the appearance of the wireframe is done through the material's parameters. 
 
-![Making the wireframe red and emissive](/img/how_to/Materials/wireframe_red.jpg)
-<Playground id="#T8KESP#1" title="Styling a wireframe" description="Styling the wireframe to be red." image="/img/playgroundsAndNMEs/wireframe_red.jpg"/>
+![Making the wireframe red and emissive](/img/how_to/Materials/wireframe_red.webp)
+<Playground id="#T8KESP#1" title="Styling a wireframe" description="Styling the wireframe to be red." image="/img/playgroundsAndNMEs/wireframe_red.webp"/>
 
 However, the thickness of the line is predetermined by the line renderer in screen space which renders the line at the same thickness regardless of the distance from the line to the camera. This means that the wireframe will dynamically update the thickness so that it won't cease to render if the camera gets too far away.
 
@@ -193,9 +193,9 @@ If it is necessary to render a wireframe over an existing material, the way to a
 
 This enables scenarios where blending materials and wireframes is necessary. In the example below, two _NodeMaterials_ are used to create the layer effect blending between wireframe over a solid color to the material's base color. The gradient for the interpolation is based on the distance from a pixel to the world origin and the same value is passed to both the _NodeMaterial_ for the mesh and the _NodeMaterial_ for the wireframe. In the case of the wireframe, this gradient is setting the alpha value of the material rather than interpolating between two different colors, which makes the wireframe appear to blend into the original material base color. This is the power of leveraging _NodeMaterial_ to drive the look of the wireframe of a mesh.
 
-![Blending wireframe with material color](/img/how_to/Materials/wireframe_blending.jpg)
+![Blending wireframe with material color](/img/how_to/Materials/wireframe_blending.webp)
 
-<Playground id="#PKJCS5" title="Blending wireframe" description="Using node material to blend wireframe" image="/img/playgroundsAndNMEs/wireframe_blend.jpg"/>
+<Playground id="#PKJCS5" title="Blending wireframe" description="Using node material to blend wireframe" image="/img/playgroundsAndNMEs/wireframe_blend.webp"/>
 
 ## Local File Access
 

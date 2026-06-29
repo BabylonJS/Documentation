@@ -26,7 +26,7 @@ The parameters are:
 
 * scene: Your Babylon scene.
 
-Here's a small demo of it working. Check out line 29 in this playground: <Playground id="#3TM0BZ" title="Raw Texture Noise Terrain Example" description="Simple example of using noise data to generate an rgb texture, used as a height map to displace a mesh for a terrain effect." image="/img/playgroundsAndNMEs/divingDeeperRawTexture1.jpg"/>
+Here's a small demo of it working. Check out line 29 in this playground: <Playground id="#3TM0BZ" title="Raw Texture Noise Terrain Example" description="Simple example of using noise data to generate an rgb texture, used as a height map to displace a mesh for a terrain effect." image="/img/playgroundsAndNMEs/divingDeeperRawTexture1.webp"/>
 
 In this case, random noise is being generated, converted into a Uint8Array and that is then used to create a Raw RGB Texture.
 

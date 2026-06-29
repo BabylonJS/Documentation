@@ -4,7 +4,7 @@ import { IExampleLink } from "../../lib/content.interfaces";
 import { getExampleLink } from "../../lib/frontendUtils/frontendTools";
 
 import CloseIcon from "@mui/icons-material/Close";
-import { DocumentationContext } from "../../pages/[...id]";
+import { DocumentationContext } from "../../features/docs/DocumentationContext";
 import { BaseUrlContext } from "../../pages/_app";
 
 export const InlineExampleComponent: FunctionComponent<IExampleLink> = (example) => {

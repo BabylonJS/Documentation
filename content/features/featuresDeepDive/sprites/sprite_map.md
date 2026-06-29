@@ -21,7 +21,7 @@ It uses the *Babylon.js (JSON Array for SpriteMap)* format of [TexturePacker](ht
 
 **Note:** *SpritePackedManager* uses the JSON Hash format for packed spritesheets. JSON files are not interchangeable between *SpritePackedManager* and *SpritMap*.
 
-![spritesheet](/img/how_to/Sprites/legends.png)
+![spritesheet](/img/how_to/Sprites/legends.webp)
 
 The start of the JSON file format for the above packed spritesheet is shown below.
 

@@ -12,7 +12,7 @@ video-content:
 
 Starting with Babylon.js v4.2, you can save, load and edit sprite managers using the Inspector. These code snippets are saved on the Babylon.js snippet server. Make a note of the snippet Id shown in when you save it.
 
-![Snippet](/img/how_to/Sprites/snippet_screen.png)
+![Snippet](/img/how_to/Sprites/snippet_screen.webp)
 
 When you have a snippet Id, you can easily load the manager using the following code:
 

@@ -10,7 +10,7 @@ video-content:
 
 # Marble Procedural texture
 
-![Marble Procedural texture](/img/extensions/proceduraltextures/marblept.PNG)
+![Marble Procedural texture](/img/extensions/proceduraltextures/marblept.webp)
 
 ## Using the Marble procedural texture
 

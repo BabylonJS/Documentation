@@ -130,7 +130,7 @@ const float mode = 1.;
 ```
 
 When the block is selected in the Smart Filters Editor, you'll see the mode appear in the properties panel on the right:
-![SFE](/img/how_to/smart-filters/const-prop-sfe-textbox.png)
+![SFE](/img/how_to/smart-filters/const-prop-sfe-textbox.webp)
 
 You can optionally supply a list of values to appear in a dropdown like this:
 
@@ -141,7 +141,7 @@ const float mode = 1.;
 
 And it will appear like this in the Smart Filters Editor:
 
-![SFE](/img/how_to/smart-filters/const-prop-sfe-options.png)
+![SFE](/img/how_to/smart-filters/const-prop-sfe-options.webp)
 
 ### Annotation Requirements
 
@@ -296,7 +296,7 @@ public override getShaderProgram() {
 
 It will then appear in the Smart Filters Editor like this:
 
-![SFE](/img/how_to/smart-filters/const-prop-sfe-options.png)
+![SFE](/img/how_to/smart-filters/const-prop-sfe-options.webp)
 
 #### Important Notes
 

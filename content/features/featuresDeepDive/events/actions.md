@@ -223,4 +223,4 @@ Sprites can also control picking with `sprite.isPickable = false / true` (False 
 
 ## Playground
 
-If you want to play with actions, you can try them out in our playground here: <Playground id="#J19GYK#0" title="Play with Actions" description="Simple examples of actions in a scene." image="/img/playgroundsAndNMEs/divingDeeperActions1.jpg"/>
+If you want to play with actions, you can try them out in our playground here: <Playground id="#J19GYK#0" title="Play with Actions" description="Simple examples of actions in a scene." image="/img/playgroundsAndNMEs/divingDeeperActions1.webp"/>

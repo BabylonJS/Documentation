@@ -50,7 +50,7 @@ import { Inspector } from '@babylonjs/inspector';
 Inspector.Show(scene, {});
 ```
 
-![debug layer overview](/img/features/debuglayer/debuglayer.jpg)
+![debug layer overview](/img/features/debuglayer/debuglayer.webp)
 
 ### Embedded Mode
 
@@ -70,7 +70,7 @@ Inspector.Show(scene, {
 });
 ```
 
-![embed mode](/img/features/debuglayer/embedmode.jpg)
+![embed mode](/img/features/debuglayer/embedmode.webp)
 
 To hide the inspector:
 
@@ -86,7 +86,7 @@ Inspector.Hide(); // You don't need to pass the scene
 
 ## Scene explorer pane
 
-![scene explorer](/img/features/debuglayer/sceneExplorer.jpg)
+![scene explorer](/img/features/debuglayer/sceneExplorer.webp)
 
 The scene explorer displays a hierarchical view of your scene. You can filter by name in the filter bar if you want to find a specific entry.
 
@@ -96,44 +96,44 @@ Some entities offer shortcuts to contextual actions.
 
 ## Scene actions
 
-![scene actions](/img/features/debuglayer/sceneactions.jpg)
+![scene actions](/img/features/debuglayer/sceneactions.webp)
 
 The scene shortcuts are the following:
 
 - The first 3 actions will turn on a specific gizmo mode ([translation](/typedoc/classes/babylon.transformnode#translate), rotation, scaling). When you click on one of them you can then click on a node in the Scene explorer or directly in your scene and it will be controllable with a gizmo:
 
-![gizmo](/img/features/debuglayer/gizmo.jpg)
+![gizmo](/img/features/debuglayer/gizmo.webp)
 
 - The fourth action is a picker. Just pick a mesh in your scene and it will be selected in your scene explorer
 - The last one will force the scene explorer to update. For performance reasons, the scene explorer is not listening to all changes that can happen on the scene so you may end up needing to refresh it manually.
 
 ## Mesh actions
 
-![mesh actions](/img/features/debuglayer/meshactions.jpg)
+![mesh actions](/img/features/debuglayer/meshactions.webp)
 
 The mesh shortcuts are the following:
 
 - The first action will enable the bounding box gizmo:
 
-![bounding box gizmo](/img/features/debuglayer/boundingboxgizmo.jpg)
+![bounding box gizmo](/img/features/debuglayer/boundingboxgizmo.webp)
 
 - The second action will show/hide the mesh.
 
 ## Light actions
 
-![light actions](/img/features/debuglayer/lightactions.jpg)
+![light actions](/img/features/debuglayer/lightactions.webp)
 
 You can use the light action to turn a light on and off.
 
 ## Camera actions
 
-![camera actions](/img/features/debuglayer/cameraactions.jpg)
+![camera actions](/img/features/debuglayer/cameraactions.webp)
 
 You can use the camera action to switch the active camera (when they are multiple cameras in a scene).
 
 ## GUI control actions
 
-![gui control actions](/img/features/debuglayer/controlactions.jpg)
+![gui control actions](/img/features/debuglayer/controlactions.webp)
 
 You can use the GUI control actions to:
 
@@ -142,7 +142,7 @@ You can use the GUI control actions to:
 
 ## Rendering pipeline actions
 
-![Rendering pipeline actions](/img/features/debuglayer/renderpipelineactions.jpg)
+![Rendering pipeline actions](/img/features/debuglayer/renderpipelineactions.webp)
 
 When your scene does not contain a default rendering pipeline, you can right-click on the rendering pipelines node to get a context menu letting you create a new default rendering pipeline.
 
@@ -150,29 +150,29 @@ When your scene does not contain a default rendering pipeline, you can right-cli
 
 The inspector pane contains 4 tabs:
 
-![inspector](/img/features/debuglayer/inspector.jpg)
+![inspector](/img/features/debuglayer/inspector.webp)
 
 - The property grid which will display configurable controls for the current selected entity:
 
-![property grid](/img/features/debuglayer/property.jpg)
+![property grid](/img/features/debuglayer/property.webp)
 
 - The debug pane will let you turn features on and off. It also let you display a grid and turn viewers (bones or physics) on and off:
 
-![debug pane](/img/features/debuglayer/debugpane.jpg)
+![debug pane](/img/features/debuglayer/debugpane.webp)
 
 - The statistics pane gives information about all metrics captured by the engine:
 
-![stats pane](/img/features/debuglayer/statspane.jpg)
+![stats pane](/img/features/debuglayer/statspane.webp)
 
 - The tools pane lets you access utilities (like screen capture or recording as well as several tools related to glTF):
 
-![tools](/img/features/debuglayer/tools.jpg)
+![tools](/img/features/debuglayer/tools.webp)
 
 ## Popup mode
 
 There are occassions when opening the inspector in a child window is preferable. It may be that the canvas size is too small to effectively use the inspector or the inspector is covering too much of the canvas making it hard to debug the scene. There are a few ways you can pop the inspector into a child window that is still connected to the scene. The first is by simply clicking the icon on the right side of the pane header bar adjacent to the close button. 
 
-![popup](/img/features/debuglayer/popup.jpg)
+![popup](/img/features/debuglayer/popup.webp)
 
 This will pop out the selected pane - either Scene Explorer or Inspector - into a child window. If the panes have been opened in [embedded mode](/legacy/inspector#embedded-mode), the embedded inspector will open into a single child window. Additionally, the inspector can be opened by default as a popup. The individual Scene Explorer and Inspector panes can be opened as popups with the following code:
 
@@ -182,7 +182,7 @@ var debugLayer = await scene.debugLayer.show();
 debugLayer.popupSceneExplorer();
 debugLayer.popupInspector();
 ```
-<Playground id="#KN5JBQ#3" title="Popup mode for Inspector panes" description="An example of opening inspector panes in popup mode" image="/img/playgroundsAndNMEs/inspectorPopup.jpg" />
+<Playground id="#KN5JBQ#3" title="Popup mode for Inspector panes" description="An example of opening inspector panes in popup mode" image="/img/playgroundsAndNMEs/inspectorPopup.webp" />
 
 ### Embedded Popup Mode
 Additionally, the embedded mode inspector can be opened as a popup by default:
@@ -194,7 +194,7 @@ var debugLayer = await scene.debugLayer.show({
 
 debugLayer.popupEmbed()
 ```
-<Playground id="#KN5JBQ#5" title="Embedded popup mode for Inspector panes" description="An example of opening embedded inspector in popup mode" image="/img/playgroundsAndNMEs/inspectorEmbedPopup.jpg" />
+<Playground id="#KN5JBQ#5" title="Embedded popup mode for Inspector panes" description="An example of opening embedded inspector in popup mode" image="/img/playgroundsAndNMEs/inspectorEmbedPopup.webp" />
 
 ## Specific debug tools
 
@@ -204,55 +204,55 @@ Specific debug tools can be found across the inspector:
 
 This tool (available in the Debug pane) will render a grid on the (0,0,0) plane:
 
-![grid](/img/features/debuglayer/grid.jpg)
+![grid](/img/features/debuglayer/grid.webp)
 
 ## Bones viewer
 
 This tool (available in the skeleton property grid) will render your skeletons:
 
-![bones](/img/features/debuglayer/BonesView.png)
+![bones](/img/features/debuglayer/BonesView.webp)
 
 ## Skeleton Map Shader
 
 This tool (available in the mesh property grid when the mesh has an attached skeleton) will render a unique color on the mesh, for each bone, showing their total contribution:
 
-![bones](/img/features/debuglayer/BonesMap.png)
+![bones](/img/features/debuglayer/BonesMap.webp)
 
 ## Bone Weight Shader
 
 This tool (available in the mesh property grid when the mesh has an attached skeleton) will render a heat map showing the selected bones contribution:
 
-![bones](/img/features/debuglayer/BonesWeight.png)
+![bones](/img/features/debuglayer/BonesWeight.webp)
 
 ## Physics viewer
 
 This tool (available in the Debug pane) will render your physics impostors:
 
-![physics](/img/features/debuglayer/physics.jpg)
+![physics](/img/features/debuglayer/physics.webp)
 
 ## Normal painter
 
 This tool (available in the property pane when you select a mesh) will paint the normals on your active mesh:
 
-![paint normal](/img/features/debuglayer/paintnormal.jpg)
+![paint normal](/img/features/debuglayer/paintnormal.webp)
 
 ## Vertex normal viewer
 
 This tool (available in the property pane when you select a mesh) will render the vertex normals of a mesh:
 
-![vertex normal](/img/features/debuglayer/vertexnormal.jpg)
+![vertex normal](/img/features/debuglayer/vertexnormal.webp)
 
 ## Texture painter
 
 This tool (available in the property pane when you select a material with textures in it) will render the texture directly as an emissive one:
 
-![texture painter](/img/features/debuglayer/texturepainter.jpg)
+![texture painter](/img/features/debuglayer/texturepainter.webp)
 
 ## Extensibility
 
 The inspector can be easily extended to allow manipulation of custom node properties. Simply define your custom properties in the node's `inspectableCustomProperties` array, and they will be available under the CUSTOM heading after selecting the node in the inspector.
 
-<Playground id="#LQF5QR#2" title="Inspector custom properties for a node" description="An example of inspector custom properties for a node" image="/img/playgroundsAndNMEs/inspectorCustomProperties.jpg" />
+<Playground id="#LQF5QR#2" title="Inspector custom properties for a node" description="An example of inspector custom properties for a node" image="/img/playgroundsAndNMEs/inspectorCustomProperties.webp" />
 
 ```javascript
 myNode.inspectableCustomProperties = [

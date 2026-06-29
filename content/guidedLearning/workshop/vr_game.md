@@ -114,14 +114,19 @@ blubox.actionManager.registerAction(new BABYLON.IncrementValueAction(BABYLON.Act
 
 ### VR Cameras
 
-Babylon.js makes it very easy to use VR camera. Our scene has two options. The default implemented is the `WebVRFreeCamera`, the documentation, including browser/device limitations and motion controls, can be found [here](/features/featuresDeepDive/cameras/webVRCamera).
+Babylon.js makes it very easy to use VR cameras via the WebXR API. The documentation for WebXR, including browser/device support and motion controls, can be found [here](/features/featuresDeepDive/webXR/introToWebXR).
 
 ```javascript
-var camera = new BABYLON.WebVRFreeCamera("Camera", new BABYLON.Vector3(0, 1, 0), scene);
+var camera = new BABYLON.FreeCamera("Camera", new BABYLON.Vector3(0, 1, 0), scene);
 camera.attachControl(canvas, true);
+
+// Enable WebXR immersive VR
+const xrHelper = await scene.createDefaultXRExperienceAsync({
+  floorMeshes: [ground],
+});
 ```
 
-Alternatively, you can include `scene.createDefaultVRExperience();` to toggle between VR capable scenes. In the playground code, comment out the lines that use the `camera` var and uncomment the lines that have `//to use with createDefaultVRExperience()`.
+You can use `scene.createDefaultXRExperienceAsync()` to easily add WebXR VR support to your scene.
 
 ### Spatial Sound
 

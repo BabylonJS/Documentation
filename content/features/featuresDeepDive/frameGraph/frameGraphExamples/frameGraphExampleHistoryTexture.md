@@ -7,7 +7,7 @@ keywords: diving deeper, frame graph, renderer, history texture
 
 ## Introduction
 
-![History Texture in Frame Graphs](/img/frameGraph/example_historytexture.jpg)
+![History Texture in Frame Graphs](/img/frameGraph/example_historytexture.webp)
 
 Babylon supports a simplified version of history textures: ping-pong textures.
 
@@ -199,5 +199,5 @@ passDisabled.setExecuteFunc((context) => {
 
 This PG uses the class described on this page to create a frame graph that renders objects with onion-skin effect:
 
-<Playground id="#61N9QT#7" image="/img/frameGraph/example_historytexture.jpg" title="Onion-skin effect" description="Implementing onion-skin effect with frame graphs" isMain={false}/>
+<Playground id="#61N9QT#7" image="/img/frameGraph/example_historytexture.webp" title="Onion-skin effect" description="Implementing onion-skin effect with frame graphs" isMain={false}/>
 

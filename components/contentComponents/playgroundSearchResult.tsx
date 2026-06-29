@@ -120,7 +120,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                     codeLines = (code || "").split("\n");
                     startingLine = 0;
                     foundLine = -1;
-                    const lowerTerm = term.toLowerCase();
+                    const lowerTerm = term!.toLowerCase();
                     
                     for (foundLine = 0; foundLine < codeLines.length; ++foundLine) {
                         // Long lines get trimmed because some playgrounds contain base64 strings textures and other objects
@@ -201,7 +201,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                                 },
                             }}
                         >
-                            {Array.from(tags).map((chip: string) => {
+                            {Array.from(tags as Set<string>).map((chip) => {
                                 return (
                                     <Link key={chip} href={baseUrl + `/playground?q=${chip}&type=tags`}>
                                         <Chip size="small" color="primary" label={chip} />
@@ -259,28 +259,32 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                     <Highlight theme={themes.vsDark} code={codeToShow.code} language="jsx">
                         {({ className, style, tokens, getLineProps, getTokenProps }) => (
                             <pre className={className} style={style}>
-                                {tokens.map((line, i) => (
-                                    <div style={{ display: "table-row" }} key={i} {...getLineProps({ line, key: i })}>
-                                        <Box
-                                            component="span"
-                                            sx={{
-                                                display: "table-cell",
-                                                textAlign: "right",
-                                                paddingRight: "1em",
-                                                userSelect: "none",
-                                                opacity: "0.5",
-                                            }}
-                                            style={{ opacity: i + codeToShow.startingLine === codeToShow.foundLine ? 1 : 0.5, color: i + codeToShow.startingLine === codeToShow.foundLine ? "white" : "inherit" }}
-                                        >
-                                            {i + 1 + codeToShow.startingLine}
-                                        </Box>
-                                        <span style={{ display: "table-cell", fontWeight: i + codeToShow.startingLine === codeToShow.foundLine ? 600 : 400, opacity: type === "code" && (i < 2 || i > 7) ? 0.6 : 1 }}>
-                                            {line.map((token, key) => (
-                                                <span key={key} {...getTokenProps({ token, key })} />
-                                            ))}
-                                        </span>
-                                    </div>
-                                ))}
+                                {tokens.map((line, lineIndex) => {
+                                    const lineProps = getLineProps({ line });
+                                    return (
+                                        <div key={lineIndex} {...lineProps} style={{ display: "table-row" }}>
+                                            <Box
+                                                component="span"
+                                                sx={{
+                                                    display: "table-cell",
+                                                    textAlign: "right",
+                                                    paddingRight: "1em",
+                                                    userSelect: "none",
+                                                    opacity: "0.5",
+                                                }}
+                                                style={{ opacity: lineIndex + codeToShow.startingLine === codeToShow.foundLine ? 1 : 0.5, color: lineIndex + codeToShow.startingLine === codeToShow.foundLine ? "white" : "inherit" }}
+                                            >
+                                                {lineIndex + 1 + codeToShow.startingLine}
+                                            </Box>
+                                            <span style={{ display: "table-cell", fontWeight: lineIndex + codeToShow.startingLine === codeToShow.foundLine ? 600 : 400, opacity: type === "code" && (lineIndex < 2 || lineIndex > 7) ? 0.6 : 1 }}>
+                                                {line.map((token, tokenIndex) => {
+                                                    const tokenProps = getTokenProps({ token });
+                                                    return <span key={tokenIndex} {...tokenProps} />;
+                                                })}
+                                            </span>
+                                        </div>
+                                    );
+                                })}
                             </pre>
                         )}
                     </Highlight>

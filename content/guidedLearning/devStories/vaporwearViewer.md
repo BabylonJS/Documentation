@@ -40,7 +40,7 @@ and since his manufacturing partners had provided him with a simple 3D
 model of the latest Vaporwear smart watch, Allan asked himself, "**How can
 I quickly and easily add 3D to my existing e-commerce site?**"
 
-![How can they add 3D to the Vaporwear site?](/img/devStories/vaporwearViewer/vaporwear_viewer_question.png)
+![How can they add 3D to the Vaporwear site?](/img/devStories/vaporwearViewer/vaporwear_viewer_question.webp)
 
 So Allan did some research and found that Babylon.js specifically
 caters to e-commerce scenarios by
@@ -69,7 +69,7 @@ website -- in right around an hour.
     they spent about twenty minutes getting this configured the way they
     wanted.
 
-![With the Babylon Viewer!](/img/devStories/vaporwearViewer/vaporwear_viewer_answer.png)
+![With the Babylon Viewer!](/img/devStories/vaporwearViewer/vaporwear_viewer_answer.webp)
 
 And that is how Allan and Barnabas added 3D to the existing Vaporwear
 e-commerce site in right around an hour. While their site used WordPress,
@@ -92,37 +92,37 @@ and add it directly to his WordPress site.
 1. First, he picked where on his WordPress site page the 3D content
     should go.
 
-    ![Here's a good spot](/img/devStories/vaporwearViewer/01_deciding_where.png)
+    ![Here's a good spot](/img/devStories/vaporwearViewer/01_deciding_where.webp)
 1. He then added a new section...
 
-    ![Elementor new section button](/img/devStories/vaporwearViewer/03_new_section.png)
+    ![Elementor new section button](/img/devStories/vaporwearViewer/03_new_section.webp)
 1. ...made it full-width...
 
-    ![WordPress section "structure"](/img/devStories/vaporwearViewer/04_structure.png!500)
+    ![WordPress section "structure"](/img/devStories/vaporwearViewer/04_structure.webp!500)
 1. ...and added an HTML block to the new section.
 
-    ![HTML block](/img/devStories/vaporwearViewer/05_html_block.png)
+    ![HTML block](/img/devStories/vaporwearViewer/05_html_block.webp)
 1. Next, in preparation for adding his own HTML, Barnabas added a new
     `div` to help keep things clearly grouped.
 
-    ![Where to put the Viewer](/img/devStories/vaporwearViewer/06_div.png)
+    ![Where to put the Viewer](/img/devStories/vaporwearViewer/06_div.webp)
 1. Within this `div`, he added the `script` tag he'd found
     [in the Babylon Viewer docs](/legacy/babylonViewer#display-3d-models-on-your-webpage)
     to import the Viewer so he could use it on his page.
 
-    ![Viewer script tag](/img/devStories/vaporwearViewer/07_script.png)
+    ![Viewer script tag](/img/devStories/vaporwearViewer/07_script.webp)
 1. Immediately after this, he copy-pasted in the `babylon` tag code
     from the
     ["basic usage" Viewer example](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/basicExample.html#L18-L31).
 
-    ![The example code to be copied](/img/devStories/vaporwearViewer/08_copy-paste.png)
+    ![The example code to be copied](/img/devStories/vaporwearViewer/08_copy-paste.webp)
 1. With that code pasted into his HTML block, all he had to do was tell
     WordPress to update the page...
 
-    ![Update the page](/img/devStories/vaporwearViewer/09_update.png)
+    ![Update the page](/img/devStories/vaporwearViewer/09_update.webp)
 1. ...and then view the page outside of editing mode to see the results.
 
-    ![A 3D model rendering](/img/devStories/vaporwearViewer/10_first_render.png)
+    ![A 3D model rendering](/img/devStories/vaporwearViewer/10_first_render.webp)
 
 And, just like that, there was a 3D model rendering on the Vaporwear home
 page! Now to make it the *right* 3D model...
@@ -140,11 +140,11 @@ his 3D model.
     from the
     ["Creating an Asset Host Repo" section of a Dev Story he found in the Babylon.js docs](./fruitFalling#creating-an-asset-host-repo).
 
-    ![Where to put the Viewer](/img/devStories/vaporwearViewer/11_create_asset_host.png)
+    ![Where to put the Viewer](/img/devStories/vaporwearViewer/11_create_asset_host.webp)
 1. Once the asset host was created, he placed a copy of his 3D model
     into the `docs` folder.
 
-    ![Where to put the Viewer](/img/devStories/vaporwearViewer/12_docs_folder.png)
+    ![Where to put the Viewer](/img/devStories/vaporwearViewer/12_docs_folder.webp)
 1. To double-check that his asset host was serving the model properly
     (and to see the model rendering in Babylon.js), he decided to render
     the model from his asset host server in the
@@ -159,19 +159,19 @@ his 3D model.
     https://3dcommerce.babylonjs.com/?assetUrl=http://127.0.0.1:8181/watch_original.glb
     ```
 
-    ![Model in 3D Commerce Sandbox](/img/devStories/vaporwearViewer/13_sandbox_from_local.png)
+    ![Model in 3D Commerce Sandbox](/img/devStories/vaporwearViewer/13_sandbox_from_local.webp)
 1. With that working, he needed to publish the asset host so that he'd
     be able to access the model from anywhere, so he pushed it up to
     GitHub Pages by following steps 1, 2, and 3 of the
     ["Publishing" section of the *Fruit Fallin'* Dev Story](./fruitFalling#publishing-the-test-app-on-github-pages).
 
-    ![Publishing the asset host](/img/devStories/vaporwearViewer/14_github_pages_start.png)
+    ![Publishing the asset host](/img/devStories/vaporwearViewer/14_github_pages_start.webp)
 
-    ![Read down to here](/img/devStories/vaporwearViewer/15_github_pages_stop.png)
+    ![Read down to here](/img/devStories/vaporwearViewer/15_github_pages_stop.webp)
 1. Once GitHub Pages confirmed that his asset host was live, he grabbed
     the link to the live site...
 
-    ![Where to put the Viewer](/img/devStories/vaporwearViewer/16_github_pages_link.png)
+    ![Where to put the Viewer](/img/devStories/vaporwearViewer/16_github_pages_link.webp)
 1. ...and used it (with his model's name appended) to create a new
     Sandbox link to load his model from his own asset host.
 
@@ -179,7 +179,7 @@ his 3D model.
     https://3dcommerce.babylonjs.com/?assetUrl=https://syntheticmagus.github.io/vaporwear-original-asset-host/watch_original.glb
     ```
 
-    ![Where to put the Viewer](/img/devStories/vaporwearViewer/17_sandbox_from_web.png)
+    ![Where to put the Viewer](/img/devStories/vaporwearViewer/17_sandbox_from_web.webp)
 
 Finally, with his model hosted and accessible from the Web, it was time
 to render it on the Vaporwear WordPress site.
@@ -190,7 +190,7 @@ to render it on the Vaporwear WordPress site.
     site's Babylon Viewer was as simple as changing the URL provided
     for the model.
 
-    ![New model URL](/img/devStories/vaporwearViewer/18_new_model_url.png)
+    ![New model URL](/img/devStories/vaporwearViewer/18_new_model_url.webp)
 1. However, Barnabas knew the Babylon Viewer is
     [highly configurable](/legacy/babylonViewer/configuringViewer),
     so he decided to tweak a few things about its appearance to make it
@@ -200,7 +200,7 @@ to render it on the Vaporwear WordPress site.
     site was targeting a very clean presentation bordering on minimalism,
     he decided to also remove the logo and fullscreen UI from the nav bar.
 
-    ![Remove VR support and comments](/img/devStories/vaporwearViewer/19_delete_vr_and_comments.png)
+    ![Remove VR support and comments](/img/devStories/vaporwearViewer/19_delete_vr_and_comments.webp)
 1. Lastly, he wanted to make sure the model was rendered using the
     Khronos 3D Commerce certified settings so that he could be sure it
     would look exactly the same as he'd seen it in the Sandbox earlier.
@@ -210,11 +210,11 @@ to render it on the Vaporwear WordPress site.
     using the Viewer script from the "preview" CDN in order to get the
     latest hot-off-the-presses featuers.
 
-    ![Configure nav bar](/img/devStories/vaporwearViewer/20_change_params.png)
+    ![Configure nav bar](/img/devStories/vaporwearViewer/20_change_params.webp)
 1. He then updated the page in WordPress, switched to viewing instead of
     editing, and...
 
-    ![The Vaporwear 3D model live on the Vaporwear site](/img/devStories/vaporwearViewer/21_result.png)
+    ![The Vaporwear 3D model live on the Vaporwear site](/img/devStories/vaporwearViewer/21_result.webp)
 
 The addition of 3D product rendering added a whole new distinguishing
 feature to the Vaporwear e-commerce site, breathing new life into the

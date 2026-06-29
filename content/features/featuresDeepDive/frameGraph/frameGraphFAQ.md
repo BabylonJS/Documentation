@@ -63,10 +63,10 @@ The `FrameGraphTask.record()` method can be called multiple times during the lif
 If you use at least one post-process in your graph, you can avoid copying a texture by connecting the back buffer color texture to the **target** input of your last post-process.
 
 Do:
-![No texture copy](/img/frameGraph/copytexture_optim.jpg)
+![No texture copy](/img/frameGraph/copytexture_optim.webp)
 
 Don't:
-![Texture copy](/img/frameGraph/copytexture_nooptim.jpg)
+![Texture copy](/img/frameGraph/copytexture_nooptim.webp)
 
 In fact, the `Output` block (or `FrameGraphCopyToBackbufferColorTask` if you create a graph manually) is optimized so that it does not copy the texture connected to its **texture** input if that texture is already the back buffer color texture.
 

@@ -20,13 +20,13 @@ video-content:
 
 When you want to keep your user interface small and the information to present large you can use the **ScrollViewer** to contain the information.
 
-![ScrollViewer](/img/GUI/scroll1.jpg).
+![ScrollViewer](/img/GUI/scroll1.webp).
 
 It consists of vertical and horizontal scroll bars and a viewing area. The information you want to present is created as a control that you add to your scroll viewer and is shown in the viewing area. If all the information control fits inside the scroll viewer no scroll bars will be shown.
 
 From Babylon.js version 4.1 onwards it is possible to use an image for the thumb control and in the bars
 
-![ScrollViewer with Image Bars](/img/GUI/scroll4.jpg).
+![ScrollViewer with Image Bars](/img/GUI/scroll4.webp).
 
 ## Creating the Scroll Viewer
 
@@ -51,7 +51,7 @@ You can then create your control or container of controls to add to the scroll v
 myScrollViewer.addControl(myControl);
 ```
 
-- <Playground id="#13CF95#1" title="Scroll Viewer Example" description="Simple example showing how to add a Scroll Viewer to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer1.jpg"/>
+- <Playground id="#13CF95#1" title="Scroll Viewer Example" description="Simple example showing how to add a Scroll Viewer to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer1.webp"/>
 
 The default setting for width and depth of the scroll viewer is 100% of the parent control.
 
@@ -66,8 +66,8 @@ The following table shows the additional properties of a scroll viewer.
 
 **NOTE** All the padding values for the scroll viewer are set as 0. Any padding should be set on the control added to the scroll viewer.
 
-- <Playground id="#C3RDBS#3" title="Scroll Viewer of Fixed Size" description="Simple example showing how to add a Scroll Viewer of fixed size to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer2.jpg"/>
-- <Playground id="#C3RDBS#2" title="Scroll Viewer of Relative Size" description="Simple example showing how to add a Scroll Viewer of relative size to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer3.jpg"/>
+- <Playground id="#C3RDBS#3" title="Scroll Viewer of Fixed Size" description="Simple example showing how to add a Scroll Viewer of fixed size to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer2.webp"/>
+- <Playground id="#C3RDBS#2" title="Scroll Viewer of Relative Size" description="Simple example showing how to add a Scroll Viewer of relative size to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer3.webp"/>
 
 ## Scrollbars
 
@@ -102,16 +102,16 @@ The images for the vertical bar and thumb are by default rotated copies of those
 
 You can also choose to have different images for the vertical and horizontal bar / thumb. In that case, use `horizontalThumbImage` / `verticalThumbImage` instead of `thumbImage` and `horizontalBarImage` / `verticalBarImage` instead of `barImage`.
 
-- <Playground id="#4ZC0G4#2" title="Image Scroll Bars" description="Simple example showing how to add Image Scroll Bars to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer4.jpg"/>
-- <Playground id="#4ZC0G4#1" title="Image Scroll Bars in a Grid" description="Simple example showing how to add Image Scroll Bars in a grid to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer5.jpg"/>
+- <Playground id="#4ZC0G4#2" title="Image Scroll Bars" description="Simple example showing how to add Image Scroll Bars to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer4.webp"/>
+- <Playground id="#4ZC0G4#1" title="Image Scroll Bars in a Grid" description="Simple example showing how to add Image Scroll Bars in a grid to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer5.webp"/>
 
 ## Adding an Adjustable TextBlock Window
 
 When you add a TextBlock of a given size to a scroll viewer both horizontal and vertical scroll bars are shown as needed.
 
-![Contained TextBlock](/img/GUI/scroll3.jpg)
+![Contained TextBlock](/img/GUI/scroll3.webp)
 
-- <Playground id="#FX6KVK#3" title="Scroll Viewer with Fixed TextBlock" description="Simple example showing how to add a Scroll Viewer with Fixed TextBlock to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer6.jpg"/>
+- <Playground id="#FX6KVK#3" title="Scroll Viewer with Fixed TextBlock" description="Simple example showing how to add a Scroll Viewer with Fixed TextBlock to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer6.webp"/>
 
 However quite often you need to present text fitting the width of the viewing window and scrolling for the height. This is achieved by setting the `textWrapping` and `reSizeToFit` as follows
 
@@ -120,9 +120,9 @@ myTextBlock.textWrapping = BABYLON.GUI.TextWrapping.WordWrap;
 myTextBlock.resizeToFit = true;
 ```
 
-![Adjusting TextBlock](/img/GUI/scroll2.jpg)
+![Adjusting TextBlock](/img/GUI/scroll2.webp)
 
-- <Playground id="#3EF49E#5" title="Scroll Viewer with Adjusting TextBlock" description="Simple example showing how to add a Scroll Viewer with Adjusting TextBlock to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer7.jpg"/>
+- <Playground id="#3EF49E#5" title="Scroll Viewer with Adjusting TextBlock" description="Simple example showing how to add a Scroll Viewer with Adjusting TextBlock to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer7.webp"/>
 
 ## Live-Updating and Child Containers
 
@@ -150,4 +150,4 @@ You can also use the `ScrollViewer.forceHorizontalBar` and `ScrollViewer.forceVe
 
 When set to true, they force the display of the corresponding bars. When you know your scroll viewer will end up with visible bars, you can set those properties to true to save some initialization time, as if it is the scroll viewer control that makes a bar visible in the course of the initialization, it will trigger a children layout rebuild, adding more time to the initialization process.
 
-<Playground id="#KPLW9F" title="Rendering Optimization" description="Simple example showing how to optimize rendering in your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer8.jpg"/>
+<Playground id="#KPLW9F" title="Rendering Optimization" description="Simple example showing how to optimize rendering in your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer8.webp"/>

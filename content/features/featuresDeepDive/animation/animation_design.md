@@ -16,7 +16,7 @@ In this _game clip_ a box, the _performer_, is to slide between two places once 
 
 The first stage design is to sketch what is needed at key time points, a little like an animated gif design.
 
-![key frames](/img/features/animation/ani1.jpg)
+![key frames](/img/features/animation/ani1.webp)
 
 After one second the box should be in its new position and one second later in its start position. This sequence is then continually repeated.
 
@@ -66,7 +66,7 @@ scene.beginAnimation(box, 0, 2 * frameRate, true);
 ```
 
 You can see the result here  
-<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/>
+<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.webp" isMain={true} category="Animation"/>
 
 ## Reversing an Animation
 
@@ -108,4 +108,4 @@ Now that you're starting to understand the basics of animations in Babylon and h
 
 [Check it out!](/legacy/inspector/animationCurveEditor)
 
-<img src="/img/tools/ACE/overview.jpg" title="Babylon.js Animation Curve Editor"/>
+<img src="/img/tools/ACE/overview.webp" title="Babylon.js Animation Curve Editor"/>

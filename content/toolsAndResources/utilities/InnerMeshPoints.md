@@ -36,7 +36,7 @@ Select a facet, F,  at random.
 
 2. Obtain the three facet vertex positions, vertex0, vertex1 and vertex2 using the positions array. From these construct vectors, <u>vec0</u> and <u>vec1</u>, along two sides of the triangle one following the other. For a value 0  &le; &lambda; &le; 1,&nbsp; &lambda;<u>vec0</u> and &lambda;<u>vec1</u> will form two sides of a triangle similar to the facet. So when also given a value 0  &le; &mu; &le; 1,&nbsp; &lambda;<u>vec0</u> and &lambda;&mu;<u>vec1</u> will give a point inside the facet. The range of values for &lambda; and &mu; will determine all points within the facet. Hence random values for  &lambda; and &mu; will give random points on the facet plane.
 
-![Find point](/img/samples/manypoints.jpg)
+![Find point](/img/samples/manypoints.webp)
 
 ```javascript
 lamda = BABYLON.Scalar.RandomRange(0, 1);	

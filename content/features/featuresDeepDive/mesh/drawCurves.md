@@ -120,7 +120,7 @@ const l = bezier3.length();
 
 http://en.wikipedia.org/wiki/Cubic_Hermite_spline
 
-![Hermite Spline](/img/how_to/Mesh/hermite.jpg)
+![Hermite Spline](/img/how_to/Mesh/hermite.webp)
 
 ```javascript
 const hermite = BABYLON.Curve3.CreateHermiteSpline(p1, t1, p2, t2, nbPoints);
@@ -216,7 +216,7 @@ Each rotation quaternion where $0 \leq w \leq 1$ is mapped onto one of a series 
 
 $0 \leq r^2$ = $(1 - w) \over (1 + w)$ $\leq 1$.
 
-![Hermite Quaternion Spline](/img/how_to/Mesh/quatshells.png)
+![Hermite Quaternion Spline](/img/how_to/Mesh/quatshells.webp)
 
 The center of the shells represents the rotation quaternion $(0, 0, 0, 1)$, the outer, white, is a unit sphere where $w = 0$.
 
@@ -321,7 +321,7 @@ If you then need to draw the curve or use it for whatever you want you just get 
 
 ```javascript
 const path = myFullCurve.getPoints();
-const extruded = BABYLON.Mesh.ExtrudeShape("extrudedShape", shape, path, 1, 0, scene);
+const extruded = BABYLON.MeshBuilder.ExtrudeShape("extrudedShape", { shape: shape, path: path, scale: 1, rotation: 0 }, scene);
 ```
 
 If you need then to know the curve length, just use the _**length()**_ method.

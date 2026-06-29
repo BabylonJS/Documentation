@@ -7,7 +7,7 @@ keywords: diving deeper, frame graph, rendering, node editor, examples, volumetr
 
 ## Introduction
 
-![Volumetric Lighting in Frame Graphs](/img/frameGraph/task_volumetriclighting.jpg)
+![Volumetric Lighting in Frame Graphs](/img/frameGraph/task_volumetriclighting.webp)
 
 This page aims to implement volumetric lighting post-processing “manually,” so you can see how to create custom frame graph tasks and custom nodes for use in a node render graph.
 
@@ -680,7 +680,7 @@ Note: Since a playground can be launched multiple times, we first check whether 
 
 This PG uses the classes described on this page:
 
-<Playground id="#U9RNJ9#5" image="/img/playgroundsAndNMEs/pg-U9RNJ9-1.png" title="Implementing volumetric lighting" description="Implementing volumetric lighting with frame graphs" isMain={false}/>
+<Playground id="#U9RNJ9#5" image="/img/playgroundsAndNMEs/pg-U9RNJ9-1.webp" title="Implementing volumetric lighting" description="Implementing volumetric lighting with frame graphs" isMain={false}/>
 <br/><br/>
 
 You can choose to run the NRG version by setting **useNodeRenderGraph** to *true* in the **index.ts** page.

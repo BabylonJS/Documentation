@@ -7,6 +7,8 @@ import RightArrowIcon from "@mui/icons-material/LastPage";
 import SearchIcon from "@mui/icons-material/Search";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Toolbar, Tooltip, Typography } from "@mui/material";
 import Box from "@mui/system/Box";
 import { useTheme } from "@mui/material/styles";
@@ -18,6 +20,7 @@ import { SideMenu } from "./sideMenu.component";
 import { useRouter } from "next/dist/client/router";
 import { useContext } from "react";
 import { ColorModeContext, BaseUrlContext } from "../pages/_app";
+import { getDocsFlavorFromId } from "../lib/docsFlavors";
 
 export const defaultKeywords = ["babylonjs", "documentation", "webgl", "engine"].join(", ");
 // very temporary structure configuration
@@ -26,8 +29,9 @@ const menuStructure = generateMenuStructure();
 
 // TODO default image for documents with no image
 
-export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false }) => {
+export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, flavorMenuItems, disableMetadataAugmentation = false }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
     const breadcrumbContainerRef = useRef<HTMLDivElement>(null);
     const measureRef = useRef<HTMLDivElement>(null);
@@ -86,7 +90,9 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
               robots: metadata.robots || "index, follow",
           };
 
-    const MenuStructure = <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>;
+    const docsFlavor = getDocsFlavorFromId(id);
+    const flavorMenuStructure = flavorMenuItems ?? docsFlavor.menuItems ?? menuStructure;
+    const MenuStructure = <SideMenu items={flavorMenuStructure} selected={`/${id.join("/")}`} currentFlavorId={docsFlavor.id}></SideMenu>;
     const indexOfQuery = router.asPath.indexOf("?");
     const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : indexOfQuery !== -1 ? router.asPath.substring(0, indexOfQuery) : router.asPath);
     const setCanonical = id.indexOf("search") === -1 && id.indexOf("playground") === -1 && indexOfQuery !== -1;
@@ -113,7 +119,6 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 <meta name="og:url" content={url} />
                 <meta name="og:description" content={description.substr(0, 150)} />
                 <meta name="twitter:card" content="summary_large_image" />
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.css" integrity="sha384-IKOookmJ6jaAbJnGdgrLG5MDmzxJmjkIm6XCFqxnhzuMbfkEhGQalwVq2sYnGyZM" crossOrigin="anonymous" />
                 {!!previous && <link rel="prev" href={baseDomain + "/" + previous.id.join("/")} />}
                 {!!next && <link rel="next" href={baseDomain + "/" + next.id.join("/")} />}
                 {setCanonical && <link rel="canonical" href={url} />}
@@ -161,7 +166,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             },
                         }}
                     >
-                        <Link href={baseDomain + "/"}>
+                        <Link href={baseDomain + (docsFlavor.basePath || "/")}>
                             <span></span>
                         </Link>
                     </Typography>
@@ -197,7 +202,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         <form
                             onSubmit={(e) => {
                                 e.preventDefault();
-                                router.push("/search?q=" + searchTerm);
+                                router.push(`${docsFlavor.searchPath}?q=${encodeURIComponent(searchTerm)}`);
                                 return false;
                             }}
                             noValidate
@@ -232,8 +237,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             />
                         </form>
                     </Box>
-                    <Link href="https://github.com/BabylonJS/Babylon.js" target={"_blank"} rel={"noopener"}>
-                        <IconButton aria-label="Babylon.js Github" size="medium" color="inherit">
+                    <Link href={docsFlavor.githubUrl} target={"_blank"} rel={"noopener"}>
+                        <IconButton aria-label={`${docsFlavor.label} Github`} size="medium" color="inherit">
                             <GithubIcon />
                         </IconButton>
                     </Link>
@@ -250,7 +255,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         flexWrap: "nowrap",
                         alignItems: "center",
                         [theme.breakpoints.up("md")]: {
-                            paddingLeft: "300px",
+                            paddingLeft: sidebarCollapsed ? "0px" : "300px",
+                            transition: "padding-left 0.2s ease",
                         },
                         "& > a": {
                             padding: theme.spacing(1),
@@ -259,7 +265,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             alignItems: "center",
                             flexShrink: 0,
                         },
-                        "& > a:first-child": {
+                        "& > a:first-of-type": {
                             padding: theme.spacing(1, 2),
                             borderRight: "1px solid #707070",
                             borderLeft: "1px solid #707070",
@@ -269,7 +275,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         },
                     }}
                 >
-                    <Link href={baseDomain + "/typedoc"}>API</Link>
+                    <Link href={baseDomain + docsFlavor.apiPath}>API</Link>
                     {!!previous && (
                         <Link key="previousArticle" href={baseDomain + "/" + previous.id.join("/")}>
                             <Tooltip title={`Previous article: ${previous.metadata.title}`} aria-label="Previous article">
@@ -367,6 +373,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                     flex: 1,
                     [theme.breakpoints.up("md")]: {
                         pt: 0,
+                        position: "relative",
                     },
                     paddingTop: "100px",
                 }}
@@ -378,8 +385,10 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         display: "block",
                         // paddingBottom: "40px",
                         [theme.breakpoints.up("md")]: {
-                            width: "300px",
+                            width: sidebarCollapsed ? "0px" : "300px",
                             flexShrink: 0,
+                            transition: "width 0.2s ease",
+                            overflow: "hidden",
                             "& > div": {
                                 height: "100%",
                             },
@@ -420,7 +429,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                 onClick={handleDrawerToggle}
                                 onKeyDown={handleDrawerToggle}
                             >
-                                <Link href={baseDomain + "/"}>
+                                <Link href={baseDomain + (docsFlavor.basePath || "/")}>
                                     <img src={baseDomain + "/img/babylonidentity.svg"} alt="Babylon.js logo" width="200" height="60" />
                                 </Link>
                                 {MenuStructure}
@@ -434,12 +443,39 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                 height: "100%",
                                 backgroundColor: theme.customPalette.sideMenu.backgroundColor,
                                 zIndex: 1500,
+                                minWidth: "300px",
                             }}
                         >
                             {MenuStructure}
                         </Box>
                     </Hidden>
                 </Box>
+                <Hidden mdDown implementation="css">
+                    <Box
+                        sx={{
+                            position: "absolute",
+                            top: "16px",
+                            left: sidebarCollapsed ? "0px" : "288px",
+                            transition: "left 0.2s ease",
+                            zIndex: 1501,
+                            backgroundColor: theme.customPalette.sideMenu.backgroundColor,
+                            borderRadius: "0 4px 4px 0",
+                            border: `1px solid ${theme.palette.divider}`,
+                            borderLeft: "none",
+                            cursor: "pointer",
+                            display: "flex",
+                            alignItems: "center",
+                            padding: "4px 0",
+                            "&:hover": {
+                                backgroundColor: theme.palette.action.hover,
+                            },
+                        }}
+                        onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+                        title={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+                    >
+                        {sidebarCollapsed ? <ChevronRightIcon fontSize="small" /> : <ChevronLeftIcon fontSize="small" />}
+                    </Box>
+                </Hidden>
                 <Box
                     component="main"
                     sx={{
@@ -448,7 +484,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         flexDirection: "column",
                         maxWidth: "100%",
                         [theme.breakpoints.up("md")]: {
-                            width: `calc(100% - 300px)`,
+                            width: `calc(100% - ${sidebarCollapsed ? "0px" : "300px"})`,
+                            transition: "width 0.2s ease",
                         },
                     }}
                 >

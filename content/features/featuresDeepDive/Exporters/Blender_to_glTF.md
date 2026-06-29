@@ -108,4 +108,4 @@ Let's say you have exported [WaterBottle.glb](https://github.com/KhronosGroup/gl
 
 - ... profit!
 
-![blender gltf scene loaded in BJS](/img/exporters/blender/gltf/gltf-loaded.png)
+![blender gltf scene loaded in BJS](/img/exporters/blender/gltf/gltf-loaded.webp)

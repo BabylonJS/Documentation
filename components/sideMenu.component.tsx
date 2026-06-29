@@ -1,5 +1,5 @@
 import { IMenuItem } from "../lib/content.interfaces";
-import { FunctionComponent, useState, ReactFragment, useEffect, useRef, useContext } from "react";
+import { FunctionComponent, useState, useEffect, useRef, useContext, ReactNode } from "react";
 
 import Link from "next/link";
 import { IconButton, TextField, useTheme } from "@mui/material";
@@ -10,18 +10,20 @@ import FilterIcon from "@mui/icons-material/FilterList";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { Box } from "@mui/system";
 import { BaseUrlContext } from "../pages/_app";
+import { docsFlavorList, type DocsFlavorId } from "../lib/docsFlavors";
 
 export interface ISideMenuProps {
     items: IMenuItem[];
     selected: string;
+    currentFlavorId?: DocsFlavorId;
 }
 
-export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected }) => {
+export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected, currentFlavorId = "babylon" }) => {
     const [opened, setOpened] = useState<string[]>([]);
     const [filter, setFilter] = useState<string>("");
     const [toggleFilter, setToggleFilter] = useState<boolean>();
 
-    const textFieldRef = useRef<HTMLInputElement>();
+    const textFieldRef = useRef<HTMLDivElement>(null);
     const theme = useTheme();
 
     const openCloseItem = (item: IMenuItem) => {
@@ -35,12 +37,12 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
         }
     };
     const baseUrl = useContext(BaseUrlContext);
-    const renderMenuItem = (item: IMenuItem, level: number = 0): ReactFragment => {
+    const renderMenuItem = (item: IMenuItem, level: number = 0): ReactNode => {
         const hasChildren = item.children && item.children.length;
         const key = item.url;
         const isSelected = selected === key;
         const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1;
-        return (item.filtered && toggleFilter) || !item.url ? null : (
+        return (item.filtered && toggleFilter) || !item.url ? <></> : (
             <Box
                 component="li"
                 sx={
@@ -101,7 +103,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                         </Box>
                     </Link>
                 </Box>
-                {isOpened && <ul>{item.children.map((child) => renderMenuItem(child, level + 1))}</ul>}
+                {isOpened && <ul>{item.children!.map((child) => renderMenuItem(child, level + 1))}</ul>}
             </Box>
         );
     };
@@ -127,7 +129,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
     useEffect(() => {
         // force-open the selected item on load
         const splits = selected.split("/").filter((s) => s);
-        const openedArray = [];
+        const openedArray: string[] = [];
         splits.reduce((prev, current) => {
             openedArray.push(`${prev}/${current}`);
             return `${prev}/${current}`;
@@ -138,7 +140,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
 
     useEffect(() => {
         if (toggleFilter) {
-            textFieldRef.current?.querySelector("input").focus();
+            textFieldRef.current?.querySelector("input")?.focus();
         }
     }, [toggleFilter]);
 
@@ -152,6 +154,48 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                 margin: "16px",
             }}
         >
+            <Box
+                sx={{
+                    display: "flex",
+                    border: `1px solid ${theme.palette.divider}`,
+                    borderRadius: 1,
+                    overflow: "hidden",
+                    marginRight: "34px",
+                    marginBottom: 2,
+                    backgroundColor: theme.palette.background.paper,
+                    "& a": {
+                        flex: 1,
+                        textDecoration: "none",
+                    },
+                }}
+                aria-label="Documentation flavor"
+            >
+                {docsFlavorList.map((flavor) => {
+                    const selectedFlavor = flavor.id === currentFlavorId;
+                    return (
+                        <Link key={flavor.id} href={baseUrl + (flavor.basePath || "/")}>
+                            <Box
+                                component="span"
+                                sx={{
+                                    display: "block",
+                                    padding: theme.spacing(0.75, 1),
+                                    textAlign: "center",
+                                    fontWeight: selectedFlavor ? 800 : 500,
+                                    color: selectedFlavor ? theme.palette.primary.contrastText : theme.customPalette.sideMenu.textColor,
+                                    backgroundColor: selectedFlavor ? theme.palette.primary.main : "transparent",
+                                    whiteSpace: "nowrap",
+                                    fontSize: 14,
+                                    "&:hover": {
+                                        backgroundColor: selectedFlavor ? theme.palette.primary.dark : theme.palette.action.hover,
+                                    },
+                                }}
+                            >
+                                {flavor.label}
+                            </Box>
+                        </Link>
+                    );
+                })}
+            </Box>
             <Box
                 sx={{
                     transition: "height 0.2s",

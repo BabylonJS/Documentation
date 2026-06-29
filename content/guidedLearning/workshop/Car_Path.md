@@ -17,7 +17,7 @@ The wheels will rotate and be given a texture to show that they are rotating. Fo
 their rotation will not be matched to the forward speed of the car. The car will move forward by following a sequence of points on the path.
 The path will be a curved line with large turning radius and will be shown in the scene.
 
-![Basic Car](/img/samples/car1.jpg)
+![Basic Car](/img/samples/car1.webp)
 
 ### Car body
 
@@ -163,7 +163,7 @@ var normals = path3d.getNormals();
 As can be seen from the diagram below the direction that the normal changes varies from clockwise to anti-clockwise depending whether the
 path is a convex or concave curve.
 
-![Rotation of Normal](/img/samples/car2.jpg)
+![Rotation of Normal](/img/samples/car2.webp)
 
 Both normals lie in the xz plane and so the cross product of the two normals will lie in the y axis and so the direction of turn can be
 determined from the sign of the y component of the cross product.

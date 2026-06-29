@@ -135,14 +135,14 @@ Here's an example of thin instances picking: <Playground id="#RC2IAH#115" title=
 
 For eg: <Playground id="#217750#3" title="Thin Instances Wrong Rendering" description="Simple example of thin instances with wrong rendering."/>
 
-![Wrong rendering](/img/how_to/Mesh/thinInstancesWrongSideOrientation.png)
+![Wrong rendering](/img/how_to/Mesh/thinInstancesWrongSideOrientation.webp)
 
 The green and blue cubes are not rendered correctly because they have a -1 scale for the X direction, making the determinant of their matrix negative.
 
 To correct the problem, create another mesh, add the green/blue instances to that mesh (and remove them from the first mesh!) and set the side orientation of the material of that mesh to be **Clockwise** (by default, it is **Counter clockwise**):
 
 PG: <Playground id="#217750#4" title="Thin Instances Correct Rendering" description="Simple example of thin instances with correct rendering."/>
-![Correct rendering](/img/how_to/Mesh/thinInstancesOkSideOrientation.png)
+![Correct rendering](/img/how_to/Mesh/thinInstancesOkSideOrientation.webp)
 
 * If you want to create a thin instance from a cloned mesh, you have to first make sure that you call clonedMesh.makeGeometryUnique().
 

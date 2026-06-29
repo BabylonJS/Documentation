@@ -10,7 +10,7 @@ video-content:
 
 ## Grid material
 
-![Grid Material](/img/extensions/materials/grid.png)
+![Grid Material](/img/extensions/materials/grid.webp)
 
 ## Playground example
 
@@ -24,14 +24,14 @@ As the grid material is a babylonJS extension, it is not included in the main _b
 
 The default grid behaviour does not require any setup and displays a black and white grid on your meshes:
 
-![gridDefault](/img/extensions/materials/gridDefault.png)
+![gridDefault](/img/extensions/materials/gridDefault.webp)
 
 You can access the live example in this PG: <Playground id="#2KKVBH" title="Grid Material" description="Example of grid material"/>
 
 The grid is using the local position to outline any of the axis fitting with one unit in black. Only one on ten lines will be fully black, the other lines will be in lighter grey. You can imagine it as a ruler with bigger marks for centimeters and smaller for millimeters.
 
 ```javascript
-var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/heightMap.png", 100, 100, 100, 0, 10, scene, false);
+var ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("ground", "textures/heightMap.png", { width: 100, height: 100, subdivisions: 100, minHeight: 0, maxHeight: 10 }, scene);
 ground.material = new BABYLON.GridMaterial("groundMaterial", scene);
 ```
 
@@ -54,13 +54,13 @@ In order to help you making the grid fit in your scenes, a few controls are avai
 The grid will be projected on objects according to their size. If an object has a size of 1, you'll only see one line on it.
 For instance a 1 size cube will by default only have one line:
 
-![Grid Ratio 1](/img/extensions/materials/gridRatio1.png)
+![Grid Ratio 1](/img/extensions/materials/gridRatio1.webp)
 
 PG: <Playground id="#5S6MD" title="Grid Material" description="Grid ratio of 1"/>
 
 Using a gridRatio of 0.1, will then make appear ten lines on it:
 
-![Grid Ratio 2](/img/extensions/materials/gridRatio2.png)
+![Grid Ratio 2](/img/extensions/materials/gridRatio2.webp)
 
 PG: <Playground id="#5S6MD#1" title="Grid Material" description="Grid ratio of 2"/>
 
@@ -70,7 +70,7 @@ You have now noticed on the gridRatio examples above that only one on ten lines 
 
 Setting it to 2, will make appear one strong line each 2 lines. This is only a scary parameter name for something simple:
 
-![Grid MUF](/img/extensions/materials/gridMUF.png)
+![Grid MUF](/img/extensions/materials/gridMUF.webp)
 
 PG: <Playground id="#5S6MD#2" title="Grid Material" description="Example of using multi unit frequency"/>
 
@@ -80,7 +80,7 @@ After sorting out the frequency of stronger lines, you could wonder how to contr
 
 Setting it to 0.1 will then reinforce the effect of the main lines (by dropping the value of the minor ones):
 
-![Grid MUV](/img/extensions/materials/gridMUV.png)
+![Grid MUV](/img/extensions/materials/gridMUV.webp)
 
 PG: <Playground id="#5S6MD#3" title="Grid Material" description="Example of using minor unit visiblity"/>
 

@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![lean and turn](/img/snippets/roller.png)
+![lean and turn](/img/snippets/roller.webp)
 
 In the first image the carriage leans and turns as it follows the track. In the second image the carriage leans and it is the people inside that turn to look around. The 'createTrack' function can be used to simulate either of these two events.
 
@@ -46,19 +46,19 @@ The initial lean comes from section0 and the final lean from section 1.
 
 A lean is the rotation of the carriage about the track direction.
 
-![lean zero track](/img/snippets/track1.jpg) initial lean is 0, final lean is zero
+![lean zero track](/img/snippets/track1.webp) initial lean is 0, final lean is zero
 
-![lean at end track](/img/snippets/track2.jpg) initial lean is 0, final lean is &pi; / 2
+![lean at end track](/img/snippets/track2.webp) initial lean is 0, final lean is &pi; / 2
 
-![lean at start track](/img/snippets/track3.jpg) initial lean is &pi; / 2, final lean is 0
+![lean at start track](/img/snippets/track3.webp) initial lean is &pi; / 2, final lean is 0
 
 The value of leanTwists (positive integer, default 0) gives the number of complete rotations about the track over that section of track.
 
-![lean twists track](/img/snippets/track4.jpg) initial lean is 0, final lean is 0, leanTwists is 2
+![lean twists track](/img/snippets/track4.webp) initial lean is 0, final lean is 0, leanTwists is 2
 
 The value of waveTwists (positive integer, default 0) gives the number of leans to one side of the track followed by a lean to the other side depending on the lean wave angle over that section of track.
 
-![lean waves track](/img/snippets/track5.jpg) initial lean is 0, final lean is 0, leanWaves is 2, leanWaveAngle is &pi; / 2
+![lean waves track](/img/snippets/track5.webp) initial lean is 0, final lean is 0, leanWaves is 2, leanWaveAngle is &pi; / 2
 
 When both the values of leanWaves and leanWaveAngle or non zero they will override any value given to leanTwists.
 
@@ -68,20 +68,20 @@ The initial turn comes from section0 and the final turn from section 1.
 
 A turn is the rotation of the carriage about its local Y axis. (It can alternatively be the rotation of the children of the carriage mesh)
 
-![turn zero track](/img/snippets/track6.jpg) initial turn is 0, final turn is zero
+![turn zero track](/img/snippets/track6.webp) initial turn is 0, final turn is zero
 
-![turn at end track](/img/snippets/track7.jpg) initial turn is 0, final turn is &pi; / 2
+![turn at end track](/img/snippets/track7.webp) initial turn is 0, final turn is &pi; / 2
 
-![turn at start track](/img/snippets/track8.jpg)
+![turn at start track](/img/snippets/track8.webp)
 initial turn is &pi; / 2, final turn is 0
 
 The value of turnTwists (positive integer, default 0) gives the number of complete rotations about the track over that section of track.
 
-![turn twists track](/img/snippets/track9.jpg) initial turn is 0, final turn is 0, turnTwists is 2
+![turn twists track](/img/snippets/track9.webp) initial turn is 0, final turn is 0, turnTwists is 2
 
 The value of waveTwists (positive integer, default 0) gives the number of turns to one side of the track followed by a turn to the other side depending on the turn wave angle over that section of track.
 
-![turn waves track](/img/snippets/track10.jpg) initial turn is 0, final turn is 0, turnWaves is 2, turnWaveAngle is &pi; / 2
+![turn waves track](/img/snippets/track10.webp) initial turn is 0, final turn is 0, turnWaves is 2, turnWaveAngle is &pi; / 2
 
 When both the values of turnWaves and turnWaveAngle or non zero they will override any value given to turnTwists.
 
@@ -89,7 +89,7 @@ When both the values of turnWaves and turnWaveAngle or non zero they will overri
 
 It is possible to use both the lean and turn parameters
 
-![lean and turn track](/img/snippets/track11.jpg) both lean and turn are used
+![lean and turn track](/img/snippets/track11.webp) both lean and turn are used
 
 ### Parameters
 
@@ -228,7 +228,7 @@ Now throw a speed variable into the loop. When the speed is 1 or more, an intege
 
 Just considering the x coordinates
 
-![drag](/img/snippets/drag.jpg)
+![drag](/img/snippets/drag.webp)
 
 between index **i** and **i + 1** the distance to be covered each frame is deltaX = (x<sub>i + 1</sub> - x<sub>i</sub>) / 4 .
 

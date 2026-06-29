@@ -32,7 +32,7 @@ A deformation of a body can only be shown if there are sufficient vertices to pr
 
 Any triangular facet belonging to a mesh used as the basis for a soft body must share its vertices with any adjacent facet. If not the soft body will rip apart along unshared vertices. As an example look at the triangular facets in the diagram below
 
-![Shared Facets](/img/how_to/physics/share.jpg)
+![Shared Facets](/img/how_to/physics/share.webp)
 
 In Mesh A the positions have new indices for each of the facets 0, 1, 2 and 3, 4, 5. This happens, for instance, in a sphere and also when a mesh is converted to a flat shaded mesh. In this case a soft body would tear along the lines 0,2 and 3,4.
 
@@ -155,7 +155,7 @@ To see both sides of a cloth set `backFaceCulling = false` on the material to be
 
 ### Fixed Points
 
-![Cloth Points](/img/how_to/physics/cloth.jpg)
+![Cloth Points](/img/how_to/physics/cloth.webp)
 
 To fix corner points of the cloth so that those points do not move use the numbers (or their sum) as shown in the diagram above.
 
@@ -174,7 +174,7 @@ cloth.physicsImpostor.stiffness = 1;
 
 As well as being able to fix the corners of a cloth in space it is also possible to anchor points on a cloth to a rigid body.
 
-![Horizontal Cloth](/img/how_to/physics/cloth2.jpg)
+![Horizontal Cloth](/img/how_to/physics/cloth2.webp)
 
 Anchor points are given as a fraction across the width and height of the ground forming the cloth as shown in the diagram above.
 

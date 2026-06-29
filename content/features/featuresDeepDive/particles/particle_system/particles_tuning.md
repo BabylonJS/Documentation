@@ -118,7 +118,7 @@ Direction and gravity: <Playground id="#0K3AQ2#3820" title="Direction And Gravit
 
 The emit rate determines the number of particles emitted per second. The larger the number, the denser the particle cloud. As particles die, they are recycled to be emitted again. If their lifetime is long enough and the emission rate is fast enough, there may be a visible gap in the emission of particles.
 
-![emitRate](/img/how_to/Particles/12-3.png)
+![emitRate](/img/how_to/Particles/12-3.webp)
 
 ```javascript
 particleSystem.emitRate = 1000;

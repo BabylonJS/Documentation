@@ -1,6 +1,6 @@
 ---
 title: Skyboxes
-image: /img/getstarted/skybox_px.jpg
+image: /img/getstarted/skybox_px.webp
 description: Learn how to add a skybox to your Babylon.js scene.
 keywords: diving deeper, environment, skybox
 further-reading:
@@ -22,7 +22,7 @@ The [CubeTexture constructor](/typedoc/classes/babylon.cubetexture#constructor) 
 
 CubeTexture images need to be .jpg format (unless the suffixes are customized) and square. For efficiency, use a power of 2 size, like 1024x1024.
 
-![Diagram of X/Y/Z axes and CubeTexture sides](/img/how_to/Materials/cubetexture1.png)
+![Diagram of X/Y/Z axes and CubeTexture sides](/img/how_to/Materials/cubetexture1.webp)
 
 Note, despite being a "Texture", CubeTexture can ONLY be used with [reflectionTexture and refractionTexture](/features/featuresDeepDive/materials/using/reflectionTexture), NOT other Material properties like diffuseTexture. [See below](#makingtheskybox) for the appropriate settings for a skybox.
 
@@ -37,7 +37,7 @@ See the [Single-Draw Equirectangular to Cubemap Converter](https://forum.babylon
 
 This is an example set of skybox images:
 
-| <img src="/img/getstarted/skybox_px.jpg" width="100" height="100" alt="some clouds"/> | <img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" alt="more clouds"/> | <img src="/img/getstarted/skybox_py.jpg" width="100" height="100" alt="the sun overhead"/> | <img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" alt="solid gray"/> | <img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" alt="more clouds"/> | <img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="more clouds"/> |
+| <img src="/img/getstarted/skybox_px.webp" width="100" height="100" alt="some clouds"/> | <img src="/img/getstarted/skybox_nx.webp" width="100" height="100" alt="more clouds"/> | <img src="/img/getstarted/skybox_py.webp" width="100" height="100" alt="the sun overhead"/> | <img src="/img/getstarted/skybox_ny.webp" width="100" height="100" alt="solid gray"/> | <img src="/img/getstarted/skybox_pz.webp" width="100" height="100" alt="more clouds"/> | <img src="/img/getstarted/skybox_nz.webp" width="100" height="100" alt="more clouds"/> |
 | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
 |                                     skybox_px.jpg                                     |                                     skybox_nx.jpg                                     |                                       skybox_py.jpg                                        |                                    skybox_ny.jpg                                     |                                     skybox_pz.jpg                                     |                                     skybox_nz.jpg                                     |
 
@@ -47,11 +47,11 @@ Notice that the images match seamlessly at the edges of the box:
 
 <table><tbody>
 <tr>
-  <th style={{padding: 10}}><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="some clouds"/></th>
-  <th style={{padding: 10}}><img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" alt="adjacent clouds"/></th>
-  <th style={{padding: 10}}><img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" alt="adjacent clouds"/></th>
-  <th style={{padding: 10}}><img src="/img/getstarted/skybox_px.jpg" width="100" height="100" alt="adjacent clouds"/></th>
-  <th style={{padding: 10}}><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="wrapping around to the original clouds"/></th>
+  <th style={{padding: 10}}><img src="/img/getstarted/skybox_nz.webp" width="100" height="100" alt="some clouds"/></th>
+  <th style={{padding: 10}}><img src="/img/getstarted/skybox_nx.webp" width="100" height="100" alt="adjacent clouds"/></th>
+  <th style={{padding: 10}}><img src="/img/getstarted/skybox_pz.webp" width="100" height="100" alt="adjacent clouds"/></th>
+  <th style={{padding: 10}}><img src="/img/getstarted/skybox_px.webp" width="100" height="100" alt="adjacent clouds"/></th>
+  <th style={{padding: 10}}><img src="/img/getstarted/skybox_nz.webp" width="100" height="100" alt="wrapping around to the original clouds"/></th>
 </tr>
 <tr>
   <td>_nz</td>
@@ -125,7 +125,7 @@ myMesh.renderingGroupId = 1;
 
 More info about rendering groups and rendering order can be found [here](/features/featuresDeepDive/materials/advanced/transparent_rendering).
 
-<Playground id="#UU7RQ#1" title="Simple Skybox Example" description="Simple example of how to add a skybox to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentSkybox1.jpg"/>
+<Playground id="#UU7RQ#1" title="Simple Skybox Example" description="Simple example of how to add a skybox to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentSkybox1.webp"/>
 
 ### Automatic creation
 
@@ -136,7 +136,7 @@ envTexture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", scene);
 scene.createDefaultSkybox(envTexture, true, 1000);
 ```
 
-<Playground id="#BH23ZD#1" title="Playground Example Skybox Helper" description="Simple example of using the Skybox Helper." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro1.jpg" isMain={true} category="Environment"/>
+<Playground id="#BH23ZD#1" title="Playground Example Skybox Helper" description="Simple example of using the Skybox Helper." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro1.webp" isMain={true} category="Environment"/>
 
 Check out [scene helpers](/features/featuresDeepDive/scene/fastBuildWorld#environmental-helper) for more information on this and other helpers.
 
@@ -144,7 +144,7 @@ Check out [scene helpers](/features/featuresDeepDive/scene/fastBuildWorld#enviro
 
 Introduced in version 6.27.0 you can now "fake" a ground from within your skybox. This can help a lot "grounding" your models without requiring extra meshes or textures. It ensures a smooth transition from the "ground" to the environment. As it might be hard to understand, here is a playground highlighting the same scene with and without ground projection.
 
-<Playground id="#25JK74#0" title="Ground Projection Playground" description="Simple example of using Ground Projection." image="/img/playgroundsAndNMEs/divingDeeperSkyboxGroundProjection.jpg" category="Environment"/>
+<Playground id="#25JK74#0" title="Ground Projection Playground" description="Simple example of using Ground Projection." image="/img/playgroundsAndNMEs/divingDeeperSkyboxGroundProjection.webp" category="Environment"/>
 
 Enabling ground projection requires a few steps similar to creating a skybox.
 

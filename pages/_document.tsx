@@ -3,26 +3,30 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export class MyDocument extends Document {
     render() {
+        const baseUrl = ((this.props as any).baseUrl as string | undefined) ?? "";
+        const withBaseUrl = (path: string) => `${baseUrl}${path}`;
+
         return (
             <Html lang="en">
                 <Head>
                     <meta name="theme-color" content={"#201936"} />
-                    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
-                    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
-                    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
-                    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
-                    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png" />
-                    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png" />
-                    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png" />
-                    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png" />
-                    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
-                    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png" />
-                    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-                    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-                    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-                    <link rel="manifest" href="/manifest.json" />
+                    <link rel="apple-touch-icon" sizes="57x57" href={withBaseUrl("/apple-icon-57x57.png")} />
+                    <link rel="apple-touch-icon" sizes="60x60" href={withBaseUrl("/apple-icon-60x60.png")} />
+                    <link rel="apple-touch-icon" sizes="72x72" href={withBaseUrl("/apple-icon-72x72.png")} />
+                    <link rel="apple-touch-icon" sizes="76x76" href={withBaseUrl("/apple-icon-76x76.png")} />
+                    <link rel="apple-touch-icon" sizes="114x114" href={withBaseUrl("/apple-icon-114x114.png")} />
+                    <link rel="apple-touch-icon" sizes="120x120" href={withBaseUrl("/apple-icon-120x120.png")} />
+                    <link rel="apple-touch-icon" sizes="144x144" href={withBaseUrl("/apple-icon-144x144.png")} />
+                    <link rel="apple-touch-icon" sizes="152x152" href={withBaseUrl("/apple-icon-152x152.png")} />
+                    <link rel="apple-touch-icon" sizes="180x180" href={withBaseUrl("/apple-icon-180x180.png")} />
+                    <link rel="icon" type="image/png" sizes="192x192" href={withBaseUrl("/android-icon-192x192.png")} />
+                    <link rel="icon" type="image/png" sizes="32x32" href={withBaseUrl("/favicon-32x32.png")} />
+                    <link rel="icon" type="image/png" sizes="96x96" href={withBaseUrl("/favicon-96x96.png")} />
+                    <link rel="icon" type="image/png" sizes="16x16" href={withBaseUrl("/favicon-16x16.png")} />
+                    <link rel="manifest" href={withBaseUrl("/manifest.json")} />
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.css" integrity="sha384-IKOookmJ6jaAbJnGdgrLG5MDmzxJmjkIm6XCFqxnhzuMbfkEhGQalwVq2sYnGyZM" crossOrigin="anonymous" />
                     <meta name="msapplication-TileColor" content="#ffffff" />
-                    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+                    <meta name="msapplication-TileImage" content={withBaseUrl("/ms-icon-144x144.png")} />
                 </Head>
                 <body>
                     <Main />
@@ -71,15 +75,15 @@ MyDocument.getInitialProps = async (ctx) => {
 
     const initialProps = await Document.getInitialProps(ctx);
 
-    const baseUrl = process.env.BASE_URL ?? "";
+    const baseUrl = process.env.BASE_URL ?? process.env.NEXT_PUBLIC_BASE_URL ?? "";
 
     if (baseUrl) {
-        globalThis.baseUrl = baseUrl;
+        (globalThis as any).baseUrl = baseUrl;
     }
 
     return {
         ...initialProps,
-        baseUrl: baseUrl || globalThis.baseUrl,
+        baseUrl: baseUrl || (globalThis as any).baseUrl,
         // Styles fragment is rendered after the app and page rendering finish.
         styles: [...React.Children.toArray(initialProps.styles)],
     };

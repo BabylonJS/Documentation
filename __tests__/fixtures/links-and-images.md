@@ -36,13 +36,13 @@ See [VideoTexture](/typedoc/classes/babylon.videotexture) documentation.
 
 ## Markdown Images
 
-![Horse Animation](/img/features/animation/horse_frames.jpg)
+![Horse Animation](/img/features/animation/horse_frames.webp)
 
 ![Scene Overview](/img/features/scene_overview.png)
 
 ## HTML Images
 
-<img src="/img/tools/guiEditor/overview.jpg" title="GUI Editor"/>
+<img src="/img/tools/guiEditor/overview.webp" title="GUI Editor"/>
 
 ## Mixed Content
 

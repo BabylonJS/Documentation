@@ -1,6 +1,6 @@
 ---
 title: The Asset Librarian
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: Learn how to easily add free open source assets to your Babylon.js scene.
 keywords: babylon.js, tools, resources, playground, assets, models, textures, NME, procedural, sound
 further-reading:

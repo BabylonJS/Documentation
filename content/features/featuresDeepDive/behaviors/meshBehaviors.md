@@ -78,7 +78,7 @@ pointerDragBehavior.lastDragPosition;
 pointerDragBehavior.dragging;
 ```
 
-- Playground Example: <Playground id="#YEZPVT" title="Drag Along an Axis" description="A simple example of the pointerDragBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors1.jpg" isMain={true} category="Behaviors"/>
+- Playground Example: <Playground id="#YEZPVT" title="Drag Along an Axis" description="A simple example of the pointerDragBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors1.webp" isMain={true} category="Behaviors"/>
 
 ## SixDofDragBehavior
 
@@ -104,7 +104,7 @@ sixDofDragBehavior.zDragFactor = 3;
 
 **Note** - When picking, every triangle is tested with a raycast. To avoid large performance hits when using models that have complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/features/featuresDeepDive/mesh/gizmo)
 
-- Playground Example: <Playground id="#5G9MC5" title="Six Directions Example" description="A simple example of SixDofDragBehavior with single or multipoint support." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg" isMain={true} category="Behaviors"/>
+- Playground Example: <Playground id="#5G9MC5" title="Six Directions Example" description="A simple example of SixDofDragBehavior with single or multipoint support." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.webp" isMain={true} category="Behaviors"/>
 
 ## MultiPointerScaleBehavior
 
@@ -134,9 +134,9 @@ behavior.distanceAwayFromBottomOfFace = 0.15;
 
 This can be used to attach an app bar to a mesh.
 
-![app bar](/img/how_to/gui/appBar.PNG)
+![app bar](/img/how_to/gui/appBar.webp)
 
-- Playground Example: <Playground id="#X6MQ1L" title="AttachToBoxBehavior Example" description="A simple example of AttachToBoxBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg" isMain={true} category="Behaviors"/>
+- Playground Example: <Playground id="#X6MQ1L" title="AttachToBoxBehavior Example" description="A simple example of AttachToBoxBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.webp" isMain={true} category="Behaviors"/>
 
 ## FollowBehavior
 

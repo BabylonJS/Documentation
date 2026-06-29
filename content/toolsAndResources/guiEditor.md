@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-<img src="/img/tools/guiEditor/overview.jpg" title="Babylon.js GUI Editor"/>
+<img src="/img/tools/guiEditor/overview.webp" title="Babylon.js GUI Editor"/>
 
 ## Creating GUIs With Ease
 
@@ -26,47 +26,47 @@ Let's start by familiarizing ourselves with different parts of the editor.
 
 ### Header Bar
 
-<img src="/img/tools/guiEditor/commandBar.jpg" title="GUI Editor Command Bar"/>
+<img src="/img/tools/guiEditor/commandBar.webp" title="GUI Editor Command Bar"/>
 
 The Header Bar provides several handy items to help you navigate and manage your GUI creations.
 
 #### Hamburger Menu
 
-<img src="/img/tools/guiEditor/hamburgerMenu.jpg" title="GUI Editor Hamburger Menu"/>
+<img src="/img/tools/guiEditor/hamburgerMenu.webp" title="GUI Editor Hamburger Menu"/>
 
 The hamburger menu provies some basic helpful scene management options, including saving and loading your progress locally, saving and loading your progress to the snippet server, and a quick 'help' link to access the Babylon.js GUI documentation.
 
 #### Select (S)
 
-<img src="/img/tools/guiEditor/select.jpg" title="GUI Editor Select"/>
+<img src="/img/tools/guiEditor/select.webp" title="GUI Editor Select"/>
 
 The select button allows you to select different GUI controls within your scene.
 
 #### Pan (P)
 
-<img src="/img/tools/guiEditor/pan.jpg" title="GUI Editor Move"/>
+<img src="/img/tools/guiEditor/pan.webp" title="GUI Editor Move"/>
 
 The move button allows you to pan around the GUI by clicking and dragging. You can also use the middle mouse button, or hold space and drag, to pan around your GUI.
 
 #### Zoom (Z)
 
-<img src="/img/tools/guiEditor/zoom.jpg" title="GUI Editor Zoom"/>
+<img src="/img/tools/guiEditor/zoom.webp" title="GUI Editor Zoom"/>
 
 The zoom button allows you to click on the canvas and drag to zoom in. You can also hold ALT+click to zoom out.
 
 #### Fit To Window (F)
 
-<img src="/img/tools/guiEditor/fitToWindow.jpg" title="GUI Editor Fit To Window"/>
+<img src="/img/tools/guiEditor/fitToWindow.webp" title="GUI Editor Fit To Window"/>
 
 When pressed, the Fit To Window button will snap the zoom and panning back to the starting position, where the entire canvas can be seen. If you have any controls selected, Fit To Window will crop the viewport around those controls.
 
 #### Toggle Guides
 
-<img src="/img/tools/guiEditor/toggleGuides.jpg" title="GUI Editor Toggle Guides"/>
+<img src="/img/tools/guiEditor/toggleGuides.webp" title="GUI Editor Toggle Guides"/>
 
 The Toggle Guides button will display boundary lines for all of the GUI elements in your scene.
 
-<img src="/img/tools/guiEditor/toggleGuidesVisual.jpg" title="GUI Editor Toggle Guides Example"/>
+<img src="/img/tools/guiEditor/toggleGuidesVisual.webp" title="GUI Editor Toggle Guides Example"/>
 
 #### Artboard Color
 
@@ -76,15 +76,15 @@ Allows you to change the background color in the region outside of the canvas.
 
 You can either specify a specific resolution for your canvas in pixels, or you can turn on responsive mode, which lets you easily swap between common resolutions such as mobile and desktop. Responsiveness is an editor-only concept, it does not affect the exported GUI.
 
-<img src="/img/tools/guiEditor/resolutionResponsive.jpg" title="GUI Editor Responsive Resolution"/>
+<img src="/img/tools/guiEditor/resolutionResponsive.webp" title="GUI Editor Responsive Resolution"/>
 
 ### Hierarchy Panel
 
-<img src="/img/tools/guiEditor/layersPanel.jpg" title="GUI Editor Layers Panel"/>
+<img src="/img/tools/guiEditor/layersPanel.webp" title="GUI Editor Layers Panel"/>
 
 The Hierarchy Panel is an organized list of all of the GUI controls that you've added to the canvas. You can select controls from this list as well as click and drag to parent and unparent them.
 
-<img src="/img/tools/guiEditor/parenting.jpg" title="GUI Editor Parenting"/>
+<img src="/img/tools/guiEditor/parenting.webp" title="GUI Editor Parenting"/>
 
 The order of controls listed in the Layers Panel reflects the z-order of the scene with the elments at the top of the list having a z-order that will render them on top of elements towards the bottom of the list.
 
@@ -92,11 +92,11 @@ If a control is placed behind another control in the scene, and it has a lower z
 
 The 'eye' icon will show/hide controls on the canvas.
 
-<img src="/img/tools/guiEditor/showHide.jpg" title="GUI Editor Show Hide"/>
+<img src="/img/tools/guiEditor/showHide.webp" title="GUI Editor Show Hide"/>
 
 ### Controls Bar
 
-<img src="/img/tools/guiEditor/toolsBar.jpg" title="GUI Editor Tools Bar"/>
+<img src="/img/tools/guiEditor/toolsBar.webp" title="GUI Editor Tools Bar"/>
 
 The Controls Bar allows you to create GUI controls, such as a text box, rectangle, grid, etc. Each icon in this bar can be clicked on to add a specific GUI control to your canvas. You can also drag and drop these icons into either the canvas or the hierarchy tree to add it to the scene.
 
@@ -104,7 +104,7 @@ If you'd like to see a full list of supported GUI controls in the editor, [click
 
 ### Canvas
 
-<img src="/img/tools/guiEditor/canvas.jpg" title="GUI Editor Canvas"/>
+<img src="/img/tools/guiEditor/canvas.webp" title="GUI Editor Canvas"/>
 
 The Canvas is the main play area of the tool. The canvas contains the artboard where you can add controls, select controls, and click and drag controls to move them around. This panel represents a WYSIWYG (what you see is what you get) experience to how GUIs will show up in Babylon Scenes.
 
@@ -132,13 +132,13 @@ There are several handy keyboard shortcuts that you can utilize in the GUI Edito
 
 ### Control Properties Panel
 
-<img src="/img/tools/guiEditor/propertiesPanel.jpg" title="GUI Editor Properties Panel"/>
+<img src="/img/tools/guiEditor/propertiesPanel.webp" title="GUI Editor Properties Panel"/>
 
 The Properties Panel will change based on which controls are selected to reflect the properties specific to those controls. This is where you'll find all of the properties and can fully customize each individual element of your overall GUI.
 
 For example here is how to change the name of a GUI.
 
-<img src="/img/tools/guiEditor/changeName.jpg" title="GUI Editor Change Name"/>
+<img src="/img/tools/guiEditor/changeName.webp" title="GUI Editor Change Name"/>
 
 For properties which can be expressed in either pixels or percentage values, you can click on the unit button next to the input to toggle between unit types. The existing value will be converted into the equivalent value in the other unit.
 
@@ -151,11 +151,11 @@ Note: While using the GUI Editor to create a GUI and modify its properties, thes
 Grids are a powerful tool for building complex UI layouts. Grids are helpful for setting up the foundation of your design. Just like in code, in the GUI Editor you can define your grid's row and column definitions.
 You can add and remove rows and columns, as well as modify the sizes using either pixels or percent.
 
-<img src="/img/tools/guiEditor/grid.jpg" title="GUI Editor Grid Properties"/>
+<img src="/img/tools/guiEditor/grid.webp" title="GUI Editor Grid Properties"/>
 
 You can then add them to the grid through parenting in the layers panel. Once parented, you can modify a control's grid cell by selecting the control and editing the newly added property at the bottom of the Properties Panel.
 
-<img src="/img/tools/guiEditor/cell.jpg" title="GUI Editor Changing Control's Grid Cell"/>
+<img src="/img/tools/guiEditor/cell.webp" title="GUI Editor Changing Control's Grid Cell"/>
 
 Note: the zOrder of each control is determined by its position in the hierarchy tree, and can be reordered with normal dragging regardless of which grid cell it belongs to.
 
@@ -168,14 +168,14 @@ You can save your GUI creations from the Editor in two different ways, locally o
 Saving locally will download a .JSON object of your GUI to your local machine. This can then be either loaded back into the editor later for future use, or can be hosted somewhere of your choosing and then loaded directly into your Babylon scene. [See Loading GUIs Into The Playground](#loading-locally)
 
 You can save locally by selecting the 'Save' button in the hamburger menu:
-<img src="/img/tools/guiEditor/saveLocal1.jpg" title="GUI Editor Save Local 1"/>
+<img src="/img/tools/guiEditor/saveLocal1.webp" title="GUI Editor Save Local 1"/>
 
 #### Saving To The Snippet Server
 
 Just like all Babylon tools, you have the option of saving your GUI creation directly to the Babylon.js snippet server. Saving in this manner saves the .json object to a Babylon.js server and provides a simple URL hash back for you to reference in the future. You can then load your GUI back into the editor by using this unique hash, or you can use the hash to load your GUI directly into the Babylon scene. [See Loading GUIs Into The Playground](#load-from-snippet-server). Saving to the snippet server will also update the browser's URL to point to that snippet (e.g., gui.babylonjs.com/#aaaaaa)
 
 You can save to the snippet server by selecting the 'Save To Snippet' button in the hamburger menu:
-<img src="/img/tools/guiEditor/saveSnippet1.jpg" title="GUI Editor Save Snippet 1"/>
+<img src="/img/tools/guiEditor/saveSnippet1.webp" title="GUI Editor Save Snippet 1"/>
 
 ### Loading GUIs Into the Editor
 
@@ -186,14 +186,14 @@ You can load your GUI creations into the Editor in two different ways, locally o
 Loading locally will prompt you to upload a .JSON object of your GUI into the Editor.
 
 You can load locally by selecting the 'Load' button in the hamburger menu:
-<img src="/img/tools/guiEditor/loadLocal1.jpg" title="GUI Editor Load Local 1"/>
+<img src="/img/tools/guiEditor/loadLocal1.webp" title="GUI Editor Load Local 1"/>
 
 #### Loading From The Snippet Server
 
 Loading from the snippet server will take a unique hash of a previously saved GUI and load it into the Editor.
 
 You can load from the snippet server by selecting the 'Load From Snippet Server' button in the hamburger menu:
-<img src="/img/tools/guiEditor/loadSnippet1.jpg" title="GUI Editor Load Snippet 1"/>
+<img src="/img/tools/guiEditor/loadSnippet1.webp" title="GUI Editor Load Snippet 1"/>
 
 ### Using GUIs From The Editor In Your Scene
 
@@ -274,23 +274,23 @@ Here is a list of supported GUI controls available in the GUI Editor:
 
 | Icon                                                             | Control Name     | Further Information                                                                              |
 | ---------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------ |
-| ![rectangle](/img/tools/guiEditor/rectangleIcon.jpg)             | Rectangle        | [Rectangle Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#rectangle)              |
-| ![ellipse](/img/tools/guiEditor/ellipseIcon.jpg)                 | Ellipse          | [Ellipse Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#ellipse)                  |
-| ![stackpanel](/img/tools/guiEditor/stackPanelIcon.jpg)           | Stack Panel      | [Stack Panel Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#stackpanel)           |
-| ![grid](/img/tools/guiEditor/gridIcon.jpg)                       | Grid             | [Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#grid)                        |
-| ![scrollviewer](/img/tools/guiEditor/scrollViewerIcon.jpg)       | Scroll Viewer    | [Scroll Viewer Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#scrollviewer)       |
-| ![line](/img/tools/guiEditor/lineIcon.jpg)                       | Line             | [Line Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#line)                        |
-| ![textblock](/img/tools/guiEditor/textIcon.jpg)                  | Text Block       | [Text Block Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#textblock)             |
-| ![inputText](/img/tools/guiEditor/inputTextIcon.jpg)             | Input Text       | [Input Text Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputtext)             |
-| ![inputPassword](/img/tools/guiEditor/inputPasswordIcon.jpg)     | Input Password   | [Input Password Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputpassword)     |
-| ![image](/img/tools/guiEditor/imageIcon.jpg)                     | Image            | [Image Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#image)                      |
-| ![displayGrid](/img/tools/guiEditor/displayGridIcon.jpg)         | Display Grid     | [Display Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#displaygrid)         |
-| ![textButton](/img/tools/guiEditor/textButtonIcon.jpg)           | Text Button      | [A Button with a Text Block as a Child] (https://doc.babylonjs.com/divingDeeper/gui/gui#button)  |
-| ![checkbox](/img/tools/guiEditor/checkBoxIcon.jpg)               | Checkbox         | [Checkbox Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#checkbox)                |
-| ![radioButton](/img/tools/guiEditor/radioIcon.jpg)               | Radio Button     | [Radio Button Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#radiobutton)         |
-| ![slider](/img/tools/guiEditor/sliderIcon.jpg)                   | Slider           | [Slider Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#slider)                    |
-| ![virtualkeyboard](/img/tools/guiEditor/virtualKeyboardIcon.jpg) | Virtual Keyboard | [Virtual Keyboard Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#virtualkeyboard) |
-| ![colorpicker](/img/tools/guiEditor/colorPickerIcon.jpg)         | Color Picker     | [Color Picker](https://doc.babylonjs.com/divingDeeper/gui/gui#colorpicker)                       |
+| ![rectangle](/img/tools/guiEditor/rectangleIcon.webp)             | Rectangle        | [Rectangle Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#rectangle)              |
+| ![ellipse](/img/tools/guiEditor/ellipseIcon.webp)                 | Ellipse          | [Ellipse Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#ellipse)                  |
+| ![stackpanel](/img/tools/guiEditor/stackPanelIcon.webp)           | Stack Panel      | [Stack Panel Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#stackpanel)           |
+| ![grid](/img/tools/guiEditor/gridIcon.webp)                       | Grid             | [Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#grid)                        |
+| ![scrollviewer](/img/tools/guiEditor/scrollViewerIcon.webp)       | Scroll Viewer    | [Scroll Viewer Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#scrollviewer)       |
+| ![line](/img/tools/guiEditor/lineIcon.webp)                       | Line             | [Line Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#line)                        |
+| ![textblock](/img/tools/guiEditor/textIcon.webp)                  | Text Block       | [Text Block Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#textblock)             |
+| ![inputText](/img/tools/guiEditor/inputTextIcon.webp)             | Input Text       | [Input Text Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputtext)             |
+| ![inputPassword](/img/tools/guiEditor/inputPasswordIcon.webp)     | Input Password   | [Input Password Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputpassword)     |
+| ![image](/img/tools/guiEditor/imageIcon.webp)                     | Image            | [Image Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#image)                      |
+| ![displayGrid](/img/tools/guiEditor/displayGridIcon.webp)         | Display Grid     | [Display Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#displaygrid)         |
+| ![textButton](/img/tools/guiEditor/textButtonIcon.webp)           | Text Button      | [A Button with a Text Block as a Child] (https://doc.babylonjs.com/divingDeeper/gui/gui#button)  |
+| ![checkbox](/img/tools/guiEditor/checkBoxIcon.webp)               | Checkbox         | [Checkbox Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#checkbox)                |
+| ![radioButton](/img/tools/guiEditor/radioIcon.webp)               | Radio Button     | [Radio Button Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#radiobutton)         |
+| ![slider](/img/tools/guiEditor/sliderIcon.webp)                   | Slider           | [Slider Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#slider)                    |
+| ![virtualkeyboard](/img/tools/guiEditor/virtualKeyboardIcon.webp) | Virtual Keyboard | [Virtual Keyboard Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#virtualkeyboard) |
+| ![colorpicker](/img/tools/guiEditor/colorPickerIcon.webp)         | Color Picker     | [Color Picker](https://doc.babylonjs.com/divingDeeper/gui/gui#colorpicker)                       |
 
 ### Demos
 

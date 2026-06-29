@@ -40,7 +40,7 @@ particleSystem.flowMap = new BABYLON.Texture(flowMapUrl);
 
 Examples using various flow maps for both CPU and GPU particle systems:
 
-* <Playground id = "#2TXXS1" title="Sample CPU Flow Maps" description="Varied examples of flow maps demonstrating particle influences" image="/img/playgroundsAndNMEs/flowMapExamples.jpg"/>
-* <Playground id = "#PPC2EI#7" title="Sample CPU Flow Map with NPE" description="Examples of flow map demonstrating particle influences and NPE" image="/img/playgroundsAndNMEs/flowMapExamples.jpg"/>
+* <Playground id = "#2TXXS1" title="Sample CPU Flow Maps" description="Varied examples of flow maps demonstrating particle influences" image="/img/playgroundsAndNMEs/flowMapExamples.webp"/>
+* <Playground id = "#PPC2EI#7" title="Sample CPU Flow Map with NPE" description="Examples of flow map demonstrating particle influences and NPE" image="/img/playgroundsAndNMEs/flowMapExamples.webp"/>
 * <Playground id="#5DM02T#12" title="GPU Flow map" description="Complete example of a GPU particle flow map."/>
 * <Playground id="#DEZ79M#77" title="Another Flow Map with NPE" description="Another Flow Map example that also showcases NPE."/>

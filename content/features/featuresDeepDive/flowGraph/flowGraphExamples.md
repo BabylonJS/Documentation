@@ -15,7 +15,7 @@ This section will show you how to write your own graphs using code. Let's start 
 
 This flow graph logs a message on the console when the scene is loaded.
 
-![Basic example 1](/img/flowGraph/basic1.png)
+![Basic example 1](/img/flowGraph/basic1.webp)
 
 ```javascript
 const coord = new FlowGraphCoordinator({ scene });
@@ -40,7 +40,7 @@ coord.start();
 
 This flow graph logs a message on the console when the scene is loaded. The message is stored in a variable on the context and can be reused.
 
-![Basic example 2](/img/flowGraph/basic2.png)
+![Basic example 2](/img/flowGraph/basic2.webp)
 
 ```javascript
 const coord = new FlowGraphCoordinator({ scene });
@@ -66,7 +66,7 @@ coord.start();
 
 This flow graph animates a sphere from one position to another using the animation and interpolation blocks.
 
-![Basic example 3](/img/flowGraph/basic3.png)
+![Basic example 3](/img/flowGraph/basic3.webp)
 
 ```javascript
 const coord = new FlowGraphCoordinator({ scene });

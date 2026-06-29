@@ -1,6 +1,6 @@
 ---
 title: Getting Started - Chapter 1 - First Scene
-image: /img/getstarted/wireframe.png
+image: /img/getstarted/wireframe.webp
 description: Start your Babylon.js learning by creating your first scene and model.
 keywords: getting started, start, chapter 1, first scene
 further-reading: 
@@ -14,12 +14,12 @@ video-content:
 Whether you are creating a whole world or just placing one model into a web page you need a [scene](/features/featuresDeepDive/scene) to contain the world or model, a [camera](/features/featuresDeepDive/cameras) to view it, a [light](/features/featuresDeepDive/lights) to illuminate it and, of course, at least one viewable object as a model. All models, whether just a box or a complex character, are made from a [mesh](/features/featuresDeepDive/mesh) of triangles or facets.
 
 
-![wireframe](/img/getstarted/wireframe.png)  
+![wireframe](/img/getstarted/wireframe.webp)  
 Wireframe View Showing Mesh Triangles
 
 A large number of meshes can be created directly within Babylon.js using code, or, as you will shortly see, imported as models from meshes created with other software. Let us start simply with a box.
 
-Examples on these pages can be viewed in the playground, the place to try out Babylon.js live on the web, by clicking on their titles. To edit the code open them with ![open pg](/img/getstarted/openpg.png?expandable=false)
+Examples on these pages can be viewed in the playground, the place to try out Babylon.js live on the web, by clicking on their titles. To edit the code open them with ![open pg](/img/getstarted/openpg.webp?expandable=false)
 
 ## Say Hello to Your First World
 
@@ -61,15 +61,15 @@ const createScene = () => {
 
 Since at this point there is only one scene you may notice that this parameter can be dropped from the camera, light and box as the default is for them to be placed in the current scene.
 
-<Playground id="#KBS9I5" title="Getting Started First Scene Playground" description="Getting Started First Scene Playground." image="/img/playgroundsAndNMEs/gettingStartedFirstScene.jpg"/>
+<Playground id="#KBS9I5" title="Getting Started First Scene Playground" description="Getting Started First Scene Playground." image="/img/playgroundsAndNMEs/gettingStartedFirstScene.webp"/>
 
-![box](/img/getstarted/house0.png)
+![box](/img/getstarted/house0.webp)
 
 Having created our box we can save, or export, the scene from within the playground by selecting the *Inspector*  
-![inspector](/img/getstarted/pgpartmenu.png)    
+![inspector](/img/getstarted/pgpartmenu.webp)    
 
 followed by *Tools* and choose which type to export, the *.babylon* format or the *GLB* format.  
-![Tools](/img/getstarted/export.png)
+![Tools](/img/getstarted/export.webp)
 
 Now we have a file we can use it to demonstrate how to view it in a web page.
 

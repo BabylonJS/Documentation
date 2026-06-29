@@ -369,6 +369,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/cameras/customizingCameraInputs"
                                 },
+                                "cameraMovementSystem": {
+                                    "friendlyName": "Camera Movement and Input System",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/cameras/cameraMovementSystem"
+                                },
                                 "multiViewsPart1": {
                                     "friendlyName": "Multiviews Part1",
                                     "children": {},
@@ -877,6 +882,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/importers/assetContainers"
                                 },
+                                "smartAssets": {
+                                    "friendlyName": "Smart Assets",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/importers/smartAssets"
+                                },
                                 "createImporters": {
                                     "friendlyName": "Create Your Own File Importer",
                                     "children": {},
@@ -952,6 +962,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/materials/using/moreMaterials"
                                         },
+                                        "textureRepetition": {
+                                            "friendlyName": "Breaking Texture Repetition",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/materials/using/textureRepetition"
+                                        },
                                         "parallaxMapping": {
                                             "friendlyName": "Parallax Mapping",
                                             "children": {},
@@ -991,6 +1006,11 @@
                                             "friendlyName": "Video Textures",
                                             "children": {},
                                             "content": "features/featuresDeepDive/materials/using/videoTexture"
+                                        },
+                                        "htmlTexture": {
+                                            "friendlyName": "HTML Textures",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/materials/using/htmlTexture"
                                         },
                                         "reflectionTexture": {
                                             "friendlyName": "Reflections and Refractions",
@@ -2291,6 +2311,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/webXR/WebXRHandTracking"
                                         },
+                                        "WebXRBodyTracking": {
+                                            "friendlyName": "WebXR Body Tracking",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/webXR/WebXRBodyTracking"
+                                        },
                                         "WebXRMovement": {
                                             "friendlyName": "WebXR Movement",
                                             "children": {},
@@ -2355,6 +2380,11 @@
                     "friendlyName": "Starter HTML Template",
                     "children": {},
                     "content": "setup/starterHTML"
+                },
+                "createBabylonJS": {
+                    "friendlyName": "Scaffold a Project (create-babylonjs)",
+                    "children": {},
+                    "content": "setup/createBabylonJS"
                 },
                 "templates": {
                     "friendlyName": "Templates",
@@ -2424,7 +2454,34 @@
                         },
                         "es6Support": {
                             "friendlyName": "ES6/NPM Support",
-                            "children": {},
+                            "children": {
+                                "treeShaking": {
+                                    "friendlyName": "Tree-Shaking with Pure Imports",
+                                    "children": {
+                                        "usingPureImports": {
+                                            "friendlyName": "Using Pure Imports",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/usingPureImports"
+                                        },
+                                        "registeringSideEffects": {
+                                            "friendlyName": "Registering Side Effects",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/registeringSideEffects"
+                                        },
+                                        "troubleshooting": {
+                                            "friendlyName": "Troubleshooting Pure Imports",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/troubleshooting"
+                                        },
+                                        "contributing": {
+                                            "friendlyName": "Adding Tree-Shakeable Features",
+                                            "children": {},
+                                            "content": "setup/frameworkPackages/es6Support/treeShaking/contributing"
+                                        }
+                                    },
+                                    "content": "setup/frameworkPackages/es6Support/treeShaking"
+                                }
+                            },
                             "content": "setup/frameworkPackages/es6Support"
                         }
                     },
@@ -2571,6 +2628,11 @@
                     },
                     "content": "toolsAndResources/accessibility"
                 },
+                "mcpServers": {
+                    "friendlyName": "MCP Servers",
+                    "children": {},
+                    "content": "toolsAndResources/mcpServers"
+                },
                 "thePlayground": {
                     "friendlyName": "Playground",
                     "children": {
@@ -2618,6 +2680,16 @@
                             "friendlyName": "Examples",
                             "children": {},
                             "content": "toolsAndResources/inspector.v2/examples"
+                        },
+                        "overrideManager": {
+                            "friendlyName": "Override Manager",
+                            "children": {},
+                            "content": "toolsAndResources/inspector.v2/overrideManager"
+                        },
+                        "projectFile": {
+                            "friendlyName": "Project Files (.babylonproj)",
+                            "children": {},
+                            "content": "toolsAndResources/inspector.v2/projectFile"
                         }
                     },
                     "content": "toolsAndResources/inspector.v2"
@@ -2840,6 +2912,11 @@
                                     "friendlyName": "Mix",
                                     "children": {},
                                     "content": "toolsAndResources/assetLibraries/materialsLibrary/mixMat"
+                                },
+                                "customMat": {
+                                    "friendlyName": "Custom",
+                                    "children": {},
+                                    "content": "toolsAndResources/assetLibraries/materialsLibrary/customMat"
                                 }
                             },
                             "content": "toolsAndResources/assetLibraries/materialsLibrary"

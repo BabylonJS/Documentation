@@ -32,14 +32,14 @@ See [How to Use The Physics' Engines](/legacy/physics/usingPhysicsEngine) for an
 
 | Number | Joint                                                   | Name            | Notes                                                                           |
 | ------ | ------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------- |
-| 1      | ![Hinge](/img/how_to/physics/hinge.jpg)                 | Hinge           | Single Axis Rotation                                                            |
-| 2      | ![Ball and Socket](/img/how_to/physics/ballnsocket.jpg) | Ball and Socket | Multi Axis Rotation                                                             |
-| 3      | ![Cone Twist](/img/how_to/physics/conetwist.jpg)        | Cone Twist      | Unrestricted rotation (Twist) on One Axis, Limited Rotation (in Cone) On Others |
-| 4      | ![Wheel](/img/how_to/physics/wheel.jpg)                 | Wheel           | Two Axes Rotation                                                               |
-| 5      | ![Slider](/img/how_to/physics/slider.jpg)               | Slider          | Single Axis Translation and Rotation                                            |
-| 6      | ![Prismatic](/img/how_to/physics/prismatic.jpg)         | Prismatic       | Single Axis Translation Only                                                    |
-| 7      | ![Distance](/img/how_to/physics/distance.jpg)           | Distance        | Set Bodies a Fixed Distance Apart                                               |
-| 8      | ![Locked](/img/how_to/physics/locked.jpg)               | Locked          | Bodies Act As One Body                                                          |
+| 1      | ![Hinge](/img/how_to/physics/hinge.webp)                 | Hinge           | Single Axis Rotation                                                            |
+| 2      | ![Ball and Socket](/img/how_to/physics/ballnsocket.webp) | Ball and Socket | Multi Axis Rotation                                                             |
+| 3      | ![Cone Twist](/img/how_to/physics/conetwist.webp)        | Cone Twist      | Unrestricted rotation (Twist) on One Axis, Limited Rotation (in Cone) On Others |
+| 4      | ![Wheel](/img/how_to/physics/wheel.webp)                 | Wheel           | Two Axes Rotation                                                               |
+| 5      | ![Slider](/img/how_to/physics/slider.webp)               | Slider          | Single Axis Translation and Rotation                                            |
+| 6      | ![Prismatic](/img/how_to/physics/prismatic.webp)         | Prismatic       | Single Axis Translation Only                                                    |
+| 7      | ![Distance](/img/how_to/physics/distance.webp)           | Distance        | Set Bodies a Fixed Distance Apart                                               |
+| 8      | ![Locked](/img/how_to/physics/locked.webp)               | Locked          | Bodies Act As One Body                                                          |
 
 ## Babylon.js Joints
 

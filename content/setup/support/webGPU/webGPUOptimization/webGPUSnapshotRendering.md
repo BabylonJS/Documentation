@@ -1,6 +1,6 @@
 ---
 title: WebGPU Snapshot Rendering
-image-url: /img/defaultImage.png
+image-url: /img/defaultImage.webp
 description: Learn how to use snapshot rendering for faster scene display
 keywords: babylon.js, WebGPU, snapshot, rendering
 further-reading:
@@ -21,7 +21,7 @@ The perf improvements can be quite large, especially when using the fast SR mode
 
 | WebGL 2 version | SR - Standard mode | SR - Fast mode | 
 |-------------|---------------|-----------|
-| ![WebGL2 ](/img/resources/snapshot_rendering/webl2_comparison.png) | ![Standard mode](/img/resources/snapshot_rendering/sr_standard.png!241x247) | ![Fast mode](/img/resources/snapshot_rendering/sr_fast.png!245x243) |
+| ![WebGL2 ](/img/resources/snapshot_rendering/webl2_comparison.webp) | ![Standard mode](/img/resources/snapshot_rendering/sr_standard.webp!241x247) | ![Fast mode](/img/resources/snapshot_rendering/sr_fast.webp!245x243) |
 
 ## Enabling snapshot rendering mode
 The snapshot rendering mode is enabled by setting:
@@ -56,7 +56,7 @@ eCommerce sites may greatly benefit from this feature as the scene is normally q
 Make sure everything is ready in your scene to be rendered the next frame after you set `engine.snapshotRendering = true`! Indeed, once you set the `snapshotRendering` to `true`, the next frame is recorded and replayed afterwards. If some textures (for eg) were not ready at that time, the mesh won't be rendered in the frame that is recorded and so it will never be visible. You should probably always set `engine.snapshotRendering = true` inside a `scene.executeWhenReady(...)` callback.
 
 ## Examples
-Here's a PG that demonstrates using the snapshot rendering feature: <Playground image="/img/playgroundsAndNMEs/pg-SYQW69-1092.png" id="#SYQW69#1354" engine="webgpu" title="Snapshot rendering" description="Demonstrate how to use the snapshot rendering modes"/>
+Here's a PG that demonstrates using the snapshot rendering feature: <Playground image="/img/playgroundsAndNMEs/pg-SYQW69-1092.webp" id="#SYQW69#1354" engine="webgpu" title="Snapshot rendering" description="Demonstrate how to use the snapshot rendering modes"/>
 
 You can choose to disable or enable standard / fast SR mode. Depending on the mode, you will see the javascript time it takes to render a frame (**Frame total**) and the virtual fps (the fps you would have if there was no GPU rendering / the fps was not capped by the browser - it is simply `1000/Frame total`).
 
@@ -84,7 +84,7 @@ const sr = new BABYLON.SnapshotRenderingHelper(scene);
 sr.enableSnapshotRendering();
 ```
 
-Call `updateMesh()` to update a mesh when its position/rotation/scaling/visibility property has changed.
+Call `updateMesh()` to update a mesh when its position/rotation/scaling property has changed.
 
 If you create a layer (glow, highlight), call `updateMeshesForEffectLayer()` for that layer to make it compatible with fast SR mode.
 
@@ -94,10 +94,10 @@ If you create/add news meshes later on, call `fixMeshes()` to make sure new mesh
 * the maximum number of influencers of morph target managers will be set to a fixed value (that you can define through the `options` parameter of the `SnapshotRenderingHelper` constructor). This is needed to make sure morphs work in fast SR mode
 
 <br/>Thanks to this class, we can handle a number of dynamic cases very simply:
-* Updating position/rotation/scaling/visibility properties of meshes: <Playground id="#7YW416#11" engine="webgpu" title="Update mesh matrix in fast SR mode with snapshot helper class" description="Demonstrates how to update the position/rotation/scaling/visibility properties of a mesh in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-7YW416-3.png"/>
-* Using the glow layer: <Playground id="#LRFB2D#852" engine="webgpu" title="Use glow layer in fast SR mode with snapshot helper class" description="Demonstrates how to make the glow layer work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-LRFB2D-218.png"/>
-* Animating bones: <Playground id="#WGZLGJ#10670" engine="webgpu" title="Use bones in fast SR mode with snapshot helper class" description="Demonstrates how to make bones work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-WGZLGJ-4072.png"/>
-* Using a default skybox: <Playground id="#WGZLGJ#10671" engine="webgpu" title="Use default skybox in fast SR mode with snapshot helper class" description="Demonstrates how to make default skyboxes work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-WGZLGJ-10606.png"/>
+* Updating position/rotation/scaling/visibility properties of meshes: <Playground id="#7YW416#11" engine="webgpu" title="Update mesh matrix in fast SR mode with snapshot helper class" description="Demonstrates how to update the position/rotation/scaling/visibility properties of a mesh in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-7YW416-3.webp"/>
+* Using the glow layer: <Playground id="#LRFB2D#852" engine="webgpu" title="Use glow layer in fast SR mode with snapshot helper class" description="Demonstrates how to make the glow layer work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-LRFB2D-218.webp"/>
+* Animating bones: <Playground id="#WGZLGJ#10670" engine="webgpu" title="Use bones in fast SR mode with snapshot helper class" description="Demonstrates how to make bones work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-WGZLGJ-4072.webp"/>
+* Using a default skybox: <Playground id="#WGZLGJ#10671" engine="webgpu" title="Use default skybox in fast SR mode with snapshot helper class" description="Demonstrates how to make default skyboxes work in fast snapshot rendering mode with snapshot helper class" image="/img/playgroundsAndNMEs/pg-WGZLGJ-10606.webp"/>
 
 
 

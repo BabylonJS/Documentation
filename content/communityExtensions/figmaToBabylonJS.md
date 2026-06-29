@@ -1,6 +1,6 @@
 ---
 title: Figma to BabylonJS
-image: /img/extensions/FigmaToBabylonJS/FigmaToBabylonJS.png
+image: /img/extensions/FigmaToBabylonJS/FigmaToBabylonJS.webp
 description: FigmaToBabylonJS is a Figma plugin which allows you to export Figma designs to BabylonJS GUI .json files.
 keywords: extensions, Figma, GUI, BabylonGUI, Design, UI, plugin
 further-reading:
@@ -10,7 +10,7 @@ video-content:
 ---
 
 # Figma to BabylonJS
-![Screenshot showing the figma right click menu on the Plugins option](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS.png)
+![Screenshot showing the figma right click menu on the Plugins option](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS.webp)
 
 ## Introduction
 
@@ -23,7 +23,7 @@ The plugin is available via the [Figma community](https://www.figma.com/communit
 
 After adding the plugin to Figma, you need to highlight the frame (artboard) that you want to export and right click on it.
 On the rightclick menu, select Plugins > Saved Plugins > FigmaToBabylonJS
-![Screenshot showing the figma right click menu on the Plugins option](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step1.png)
+![Screenshot showing the figma right click menu on the Plugins option](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step1.webp)
 
 You will be presented with 5 menu options:
 
@@ -43,7 +43,7 @@ You will be presented with 5 menu options:
 For first time users, its suggested to click the **"Export & Settings"** menu option first to set up how you want the export to work.
 
 After clicking **"Export & Settings"**, you should see this screen:
-![Screenshot showing the Figma to BabylonJS plugins first screen. Two checkboxes for background and images, with two large buttons for exporting](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step2.png)
+![Screenshot showing the Figma to BabylonJS plugins first screen. Two checkboxes for background and images, with two large buttons for exporting](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step2.webp)
 Each tab controls the plug-in in regards to what will and will not be included in the export.
 
 At the bottom there are two large buttons. 
@@ -70,7 +70,7 @@ It's also good practice to load the UI in gui.babylonjs.com or the [GUI Editor](
 
 ### Includes Tab
 Basic "What should be in the outputted file" options, none are mandatory to have. Please note that if you want to **Include Images** that the outputted file will be a .zip file and the .json will be inside of it.
-![Screenshot showing the Figma to BabylonJS plugins Includes screen. Two checkboxes for background and images](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step3.png)
+![Screenshot showing the Figma to BabylonJS plugins Includes screen. Two checkboxes for background and images](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step3.webp)
 + **Background Color**
   + This will decide if the export should have its background set to the same fill as the Figma frame.
 + **Include Images**
@@ -78,7 +78,7 @@ Basic "What should be in the outputted file" options, none are mandatory to have
 
 ### Identifiers Tab
 Identifiers means what strings are you going to put in the layer names to identify specific BJS GUI controls. The controls that can be identified and converted to BabylonJS GUI controls are;
-![Screenshot showing the Figma to BabylonJS plugins Identifiers screen. Three input fields for tags, buttons and scrollbars](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step4.png)
+![Screenshot showing the Figma to BabylonJS plugins Identifiers screen. Three input fields for tags, buttons and scrollbars](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step4.webp)
 
 + **Buttons** 
   + Can be a Figma Component/Instantce/Frame with text in it. The buttons link text will be whatever the first text box it finds inside of itself is.
@@ -93,7 +93,7 @@ Identifiers means what strings are you going to put in the layer names to identi
 
 ### Images Tab
 This tab is for additional options that apply to exported images.
-![Screenshot showing the Figma to BabylonJS plugins Images screen. Three input fields for image scale and folder, with two large buttons for exporting](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step5.png)
+![Screenshot showing the Figma to BabylonJS plugins Images screen. Three input fields for image scale and folder, with two large buttons for exporting](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step5.webp)
 + **Image Scale**
   + By default, the scale is set x2. This means that any images exported from Figma will be 2 times its set size in Figma. This can go all the way up to times four. Please be aware that if you export a very large design with lots of images and at times for you may have memory usage issues within Figma. If the plug-in becomes unresponsive please restart Figma and try again.
 + **Image Folder**
@@ -101,7 +101,7 @@ This tab is for additional options that apply to exported images.
   + This will also affect the image "source" URL as used in the BabylonJS .JSON format by match
 
 ### Compatibility warnings screen
-![Screenshot showing the Figma to BabylonJS plugins Compatibility warnings screen. A list of warnings about potential issues with the export](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step6.png)
+![Screenshot showing the Figma to BabylonJS plugins Compatibility warnings screen. A list of warnings about potential issues with the export](/img/extensions/FigmaToBabylonJS/FigmaToBabylonJS-Step6.webp)
 After clicking either export button, if there are any potential compatibility issues with the design you are exporting you will see a list of warnings. These are not errors, just things to be aware of that may not export as expected. 
 
 It helps to preview the UI by loading it into either gui.babylonjs.com or your local project using the inspector, to make sure that the export is correct [(see inconsistencies and polyfills)](/communityExtensions/figmaToBabylonJS#inconsistencies--polyfills)  

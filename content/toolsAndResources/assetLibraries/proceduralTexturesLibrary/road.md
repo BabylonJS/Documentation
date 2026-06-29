@@ -10,7 +10,7 @@ video-content:
 
 # Road Procedural texture
 
-![Road Procedural texture](/img/extensions/proceduraltextures/roadpt.PNG)
+![Road Procedural texture](/img/extensions/proceduraltextures/roadpt.webp)
 
 ## Using the Road procedural texture
 

@@ -11,7 +11,7 @@ However animation is achieved it has to take into account the action wanted, tim
 
 Animations are produced by a sequence of images, _frames_, which are displayed one after the other. This sequence of _frames_ can be individual drawings or for, stop motion animation, photographs of models that are moved slightly frame by frame
 
-![Horse - Frames](/img/features/animation/horse_frames.jpg)
+![Horse - Frames](/img/features/animation/horse_frames.webp)
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Horse_gif_slow.gif" title="Horse Animation" caption="from Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Horse_gif_slow.gif)"/>
 

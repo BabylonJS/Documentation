@@ -20,7 +20,7 @@ A newly created scene is always empty and ready to receive new assets etc.
 ## Creating A New Scene
 To create a new scene in the workspace, just go to the `Assets Browser` panel and select `Add -> Scene...`.
 
-![CreateNewProjectToolbar](/img/extensions/Editor/CreatingProject/create-new-project.png)
+![CreateNewProjectToolbar](/img/extensions/Editor/CreatingProject/create-new-project.webp)
 
 Once clicked, a popin appears to ask for the name of the scene. Once the button `Finish` is clicked,
 the new scene is being created on the file system. Then, the Editor will ask to continue working

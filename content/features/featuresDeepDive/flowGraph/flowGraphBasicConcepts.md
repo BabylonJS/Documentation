@@ -15,7 +15,7 @@ Here is a deeper dive into the basic concepts of the flow graph system. Some con
 
 Note that we might use "block" and "blocks" interchangeably. The official name for the component is "block", but "block" is more common in the programming world.
 
-![Base concepts relations](/img/flowGraph/flowGraphBaseConcepts.png)
+![Base concepts relations](/img/flowGraph/flowGraphBaseConcepts.webp)
 
 ### Flow Graph coordinator
 

@@ -22,9 +22,9 @@ In our case this would be
 ```javascript
 const house = BABYLON.Mesh.MergeMeshes([box, roof])
 ```
-<Playground id="#KBS9I5#75" title="Combining Meshes In Your Scene" description="A playground demonstrating how to combine meshes inside of your scene." image="/img/playgroundsAndNMEs/gettingStartedCombineMeshes.jpg"/>
+<Playground id="#KBS9I5#75" title="Combining Meshes In Your Scene" description="A playground demonstrating how to combine meshes inside of your scene." image="/img/playgroundsAndNMEs/gettingStartedCombineMeshes.webp"/>
 
-![house 5](/img/getstarted/house5.png)
+![house 5](/img/getstarted/house5.webp)
 
 The first thing we note is that the whole house is covered in only one of the materials used. Fortunately this can be corrected using the multiMultiMaterial parameter of *MergeMeshes*, unfortunately this is the final parameter of a long list. The code now looks like
 ```javascript
@@ -32,8 +32,8 @@ const house = BABYLON.Mesh.MergeMeshes([box, roof], true, false, null, false, tr
 ```
 At this stage it is important to note that the second parameter being true disposes of the original meshes and the last parameter being true allows the original material to be applied separately to the parts matching the original meshes.
 
-<Playground id="#KBS9I5#76" title="Combining Meshes And Preserving Material Assignments" description="A playground demonstrating how to combine meshes while preserving material assignments." image="/img/playgroundsAndNMEs/gettingStartedCombineMeshes2.jpg"/>
+<Playground id="#KBS9I5#76" title="Combining Meshes And Preserving Material Assignments" description="A playground demonstrating how to combine meshes while preserving material assignments." image="/img/playgroundsAndNMEs/gettingStartedCombineMeshes2.webp"/>
 
-![house 3](/img/getstarted/house3.png)
+![house 3](/img/getstarted/house3.webp)
 
 Before considering how to make multiple copies of our house we will first: find out the basics of [exporting](/features/featuresDeepDive/Exporters/glTFExporter) our models; how to [import](/features/featuresDeepDive/importers/glTF) models made with Babylon.js or other software; and how to display your scene or models on your own [website](/features/introductionToFeatures/chap2/app2).

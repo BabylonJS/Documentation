@@ -24,8 +24,8 @@ roof.position.y = 1.22;
 
 Since the cylinder is created vertically we needed to rotate it to a horizontal position and scale it down in one direction so that the height of the roof is less than its width.
 
-<Playground id="#KBS9I5#70" title="Adding a Prism Roof Using 'CreateCylinder'" description="A playground demonstrating how to add a 'prism' roof to your house." image="/img/playgroundsAndNMEs/gettingStartedPrism.jpg"/>
+<Playground id="#KBS9I5#70" title="Adding a Prism Roof Using 'CreateCylinder'" description="A playground demonstrating how to add a 'prism' roof to your house." image="/img/playgroundsAndNMEs/gettingStartedPrism.webp"/>
 
-![house 1](/img/getstarted/house1.png)
+![house 1](/img/getstarted/house1.webp)
 
 The world will be improved with a little color and texture.

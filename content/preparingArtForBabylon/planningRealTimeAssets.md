@@ -46,15 +46,15 @@ The best way to reduce the number of triangles an asset uses is to make sure you
 
 The practice that has the most impact is to make sure you use your triangle budget where you need to hold silhouette or show parallax within your mesh. If there are a lot of triangles in areas that don't deform and are not needed for the silhouette of the mesh you are wasting triangles. Most of the time you will not see a uniform spread and size of triangles in an optimized mesh. Areas that deform or are important to describe the silhouette of the mesh will have smaller, densely-packed triangles. Areas that do not deform or do not contribute to the silhouette will have larger, lightly-packed triangles.
 
-![Space fighter comparison between finished textured asset and low-poly mesh](/img/assetPipeline/planningAssets/triangleOptimization.jpg) 
+![Space fighter comparison between finished textured asset and low-poly mesh](/img/assetPipeline/planningAssets/triangleOptimization.webp) 
 
 You can also benefit from employing some simple tricks to reduce triangles. The first of which would be to allow meshes to intersect instead of creating complex geometry. A cylinder connecting to a plane will create more resolution to hold the intersection than if you simply allowed the cylinder to intersect with the plane. 
 
-![Cylinder intersecting with a plane](/img/assetPipeline/planningAssets/meshIntersection.jpg) 
+![Cylinder intersecting with a plane](/img/assetPipeline/planningAssets/meshIntersection.webp) 
 
 To expand on the idea of eliminating complex intersections, you can also float geometry on top of one another for small areas of detail. Imagine you needed some panel lines in the middle of a flat surface like the image below. Floating a mesh that creates the panel lines slightly above the quad will give the illustration of a complex connection without the triangle cost of the connection.
 
-![Detail panel lines mesh floating over a simple quad](/img/assetPipeline/planningAssets/floatingDetailMesh.jpg) 
+![Detail panel lines mesh floating over a simple quad](/img/assetPipeline/planningAssets/floatingDetailMesh.webp) 
 
 Think outside of the box for how you can use non-manifold meshes to simulate complex connections without creating those complex connections. You can further hide these fake connections with some tricks in your texturing so make sure to experiment with your mesh to see where you can reduce your triangle count.
 
@@ -62,11 +62,11 @@ Think outside of the box for how you can use non-manifold meshes to simulate com
 
 Baking high-frequency details into a normal texture can do a lot to save triangles. Details like scratches, chips, panel lines, rivets, wires, and more are perfect candidates for baking. Baking detail like this into the normal texture will give you a more realistic render without increasing your triangle count. As you can see below, we are able to maintain a very low triangle count while still maintaining details like rivets and panel lines. 
 
-![Detail baked to a normal texture for space fighter](/img/assetPipeline/planningAssets/normalTexture.jpg)  
+![Detail baked to a normal texture for space fighter](/img/assetPipeline/planningAssets/normalTexture.webp)  
 
 Many materials come with complex normal textures and it is easy to think you can bake everything into your normal texture. However, there are a couple reasons why you wouldn't bake some detail into your normal texture. The first is that the fidelity of your asset is bound by the texel density of your normal texture. If you have a lot of shells competing for texels in your UV layout, you may see pixelation of your detail if your texture isn't large enough. This could lead to larger normal textures or using several normal textures - both of which will impact download times and memory footprint. The second is that you need to see parallax in your detail. As you can see in the image below the visible detail inside of the engine outtakes will change based on the angle to the camera. The same is true with the mechanical details on the back of the ship.
 
-![Parallax detail in a mesh showing complex mechanical parts and engines outtakes for the star fighter](/img/assetPipeline/planningAssets/parallaxDetail.jpg)  
+![Parallax detail in a mesh showing complex mechanical parts and engines outtakes for the star fighter](/img/assetPipeline/planningAssets/parallaxDetail.webp)  
 
 If this detail were to be baked to a normal texture you would certainly reduce the triangle count dramatically. However, you would also lose the parallax of the detail when the camera moves around the asset. The detail would appear to be flat like a photo, even though the lighting would look correct. This would cause the asset to fall into the uncanny valley where the viewer's brain would register that something did not look right but may not be able to pinpoint what it is. This could be distracting and ultimately result in a negative experience for the user. This is why it's important to make the decision to bake detail on a case-by-case basis. If you can get the benefit of reduced triangle count while not needing parallax you should bake the detail. Even if you could benefit from some parallax in the detail, if it is small enough not to be distracting, you can still probably bake it. Otherwise, keep detail that needs parallax in the mesh which will drive your decisions about where to spend the triangles in your budget.
 
@@ -83,7 +83,7 @@ The second method is to atlas your UVs which creates a unique unwrap of your ass
 
 It's best to use both atlased textures and tiled textures where their strengths shine and combine them when necessary. 
 
-![Comparison of the atlased texture for the space fighter and a tiled texture of lava](/img/assetPipeline/planningAssets/atlasVsTiled.jpg)  
+![Comparison of the atlased texture for the space fighter and a tiled texture of lava](/img/assetPipeline/planningAssets/atlasVsTiled.webp)  
 
 #### Can I use non-square or non-power-of-two textures? 
 What do we mean to say non-square or non-power-of-two? Non-square is self-explanatory in that the texture simply isn't square in measure. Some engines set this limitation and only allow square textures to be used in materials. 

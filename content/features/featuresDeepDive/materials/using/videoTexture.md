@@ -12,7 +12,7 @@ video-content:
 
 If you want to display a video in your scene, the Babylon engine has a special texture for that. This special texture works similar to other textures, with the exception of a few parameters. These parameters include video urls (a url array), the size of the video texture (here is 256), the scene, and a final optional boolean that indicates if you want to use [mipmap](https://en.wikipedia.org/wiki/Mipmap) or not.
 
-Here is an example from our Flat2009 Demo: <Playground id="#ZMCFYA#83" title="Video Texture Example" description="Simple example of using video as a texture in your scene." image="/img/playgroundsAndNMEs/divingDeeperVideoTexture1.jpg"/>
+Here is an example from our Flat2009 Demo: <Playground id="#ZMCFYA#83" title="Video Texture Example" description="Simple example of using video as a texture in your scene." image="/img/playgroundsAndNMEs/divingDeeperVideoTexture1.webp"/>
 
 This plays a video on the demo's ZTV screen (ecran = screen).
 
@@ -44,7 +44,7 @@ scene.onPointerDown = function () {
 };
 ```
 
-This will start the video on the first tap in the scene. A demo can be found here: <Playground id="#1BYH8W#4" title="Tap To Play Video Texture" description="Simple example of tapping to start playing a video texture." image="/img/playgroundsAndNMEs/divingDeeperVideoTexture2.jpg"/>
+This will start the video on the first tap in the scene. A demo can be found here: <Playground id="#1BYH8W#4" title="Tap To Play Video Texture" description="Simple example of tapping to start playing a video texture." image="/img/playgroundsAndNMEs/divingDeeperVideoTexture2.webp"/>
 
 An event is also available to detect if you are in browser preventing autoplay by policy:
 

@@ -35,13 +35,13 @@ git config --global user.email johndoe@example.com
 
 If you do not have one already, open a Github account with your email address, sign in and go to the [Babylon.js repository](https://github.com/BabylonJS/Babylon.js) to fork with the top button.
 
-![Fork](/img/contribute/fork.jpg);
+![Fork](/img/contribute/fork.webp);
 
 ## Clone to Local
 
 Now in your **forked** Babylon.js repository use the "Clone or Download" button to find **your** repository address:
 
-![Clone](/img/contribute/clone.jpg)
+![Clone](/img/contribute/clone.webp)
 
 If the CLI you are using accepts pasting, then use the copy icon to the right of the address. This will save a lot of typing. If not, enter in the CLI:
 
@@ -49,7 +49,7 @@ If the CLI you are using accepts pasting, then use the copy icon to the right of
 git clone _**your repository address**_
 ```
 
-![gitclone](/img/contribute/gitclone.jpg)
+![gitclone](/img/contribute/gitclone.webp)
 
 The cloning may take some time.
 
@@ -67,7 +67,7 @@ and then find the name of your remote repository with:
 git remote -v
 ```
 
-![remote address](/img/contribute/remote1.jpg)
+![remote address](/img/contribute/remote1.webp)
 
 You should find it is called `origin` since it is the origin of the cloned local version. The local version is called the `master` since it is your master version of your Babylon.js.
 When the time comes this will allow you push changes in your local repository to your Github repository using:
@@ -94,7 +94,7 @@ git remote -v
 
 you can check all remotes are active.
 
-![Added Remote](/img/contribute/remote2.jpg)
+![Added Remote](/img/contribute/remote2.webp)
 
 Now before pushing your fully committed master to your origin you can pull the upstream (main) version into your master with
 
@@ -133,7 +133,7 @@ When in doubt about where your files should be added then raise an issue in the 
 
 This can be done in Visual Studio Code using the _source control icon_ on the left toolbar or with (Ctrl + Shift + G). After testing, some files other than those you have added or edited will appear in the source control section of VSCode. These should not be committed. Once you are ready to push to your repository these changes should be discarded. Only files you have actually changed or added should be in the commit.
 
-![Discard](/img/contribute/discard.jpg)
+![Discard](/img/contribute/discard.webp)
 
 When using a Git Client you should also check that you are _only committing those files you have added or edited_ and not those produced in any testing build.
 
@@ -146,7 +146,7 @@ git add path to file/file1.ts path to file/file2.ts path to file/file3.ts
 git commit path to file/file1.ts path to file/file2.ts path to file/file3.ts -m "Description of Changes"
 ```
 
-![Commit top Folder](/img/contribute/commit1.jpg)
+![Commit top Folder](/img/contribute/commit1.webp)
 
 and in the directory containing file1.ts, file2.ts, file3.ts
 
@@ -155,7 +155,7 @@ git add file1.ts file2.ts file3.ts
 git commit file1.ts file2.ts file3.ts -m "Description of Changes"
 ```
 
-![Commit in Folder](/img/contribute/commit2.jpg)
+![Commit in Folder](/img/contribute/commit2.webp)
 
 ### Install Node.js and NPM
 
@@ -1037,7 +1037,7 @@ git push origin master
 
 Once this has succeeded visit your Babylon.js repository. If all your commits are ahead of the upstream Babylon.js:master you can issue a pull request using the Contribute button shown below and follow the steps:
 
-![Success](/img/contribute/pr1.png)
+![Success](/img/contribute/pr1.webp)
 
 If some of your commits are behind the upstream Babylon.js:master then you will need to do:
 
@@ -1051,17 +1051,17 @@ and then push into your repository again.
 
 Once your `pull-request` has been issued then it needs to be checked, reviewed, approved and merged. Find your pull-request from the list and open it:
 
-![check 1](/img/contribute/pr3.png)
+![check 1](/img/contribute/pr3.webp)
 
 Scroll down to the review panel. Should there be any then a red cross indicates the area of failure. Click on details for more information:
 
-![check 1](/img/contribute/pr4.png)
+![check 1](/img/contribute/pr4.webp)
 
 Then click on the link under "Build job failed" to be taken to an Azure Pipelines page where you can see the output of your build job and understand better why it failed:
 
-![check 2](/img/contribute/pr5.png)
+![check 2](/img/contribute/pr5.webp)
 
-![check 3](/img/contribute/pr6.png)
+![check 3](/img/contribute/pr6.webp)
 
 For any failures re-edit your local files, commit and push to your repository. The alterations will be automatically added to your pull-request and it will be re-checked.
 
@@ -1077,11 +1077,11 @@ Node.js and Git
 
 ### Fork and Clone
 
-![Fork and Clone](/img/contribute/summary1.jpg)
+![Fork and Clone](/img/contribute/summary1.webp)
 
 ### Name Remotes and Pull
 
-![Remotes](/img/contribute/summary2.jpg)
+![Remotes](/img/contribute/summary2.webp)
 
 ### Local Install
 
@@ -1115,4 +1115,4 @@ Commit files you have added or edited but not those built.
 
 ### Push Pull-Request Check
 
-![Pull-Request](/img/contribute/summary3.jpg)
+![Pull-Request](/img/contribute/summary3.webp)

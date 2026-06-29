@@ -43,14 +43,14 @@ function showAngleSector(origin, vector1, vector2, radius, sectorType) {
       sector = BABYLON.MeshBuilder.CreateLines("sector", { points }, scene);
       break;
     case 1:
-      sector = BABYLON.Mesh.CreateDashedLines("sector", points, 3, 1, nbPoints, scene);
+      sector = BABYLON.MeshBuilder.CreateDashedLines(\"sector\", { points: points, dashSize: 3, gapSize: 1, dashNb: nbPoints }, scene);
       break;
     case 2:
       const pointO = [];
       for (let j = 0; j < points.length; j++) {
         pointO.push(origin);
       }
-      sector = BABYLON.Mesh.CreateRibbon("sector", [points, pointO], null, null, 0, scene);
+      sector = BABYLON.MeshBuilder.CreateRibbon(\"sector\", { pathArray: [points, pointO] }, scene);
       break;
     default:
       sector = BABYLON.MeshBuilder.CreateLines("sector", { points }, scene);

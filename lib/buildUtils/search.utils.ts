@@ -1,7 +1,9 @@
 import { IDocumentSearchResult, ISearchResult } from "../frontendUtils/searchQuery.utils";
+import { type DocsFlavorId } from "../docsFlavors";
 
 export interface ISearchIndexItem {
     id: string;
+    flavor: DocsFlavorId;
     title: string;
     imageUrl?: string;
     description?: string;
@@ -16,6 +18,7 @@ export interface ISearchIndexItem {
 
 export interface IPlaygroundSearchItem {
     id: string;
+    flavor: DocsFlavorId;
     playgroundId: string;
     title: string;
     imageUrl?: string;
@@ -28,9 +31,9 @@ export interface IPlaygroundSearchItem {
 
 const API_KEY = process.env.SEARCH_API_KEY;
 
-const headers = {
+const headers: Record<string, string> = {
     "Content-type": "application/json; charset=UTF-8",
-    "api-key": API_KEY,
+    "api-key": API_KEY ?? "",
 };
 
 const getUrl = (type: string, indexName: string = 'documents') => {
@@ -95,12 +98,17 @@ export const addPlaygroundItem = async (item: IPlaygroundSearchItem) => {
     return result;
 }
 
-export const clearPlaygroundIndex = async () => {
+export const clearPlaygroundIndex = async (flavorId: DocsFlavorId = "babylon") => {
     if (!process.env.SEARCH_API_KEY) {
         console.log("no search API key defined");
         return;
     }
     console.log("clearing playgrounds index.");
+    // Legacy playground documents were indexed before the `flavor` field existed and used an
+    // un-prefixed id (`base64(playgroundId)`), so a plain `flavor eq 'babylon'` filter never
+    // matched them and left duplicates behind. When clearing the default babylon flavor, also
+    // remove those legacy documents (flavor missing/null).
+    const filter = flavorId === "babylon" ? `flavor eq '${flavorId}' or flavor eq null` : `flavor eq '${flavorId}'`;
     // get all elements
     const getResults = async (params?: { top?: number, skip?: number }) => {
         return await fetch(getUrl("search", "playgrounds"), {
@@ -108,7 +116,7 @@ export const clearPlaygroundIndex = async () => {
             method: "POST",
             
             body: JSON.stringify({
-                // filter: `isMain eq true`,
+                filter,
                 top: 10000,
                 ...params
             }),
@@ -135,14 +143,24 @@ export const clearPlaygroundIndex = async () => {
             headers,
         });
     };
-    let result = (await (await getResults()).json());
+    let response = await getResults();
+    let result = await response.json();
+    if (!response.ok || !Array.isArray(result.value)) {
+        console.log("Could not read playgrounds index, skipping clear.", result);
+        return;
+    }
     const values = [];
     while (result["@odata.nextLink"]) {
         values.push(...result.value);
-        result = (await (await getResults(result["@search.nextPageParameters"])).json());
+        response = await getResults(result["@search.nextPageParameters"]);
+        result = await response.json();
+        if (!response.ok || !Array.isArray(result.value)) {
+            break;
+        }
     }
-    values.push(...result.value);
-        
+    if (Array.isArray(result.value)) {
+        values.push(...result.value);
+    }
 
     const filtered = values && (values as Array<ISearchResult>);
     while (filtered.length) {
@@ -156,7 +174,7 @@ export const clearPlaygroundIndex = async () => {
     console.log("search index cleared");
 };
 
-export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] = []) => {
+export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] = [], flavorId: DocsFlavorId = "babylon") => {
     if (!process.env.SEARCH_API_KEY) {
         console.log("no search API key defined");
         return;
@@ -174,7 +192,7 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
             method: "POST",
 
             body: JSON.stringify({
-                filter: `isApi eq ${isApi}`,
+                filter: `isApi eq ${isApi} and flavor eq '${flavorId}'`,
                 top: 10000,
                 ...params
             }),
@@ -202,12 +220,23 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
         });
     };
     const values = [];
-    let result = (await (await getResults()).json());
+    let response = await getResults();
+    let result = await response.json();
+    if (!response.ok || !Array.isArray(result.value)) {
+        console.log("Could not read documents index, skipping clear.", result);
+        return;
+    }
     while (result["@odata.nextLink"]) {
         values.push(...result.value);
-        result = (await (await getResults(result["@search.nextPageParameters"])).json());
+        response = await getResults(result["@search.nextPageParameters"]);
+        result = await response.json();
+        if (!response.ok || !Array.isArray(result.value)) {
+            break;
+        }
     }
-    values.push(...result.value);
+    if (Array.isArray(result.value)) {
+        values.push(...result.value);
+    }
     const filtered = values && (values as Array<IDocumentSearchResult>).filter((res) => !doNotDelete.includes(res.path));
     while (filtered.length) {
         const toDelete = filtered.splice(0, 1000);

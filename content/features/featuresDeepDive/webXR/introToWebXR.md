@@ -332,7 +332,7 @@ var createScene = function () {
   var scene = new BABYLON.Scene(engine);
 
   // Create simple sphere
-  var sphere = BABYLON.Mesh.CreateIcoSphere(
+  var sphere = BABYLON.MeshBuilder.CreateIcoSphere(
     "sphere",
     {
       radius: 0.2,
@@ -378,7 +378,7 @@ var createScene = function () {
   });
 
   // GUI
-  var plane = BABYLON.Mesh.CreatePlane("plane", 1);
+  var plane = BABYLON.MeshBuilder.CreatePlane("plane", { size: 1 });
   plane.position = new BABYLON.Vector3(0.4, 4, 0.4);
   var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(plane);
   var panel = new BABYLON.GUI.StackPanel();

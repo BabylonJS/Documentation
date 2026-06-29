@@ -76,7 +76,7 @@ Once script is saved and attached to at least one node, the inspector will show 
 according to their properties and options. If the inspector is already focused on a node having the edited script
 attached to it, the inspector will be automatically updated.
 
-![example](/img/extensions/Editor/ExposingProperties/example.gif)
+![example](/img/extensions/Editor/ExposingProperties/example.webp)
 
 As a full example, a script that uses the `Speed` decorated property to apply a rotation on a mesh.
 

@@ -10,7 +10,7 @@ video-content:
 
 # Brick Procedural texture
 
-![Brick Procedural texture](/img/extensions/proceduraltextures/brickpt.PNG)
+![Brick Procedural texture](/img/extensions/proceduraltextures/brickpt.webp)
 
 ## Using the Brick procedural texture
 

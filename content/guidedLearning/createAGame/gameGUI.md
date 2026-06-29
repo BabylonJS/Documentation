@@ -18,7 +18,7 @@ The Babylon GUI has a ton to offer, and the babylonjs [gui](/features/featuresDe
 
 The most important use of the GUI for my game had to be the [Hud class](https://github.com/BabylonJS/SummerFestival/blob/master/src/ui.ts). This was actually the first thing that I focused on when I started working with the GUI library. What I learned from working with this alone, I applied to all of my other states!
 
-![gameui](/img/how_to/create-a-game/guitimerspark.gif)
+![gameui](/img/how_to/create-a-game/guitimerspark.webp)
 
 ### HUD
 
@@ -181,7 +181,7 @@ this._handle = setInterval(() => {
 
 This interval controls the actual sparkler's lifetime. The sparkler has 10 energy bars, and every 2 seconds we update the animation. Once we reach the last frame, we stop the spark & clear the interval.
 
-![sparklerBar](/img/how_to/create-a-game/sparklerLife.gif)
+![sparklerBar](/img/how_to/create-a-game/sparklerLife.webp)
 
 ```javascript
 this._sparkhandle = setInterval(() => {
@@ -200,7 +200,7 @@ this._sparkhandle = setInterval(() => {
 
 This interval controls the little spark animation for the sparkler part of the bar. It will just keep looping for as long as the sparkler still has energy.
 
-![spark](/img/how_to/create-a-game/spark.gif)
+![spark](/img/how_to/create-a-game/spark.webp)
 
 Both of these are affected by whether the game is paused.
 

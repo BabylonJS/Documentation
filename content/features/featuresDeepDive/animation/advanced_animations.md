@@ -20,7 +20,7 @@ await anim.waitAsync();
 console.log("after");
 ```
 
-You can find an example here: <Playground id="#HZBCXR" title="Animation End Promise Example" description="An example of waiting for the animation end with promises." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation1.jpg"/>
+You can find an example here: <Playground id="#HZBCXR" title="Animation End Promise Example" description="An example of waiting for the animation end with promises." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation1.webp"/>
 
 ## Controlling animations
 
@@ -83,7 +83,7 @@ Fast and easy. :)
 
 You can start an animation with _enableBlending_ = true to enable blending mode. This blended animation will interpolate FROM the current object's state. This would be handy for user-controlled walking characters, or reacting to value changes from an input device.
 
-In the playground demo below, every time you click on the FPS marker, the new animation is blended with the box's current position: <Playground id="#2BLI9T#368" title="Click to Blend" description="Click on a box to blend a new animation with its current position" image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation1.jpg"/>
+In the playground demo below, every time you click on the FPS marker, the new animation is blended with the box's current position: <Playground id="#2BLI9T#368" title="Click to Blend" description="Click on a box to blend a new animation with its current position" image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation1.webp"/>
 
 Although this playground is blending the same animation into itself, more often, a different animation will be blended-into the original, such as when a walking character changes to running: <Playground id="#IQN716#9" title="Blending Animations Together" description="Example of blending animations and animation weights" isMain={true} category="Animation"/>
 
@@ -152,12 +152,12 @@ There are a few ways you can specify that you want an animation to be evaluated 
 One issue with additive animations is the problem of authoring for hierarchies. Because additive animations are evaluated relative to the result of other animations rather than the object's parent, it is not very intuitive to create them directly. To ease this burden, static `MakeAnimationAdditive` methods have been added to the [AnimationGroup](/typedoc/classes/babylon.animationgroup#makeanimationadditive), [Skeleton](/typedoc/classes/babylon.skeleton#makeanimationadditive) and [Animation](/typedoc/classes/babylon.animation#makeanimationadditive) classes. These methods allow you to specify a frame range in an existing animation to make additive while leaving the rest of the animation as non-additive. This simplifies the process quite a bit allowing the use of an additive blend on a portion of an authored animation imported to the scene.
 
 The following example demonstrates how to convert skeletal animations to additive and blend them on top of override animations. The UI buttons allow you to blend between several override animations and the sliders blend in additive animations on top.
-<Playground id="#6I67BL#451" title="Additive Animation Example" description="Demo of converting animations to additive and blending them on top of override animations." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation3.jpg"/>
+<Playground id="#6I67BL#451" title="Additive Animation Example" description="Demo of converting animations to additive and blending them on top of override animations." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation3.webp"/>
 
 This next example shows a how to use additive blending with simple Babylon.js animations. This example makes use of an offset animation group to modify the position values of a baseline animation. The amount of influence that the offset animation has on the baseline animation's values is determined by the weight accessor value on the offset animation group. Note that since the desired offset is a static value for `position.y` the animation keys all hold the same Vector3 value, but the offset animation can be as complex as needed to achieve the desired motion.
 
 This example also demonstrates how to target the weight accessor of an animation group with a direct animation to control the value. Using a separate animation to drive the value of an animation group's weight allows us to manage the timing of both animations in tight coordination. This is because we can set the value of the animation group's weight per frame synchronizing with the baseline animation's timeline and desired motion.
-<Playground id="#3RTFNJ#34" title="Additive Babylon Animations" description="Additive blending Babylon animation groups to offset a motion path" image="/img/playgroundsAndNMEs/additiveBlendingSpheres.jpg"/>
+<Playground id="#3RTFNJ#34" title="Additive Babylon Animations" description="Additive blending Babylon animation groups to offset a motion path" image="/img/playgroundsAndNMEs/additiveBlendingSpheres.webp"/>
 
 **It's important to note that to use additive animations, you need to set a weight other than -1**! -1 is the default value for the `weight` property, and if you leave this value, the special code required to blend additive animations will not be executed. In addition, regular non-additive animations that are to be blended with additive animations must also have weights other than -1.
 
@@ -250,7 +250,7 @@ For purpose, here is a good reference to create your curve algorithm : [http://c
 
 Here is a pretty cool implementation using the bezier curve algorithm :
 
-![bezier curve algorithm](/img/how_to/Animations/bezier.jpg)
+![bezier curve algorithm](/img/how_to/Animations/bezier.webp)
 
 ```javascript
 const bezierEase = new BABYLON.BezierCurveEase(0.32, -0.73, 0.69, 1.59);
@@ -273,9 +273,10 @@ const FunnyEase = (function (_super) {
 })(BABYLON.EasingFunction);
 ```
 
-You will find a complete demonstration of the easing functions behaviors, in this playground: <Playground id="#8ZNVGR" title="Easing Behavior Examples" description="Examples of the easing functions available." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation4.jpg"/>
+You will find a complete demonstration of the easing functions behaviors, in this playground: <Playground id="#8ZNVGR" title="Easing Behavior Examples" description="Examples of the easing functions available." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation4.webp"/>
 
 If you need finer control of the easing function than at animation level, you can also define it at animation key level:
+
 ```javascript
 export interface IAnimationKey {
     /**
@@ -353,14 +354,11 @@ this.engine = new BABYLON.Engine(theCanvas, true, {
 This way, the scene will render quantizing physics and animation steps by discrete chunks of the timeStep amount, as set in the physics engine. For example:
 
 ```javascript
-const physEngine = new BABYLON.CannonJSPlugin(false);
+const physEngine = new BABYLON.HavokPlugin();
 newScene.enablePhysics(this.gravity, physEngine);
-physEngine.setTimeStep(1 / 60);
 ```
 
 With the code above, the engine will run discrete steps at 60Hz (0.01666667s) and, in case of a late frame render time, it will try to calculate a maximum of 4 steps (lockstepMaxSteps) to recover eventual accumulated delay, before rendering the frame.
-
-Note that when explicitly creating the CannonJSPlugin, it is important to pass false as \_useDeltaForWorldStep parameter in its constructor, to disable CannonJS internal accumulator.
 
 To run logic code in sync with the steps, there are the two following observables on the scene:
 
@@ -378,4 +376,4 @@ Using them allows running arbitrary logic code before and after animations and p
 
 In the following example, you can see in the console the stepId in which the sphere is considered at rest and the rotation value for the rotating box. Multiple runs will always result in the same values, whatever the frame-rate.
 
-<Playground id="#DU4FPJ#3" title="Logging stepId For Sphere at Rest" description="Console logging of the stepId in which a sphere is considered at rest and the rotation value for a rotating box." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation5.jpg"/>
+<Playground id="#DU4FPJ#3" title="Logging stepId For Sphere at Rest" description="Console logging of the stepId in which a sphere is considered at rest and the rotation value for a rotating box." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation5.webp"/>

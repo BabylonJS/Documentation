@@ -28,7 +28,7 @@ To create a new Material, use **Assets > Create > Material** from the main menu 
 
 By default, new materials are assigned the **Standard Shader**, with all map properties empty, like this:
 
-![Standard Shader](/img/exporters/unity/material.jpg)
+![Standard Shader](/img/exporters/unity/material.webp)
 
 Once the Material has been created, you can apply it to an object and tweak all of its properties in the Inspector. To apply it to an object, just drag it from the Project View to any object in the Scene or Hierarchy.
 
@@ -50,7 +50,7 @@ It is possible and often desirable to have several different Materials which may
 
 Below is an example of a possible set-up combination using three materials, two shaders and one texture.
 
-![Material Diagram](/img/exporters/unity/diagram.jpg)
+![Material Diagram](/img/exporters/unity/diagram.webp)
 
 In the diagram we have a red car and a blue car. Both models use a separate material for the bodywork, “Red car material” and “Blue car material” respectively.
 

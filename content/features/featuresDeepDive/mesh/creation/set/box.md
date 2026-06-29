@@ -38,8 +38,8 @@ const box = BABYLON.MeshBuilder.CreateBox("box", options, scene); //scene is opt
 
 ### Examples
 
-Cuboid: <Playground id="#6XIT28#4" title="Create a Cuboid" description="Simple example of creating a cuboid." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes1.jpg"/>
-Face numbers, face 0 is on the positive z axis: <Playground id="#6XIT28#5" title="Create a Box With Face Numbers" description="Simple example of creating a box with face numbers." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes2.jpg"/>
+Cuboid: <Playground id="#6XIT28#4" title="Create a Cuboid" description="Simple example of creating a cuboid." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes1.webp"/>
+Face numbers, face 0 is on the positive z axis: <Playground id="#6XIT28#5" title="Create a Box With Face Numbers" description="Simple example of creating a box with face numbers." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes2.webp"/>
 
 ## Mesh
 

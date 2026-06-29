@@ -22,7 +22,7 @@ Sometimes it may be useful to know more on how this is achieved. Any attempt to 
 
 Below is a simple wireframe cube which has 8 vertices:
 
-![Wireframe](/img/how_to/Materials/box1.jpg)
+![Wireframe](/img/how_to/Materials/box1.webp)
 
 The cube is constructed from 12 facets or triangles, each face having 2 facets.
 
@@ -32,11 +32,11 @@ The color or texture for each facet is determined from those assigned to its ver
 
 Assigning red to each of the vertices of the facet 3, 2, 6 results in a red facet:
 
-![Red Facet](/img/how_to/Materials/redVert.jpg)
+![Red Facet](/img/how_to/Materials/redVert.webp)
 
 Assigning red to vertex 3, green to vertex 2 and blue to vertex 6 results in a graduated color image:
 
-![Graduated Facet](/img/how_to/Materials/gradVert.jpg)
+![Graduated Facet](/img/how_to/Materials/gradVert.webp)
 
 ## Textures at Vertices
 
@@ -66,7 +66,7 @@ There are two solutions both of which require additional facets:
 
 Replace a shared edges with a face. For example taking the shared edge 3, 7 and replacing with a face gives:
 
-![Extra Face](/img/how_to/Materials/box2.jpg)
+![Extra Face](/img/how_to/Materials/box2.webp)
 
 Now vertices 8 and 9 can be assigned green or (1, 1) and (1, 0) and so face `3, 2, 6, 7` can be red or have the start of the image and face `0, 8, 9, 4` can be green or have the end of the image with no conflict.
 
@@ -78,7 +78,7 @@ Spheres, cylinders and other self joining meshes use this method.
 
 In this case each face has its own set of indices for its vertices, so each face can have a different material applied:
 
-![Individual Faces](/img/how_to/Materials/box3.jpg)
+![Individual Faces](/img/how_to/Materials/box3.webp)
 
 Again correct coincident positioning of vertices leads to a solid looking mesh. Think of the mesh as being made of individual faces that are brought together to form a whole.
 

@@ -76,7 +76,7 @@ const laneAggregate = new BABYLON.PhysicsAggregate(lane, BABYLON.PhysicsShapeTyp
 
 The aggregate contains both a body and a shape. Since we’re adding physics to the lane, the lane is the body. As for the shape, we need to ensure that the shape matches the body. Given the lane closely resembles the shape of a box, we use the BOX shape. We also make use of the PhysicsAggregate Parameter – Mass. Since the lane lies flat against the virtual ground, we assign no mass (or 0). Otherwise, the lane would fall into the abyss of the scene!
 
-![Bowling lane](/img/samples/lane.png)
+![Bowling lane](/img/samples/lane.webp)
 
 ## Create Bowling Pins
 
@@ -94,7 +94,7 @@ async function createPins(scene) {
 createPins(scene);
 ```
 
-![Single bowling pin](/img/samples/single-pin.png)
+![Single bowling pin](/img/samples/single-pin.webp)
 
 Because we’re creating instances of the loaded bowling pin mesh, we disable the initial pin which hides the pin from view.
 
@@ -137,7 +137,7 @@ const pinAggregate = new BABYLON.PhysicsAggregate(pin, BABYLON.PhysicsShapeType.
 
 With the pin instanced and then returned, we call the `createPins()` function passing the scene into the function call. At this point, we have 10 pins instanced in the shape of a triangle!
 
-![Bowling pins and lane](/img/samples/ten-pins.png)
+![Bowling pins and lane](/img/samples/ten-pins.webp)
 
 ## Create a Bowling Ball
 
@@ -154,7 +154,7 @@ async function createBall(scene) {
 createBall(scene);
 ```
 
-![Bowling pins and lane](/img/samples/full-bowling-scene.png)
+![Bowling pins and lane](/img/samples/full-bowling-scene.webp)
 
 Now that our bowling ball is in place, we add physics to the ball. However, this time we choose the `SPHERE` shape given the balls rounded shape.
 

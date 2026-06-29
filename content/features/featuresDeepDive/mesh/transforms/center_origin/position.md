@@ -47,7 +47,7 @@ mesh.locallyTranslate(new BABYLON.Vector3(2, 3. 4));
 
 The image below shows how, using the last three methods above, how the orientation of the mesh affects its final position. The white grid lines lie in the current frame of reference, for the local space of the box mesh, which rotates with the mesh. The given vector (2, 3, 4) is applied in this frame of reference
 
-![with rotation](/img/getstarted/translate2.png)
+![with rotation](/img/getstarted/translate2.webp)
 
 **Note:** The vectors for *position* and *setPositionWithLocalVector* are position vectors. Those for *translate*, *locallyTranslate* and *addInPlace* are direction vectors.
 

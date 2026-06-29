@@ -6,7 +6,7 @@ import LinkIcon from "@mui/icons-material/ContentCopy";
 
 export const SyntaxHighlighting: FunctionComponent<{ className: string; children: string }> = (props) => {
     const [isCopy, setIsCopied] = useState(false);
-    const [checkedTimeout, setCheckedTimeout] = useState<NodeJS.Timeout>(null);
+    const [checkedTimeout, setCheckedTimeout] = useState<NodeJS.Timeout | null>(null);
     if (!props.className && typeof props.children === "string" && !props.children.includes("\n")) {
         return <code>{props.children}</code>;
     }
@@ -82,13 +82,17 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
                     <pre className={className} style={{ ...style, padding: "20px" }}>
                         <code>
-                            {tokens.map((line, i) => (
-                                <div key={i} {...getLineProps({ line, key: i })}>
-                                    {line.map((token, key) => (
-                                        <span key={key} {...getTokenProps({ token, key })} />
-                                    ))}
-                                </div>
-                            ))}
+                            {tokens.map((line, lineIndex) => {
+                                const lineProps = getLineProps({ line });
+                                return (
+                                    <div key={lineIndex} {...lineProps}>
+                                        {line.map((token, tokenIndex) => {
+                                            const tokenProps = getTokenProps({ token });
+                                            return <span key={tokenIndex} {...tokenProps} />;
+                                        })}
+                                    </div>
+                                );
+                            })}
                         </code>
                     </pre>
                 )}

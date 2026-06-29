@@ -115,7 +115,7 @@ Here is an example of pre-warming: <Playground id="#MX2Z99#171" title="Particle 
 ## Particle Texture
 
 To apply a texture to the particles, such as  
-![Flare](/img/how_to/Particles/Flare.png)
+![Flare](/img/how_to/Particles/Flare.webp)
 
 set the `particleTexture`:
 
@@ -130,7 +130,7 @@ myParticleSystem.textureMask = new BABYLON.Color4(0.1, 0.8, 0.8, 1.0);
 ```
 
 This example produces the following  
-![TextureMask](/img/how_to/Particles/12-1.png)
+![TextureMask](/img/how_to/Particles/12-1.webp)
 
 Texture mask example: <Playground id="#0K3AQ2#3959" title="Texture Mask Example" description="Particle system using a texture mask." isMain={true} category="Particles"/>
 

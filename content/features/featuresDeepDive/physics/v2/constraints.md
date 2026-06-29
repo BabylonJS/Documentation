@@ -26,13 +26,13 @@ A constraint represents a *connection* between two bodies. This connection can a
 
 Because the two bodies are still simulated independently, A constraint (`PhysicsConstraint`) definition includes transforms from the local space of each body to the pivot position/orientation of the constraint on that body. Together these are known as the "constraint space". During simulation, constraints will act on the two bodies to maintain the pivot position/orientation across the two constrained bodies. For example, a ball-and-socket constraint will apply forces to the bodies so that the pivots point positions (defined respectively to each body's local space) will coincide. Likewise, a hinge constraint will also maintain the common rotation axis.
 
-![Constraint Space](/img/how_to/physics/constraintbasics.png)
+![Constraint Space](/img/how_to/physics/constraintbasics.webp)
 
 In rigid body dynamics, each body has 6 degrees of freedom: 3 translational degrees of freedom, and 3 rotational degrees of freedom. A constraint definition includes limitations on one or more of these degrees of freedom for its constrained bodies. Different types of constraints are generally defined by the number and type of these limitations. For example, in a ball-and-socket constraint, the constrained objects have no linear freedom relative to each other in any direction as they are attached together at the point, but are completely free to rotate around the constraint pivot point. In a hinge constraint, the objects no linear freedom and also have restricted relative orientation. In addition, limits can be provided for each degree of freedom. For example, limiting the distance rotation of a hinge constraint allows you for example to create a door that will not rotate beyond a given angle.
 
-![Constraint Linear Limits](/img/how_to/physics/constraintlimitslinear.png)
+![Constraint Linear Limits](/img/how_to/physics/constraintlimitslinear.webp)
 
-![Constraint Angular Limits](/img/how_to/physics/constraintlimitsangular.png)
+![Constraint Angular Limits](/img/how_to/physics/constraintlimitsangular.webp)
 
 ## Constraint Types
 
@@ -40,12 +40,12 @@ Babylon supports several constraint types; the most generic of which is the "6 D
 
 | Enum | Name | Notes |
 | --- | --- | --- |
-| LOCK | Lock | ![Locked](/img/how_to/physics/locked.jpg) A locked joint attempts to keep the two constraint spaces completely lined up, allowing no relative movement. |
-| BALL_AND_SOCKET  | Ball and socket| ![Ball and Socket](/img/how_to/physics/ballnsocket.jpg) A ball and socket joint attempts to line up the pivot *positions* but puts no restrictions on the relative rotation of the two bodies. |
-| DISTANCE | Distance | ![Distance](/img/how_to/physics/distance.jpg) A distance joint attempts to keep the positions of the constraint spaces within a specified distance and provides no restriction on relative rotation. |
-| HINGE | Hinge | ![Hinge](/img/how_to/physics/hinge.jpg) A hinge will keep the positions of the constraint spaces aligned as well as two of the angular axes, only allowing relative rotation around one axis. |
-| PRISMATIC | Prismatic | ![Prismatic](/img/how_to/physics/prismatic.jpg) A prismatic joint allows the constraint spaces to translate along one axis and allows no relative rotation of the two spaces. |
-| SLIDER | Slider | ![Slider](/img/how_to/physics/slider.jpg) Similar to the prismatic joint, but also allows the bodies to rotate around the translation axis. |
+| LOCK | Lock | ![Locked](/img/how_to/physics/locked.webp) A locked joint attempts to keep the two constraint spaces completely lined up, allowing no relative movement. |
+| BALL_AND_SOCKET  | Ball and socket| ![Ball and Socket](/img/how_to/physics/ballnsocket.webp) A ball and socket joint attempts to line up the pivot *positions* but puts no restrictions on the relative rotation of the two bodies. |
+| DISTANCE | Distance | ![Distance](/img/how_to/physics/distance.webp) A distance joint attempts to keep the positions of the constraint spaces within a specified distance and provides no restriction on relative rotation. |
+| HINGE | Hinge | ![Hinge](/img/how_to/physics/hinge.webp) A hinge will keep the positions of the constraint spaces aligned as well as two of the angular axes, only allowing relative rotation around one axis. |
+| PRISMATIC | Prismatic | ![Prismatic](/img/how_to/physics/prismatic.webp) A prismatic joint allows the constraint spaces to translate along one axis and allows no relative rotation of the two spaces. |
+| SLIDER | Slider | ![Slider](/img/how_to/physics/slider.webp) Similar to the prismatic joint, but also allows the bodies to rotate around the translation axis. |
 | SIX_DOF | 6 Degrees Of Freedom | <figure> <img src="/img/features/physics/6DOF.svg" alt="Image representing 6 Degrees of Freedom"/> <figcaption>6 degrees of freedom: three translational and three rotational axes. By GregorDS - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=38429678</figcaption> </figure> The most generic type. Does not provide any restrictions by default, so the limits can be applied as you choose. |
 
 ## How to use it
@@ -117,11 +117,11 @@ Because of performance, limit debug mesh is not recreated when constraints chang
 
 A problem that's very noticeable to users of your application is when a third body comes between the constraint spaces of a pair of constrained bodies, resulting in visual penetration, as seen in the picture below.
 
-![Ragdoll bone gap](/img/how_to/physics/ragdollbonegap.jpg)
+![Ragdoll bone gap](/img/how_to/physics/ragdollbonegap.webp)
 
 This can look very unnatural and, in addition, cause jitter between the constrained bodies, as the collision detection will "fight" against the constraint. Overlapping the constrained bodies greatly helps to avoid situations like this.
 
-![Ragdoll with overlapping bones](/img/how_to/physics/ragdolloverlappedbones.jpg)
+![Ragdoll with overlapping bones](/img/how_to/physics/ragdolloverlappedbones.webp)
 
 Even when the constraint is not attempting to force the bodies into an overlapping position, most use-cases for constraints still attempt to position the bodies very close to each other. To avoid the collision detection from "fighting" the constraint resolution, by default, we disable collisions between each pair of constrained bodies. If you *do* want the bodies to collide, however, this can be controlled by `PhysicsConstraint.isCollisionsEnabled`.
 

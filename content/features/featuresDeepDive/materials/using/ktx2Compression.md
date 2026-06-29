@@ -10,7 +10,7 @@ video-content:
 
 ## Introduction
 
-<img src="/img/resources/gpu_compressed_textures/compression_cesar.png" title="Compression" caption="Photo credit : © Adam Rzepka - Centre Pompidou, MNAM-CCI /Dist. RMN-GP"/>
+<img src="/img/resources/gpu_compressed_textures/compression_cesar.webp" title="Compression" caption="Photo credit : © Adam Rzepka - Centre Pompidou, MNAM-CCI /Dist. RMN-GP"/>
 
 Using GPU compressed textures is becoming more and more important in the computer graphics / gaming land as it allows to use more assets within the same memory budget and provides better performances by reducing cache misses on the GPU side.
 
@@ -18,7 +18,7 @@ Note that we are speaking about **GPU compressed textures**, meaning textures th
 
 ## Working with compressed texture formats
 
-<img src="/img/resources/gpu_compressed_textures/container.jpg" title="Container" caption="Photo courtesy of Depositphotos"/>
+<img src="/img/resources/gpu_compressed_textures/container.webp" title="Container" caption="Photo courtesy of Depositphotos"/>
 
 There are a number of compression formats used by the industry (ASTC, DXT, PVRTC, etc), and depending on your device it will generally support only a (small) subset of them : see [the table here](/features/featuresDeepDive/materials/advanced/mutliPlatTextures#khronos-texture-container-format--ktx-files) for more details. So, to support a wide range of devices, you would need to provide your assets in multiple different formats and Babylon.js would choose the right one depending on the capability of the target device.
 
@@ -26,7 +26,7 @@ It can be a bit tedious to generate and maintain so many formats for a given ass
 
 ## KTX2 container
 
-<img src="/img/resources/gpu_compressed_textures/ktx2.jpg" title="KTX2"/>
+<img src="/img/resources/gpu_compressed_textures/ktx2.webp" title="KTX2"/>
 
 **KTX** stands for **Khronos Texture Container** and the current incarnation is [v2.0](http://github.khronos.org/KTX-Specification/#basisu_gd) (we won't discuss v1 version) and the associated file format extension is **.ktx2**.
 
@@ -43,7 +43,7 @@ Note that .ktx2 files can also store GPU compressed non-universal data, but as f
 
 ## Babylon.js support for .ktx2 files
 
-<img src="/img/resources/gpu_compressed_textures/breeze.gif" title="KTX2" caption="Gif courtesy of giphy.com"/>
+<img src="/img/resources/gpu_compressed_textures/breeze.webp" title="KTX2" caption="Gif courtesy of giphy.com"/>
 
 On **Babylon.js** side, using such files is a breeze: just create a Texture instance by pointing to the .ktx2 file you want to use, as you would with any other standard picture format (png, jpg, etc) !
 
@@ -55,7 +55,7 @@ _Note_ : you may have already encountered/heard of **.basis** files. Those files
 
 ## Tools
 
-<img src="/img/resources/gpu_compressed_textures/tools.png" title="Tools" caption="Photo courtesy of pixels.com"/>
+<img src="/img/resources/gpu_compressed_textures/tools.webp" title="Tools" caption="Photo courtesy of pixels.com"/>
 
 Now that you know why you should use .ktx2 files, you will need to actually generate them !
 
@@ -68,4 +68,4 @@ Khronos is providing [command line tools](https://github.com/KhronosGroup/KTX-So
 
 _Happy compressions !_
 
-<img src="/img/resources/gpu_compressed_textures/compression.gif" title="KTX2" caption="Gif courtesy of giphy.com"/>
+<img src="/img/resources/gpu_compressed_textures/compression.webp" title="KTX2" caption="Gif courtesy of giphy.com"/>

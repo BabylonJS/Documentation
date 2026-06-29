@@ -51,13 +51,13 @@ Simply go to this site and generate the json description file for the font you w
 
 We are also offering already exported fonts on assets.babylonjs.com:
 
-- https://assets.babylonjs.com/fonts/Droid Sans_Bold.json (http://www.droidfonts.com/)
-- https://assets.babylonjs.com/fonts/Droid Sans_Regular.json (http://www.droidfonts.com/)
-- https://assets.babylonjs.com/fonts/Kenney Future Regular.json (https://www.kenney.nl/assets/kenney-fonts)
+- [https://assets.babylonjs.com/fonts/Droid Sans_Bold.json](<https://assets.babylonjs.com/fonts/Droid Sans_Bold.json>) (http://www.droidfonts.com/)
+- [https://assets.babylonjs.com/fonts/Droid Sans_Regular.json](<https://assets.babylonjs.com/fonts/Droid Sans_Regular.json>) (http://www.droidfonts.com/)
+- [https://assets.babylonjs.com/fonts/Kenney Future Regular.json](<https://assets.babylonjs.com/fonts/Kenney Future Regular.json>) (https://www.kenney.nl/assets/kenney-fonts)
 
 ### Examples
 
-Hello world: <Playground id="#6I2RMN#2" title="Create a 3d text" description="Simple example of creating a 3d text." image="/img/playgroundsAndNMEs/createText.jpg"/>
+Hello world: <Playground id="#6I2RMN#2" title="Create a 3d text" description="Simple example of creating a 3d text." image="/img/playgroundsAndNMEs/createText.webp"/>
 
 ### Controlling letters texture mapping and colors
 

@@ -1,7 +1,7 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { FunctionComponent, useContext, useState } from "react";
 import { ITableOfContentsItem } from "../../lib/content.interfaces";
-import { DocumentationContext } from "../../pages/[...id]";
+import { DocumentationContext } from "../../features/docs/DocumentationContext";
 
 export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[]; levels: number }> = ({ tocItems, levels }) => {
     // To commented-out lines in this file are for future use.
@@ -104,7 +104,6 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
                     position: "relative",
                     // transition: "max-height 0.2s",
                     // maxHeight: 0,
-                    overflow: "hidden",
                     "& div": {
                         whiteSpace: "nowrap",
                         overflow: "hidden",

@@ -40,6 +40,6 @@ pixelateBlock.output.connectTo(smartFilter.output);
 ```
 
 Or visually using a new tool, the [Smart Filter Editor](https://sfe.babylonjs.com):
-![SFE](/img/how_to/smart-filters/sfe-default.png)
+![SFE](/img/how_to/smart-filters/sfe-default.webp)
 
 See the following sub topics to learn about how to get started with Smart Filters, how to integrate them into your projects, how to create custom blocks, and more.

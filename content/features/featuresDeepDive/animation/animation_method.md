@@ -102,7 +102,7 @@ If a looping animation is desired, set the fourth parameter to true.
 scene.beginAnimation(target, from, to, true);
 ```
 
-<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg"/>
+<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.webp"/>
 
 There are a number of further optional parameters that you can find in the _scene_ API.
 
@@ -122,7 +122,7 @@ scene.beginDirectAnimation(target, animations, from, to, loop);
 
 Be aware that animations applied with `scene.beginDirectAnimation` do not belong to any object or the scene so the scene is not aware of these animations and they do not register in `scene.animations`. However, this method is extremely useful for applying a one-time animation to an object or for animating an object that does not have an _animations_ array property if it is desirable not to alter the target object. Further optional parameters are available and can be found in the _scene_ API. If `scene.beginDirectAnimation` is the preferable method, but additionally having a reference to the animation that can be used in the future is required, an _Animatable_ is exactly what is needed.
 
-<Playground id="#7V0Y1I#1" title="Sliding Box Direct Animation" description="An example of sliding a box with direct animation." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/>
+<Playground id="#7V0Y1I#1" title="Sliding Box Direct Animation" description="An example of sliding a box with direct animation." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.webp" isMain={true} category="Animation"/>
 
 ## Animatable
 
@@ -139,4 +139,4 @@ Once the animatable is stored, any of the following methods can be called to cha
 - _stop()_
 - _reset()_
 
-<Playground id="#7V0Y1I#2" title="Box animation stop after 5 secs" description="An example of stopping an animation after specific amount of time." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/>
+<Playground id="#7V0Y1I#2" title="Box animation stop after 5 secs" description="An example of stopping an animation after specific amount of time." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.webp" isMain={true} category="Animation"/>

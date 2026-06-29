@@ -84,4 +84,4 @@ scene.registerBeforeRender(function () {
 ## Fireworks
 
 [External Example - Shader Material](http://babylonjsguide.github.io/examples/fireworkcode.html)  
-PG: <Playground id="#1OH09K#1672" title="Fireworks" description="Build from Shader Material." image="/img/playgroundsAndNMEs/pg-1OH09K-4.png"/>
+PG: <Playground id="#1OH09K#1672" title="Fireworks" description="Build from Shader Material." image="/img/playgroundsAndNMEs/pg-1OH09K-4.webp"/>

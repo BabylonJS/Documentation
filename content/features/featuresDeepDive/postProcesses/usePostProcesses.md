@@ -240,17 +240,17 @@ The second parameter of the constructor is the URL of the color look-up table (a
 
 Here is what the default (without filter) look-up table looks like:
 
-![LUT](/img/how_to/post-processes/lut-default.png)
+![LUT](/img/how_to/post-processes/lut-default.webp)
 
 Examples of filtered LUT to use for various filters:
 
-![LUT](/img/how_to/post-processes/lut-inverted.png)
+![LUT](/img/how_to/post-processes/lut-inverted.webp)
  Inverted colors
 
-![LUT](/img/how_to/post-processes/lut-highcontrast.png)
+![LUT](/img/how_to/post-processes/lut-highcontrast.webp)
  High contrast
 
-![LUT](/img/how_to/post-processes/lut-posterized.png)
+![LUT](/img/how_to/post-processes/lut-posterized.webp)
  Posterize
 
 You can easily create new filters by using an image editing software to alter the look-up table to fit your needs. Copy/paste the default look-up table on a screenshot or picture before altering it to see in real time what the filtered image will look like.

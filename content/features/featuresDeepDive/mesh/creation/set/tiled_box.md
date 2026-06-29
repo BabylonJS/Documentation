@@ -34,7 +34,7 @@ alignHorizontal| _(number)_ positions whole tiles at left, right or center of a 
 updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE 
 
-<Playground id="#FAP6ZC#3" title="Create a Tiled Box" description="Simple example of creating a tiled box." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes3.jpg"/>
+<Playground id="#FAP6ZC#3" title="Create a Tiled Box" description="Simple example of creating a tiled box." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes3.webp"/>
 
 The values for the options *pattern* property are the following constants
 
@@ -70,11 +70,11 @@ There are 7 * 3 * 3 = 63 different arrangements for the tiles.
 ## Examples
 We use the following image as the texture in the following examples
 
-![Arrow Pattern](/img/how_to/mesh/tiles6.jpg)  
+![Arrow Pattern](/img/how_to/mesh/tiles6.webp)  
 
 Different texture each side, tile width 1, tile height 1 
-Playground Example -  <Playground id="#FAP6ZC#4" title="Create a Tiled Box With Different Face Textures" description="Simple example of creating a tiled box with different textures on each side." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes4.jpg"/>
+Playground Example -  <Playground id="#FAP6ZC#4" title="Create a Tiled Box With Different Face Textures" description="Simple example of creating a tiled box with different textures on each side." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes4.webp"/>
 
 
 All the 63 arrangements. To see the headings view the full playground.
-<Playground id="#FAP6ZC#2" title="Create a Tiled Box With 63 Different Arrangements" description="Simple example of creating a tiled box with 63 different arrangements." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes4.jpg"/>
+<Playground id="#FAP6ZC#2" title="Create a Tiled Box With 63 Different Arrangements" description="Simple example of creating a tiled box with 63 different arrangements." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes4.webp"/>

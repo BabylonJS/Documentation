@@ -16,7 +16,7 @@ video-content:
 
 Each and every shape in Babylon.js is built from a mesh of triangles or facets as shown below:
 
-![Custom Mesh](/img/features/scene/custom1.jpg)
+![Custom Mesh](/img/features/scene/custom1.webp)
 
 Every facet is made up of three vertices each of which is assigned data that not only affects the position of the facet but also
 its color, texture and how it is lit. The complex process of applying a shader to turn this data into a viewable mesh
@@ -119,7 +119,7 @@ and so:
 
 Clearly the normals for each facet are pointing in opposite directions. They all point away from the origin.
 
-![Normal Direction](/img/how_to/Mesh/normals1.jpg)
+![Normal Direction](/img/how_to/Mesh/normals1.webp)
 
 Looking from the origin towards facet 3, 4, 5 then the order in the indices array 3, 4, 5 around the facet is clockwise.
 
@@ -148,13 +148,13 @@ Removing the wireframe effect then:
 
 1. Camera looking in positive z direction
 
-![Positive Z Direction](/img/how_to/Mesh/normals3.jpg)
+![Positive Z Direction](/img/how_to/Mesh/normals3.webp)
 
 Black facet cannot be seen.
 
 2. Camera looking in negative z direction
 
-![Negative Z Direction](/img/how_to/Mesh/normals4.jpg)
+![Negative Z Direction](/img/how_to/Mesh/normals4.webp)
 
 White facet not seen.
 
@@ -169,7 +169,7 @@ To draw the back face of a mesh turn `backFaceCulling` to `false` for the materi
 mat.backFaceCulling = false;
 ```
 
-![Both Facets](/img/how_to/Mesh/normals5.jpg)
+![Both Facets](/img/how_to/Mesh/normals5.webp)
 
 Comment line 41 out in the following to see back face culling happening.
 
@@ -245,13 +245,13 @@ Think of any image to be applied as a texture as having a pair of axes set at th
 (u, v as x and y are used for position axes). The origin being the left-hand bottom corner of the image, the top being at v = 1 and the right hand edge at u = 1 as
 in the diagram below.
 
-![Image with uv axes](/img/how_to/Mesh/uv1.jpg)
+![Image with uv axes](/img/how_to/Mesh/uv1.webp)
 
 For simplification the following only uses the facet 0, 1, 2.
 
 Each vertex of the facet is assigned a uv coordinate pair from the image.
 
-![Image with uv triangle](/img/how_to/Mesh/uv2.jpg)
+![Image with uv triangle](/img/how_to/Mesh/uv2.webp)
 
 | index | color  |
 | ----- | ------ |
@@ -285,7 +285,7 @@ vertexData.applyToMesh(customMesh);
 
 results in:
 
-![Result on Facet](/img/how_to/Mesh/uv3.jpg)
+![Result on Facet](/img/how_to/Mesh/uv3.webp)
 
 Note that the image is skewed since the shape of the triangular facet and that on the image do not match.
 
@@ -299,11 +299,11 @@ var vertexData.colors = colors;
 
 gives:
 
-![Result on Facet with red color added](/img/how_to/Mesh/uv4.jpg)
+![Result on Facet with red color added](/img/how_to/Mesh/uv4.webp)
 
 In the playground below clicking on next will cycle you through a variety of values for the uv coordinates.
 
-<Playground id="#VKBJN#4642" title="Varying UV Values" description="Simple example of varying UV values." image="/img/playgroundsAndNMEs/pg-VKBJN-4.png"/>
+<Playground id="#VKBJN#4642" title="Varying UV Values" description="Simple example of varying UV values." image="/img/playgroundsAndNMEs/pg-VKBJN-4.webp"/>
 
 _Notes about Playground above_: The camera has been disabled for the above playground. The uv values are shown and the relative index are shown on the texture image.
 One day this playground might improve. You will get some idea of how to achieve reflections and rotations of textures on a facet. However for a mesh the [arrangement of facets](/features/featuresDeepDive/mesh/facetData) must be considered when trying to achieve a particular texture mapping on the mesh.

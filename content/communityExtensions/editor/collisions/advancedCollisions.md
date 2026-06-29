@@ -49,7 +49,7 @@ To edit the advanced collisions, select a mesh in the graph, scroll in the inspe
 and click the button `Edit Advanced Collisions...`. On clicked, a new tool is opened over the inspector showing the current
 state of the collisions of the object.
 
-![AdvancedCollisions](/img/extensions/Editor/AdvancedCollisions/advanced_collisions.png)
+![AdvancedCollisions](/img/extensions/Editor/AdvancedCollisions/advanced_collisions.webp)
 
 ## Understanding The Tool
 Once opened, the tool shows the current stage of the collisions of the object (here `None`). To select a collider type,
@@ -62,11 +62,11 @@ component.*
 ### Cube Collider
 The `Cube` collider is the most performant collider that allows to check collisions only on the bounding box of the mesh.
 
-![CubeColliderTool](/img/extensions/Editor/AdvancedCollisions/cube_collider_tool.png)
+![CubeColliderTool](/img/extensions/Editor/AdvancedCollisions/cube_collider_tool.webp)
 
 In other words, just imagine that the following model will have collisions check like it was a cube instead of a complex mesh:
 
-![CubeCollider](/img/extensions/Editor/AdvancedCollisions/cube_collider.png)
+![CubeCollider](/img/extensions/Editor/AdvancedCollisions/cube_collider.webp)
 
 ### Sphere Collider
 As well as the `Cube` collider, the `Sphere` collider will allow to check the collisions on the bounding sphere of the mesh
@@ -89,10 +89,10 @@ the stairs.
 
 In most cases, setting the quality as "0.01" works where the vertices count can change from `77 424` to `882`.
 
-![LODColliderTool](/img/extensions/Editor/AdvancedCollisions/lod_collider_tool.png)
+![LODColliderTool](/img/extensions/Editor/AdvancedCollisions/lod_collider_tool.webp)
 
 Once properties are set, just click the `Compute...` button to generate the LOD and an overlay will appear to notify that the
 algorithm is working. Once done, the `Infos` section is updated to show the new vertices count value and the collider mesh in the preview
 is updated as well:
 
-![LODCollider](/img/extensions/Editor/AdvancedCollisions/lod_collider.png)
+![LODCollider](/img/extensions/Editor/AdvancedCollisions/lod_collider.webp)
