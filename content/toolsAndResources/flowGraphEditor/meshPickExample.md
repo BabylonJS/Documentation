@@ -98,3 +98,5 @@ After this example, natural follow-ups are:
 1. Swap `ConsoleLog` for `SetProperty` to make the interaction visibly change the scene.
 2. Try a pointer event instead of a pick event.
 3. Use Debug Mode to watch the graph fire when the click happens.
+
+When you want to see all of this combined into a full interactive scene, study [Example - Babylon Bros Platformer](/toolsAndResources/flowGraphEditor/babylonBrosExample).

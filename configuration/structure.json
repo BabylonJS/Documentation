@@ -2717,6 +2717,11 @@
                             "children": {},
                             "content": "toolsAndResources/flowGraphEditor/meshPickExample"
                         },
+                        "babylonBrosExample": {
+                            "friendlyName": "Example - Babylon Bros Platformer",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/babylonBrosExample"
+                        },
                         "multipleGraphs": {
                             "friendlyName": "Multiple Graphs In One Editor",
                             "children": {},

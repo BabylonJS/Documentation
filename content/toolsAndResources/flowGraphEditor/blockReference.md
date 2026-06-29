@@ -277,6 +277,12 @@ For deeper write-ups on the largest authoring families, continue with [Event Blo
 | `IndexOf` | Returns the index of an item inside a collection. |
 | `DataSwitch` | Routes or selects data based on configured cases. |
 
+## Keyboard
+
+| Block | Description |
+| ----- | ----------- |
+| `IsKeyPressed` | Reports whether a specific key is currently pressed. |
+
 ## Utility
 
 | Block | Description |

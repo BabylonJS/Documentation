@@ -214,6 +214,10 @@ If your graph needs to read from or write to scene state, graph state, or struct
 
 For deeper guidance, see [Data Access Blocks](/toolsAndResources/flowGraphEditor/dataAccessBlocks).
 
+## Keyboard
+
+Keyboard blocks let graphs read input state directly. The current capability is checking whether a specific key is pressed, which is useful for movement, jump, and other input-driven interactions like the [Babylon Bros platformer example](/toolsAndResources/flowGraphEditor/babylonBrosExample).
+
 ## Utility
 
 Utility blocks support authoring and diagnostics rather than a single runtime domain.
