@@ -2722,6 +2722,57 @@
                             "children": {},
                             "content": "toolsAndResources/flowGraphEditor/babylonBrosExample"
                         },
+                        "babylonBrosTutorial": {
+                            "friendlyName": "Tutorial - Build Babylon Bros",
+                            "children": {
+                                "prepareAssets": {
+                                    "friendlyName": "Step 0 - Prepare The Assets",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/prepareAssets"
+                                },
+                                "setup": {
+                                    "friendlyName": "Step 1 - Set Up The Editor",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/setup"
+                                },
+                                "movement": {
+                                    "friendlyName": "Step 2 - Move The Hero",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/movement"
+                                },
+                                "jump": {
+                                    "friendlyName": "Step 3 - Add Jumping",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/jump"
+                                },
+                                "coins": {
+                                    "friendlyName": "Step 4 - Collect Coins",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/coins"
+                                },
+                                "springs": {
+                                    "friendlyName": "Step 5 - Spring Bounces",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/springs"
+                                },
+                                "enemies": {
+                                    "friendlyName": "Step 6 - Enemies",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/enemies"
+                                },
+                                "win": {
+                                    "friendlyName": "Step 7 - Win Condition",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/win"
+                                },
+                                "publish": {
+                                    "friendlyName": "Step 8 - Save And Publish",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/publish"
+                                }
+                            },
+                            "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial"
+                        },
                         "multipleGraphs": {
                             "friendlyName": "Multiple Graphs In One Editor",
                             "children": {},

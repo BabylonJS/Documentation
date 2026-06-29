@@ -50,6 +50,7 @@ The feature set is growing quickly, so this section is intentionally structured 
 - [Example - Your First Runnable Graph](/toolsAndResources/flowGraphEditor/firstGraphExample)
 - [Example - Click A Mesh And Log It](/toolsAndResources/flowGraphEditor/meshPickExample)
 - [Example - Babylon Bros Platformer](/toolsAndResources/flowGraphEditor/babylonBrosExample)
+- [Tutorial - Build Babylon Bros](/toolsAndResources/flowGraphEditor/babylonBrosTutorial)
 - [Multiple Graphs In One Editor](/toolsAndResources/flowGraphEditor/multipleGraphs)
 - [Execution Contexts](/toolsAndResources/flowGraphEditor/executionContexts)
 - [Authoring, Validation, and Debugging](/toolsAndResources/flowGraphEditor/authoringAndDebugging)
