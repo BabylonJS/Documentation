@@ -16,7 +16,7 @@ Turn the finished graph into something a scene can run by saving it to a snippet
 
 ## Save To The Snippet Server
 
-In the editor, save to the snippet server. You get an ID back; the final tutorial graph is `#FQTQ83`. The scene reference is stored alongside it, so reopening the editor restores the preview.
+In the editor, save to the snippet server. You get an ID back; the final tutorial graph is `#HUA46E`. To preview it against the level, load scene `P41T6E#2` in the editor's preview panel.
 
 ![The complete Babylon Bros graph in the editor, ready to save to the snippet server](/img/tools/flowGraphEditor/tutorial/editorOverview.webp)
 
@@ -25,7 +25,7 @@ In the editor, save to the snippet server. You get an ID back; the final tutoria
 In your scene code, parse the coordinator from the snippet and start it:
 
 ```javascript
-const coordinator = await BABYLON.ParseFlowGraphCoordinatorFromSnippetAsync("FQTQ83", { scene });
+const coordinator = await BABYLON.ParseFlowGraphCoordinatorFromSnippetAsync("HUA46E", { scene });
 coordinator.start();
 ```
 
@@ -40,5 +40,5 @@ The full demo is the complete scene plus the graph:
 ## Where To Go Next
 
 - Reopen any step in the editor and experiment: change jump force, coin scoring, or enemy behavior.
-- Round-trip your edits through the snippet server to compare against `#FQTQ83`.
+- Round-trip your edits through the snippet server to compare against `#HUA46E`.
 - Revisit the [block families](/toolsAndResources/flowGraphEditor/supportedBlockFamilies) for capabilities this tutorial did not use.

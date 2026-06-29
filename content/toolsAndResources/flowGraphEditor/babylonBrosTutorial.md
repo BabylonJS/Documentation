@@ -26,12 +26,12 @@ Each step ends with a saved flow graph snippet that includes everything from the
 
 | Step | Snippet |
 | ---- | ------- |
-| Move the hero | `#LQF05M` |
-| Add jumping | `#RZIR69` |
-| Collect coins | `#PJ6NXB` |
-| Spring bounces | `#RB4AJX` |
-| Enemies | `#XR3NO0` |
-| Win condition (final) | `#FQTQ83` |
+| Move the hero | `#1CUUOO` |
+| Add jumping | `#LI45XB` |
+| Collect coins | `#W0H5RG` |
+| Spring bounces | `#YCDRLC` |
+| Enemies | `#CMWMAN` |
+| Win condition (final) | `#HUA46E` |
 
 The scene is loaded from Playground snippet `#P41T6E#2` throughout, so every step shares the same preview scene.
 

@@ -14,13 +14,13 @@ further-reading:
 
 Reaching the flag wins the game: raise the flag, play victory music, and set a `gameDone` flag so input stops mattering.
 
-Open this step in the editor: [#FQTQ83](https://flowgraph.babylonjs.com/#FQTQ83) (scene `P41T6E#2`). This is the complete graph.
+Open this step in the editor: [#HUA46E](https://flowgraph.babylonjs.com/#HUA46E) (scene `P41T6E#2`). This is the complete graph.
 
 ![The complete Babylon Bros graph with the win handler in place](/img/tools/flowGraphEditor/tutorial/win.webp)
 
 Run this step:
 
-<Playground id="#HC9TNG#0" title="Babylon Bros - Win" description="Tutorial step: the complete game with the win condition, powered by flow graph #FQTQ83." category="Flow Graph"/>
+<Playground id="#609FGO#0" title="Babylon Bros - Win" description="Tutorial step: the complete game with the win condition, powered by flow graph #HUA46E." category="Flow Graph"/>
 
 ## Blocks Used
 
@@ -50,4 +50,4 @@ Gate the movement and jump branches behind `gameDone` so input is ignored after 
 
 ## Test And Save
 
-Run and reach the flag. Save; this is `#FQTQ83`. Finish with [Step 8 - Save And Publish](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/publish).
+Run and reach the flag. Save; this is `#HUA46E`. Finish with [Step 8 - Save And Publish](/toolsAndResources/flowGraphEditor/babylonBrosTutorial/publish).
