@@ -1,17 +1,44 @@
 import { existsSync, mkdirSync, rmSync, writeFileSync } from "fs";
 import { join } from "path";
 import { afterEach, describe, expect, it } from "vitest";
+import sharp from "sharp";
 
 import { ContentGraph, ContentGraphPage } from "../lib/contentGraph/types";
-import { collectExampleImageReferences, createExampleImageReport } from "../lib/contentGraph/exampleImages";
+import { collectExampleImageReferences, createExampleImageReport, createExampleImageReportWithBlanks, detectBlankImages, isBlankImage } from "../lib/contentGraph/exampleImages";
 import { createDocumentationSearchIndex, createPlaygroundSearchIndex, createSitemapEntries, createSitemapXml, createSitemapXmlFromEntries } from "../lib/contentGraph/staticArtifacts";
 
+// libvips caches decoded input keyed on filename + coarse mtime; disable it so tests that rewrite
+// the same path within a second read fresh pixels.
+sharp.cache(false);
+
 const testImagePath = join(process.cwd(), "public/img/playgroundsAndNMEs/__content-artifacts-test.webp");
+const blankImagePath = join(process.cwd(), "public/img/playgroundsAndNMEs/__content-artifacts-blank.webp");
+const variedImagePath = join(process.cwd(), "public/img/playgroundsAndNMEs/__content-artifacts-varied.webp");
+
+const writeSolidImage = async (path: string) => {
+    mkdirSync(join(path, ".."), { recursive: true });
+    await sharp({ create: { width: 16, height: 16, channels: 3, background: { r: 0, g: 0, b: 0 } } })
+        .webp()
+        .toFile(path);
+};
+
+const writeVariedImage = async (path: string) => {
+    mkdirSync(join(path, ".."), { recursive: true });
+    const pixels = Buffer.alloc(16 * 16 * 3);
+    for (let i = 0; i < pixels.length; i++) {
+        pixels[i] = (i * 37) % 256;
+    }
+    await sharp(pixels, { raw: { width: 16, height: 16, channels: 3 } })
+        .webp({ lossless: true })
+        .toFile(path);
+};
 
 afterEach(() => {
-    if (existsSync(testImagePath)) {
-        rmSync(testImagePath, { force: true });
-    }
+    [testImagePath, blankImagePath, variedImagePath].forEach((path) => {
+        if (existsSync(path)) {
+            rmSync(path, { force: true });
+        }
+    });
 });
 
 const createPage = (overrides: Partial<ContentGraphPage> = {}): ContentGraphPage => ({
@@ -178,5 +205,37 @@ describe("Static Content Artifacts", () => {
         expect(report.checkedImages).toBe(2);
         expect(report.existingImages.map((reference) => reference.id)).toEqual(["EXISTING#1"]);
         expect(report.missingImages.map((reference) => reference.id)).toEqual(["MISSING#1"]);
+    });
+
+    it("detects blank solid-color images and treats varied images as non-blank", async () => {
+        await writeSolidImage(blankImagePath);
+        expect(await isBlankImage(blankImagePath)).toBe(true);
+
+        await writeVariedImage(variedImagePath);
+        expect(await isBlankImage(variedImagePath)).toBe(false);
+    });
+
+    it("treats unreadable images as blank", async () => {
+        mkdirSync(join(testImagePath, ".."), { recursive: true });
+        writeFileSync(testImagePath, "not a real image");
+        expect(await isBlankImage(testImagePath)).toBe(true);
+    });
+
+    it("flags blank existing images in the report", async () => {
+        await writeSolidImage(testImagePath);
+
+        const graph = createGraph([
+            createPage({
+                examples: [{ type: "pg", id: "BLANK#1", imageUrl: "/img/playgroundsAndNMEs/__content-artifacts-test.webp" }],
+            }),
+        ]);
+
+        const report = await createExampleImageReportWithBlanks(graph);
+
+        expect(report.existingImages.map((reference) => reference.id)).toEqual(["BLANK#1"]);
+        expect(report.blankImages?.map((reference) => reference.id)).toEqual(["BLANK#1"]);
+
+        const references = collectExampleImageReferences(graph);
+        expect((await detectBlankImages(references)).map((reference) => reference.id)).toEqual(["BLANK#1"]);
     });
 });

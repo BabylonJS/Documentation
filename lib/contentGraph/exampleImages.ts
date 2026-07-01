@@ -1,6 +1,8 @@
 import { existsSync } from "fs";
 import { join } from "path";
 
+import sharp from "sharp";
+
 import { getExampleImageUrl } from "../frontendUtils/frontendTools";
 import type { ContentGraph, ContentGraphExampleReference, ContentGraphPage } from "./types";
 
@@ -20,6 +22,7 @@ export interface ExampleImageReport {
     checkedImages: number;
     existingImages: ExampleImageReference[];
     missingImages: ExampleImageReference[];
+    blankImages?: ExampleImageReference[];
 }
 
 const skippedExampleIds = new Set(["", "nmeId", "playgroundId"]);
@@ -87,8 +90,71 @@ export const createExampleImageReport = (graph: ContentGraph): ExampleImageRepor
     };
 };
 
+/**
+ * Maximum per-channel standard deviation (0-255 scale) below which an image is
+ * considered blank/empty. A solid-color screenshot has a stdev of 0; real
+ * playground renders measure well above 10 even for very simple scenes.
+ */
+export const blankImageStdevThreshold = 1;
+
+/**
+ * Detects whether an image file is blank (a single uniform color) or effectively
+ * empty. Uses per-channel standard deviation so detection is independent of file
+ * size and image format. Unreadable/corrupt images are treated as blank.
+ */
+export const isBlankImage = async (imagePath: string, threshold = blankImageStdevThreshold): Promise<boolean> => {
+    try {
+        const { channels } = await sharp(imagePath).stats();
+        if (channels.length === 0) {
+            return true;
+        }
+
+        // Ignore the alpha channel (if present) so a transparent-but-uniform image still counts as blank.
+        const colorChannels = channels.length >= 3 ? channels.slice(0, 3) : channels;
+        const maxStdev = Math.max(...colorChannels.map((channel) => channel.stdev));
+        return maxStdev <= threshold;
+    } catch {
+        return true;
+    }
+};
+
+/**
+ * Scans a list of existing image references and returns the ones that are blank.
+ * Runs with bounded concurrency to keep the check fast over thousands of images.
+ */
+export const detectBlankImages = async (references: ExampleImageReference[], concurrency = 8): Promise<ExampleImageReference[]> => {
+    const blankImages: ExampleImageReference[] = [];
+    let cursor = 0;
+
+    const worker = async () => {
+        while (cursor < references.length) {
+            const reference = references[cursor++];
+            if (await isBlankImage(reference.imagePath)) {
+                blankImages.push(reference);
+            }
+        }
+    };
+
+    await Promise.all(Array.from({ length: Math.min(concurrency, references.length) }, () => worker()));
+
+    return blankImages.sort((left, right) => left.imageUrl.localeCompare(right.imageUrl));
+};
+
+/**
+ * Builds an example image report and additionally flags existing images that are
+ * blank/empty. Blank images are reported separately so callers can regenerate them.
+ */
+export const createExampleImageReportWithBlanks = async (graph: ContentGraph): Promise<ExampleImageReport> => {
+    const report = createExampleImageReport(graph);
+    const blankImages = await detectBlankImages(report.existingImages);
+    return { ...report, blankImages };
+};
+
 export const formatExampleImageReport = (report: ExampleImageReport, warningLimit = 25) => {
-    const lines = [`Example image check: ${report.checkedImages} image(s), ${report.missingImages.length} missing, ${report.existingImages.length} existing.`];
+    const blankImages = report.blankImages ?? [];
+    const lines = [
+        `Example image check: ${report.checkedImages} image(s), ${report.missingImages.length} missing, ${blankImages.length} blank, ${report.existingImages.length} existing.`,
+    ];
 
     report.missingImages.slice(0, warningLimit).forEach((reference) => {
         lines.push(`MISSING ${reference.imageUrl} (${reference.documentationPage}${reference.sourcePath ? ` ${reference.sourcePath}` : ""})`);
@@ -96,6 +162,14 @@ export const formatExampleImageReport = (report: ExampleImageReport, warningLimi
 
     if (report.missingImages.length > warningLimit) {
         lines.push(`... ${report.missingImages.length - warningLimit} additional missing image(s) omitted.`);
+    }
+
+    blankImages.slice(0, warningLimit).forEach((reference) => {
+        lines.push(`BLANK ${reference.imageUrl} (${reference.documentationPage}${reference.sourcePath ? ` ${reference.sourcePath}` : ""})`);
+    });
+
+    if (blankImages.length > warningLimit) {
+        lines.push(`... ${blankImages.length - warningLimit} additional blank image(s) omitted.`);
     }
 
     return lines.join("\n");

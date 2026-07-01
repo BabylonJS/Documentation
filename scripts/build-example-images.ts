@@ -5,11 +5,12 @@ import puppeteer, { type Page } from "puppeteer";
 
 import { getContentGraph } from "../lib/contentGraph/buildContentGraph";
 import { contentArtifactsDirectory } from "../lib/contentGraph/staticArtifacts";
-import { createExampleImageReport, ExampleImageReference, formatExampleImageReport } from "../lib/contentGraph/exampleImages";
+import { createExampleImageReportWithBlanks, ExampleImageReference, formatExampleImageReport, isBlankImage } from "../lib/contentGraph/exampleImages";
 import { getExampleLink } from "../lib/frontendUtils/frontendTools";
 
 const dryRun = process.argv.includes("--dry-run");
 const strict = process.argv.includes("--strict");
+const includeBlanks = process.argv.includes("--include-blanks");
 const missingCanvasZoneMessage = "Cannot read properties of null (reading 'appendChild')";
 const fallbackPlaygroundViewport = { width: 2406, height: 890 };
 
@@ -134,32 +135,53 @@ const generateExampleImage = async (reference: ExampleImageReference) => {
         }
 
         console.log(`Generated ${reference.imageUrl} from ${reference.documentationPage}.`);
+
+        if (await isBlankImage(reference.imagePath)) {
+            console.log(`WARNING blank image: ${reference.imageUrl} rendered blank/empty from ${reference.documentationPage}.`);
+            return false;
+        }
+
+        return true;
     } finally {
         await browser.close();
     }
 };
 
 const main = async () => {
-    const report = createExampleImageReport(getContentGraph());
+    const report = await createExampleImageReportWithBlanks(getContentGraph());
+    const blankImages = report.blankImages ?? [];
 
     mkdirSync(contentArtifactsDirectory, { recursive: true });
     writeFileSync(join(contentArtifactsDirectory, "example-image-report.json"), `${JSON.stringify(report, null, 2)}\n`, { encoding: "utf-8" });
 
     console.log(formatExampleImageReport(report));
 
-    if (dryRun || report.missingImages.length === 0) {
-        process.exitCode = dryRun && strict && report.missingImages.length > 0 ? 1 : 0;
+    // Regenerate missing images, and (when requested) images that currently render blank.
+    const regenerationQueue = includeBlanks ? [...report.missingImages, ...blankImages] : report.missingImages;
+
+    if (dryRun || regenerationQueue.length === 0) {
+        const hasIssues = report.missingImages.length > 0 || blankImages.length > 0;
+        process.exitCode = dryRun && strict && hasIssues ? 1 : 0;
         return;
     }
 
-    for (const reference of report.missingImages) {
+    let stillBlank = 0;
+    for (const reference of regenerationQueue) {
         try {
-            await generateExampleImage(reference);
+            const generatedOk = await generateExampleImage(reference);
+            if (!generatedOk) {
+                stillBlank += 1;
+            }
         } catch (error) {
             console.log(error);
             console.log(`Failed to generate ${reference.imageUrl} from ${reference.documentationPage}.`);
             process.exitCode = 1;
         }
+    }
+
+    if (strict && stillBlank > 0) {
+        console.log(`${stillBlank} image(s) still rendered blank after regeneration.`);
+        process.exitCode = 1;
     }
 };
 
