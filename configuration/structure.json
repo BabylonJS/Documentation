@@ -2699,6 +2699,153 @@
                     "children": {},
                     "content": "toolsAndResources/guiEditor"
                 },
+                "flowGraphEditor": {
+                    "friendlyName": "Flow Graph Editor",
+                    "children": {
+                        "gettingStarted": {
+                            "friendlyName": "Getting Started",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/gettingStarted"
+                        },
+                        "firstGraphExample": {
+                            "friendlyName": "Example - Your First Runnable Graph",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/firstGraphExample"
+                        },
+                        "meshPickExample": {
+                            "friendlyName": "Example - Click A Mesh And Log It",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/meshPickExample"
+                        },
+                        "babylonBrosExample": {
+                            "friendlyName": "Example - Babylon Bros Platformer",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/babylonBrosExample"
+                        },
+                        "babylonBrosTutorial": {
+                            "friendlyName": "Tutorial - Build Babylon Bros",
+                            "children": {
+                                "prepareAssets": {
+                                    "friendlyName": "Step 0 - Prepare The Assets",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/prepareAssets"
+                                },
+                                "setup": {
+                                    "friendlyName": "Step 1 - Set Up The Editor",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/setup"
+                                },
+                                "movement": {
+                                    "friendlyName": "Step 2 - Move The Hero",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/movement"
+                                },
+                                "jump": {
+                                    "friendlyName": "Step 3 - Add Jumping",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/jump"
+                                },
+                                "coins": {
+                                    "friendlyName": "Step 4 - Collect Coins",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/coins"
+                                },
+                                "springs": {
+                                    "friendlyName": "Step 5 - Spring Bounces",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/springs"
+                                },
+                                "enemies": {
+                                    "friendlyName": "Step 6 - Enemies",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/enemies"
+                                },
+                                "win": {
+                                    "friendlyName": "Step 7 - Win Condition",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/win"
+                                },
+                                "publish": {
+                                    "friendlyName": "Step 8 - Save And Publish",
+                                    "children": {},
+                                    "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial/publish"
+                                }
+                            },
+                            "content": "toolsAndResources/flowGraphEditor/babylonBrosTutorial"
+                        },
+                        "multipleGraphs": {
+                            "friendlyName": "Multiple Graphs In One Editor",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/multipleGraphs"
+                        },
+                        "executionContexts": {
+                            "friendlyName": "Execution Contexts",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/executionContexts"
+                        },
+                        "authoringAndDebugging": {
+                            "friendlyName": "Authoring and Debugging",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/authoringAndDebugging"
+                        },
+                        "editorOperations": {
+                            "friendlyName": "Editor Operations and Shortcuts",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/editorOperations"
+                        },
+                        "validationAndProperties": {
+                            "friendlyName": "Validation and Property Editing",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/validationAndProperties"
+                        },
+                        "supportedBlockFamilies": {
+                            "friendlyName": "Supported Block Families",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/supportedBlockFamilies"
+                        },
+                        "blockReference": {
+                            "friendlyName": "Block Reference",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/blockReference"
+                        },
+                        "eventBlocks": {
+                            "friendlyName": "Event Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/eventBlocks"
+                        },
+                        "animationBlocks": {
+                            "friendlyName": "Animation Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/animationBlocks"
+                        },
+                        "physicsBlocks": {
+                            "friendlyName": "Physics Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/physicsBlocks"
+                        },
+                        "audioBlocks": {
+                            "friendlyName": "Audio Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/audioBlocks"
+                        },
+                        "controlFlowBlocks": {
+                            "friendlyName": "Control Flow Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/controlFlowBlocks"
+                        },
+                        "dataAccessBlocks": {
+                            "friendlyName": "Data Access Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/dataAccessBlocks"
+                        },
+                        "utilityBlocks": {
+                            "friendlyName": "Utility Blocks",
+                            "children": {},
+                            "content": "toolsAndResources/flowGraphEditor/utilityBlocks"
+                        }
+                    },
+                    "content": "toolsAndResources/flowGraphEditor"
+                },
                 "nme": {
                     "friendlyName": "Node Material Editor",
                     "children": {
