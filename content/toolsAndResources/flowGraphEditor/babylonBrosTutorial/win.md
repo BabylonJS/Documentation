@@ -41,11 +41,11 @@ Add `ReceiveCustomEvent On Win`: set `gameDone` to true, log the win, run the fl
 
 ### 3. Respect Game State
 
-Gate the movement and jump branches behind `gameDone` so input is ignored after winning. A single `GetVariable` + `Branch` at the top of those chains is enough.
+Only run the movement and jump branches when `gameDone` is false, so input is ignored after winning. A single `GetVariable` + `Branch` at the top of those chains is enough.
 
 ## Editor Features
 
-- Use the Variables panel to watch `gameDone` flip on win.
+- Use the Variables panel to watch `gameDone` turn true on win.
 - Run one final manual validation pass before publishing.
 
 ## Test And Save

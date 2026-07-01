@@ -26,7 +26,7 @@ Use `Branch` when execution should follow one path for `true` and another for `f
 
 Typical uses:
 
-- Gate an action behind a boolean variable
+- Only run an action when a true/false variable allows it
 - Choose between success and failure paths
 - Route logic based on a runtime check
 
@@ -70,7 +70,7 @@ This is powerful, but it should be used carefully because poorly bounded conditi
 
 Use `DoN` when an action should be allowed only a limited number of times.
 
-This is useful for one-shot or capped interactions.
+This is useful for actions that should run only once, or only a set number of times.
 
 ### `CallCounter`
 

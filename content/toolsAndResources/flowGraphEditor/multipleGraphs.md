@@ -27,7 +27,7 @@ This is different from execution contexts:
 - **Multiple graphs** means multiple graph definitions in one editor session.
 - **Execution contexts** means multiple runtime instances of one selected graph.
 
-So the mental model is:
+So the overall picture is:
 
 - One loaded scene context for asset lookup and preview
 - Many graph tabs for separate graph definitions
@@ -82,7 +82,7 @@ In practice, this means you can:
 - Switch between graph definitions without reloading the editor
 - Run and debug one selected graph at a time
 
-## Saving, Loading, And Round-Tripping
+## Saving, Loading, And Reopening
 
 Multiple graphs are not editor-only UI state.
 
@@ -93,7 +93,7 @@ When the editor saves a session, it preserves:
 - The serialized data for each graph
 - The editor layout data for each graph
 
-That means saving to a file or the snippet server does not flatten the session back into a single graph.
+That means saving to a file or the snippet server does not merge the session back into a single graph.
 
 Loading older single-graph content still works. In that case, the editor opens it as a one-graph session.
 

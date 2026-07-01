@@ -37,7 +37,7 @@ It is important to separate two ideas that sound similar:
 
 In the current implementation, execution contexts do **not** provide separate scene-asset bindings. They share the scene context for now, while keeping separate variable state.
 
-So the mental model is:
+So the overall picture is:
 
 - One loaded scene context for asset lookup and scene-aware pickers
 - Many graph tabs for separate graph definitions
@@ -106,7 +106,7 @@ When you switch contexts, the editor's debugging view follows that context's run
 
 This is especially important when the same graph is running more than once at the same time.
 
-## Serialization And Round-Tripping
+## Saving And Restoring
 
 Execution contexts are not editor-only state.
 
@@ -115,9 +115,9 @@ The current implementation preserves:
 - Context names
 - Per-context variable values
 
-when the graph is serialized and later restored.
+when the graph is saved and later reopened.
 
-That means saving and loading a graph does not collapse everything back into one anonymous runtime instance.
+That means saving and loading a graph does not merge everything back into a single unnamed run.
 
 ## Current Limitation
 
@@ -132,7 +132,7 @@ That distinction matters for documentation because it prevents overpromising wha
 Execution contexts are a good fit when:
 
 - You want to reuse one graph definition without copying it
-- The important difference between instances is variable state rather than graph topology
+- The important difference between instances is the variable values rather than the shape of the graph itself
 - You need to inspect or debug one runtime instance at a time
 
-They are not yet the right abstraction if your primary need is separate per-context asset assignment.
+They are not yet the right tool if your primary need is separate per-context asset assignment.

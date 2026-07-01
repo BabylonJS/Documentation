@@ -16,7 +16,7 @@ video-content:
 
 ## A Full Interactive Demo
 
-The previous examples build a single interaction at a time. Babylon Bros is the opposite end of the scale: a complete, physics-driven, flow-graph-powered platformer that ties many of the editor's block families together into one scene.
+The previous examples build a single interaction at a time. Babylon Bros is the other extreme: a complete, physics-driven, flow-graph-powered platformer that brings many of the editor's block families together into one scene.
 
 It is a good demo to study once the basic patterns make sense, because it shows how events, control flow, physics, and data access blocks combine into real gameplay rather than a single console log.
 

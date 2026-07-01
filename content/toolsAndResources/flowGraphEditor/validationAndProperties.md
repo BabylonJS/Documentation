@@ -168,7 +168,7 @@ If the required scene context is not available, the editor shows an informationa
 
 ## Practical Workflow
 
-When building a non-trivial graph, a good pattern is:
+When building a larger or more complex graph, a good pattern is:
 
 1. Load the scene first so scene-aware editors are useful immediately.
 2. Connect data ports while watching compatibility feedback.

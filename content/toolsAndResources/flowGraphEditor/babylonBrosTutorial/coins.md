@@ -14,7 +14,7 @@ further-reading:
 
 ## Goal
 
-When the hero collects a coin, increase a score, log it, and play a sound. This introduces custom events to decouple "something was collected" from "update score".
+When the hero collects a coin, increase a score, log it, and play a sound. This introduces custom events, which let you keep "a coin was collected" separate from "update the score".
 
 Open this step in the editor: [#W0H5RG](https://flowgraph.babylonjs.com/#W0H5RG) (scene `P41T6E#2`).
 
@@ -27,7 +27,7 @@ Run this step:
 ## Blocks Used
 
 - `PhysicsCollisionEvent` (per question block / coin)
-- `Branch` with an "active?" variable to make coins one-shot
+- `Branch` with an "active?" variable so each coin can only be collected once
 - `SendCustomEvent` / `ReceiveCustomEvent` (`collect`)
 - `GetVariable`, `Add`, `SetVariable` (score)
 - `PlaySound`, `ConsoleLog`

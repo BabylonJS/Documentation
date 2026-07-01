@@ -16,7 +16,7 @@ video-content:
 
 ## A Minimal First Graph
 
-This example walks through a tiny graph that runs on the editor's default scene and proves out the full loop:
+This example walks through a tiny graph that runs on the editor's default scene and shows the full loop from start to finish:
 
 1. Add an event block.
 2. Add a data block.
@@ -32,7 +32,7 @@ If you would rather build it from scratch, start with an empty editor instead: [
 
 The goal is simple: when the scene becomes ready, the graph logs a message.
 
-This is intentionally small, but it exercises the editor in a realistic way and gives you a reliable baseline before you move on to pick events, scene properties, or custom event flows.
+This is intentionally small, but it uses the editor in a realistic way and gives you a reliable starting point before you move on to pick events, scene properties, or custom event flows.
 
 ![First runnable flow graph example with Scene Ready Event, Constant, and Console Log blocks](/img/tools/flowGraphEditor/firstRunnableGraph.png)
 

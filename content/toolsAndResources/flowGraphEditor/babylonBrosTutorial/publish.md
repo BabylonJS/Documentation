@@ -29,16 +29,16 @@ const coordinator = await BABYLON.ParseFlowGraphCoordinatorFromSnippetAsync("HUA
 coordinator.start();
 ```
 
-Because the scene is inert, this single graph is what brings it to life - movement, jumping, coins, springs, enemies, and the win condition all come from the flow graph.
+Because the scene does nothing on its own, this single graph is what brings it to life - movement, jumping, coins, springs, enemies, and the win condition all come from the flow graph.
 
 ## See It Together
 
 The full demo is the complete scene plus the graph:
 
-<Playground id="#P41T6E#1" title="Babylon Bros - Finished" description="The finished Babylon Bros platformer: an inert scene brought to life entirely by a Flow Graph loaded from a snippet." category="Flow Graph"/>
+<Playground id="#P41T6E#1" title="Babylon Bros - Finished" description="The finished Babylon Bros platformer: a still scene brought to life entirely by a Flow Graph loaded from a snippet." category="Flow Graph"/>
 
 ## Where To Go Next
 
 - Reopen any step in the editor and experiment: change jump force, coin scoring, or enemy behavior.
-- Round-trip your edits through the snippet server to compare against `#HUA46E`.
+- Save your edits to the snippet server, then reload them to compare against `#HUA46E`.
 - Revisit the [block families](/toolsAndResources/flowGraphEditor/supportedBlockFamilies) for capabilities this tutorial did not use.

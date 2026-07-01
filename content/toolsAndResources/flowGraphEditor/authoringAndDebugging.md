@@ -110,7 +110,7 @@ For larger interactions, a good working pattern is:
 1. Load the exact scene or a close test scene.
 2. Build one interaction path at a time.
 3. Validate after each meaningful change.
-4. Use debug blocks and breakpoints as soon as behavior becomes non-trivial.
+4. Use debug blocks and breakpoints as soon as the behavior gets more complex.
 5. Group and annotate the graph before it becomes difficult to read.
 
 As the editor grows, additional pages can expand this section with block catalogs, scene integration guides, and workflow-specific examples.

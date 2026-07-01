@@ -38,7 +38,7 @@ Run this step:
 
 ### 1. Initialize State
 
-Add `SceneReadyEvent` and a `SetVariable` named `heroVX = 0`. This seeds the horizontal direction once the scene is ready. Use the property panel to set the variable type to number.
+Add `SceneReadyEvent` and a `SetVariable` named `heroVX = 0`. This sets the starting horizontal direction once the scene is ready. Use the property panel to set the variable type to number.
 
 ### 2. Read The Keys
 
