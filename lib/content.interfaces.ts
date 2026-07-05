@@ -1,4 +1,3 @@
-import { ReactText } from "react";
 import { MarkdownMetadata } from "./interfaces";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 

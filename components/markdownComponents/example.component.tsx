@@ -1,4 +1,4 @@
-import { Snackbar, Tooltip, Hidden, Box, useTheme } from "@mui/material";
+import { Snackbar, Tooltip, Box, useTheme } from "@mui/material";
 import { FunctionComponent, MouseEvent, SyntheticEvent, useContext, useEffect, useState } from "react";
 import { DocumentationContext } from "../../features/docs/DocumentationContext";
 
@@ -92,9 +92,9 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
                                 </a>
                             </span>
                         </Box>
-                        <Hidden smUp>
+                        <Box sx={{ display: { xs: "block", sm: "none" } }}>
                             <Snackbar message={`${example.type} opened at the top`} onClose={handleClose as any} open={open} autoHideDuration={3000}></Snackbar>
-                        </Hidden>
+                        </Box>
                     </>
                 </Tooltip>
             )}

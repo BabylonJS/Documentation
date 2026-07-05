@@ -2,7 +2,7 @@ import { RefObject, useCallback, useEffect } from "react";
 
 import { ITableOfContentsItem } from "../../lib/content.interfaces";
 
-export const useHashScroll = (markdownRef: RefObject<HTMLDivElement>, id: string[], tocLinks: ITableOfContentsItem[], onReset: () => void) => {
+export const useHashScroll = (markdownRef: RefObject<HTMLDivElement | null>, id: string[], tocLinks: ITableOfContentsItem[], onReset: () => void) => {
     const routeKey = id.join("/");
     const scrollToTop = useCallback(() => {
         markdownRef.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });

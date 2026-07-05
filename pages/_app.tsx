@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import Head from "next/head";
-import { useEffect, FunctionComponent, createContext } from "react";
+import { useEffect, FunctionComponent, createContext, PropsWithChildren } from "react";
 
 import dynamic from "next/dynamic";
 import "../styles/globals.scss";
@@ -11,7 +11,7 @@ export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 // Base URL context and provider
 export const BaseUrlContext = createContext<string>("");
-export const BaseUrlProvider: FunctionComponent<{ baseUrl: string }> = ({ baseUrl, children }) => {
+export const BaseUrlProvider: FunctionComponent<PropsWithChildren<{ baseUrl: string }>> = ({ baseUrl, children }) => {
     return <BaseUrlContext.Provider value={baseUrl}>{children}</BaseUrlContext.Provider>;
 };
 

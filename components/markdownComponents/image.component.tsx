@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FunctionComponent, useEffect, useRef, useState, useContext } from "react";
-import { Button, Modal, Card, Fade, Hidden, IconButton, Box, useTheme, styled } from "@mui/material";
+import { Button, Modal, Card, Fade, IconButton, Box, useTheme, styled } from "@mui/material";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
 import ZoomOutMapIcon from "@mui/icons-material/ZoomOutMap";
@@ -64,7 +64,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
     const [intrinsic, setIntrinsic] = useState<{ w: number; h: number }>({ h: 0, w: 0 });
     const theme = useTheme();
     const baseUrl = useContext(BaseUrlContext);
-    const containerRef = useRef<HTMLImageElement>();
+    const containerRef = useRef<HTMLImageElement>(null);
     const onResize = () => {
         if (intrinsic.h === 0) {
             return;
@@ -235,7 +235,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             >
                 {getImage()}
                 {queryParams.expandable && (
-                    <Hidden smDown>
+                    <Box sx={{ display: { xs: "none", md: "block" } }}>
                         <Box
                             component="span"
                             sx={{
@@ -261,7 +261,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                                 <ZoomOutMapIcon sx={{ fontSize: "1rem" }} />
                             </Button>
                         </Box>
-                    </Hidden>
+                    </Box>
                 )}
             </Box>
             {props.caption && (
