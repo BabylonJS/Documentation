@@ -78,4 +78,37 @@ See the render loop.
         expect(menuItems?.map((item) => item.name)).toEqual(["Welcome", "Porting Guide", "Architecture"]);
         expect(menuItems?.map((item) => item.url)).toEqual(["/lite", "/lite/01-porting-guide", "/lite/architecture/00-overview"]);
     });
+
+    it("rewrites GitHub-native relative links to absolute Lite routes", () => {
+        writeFixture("00-welcome.md", "# Welcome\n\n![Diagram](images/diagram.png)\n");
+        writeFixture(
+            "01-getting-started.md",
+            "# Getting Started\n\nSee [Overview](architecture/00-overview.md) and [Welcome](00-welcome.md#intro).\n",
+        );
+        writeFixture(
+            "architecture/00-overview.md",
+            "# Overview\n\nBack to [Getting Started](../01-getting-started.md), see [Scene](01-scene.md), the [external site](https://babylonjs.com), and a [code sample](example.md) escaping via `[x](../../outside.md)`.\n",
+        );
+        writeFixture("architecture/01-scene.md", "# Scene\n");
+
+        const graph = buildBabylonLiteContentGraphFromDocsRoot(fixtureRoot);
+
+        const gettingStarted = graph.pagesByRoute["/lite/01-getting-started"];
+        expect(gettingStarted.rawContent).toContain("[Overview](/lite/architecture/00-overview)");
+        // Landing file collapses to /lite and anchors are preserved.
+        expect(gettingStarted.rawContent).toContain("[Welcome](/lite#intro)");
+
+        const overview = graph.pagesByRoute["/lite/architecture/00-overview"];
+        expect(overview.rawContent).toContain("[Getting Started](/lite/01-getting-started)");
+        expect(overview.rawContent).toContain("[Scene](/lite/architecture/01-scene)");
+        // External links and paths escaping the docs root are left untouched.
+        expect(overview.rawContent).toContain("[external site](https://babylonjs.com)");
+        expect(overview.rawContent).toContain("[x](../../outside.md)");
+
+        // Relative image assets resolve to their served /lite path.
+        expect(graph.pagesByRoute["/lite"].rawContent).toContain("![Diagram](/lite/images/diagram.png)");
+
+        // Internal-link extraction now sees the resolved routes.
+        expect(overview.internalLinks).toEqual(expect.arrayContaining(["lite/01-getting-started", "lite/architecture/01-scene"]));
+    });
 });

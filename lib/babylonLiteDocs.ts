@@ -1,6 +1,6 @@
 import { execSync } from "child_process";
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync } from "fs";
-import { basename, join, relative, resolve } from "path";
+import { basename, join, posix, relative, resolve } from "path";
 
 import matter from "gray-matter";
 
@@ -118,6 +118,71 @@ const escapeMdxJsxOutsideCodeBlocks = (content: string) => {
 };
 
 const readJson = (filePath: string) => JSON.parse(readFileSync(filePath, "utf-8")) as Record<string, unknown>;
+
+// The Babylon Lite markdown sources use GitHub-native relative links that include the
+// `.md` extension (so they resolve correctly when the files are browsed directly on
+// GitHub). The docs website routes lite pages without the extension (e.g.
+// `/lite/architecture/11-scene-hierarchy-parenting`), so we rewrite the relative links
+// to absolute site routes at build time. This is done deterministically from the source
+// file path rather than relying on browser relative-URL resolution (the site uses
+// `trailingSlash: true`, which would otherwise resolve `./foo` against the wrong base).
+const babylonLiteAssetLinkPattern = /\.(png|jpe?g|gif|svg|webp|avif|mp4|webm|json|glb|gltf)$/i;
+
+const rewriteBabylonLiteRelativeLinkTarget = (target: string, relativeFile: string, landingContentPath: string): string | undefined => {
+    // Leave external, absolute, anchor-only and protocol links untouched.
+    if (/^(https?:|mailto:|tel:|#|\/)/i.test(target)) {
+        return undefined;
+    }
+
+    const splitIndex = target.search(/[#?]/);
+    const pathPart = splitIndex === -1 ? target : target.slice(0, splitIndex);
+    const suffix = splitIndex === -1 ? "" : target.slice(splitIndex);
+    if (!pathPart) {
+        return undefined;
+    }
+
+    const isMarkdown = /\.md$/i.test(pathPart);
+    const isAsset = babylonLiteAssetLinkPattern.test(pathPart);
+    if (!isMarkdown && !isAsset) {
+        return undefined;
+    }
+
+    const baseDir = posix.dirname(relativeFile.replace(/\\/g, "/"));
+    const resolved = posix.normalize(posix.join(baseDir, pathPart));
+    // A link that escapes the docs/lite root is not a lite route; leave it as-is.
+    if (resolved === ".." || resolved.startsWith("../")) {
+        return undefined;
+    }
+
+    if (isMarkdown) {
+        const contentPath = resolved.replace(/\.md$/i, "");
+        const route = contentPath === landingContentPath ? "/lite" : `/lite/${contentPath}`;
+        return `${route}${suffix}`;
+    }
+
+    return `/lite/${resolved}${suffix}`;
+};
+
+const rewriteBabylonLiteRelativeLinks = (content: string, relativeFile: string, landingRelativeFile: string): string => {
+    const landingContentPath = landingRelativeFile.replace(/\.md$/i, "");
+    let inFence = false;
+    return content
+        .split("\n")
+        .map((line) => {
+            if (line.trimStart().startsWith("```")) {
+                inFence = !inFence;
+                return line;
+            }
+            if (inFence) {
+                return line;
+            }
+            return line.replace(/\]\(([^)]+)\)/g, (match, rawTarget: string) => {
+                const rewritten = rewriteBabylonLiteRelativeLinkTarget(rawTarget.trim(), relativeFile, landingContentPath);
+                return rewritten ? `](${rewritten})` : match;
+            });
+        })
+        .join("\n");
+};
 
 const hasBabylonLiteDocs = (repositoryPath: string) => existsSync(join(repositoryPath, babylonLiteDocsRelativeRoot));
 
@@ -322,6 +387,7 @@ export const getBabylonLitePageData = async (id: string[]): Promise<IDocumentati
 
     const fileContents = readFileSync(fullPath, "utf-8");
     const parsed = matter(fileContents);
+    const normalizedContent = rewriteBabylonLiteRelativeLinks(parsed.content, relativeFile, landingRelativeFile);
     const flavorMenuItems = await getBabylonLiteMenuItems();
     const fallbackTitle = titleFromSlug(basename(relativeFile, ".md"));
     const title = typeof parsed.data.title === "string" ? parsed.data.title : getTitleFromContent(parsed.content, fallbackTitle);
@@ -346,7 +412,7 @@ export const getBabylonLitePageData = async (id: string[]): Promise<IDocumentati
             imageUrl: "",
             robots: "noindex, nofollow",
         },
-        content: escapeMdxJsxOutsideCodeBlocks(parsed.content),
+        content: escapeMdxJsxOutsideCodeBlocks(normalizedContent),
         childPages: {},
         relatedArticles: {},
         relatedExternalLinks: [],
@@ -419,7 +485,8 @@ const createBabylonLiteContentGraphFromDocsRoot = (docsRoot: string): ContentGra
     const pages: ContentGraphPage[] = files.map((relativeFile, index) => {
         const fullPath = join(docsRoot, relativeFile);
         const rawMarkdown = readFileSync(fullPath, "utf-8");
-        const { content, frontmatter } = parseMarkdownFrontmatter(rawMarkdown);
+        const { content: parsedContent, frontmatter } = parseMarkdownFrontmatter(rawMarkdown);
+        const content = rewriteBabylonLiteRelativeLinks(parsedContent, relativeFile, landingRelativeFile);
         const effectiveIds = idsFromRelativeFile(relativeFile);
         const id = routeIdFromRelativeFile(relativeFile, landingRelativeFile);
         const title = getTitleFromContent(content, titleFromSlug(basename(relativeFile, ".md")));
