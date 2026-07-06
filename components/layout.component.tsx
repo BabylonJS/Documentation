@@ -9,7 +9,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Toolbar, Tooltip, Typography } from "@mui/material";
+import { AppBar, Drawer, alpha, IconButton, InputBase, Toolbar, Tooltip, Typography } from "@mui/material";
 import Box from "@mui/system/Box";
 import { useTheme } from "@mui/material/styles";
 import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useCallback, useEffect, useRef, useState } from "react";
@@ -145,11 +145,11 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         },
                     }}
                 >
-                    <Hidden mdUp implementation="css">
+                    <Box sx={{ display: { xs: "block", md: "none" } }}>
                         <IconButton edge="start" onClick={handleDrawerToggle} color="inherit" aria-label="open drawer">
                             <MenuIcon />
                         </IconButton>
-                    </Hidden>
+                    </Box>
                     <Typography
                         sx={{
                             flexGrow: 1,
@@ -397,7 +397,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                     aria-label="mailbox folders"
                 >
                     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                    <Hidden mdUp implementation="css">
+                    <Box sx={{ display: { xs: "block", md: "none" } }}>
                         <Drawer
                             // container={window.document.body}
                             variant="temporary"
@@ -435,8 +435,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                 {MenuStructure}
                             </Box>
                         </Drawer>
-                    </Hidden>
-                    <Hidden mdDown implementation="css">
+                    </Box>
+                    <Box sx={{ display: { xs: "none", lg: "block" } }}>
                         <Box
                             sx={{
                                 overflow: "auto",
@@ -448,9 +448,9 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         >
                             {MenuStructure}
                         </Box>
-                    </Hidden>
+                    </Box>
                 </Box>
-                <Hidden mdDown implementation="css">
+                <Box sx={{ display: { xs: "none", lg: "block" } }}>
                     <Box
                         sx={{
                             position: "absolute",
@@ -475,7 +475,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                     >
                         {sidebarCollapsed ? <ChevronRightIcon fontSize="small" /> : <ChevronLeftIcon fontSize="small" />}
                     </Box>
-                </Hidden>
+                </Box>
                 <Box
                     component="main"
                     sx={{

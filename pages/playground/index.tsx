@@ -23,7 +23,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
     const [error, setError] = useState<string>("");
     const theme = useTheme();
 
-    const searchRef = useRef<HTMLDivElement>();
+    const searchRef = useRef<HTMLDivElement>(null);
 
     function filterResults(results: IPlaygroundSearchResult[]) {
         // remove results with the same snippetIdentifier, keeping the latest version
@@ -141,12 +141,14 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                     onChange={(e) => {
                         setSearchTerm(e.target.value);
                     }}
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon />
-                            </InputAdornment>
-                        ),
+                    slotProps={{
+                        input: {
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchIcon />
+                                </InputAdornment>
+                            ),
+                        },
                     }}
                 />
                 <FormControl margin="dense" variant="outlined">

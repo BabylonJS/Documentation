@@ -18,7 +18,7 @@ export const addUniqueExampleLink = (links: IExampleLink[], link: IExampleLink) 
     return links.some((existingLink) => areSameExampleLink(existingLink, link)) ? links : [...links, link];
 };
 
-export const useExamplePanel = (markdownRef: RefObject<HTMLDivElement>): ExamplePanelState => {
+export const useExamplePanel = (markdownRef: RefObject<HTMLDivElement | null>): ExamplePanelState => {
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [examplesCollapsed, setExamplesCollapsed] = useState(false);

@@ -9,7 +9,7 @@ import { IconButton, Tooltip, Box } from "@mui/material";
 /**
  * Replaces <H?> element for table of content
  */
-export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (item) => {
+export const TOCMarkdownComponent: FunctionComponent<PropsWithChildren<ITableOfContentsItem>> = (item) => {
     const context = useContext(DocumentationContext);
 
     const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -170,18 +170,18 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
     return <>{getItem()}</>;
 };
 
-export const H1MarkdownComponent: FunctionComponent<ITableOfContentsItem> = (item) => {
+export const H1MarkdownComponent: FunctionComponent<PropsWithChildren<ITableOfContentsItem>> = (item) => {
     return <TOCMarkdownComponent {...item} level={0}></TOCMarkdownComponent>;
 };
 
-export const H2MarkdownComponent: FunctionComponent<ITableOfContentsItem> = (item) => {
+export const H2MarkdownComponent: FunctionComponent<PropsWithChildren<ITableOfContentsItem>> = (item) => {
     return <TOCMarkdownComponent {...item} level={1}></TOCMarkdownComponent>;
 };
 
-export const H3MarkdownComponent: FunctionComponent<ITableOfContentsItem> = (item) => {
+export const H3MarkdownComponent: FunctionComponent<PropsWithChildren<ITableOfContentsItem>> = (item) => {
     return <TOCMarkdownComponent {...item} level={2}></TOCMarkdownComponent>;
 };
 
-export const H4MarkdownComponent: FunctionComponent<ITableOfContentsItem> = (item) => {
+export const H4MarkdownComponent: FunctionComponent<PropsWithChildren<ITableOfContentsItem>> = (item) => {
     return <TOCMarkdownComponent {...item} level={3}></TOCMarkdownComponent>;
 };
