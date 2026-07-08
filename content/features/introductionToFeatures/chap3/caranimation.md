@@ -45,7 +45,7 @@ scene.beginAnimation(car, 0, 210, true);
 
 After adjusting the position of the car and its route so that it travels past the village houses we have 
 
-<Playground id="#KDPAQ9#17" title="Add the Car to the Village" description="Add the animating car back into the village." image="/img/playgroundsAndNMEs/gettingStartedCarAnimation2.webp"/>
+<Playground id="#KJ6XKH#0" title="Add the Car to the Village" description="Add the animating car back into the village." image="/img/playgroundsAndNMEs/gettingStartedCarAnimation2.webp"/>
 
 In this case we have built the car. Let's now look at a model character that we can import along with its built-in animation.
 
