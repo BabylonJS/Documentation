@@ -58,6 +58,6 @@ We export the lamp, of appropriate size, to use it in the village. As we need mo
 material.maxSimultaneousLights = 5;
 ```
 
-<Playground id="#KBS9I5#94" title="Add Street Lights" description="Add street lights to the village and adjust the lighting." image="/img/playgroundsAndNMEs/gettingStartedStreetLights2.webp"/>
+<Playground id="#KBS9I5#39688" title="Add Street Lights" description="Add street lights to the village and adjust the lighting." image="/img/playgroundsAndNMEs/gettingStartedStreetLights2.webp"/>
 
 It would be good if we could slide daylight into nightlight and vice-versa. We can when we add the Babylon.js GUI.
