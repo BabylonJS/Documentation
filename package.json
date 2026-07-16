@@ -32,7 +32,7 @@
         "@mui/system": "^9.2.0",
         "@next/mdx": "^16.1.7",
         "eslint-config-next": "^16.1.7",
-        "next": "^16.0.10",
+        "next": "^16.2.10",
         "next-mdx-remote": "^6.0.0",
         "node-html-parser": "^8.0.4",
         "prism-react-renderer": "^2.4.1",
