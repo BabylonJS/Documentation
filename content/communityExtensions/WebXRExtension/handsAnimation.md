@@ -1,6 +1,6 @@
 ---
 title: WebXR extension / Hands Animation
-description: Hand animations: recording and playback
+description: "Hand animations: recording and playback"
 keywords: extensions, WebXR, Hand tracking
 further-reading: 
   - title: Demonstration of playback feature
