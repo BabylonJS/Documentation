@@ -16,7 +16,7 @@ video-content:
 
 This tutorial builds [Babylon Bros](/toolsAndResources/flowGraphEditor/babylonBrosExample), a small physics-driven platformer, entirely in the [Flow Graph Editor](https://flowgraph.babylonjs.com). You start from a finished scene that does nothing on its own and add every interaction as a flow graph: running, jumping, coin pickups, spring bounces, enemies, and a win condition.
 
-The point of the tutorial is the editor workflow. Each step uses real editor features - the node palette, the scene preview, the property panel, validation, execution contexts, debug mode, and the snippet server.
+The point of the tutorial is the editor workflow. Each step uses real editor features: the node palette, the scene preview, the property panel, validation, execution contexts, debug mode, and the snippet server.
 
 ![The finished Babylon Bros flow graph open in the Flow Graph Editor](/img/tools/flowGraphEditor/tutorial/editorOverview.webp)
 

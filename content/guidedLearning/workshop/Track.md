@@ -12,7 +12,7 @@ video-content:
 
 In the first image the carriage leans and turns as it follows the track. In the second image the carriage leans and it is the people inside that turn to look around. The 'createTrack' function can be used to simulate either of these two events.
 
-A carriage can be a mesh (with children if wanted), camera or even a point light. A track is a sequence of points in 3D space and for each point rotational data that determines the orientation of the mesh following it, and where necessary any children of the mesh. This rotational data is built by specifying parameters along sections of the track. The default starting position for a carriage is, as you would expect, is with its local x, y and z axis in the directions of the world axes.
+A carriage can be a mesh (with children if wanted), a camera, or even a point light. A track is a sequence of points in 3D space, and for each point there is rotational data that determines the orientation of the mesh following it and, where necessary, any children of the mesh. This rotational data is built by specifying parameters along sections of the track. The default starting position for a carriage is, as you would expect, with its local x, y, and z axes in the directions of the world axes.
 
 A **track** is created using
 
@@ -36,7 +36,7 @@ PG: <Playground id="#HSMDF2#6" title="Short Track Example" description="."/>
 
 ## Section Options
 
-There are two types of rotation 'a lean' and a 'turn' and both may be applied to any section of track. Some illustrative examples are used better understand these. The lean at each point is shown in red and the turn in green, defaults for both are 0. Twists (defaults 0) force complete rotations, waves, with a wave angle, force a rotation to the maximum set by the wave angle followed by a rotation in the reverse direction.
+There are two types of rotation 'a lean' and a 'turn' and both may be applied to any section of track. Some illustrative examples are used to better understand these. The lean at each point is shown in red and the turn in green, defaults for both are 0. Twists (defaults 0) force complete rotations, waves, with a wave angle, force a rotation to the maximum set by the wave angle followed by a rotation in the reverse direction.
 
 In these examples the track is simply a straight line formed from 100 points and two sections, section0 includes all points from 0 to 99. The second section is an empty section of track but is needed as a device to specify the lean and turn at the track end.
 
@@ -60,7 +60,7 @@ The value of waveTwists (positive integer, default 0) gives the number of leans 
 
 ![lean waves track](/img/snippets/track5.webp) initial lean is 0, final lean is 0, leanWaves is 2, leanWaveAngle is &pi; / 2
 
-When both the values of leanWaves and leanWaveAngle or non zero they will override any value given to leanTwists.
+When both the values of leanWaves and leanWaveAngle are non-zero, they will override any value given to leanTwists.
 
 ### Turning
 
@@ -83,11 +83,11 @@ The value of waveTwists (positive integer, default 0) gives the number of turns 
 
 ![turn waves track](/img/snippets/track10.webp) initial turn is 0, final turn is 0, turnWaves is 2, turnWaveAngle is &pi; / 2
 
-When both the values of turnWaves and turnWaveAngle or non zero they will override any value given to turnTwists.
+When both the values of turnWaves and turnWaveAngle are non-zero, they will override any value given to turnTwists.
 
 ### Leaning and Turning
 
-It is possible to use both the lean and turn parameters
+It is possible to use both the lean and turn parameters.
 
 ![lean and turn track](/img/snippets/track11.webp) both lean and turn are used
 
@@ -121,7 +121,7 @@ gives you a set of arrays of matrices, where each element with index **i** is th
 
 ## Closed Tracks
 
-As an example of a closed path take a circle formed from 500 points
+As an example of a closed path, take a circle formed from 500 points.
 
 ```javascript
 var points = [];
@@ -132,7 +132,7 @@ for (let i = 0; i < n; i++) {
 }
 ```
 
-When drawing a line to represent the path of the track it is necessary to push points[0] to the end to draw a closed path. However once the line is drawn this must be removed using pop before creating a track.
+When drawing a line to represent the path of the track it is necessary to push points[0] to the end to draw a closed path. However, once the line is drawn, this must be removed using pop before creating a track.
 
 ```javascript
 points.push(points[0]); // push to close path
@@ -140,7 +140,7 @@ var lines = BABYLON.MeshBuilder.CreateLines("lines", { points: points }, scene);
 points.pop(); // remove before track creation
 ```
 
-Also before creating the track the sections needed must be determined. In this case split into four equal sections. Section0 from 0 to 124, section1 from 125 to 249, section2 from 250 to 374 and section 3 from 375 to 0.
+Also, before creating the track, the sections needed must be determined. In this case split into four equal sections. Section0 from 0 to 124, section1 from 125 to 249, section2 from 250 to 374 and section 3 from 375 to 0.
 
 ```javascript
 var section0 = new sectionData(0, options0);
@@ -157,7 +157,7 @@ PG: <Playground id="#HSMDF2#7" title="Closed Track Example" description="."/>
 
 ## Open Tracks
 
-As an example of a open path take three quarters of a circle formed from 375 points
+As an example of an open path, take three quarters of a circle formed from 375 points.
 
 ```javascript
 var points = [];
@@ -174,7 +174,7 @@ Drawing a line to represent the path of the track may be done directly.
 var lines = BABYLON.MeshBuilder.CreateLines("lines", { points: points }, scene); //draw path of track
 ```
 
-Before creating the track the sections needed must be determined. In this case split into three equal sections. Section0 from 0 to 124, section1 from 125 to 249 and section2 from 250 to 374. A fourth dummy section, section3, is needed to provide the data on the final lean and turn at the end of the track. The starting index for the dummy section, at the end, should always be the number of points in the open path, in this case 375.
+Before creating the track, the sections needed must be determined. In this case split into three equal sections. Section0 from 0 to 124, section1 from 125 to 249 and section2 from 250 to 374. A fourth dummy section, section3, is needed to provide the data on the final lean and turn at the end of the track. The starting index for the dummy section, at the end, should always be the number of points in the open path, in this case 375.
 
 ```javascript
 var section0 = new sectionData(0, options0);
@@ -191,13 +191,13 @@ PG: <Playground id="#HSMDF2#8" title="Open Track Example" description="."/>
 
 ## Using the Built Track
 
-Data from the track can be used to produce quaternions to rotate a mesh or to produce lines showing the direction of rotations or even rails parallel to the track path. Initially just animation around the track is considered.
+Data from the track can be used to produce quaternions to rotate a mesh, lines showing the direction of rotations, or even rails parallel to the track path. Initially, only animation around the track is considered.
 
 ## From Matrices to Animation
 
-In these examples `scene.registerAfterRender` is used to create the animation. One aspect that governs the speed of the animation is the distance between the points, so always take this into consideration when designing you path for the track. Of course, depending on how your path is built, you can vary the number of points per length of section. Note that for curved paths it is unlikely a constant speed is obtainable as the distance between points will vary. Often this is not noticeable. You can also produce variations in speed when you construct the quaternions to rotate the carriage and or passengers.
+In these examples `scene.registerAfterRender` is used to create the animation. One aspect that governs the speed of the animation is the distance between the points, so always take this into consideration when designing your path for the track. Of course, depending on how your path is built, you can vary the number of points per length of section. Note that for curved paths it is unlikely a constant speed is obtainable as the distance between points will vary. Often this is not noticeable. You can also produce variations in speed when you construct the quaternions to rotate the carriage and or passengers.
 
-Take a carriage and its contents, forged together by
+Take a carriage and its contents, joined together by
 
 ```javascript
 contents.parent = carriage;
@@ -209,13 +209,13 @@ At any point, index **i** on the track position is from
 carriage.position = points[i];
 ```
 
-Firstly take the contents as freight, i.e. it moves with the carriage. At any point, index **i** rotation of both is given by
+Firstly, take the contents as freight, i.e. they move with the carriage. At any point, index **i** rotation of both is given by
 
 ```javascript
 carriage.rotationQuaternion = BABYLON.Quaternion.FromRotationMatrix(track.rotations[i]);
 ```
 
-When you take the contents as a passenger, i.e. somebody who can turn to look around the carriage and passenger rotation are separated
+When you take the contents as a passenger, i.e. somebody who can turn to look around, the carriage and passenger rotations are separated.
 
 ```javascript
 carriage.rotationQuaternion = BABYLON.Quaternion.FromRotationMatrix(track.carriageRotations[i]);
@@ -312,9 +312,9 @@ scene.registerAfterRender(function () {
 
 ## Showing Axes
 
-The data returned by 'createTrack' can be used to produce the lines showing the intended directions of the local axes 0f the carriage at any of the points (as seen in the images and playgrounds above). These are the required tangents, normals and binormals of the path for the carriage to follow. Initially these are tangent = (1, 0, 0), normal = (0, 1, 0) and binormal = (0, 0, 1).
+The data returned by 'createTrack' can be used to produce the lines showing the intended directions of the local axes of the carriage at any of the points (as seen in the images and playgrounds above). These are the required tangents, normals and binormals of the path for the carriage to follow. Initially these are tangent = (1, 0, 0), normal = (0, 1, 0) and binormal = (0, 0, 1).
 
-The following function will produce arrays or tangents, normals and binormals
+The following function will produce arrays of tangents, normals, and binormals.
 
 ```javascript
 var tangents = [];
@@ -364,7 +364,7 @@ In this next playground a simple velodrome track is built from a ribbon.
 
 PG: <Playground id="#HSMDF2#9" title="Velodrome Example" description="."/>
 
-The normals and binormals of the track are used to create two paths for the ribbon, with a given offset and height. So that the velodrome track sits beneath the wheels a radial vector (from the origin to a point on the track) is used to extend the track outwards.
+The normals and binormals of the track are used to create two paths for the ribbon, with a given offset and height. So that the velodrome track sits beneath the wheels, a radial vector (from the origin to a point on the track) is used to extend the track outwards.
 
 To produce a smooth velodrome track not all points are necessary. In this example only one in five are used.
 
@@ -385,8 +385,8 @@ Also note that since cylinders are created with their faces horizontal, the whee
 
 ### Using Tubes and Instances to Create a Roller Coaster
 
-For this roller coaster only the lean angle is used for the carriage and the passenger rotation used to turn the passenger to look out at the start of the run.
-In this playground paths created either side of the track are used to build tubes and the same track carriage rotational data used to place sleepers underneath the rails.
+For this roller coaster, only the lean angle is used for the carriage, and the passenger rotation is used to turn the passenger to look out at the start of the run.
+In this playground, paths created on either side of the track are used to build tubes, and the same carriage rotation data from the track is used to place sleepers underneath the rails.
 
 PG: <Playground id="#SQFG0Q#5" title="Roller Coaster Overview" description="."/>
 PG: <Playground id="#SQFG0Q#6" title="Roller Coaster Passenger View" description="Passenger View From Roller Coaster"/>

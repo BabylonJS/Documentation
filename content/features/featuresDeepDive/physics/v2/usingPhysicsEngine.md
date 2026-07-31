@@ -12,14 +12,14 @@ video-content:
 
 ## Introduction
 
-Babylon.js has a plugin system for physics engines that enables the user to add physics interactions to the scene objects.
+Babylon.js has a plugin system for physics engines that enables users to add physics interactions to scene objects.
 Unlike the internal collision system, a physics engine calculates objects' body dynamics and emulates "real-life" interactions between them. So if two objects collide, they will "bounce" off one another, just like you would expect from a real-life object.
 
-The plugin system allows us to use well established physics engines and to integrate them into the render loop. Apart from very advanced usage, there is no need to interact directly with the physics engine. Babylon.js does the work for you.
+The plugin system allows us to use well-established physics engines and integrate them into the render loop. Apart from very advanced usage, there is no need to interact directly with the physics engine. Babylon.js does the work for you.
 
-## What physics engine are integrated
+## Which physics engine is integrated
 
-There is a plugin for Havok Physics engine.
+There is a plugin for the Havok Physics engine.
 
 Read about the [Babylon.js Havok plugin](/features/featuresDeepDive/physics/havokPlugin) and how to use it directly.
 
@@ -46,13 +46,13 @@ scene.enablePhysics();
 scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.HavokPlugin());
 ```
 
-Calling this function will create a new `PhysicsEngine` object that will be in charge of handling the physics interactions.
+Calling this function will create a new `PhysicsEngine` object that handles the physics interactions.
 
 The physics engine is now enabled and is running during the render loop.
 
 ## Your first physics scene
 
-Here we present a minimal example of a physics enabled scene, utilizing [Aggregates](/features/featuresDeepDive/physics/aggregates) for faster creation:
+Here we present a minimal example of a physics-enabled scene, using [Aggregates](/features/featuresDeepDive/physics/aggregates) for faster creation:
 
 ```javascript
 var createScene = function () {
@@ -102,7 +102,7 @@ var createScene = function () {
 
 ## Physicalize GLTF
 
-An extra step is needed in order to be able to physicalize meshes coming from gltf. Insert an extra node transform just before the `__root__` so conversion between Righ or Left handedness are transparent for the physics engine.
+An extra step is needed to physicalize meshes imported from glTF. Insert an extra transform node just before the `__root__` so conversions between right- and left-handedness are transparent to the physics engine.
 
 ```javascript
 const trParent = new BABYLON.TransformNode("tr", scene);
@@ -114,7 +114,7 @@ root.setParent(trParent);
 
 ## Debugging your scene
 
-Use the physics debug display when your scene and dynamics doesn't behave the way you think it should.
+Use the physics debug display when your scene and dynamics don't behave the way you think they should.
 It will display geometry the way the physics engine sees the world.
 There are two ways to invoke the display.
 
@@ -129,7 +129,7 @@ for (const mesh of scene.rootNodes) {
 }
 ```
 
-This snippet will create the PhysicsViewer and then will add every PhysicsBody available thanks to the scene meshes.
+This snippet creates the PhysicsViewer and then adds every PhysicsBody available from the scene's meshes.
 
 ### Using the Inspector
 

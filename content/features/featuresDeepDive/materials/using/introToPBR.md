@@ -12,12 +12,12 @@ video-content:
 
 The aim of Physically Based Rendering, PBR, is to simulate **real life lighting**.
 
-PBR is a grouping of techniques; it does not force you to choose one in particular. Among others, we can cite some like:
+PBR is a grouping of techniques; it does not force you to choose one in particular. Among others, these include:
 
 - [Disney](http://blog.selfshadow.com/publications/s2012-shading-course/burley/s2012_pbs_disney_brdf_slides_v2.pdf)
 - [Ashkimin Shirley BRDF](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.18.4558&rep=rep1&type=pdf)
 
-In Babylon.js, PBR is done thanks to PBRMaterial. This material contains all features required by modern physically based rendering. On this page we look at two pre-set simplified versions that allow you to quickly get started with PBR.
+In Babylon.js, PBR is implemented through `PBRMaterial`. This material contains all the features required by modern physically based rendering. On this page, we look at two pre-set simplified versions that allow you to quickly get started with PBR.
 
 You can find a demonstration of the effect of using the [PBRMaterial](https://www.babylonjs.com/Demos/PBRGlossy/) from the main Babylon.js website.
 
@@ -38,7 +38,7 @@ This material is based on five main values:
 - metallicRoughnessTexture: Texture containing both the metallic value in the B channel and the roughness value in the G channel to keep better precision. Ambient occlusion can also be saved in R channel.
 - environmentTexture: texture
 
-As you are already really familiar with the Babylon Standard Material now we'll only try to address here the main differences and as the simplest setup; your only changes will be to instantiate a **PBRMetallicRoughnessMaterial** instead of a **StandardMaterial**.
+If you are already familiar with the Babylon Standard Material, we'll focus here on the main differences and the simplest setup; your only change will be to instantiate a **PBRMetallicRoughnessMaterial** instead of a **StandardMaterial**.
 
 ```javascript
 const pbr = new BABYLON.PBRMetallicRoughnessMaterial("pbr", scene);
@@ -50,7 +50,7 @@ Apply this material to the object of your choice, e.g.:
 sphere.material = pbr;
 ```
 
-Now you can define the physical based values of your material to get a great look and feel:
+Now you can define the physically based values of your material to get a great look and feel:
 
 ```javascript
 pbr.baseColor = new BABYLON.Color3(1.0, 0.766, 0.336);
@@ -91,7 +91,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("/texture
 
 <Playground id="#2FDQT5#12" title="Reflective Surface With Roughness Using PBR" description="Simple example of a reflective surface with roughness using PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro3.webp"/>
 
-To get more precise over how metallic and roughness on your object, you can also specify the metallicRoughnessTexture:
+To get more precise control over the metallic and roughness values on your object, you can also specify the metallicRoughnessTexture:
 
 ```javascript
 pbr.baseColor = new BABYLON.Color3(1.0, 0.766, 0.336);
@@ -108,9 +108,9 @@ pbr.metallicRoughnessTexture = new BABYLON.Texture("/textures/mr.jpg", scene);
 This material is based on five main values:
 
 - diffuseColor / diffuseTexture: Specifies the diffuse color of the material.
-- specularColor: Specifies the specular color of the material. This indicates how reflective is the material (none to mirror).
+- specularColor: Specifies the specular color of the material. This indicates how reflective the material is (none to mirror).
 - glossiness: Specifies the glossiness of the material. This indicates "how sharp is the reflection".
-- specularGlossinessTexture: Specifies both the specular color RGB and the glossiness A of the material per pixels.
+- specularGlossinessTexture: Specifies both the specular color RGB and the glossiness A of the material per pixel.
 - environmentTexture: texture
 
 The setup of this material is comparable to the one used for PBRMetallicRoughnessMaterial:
@@ -125,7 +125,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("/texture
 
 <Playground id="#Z1VL3V#5" title="Surface Glossiness With PBR" description="Simple example of surface glossiness with PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro5.webp"/>
 
-The specularGlossinessTexture can then (like the metallicRoughnessTexture texture) be used to provide more control over specular and glossiness:
+The specularGlossinessTexture can then, like the metallicRoughnessTexture, be used to provide more control over specular and glossiness:
 
 ```javascript
 pbr.diffuseColor = new BABYLON.Color3(1.0, 0.766, 0.336);
@@ -141,11 +141,11 @@ pbr.specularGlossinessTexture = new BABYLON.Texture("/textures/sg.png", scene);
 
 Dynamic lights are an important part of your PBR setup. You can decide to have no light and only use the environment texture to light your scene or you can decide to add additional light sources to enhance your rendering.
 
-By default, light intensities are computed using the inverse squared distance from the source. This is a type of falloff that is pretty close from what light does in real life. So, the further you are, the bigger your intensity will need to be to reach a surface.
+By default, light intensities are computed using the inverse squared distance from the source. This is a type of falloff that is pretty close to how light behaves in real life. So, the farther you are, the higher your light intensity will need to be to reach a surface.
 
-To even go further, the intensity you define on the lights follows physics notions:
+To go even further, the intensity you define on the lights follows physics-based units:
 
 - Point and Spot lights are defined in luminous intensity (candela, m/sr)
 - Directional and Hemispheric lights in illuminance (nit, cd/m2)
 
-You'll find more info about how dynamic lighting works in mastering PBR but first we look at using high dynamic range (HDR) for use with PBR
+You'll find more info about how dynamic lighting works in Mastering PBR, but first we look at using high dynamic range (HDR) with PBR.

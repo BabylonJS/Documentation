@@ -16,7 +16,7 @@ video-content:
 
 ## How To Optimize Your Scene
 
-This tutorial will help you find some links and info on how you can improve your scene regarding rendering performance.
+This tutorial will help you find links and information on how to improve your scene's rendering performance.
 
 ## Use TransformNode instead of AbstractMesh or empty meshes
 
@@ -25,20 +25,20 @@ If you need node containers or transform nodes, do not use meshes but TransformN
 The meshes need to go through an evaluation process where the camera checks if they are in the frustum. This is an expensive process so reducing the number of candidates by using TransformNode when possible is a good practice.
 
 ## Reducing Shaders Overhead
-Babylon.js uses an advanced and automatic shaders engine. This system will keep shaders up to date regarding material options. If you are using a static material (ie. an immutable material) then you can let it know to Babylon.js by using the following code:
+Babylon.js uses an advanced, automatic shader engine. This system will keep shaders up to date regarding material options. If you are using a static material (ie. an immutable material), you can let Babylon.js know by using the following code:
 
 ```
 material.freeze();
 ```
 
-Once frozen, the shader will remain unchanged even if you change material's properties. You will have to unfreeze it to update the inner shader:
+Once frozen, the shader will remain unchanged even if you change a material's properties. You will have to unfreeze it to update the inner shader:
 
 ```
 material.unfreeze();
 ```
 
 ## Reducing World Matrices Computation
-Every mesh has a world matrix to specify its position / rotation / scaling. This matrix is evaluated on every frame. You can improve performances by freezing this matrix. Any subsequent changes to position / rotation / scaling will then be ignored:
+Every mesh has a world matrix to specify its position / rotation / scaling. This matrix is evaluated on every frame. You can improve performance by freezing this matrix. Any subsequent changes to position / rotation / scaling will then be ignored:
 
 ```
 mesh.freezeWorldMatrix();
@@ -51,7 +51,7 @@ mesh.unfreezeWorldMatrix();
 ```
 
 ## Freezing the active meshes
-If you are CPU bound, you can decide to keep the list of active meshes unchanged and then free the time spent by the CPU to determine active meshes:
+If you are CPU-bound, you can decide to keep the list of active meshes unchanged and free the CPU time spent determining active meshes:
 
 ```
 scene.freezeActiveMeshes();
@@ -65,7 +65,7 @@ scene.unfreezeActiveMeshes();
 
 Note that you can force a mesh to be in the active meshes before freezing the list with `mesh.alwaysSelectAsActiveMesh = true`.
 
-Freezing active meshes list may cause some things on the scene to stop updating. One example is [RenderTargetTexture](/features/featuresDeepDive/postProcesses/renderTargetTextureMultiPass), if it's used by mesh materials. For that case RTT needs to be explicitly added to the list of active camera's custom render targets, which will guarantee that it ends up in the render list of the scene:
+Freezing the active meshes list may cause some things in the scene to stop updating. One example is [RenderTargetTexture](/features/featuresDeepDive/postProcesses/renderTargetTextureMultiPass), if it's used by mesh materials. In that case, the RTT needs to be explicitly added to the list of the active camera's custom render targets, which will guarantee that it ends up in the render list of the scene:
 
 ```javascript
 camera.customRenderTargets.push(renderTargetTexture);
@@ -79,17 +79,17 @@ mesh.doNotSyncBoundingInfo = true;
 ```
 
 ## Not picking the scene on pointer move
-On every pointer move, the scene is browsing the list of meshes to see if a mesh under the pointer may need to have an associated action / event raised.
+On every pointer move, the scene browses the list of meshes to see if a mesh under the pointer may need to have an associated action / event raised.
 To avoid this process, you can set `scene.skipPointerMovePicking = true`.
 
-Please note that by doing it, you will have no event over any mesh when the pointer will move (and `scene.meshUnderPointer` will not be updated even if `scene.constantlyUpdateMeshUnderPointer === true`).
+Please note that by doing so, you will have no event over any mesh when the pointer moves (and `scene.meshUnderPointer` will not be updated even if `scene.constantlyUpdateMeshUnderPointer === true`).
 
 ## Reducing draw calls
-As soon as you can please use [instances](/features/featuresDeepDive/mesh/copies/instances) as they are drawn with one single draw call.
+Whenever possible, please use [instances](/features/featuresDeepDive/mesh/copies/instances) as they are drawn with a single draw call.
 
-If sharing the same material is a problem, you can then think about using clones which share the same geometry with `mesh.clone("newName")`
+If sharing the same material is a problem, you can use clones, which share the same geometry, with `mesh.clone("newName")`.
 
-One remark regarding instances: If one of the instances has a world matrix with a different determinant (eg. one instance has a negative scale where others don't), babylon.js will be forced to remove the back face culling from their material.
+One remark regarding instances: If one of the instances has a world matrix with a different determinant (e.g. one instance has a negative scale while others don't), Babylon.js will be forced to remove back-face culling from their material.
 
 ## Reducing calls to gl.clear()
 By default, Babylon.js automatically clears the color, depth, and stencil buffers before rendering the scene. It also clears the depth and stencil buffers after switching to a new camera and before rendering a new RenderingGroup. On systems with poor fill rates, these can add up quickly and have a significant impact on performance.
@@ -115,7 +115,7 @@ scene.setRenderingAutoClearDepthStencil(renderingGroupIdx, autoClear, depth, ste
 Go ahead and be aggressive with these settings. You'll know if it's not appropriate for your application if you see any smearing!
 
 ## Using depth pre-pass
-When dealing with complex scenes, it could be useful to use depth pre-pass. This technique will render designated meshes only in the depth buffer to leverage early depth test rejection. This could be used for instance when a scene contains meshes with advanced shaders.
+When dealing with complex scenes, it could be useful to use a depth pre-pass. This technique will render designated meshes only in the depth buffer to leverage early depth test rejection. This could be used, for instance, when a scene contains meshes with advanced shaders.
 To enable a depth pre-pass for a mesh, just call `mesh.material.needDepthPrePass = true`.
 
 ## Using unindexed meshes
@@ -127,9 +127,9 @@ mesh.convertToUnIndexedMesh();
 For example this works very well for a cube where it is more efficient to send 32 positions instead of 24 positions and 32 indices.
 
 ## Turning AdaptToDeviceRatio Off/On
-By default, Babylon.js does not adapt to device ratio anymore. It by default focuses on perf vs quality after receiving lots of community requests.
+By default, Babylon.js no longer adapts to device ratio. It now focuses on performance rather than quality after many community requests.
 
-The drawback is that this could look low rea. You can turn it on with the fourth parameter of the Engine constructor:
+The drawback is that this can look low-res. You can turn it on with the fourth parameter of the Engine constructor:
 
 ```
 var engine = new BABYLON.Engine(canvas, antialiasing, null, true);
@@ -137,7 +137,7 @@ var engine = new BABYLON.Engine(canvas, antialiasing, null, true);
 
 ## Blocking the dirty mechanism
 
-By default the scene will keep all materials up to date when you change a property that could potentially impact them (alpha, texture update, etc...). To do so the scene needs to go through all materials and flag them as dirty. This could be a potential bottleneck if you have a lot of material.
+By default, the scene will keep all materials up to date when you change a property that could potentially impact them (alpha, texture update, etc.). To do so, the scene needs to go through all materials and flag them as dirty. This could be a potential bottleneck if you have a lot of materials.
 
 To prevent this automatic update, you can execute:
 
@@ -150,7 +150,7 @@ Do not forget to restore it to false when you are done with your batch changes.
 ## Using Animation Ratio
 Babylon.js processes speed depending on the current frame rate.
 
-On low-end devices animations or camera movement may differ from high-end devices. To compensate this you can use:
+On low-end devices, animations or camera movement may differ from what you see on high-end devices. To compensate, you can use:
 
 ```
 scene.getAnimationRatio();
@@ -159,21 +159,21 @@ scene.getAnimationRatio();
 The return value is higher on low frame rates.
 
 ## Handling WebGL context lost
-Starting with version 3.1, Babylon.js can handle [WebGL context lost event](https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.13). This event is raised by the browser when the GPU needs to be taken away from your code. This can happen for instance when using WebVR in hybrid scenario (with multiple GPU). In this case, Babylon.js has to recreate ALL low level resources (including textures, shaders, program, buffers, etc.). The process is entirely transparent and done under the hood by Babylon.js.
+Starting with version 3.1, Babylon.js can handle the [WebGL context lost event](https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.13). This event is raised by the browser when the GPU needs to be taken away from your code. This can happen, for instance, when using WebVR in a hybrid scenario (with multiple GPUs). In this case, Babylon.js has to recreate ALL low-level resources (including textures, shaders, programs, buffers, etc.). The process is entirely transparent and handled under the hood by Babylon.js.
 
-As a developer you should not be concerned by this mechanism. However, to support this scenario, Babylon.js may need an additional amount of memory to keep track of resources creation. If you do not need to support WebGL context lost event, you can turn off the tracking by instantiating your engine with doNotHandleContextLost option set to true.
+As a developer, you should not be concerned with this mechanism. However, to support this scenario, Babylon.js may need additional memory to keep track of resource creation. If you do not need to support the WebGL context lost event, you can turn off the tracking by instantiating your engine with the doNotHandleContextLost option set to true.
 
 If you created resources that need to be rebuilt (like vertex buffers or index buffers), you can use the `engine.onContextLostObservable` and `engine.onContextRestoredObservable` observables to keep track of the context lost and context restored events.
 
 ## Scene with large number of meshes
-If you have a large number of meshes in a scene, and need to reduce the time spent when adding/removing those meshes to/from the scene, There are several options of the `Scene` constructor that can help :
+If you have a large number of meshes in a scene and need to reduce the time spent adding or removing those meshes, there are several `Scene` constructor options that can help:
  - Setting the option `useGeometryUniqueIdsMap` to `true` will speed-up the addition and removal of `Geometry` in the scene.
- - Setting the option `useMaterialMeshMap` to `true` will speed-up the disposing of `Material` by reducing the time spent to look for bound meshes.
- - Setting the option `useClonedMeshMap` to `true` will speed-up the disposing of `Mesh` by reducing the time spent to look for associated cloned meshes.
+ - Setting the option `useMaterialMeshMap` to `true` will speed up disposing of `Material` by reducing the time spent looking for bound meshes.
+ - Setting the option `useClonedMeshMap` to `true` will speed up disposing of `Mesh` by reducing the time spent looking for associated cloned meshes.
 
-For each of these options turned on, Babylon.js will need an additional amount of memory.
+For each of these options that is turned on, Babylon.js will need an additional amount of memory.
 
-Also, If you are disposing a large number of meshes in a row, you can save unnecessary computation by turning the scene property `blockfreeActiveMeshesAndRenderingGroups` to true just before disposing the meshes, and set it back to `false` just after, like this :
+Also, if you are disposing of a large number of meshes in a row, you can save unnecessary computation by setting the scene property `blockfreeActiveMeshesAndRenderingGroups` to true just before disposing the meshes, and setting it back to `false` just after, like this:
 ````javascript
 
 scene.blockfreeActiveMeshesAndRenderingGroups = true;
@@ -184,12 +184,12 @@ scene.blockfreeActiveMeshesAndRenderingGroups = false;
 
 ````
 ## Changing Mesh Culling Strategy
-The culling is the process to select whether a mesh must be passed to the GPU to be rendered or not. It's done CPU side.
+Culling is the process of selecting whether a mesh must be passed to the GPU to be rendered or not. It's done on the CPU side.
 If a mesh intersects the camera frustum in some way then it's passed to the GPU.
-Depending on its accuracy (checking mesh bounding boxes or bounding spheres only, trying to include or to exclude fast the mesh from the frustum), this process can be time consuming.
-In the other hand, reducing this process accuracy to make it faster can lead to some false positives : some meshes are passed to the GPU, are computed there and won't be finally visible in the viewport.
-By default, BABYLON applies "Bounding Sphere Only" exclusion test to check if a mesh is in the camera frustum.
-You can change this behaviour for any mesh of your scene at any time (and change it back then, if needed) this the property `mesh.cullingStrategy`.
+Depending on its accuracy (checking mesh bounding boxes or bounding spheres only, trying to include or exclude the mesh from the frustum quickly), this process can be time-consuming.
+On the other hand, reducing this process's accuracy to make it faster can lead to some false positives: some meshes are passed to the GPU, are computed there, and still won't be visible in the viewport.
+By default, Babylon.js applies the "Bounding Sphere Only" exclusion test to check if a mesh is in the camera frustum.
+You can change this behavior for any mesh in your scene at any time (and change it back later, if needed) through the `mesh.cullingStrategy` property.
 ```javascript
 /**
 * Possible values :
@@ -201,34 +201,34 @@ You can change this behaviour for any mesh of your scene at any time (and change
 
 mesh.cullingStrategy = oneOfThePossibleValues;
 ```
-* Standard : the most accurate and standard one. This is an exclusion test. The test order is :
+* Standard : the most accurate and standard one. This is an exclusion test. The test order is:
   *  Is the bounding sphere outside the frustum ?
   *  If not, are the bounding box vertices outside the frustum ?
-  *  It not, then the cullable object is in the frustum.
-* Bounding Sphere Only : faster but less accurate. This is an exclusion test. It's faster than the standard strategy because the bounding box is not tested. It's also less accurate than the standard because some not visible objects can still be selected. The test order is :
+  *  If not, then the cullable object is in the frustum.
+* Bounding Sphere Only : faster but less accurate. This is an exclusion test. It's faster than the standard strategy because the bounding box is not tested. It's also less accurate than the standard because some invisible objects can still be selected. The test order is:
   *  Is the bounding sphere outside the frustum ?
   *  If not, then the cullable object is in the frustum.
-* Optimistic Inclusion : This in an inclusion test first, then the standard exclusion test. This can be faster when a cullable object is expected to be almost always in the camera frustum. This could also be a little slower than the standard test when the tested object center is not the frustum but one of its bounding box vertex is still inside. Anyway, it's as accurate as the standard strategy. The test order is :
+* Optimistic Inclusion : This is an inclusion test first, then the standard exclusion test. This can be faster when a cullable object is expected to be almost always in the camera frustum. This could also be a little slower than the standard test when the tested object's center is not in the frustum but one of its bounding box vertices is still inside. Anyway, it's as accurate as the standard strategy. The test order is:
   *  Is the cullable object bounding sphere center in the frustum ?
   *  If not, apply the default culling strategy.
-* Optimistic Inclusion Then Bounding Sphere Only : This in an inclusion test first, then the bounding sphere only exclusion test. This can be the fastest test when a cullable object is expected to be almost always in the camera frustum. This could also be a little slower than the BoundingSphereOnly strategy when the tested object center is not in the frustum but its bounding sphere still intersects it. It's less accurate than the standard strategy and as accurate as the BoundingSphereOnly strategy. The test order is :
+* Optimistic Inclusion Then Bounding Sphere Only : This is an inclusion test first, then the bounding-sphere-only exclusion test. This can be the fastest test when a cullable object is expected to be almost always in the camera frustum. This could also be a little slower than the BoundingSphereOnly strategy when the tested object's center is not in the frustum but its bounding sphere still intersects it. It's less accurate than the standard strategy and as accurate as the BoundingSphereOnly strategy. The test order is:
   *  Is the cullable object bounding sphere center in the frustum ?
   *  If not, apply the Bounding Sphere Only strategy. No Bounding Box is tested here.
 
-Optimistic Inclusion modes give a little gain. They keep the same accuracy as the basic mode on what they are applied (standard or bSphereOnly).
-BoundingSphereOnly modes, because they reduce a lot the accuracy, give a good perf gain. These should not be used with high poly meshes while sending false positives to the GPU has a real rendering cost. These can be very interesting for numerous low poly meshes instead. *Really useful if you are CPU bound**.
+Optimistic Inclusion modes provide a small gain. They keep the same accuracy as the base mode to which they are applied (standard or bSphereOnly).
+BoundingSphereOnly modes, because they reduce accuracy significantly, provide a good performance gain. These should not be used with high-poly meshes, because sending false positives to the GPU has a real rendering cost. These can be very interesting for numerous low-poly meshes instead. **Really useful if you are CPU-bound.**
 
 ## Performance Priority Modes
 
-Starting with Babylon.js 5.22, you can now change how the scene will treat performance regarding backward compatibility and ease of use.
+Starting with Babylon.js 5.22, you can now change how the scene prioritizes performance, backward compatibility, and ease of use.
 
 ### Backward compatibility mode (default)
 By default, `scene.performancePriority` is set to `BABYLON.ScenePerformancePriority.BackwardCompatible`. In this mode, there is simply no change. The scene will keep prioritizing ease of use and backward compatibility.
 
 ### Intermediate mode
 If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Intermediate`, the scene will automatically:
-* Freeze materials when they are ready. If you need to change something on a material, you will have to call `material.markDirty(true)` after you did your changes
-* New meshes will have their `alwaysSelectAsActiveMesh` property set to true. The system will then skip frustum clipping for the mesh and always set it to active (saving complex CPU operations). Keep in mind to turn it off if your scene is GPU bound
+* Freeze materials when they are ready. If you need to change something on a material, you will have to call `material.markDirty(true)` after making your changes
+* New meshes will have their `alwaysSelectAsActiveMesh` property set to true. The system will then skip frustum clipping for the mesh and always set it to active (saving complex CPU operations). Keep in mind that you should turn it off if your scene is GPU-bound
 * New meshes will have their `isPickable ` property set to false. Picking and action managers will not work anymore. You can always turn that property back on if you need picking for a specific mesh
 * `scene.skipPointerMovePicking ` will be turned on (meaning that there will be no OnPointerMove events)
 * `scene.autoClear` will be turned off
@@ -238,16 +238,16 @@ If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Agg
 * Enable all features of the `Intermediate` mode
 * The scene will skip all the frustum clipping phase entirely (`scene.skipFrustumClipping` will be set to true)
 * New meshes will have their `doNotSyncBoundingInfo` set to true
-* The manager will not reset between frames (`scene.renderingManager.maintainStateBetweenFrames` is set to true). This means that if a mesh becomes invisible or transparent it will not be visible until this boolean is set to false again
+* The manager will not reset between frames (`scene.renderingManager.maintainStateBetweenFrames` is set to true). This means that if a mesh becomes invisible or transparent, it will not be visible until this boolean is set to false again
 
 
 
-** Please note that the `Intermediate` and `Aggressive` modes will not be backward compatible, which means that we will probably add more features in these modes in the future to support performance first**
+**Please note that the `Intermediate` and `Aggressive` modes are not backward compatible, which means that we will probably add more performance-first features to these modes in the future.**
 
 Here is an example: <Playground id="#6HWS9M" title="Performance Mode Example" description="Simple example of using Performance Mode." isMain={true} category="Scene"/>
 
 ## Instrumentation
-Instrumentation is a key tool when you want to optimize a scene. It will help you figure out where are the bottlenecks so you will be able to optimize what needs to be optimized.
+Instrumentation is a key tool when you want to optimize a scene. It will help you figure out where the bottlenecks are so you can optimize what needs to be optimized.
 
 ### EngineInstrumentation
 The EngineInstrumentation class allows you to get the following counters:
@@ -257,17 +257,17 @@ The EngineInstrumentation class allows you to get the following counters:
 Here is an example of how to use engine instrumentation:
 <Playground id="#HH8T00#1" title="Engine Instrumentation Example" description="Simple example of using engine instrumentation."/>
 
-Please note that each counter is *PerfCounter* object which can provide multiple properties like average, total, min, max, count, etc.
+Please note that each counter is a *PerfCounter* object, which can provide multiple properties like average, total, min, max, count, etc.
 
 The GPU timer requires a special extension (EXT_DISJOINT_TIMER_QUERY - also sometimes reported with the \_webgl2 prefix in WebGL2 context) in order to work. This extension had been disabled due to Spectre and Meltdown on all major browsers, but some have added it back, like Chrome and Edge. You can check if your browser supports this extension on the [Khronos SDK test page](https://www.khronos.org/registry/webgl/sdk/tests/conformance/extensions/ext-disjoint-timer-query.html) or on [WebGL report](https://webglreport.com/?v=2).
 
-* Note: On Chrome mobile, this extension can be enabled at `chrome://flags#enable-webgl-developer-extensions` followed by a browser restart
+* Note: On Chrome mobile, this extension can be enabled at `chrome://flags#enable-webgl-developer-extensions`, followed by a browser restart.
 
 ### SceneInstrumentation
 The SceneInstrumentation class allows you to get the following counters (per scene):
 * *activeMeshesEvaluationTimeCounter*: Time (in milliseconds) spent to evaluate active meshes (based on active camera frustum). Must be turned on with `instrumentation.captureActiveMeshesEvaluationTime = true`.
 * *renderTargetsRenderTimeCounter*: Time (in milliseconds) spent to render all render target textures. Must be turned on with `instrumentation.captureRenderTargetsRenderTime = true`.
-* *drawCallsCounter*: Number of draw calls (actual calls to engine.draw) per frame. A good advice is to keep this number as small as possible.
+* *drawCallsCounter*: Number of draw calls (actual calls to engine.draw) per frame. A good guideline is to keep this number as small as possible.
 * *frameTimeCounter*: Time (in milliseconds) spent to process an entire frame (including animations, physics, render targets, special fx, etc.). Must be turned on with `instrumentation.captureFrameTime = true`.
 * *renderTimeCounter*: Time (in milliseconds) spent to render a frame. Must be turned on with `instrumentation.captureRenderTime = true`.
 * *interFrameTimeCounter*: Time (in milliseconds) spent between two frames. Must be turned on with `instrumentation.captureInterFrameTime = true`.
@@ -276,7 +276,7 @@ The SceneInstrumentation class allows you to get the following counters (per sce
 * *physicsTimeCounter*: Time (in milliseconds) spent simulating physics. Must be turned on with `instrumentation.capturePhysicsTime = true`.
 * *cameraRenderTimeCounter*: Time (in milliseconds) spent to render a camera. Must be turned on with `instrumentation.captureCameraRenderTime = true`.
 
-Those counters are all reset to 0 at the beginning of each frame. Therefore it is easier to access them in the onAfterRender callback or observable.
+Those counters are all reset to 0 at the beginning of each frame. Therefore, it is easier to access them in the `onAfterRender` callback or observable.
 
 ## Inspector
 
@@ -284,4 +284,4 @@ Starting with Babylon.js v4.0 you can use the Inspector to [analyze your scene](
 
 ## VR/XR scenarios
 
-When usingBabylon.js with WebVR or WebXR, enabling [Multiview](/features/featuresDeepDive/cameras/multiViewsPart1) is a quick way to almost double the rendering speed.
+When using Babylon.js with WebVR or WebXR, enabling [Multiview](/features/featuresDeepDive/cameras/multiViewsPart1) is a quick way to almost double the rendering speed.

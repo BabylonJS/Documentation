@@ -14,13 +14,13 @@ video-content:
 
 > “VRM” is **a file format for handling 3D humanoid avatar (3D model) data for VR applications**. It is based on glTF2.0. Anyone is free to use it.
 >
-> In addition, a standard implementation ([UniVRM](https://github.com/vrm-c/UniVRM)) in c## that can import and export VRM file in [Unity](https://unity3d.com/) is released as open source.
+> In addition, a standard implementation ([UniVRM](https://github.com/vrm-c/UniVRM)) in C# that can import and export VRM files in [Unity](https://unity3d.com/) is released as open source.
 
 Additional information can be viewed at [vrm.dev](https://vrm.dev/en/).
 
-## How to load VRM file in Babylon.js?
+## How to load a VRM file in Babylon.js?
 
-You can load VRM file in Babylon.js that uses [babylon-vrm-loader](https://github.com/virtual-cast/babylon-vrm-loader), which is community-madeBabylon.js glTF Loader Extension for `VRM`.
+You can load a VRM file in Babylon.js by using [babylon-vrm-loader](https://github.com/virtual-cast/babylon-vrm-loader), which is a community-made Babylon.js glTF loader extension for `VRM`.
 
 It supports `.vrm` and `.vci` file loading.
 
@@ -28,9 +28,9 @@ It supports `.vrm` and `.vci` file loading.
 
 PG: <Playground id="#K5W35Y" title="VRM" description="Example of loading a VRM file."/>
 
-## What can do?
+## What can you do?
 
-For example, once write some animation code, all VRM models can animate it!
+For example, once you write some animation code, all VRM models can use it!
 
 ![VRM Same Code Animation](/img/resources/babylonjs_and_vrm/vrm-samecode-animation.webp)
 
@@ -44,19 +44,19 @@ vrmManager.humanoidBone.leftLowerLeg.rotationQuaternion = Quaternion.FromEulerAn
 vrmManager.humanoidBone.rightLowerLeg.rotationQuaternion = Quaternion.FromEulerAngles(-Math.PI / 6, 0, 0);
 ```
 
-BabylonJS [standard animation mechanism](/features/featuresDeepDive/animation/animation_introduction) also can be used.
+BabylonJS [standard animation mechanism](/features/featuresDeepDive/animation/animation_introduction) can also be used.
 
-For instance, you can make pose to any VRM.
+For instance, you can apply a pose to any VRM.
 
 PG: <Playground id="#K5W35Y#8" title="VRM" description="Posing the VRM"/>
 
 ## How to use?
 
-On browser example is [here](https://codepen.io/anon/pen/zQXyxL?editors=1010).
+A browser example is available [here](https://codepen.io/anon/pen/zQXyxL?editors=1010).
 
 Example PG: <Playground id="#K5W35Y" title="VRM" description="Example VRM"/>
 
-On npm/yarn with webpack...
+For npm/yarn with webpack:
 
 ```bash
 $ npm install --save @babylonjs/core @babylonjs/loaders babylon-vrm-loader

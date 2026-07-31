@@ -37,13 +37,13 @@ The Universal Camera is now the default camera used by Babylon.js, and it’s yo
 
 The default actions are:
 
-1. Keyboard - The left and right arrow keys move the camera left and right, and the up and down arrow keys move it forwards and backward;
+1. Keyboard - The left and right arrow keys move the camera left and right, and the up and down arrow keys move it forward and backward;
 
-2. Mouse - Rotates the camera about the axes with the camera as origin;
+2. Mouse - Rotates the camera around its axes;
 
 3. Touch - Swipe left and right to move the camera left and right, and swipe up and down to move it forward and backward;
 
-4. [gamepad](/features/featuresDeepDive/input/gamepads) - corresponds to device.
+4. [Gamepad](/features/featuresDeepDive/input/gamepads) - Corresponds to the connected device.
 
 Optional actions are:
 
@@ -70,9 +70,9 @@ camera.attachControl(canvas, true);
 
 ## Arc Rotate Camera
 
-This camera always points towards a given target position and can be rotated around that target with the target as the center of rotation. It can be controlled with cursors and mouse, or with touch events.
+This camera always points toward a given target position and can be rotated around that target, with the target as the center of rotation. It can be controlled with cursors and a mouse, or with touch events.
 
-Think of this camera as one orbiting its target position, or more imaginatively as a satellite orbiting the earth. Its position relative to the target ("Earth") can be set by three parameters:
+Think of this camera as orbiting its target position, or more imaginatively as a satellite orbiting the Earth. Its position relative to the target ("Earth") can be set by three parameters:
 
 - [alpha](/typedoc/classes/babylon.arcrotatecamera#alpha) (the longitudinal rotation, in radians),
 - [beta](/typedoc/classes/babylon.arcrotatecamera#beta) (the latitudinal rotation, in radians), and
@@ -123,13 +123,13 @@ camera.attachControl(canvas, true);
 
 <Playground id="#SRZRWV#839" title="arcRotate Camera Example" description="A simple example of how to construct an arcRotate camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.webp" isMain={true} category="Cameras"/>
 
-By default, panning with an `ArcRotateCamera` is also possible by using <kbd>Ctrl</kbd> + <kbd>left mouse button</kbd>. You can use <kbd>right mouse button</kbd> instead by setting `useCtrlForPanning` to `false` in the `attachControl` call :
+By default, panning with an `ArcRotateCamera` is also possible by using <kbd>Ctrl</kbd> + <kbd>left mouse button</kbd>. You can use <kbd>right mouse button</kbd> instead by setting `useCtrlForPanning` to `false` in the `attachControl` call:
 
 ```javascript
 camera.attachControl(canvas, noPreventDefault, useCtrlForPanning);
 ```
 
-If required, you can also totally deactivate panning by setting :
+If required, you can also completely deactivate panning by setting:
 
 ```javascript
 camera.panningSensibility = 0;
@@ -141,15 +141,15 @@ Here's a demo demonstrating some of these things, along with other features of t
 
 ## FollowCamera
 
-The [FollowCamera](/typedoc/classes/babylon.followcamera) does what it says on the tin. Give it a mesh as a target, and from whatever position it is currently at it will move to a goal position from which to view the target. When the target moves, so will the Follow Camera.
+The [FollowCamera](/typedoc/classes/babylon.followcamera) does exactly what its name suggests. Give it a mesh as a target, and from whatever position it is currently at, it will move to a goal position from which to view the target. When the target moves, so will the Follow Camera.
 
-The initial position of the Follow Camera is set when it is created then the goal position is set with three parameters:
+The initial position of the Follow Camera is set when it is created, and the goal position is set with three parameters:
 
 1. [radius](/typedoc/classes/babylon.followcamera#radius): the distance from the target
 
 2. [heightOffset](/typedoc/classes/babylon.followcamera#heightOffset): the height above the target;
 
-3. [rotationOffset](/typedoc/classes/babylon.followcamera#rotationOffset): the goal angle in degrees around the target in the x y plane.
+3. [rotationOffset](/typedoc/classes/babylon.followcamera#rotationOffset): the goal angle in degrees around the target in the x-y plane.
 
 The speed with which the camera moves to a goal position is set through its acceleration ([cameraAcceleration](/typedoc/classes/babylon.followcamera#cameraacceleration)) up to a maximum speed ([maxCameraSpeed](/typedoc/classes/babylon.followcamera#maxcameraspeed)).
 
@@ -187,7 +187,7 @@ camera.lockedTarget = targetMesh; //version 2.5 onwards
 
 ## AnaglyphCameras
 
-The [AnaglyphUniversalCamera](/typedoc/classes/babylon.anaglyphuniversalcamera) and [AnaglyphArcRotateCamera](/typedoc/classes/babylon.anaglypharcrotatecamera) extend the use of the Universal and Arc Rotate Cameras for use with red and cyan 3D glasses. They use post-processing filtering techniques.
+The [AnaglyphUniversalCamera](/typedoc/classes/babylon.anaglyphuniversalcamera) and [AnaglyphArcRotateCamera](/typedoc/classes/babylon.anaglypharcrotatecamera) extend the Universal and Arc Rotate Cameras for use with red and cyan 3D glasses. They use post-processing filtering techniques.
 
 ### Constructing an Anaglyph Universal Camera
 
@@ -232,7 +232,7 @@ camera.attachControl(canvas, true);
 
 ## Virtual Joysticks Camera
 
-The [VirtualJoysticksCamera](/typedoc/classes/babylon.virtualjoystickscamera) is specifically designed to react to Virtual Joystick events. Virtual Joysticks are on-screen 2D graphics that are used to control the camera or other scene items.
+The [VirtualJoysticksCamera](/typedoc/classes/babylon.virtualjoystickscamera) is specifically designed to react to virtual joystick events. Virtual joysticks are on-screen 2D graphics that are used to control the camera or other scene items.
 
 ### Video
 
@@ -378,14 +378,14 @@ Just a friendly warning, setting the far clipping plane to infinity can reduce d
 
 The cameras rely upon user inputs to move the camera. If you are happy with the camera presets Babylon.js is giving you, just stick with it.
 
-If you want to change user inputs based upon user preferences, customize one of the existing presets, or use custom input mechanisms. Those cameras have an input manager that is designed for those advanced scenarios. Read [customizing camera inputs](/features/featuresDeepDive/cameras/customizingCameraInputs) to learn more about tweaking inputs on your cameras.
+If you want to change user inputs based on user preferences, customize one of the existing presets, or use custom input mechanisms. Those cameras have an input manager that is designed for these advanced scenarios. Read [customizing camera inputs](/features/featuresDeepDive/cameras/customizingCameraInputs) to learn more about tweaking inputs on your cameras.
 
 ## Correcting perspective projection
 
 If you are doing applications like architectural rendering, you may encounter the need to compensate for perspective tilting of vertical lines.
-Let's consider this case : you are rendering a tall building from a human eye point of view. Naturally, vertical lines will converge towards a vanishing point, like on [this playground](https://playground.babylonjs.com/#L20FJ4#15) : ![Screenshot of the tilted vertical lines](/img/how_to/tilted-vertical.webp).
+Let's consider this case: you are rendering a tall building from a human eye point of view. Naturally, vertical lines will converge toward a vanishing point, like in [this playground](https://playground.babylonjs.com/#L20FJ4#15): ![Screenshot of the tilted vertical lines](/img/how_to/tilted-vertical.webp).
 
-While this is realistic, it may be visually unappealing. If the angle between those lines stays quite low, it may be interesting to consider correcting the perspective correction, using `camera.applyVerticalCorrection()`. This method will automatically compute the vertical correction to apply regarding the current camera pitch angle : ![Screenshot of the corrected vertical lines](/img/how_to/corrected-vertical.webp).
+While this is realistic, it may be visually unappealing. If the angle between those lines stays quite low, it may be worth considering perspective correction using `camera.applyVerticalCorrection()`. This method will automatically compute the vertical correction to apply based on the current camera pitch angle: ![Screenshot of the corrected vertical lines](/img/how_to/corrected-vertical.webp).
 
-And if you want further control other the camera projection plane tilting, you can mess with the `camera.projectionPlaneTilt` property.
+And if you want further control over the camera projection plane tilt, you can adjust the `camera.projectionPlaneTilt` property.
 See [this forum post](https://forum.babylonjs.com/t/add-vertical-shift-to-3ds-max-exporter-babylon-cameras/17480/16) for more information.

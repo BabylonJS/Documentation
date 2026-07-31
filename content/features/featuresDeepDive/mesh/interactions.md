@@ -9,6 +9,6 @@ video-content:
 ---
 
 ## Interactions
-Possibly the most important interactions you can have are user interactions when picking a mesh in the scene for example. These can be achieved with scene observables. 
+Possibly the most important interactions are user interactions, such as picking a mesh in the scene. These can be achieved with scene observables.
 
-You often also need to find whether to meshes are intersecting or the relative position of a mesh with reference to another mesh, camera or point in space. These can be achieved in Babylon.js using *intersectsMesh*, for two meshes and for ray casting *Ray* and *intersect*.
+You also often need to find whether two meshes are intersecting, or determine the position of a mesh relative to another mesh, a camera, or a point in space. In Babylon.js, these can be achieved using *intersectsMesh* for two meshes, and *Ray* and *intersect* for ray casting.

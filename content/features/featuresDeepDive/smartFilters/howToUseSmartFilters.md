@@ -21,9 +21,9 @@ It requires the following peer dependencies:
 ## Important Notes
 
 <Alert severity="info">
-Do not rely on the path of files within the `@babylonjs/smart-filters` package
- - Instead import from the root index and allow tree-shaking to remove anything you don't use
- - Otherwise future updates could move or rename files and require you to update your references
+Do not rely on the path of files within the `@babylonjs/smart-filters` package.
+ - Instead, import from the root index and allow tree-shaking to remove anything you don't use.
+ - Otherwise, future updates could move or rename files and require you to update your references.
 
 </Alert>
 
@@ -83,7 +83,7 @@ runtime.render();
 
 ## Rendering to Another Render Target
 
-In this example, we build a trivial hardcoded Smart Filter, then have it render to a RenderTargetWrapper we supply instead of rendering to the canvas:
+In this example, we build a trivial hardcoded Smart Filter, then have it render to a RenderTargetWrapper that we supply instead of rendering to the canvas:
 
 ```typescript
 // Create a SmartFilter
@@ -111,7 +111,7 @@ Notes:
 
 ## Handling Resize
 
-If the canvas changes sizes (or you are using outputBlock.renderTargetWrapper and you change to a new RenderTargetWrapper), be sure to call smartFilter.resize() to ensure all intermediate textures are resized as well.
+If the canvas changes size (or you are using outputBlock.renderTargetWrapper and change to a new RenderTargetWrapper), be sure to call smartFilter.resize() to ensure all intermediate textures are resized as well.
 
 ## Full Example
 

@@ -16,7 +16,7 @@ Babylon.js supports multiple Gaussian splatting file formats:
 - Niantic .SPZ
 - .SOG/SOGS Self-Organizing Gaussian https://github.com/fraunhoferhhi/Self-Organizing-Gaussians
 
-To use it you just have to reference it after Babylon.js:
+To use it, you just have to reference it after Babylon.js:
 
 ```html
 <script src="Babylon.js"></script>
@@ -29,4 +29,4 @@ If you want to import splat files statically (not recommended), you can do so vi
 import "@babylonjs/loaders/SPLAT/splatFileLoader";
 ```
 
-You can read more about [NPM support](/setup/frameworkPackages/npmSupport)
+You can read more about [NPM support](/setup/frameworkPackages/npmSupport).

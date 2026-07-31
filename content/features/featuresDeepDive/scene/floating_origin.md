@@ -1,7 +1,7 @@
 ---
 title: Floating Origin (Huge Scenes Support)
 image: 
-description: Learn how to manage huge scenes using floating-origin trick
+description: Learn how to manage huge scenes using the floating-origin trick.
 keywords: diving deeper, huge spaces, floating-origin
 further-reading:
   - title: Original floating-origin research page
@@ -10,12 +10,12 @@ video-overview:
 video-content:
 ---
 # New: FloatingOriginMode
-Since the authoring of this page, we have introduced floatingOriginMode to the scene (and useLargeWorldRendering to the engine). See [Large World Rendering / Floating Origin](/features/featuresDeepDive/scene/large_world).
+Since this page was written, we have introduced floatingOriginMode to the scene (and useLargeWorldRendering to the engine). See [Large World Rendering / Floating Origin](/features/featuresDeepDive/scene/large_world).
 
 
 ## How floating-origin works
 
-On traditional 3D rendering, objects will pass three stages until they're displayed on screen:
+In traditional 3D rendering, objects pass through three stages before they are displayed on screen:
 
 - World matrix: places, scales and rotates the object on the world;
 - View matrix: will translate and rotate relative to camera;
@@ -24,48 +24,46 @@ On traditional 3D rendering, objects will pass three stages until they're displa
 
 This is well known and works perfectly.
 
-Only problem is that our GPU's are still limited to 32 bits floating-point,
-so when we have big coordinates -- objects and/or cameras very far from the world's origin,
-for example at (10000000, 0, 10000000) -- we will notice jittering because the big numbers inside matrices will cause 32 bits floating-point imprecision on the GPU.
+The only problem is that our GPUs are still limited to 32-bit floating point, so when we have large coordinates—objects and/or cameras very far from the world's origin, for example at (10000000, 0, 10000000)—we will notice jittering because the large numbers inside matrices cause 32-bit floating-point imprecision on the GPU.
 
 ![Pic01](/img/how_to/floating_origin/pic01.webp)
 
-But there is a trick which is good to mitigate that problem: floating-origin, first described by Chris Thorne [^1].
+But there is a trick that helps mitigate that problem: floating origin, first described by Chris Thorne [^1].
 
-The idea of floating-origin is very simple: we just keep the camera always fixed at world's origin
+The idea of floating origin is very simple: keep the camera fixed at the world's origin
 (0, 0, 0) and move the objects instead.
 
-This does not mean that the camera cannot move, though! It "moves", but not directly. Here is
-where lies the trick: instead of changing the real camera position, we use a separate, double precision [^*]
-Vector3 which stores the camera position. The real camera position is kept always at origin (0, 0, 0).
+This does not mean that the camera cannot move, though. It "moves," but not directly. Here is
+where the trick lies: instead of changing the real camera position, we use a separate, double-precision [^*]
+Vector3 that stores the camera position. The real camera position is always kept at the origin (0, 0, 0).
 
-We do the same for the objects: all of them get a separate, double precision Vector3 to store their coordinates. We don't set their real position directly; instead, we also set their separate coordinates.
+We do the same for the objects: all of them get a separate, double-precision Vector3 to store their coordinates. We don't set their real positions directly; instead, we set their separate coordinates.
 
-Then, on a loop which happens every frame just before rendering, we subtract the double camera position from each object's double position, and that difference is copied to that object's real position.
+Then, in a loop that runs every frame just before rendering, we subtract the camera's double-precision position from each object's double-precision position, and that difference is copied to the object's real position.
 
-The result is that the camera is indeed kept always at origin, and the objects float around, removing
-huge coordinates from the objects that are close to the camera. That is, imprecision only happens very far
-from the camera, and as they are very far anyway, we cannot see the jittering. =)
+The result is that the camera is always kept at the origin, and the objects float around it, removing
+huge coordinates from the objects that are close to the camera. In other words, imprecision only happens very far
+from the camera, and because those objects are already far away, we cannot see the jittering.
 
 ![Pic02](/img/how_to/floating_origin/pic02.webp)
 
 Let's use an example:
 
-On a solar system, we have an asteroid located at (10000000, 0, 10000000).
+In a solar system, we have an asteroid located at (10000000, 0, 10000000).
 Our camera is close to the asteroid, at (10000000, 0, 10000500).
 
 Normally, that would certainly cause jittering, because both objects are very far from the world's origin. But with
-our trick, the jittering does not happen -- remember, we subtract camera double position from the object double position
-and then set the object real position at that offset, keeping the camera always at (0, 0, 0):
+our trick, the jittering does not happen—remember, we subtract the camera's double-precision position from the object's double-precision position
+and then set the object's real position to that offset, keeping the camera always at (0, 0, 0):
 
 Object Position: (10000000, 0, 10000000)  
 Camera Position: (10000000, 0, 10000500)  
 Offset: (0, 0, -500)
 
-The offset is small enough to be absolutely precise even with only 32 bits floating-point. The GPU is very happy with that
+The offset is small enough to be absolutely precise even with only 32-bit floating point. The GPU is very happy with that,
 and we don't see any jittering.
 
-We just need to set the object at (0, 0, -500) and it will have the same visual effect as if we used their real coordinates,
+We just need to set the object at (0, 0, -500) and it will have the same visual effect as if we used its real coordinates,
 but with no jittering.
 
 ## Floating-origin examples
@@ -75,15 +73,14 @@ You can find a working playground example with OriginCamera and Entity classes h
 <Playground id="#LHI514#66" title="Floating-Origin" description="A simple example of huge scene far from world's origin using floating-origin trick." image="/img/playgroundsAndNMEs/divingDeeperFloatingOrigin.webp"/>
 
 
-If you decide to use floating-origin, all your objects will have to use the same trick,
-or your game won't work properly. You will need to create one instance of OriginCamera
+If you decide to use floating origin, all your objects will have to use the same trick, or your game won't work properly. You will need to create one instance of OriginCamera
 and at least one instance of Entity.
 
-OriginCamera is a special camera which has a separate position control stored as doublepos (and its target as doubletgt). 
-You must stop using position and target from camera, and use their double precision counterparts doublepos and doubletgt.
+OriginCamera is a special camera that has a separate position control stored as doublepos (and its target as doubletgt). 
+You must stop using position and target from the camera, and use their double-precision counterparts, doublepos and doubletgt.
 
-All objects from scene must then be parented to an Entity instance. Entity also has doublepos property which is double precision coordinate. 
-You must use its doublepos to set object position instead of position directly.
+All objects in the scene must then be parented to an Entity instance. Entity also has a doublepos property, which is a double-precision coordinate. 
+You must use its doublepos to set an object's position instead of using position directly.
 
 So, let's say that we want a sphere with double precision:
 
@@ -117,17 +114,16 @@ sphere.parent = entSphere;
 entSphere.doublepos = new BABYLON.Vector3(10000000, 0, 10000000);
 ```  
 
-The OriginCamera extends UniversalCamera, so you can use the same features of that.
+The OriginCamera extends UniversalCamera, so you can use the same features as that camera.
 
-Finally, even on huge scenes you commonly will have objects spread into separate regions, so you 
-most probably would not need one Entity instance for each object. If you think carefully, you
-can have one Entity instance for each region of your scene, a region which does not extend for more
-than let's say 10,000 units to avoid imprecision again. Then, you can add many objects that are
-always in that region to just one Entity. Doing that, you can even move those objects by using
-their positions directly, as you would do normally. And still, no imprecision will be seen anymore.
+Finally, even in huge scenes, you will commonly have objects spread across separate regions, so you
+most likely would not need one Entity instance for each object. If you plan carefully, you
+can have one Entity instance for each region of your scene, as long as a region does not extend for more
+than, say, 10,000 units, to avoid imprecision again. Then, you can add many objects that are
+always in that region to a single Entity. By doing that, you can even move those objects by using
+their positions directly, as you normally would. Even then, no visible imprecision will remain.
 
 Article and code written by Vander R. N. Dias
 
 [^1]: Chris Thorne, 2005. Using a Floating Origin to Improve Fidelity and Performance of Large Distributed Virtual Worlds
 [^*]: The original article by Chris Thorne uses single-precision floats.
-

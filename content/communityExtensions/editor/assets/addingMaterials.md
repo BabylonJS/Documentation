@@ -1,5 +1,5 @@
 ---
-title: Adding materials assets
+title: Adding material assets
 image: 
 description: Understanding how to add and manage materials in a Babylon.JS Editor project
 keywords: editor, workspace, assets, material
@@ -13,47 +13,44 @@ video-content:
 
 Materials are considered to be assets and are available in the `Assets Browser` panel once they are created.
 
-To create a material, use the assets browser panel toolbar `Add -> Materials -> ...`.
+To create a material, use the Assets Browser panel toolbar `Add -> Materials -> ...`.
 
-Common materials `Standard`, `PBR`and `Node` are supported as well as most of the available materials from
+Common materials `Standard`, `PBR`, and `Node` are supported, as well as most of the available materials from
 the [Materials Library](https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary).
 Once a material has been added to the assets, its preview (thumbnail) is created automatically.
 
 ![CreatingMaterial](/img/extensions/Editor/AddingMaterials/creating-material.webp)
 
-## Assigning A Material
+## Assigning a Material
 
-To assign a material to a mesh, simply drag'n'drop the material asset from the assets browser on the mesh in
+To assign a material to a mesh, simply drag and drop the material asset from the assets browser onto the mesh in
 the preview panel or in the inspector.
 
-Once a material asset has been dropped, if the material hasn't been previously instantiated the editor will
-create its instance automatically. If the material has been already instantiated, the existing reference is used
-to be assigned on the mesh.
+Once a material asset has been dropped, if the material has not been previously instantiated, the editor creates its instance automatically. If the material has already been instantiated, the existing reference is assigned to the mesh.
 
-Example drag'n'dropping a material asset on a mesh in the `Preview Panel`:
+Example of dragging and dropping a material asset onto a mesh in the `Preview Panel`:
 
 ![DropInPreview](/img/extensions/Editor/AddingMaterials/drop-in-preview.webp)
 
-Example selecting a mesh in the graph or the scene and drag'n'dropping a material asset in
-the inspector's field `Material`:
+Example of selecting a mesh in the graph or scene and dragging and dropping a material asset into
+the inspector's `Material` field:
 
 ![DropInInspector](/img/extensions/Editor/AddingMaterials/drop-in-inspector.webp)
 
-## Editing A Material
+## Editing a Material
 
-To edit a material, simply click on the material in the `Assets Browser` panel or `Assets` panel.
+To edit a material, simply click the material in the `Assets Browser` panel or `Assets` panel.
 Once clicked, the inspector is updated to show the editable properties of the material.
 
-If the material has not been instantiated, assign the material first on a mesh. Else, the inspector will not be instantiated because the instance of the material can't be found.
+If the material has not been instantiated, assign it to a mesh first. Otherwise, the inspector will not be populated because the material instance cannot be found.
 
 ![EditingMaterial](/img/extensions/Editor/AddingMaterials/editing-material.webp)
 
-## Refreshing Thumbnail
+## Refreshing Thumbnails
 
-To save performances in Editor, materials thumbnails are not permanently updated. In case, for example, one or
-multiple texture asset have been changed, the thumbnail will not be necessarily updated.
+To save performance in the Editor, material thumbnails are not updated continuously. If, for example, one or more texture assets have changed, the thumbnail will not necessarily be updated.
 
-To update the thumbnail of materials, simply select the materials in the assets browser, `right-click` them
+To update material thumbnails, simply select the materials in the assets browser, `right-click` them,
 and select `Refresh Preview`.
 
 ![RefreshingThumbnails](/img/extensions/Editor/AddingMaterials/refreshing-thumbnails.webp)

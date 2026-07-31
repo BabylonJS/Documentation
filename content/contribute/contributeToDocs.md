@@ -12,11 +12,11 @@ video-overview:
 video-content:
 ---
 
-Since the engine is constantly evolving, you may notice some gaps in the documentation. You're going to know how to fix that!
+Since the engine is constantly evolving, you may notice some gaps in the documentation. Here's how to fix that!
 
 ## The easy way
 
-Requirements: you just need a [Github](https://github.com) account.
+Requirements: you just need a [GitHub](https://github.com) account.
 
 To update an existing page, just head to https://github.com/BabylonJS/Documentation/tree/master/content
 
@@ -50,13 +50,13 @@ Do not hesitate to read the [Good Practice](/contribute/contributeToDocs#good-pr
 
 ## Deeper Changes
 
-Sometimes, quick edits like described above are not sufficient. Indeed, you might want to run the documentation locally on your computer before pushing online, just to be sure nothing is broken.
+Sometimes, quick edits like the ones described above are not sufficient. You might want to run the documentation locally on your computer before pushing online, just to be sure nothing is broken.
 
 Requirements:
 
-- a [Github](https://github.com) account
+- a [GitHub](https://github.com) account
 - [git](https://www.git-scm.com/downloads)
-- [Github Desktop](https://desktop.github.com/) (optional, but makes local git repositories easier to use)
+- [GitHub Desktop](https://desktop.github.com/) (optional, but makes local git repositories easier to use)
 - [node.js](https://nodejs.org/en/), we support node 16 and up.
 
 ### Forking
@@ -67,21 +67,21 @@ Start by going to the main Babylon.js [Documentation](https://github.com/Babylon
 
 This will make a copy of the repository, but on your account.
 
-Click on the _Clone or download_ button, and _Open in Desktop_:
+Click the _Clone or download_ button, then _Open in Desktop_:
 
 ![open locally](/img/contribute/documentation/further-open-desktop.webp)
 
-Github Desktop will be opened and ask you where you want to save your fork.
+GitHub Desktop will open and ask you where you want to save your fork.
 
-When the files are downloaded, open a terminal/command prompt in this repo. It can be done quickly using the Github Desktop menu:
+When the files are downloaded, open a terminal/command prompt in this repo. This can be done quickly using the GitHub Desktop menu:
 
 ![powershell](/img/contribute/documentation/further-powershell.webp)
 
 (_you may have_ Open in Command _rather than_ Open in PowerShell _, that's not a big deal_)
 
-After cloning type `npm install`, press <kbd>enter</kbd>, and wait for the operation to finish.
+After cloning, type `npm install`, press <kbd>enter</kbd>, and wait for the operation to finish.
 
-This fork operation only has to be done once. You're now able to run locally the documentation by following the next section.
+This fork operation only has to be done once. You are now able to run the documentation locally by following the next section.
 
 ### Running and editing the doc locally
 
@@ -91,7 +91,7 @@ Run:
 
 This will launch the dev server on http://localhost:3000
 
-Open the project using your favorite code editor. This can be done also from Github Desktop:
+Open the project using your favorite code editor. This can also be done from GitHub Desktop:
 
 ![visual studio](/img/contribute/documentation/further-visual-studio.webp)
 
@@ -103,13 +103,13 @@ You can finally start to update the markdown files!
 
 ### Adding new images
 
-In case you have to create new illustrations, you need to send them on the Github repo into a specific folder: [`Documentation/public/img/`](https://github.com/BabylonJS/Documentation/tree/master/public/img).
+If you need to create new illustrations, you should add them to the GitHub repo in a specific folder: [`Documentation/public/img/`](https://github.com/BabylonJS/Documentation/tree/master/public/img).
 
 So on your local fork, go to this `img` folder. You can see there are already a lot of folders, so try to use existing folders to put your new images if possible.
 
-Let says you just create a new page, linked on `https://doc.babylonjs.com/divingDeeper/my_very_great_page`.
+Let's say you just created a new page, linked at `https://doc.babylonjs.com/divingDeeper/my_very_great_page`.
 
-Here, you can create a `my_very_great_page` folder into the `/img/divingDeeper/` one, and put `my-wonderful-image.jpg` into it.
+Here, you can create a `my_very_great_page` folder inside `/img/divingDeeper/` and put `my-wonderful-image.jpg` into it.
 
 Then, on your markdown page, use this link pattern:
 
@@ -127,7 +127,7 @@ Now that everything is working well, you may want to add new content. To do so, 
 
 This file is a catalog where you can reference new files added to the repo.
 
-The file is a tree of documents, starting from the root page and going to the different sections. Each page can (but not must) have its own children.
+The file is a tree of documents, starting from the root page and going to the different sections. Each page can, but does not have to, have its own children.
 
 For example, let's say we want to add this page. We know that our new page will be in the _Diving Deeper/Audio_ section:
 
@@ -155,7 +155,7 @@ For example, let's say we want to add this page. We know that our new page will 
 }
 ```
 
-Just add necessary information about your new page:
+Just add the necessary information about your new page:
 
 ```javascript
 /* [...] */
@@ -173,9 +173,9 @@ Notice the object's key. This will be your new page filename (without markdown e
 
 #### Page metadata
 
-Each page can (but not must) have a metadata section, that provides further information for this page. This is important if you want the page to be visible when being searched.
+Each page can, but does not have to, have a metadata section that provides further information for the page. This is important if you want the page to be visible in search results.
 
-The metadata section is a YAML, added to the top of the page:
+The metadata section is YAML added to the top of the page:
 
 ```yaml
 ---
@@ -220,7 +220,7 @@ video-content:
 ---
 ```
 
-Everything in the metadata is optional and has a different value. However, it is always better to add as much information as possible. This will help people find and use the page. And this is the goal here!
+Everything in the metadata is optional and serves a different purpose. However, it is always better to add as much information as possible. This will help people find and use the page, and that is the goal here.
 
 The image provided will be used when sharing this link on sites supporting open graph, such as Facebook, Medium, Twitter, and so on. The default image is the Babylon.js logo.
 
@@ -234,7 +234,7 @@ To link to an internal document, use its path from the root without adding the d
 
 ### Adding examples
 
-It is always great to provide examples in your documentation page. By using the correct markdown, you can add playgrounds and NME, and they will be added automatically to the page's side menu.
+It is always great to provide examples on your documentation page. By using the correct Markdown, you can add playgrounds and NME, and they will be added automatically to the page's side menu.
 
 To add a playground, add the following code:
 
@@ -250,13 +250,13 @@ The same applies to NME examples:
 <NME id="nmeId" title="NME title" description="A short description" />
 ```
 
-This can be either inline or in a new line and will automatically add the external and example link.
+This can be either inline or on a new line and will automatically add the external and example link.
 
 An image will be generated for each playground without an image, so don't worry about screen-capturing your playground. Please commit those images along with your document!
 
 ### Adding media (videos and images)
 
-To add a youtube link, use the youtube markdown tag:
+To add a YouTube link, use the YouTube markdown tag:
 
 ```html
 <Youtube id="qqMuuSM7GvI" />
@@ -268,7 +268,7 @@ To add an image, you can use the markdown annotation:
 ![Particle choice](/img/how_to/Materials/particleMenu.webp)
 ```
 
-but you can also use the more advanced `<img/>` tag, that has more control over formatting, size and so on. As always, everything is optional, but very nice to have:
+but you can also use the more advanced `<img/>` tag, which gives you more control over formatting, size, and so on. As always, everything is optional, but very nice to have:
 
 ```html
 <img src="internal link to image" title="Image title" alt="Similar to title" width="300" height="200" caption="Copyright (or any other) caption that will appear under the image" />
@@ -276,11 +276,11 @@ but you can also use the more advanced `<img/>` tag, that has more control over 
 
 ### Sending pull request
 
-A Pull Request (PR) has to be made to integrate your modifications into the documentation.
+A Pull Request (PR) must be made to integrate your modifications into the documentation.
 
-You will first pull your local modifications into your online fork, then ask for merging your fork into the main repo.
+You will first pull your local modifications into your online fork, then ask to merge your fork into the main repo.
 
-In Github Desktop, you will see all of your modifications. Sometimes a file named `babylon.d.ts` will automatically be modified, but there's no problem to PR with it.
+In GitHub Desktop, you will see all of your modifications. Sometimes a file named `babylon.d.ts` will automatically be modified, but it is okay to include it in the PR.
 
 Add an explicit summary into the required field, and click to _Commit to master_:
 
@@ -290,41 +290,41 @@ Then, click the _Push origin_ button:
 
 ![push](/img/contribute/documentation/further-push.webp)
 
-And go to your online Github repo. You can use Github Desktop for that:
+Then go to your online GitHub repo. You can use GitHub Desktop for that:
 
 ![github](/img/contribute/documentation/further-github.webp)
 
-For now, your fork is updated online, having your last modifications.
+At this point, your fork is updated online with your latest modifications.
 
 Click the _New pull request_ button:
 
 ![github pull](/img/contribute/documentation/further-github-pull.webp)
 
-If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](/contribute/contributeToDocs#the-easy-way) section.
+If there are no conflicts, you will be able to follow the same steps as we saw above in the [easy way](/contribute/contributeToDocs#the-easy-way) section.
 
-Congratulation again, you're now a documentation master!
+Congratulations again, you're now a documentation master!
 
 ## Good Practices
 
 ### General
 
-- if you're not familiar with markdown, you can read this short [Github guide](https://guides.github.com/features/mastering-markdown/)
+- if you're not familiar with Markdown, you can read this short [GitHub guide](https://guides.github.com/features/mastering-markdown/)
 - even if you're seeing just a tiny typo, feel free to do a pull request dedicated to it
-- do one commit per tasks, a pull request can take into account multiple commits if needed
+- do one commit per task; a pull request can include multiple commits if needed
   - example: if you have two pages to modify, once the first page is edited, do a commit
 - tables can be a great help for readability
 - avoid the use of first person
 - pay attention to spelling, grammar, and punctuation
-- when you're not sure about a point, ask for proof-reading
+- when you're not sure about a point, ask for proofreading
 
 ### Images
 
-- use and store images from the documentation FTP as much as possible, read [Adding new images](/contribute/contributeToDocs#adding-new-images)
+- use and store images from the documentation FTP as much as possible; read [Adding new images](/contribute/contributeToDocs#adding-new-images)
 - be careful about image size (tip: Photoshop has a "Save for the web" export)
 
 ### Code
 
-- when showing a block of JavaScript or TypeScript, include the language name after the code block starting ticks to ensure syntax highlighting:
+- when showing a block of JavaScript or TypeScript, include the language name after the opening code block backticks to ensure syntax highlighting:
 
 ![markdown code](/img/contribute/documentation/markdown-code.webp)
 

@@ -10,4 +10,4 @@ video-content:
 
 # Extensions
 
-This section contains some incredible extensions and resources to Babylon.js, contributions from the amazing community surrounding this platform. While not a part of the main engine, and therefore not maintained by the core Babylon.js development team, the contents of this section contain some incredible technology that you can use to extend your Babylon.js experience even further!
+This section contains incredible Babylon.js extensions and resources contributed by the amazing community surrounding this platform. While they are not part of the main engine, and therefore are not maintained by the core Babylon.js development team, this section includes some incredible technology that you can use to extend your Babylon.js experience even further!

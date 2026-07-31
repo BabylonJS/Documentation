@@ -10,7 +10,7 @@ video-content:
 
 ## Movement Module
 
-The movement feature allows movement in the scene with the controllers. It is separate from the teleportation module and designed to not be used at the same time.
+The movement feature allows movement in the scene with controllers. It is separate from the teleportation module and is not designed to be used at the same time.
 
 In order to enable this feature you must first ensure that teleportation is not switched on.
 
@@ -30,10 +30,10 @@ featureManager.disableFeature(BABYLON.WebXRFeatureName.TELEPORTATION);
 ```
 
 The movement feature enables the camera's position to be changed with the controllers.
-Default configuration (can be changed in options below):
+Default configuration (can be changed in the options below):
 
-1. Left Controller - Rotation counter + clockwise
-2. Right Controller - Move forward/backwards/left/right
+1. Left controller - rotate counterclockwise or clockwise
+2. Right controller - move forward/backward/left/right
 
 ```javascript
 const featureManager = xrHelper.baseExperience.featuresManager;
@@ -45,7 +45,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, "latest", {
 
 <Playground id="#AZML8U" title="Movement with controllers" description="A simple example of controller movement with collisions and gravity" image="/img/how_to/xr/xr-movement-playground.webp"/>
 
-It is also possible to use the controller to set the movement direction. To do that you need to disable the head-direction settings. You can optionally define which hand will control the rotation:
+It is also possible to use the controller to set the movement direction. To do that, you need to disable the head-direction settings. You can optionally define which hand will control the rotation:
 
 ```javascript
 const featureManager = xrHelper.baseExperience.featuresManager;
@@ -63,13 +63,13 @@ const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MO
 
 ### Movement Configuration Options
 
-The current options for the plugin can always be found at the [WebXR movement feature source code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/XR/features/WebXRControllerMovement.ts#L20). Most of them will be explained here.
+The current options for the plugin can always be found in the [WebXR movement feature source code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/XR/features/WebXRControllerMovement.ts#L20). Most of them are explained here.
 
-One important option is `movementOrientationFollowsViewerPose`, which defaults to `true`. When configured to `false` the forward direction will not adjust with the viewer pose, but only to the controller rotation. This can be useful for some experiences where the viewer pose should not affect movement direction. ie: If you are moving forward and look left that you should not drift left, but continue straight. You can try out in the above playground by changing the option.
+One important option is `movementOrientationFollowsViewerPose`, which defaults to `true`. When configured to `false`, the forward direction will not adjust to the viewer pose, but only to the controller rotation. This can be useful for experiences where the viewer pose should not affect movement direction. For example, if you are moving forward and look left, you should not drift left but continue straight. You can try this in the playground above by changing the option.
 
-The controllers themselves can be configured differently. If you want to swap which hand controls rotation vs. movement for example, then override the option `customRegistrationConfigurations` array. The movement state rotation and movement is handled automatically by the feature and ignored accordingly if rotation (`rotationEnabled`) or movement (`movementEnabled`) are not enabled and will automatically be adjusted to speed (`rotationSpeed` & `movementSpeed`).
+The controllers themselves can be configured differently. For example, if you want to swap which hand controls rotation and which controls movement, override the `customRegistrationConfigurations` array. The feature handles movement and rotation state automatically and ignores them when rotation (`rotationEnabled`) or movement (`movementEnabled`) is not enabled. Speed is controlled by `rotationSpeed` and `movementSpeed`.
 
-This would swap handedness of the default configuration and maintain feature sensitivity thresholds:
+This swaps the handedness of the default configuration while maintaining the feature sensitivity thresholds:
 
 ```javascript
 const swappedHandednessConfiguration = [
@@ -116,9 +116,9 @@ scene.createDefaultXRExperienceAsync({ disableTeleportation: true }).then((xr) =
 
 <Playground id="#HE33TR#11" title="Walking Locomotion Demo" description="Basic demo of walking locomotion"/>
 
-While it is highly recommended to articulate the `WebXRCamera`'s parent
+While it is highly recommended to move the `WebXRCamera`'s parent
 node in order to avoid conflating virtual positional data with XR
-sensory readings, it is also possible to articulate the `WebXRCamera`
+sensory readings, it is also possible to move the `WebXRCamera`
 itself.
 
 ```javascript

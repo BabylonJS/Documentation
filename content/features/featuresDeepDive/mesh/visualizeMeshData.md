@@ -19,7 +19,7 @@ The `TRIANGLES` visualization of the MeshDebugPluginMaterial allows you to see t
 ![TRIANGLES mode](/img/features/meshDebug/mdpmTriangles.webp)
 
 ### How To Use
-Before applying the plugin, first call the static function `PrepareMeshForTrianglesAndVerticesMode` on the mesh. Then create the MeshDebugPluginMaterial with the `mode` option set to `MeshDebugMode.TRIANGLES`
+Before applying the plugin, first call the static function `PrepareMeshForTrianglesAndVerticesMode` on the mesh. Then create the MeshDebugPluginMaterial with the `mode` option set to `MeshDebugMode.TRIANGLES`.
 
 You can customize the wireframe's thickness and color with the options below
 * `wireframeTrianglesColor`: _(Color3)_ the color of the wireframe
@@ -45,7 +45,7 @@ The plugin's `VERTICES` mode draws dots over all vertices of the mesh, as shown 
 ![VERTICES mode](/img/features/meshDebug/mdpmVertices.webp)
 
 ### How To Use
-This mode works similar to `TRIANGLES`. Call the static function `PrepareMeshForTrianglesAndVerticesMode` on the mesh first, then apply the plugin.
+This mode works similarly to `TRIANGLES`. Call the static function `PrepareMeshForTrianglesAndVerticesMode` on the mesh first, then apply the plugin.
 
 Customization options include
 * `vertexColor`: _(Color3)_ the color of the vertex dots
@@ -135,7 +135,7 @@ The `MATERIALIDS` mode provides a visual way of distinguishing different materia
 ### How To Use
 Set the plugin's mode to `MATERIALIDS` across all materials. You may also want to toggle off the `multiply` option to better see the ID colors.
 
-The MeshDebugPluginMaterial comes with a default color palette for `MATERIALIDS`. To use a custom color palette, you can directly replace the plugin's [static palette](typedoc/classes/BABYLON.MeshDebugPluginMaterial#MaterialColors) with your own before applying the plugin, like in the following snippet.
+The MeshDebugPluginMaterial comes with a default color palette for `MATERIALIDS`. To use a custom color palette, you can directly replace the plugin's [static palette](typedoc/classes/BABYLON.MeshDebugPluginMaterial#MaterialColors) with your own before applying the plugin, as in the following snippet.
 
 #### Example
 ```javascript
@@ -164,7 +164,7 @@ If set to false, the plugin will replace the material's final color with its own
 
 ![Default Shading](/img/features/meshDebug/mdpmNone.webp)
 
-The visual is based off a Phong lighting model and treats the active camera the a light source. 
+The visual is based on a Phong lighting model and treats the active camera as a light source. 
 You can customize the default shading's appearance with a few options.
 * `shadedDiffuseColor`: _(Color3)_ the diffuse color of the default shading
 * `shadedSpecularColor`: _(Color3)_ the specular color of the default shading
@@ -186,7 +186,7 @@ See the difference: <Playground id="#U9UKR8" title="Default Shading" description
 ## Notes on Usage
 The mesh must have a material assigned to it in order for the MeshDebugPluginMaterial to work as expected. You might consider adding logic to your program that assigns new PBRMaterials to meshes without any material.
 
-Also, all material plugins must be added to materials _before_ they are used for rendering. There are a few techniques to do this, including
+Also, all material plugins must be added to materials _before_ they are used for rendering. There are a few techniques to do this, including:
 - Importing the mesh asynchronously, then adding the plugin to the materials of the result
 - Using an observable like `scene.onNewMaterialAddedObservable`
 - Using an `AssetContainer` to modify the materials before adding them to the scene

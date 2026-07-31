@@ -73,9 +73,9 @@ video-content:
 
 The Node Material is a simple, highly customizable material that you can build yourself piece by piece. Combined with the powerful node-based editor, you can easily create stunning custom GPU shaders and FX for your Babylon.js scenes.
 
-The Node Material allows you to avoid writing complicated shader language code, instead replacing it with simple processes of either using UI (the Node Material Editor) or by creating and connecting node blocks in your scene code (the Node Material blocks).
+The Node Material allows you to avoid writing complicated shader language code by replacing it with simpler workflows: either using a UI (the Node Material Editor) or creating and connecting node blocks in your scene code (the Node Material blocks).
 
-To get started, it's important to understand how the Node Material works under the hood, starting by learning how to create a Node Material using code.
+To get started, it's important to understand how the Node Material works under the hood, starting with how to create a Node Material using code.
 
 ### Creating a Node Material using code
 
@@ -91,7 +91,7 @@ To start using the Node Material, you just need to instantiate one:
 const nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComments: true });
 ```
 
-Please note that the third parameter will contain optional values that will let you configure how the material will build its shader:
+Please note that the third parameter can contain optional values that let you configure how the material builds its shader:
 
 - `emitComments`: Set this value to true if you want the blocks to emit comments in the shader code
 - `shaderLanguage`: By default, the node material will generate GLSL shaders but if you set that parameter to `BABYLON.ShaderLanguage.WGSL`, it will generate shaders for WebGPU (without needing to cross-compile them from GLSL to WGSL)
@@ -158,13 +158,13 @@ The following functions will let you get information about your InputNode:
 - `isUniform`
 - `isConstant`
 
-When an InputNode is a uniform (eg. a manual value that will be sent to the shader) and not a constant, you can set `inputNode.visibleInInspector` to true so users will be able to visually control the value of the node using Babylon.js Inspector.
+When an InputNode is a uniform (e.g. a manual value that will be sent to the shader) and not a constant, you can set `inputNode.visibleInInspector` to true so users can visually control the value of the node using the Babylon.js Inspector.
 
 You can even customize the look and feel of the Inspector UI by defining `inputNode.min` and `inputNode.max` to get a slider instead of an input text box.
 
 #### Connecting blocks
 
-By default calling `block.connectTo(otherBlock)` will try to establish a connection by picking an output from the first block and connect it to an available input in the second one:
+By default, calling `block.connectTo(otherBlock)` will try to establish a connection by picking an output from the first block and connecting it to an available input in the second one:
 
 ```javascript
 const positionInput = new BABYLON.InputBlock("position");
@@ -200,7 +200,7 @@ When connected, two connection points can be disconnected with:
 worldInput.output.disconnectFrom(boneBlock.world);
 ```
 
-#### Gettings blocks
+#### Getting blocks
 
 Once a graph is built inside a NodeMaterial, you can use the following API to get a specific node by name:
 
@@ -214,14 +214,14 @@ You can also get a block using a predicate:
 let block = nodeMaterial.getBlockByPredicate((b) => b.getClassName() === "AddBlock" && b.name === "foo");
 ```
 
-Or you can also use this API to get an InputNode and use it to setup its value if the node is set manual value:
+You can also use this API to get an InputNode and use it to set its value if the node is set to a manual value:
 
 ```javascript
 let block = nodeMaterial.getInputBlockByPredicate((b) => b.name === "foo");
 block.value = 10;
 ```
 
-Note that while this API generically works for all input blocks, not all input blocks have a "value" attribute. For example texture blocks would have block.texture instead of block.value. Be sure to check the [API documentation](/typedoc/classes/babylon.nodematerial) for detail.
+Note that while this API generically works for all input blocks, not all input blocks have a "value" attribute. For example, texture blocks would have `block.texture` instead of `block.value`. Be sure to check the [API documentation](/typedoc/classes/babylon.nodematerial) for details.
 
 You can access the list of InputBlocks with:
 
@@ -239,7 +239,7 @@ Be sure to also check out the full [API documentation.](/typedoc/classes/babylon
 
 #### Building the Node Material
 
-Once setup, you can ask the Node Material to build its internal shaders (vertex and fragment) by calling `nodeMaterial.build(true)`. You can set the boolean parameter to true to get a log of the final shaders on the console.
+Once set up, you can ask the Node Material to build its internal shaders (vertex and fragment) by calling `nodeMaterial.build(true)`. You can set the boolean parameter to true to get a log of the final shaders in the console.
 
 The build function will throw an exception if the shaders cannot be compiled:
 
@@ -251,7 +251,7 @@ try {
 }
 ```
 
-Once successfully built, you can use the Node Material like any other materials:
+Once successfully built, you can use the Node Material like any other material:
 
 ```javascript
 myMesh.material = nodeMaterial;
@@ -259,7 +259,7 @@ myMesh.material = nodeMaterial;
 
 #### Example
 
-Here is one of the simplest code using the Node Material:
+Here is one of the simplest code examples using the Node Material:
 
 ```javascript
 const nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComments: true });
@@ -328,12 +328,12 @@ Learn more about the [Node Material Editor here](/toolsAndResources/nme).
 
 ### Using Node Material With WebGL and WebGPU
 
-Node materials are now able to render with either the popular WebGL API or the newer [WebGPU API](/setup/support/webGPU) which allows node material to leverage a device's graphics processing unit (GPU). To define which API should be used by a node material, you can set up that option in the constructor or simply set the `nodeMaterial.shaderLanguage` parameter to `BABYLON.ShaderLanguage.WGSL`.
+Node materials are now able to render with either the popular WebGL API or the newer [WebGPU API](/setup/support/webGPU), which allows node materials to leverage a device's graphics processing unit (GPU). To define which API should be used by a node material, you can set up that option in the constructor or simply set the `nodeMaterial.shaderLanguage` parameter to `BABYLON.ShaderLanguage.WGSL`.
 
 Inside the Node Material Editor, you have an option to choose which engine to use during creation time:
 ![Engine toggle for WebGL and WebGPU](/img/tools/nme/engineSwitch.webp)
 
-The assigned engine parameter will NOT be saved in the node material's json file allowing you to still choose the correct version at runtime.
+The assigned engine parameter will NOT be saved in the node material's JSON file, allowing you to still choose the correct version at runtime.
 
 ### Recreating the StandardMaterial
 
@@ -343,7 +343,7 @@ As a training exercise and to show what is possible to do with the Node Material
 - <NME id="#AT7YY5#7" title="Standard Material Without Alpha NME" description="A Node Material Editor setup of the standard material without alpha support." image="/img/playgroundsAndNMEs/NMEstandardMaterialNoAlpha.webp"/>
 - <Playground id="#M5VQE9#19" title="Playground of Standard Material and NME Standard Material" description="Playground to compare the existing `StandardMaterial` and the corresponding Node Material." image="/img/playgroundsAndNMEs/PGstandardMaterialNMEstandardMaterial.webp" isMain={true} category="Node Material"/>
 
-Note that the only difference between the full material and the material without alpha support is that nothing is wire to the `fragmentOutput.a` input. If you don't need alpha support, you should use the "non alpha" node material as alpha-based materials have some constraints:
+Note that the only difference between the full material and the material without alpha support is that nothing is wired to the `fragmentOutput.a` input. If you don't need alpha support, you should use the "non alpha" node material, as alpha-based materials have some constraints:
 
 - they don't write to the zbuffer and are only sorted among themselves, so some sorting rendering artifacts can arise
 - they need the `transparencyShadow` property to be `true` for shadow rendering
@@ -367,7 +367,7 @@ The material is divided into several frames, mirroring the main features of the 
 - Vertex color
 - Fog
 
-In each of these frames, you generally find a boolean float node that enable/disable the feature, and possibly some other properties to fine-tune the feature. Most of these properties are **Constant** properties, meaning they won't consume a _uniform_ in the shaders and won't be visible in the Inspector / be updatable in javascript: you must change their value directly in the material (they correspond to the `#define` you can find in the standard material shader code).
+In each of these frames, you generally find a boolean float node that enables or disables the feature, and possibly some other properties to fine-tune it. Most of these properties are **Constant** properties, meaning they won't consume a _uniform_ in the shaders and won't be visible in the Inspector / be updatable in JavaScript: you must change their value directly in the material (they correspond to the `#define` values you can find in the standard material shader code).
 
 Note that you won't find this enable/disable property in the **Instances**, **Morphs and bones** and **Fog** frames: they are always enabled. That's because they depend on the mesh geometry / settings (or on a scene setting for **Fog**): those frames will be a simple "pass-through" if the corresponding feature doesn't exist on the mesh / scene, so no need to explicitly disable it in that case.
 
@@ -375,10 +375,10 @@ Note that you won't find this enable/disable property in the **Instances**, **Mo
 
 There are a number of additional frames that help organizing the graph more cleanly:
 
-- Final normal. This frame takes the output from the **Bump** frame and builds the final world normal used in subsequent computations (**Reflection** and **Lights**). You can change the `TWOSIDEDLIGHTING` boolean if you want the lighting to be applied whatever the triangle side facing are.
+- Final normal. This frame takes the output from the **Bump** frame and builds the final world normal used in subsequent computations (**Reflection** and **Lights**). You can change the `TWOSIDEDLIGHTING` boolean if you want the lighting to be applied regardless of which side of the triangle is facing you.
 - Final diffuse computation. It is the frame responsible for computing the final diffuse component, taking into account the ambient, emissive and vertex color components. Here you can modify the `LINKEMISSIVEWITHDIFFUSE` and `EMISSIVEASILLUMINATION` booleans to change the way the diffuse value is computed.
 - Final color computation. Everything is brought together to compute the final rgb color: ambient (texture), specular, reflection and emissive.
-- Final alpha computation. After the opacity (alpha) is generated from the **Opacity** frame, a number of additional computation is performed to produce the final alpha value. You can step in this computation by mean of two booleans, `REFLECTIONOVERALPHA` and `SPECULAROVERALPHA`.
+- Final alpha computation. After the opacity (alpha) is generated from the **Opacity** frame, a number of additional computations are performed to produce the final alpha value. You can step through this computation by means of two booleans, `REFLECTIONOVERALPHA` and `SPECULAROVERALPHA`.
 - Premultiply alpha to color. This one does what its title says and is enabled by the `PREMULTIPLYALPHA` boolean.
 
 #### Construction notes
@@ -389,7 +389,7 @@ Below are a few things of note.
 
 #### Working without a `if` statement
 
-As you may know, there's no `if` statement / block in the node material editor, so one must be creative to overcome this. Luckily, the standard material does not use this statement heavily (as it's better to avoid it for performance sake), so it is easy enough to deal with it. Most of the time, it is something like `if boolean is true, use this value in subsequent computation, else use that other value instead`. A **Lerp** block is the tool to use:
+As you may know, there's no `if` statement / block in the node material editor, so you must be creative to work around this. Luckily, the standard material does not use this statement heavily (as it's better to avoid it for performance reasons), so it is easy enough to deal with. Most of the time, it is something like `if boolean is true, use this value in subsequent computation, else use that other value instead`. A **Lerp** block is the tool to use:
 
 ```
 Lerp(a, b, gradient)
@@ -407,7 +407,7 @@ The **Lerp** block will also accept more than a numerical value for `gradient`. 
 
 ![Texture Blending](/img/tools/nme/lerpExample.webp)
 
-The **Lerp** node is often used for techniques like blending tiling textures to hide repeated patterns or to "splat" textures in specific areas of a mesh. This can also be helpful for creating terrain meshes where it is desireable to scatter patches of dirt or grass on a ground plane in a randomly generated procedural method.
+The **Lerp** node is often used for techniques like blending tiling textures to hide repeated patterns or to "splat" textures in specific areas of a mesh. This can also be helpful for creating terrain meshes where it is desirable to scatter patches of dirt or grass on a ground plane in a randomly generated procedural method.
 
 - <Playground id="#KR6748" title="Blending Tiling Textures" description="Blending tiling textures to hide repeating elements." image="/img/playgroundsAndNMEs/tilingTextureBlend.webp" isMain={true} category="Materials"/>
 
@@ -445,13 +445,13 @@ Please keep in mind that loops have to be used cautiously as they can add a lot 
 
 #### Shader Promotion Optimization
 
-The Node Material features a default performance optimization where some nodes in the fragment shader are "promoted" to being evaluated with the vertex shader. This optimization ensures the fastest possible shader evaluation possible. There may be times where this optimization does NOT provide the desired outcome when creating a Node Material. You can change this behavior by setting the "Target" property of any given node, to either "Fragment" or "Vertex." By default, this property is set to "Neutral" which will permit the optimization to occur. Setting this property to "Fragment" or "Vertex" will force the system to evaluate that node in that specific part of the shader.
+The Node Material features a default performance optimization where some nodes in the fragment shader are "promoted" to being evaluated in the vertex shader. This optimization ensures the fastest possible shader evaluation. There may be times when this optimization does NOT provide the desired outcome when creating a Node Material. You can change this behavior by setting the "Target" property of any given node to either "Fragment" or "Vertex." By default, this property is set to "Neutral," which allows the optimization to occur. Setting this property to "Fragment" or "Vertex" will force the system to evaluate that node in that specific part of the shader.
 
 ![Emissive](/img/playgroundsAndNMEs/nmeNodePromotion.png)
 
 ### Loading from a file saved from the Node Material Editor
 
-You can directly setup a Node Material from a file saved from the Node Material Editor.
+You can directly set up a Node Material from a file saved from the Node Material Editor.
 
 Here is the code to use:
 
@@ -465,7 +465,7 @@ Here's an example of how to load a saved shader file and apply it to a mesh.
 
 ### Sharing unique URLs
 
-When using the <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nmeDefault.webp"/>, you can have an additional option to save your work using a unique URL (like the Playground for instance). You can then share these urls (which are immutable).
+When using the <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nmeDefault.webp"/>, you also have the option to save your work using a unique URL (like the Playground, for instance). You can then share these URLs (which are immutable).
 
 Example: <NME id="#2F999G" title="Node Material Editor Unique URL Example" description="Example Node Material Editor saved with a unique URL." image="/img/playgroundsAndNMEs/NMEsnippetServerSaveExample.webp"/>
 
@@ -479,7 +479,7 @@ BABYLON.NodeMaterial.ParseFromSnippetAsync("2F999G", scene).then((nodeMaterial) 
 });
 ```
 
-When using NME within the Playground, you have the opportunity to edit your material with the Inspector and let the Playground update your snipped id automatically (each time NME will save a new snippet id it will inform the playground to also change the id in your code).
+When using NME within the Playground, you can edit your material with the Inspector and let the Playground update your snippet ID automatically (each time NME saves a new snippet ID, it informs the Playground so it can also change the ID in your code).
 
 And to begin with you can simply call this code to start a new Node Material from scratch:
 
@@ -491,13 +491,13 @@ BABYLON.NodeMaterial.ParseFromSnippetAsync("_BLANK", scene).then((nodeMaterial) 
 
 Note:
 
-- There is a use case where you may want to load a node material, but ignore any embedded or linked textures stored in the json. This could be where you are going to supply new textures in code and you don't want to incur the cost of loading the old textures or if you are reusing a node material from an old project where only the textures need to be updated. To do this, place this static property in your code before creating or loading your node materials:
+- There is a use case where you may want to load a node material but ignore any embedded or linked textures stored in the JSON. This could be because you are going to supply new textures in code and don't want to incur the cost of loading the old textures, or because you are reusing a node material from an old project where only the textures need to be updated. To do this, place this static property in your code before creating or loading your node materials:
 
 ```javascript
 BABYLON.NodeMaterial.IgnoreTexturesAtLoadTime = true;
 ```
 
-And then from there you could have used the Inspector to edit it (The inspector can replace the \_\_BLANK with the right id later on).
+From there, you could use the Inspector to edit it (the Inspector can replace the \_\_BLANK with the right ID later on).
 
 ### Node material examples
 

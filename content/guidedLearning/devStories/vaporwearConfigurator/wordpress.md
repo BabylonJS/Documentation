@@ -31,7 +31,7 @@ More practically, however, he also knew that the process of switching sites
 would take a little time, so even after the "completion" of the new site
 the old one would still be live for at least another month or two. With
 that in mind, Barnabas approached Allan with an idea: what if they could
-take the same 3D experience which had been developed for the new React.js
+take the same 3D experience that had been developed for the new React.js
 site and incorporate it into their old WordPress site as well? "Go for it,"
 Allan told him, so Barnabas set off to figure out how to integrate the new
 custom 3D experience into the old WordPress site.
@@ -39,7 +39,7 @@ custom 3D experience into the old WordPress site.
 ## Using an NPM Package in WordPress
 
 Diane had built the new Vaporwear 3D experience into an NPM package,
-which made it very easy to add into most modern Web workflows.
+which made it very easy to add to most modern Web workflows.
 Using an NPM package in WordPress, however, is a bit tricky: WordPress
 was not designed to work with modern Web workflows and, being PHP-based,
 isn't naturally well-suited to being used with JavaScript development

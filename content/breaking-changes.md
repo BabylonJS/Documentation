@@ -13,7 +13,7 @@ toc-levels: 2
 
 ### Fix target camera orientation issues when using right-handed scenes
 
-When using right-handed scenes, setting and getting the `rotation` or `rotationQuaternion` properties of a target camera was 180-rotated on the Y-axis when compared to the view or world matrix of the camera. This is confusing and caused problems when exporting glTF. Any code that previously set the `rotation` or `rotationQuaternion` properties of a camera derived from `TargetCamera` (`FreeCamera` or `ArcRotateCamera` for example) when using right-handed scenes will now be wrong. The default orientation of a target camera still faces +Z as before to maintain backwards compatibility. Left-handed scenes are also unaffected. See [PR](https://github.com/BabylonJS/Babylon.js/pull/16691) for more information.
+When using right-handed scenes, setting and getting the `rotation` or `rotationQuaternion` properties of a target camera was rotated 180 degrees on the Y-axis when compared to the view or world matrix of the camera. This is confusing and caused problems when exporting glTF. Any code that previously set the `rotation` or `rotationQuaternion` properties of a camera derived from `TargetCamera` (`FreeCamera` or `ArcRotateCamera`, for example) when using right-handed scenes will now be wrong. The default orientation of a target camera still faces +Z as before to maintain backwards compatibility. Left-handed scenes are also unaffected. See [PR](https://github.com/BabylonJS/Babylon.js/pull/16691) for more information.
 
 ## 8.2.0
 
@@ -70,7 +70,7 @@ PR: https://github.com/BabylonJS/Babylon.js/pull/16144
 ### Loading screen on multiple canvases
 In order to manage the visibility of the loading screen on multiple canvases, we have changed the underlying data structure that tracks the loading screen info.
 
-However, if you have implemented an own custom loading screen, this change could break your code. If it does, you should:
+However, if you have implemented your own custom loading screen, this change could break your code. If it does, you should:
 1. Manually set the `this._isLoading` attribute to true in `displayLoadingUI` and false in `hideLoadingUI`.
 2. Manage your custom loading div through `this._loadingDivToRenderingCanvasMap` rather than the old `this._loadingDiv` attribute.
 
@@ -80,33 +80,33 @@ Here is an example of a PG using a custom loading screen:
 ## 7.45.0
 
 ### `PBRMaterial` rough metals are looking closer to ray traced results
-Improving the way we render is an ongoing mission for the Babylon team and as explained on the [forum](https://forum.babylonjs.com/t/differences-in-pbr-material-behavior-between-babylon-5-and-7/56585/5?u=sebavan), our PBR rendering has been improved to more correct results.
+Improving the way we render is an ongoing mission for the Babylon team, and as explained on the [forum](https://forum.babylonjs.com/t/differences-in-pbr-material-behavior-between-babylon-5-and-7/56585/5?u=sebavan), our PBR rendering has been improved to produce more correct results.
 
-As we understand you might have changed your art to adapt to the previous behavior, you can bring it back by setting `PBRBRDFConfiguration.DEFAULT_MIX_IBL_RADIANCE_WITH_IRRADIANCE = false;` before creating your `PBRMaterial`.
+As we understand it, you might have changed your art to adapt to the previous behavior. You can bring it back by setting `PBRBRDFConfiguration.DEFAULT_MIX_IBL_RADIANCE_WITH_IRRADIANCE = false;` before creating your `PBRMaterial`.
 
 ## 7.34.0
 
-### `SceneLoader.Load`, `SceneLoader.Append`, `SceneLoader.ImportMesh` does not return the plugin used to load the content anymore
-In order to support automatic mimetype detection, we have removed the synchronous aspect of these 3 functions and they will return void for now on.
+### `SceneLoader.Load`, `SceneLoader.Append`, `SceneLoader.ImportMesh` no longer return the plugin used to load the content
+In order to support automatic mimetype detection, we have removed the synchronous aspect of these 3 functions, and they will return void from now on.
 More details: https://forum.babylonjs.com/t/potential-new-breaking-change-please-chime-in/54651
 
-To get the plugin used to load content, you can register to `SceneLoader.OnPluginActivatedObservable`
+To get the plugin used to load content, you can register to `SceneLoader.OnPluginActivatedObservable`.
 
 ## 7.31.0
 
-### Instance now get the same parent as the source
-Before the instances where created with no parent but this was causing a lot of rendering issues when the source was coming from a glTF object. This change will make sure the source and the instance have the same parent.
+### Instances now get the same parent as the source
+Before, instances were created with no parent, but this caused a lot of rendering issues when the source came from a glTF object. This change makes sure the source and the instance have the same parent.
 
 ### Deprecation of CSG class in favor of CSG2
 
 The old CSG class was made of pure JS (it was a port from https://github.com/evanw/csg.js/) and while it served us, it was not maintained and not usable anymore.
-We are now encouraging everyone to switch the new CSG2 class.
+We are now encouraging everyone to switch to the new CSG2 class.
 
 ### Porting from CSG to CSG2
 
 #### Asynchronous initialization
 
-The main difference will be that CSG2 uses the [fantastic Manifold](https://github.com/elalish/manifold) to do the boolean operations. To that extend you have to call `BABYLON.InitializeCSG2Async()` before being able to use the CSG2 class.
+The main difference is that CSG2 uses the [fantastic Manifold](https://github.com/elalish/manifold) to do the boolean operations. To that end, you have to call `BABYLON.InitializeCSG2Async()` before you can use the CSG2 class.
 
 Example:
 
@@ -121,11 +121,11 @@ const mesh = boxCSG.subtract(sphereCSG).toMesh("test");
 
 ### Inverse
 
-The inverse feature is no more supported (and it was not really working so we all should be fine)
+The inverse feature is no longer supported (and it was not really working, so we should all be fine).
 
 #### ToMesh
 
-The method `toMesh` does take 3 parameters: name, scene and options.
+The method `toMesh` takes 3 parameters: name, scene, and options.
 
 #### MultiMaterials
 
@@ -147,21 +147,21 @@ Please refer to the CSG2 [class documentation for more details](/features/featur
 
 ### Main materials now generate WGSL shader code when used with WebGPU
 
-This change is an improvement as the main shaders (StandardMaterial, PBRMaterial and BackGroundMaterial) are now generating pure WGSL and does not require compilation of GLSL code with TintWASM when used with a WebGPUEngine.
-If you still need to get GLSL code (for instance if you inject your own custom code with a MaterialPlugin0, you can force the materials to use the GLSL code path with a boolean in the materials' constructors.
+This change is an improvement, as the main shaders (StandardMaterial, PBRMaterial, and BackGroundMaterial) now generate pure WGSL and do not require compilation of GLSL code with TintWASM when used with a WebGPUEngine.
+If you still need to get GLSL code (for instance, if you inject your own custom code with a MaterialPlugin0), you can force the materials to use the GLSL code path with a boolean in the materials' constructors.
 
 ## 7.11.0
 
 ### mesh.overrideMaterialSideOrientation was renamed to mesh.sideOrientation
 
-This change was made to simplify the sideOrientation process. Starting with this version, mesh.sideOrientation is used UNLESS material.sideOrientation is not null.
+This change was made to simplify the sideOrientation process. Starting with this version, mesh.sideOrientation is used unless material.sideOrientation is not null.
 [content/breaking-changes.md](https://github.com/BabylonJS/Babylon.js/pull/15189)
 
 ## 7.6.0
 
-### canvas is not xrCompatible per default
+### canvas is not xrCompatible by default
 
-This change should not influence our XR users, but is a breaking change - instead of defining the canvas XR compatible right when creating the webgl2 context, the canvas is being made xr compatible when entering XR.
+This change should not affect our XR users, but it is a breaking change. Instead of defining the canvas as XR compatible when creating the WebGL2 context, the canvas is made XR compatible when entering XR.
 [content/breaking-changes.md](https://github.com/BabylonJS/Babylon.js/pull/15027)
 
 ## 7.2.2
@@ -169,12 +169,12 @@ This change should not influence our XR users, but is a breaking change - instea
 ### Remove WebGPUEngine Dependency on Engine
 
 **[14931](https://github.com/BabylonJS/Babylon.js/pull/14931)**
-This is a rather large change to decouple `WebGPUEngine` from `Engine` where all properties of `Engine` in the library are now properties of `AbstractEngine`. The existing methods, however, are all unchanged so the impact to them should be minimal. `ThinEngine` and `Engine` are almost entirely unchanged but there are two important considerations to be mindful of:
+This is a rather large change to decouple `WebGPUEngine` from `Engine`, where all properties of `Engine` in the library are now properties of `AbstractEngine`. The existing methods, however, are all unchanged, so the impact on them should be minimal. `ThinEngine` and `Engine` are almost entirely unchanged, but there are two important considerations to keep in mind:
 
 1. `AbstractEngine` is abstract and should not be instantiated
 2. All common functions have been moved from `ThinEngine` to `AbstractEngine` so they can be shared with WebGPU Engine
 
-The main impact on user code will only happen on TypeScript as the type of all `getEngine()` functions will be `AbstractEngine` instead of `ThinEngine`.
+The main impact on user code will only affect TypeScript, as the type of all `getEngine()` functions will be `AbstractEngine` instead of `ThinEngine`.
 
 ## 7.0.0
 
@@ -202,4 +202,4 @@ This was required by Babylon Native for those times when model data is passed fr
 
 ### ShaderPath
 
-**[#14908](https://github.com/BabylonJS/Babylon.js/pull/14908)** Previously when using ShaderMaterial, the constructor accepted a type of _any_ for ShaderPath which could cause issues when using ShaderMaterial in TypeScript projects. This changes adds types to ShaderPath instead of _any_, which will protect type compatibility with ShaderMaterial and TypeScript.
+**[#14908](https://github.com/BabylonJS/Babylon.js/pull/14908)** Previously, when using ShaderMaterial, the constructor accepted a type of _any_ for ShaderPath, which could cause issues in TypeScript projects. This change adds types to ShaderPath instead of _any_, which will protect type compatibility with ShaderMaterial and TypeScript.

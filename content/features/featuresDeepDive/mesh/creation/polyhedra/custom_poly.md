@@ -9,13 +9,13 @@ video-content:
 ---
 
 ## Custom Polyhedra
-These are a further range of polyhedra that you can create although they need more steps to achieve. This is the reason for the *custom* option. All the other options, other than *type*, can be used with custom polyhedra.
+This is another range of polyhedra that you can create, although they require a few more steps. This is the reason for the *custom* option. All the other options, other than *type*, can be used with custom polyhedra.
 
 
-1.  Visit <Playground id="#WL3U6F" title="Custom Polyhedra" description="Simple example of custom polyhedra in Babylon.js."/> and minimize the code editor by unchecking the box by Editor under the Gear icon &#9881; (Options) and note the polyhedron names under the mouse pointer.  
+1.  Visit <Playground id="#WL3U6F" title="Custom Polyhedra" description="Simple example of custom polyhedra in Babylon.js."/> and minimize the code editor by unchecking the box labeled Editor under the Gear icon &#9881; (Options), then note the polyhedron names under the mouse pointer.  
 ![Select a Polyhedron](/img/how_to/Mesh/polyhedra1.webp);
 
-2. From the polyhedra.js file at https://github.com/BabylonJS/Extensions/tree/master/Polyhedron find the required name
+2. From the polyhedra.js file at https://github.com/BabylonJS/Extensions/tree/master/Polyhedron, find the required name.
 ```javascript
 HeptagonalPrism : {
 "name":"Heptagonal Prism",
@@ -25,7 +25,7 @@ HeptagonalPrism : {
 ```
 
  
-3. Copy/paste the wanted polyhedron object in your code like this :
+3. Copy and paste the desired polyhedron object into your code like this:
 
 ```javascript
 const heptagonalPrism = { "name":"Heptagonal Prism", "category":["Prism"], "vertex":[[0,0,1.090071],[0.796065,0,0.7446715],[-0.1498633,0.7818315,0.7446715],[-0.7396399,-0.2943675,0.7446715],[0.6462017,0.7818315,0.3992718],[1.049102,-0.2943675,-0.03143449],[-0.8895032,0.487464,0.3992718],[-0.8658909,-0.6614378,-0.03143449],[0.8992386,0.487464,-0.3768342],[0.5685687,-0.6614378,-0.6538232],[-1.015754,0.1203937,-0.3768342],[-0.2836832,-0.8247995,-0.6538232],[0.4187054,0.1203937,-0.9992228],[-0.4335465,-0.042968,-0.9992228]],

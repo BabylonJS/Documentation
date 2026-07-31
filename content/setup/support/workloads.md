@@ -14,4 +14,4 @@ video-content:
 
 ## Customize Your Build
 
-The Workloads that you might have known are gone in 4.0.0 in favor of [ES6 packages](/setup/frameworkPackages/npmSupport#es6). You do not need anymore to customize the output of the build as you can rely on [tree shaking](https://webpack.js.org/guides/tree-shaking/) on our npm packages externally.
+The workloads you may have known were removed in 4.0.0 in favor of [ES6 packages](/setup/frameworkPackages/npmSupport#es6). You no longer need to customize the build output, because you can rely on [tree shaking](https://webpack.js.org/guides/tree-shaking/) with our npm packages.

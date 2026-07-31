@@ -15,7 +15,7 @@ Related links:
 
 ## Introduction: Edie
 
-Based on Allan and Barnabas from Vaporwear's statement that they wanted a, 
+Based on Allan and Barnabas's statement that they wanted a
 "custom, modern Web frontend," it hadn't taken Edie long to decide to build
 their new site using React.js. In fact, while the 3D parts of the design
 were of a kind and scope Edie had never encountered before, the site itself
@@ -37,7 +37,7 @@ The "website" part of the new Vaporwear website didn't seem to require
 anything particularly special -- it was, if anything, a rather simple
 example of a modern single-page application -- so Edie was able to 
 set up a rough draft of it even before receiving the 3D components by 
-pretty closely following 
+following 
 [React.js's own tutorial](https://reactjs.org/tutorial/tutorial.html).
 
 1.  ```
@@ -75,7 +75,7 @@ liven up once she could integrate the 3D experience.
 
 1.  When the 3D experience was ready, it came in the form of a private
     NPM package and a handful of 3D art files. Regarding the files, Diane
-    had said to, "Just put them somewhere accessible and tell the 
+    had said, "Just put them somewhere accessible and tell the 
     `VaporwearExperience` how to find them," so Edie started by dropping
     all the files in her app's `public` folder.
     
@@ -89,7 +89,7 @@ liven up once she could integrate the 3D experience.
     ![Babylon Experience component](/img/devStories/vaporwearConfigurator/chapter_frontend/06_babylon_experience.webp)
 1.  The heart of the Babylon Experience component, from Edie's perspective,
     would be the `HTMLCanvasElement` on which the 3D experience would 
-    display. This canvas would only be interactible in "configuration" 
+    display. This canvas would only be interactive in "configuration" 
     mode at the bottom of the site but would be visible in the background 
     throughout the site, so Edie made its canvas full-page width and height
     with fixed positioning.
@@ -113,7 +113,7 @@ liven up once she could integrate the 3D experience.
     state.
     
     ![Configuration UI](/img/devStories/vaporwearConfigurator/chapter_frontend/12_babylonExperience_js_144_166.webp)
-1.  Other elements required tweaking to accomodate the new behavior, and
+1.  Other elements required tweaking to accommodate the new behavior, and
     certain visual choices evolved as the site matured. Soon, however, all
     the requested features were enabled and all the requested text had 
     been added (at least where the Vaporwear company hadn't forgotten to 

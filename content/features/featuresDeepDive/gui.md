@@ -12,10 +12,10 @@ video-content:
 
 There are a number of options for adding a GUI to Babylon.js. The [**Babylon GUI**](/features/featuresDeepDive/gui/gui) is covered in this section.
 
-It allows you to place buttons and labels within in 3D space as well as a 2D front of screen GUI.
-When you want a GUI that works in VR or within the 3D space it's the only option.
+It allows you to place buttons and labels within 3D space as well as in a 2D front-of-screen GUI.
+When you want a GUI that works in VR or within 3D space, it's the only option.
 
-It is integrated within the playground. For your own projects it has to be loaded as well as Babylon.js.
+It is integrated within the playground. For your own projects, it must be loaded alongside Babylon.js.
 
 <Playground id="#NGS9AU" title="Simple GUI Slider Example" description="Simple example of adding a GUI slider to your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI1.webp"/>
 
@@ -29,19 +29,19 @@ Other possible GUIs are:
 
 ## Dat.GUI
 
-The external [dat.GUI](https://github.com/dataarts/dat.gui) is integrated within the playground. For your own projects it has to be loaded as well as Babylon.js.
+The external [dat.GUI](https://github.com/dataarts/dat.gui) is integrated within the playground. For your own projects, it must be loaded alongside Babylon.js.
 
 <Playground id="#NGS9AU#1" title="dat.GUI Example" description="Simple example of using the dat.GUI system in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI3.webp"/>
 
 ## HTML GUI
 
-Since Babylon.js is in JavaScript it is possible to use HTML and CSS to overlay the Babylon.js scene.
+Since Babylon.js is written in JavaScript, it is possible to use HTML and CSS to overlay the Babylon.js scene.
 
 <Playground id="#1AHPN5" title="HTML GUI Example" description="Simple example of using HTML GUI elements in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI4.webp"/>
 
 ### HtmlMesh
 
-The [HtmlMesh](/addons/htmlMesh) extension for BabylonJS allows for HTML content to be incorporated into a scene either as a scene mesh that can occlude and be occluded by other meshes or as an overlay (similar to the HTML GUI example above, but using a mesh so it can be positioned using stadard transforms, parented to other meshes, dragged, and scaled using gizmos, etc...).
+The [HtmlMesh](/addons/htmlMesh) extension for BabylonJS allows HTML content to be incorporated into a scene either as a scene mesh that can occlude and be occluded by other meshes or as an overlay (similar to the HTML GUI example above, but using a mesh so it can be positioned with standard transforms, parented to other meshes, dragged, and scaled using gizmos).
 
 <Playground id="#HVHYJC#82" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.webp"/>
 
@@ -49,7 +49,7 @@ The [HtmlMesh](/addons/htmlMesh) extension for BabylonJS allows for HTML content
 
 Here's a list of the pros and cons of using different types of GUIs. It’s worth noting that these options aren’t mutually exclusive - they can be used together, depending on requirements, for instance:
 
-- Use a simple HTML GUI for initial rapid protoyping, before transitioning to Babylon 2D or 3D GUI
+- Use a simple HTML GUI for initial rapid prototyping before transitioning to Babylon 2D or 3D GUI
 - Use an HTML GUI overlay for complex, dynamic, text-heavy info panels but Babylon 2D GUI for everything else
 
 The sky’s the limit! Go forth and GUI in whatever way takes your fancy!
@@ -114,4 +114,3 @@ The sky’s the limit! Go forth and GUI in whatever way takes your fancy!
 #### Cons
 
 - Less comprehensive/flexible than both Babylon 2D GUI and HTML GUI
-

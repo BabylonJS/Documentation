@@ -11,7 +11,7 @@ video-content:
 ## Introduction to Shaders in Babylon.js
 
 A shader is a program processed by the Graphical Processing Unit (GPU) to produce a screen image by manipulating data to
-produce individual pixels. The GPU is optimised, through parallel processing, to deal with these thousand of operations
+produce individual pixels. The GPU is optimised, through parallel processing, to deal with these thousands of operations
 in an extremely fast way.
 
 ## Suggested Pre-Reading
@@ -26,17 +26,17 @@ in an extremely fast way.
 
 ### Basic
 
-To produce a Babylon.js scene, code is written in Javascript which the Babylon.js Engine processes and displays the result on screen.
-The scene can alter through changes to the meshes, the lights or camera position. To show possible changes in a timely way the screen
+To produce a Babylon.js scene, code is written in JavaScript, which the Babylon.js Engine processes and displays on screen.
+The scene can change through updates to the meshes, the lights, or the camera position. To show these changes in a timely way, the screen
 display (frame) is re-drawn up to 60 frames per second.
 
-Simplifying, the process is
+Simplified, the process is:
 
-- Scene Code is processed in the CPU by the BJS Engine Code to produce a Virtual 3D Model
-- Virtual 3D Model is processed in the CPU by the BJS Engine Code to produce Shader GPU Code
-- Shader GPU Code is processed by GPU to produce screen image.
+- Scene code is processed by the CPU through the BJS engine code to produce a virtual 3D model.
+- The virtual 3D model is processed by the CPU through the BJS engine code to produce shader GPU code.
+- The shader GPU code is processed by the GPU to produce the screen image.
 
-For example the Babylon.js Engine takes this code
+For example, the Babylon.js Engine takes this code
 
 ```javascript
 const box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
@@ -44,16 +44,15 @@ const box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
 
 and turns it into vertex data including positions, colors and normals.
 
-The Babylon.js Engine creates the shader code for this data and is passed to the GPU.
+The Babylon.js Engine creates shader code for this data and passes it to the GPU.
 
 ### Custom
 
-Much more than this as well as Scene Code you can write your own user Shader Code so that
-the process becomes:
+In addition to scene code, you can write your own shader code so that the process becomes:
 
-- Scene Code is processed in the CPU by the BJS Engine Code to produce a Virtual 3D Model
-- Virtual 3D Model and User Shader Code is processed in the CPU by the BJS Engine Code to produce the Shader GPU Code
-- Shader GPU Code is processed by GPU to produce the screen image.
+- Scene code is processed by the CPU through the BJS engine code to produce a virtual 3D model.
+- The virtual 3D model and user shader code are processed by the CPU through the BJS engine code to produce the shader GPU code.
+- The shader GPU code is processed by the GPU to produce the screen image.
 
 ## Types of Shader
 
@@ -69,11 +68,11 @@ Fragment Shaders are sometimes referred to as Pixel Shaders.
 
 ## Passing Variables
 
-The vertex data for position, normal and uv coordinates are passed to the Vertex Shader as variables of category attribute.
-User data can be passed to both the Vertex Shader and the Fragment Shader as variables of category uniform.
-Data can be passed from the Vertex Shader to the Fragment Shader with variables of category varying.
+The vertex data for position, normal, and uv coordinates are passed to the Vertex Shader as attribute variables.
+User data can be passed to both the Vertex Shader and the Fragment Shader as uniform variables.
+Data can be passed from the Vertex Shader to the Fragment Shader using varying variables.
 
-A vital uniform variable to declare in the Vertex Shader is `worldViewProjection` as theBabylon.js Engine uses this to
+A vital uniform variable to declare in the Vertex Shader is `worldViewProjection`, as the Babylon.js Engine uses this to
 pass scene 3D - 2D projection data to the Vertex Shader.
 
 ![Pass Variables](/img/how_to/Shaders/shade2.webp)
@@ -95,14 +94,14 @@ The following example will throw an error:
 float r = 2;
 ```
 
-Some examples of types are
+Some examples of types are:
 
 - `vec2`: a two-dimensional vector of floating-point numbers
 - `vec3`: a three-dimensional vector of floating-point numbers
-- `mat4`: a matrix with 4 columns and 4 rows floating-point numbers
+- `mat4`: a matrix with 4 columns and 4 rows of floating-point numbers
 - `sampler2D`: a 2D texture image
 
-Since vertex positions need to be as accurate as possible all floating-point numbers should be set as having high precision.
+Since vertex positions need to be as accurate as possible, all floating-point numbers should be set to high precision.
 This is done at the start of the code for each shader using:
 
 ```glsl
@@ -111,12 +110,12 @@ precision highp float
 
 ## Built In Variables
 
-The [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) language has a number of built in variables. Two are vital to the operation of the two shaders and are always necessary:
+The [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) language has a number of built-in variables. Two are vital to the operation of the two shaders and are always necessary:
 
 | Variable     | Description                                                    |
 | ------------ | -------------------------------------------------------------- |
-| gl_Position  | provide positional data for screen coordinates                 |
-| gl_FragColor | provide color data for the representation of a facet on screen |
+| gl_Position  | provides positional data for screen coordinates                |
+| gl_FragColor | provides color data for the representation of a facet on screen |
 
 ## Built In Inputs
 
@@ -139,7 +138,7 @@ The [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) language
 
 ## Functions
 
-Functions needed to be typed as do their parameters and have the form:
+Functions need types, as do their parameters, and have the form:
 
 ```glsl
 float NAME(typed parameters) {
@@ -149,8 +148,8 @@ float NAME(typed parameters) {
 
 ## Running Shader Code
 
-Both the Vertex and the Fragment Shader are run from a function which must be called `main` and be of type `void` since it returns
-no result. It must also type the empty parameter list as `void`:
+Both the Vertex Shader and the Fragment Shader are run from a function that must be called `main` and be of type `void`, since it returns
+no result. The empty parameter list must also be typed as `void`:
 
 ```glsl
 void main(void) {

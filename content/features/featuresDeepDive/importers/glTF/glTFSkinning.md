@@ -10,7 +10,7 @@ video-content:
 
 ## Introduction
 
-Skinning in glTF 2.0 is a bit different from how skinning typically works in Babylon.js. This document will describe a couple of important implementation details in the glTF 2.0 loader regarding skinning. All mentions of glTF below is scoped to glTF 2.0.
+Skinning in glTF 2.0 is a bit different from how skinning typically works in Babylon.js. This document describes a couple of important implementation details in the glTF 2.0 loader regarding skinning. All mentions of glTF below are scoped to glTF 2.0.
 
 ## Bones with Linked Nodes
 
@@ -39,8 +39,8 @@ For example, for the [CesiumMan model](https://playground.babylonjs.com/#T1IFZA)
 
 These nodes are parents of both the skinned mesh `Cesium_Man` and the skeleton root node `Skeleton_torso_joint1`. Having the parent transforms be applied to both will result in the parent transforms being applied twice. _For more details and discussions on this issue, see [this comment](https://github.com/KhronosGroup/glTF/pull/1195#issuecomment-364597428) from the glTF GitHub repo._
 
-One of these parent transform branches must be ignored. The glTF specification ignores the skinned mesh branch since this matches the behavior of Unity3D. Unfortunately, this does not match what Babylon.js does. Babylon.js has a separated skeleton object and the parent transforms apply to the skinned mesh.
+One of these parent transform branches must be ignored. The glTF specification ignores the skinned mesh branch since this matches the behavior of Unity3D. Unfortunately, this does not match what Babylon.js does. Babylon.js has a separate skeleton object, and the parent transforms apply to the skinned mesh.
 
-To satisfy this requirement from glTF, the glTF loader loads the skinned mesh without its own transform and parents the skinned mesh as a sibling of the skeleton root node. For the CesiumMan model, this is at the same location, but for other cases, it might not be in the same location in the scene hierarchy. Furthermore, the skinned mesh is allowed to have child nodes that have meshes or additional hierarchies. Thus, in additional to creating a skinned mesh, the glTF loader also creates a node that represents the glTF node with the skinned mesh, in case this node is animated or has additional child nodes.
+To satisfy this requirement from glTF, the glTF loader loads the skinned mesh without its own transform and parents it as a sibling of the skeleton root node. For the CesiumMan model, this is in the same location, but for other cases, it might not be in the same location in the scene hierarchy. Furthermore, the skinned mesh is allowed to have child nodes with meshes or additional hierarchies. Thus, in addition to creating a skinned mesh, the glTF loader also creates a node that represents the glTF node with the skinned mesh, in case that node is animated or has additional child nodes.
 
-_NOTE: Before Babylon.js 5.0, the glTF loader uses a property `overrideMesh` that on the skeleton to override the mesh used by the skeleton in order to ignore the parent transform up to the glTF root node which contained the right-hand to left-hand conversion. This method, however, caused all sort of issues that are outside the scope of this document to explain. This property has since been removed from the skeleton class._
+_NOTE: Before Babylon.js 5.0, the glTF loader used a property `overrideMesh` on the skeleton to override the mesh used by the skeleton in order to ignore the parent transform up to the glTF root node, which contained the right-hand to left-hand conversion. This method, however, caused all sorts of issues that are outside the scope of this document. This property has since been removed from the skeleton class._

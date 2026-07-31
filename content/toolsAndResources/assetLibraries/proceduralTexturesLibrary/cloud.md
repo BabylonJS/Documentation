@@ -22,11 +22,11 @@ Cloud procedural texture can be found here:
 
 A demo can be found here: <Playground id="#NQDNM#0" title="Cloud Procedural Texture Demo" description="Cloud Procedural Texture Demo"/>
 
-This texture has 2 parameters :
+This texture has 2 parameters:
 - **skyColor** : the color for the sky (BABYLON.Color3/4)
-- **cloudColor** : the color for the cloud (BABYLON.Color3/4)
+- **cloudColor** : the color for the clouds (BABYLON.Color3/4)
 
-Sample to create a cloudy sky
+Sample code to create a cloudy sky:
 
 ```javascript
 var cloud = BABYLON.MeshBuilder.CreateSphere("cloud", { segments: 100, diameter: 1000 }, scene);

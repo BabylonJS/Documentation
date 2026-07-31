@@ -1,6 +1,6 @@
 ---
 title: WebXR extension / Gesture recognition
-description: Gestures and combinations recognition 
+description: Gesture and combination recognition
 keywords: extensions, WebXR, Hand tracking, gestures
 further-reading:
   - title: PalmOut gesture JSON example file
@@ -16,11 +16,11 @@ video-content:
 ---
 
 # Hands tracking
-The capabilities of the wrapper over WebXRHandTracking:
+Capabilities of the WebXRHandTracking wrapper:
 
 ## Introduction
 User hand gesture recognition can make an application feel more
-native and allows for controller-free interaction.
+native and allow for controller-free interaction.
 To enable recognition, gestures need to be captured and prepared
 in advance, and later recognized within the application.
 
@@ -28,13 +28,13 @@ in advance, and later recognized within the application.
 
 ### Capturing
 
-To capture handshapes, you can use the _captureGestureTemplate_ and _captureWristsAngles_
-function after entering immersion mode.
+To capture hand shapes, you can use the _captureGestureTemplate_ and _captureWristsAngles_
+functions after entering immersion mode.
 
 But in most cases, capturing and configuring gestures is more convenient using the utility:
 [WebXR utility](https://webxr.projects.clickon.pro)
 
-Nevertheless, it is possible to use functions to capture gesture templates from _IHandTrackingXRFeatEnv_.
+Nevertheless, it is possible to use the functions in _IHandTrackingXRFeatEnv_ to capture gesture templates.
 
 ### Recognition
 
@@ -63,7 +63,7 @@ export interface IHandTrackingXRFeatEnv extends IXRFeatEnv<WebXRHandTracking> {
 	// ... other functions
 }
 ```
-Example code for recognition with using template files:
+Example code for recognition using template files:
 ```typescript
 
 const options:TXRServiceOptions = {

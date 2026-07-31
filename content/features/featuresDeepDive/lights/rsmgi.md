@@ -23,7 +23,7 @@ Theoretically, reflections, refractions, and shadows are all examples of global 
 ```
 
 The algorithm implemented in Babylon (since version 7) is based on **Reflective Shadow Maps** (RSM).
-This algorithm can't compete with other GI algorithms (such as those used in Unreal Engine or other game engines) as a complete GI solution, but it can be effective, depending on your scene and the quality you want to achieve. There are also a number of parameters that will help you adjust the final result to work on a wider range of devices.
+This algorithm can't compete with other GI algorithms (such as those used in Unreal Engine or other game engines) as a complete GI solution, but it can be effective depending on your scene and the quality you want to achieve. There are also a number of parameters that help you adjust the final result to work on a wider range of devices.
 
 One of the main uses we foresee is in the context of e-commerce, to better anchor models in the environment. See, for example:
 
@@ -52,7 +52,7 @@ Notice the red light bleeding to the ceiling and statue.
 
 ### How it works
 
-RSM works by rendering the scene from the point of view of light - exactly as we do to generate the depth texture for shadow mapping - but in addition to the depth texture (in fact, we generate a position texture instead of a depth texture, to save a few calculations later on), we also generate a normal and a flux (albedo) texture. Each texel in the flux texture is used as a Virtual Point Light (VPL) that illuminates every point in the scene. The position texture is used to reconstruct a 3D space point from each texel, and the normal is needed to calculate the GI light contribution.
+RSM works by rendering the scene from the point of view of the light—exactly as we do to generate the depth texture for shadow mapping—but in addition to the depth texture (in fact, we generate a position texture instead of a depth texture to save a few calculations later on), we also generate a normal and a flux (albedo) texture. Each texel in the flux texture is used as a Virtual Point Light (VPL) that illuminates every point in the scene. The position texture is used to reconstruct a 3D point in space from each texel, and the normal is needed to calculate the GI light contribution.
 
 | Position texture | Normal texture | Flux texture |
 |------------------|----------------|--------------|
@@ -92,13 +92,13 @@ As we only take a limited number of samples to calculate the GI contribution to 
 
 The [BABYLON.GIRSMManager](/typedoc/classes/babylon.girsmmanager) class is responsible for implementing this GI algorithm in Babylon.js. The [BABYLON.GIRSM](/typedoc/classes/babylon.girsm) class is used to store illumination parameters for a reflective shadow map (such as the *radius* or *number of samples* described above). Instances of this class are used by the `GIRSMManager` class to generate global illumination for a scene.
 
-You can create an instance of the `ReflectiveShadowMap` class in this way, to wrap an existing light:
+You can create an instance of the `ReflectiveShadowMap` class this way to wrap an existing light:
 ```javascript
 const rsm = new BABYLON.ReflectiveShadowMap(scene, light, { width: 512, height: 512 });
 rsm.addMesh(); // no specific mesh transmitted to addMesh, so all meshes in the scene are added and will be rendered in the RSM
 ```
 
-Our implementation supports GI for directional and spot lights. You can also enable GI for multiple lights, but be aware of the impact on performance! If you know that only a subset of meshes will be impacted by a light, you should call `BABYLON.ReflectiveShadowMap.addMesh` with that subset, to improve performance.
+Our implementation supports GI for directional and spot lights. You can also enable GI for multiple lights, but be aware of the impact on performance! If you know that only a subset of meshes will be affected by a light, you should call `BABYLON.ReflectiveShadowMap.addMesh` with that subset to improve performance.
 
 Once you have an instance of `ReflectiveShadowMap`, you can add it to the GI manager:
 ```javascript
@@ -120,13 +120,13 @@ giRSMMgr.addGIRSM(giRSMs);
 giRSMMgr.addMaterial(); // no specific material transmitted to addMaterial, so all materials in the scene will be configured to render with GI
 ```
 
-GI rendering is configured at material level, with the `BABYLON.GIRSMManager.addMaterial` call. If you don't want all the materials in the scene to be configured to use GI, you need to pass this function an array with the materials you want.
+GI rendering is configured at the material level with the `BABYLON.GIRSMManager.addMaterial` call. If you don't want all the materials in the scene to be configured to use GI, you need to pass this function an array of the materials you want.
 
 From here, you can modify the RSM parameters and/or the GI manager parameters, which we'll describe in the next section.
 
 *Note on the playgrounds used on this page*:
 
-If possible, you should open them with the WebGPU engine. In this case, the "GPU timings" section of the GUI will give you valuable information about the times of the various algorithm passes. With WebGL, this section will remain empty, as WebGL does not support GPU timings.
+If possible, you should open them with the WebGPU engine. In this case, the "GPU timings" section of the GUI will give you valuable information about the timing of the various algorithm passes. With WebGL, this section will remain empty, as WebGL does not support GPU timings.
 
 ## RSM Parameter description
 
@@ -168,7 +168,7 @@ These are the main properties to set when configuring a GI RSM. `GIRSM.intensity
 
 <Playground id="#VW8IG3#103" title="radius parameter" description="Changing the radius parameter of GIRSM"/>
 
-The intensity and number of samples are the same in both cases. As you can see, because we've increased the radius, the lighting is more evenly distributed across the scene (you can barely see the red light bleeding from the wall towards the pillar). We'd have to increase the number of samples to regain some brightness, which would not come without a certain cost in terms of performance.
+The intensity and number of samples are the same in both cases. As you can see, because we've increased the radius, the lighting is more evenly distributed across the scene (you can barely see the red light bleeding from the wall toward the pillar). We'd have to increase the number of samples to regain some brightness, which would come at a performance cost.
 
 ### Edge artifact correction
 
@@ -232,7 +232,7 @@ You can see the difference between a simple blur and a bilateral blur in these i
 
 ### Depth and Normal threshold
 
-`GIRSMManager.blurDepthThreshold` and `GIRSMManager.blurNormalThreshold` are the depth and normal thresholds used by bilateral blur to decide whether a pixel should be blurred with the next or not: the pixel will not be blurred if the difference between the depth or normal of the two pixels is greater than the thresholds.
+`GIRSMManager.blurDepthThreshold` and `GIRSMManager.blurNormalThreshold` are the depth and normal thresholds used by bilateral blur to decide whether a pixel should be blurred with the next one or not: the pixel will not be blurred if the difference between the depth or normal of the two pixels is greater than the thresholds.
 
 Values depend on the scale of your scene. For example:
 
@@ -252,7 +252,7 @@ As you can see, values between 0.15 and 0.35 are correct, but 0.01 is too low (n
 
 ### Blur kernel and quality blur
 
-`GIRSMManager.blurKernel` is the strength of blur:
+`GIRSMManager.blurKernel` controls blur strength:
 
 |Blur kernel=4|blur kernel=14|
 |-|-|
@@ -313,7 +313,7 @@ For example, here are two screenshots taken with an RSM texture the size of the 
 
 <Playground id="#VW8IG3#109" title="RSM size 35x smaller in each dimension" description="RSM size 35x smaller in each dimension"/>
 
-The difference is barely noticeable in the screenshots. However, be aware that you will see differences if certain objects or light move around in the scene (lighting will flicker if the texture size is too small)! So, once again, use the right dimensions to suit your needs.
+The difference is barely noticeable in the screenshots. However, be aware that you will see differences if certain objects or lights move around in the scene (lighting will flicker if the texture size is too small)! So, once again, use the right dimensions to suit your needs.
 
 ### GI texture size
 
@@ -327,7 +327,7 @@ As far as GI texture size is concerned, you won't be able to use such extreme va
 |-|-|
 |![GI 1/16 size](/img/features/rsmgi/gi_4_size.webp!506)|![GI 1/64 size](/img/features/rsmgi/gi_8_size.webp!506)|
 
-Blur will help improving the end result (as you could see in the section above), but you still won't be able to use values as low as in the RSM case. In any case, you should try to use the lowest possible values, to limit the GPU time spent to generate the texture.
+Blur will help improve the end result (as you could see in the section above), but you still won't be able to use values as low as in the RSM case. In any case, you should try to use the lowest possible values to limit the GPU time spent generating the texture.
 
 ## Shortcomings
 

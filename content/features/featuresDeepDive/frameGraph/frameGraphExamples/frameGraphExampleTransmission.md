@@ -9,7 +9,7 @@ keywords: diving deeper, frame graph, rendering, node editor, examples, transmis
 
 Transmissive materials are materials that allow you to see through them and use a refraction texture to display what is behind the mesh with that material.
 
-This texture is created by rendering the non-transmissive meshes and is defined as a refraction texture for transmissive materials, with a specific coordinate mode so that we have the illusion of seeing through the mesh, when in reality we are simply rendering the mesh with a special refraction texture.
+This texture is created by rendering the non-transmissive meshes and is defined as a refraction texture for transmissive materials, with a specific coordinate mode so that we get the illusion of seeing through the mesh, when in reality we are simply rendering the mesh with a special refraction texture.
 
 For example, in the scene below, we have a single transmissive material/mesh (the amber block):
 
@@ -32,7 +32,7 @@ The implementation is as follows:
   * This texture is defined as the refraction texture for all transmissive materials.
 * The entire scene (non-transmissive + transmissive meshes) is rendered to the screen.
 
-The `TransmissionHelper` class is responsible for rendering the refraction texture and assigning it to transmissive materials. Two separate renders are required to create a frame:
+The `TransmissionHelper` class is responsible for rendering the refraction texture and assigning it to transmissive materials. Two separate renders are required to produce a frame:
 
 ![Transmission helper](/img/frameGraph/example_transmission_transmissionhelper.webp!700)
 
@@ -54,7 +54,7 @@ However, in all but the simplest scenes, these operations will be faster than re
 
 Note that we need to generate all renders in linear space (hence the darker tones in the image above) to avoid unnecessary gamma \<-\> linear space conversions: we only apply a conversion from linear space to gamma space once at the end, using an image processing post-process.
 
-You may be wondering why we need to copy the current texture (let's call it **T**) to use it as a refraction texture for transmissive materials, rather than just using **T**. This is because it is impossible to read and write to the same texture during a render pass. Since we render to **T** when rendering transmissive meshes, we cannot use it as a refraction texture. A copy texture is not that bad for performance, and you may even decide to use a smaller texture when copying, as you probably don't need the full final resolution for the refraction texture.
+You may be wondering why we need to copy the current texture (let's call it **T**) to use it as a refraction texture for transmissive materials, rather than just using **T**. This is because it is impossible to read from and write to the same texture during a render pass. Since we render to **T** when rendering transmissive meshes, we cannot use it as a refraction texture. A texture copy is not too bad for performance, and you may even decide to use a smaller texture when copying, as you probably don't need the full final resolution for the refraction texture.
 
 ## Node render graph implementation
 
@@ -87,7 +87,7 @@ Here is a playground that uses the node render graph described above to render a
 
 <Playground id="#7FZ6P6#1" image="/img/playgroundsAndNMEs/pg-JWKDME-70.webp" title="Node render graph for rendering transmissive materials" description="Rendering transmissive materials with a node render graph" isMain={false}/>
 
-We have created a separate class `RenderWithTransmission`, which takes care of loading and configuring the graph for you. This should make it easier to reuse the code in your own projects, but feel free to use this code as a starting point for your own experiments!
+We have created a separate class `RenderWithTransmission`, which takes care of loading and configuring the graph for you. This should make it easier to reuse the code in your own projects, but feel free to use it as a starting point for your own experiments!
 
 Note that we disable the use/creation of the `TransmissionHelper` class by setting the **dontUseTransmissionHelper** option to *true*, as we do not need it when using frame graphs.
 

@@ -12,9 +12,9 @@ video-content:
 
 ## Thank You!
 
-This game isn't perfect, but I hope it gives you insight into how to develop games with babylon.js & inspires you to make something amazing!
+This game isn't perfect, but I hope it gives you insight into how to develop games with Babylon.js and inspires you to make something amazing!
 
-Please let us know how this series was for you. Feedback is always welcome and I hope to keep improving to provide even better content.
+Please let us know how this series was for you. Feedback is always welcome, and I hope to keep improving to provide even better content.
 
-You can [check out the game](https://BabylonJS.github.io/SummerFestival)
-The full Github repo [here](https://github.com/BabylonJS/SummerFestival)
+You can [check out the game](https://BabylonJS.github.io/SummerFestival).
+The full GitHub repo is [here](https://github.com/BabylonJS/SummerFestival).

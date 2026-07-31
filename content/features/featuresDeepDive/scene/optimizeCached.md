@@ -10,9 +10,9 @@ video-content:
 
 # How To Optimize Using Cached Resources
 
-By default, all texture contents are cached by the engine, so if you load the same texture twice, it will be instant (and resource will be shared to save memory).
+By default, all texture contents are cached by the engine, so if you load the same texture twice, it will be instantaneous (and the resource will be shared to save memory).
 
-Starting with the **1.4 release** of Babylon.JS, you can indicate that you want to **cache the resources associated with your scene/game** inside the local **IndexedDB** of the browser. It can enhance the gamer experience as the JSON and textures files can be directly loaded from the database rather than from the web.
+Starting with the **1.4 release** of Babylon.JS, you can indicate that you want to **cache the resources associated with your scene/game** inside the local **IndexedDB** of the browser. It can enhance the user experience because the JSON and texture files can be loaded directly from the database rather than from the web.
 
 ## Usage
 
@@ -26,13 +26,13 @@ BABYLON.Database.IDBStorageEnabled = true;
 ```
 
 **Note:** by default, the Babylon engine is configured to use online resources. So if you don’t provide any .manifest file, it will assume that you want the resources to be loaded directly from the web all the time.
-If you still want to cache the downloaded resources and provide no manifest you can add the following flag to engine:
+If you still want to cache the downloaded resources and do not provide a manifest, you can add the following flag to the engine:
 
 ```javascript
 engine.disableManifestCheck = true;
 ```
 
-It is better to use a manifest file, because it allows you to control the point in which the offline database is updated. Inside this **.manifest** file, insert the following piece of JSON:
+It is better to use a manifest file, because it allows you to control the point at which the offline database is updated. Inside this **.manifest** file, insert the following piece of JSON:
 
 ```javascript
 {
@@ -46,7 +46,7 @@ When you’re loading a scene using the Babylon engine, one of the first things 
 
 You have 3 parameters to fill:
 
-1. The first one is _**version**_ and must be an integer. It’s simply the current version of your assets. If you’re changing it, the Babylon engine will detect that change during the next reload of your scene. This will force a complete reload amp; update of all the assets into the browser’s database. This can be useful is you want to be sure that the client browser is using up-to-date textures or scene description recently put on your web server.
+1. The first one is _**version**_ and must be an integer. It’s simply the current version of your assets. If you change it, the Babylon engine will detect that change during the next reload of your scene. This will force a complete reload and update of all the assets in the browser’s database. This can be useful if you want to be sure that the client browser is using up-to-date textures or a recently updated scene description from your web server.
 
 2. The second parameter _**enableSceneOffline**_ is a boolean. If set to true, you will be asking to load the JSON associated with your scene (the file with the .babylon extension) and store it into the local database of the user. Next time the user loads the game, the scene description will be directly loaded from the DB rather than from the hosting web server.
 
@@ -67,4 +67,4 @@ scene.disableOfflineSupportExceptionRules.push(/dude\.babylon/gi);
 
 Most of the samples on our [website mainpage](https://www.babylonjs.com) are configured to use offline for their scene and textures. For instance, you can try the [Espilit scene](https://www.babylonjs.com/Demos/GlowingEspilit/). The scene is described in _espilit.babylon_ and the associated manifest file is _espilit.babylon.manifest_.
 
-One of the scenes is configured to only cache the texture. It’s the “[The Car](https://www.babylonjs.com/Demos/TheCar/)” scene. It’s because the JSON file, _TheCar.babylon_, is more than 93 MB. IE11 and Chrome can’t store a big file like that into their DB, so decision was made to avoid trying to cache it.
+One of the scenes is configured to cache only the texture. It’s the “[The Car](https://www.babylonjs.com/Demos/TheCar/)” scene. This is because the JSON file, _TheCar.babylon_, is more than 93 MB. IE11 and Chrome can’t store a file that large in their DB, so the decision was made to avoid trying to cache it.

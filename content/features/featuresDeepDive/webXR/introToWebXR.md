@@ -28,9 +28,9 @@ video-content:
 
 ## Current state
 
-The [WebXR W3C Proposal](https://immersive-web.github.io/webxr/) is currently in its draft phase. It is, however, already implemented in Chrome (check [caniuse.com](https://caniuse.com/#feat=webxr) to know about others browsers). Starting with version 79, WebVR has been deprecated and WebXR is enabled by default. Earlier browser versions had WebXR behind a configuration flag. One of its goal is deprecating WebVR and other AR implementation and provide a single VR and AR API.
+The [WebXR W3C Proposal](https://immersive-web.github.io/webxr/) is currently in draft. It is, however, already implemented in Chrome (check [caniuse.com](https://caniuse.com/#feat=webxr) for other browsers). Starting with version 79, WebVR has been deprecated and WebXR is enabled by default. Earlier browser versions had WebXR behind a configuration flag. One of its goals is to deprecate WebVR and other AR implementations and provide a single VR and AR API.
 
-As the API continuously changes, it is difficult to keep up with feature changes. The latest Chrome Canary is notably the most XR-feature-complete browser and Google continuously updates the browser with new features. This is the main reason we introduced the [Features Manager](/features/featuresDeepDive/webXR/webXRFeaturesManager), which allows us to implement the newest version of official features with internal versioning without breaking backwards compatibility.
+As the API continuously changes, it is difficult to keep up with feature updates. The latest Chrome Canary is notably the most XR-feature-complete browser, and Google continually updates it with new features. This is the main reason we introduced the [Features Manager](/features/featuresDeepDive/webXR/webXRFeaturesManager), which allows us to implement the newest version of official features with internal versioning without breaking backward compatibility.
 
 Note that most of the time when we say WebXR, we actually mean WebXR **in VR immersive mode**. This is currently the most used mode of WebXR.
 
@@ -38,21 +38,21 @@ Note that most of the time when we say WebXR, we actually mean WebXR **in VR imm
 
 ### PC
 
-Chrome 79 on Windows officially supports WebXR with all [Microsoft Mixed Reality](https://en.wikipedia.org/wiki/Windows_Mixed_Reality) Devices. Unofficially, WebXR is working well with the Oculus SDK (Rift, Rift S, and Quest with Link). As of this writing, Oculus support is still behind a flag.
+Chrome 79 on Windows officially supports WebXR with all [Microsoft Mixed Reality](https://en.wikipedia.org/wiki/Windows_Mixed_Reality) devices. Unofficially, WebXR works well with the Oculus SDK (Rift, Rift S, and Quest with Link). As of this writing, Oculus support is still behind a flag.
 
 ### Mobile and Quest
 
 WebXR AR features on Android's Chrome Browser (Stable and Canary) can be enabled behind a flag at [chrome://flags](chrome://flags), including AR features such as plane detection, hit-tests and anchors. Note that the AR features' architecture is constantly changing, so expect different results from version to version.
 
-Oculus Quest supports WebXR (in VR mode) in the latest Oculus browser. Babylon's specs implementation works well with the quest.
+Oculus Quest supports WebXR (in VR mode) in the latest Oculus browser. Babylon's spec implementation works well with Quest.
 
-No official iOS/iPhone support is planed at the moment. Mozilla has built the [WebXR iOS Viewer](https://apps.apple.com/us/app/webxr-viewer/id1295998056) which is a (very) limited AR-oriented browser.
+No official iOS/iPhone support is planned at the moment. Mozilla has built the [WebXR iOS Viewer](https://apps.apple.com/us/app/webxr-viewer/id1295998056), which is a (very) limited AR-oriented browser.
 
 ### Polyfill
 
-For older browsers that support WebVR but not WebXR you can use the [WebXR Polyfill](https://github.com/immersive-web/webxr-polyfill) which is the WebXR API implementation using WebVR features. Some functions will not work (or will simply return without changes) but the basic functionality works well.
+For older browsers that support WebVR but not WebXR, you can use the [WebXR Polyfill](https://github.com/immersive-web/webxr-polyfill), which is a WebXR API implementation using WebVR features. Some functions will not work (or will simply return without changes), but the basic functionality works well.
 
-Babylon does not intend on integrating the polyfill in the framework itself or in the playground. We encourage the developer to offer the polyfill to users not using a WebXR-Supported browser.
+Babylon does not intend to integrate the polyfill into the framework itself or into the Playground. We encourage developers to offer the polyfill to users who are not using a WebXR-supported browser.
 
 To use the polyfill in the playground, please add the following code to your playground (before 'createScene'):
 
@@ -77,7 +77,7 @@ const xrPolyfillPromise = new Promise((resolve) => {
 });
 ```
 
-afterwards, make sure to `await` it before initializing WebXR:
+Afterward, make sure to `await` it before initializing WebXR:
 
 ```javascript
 const xrPolyfillPromise = new Promise((resolve) => {
@@ -118,29 +118,29 @@ var createScene = async function () {
 };
 ```
 
-If you experience low-resolution when using the polyfill, make sure to resize the canvas to a higher resolution. This is a limitation of WebVR (that required resizing the canvas) which we didn't integrate for WebXR.
+If you experience low resolution when using the polyfill, make sure to resize the canvas to a higher resolution. This is a limitation of WebVR (which required resizing the canvas) that we didn't integrate for WebXR.
 
 ### The WebXR Emulator
 
-If you want to debug your XR scene on your desktop you will need to emulate WebXR. The first method is using a browser extension.
+If you want to debug your XR scene on your desktop, you will need to emulate WebXR. The first method is to use a browser extension.
 
 Mozilla's [WebXR Emulator extension](https://blog.mozvr.com/webxr-emulator-extension/) has not been updated for quite some time. Instead, we recommend using Meta's [Immersive WebXR emulator](https://github.com/meta-quest/immersive-web-emulator/) which is available for both [Chrome](https://chrome.google.com/webstore/detail/immersive-web-emulator/cgffilbpcibhmcfbgggfhfolhkfbhmik) and [Edge](https://microsoftedge.microsoft.com/addons/detail/immersive-web-emulator/hhlkbhldhffpeibcfggfndbkfohndamj).
 
-Another option to debug your scene on Window is emulating a headset using [Microsoft's Mixed Reality portal](https://www.microsoft.com/store/apps/9NG1H8B3ZC7M). Instructions can be found here: [https://learn.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-the-windows-mixed-reality-simulator](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-the-windows-mixed-reality-simulator).
+Another option for debugging your scene on Windows is to emulate a headset using [Microsoft's Mixed Reality portal](https://www.microsoft.com/store/apps/9NG1H8B3ZC7M). Instructions can be found here: [https://learn.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-the-windows-mixed-reality-simulator](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-the-windows-mixed-reality-simulator).
 
 The main difference between the two approaches is that the first one works in your browser and emulates WebXR, and the second is directly using the WebXR implementation of the browser and emulates a headset in an external native application.
 
 ## Getting started
 
-The simplest way to get started is using a WebXR-enabled browser and add a single line of code to your scene:
+The simplest way to get started is to use a WebXR-enabled browser and add a single line of code to your scene:
 
 ```javascript
 const xr = scene.createDefaultXRExperienceAsync();
 ```
 
-This will enable WebXR **in VR immersive mode**, including session init, input sources, the camera, teleportation and scene interactions. All using our [WebXR Default Experience Helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#the-basic-experience-helper).
+This will enable WebXR **in VR immersive mode**, including session initialization, input sources, the camera, teleportation, and scene interactions, all using our [WebXR Default Experience Helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#the-basic-experience-helper).
 
-Note that the `xr` variable is a Promise. Using the async/await pattern will be simpler and more intuitive. It will also make sense to define floor meshes, so we can define our ground and move on it. Here is a sphere in XR:
+Note that the `xr` variable is a Promise. Using the async/await pattern is simpler and more intuitive. It also makes sense to define floor meshes so we can define our ground and move on it. Here is a sphere in XR:
 
 ```javascript
 var createScene = async function () {
@@ -201,11 +201,11 @@ See also:
 
 ## Migrating from WebVR
 
-WebVR is deprecated and will soon end its life in most if not all browsers. It is highly recommended to port all WebVR implementations to WebXR.
+WebVR is deprecated and will soon reach end of life in most, if not all, browsers. It is highly recommended to port all WebVR implementations to WebXR.
 
 ### Migrating from the VR Experience helper
 
-If you used our [VR experience helper](/features/featuresDeepDive/cameras/webVRHelper) remove the VR initializer and add the XR experience helper. So this:
+If you used our [VR experience helper](/features/featuresDeepDive/cameras/webVRHelper), remove the VR initializer and add the XR experience helper. So this:
 
 ```javascript
 var scene = new BABYLON.Scene(engine);
@@ -219,13 +219,13 @@ var scene = new BABYLON.Scene(engine);
 var xrHelper = scene.createDefaultXRExperienceAsync();
 ```
 
-The XR helper has full controller support per default, including interactions with the scene meshes, pointer events and more. Read more about the [XR Experience helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers).
+The XR helper has full controller support by default, including interactions with scene meshes, pointer events, and more. Read more about the [XR Experience helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers).
 
 ### Migrating controller support
 
-Since WebXR controllers are no longer considered to be Gamepads the architecture is a bit different.
+Since WebXR controllers are no longer considered Gamepads, the architecture is a bit different.
 
-The most important feature that was added is the full pointer events support for the controllers. The controllers support all pointer events, so you can use [Pointer interactions](/features/featuresDeepDive/scene/interactWithScenes#pointer-interactions) just like you use to controller mouse interactions in your scene.
+The most important feature that was added is full pointer-event support for controllers. Controllers support all pointer events, so you can use [Pointer interactions](/features/featuresDeepDive/scene/interactWithScenes#pointer-interactions) just as you would for mouse interactions in your scene.
 
 It is also important to note that it is now possible to query what features the controller has and act accordingly.
 
@@ -322,7 +322,7 @@ Read more about the [XR Controllers system](/features/featuresDeepDive/webXR/web
 
 ### Legacy support
 
-Thou we always encourage backwards compatibility **We recommend using WebXR directly** and stop using the WebVR experience helper. However:
+Though we always encourage backward compatibility, **we recommend using WebXR directly** and stopping the use of the WebVR experience helper. However:
 
 The latest WebVR Experience helper has a new flag in its init options - `useXR`. This will check for XR support and will launch the VR session in WebXR, if possible. A working example can be found in <Playground id="#TAFSN0#323" title="WebVR Check for WebXR" description="Simple example of the WebVR -useXR check to create a VR session using WebXR instead."/>
 

@@ -12,7 +12,7 @@ video-overview:
 video-content:
 ---
 
-While the Babylon Viewer provides [default UI](/features/featuresDeepDive/babylonViewer/defaultUI) for most capabilities of the Viewer, all of this UI can customized by:
+While the Babylon Viewer provides [default UI](/features/featuresDeepDive/babylonViewer/defaultUI) for most capabilities of the Viewer, all of this UI can be customized by:
 - Styling via CSS variables
 - Styling via custom element [CSS shadow parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts)
 - Full control of the UI with [slots](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots#adding_flexibility_with_slots)

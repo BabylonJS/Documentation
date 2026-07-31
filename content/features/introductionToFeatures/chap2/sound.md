@@ -42,11 +42,10 @@ const sound = await BABYLON.CreateSoundAsync("sound", "<sound file URL>");
 sound.play();
 ```
 
-In the example below *setInterval* is used to play the sound every 3 seconds
+In the example below, *setInterval* is used to play the sound every 3 seconds.
 
 <Playground id="#SFCC74#831" title="Playing Sound Every 3 Seconds" description="Set an interval to play a sound every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround.webp"/>
 
 Since you probably prefer listening to your own music as you work, and repeated sounds can get annoying, the above playground examples are the only ones in this tutorial that load sounds.
 
-Now back to making our world and the developing our buildings! Buildings come in varied sizes, positions and orientations and this will be true for the world we are creating.
-
+Now back to making our world and developing our buildings. Buildings come in varied sizes, positions, and orientations, and that will be true for the world we are creating.

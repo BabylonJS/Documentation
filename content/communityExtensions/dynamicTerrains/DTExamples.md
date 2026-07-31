@@ -10,10 +10,10 @@ video-content:
 
 ## FreeCamera on the Ground
 
-In this example, our player moves on the ground : a character walking, a car driving or anything like we can find in an FPS game.  
-The used camera is a FreeCamera. It will keep on the ground while moving onward, backward, to the right or to the left.
+In this example, our player moves on the ground: a character walking, a car driving, or anything else you might find in an FPS game.  
+The camera used is a FreeCamera. It stays on the ground while moving forward, backward, to the right, or to the left.
 
-Let's create a simple data map with a sinus/cosinus function :
+Let's create a simple data map with a sine/cosine function:
 
 ```javascript
 // map creation
@@ -31,7 +31,7 @@ for (let l = 0; l < mapSubZ; l++) {
 
 The hills have a different height depending on their positions on the map.
 
-Let's create then a dynamic terrain from this map :
+Let's then create a dynamic terrain from this map:
 
 ```javascript
 // terrain creation
@@ -45,7 +45,7 @@ const params = {
 terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
 ```
 
-Now we can set the camera altitude on each frame at a fixed elevation above the terrain. For this, we use the method `getHeightFromMap(x, z)` what returns the height (y coordinate) of the terrain at the passed location _(x, z)_.
+Now we can set the camera altitude on each frame at a fixed elevation above the terrain. For this, we use the method `getHeightFromMap(x, z)`, which returns the height (y coordinate) of the terrain at the given location _(x, z)_.
 
 ```javascript
 const camElevation = 2.0;
@@ -68,17 +68,17 @@ const mapSubZ = 300;
 const terrainSub = 100;
 ```
 
-As the player keeps on the ground, he/she can't see very far in the distance, so we can choose to update the terrain only after 8 map quads crossed over either on the X axis, either on the Z axis :
+As the player stays on the ground, they can't see very far into the distance, so we can choose to update the terrain only after 8 map quads have been crossed on either the X axis or the Z axis:
 
 ```javascript
 terrain.subToleranceX = 8;
 terrain.subToleranceZ = 8;
 ```
 
-The terrain is then updated less often, this lets more CPU to manage the player behavior and all what can happen or move in the close area around him.
+The terrain is then updated less often. This leaves more CPU time to manage player behavior and everything that can happen or move in the nearby area.
 
-Finally, we could also choose to extend the terrain visible size by setting some LOD in the distance.  
-By example, `LODLimits = [4, 3, 2, 1, 1]` would mean that :
+Finally, we could also choose to extend the visible size of the terrain by setting some LOD in the distance.  
+For example, `LODLimits = [4, 3, 2, 1, 1]` would mean that:
 
 - the initial LOD factor (default 1, the one at the camera location) is incremented for all the terrain quads under the 4-th perimetric rows and columns, so it's 1 + 1 = 2 for them,
 - it's incremented once again for all the terrain quads under the 3-th perimetric rows and columns, so it's 2 + 1 = 3 for them,
@@ -89,6 +89,6 @@ By example, `LODLimits = [4, 3, 2, 1, 1]` would mean that :
 terrain.LODLimits = [4, 3, 2, 1, 1];
 ```
 
-Let's not worry if this feature seems complex to understand and let's just remember that it extends the terrain visible size on its perimeter and reduces the rendered map details in the same time.
+Let's not worry if this feature seems complex to understand, and just remember that it extends the visible size of the terrain on its perimeter while reducing the rendered map details at the same time.
 
 PG: <Playground id="#J6FMJ#7" title="Dynamic Terrain" description="Example Larger Map"/>

@@ -58,9 +58,9 @@ This "vampire effect" can be fixed by carefully adding scene contents to cubemap
 
 Environment maps (static or dynamic) are flat images with no depth. By default, they are treated as infinitely far away. This works for distant environments (like skyboxes) or small surfaces, but can cause parallax errors in other cases.
 
-As an alterative, cubemaps can be treated as axis-aligned boxes of specific size and location by setting the cubemap texture's [.boundingBoxSize](/typedoc/classes/babylon.cubetexture#boundingboxsize) and [.boundingBoxPosition](/typedoc/classes/babylon.cubetexture#boundingboxposition) to the desired box size and position (as [Vector3](/typedoc/classes/babylon.vector3)).
+As an alternative, cubemaps can be treated as axis-aligned boxes of a specific size and location by setting the cubemap texture's [.boundingBoxSize](/typedoc/classes/babylon.cubetexture#boundingboxsize) and [.boundingBoxPosition](/typedoc/classes/babylon.cubetexture#boundingboxposition) to the desired box size and position (as [Vector3](/typedoc/classes/babylon.vector3)).
 
-<p><Playground id="#RNASML#37" title="Local cubemap demo" description="Demonstraction of the effect of local cubemap projection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction5.webp"/></p>
+<p><Playground id="#RNASML#37" title="Local cubemap demo" description="Demonstration of the effect of local cubemap projection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction5.webp"/></p>
 
 (Local cubemaps must use the default CUBIC_MODE [coordinate mode](#coordinate-modes).)
 
@@ -82,17 +82,17 @@ High Dynamic Range ([wikipedia](https://en.wikipedia.org/wiki/High-dynamic-range
 
 <p><img caption="A panoramic HDR image, flattened and reduced to SDR" alt="A warped view of a room with lamps" src="/img/how_to/Materials/room.webp" width="2048" height="1024"/></p>
 
-[HDRCubeTexture](/typedoc/classes/babylon.hdrcubetexture) instances (Babylon.js v3.2+) loads a Radiance RGBE format ([wikipedia](https://en.wikipedia.org/wiki/RGBE_image_format)) HDR equirectangular panorama image into a CubeTexture-compatible environment map.
+[HDRCubeTexture](/typedoc/classes/babylon.hdrcubetexture) instances (Babylon.js v3.2+) load a Radiance RGBE format ([wikipedia](https://en.wikipedia.org/wiki/RGBE_image_format)) HDR equirectangular panorama image into a CubeTexture-compatible environment map.
 
 <Playground id="#114YPX#5" title="HDR Skybox" description="An HDR equirectangular skybox panorama." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction6.webp"/>
 
 ### EXRCubeTexture
 
-EXR Images ([wikipedia](https://en.wikipedia.org/wiki/OpenEXR)) like hdr textures can be useful for environment mapping even if the final output uses standard dynamic range.
+EXR images ([wikipedia](https://en.wikipedia.org/wiki/OpenEXR)), like HDR textures, can be useful for environment mapping even if the final output uses standard dynamic range.
 
-[EXRCubeTexture](/typedoc/classes/babylon.exrcubetexture) instances (Babylon.js v8.27+) loads a EXR equirectangular panorama image into a CubeTexture-compatible environment map.
+[EXRCubeTexture](/typedoc/classes/babylon.exrcubetexture) instances (Babylon.js v8.27+) load an EXR equirectangular panorama image into a CubeTexture-compatible environment map.
 
-This follows the exact same code than the HDRCubeTexture section.
+This follows exactly the same code as the HDRCubeTexture section.
 
 ### Flat textures as environment maps
 
@@ -204,6 +204,6 @@ See the source ([reflectionFunction.fx](https://github.com/BabylonJS/Babylon.js/
 
 ### The reflection matrix
 
-In addition to selecting the overall coordinate mode, a texture's reflection matrix ([.getReflectionTextureMatrix()](/typedoc/classes/babylon.texture#getreflectiontexturematrix)) may be adjusted to transform the environment map, to match scene changes (e.g. a moving background) or for special effects.
+In addition to selecting the overall coordinate mode, a texture's reflection matrix ([.getReflectionTextureMatrix()](/typedoc/classes/babylon.texture#getreflectiontexturematrix)) may be adjusted to transform the environment map to match scene changes (e.g. a moving background) or for special effects.
 
 <p><Playground id="#UU7RQ#1631" title="Sphere Reflecting Rotating Skybox" description="A sphere reflecting spinning skybox images"/></p>

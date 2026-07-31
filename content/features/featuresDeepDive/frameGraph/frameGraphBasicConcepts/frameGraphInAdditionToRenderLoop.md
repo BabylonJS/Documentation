@@ -7,9 +7,9 @@ keywords: diving deeper, frame graph, rendering, node editor, getting started, b
 
 ## Using the frame graph classes directly
 
-In this example, we will use a frame graph to apply a bloom + black and white post-processing to an existing scene.
+In this example, we will use a frame graph to apply bloom and black-and-white post-processing to an existing scene.
 
-We need the scene to be generated in texture, so we will create a “pass” post-process first:
+We need the scene to be rendered to a texture, so we will create a “pass” post-process first:
 ```javascript
 const passPostProcess = new BABYLON.PassPostProcess("pass", 1, camera);
 
@@ -50,11 +50,11 @@ engine.onResizeObservable.add(async () => {
 
 await frameGraph.buildAsync();
 ```
-There is not much to say here, the code should be self-explanatory.
+There is not much to say here; the code should be self-explanatory.
 
 Refer to [Frame Graph Task List](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList) for detailed explanations of the various frame graph tasks used in the code snippet above.
 
-Finally, we need to execute the frame graph at each frame. As we use the regular rendering output of the scene, the best place is inside a `Scene.onAfterRenderObservable` observer:
+Finally, we need to execute the frame graph on each frame. Because we use the regular rendering output of the scene, the best place is inside a `Scene.onAfterRenderObservable` observer:
 ```javascript
 scene.onAfterRenderObservable.add(() => {
     frameGraph.execute();
@@ -69,10 +69,10 @@ As before, let's do the same thing but using a node render graph.
 
 Here is the node render graph: https://nrge.babylonjs.com/#FAPQIH#1
 
-It is a very simple graph. We apply a bloom and then a black and white post-process to the input texture. Note that the source texture is defined as “External”, because it will be provided by external code:
+It is a very simple graph. We apply bloom and then a black-and-white post-process to the input texture. Note that the source texture is defined as “External”, because it will be provided by external code:
 ![Graph](/img/frameGraph/external_graph_bloom_bnw.webp)
 
-The javascript code:
+The JavaScript code:
 ```javascript
 const passPostProcess = new BABYLON.PassPostProcess("pass", 1, camera);
 
@@ -99,7 +99,7 @@ scene.onAfterRenderObservable.add(() => {
     frameGraph.execute();
 });
 ```
-As above, we create a "pass" post-process, so that the scene is rendered in a texture. This texture is set as the value of the block named “Texture”, which is our input texture in the graph.
+As above, we create a "pass" post-process so the scene is rendered to a texture. This texture is set as the value of the block named “Texture”, which is our input texture in the graph.
 
 Note that we have deactivated the automatic building of the graph when resizing the engine (parameter **rebuildGraphOnEngineResize** in the call to `ParseFromSnippetAsync()`), because when the screen is resized, we must first update the texture of the “Texture” block before rebuilding the graph (this is done in a `nrg.onBeforeBuildObservable` observer): `passPostProcess.onSizeChangedObservable` replaces `engine.onResizeObservable`.
 

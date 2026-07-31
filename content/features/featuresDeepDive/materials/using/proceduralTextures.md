@@ -1,7 +1,7 @@
 ---
 title: Procedural Textures
 image:
-description: Learn fresnel parameters in Babylon.js.
+description: Learn about procedural textures in Babylon.js.
 keywords: diving deeper, materials, procedural Texture, texture
 further-reading:
 video-overview:
@@ -10,27 +10,27 @@ video-content:
 
 ## What Are They?
 
-In classic texturing, we use 2D images, often pictures that have been shaped specifically to match an object. Let’s imagine you are creating a medieval fantasy game, working on a dwarf pub, where there are multiple, big, "old school" wooden tables. With classic 2D texturing, you have 3 choices:
+In classic texturing, we use 2D images, often pictures that have been shaped specifically to match an object. Let’s imagine you are creating a medieval fantasy game and working on a dwarf pub with multiple large, "old school" wooden tables. With classic 2D texturing, you have three choices:
 
 - Create a single texture and use it on all of the tables (but every table is going to look the same)
 
 - Create a collection of various wood textures and apply them randomly to each table
 
-- Create a separate texture for each table, insuring that they each look different
+- Create a separate texture for each table, ensuring that they each look different
 
-No choice seems to be a good one.
+None of these choices seems ideal.
 
 Enter **procedural textures**.
 
-Procedural texturing is a way to programmatically create a texture. There are 2 types of procedural textures: code-only, and code that references some classic 2D images, sometimes called 'refMaps' or 'sampler' images.
+Procedural texturing is a way to programmatically create a texture. There are two types of procedural textures: code-only, and code that references some classic 2D images, sometimes called 'refMaps' or 'sampler' images.
 
-One main advantage of procedural textures is that they are written using a fragment shader (using [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) in the case of Babylon.js). That means that the code generating the texture is executed by the GPU and not the CPU (that is to say, NOT executed in JavaScript code). This has a huge performance impact in a positive way.
+One main advantage of procedural textures is that they are written using a fragment shader (using [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) in the case of Babylon.js). That means the code generating the texture is executed by the GPU, not the CPU (that is to say, not in JavaScript code). This has a strongly positive performance impact.
 
 Procedural textures can be generated:
 
-- Only once to create the texture which is put into cache
+- Only once, to create a texture that is then cached
 
-- Every 1, 2, 3, or 4, or more frames to be able to create an animated texture (like fire)
+- Every 1, 2, 3, 4, or more frames to create an animated texture (like fire)
 
 See more about 'refresh rate' in the Custom Procedural Textures section... far below.
 
@@ -40,7 +40,7 @@ See more about 'refresh rate' in the Custom Procedural Textures section... far b
 
 ## Using a Procedural Texture
 
-Applying a procedural texture is just the same as using a classic one. Let’s start with a simple mesh (a cylinder in this case) and attach it to your scene:
+Applying a procedural texture is the same as using a classic one. Let’s start with a simple mesh (a cylinder in this case) and attach it to your scene:
 
 ```javascript
 const cylinder = BABYLON.MeshBuilder.CreateCylinder("mycylinder", { height: 7, diameterTop: 2, diameterBottom: 2, tessellation: 12, subdivisions: 1 }, scene);
@@ -52,13 +52,13 @@ Then, you need to create a StandardMaterial:
 const material = new BABYLON.StandardMaterial("material", scene);
 ```
 
-Now, create a WoodProceduralTexture object for which you need to pass a name, the size of the generated texture and the scene.
+Now create a WoodProceduralTexture object, passing a name, the size of the generated texture, and the scene.
 
 ```javascript
 const texture = new BABYLON.WoodProceduralTexture("texture", 1024, scene);
 ```
 
-You are almost set! All you need to do now is to associate the texture to the material as a diffuseTexture, for instance, (or emissiveTexture, specularTexture, any other) and then apply the material to the mesh.
+You are almost set! All you need to do now is associate the texture with the material as a diffuseTexture, for instance (or emissiveTexture, specularTexture, or any other texture), and then apply the material to the mesh.
 
 ```javascript
 material.diffuseTexture = texture;
@@ -102,7 +102,7 @@ You can use them in your project:
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-All standard procedural textures can be used in the same ways, but they each have specific (special) properties:
+All standard procedural textures can be used in the same way, but they each have specific properties:
 
 - [BrickProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/brick)
 - [CloudProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/cloud)

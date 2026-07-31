@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Tiled Plane
-A tiled plane is only available with MeshBuilder. The tile size, pattern and alignment of tiles can be set. 
+A tiled plane is only available with MeshBuilder. The tile size, pattern, and alignment can be set.
 
 ## MeshBuilder
 Usage :
@@ -33,7 +33,7 @@ alignHorizontal| _(number)_ positions whole tiles at left, right or center of a 
 updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE   
 
-The values for the options *pattern* property are the following constants
+The values for the *pattern* option are the following constants:
 
 ```javascript
 BABYLON.Mesh.NO_FLIP, default
@@ -48,7 +48,7 @@ BABYLON.Mesh.FLIP_N_ROTATE_ROW
 The TILE ending means that every other tile across and up the plane is flipped or rotated.  
 The ROW ending means that the whole of alternate rows are flipped or rotated.
 
-When the width or height of the plane is such that a whole number of tiles does not fit then tiles are 'cut' and part tiles are used to fill the plane. When this happens you can arrange where the part tiles are placed, either at one edge of the plane or uniformly on two opposite edges. You do this by setting *alignVertical* and *alignHorizontal* in the options with where you want whole tiles to be placed. For example setting *alignHorizontal* to *LEFT* means that the leftmost column of tiles will be whole ones and part tiles will be in the rightmost column. The following constants are available for *alignVertical* and *alignHorizontal*
+When the width or height of the plane is such that a whole number of tiles does not fit, tiles are "cut" and partial tiles are used to fill the plane. When this happens, you can arrange where the partial tiles are placed, either at one edge of the plane or uniformly on two opposite edges. You do this by setting *alignVertical* and *alignHorizontal* in the options to indicate where you want the whole tiles to be placed. For example, setting *alignHorizontal* to *LEFT* means that the leftmost column of tiles will be whole tiles and the rightmost column will contain partial tiles. The following constants are available for *alignVertical* and *alignHorizontal*:
 
 ```javascript
 BABYLON.Mesh.CENTER, default
@@ -64,7 +64,7 @@ BABYLON.Mesh.RIGHT
 
 There are 7 * 3 * 3 = 63 different arrangements for the tiles.
 
-Using the *frontUVs* and *backUVs* properties in the options the front and back of the plane can use different parts of an image for the front and back of the plane.
+Using the *frontUVs* and *backUVs* properties in the options, the front and back of the plane can use different parts of an image.
 
 
 ```javascript
@@ -80,7 +80,7 @@ const options = {
 
 ## Examples
 
-The following image is used to show the results before and after flipping alternate tiles
+The following image is used to show the results before and after flipping alternate tiles.
 
 ![Single Tile Pattern](/img/how_to/Mesh/lavatile.webp) 
 
@@ -91,15 +91,15 @@ After tiles flipped: <Playground id="#XR696D#1" title="Create a Tiled Plane With
 
 This image  
 ![Two Tile Pattern](/img/how_to/Mesh/tiles2.webp)  
-is used to show different alternating patterns using tiles of width 2 and height 1 by flipping either every other row or tile
+is used to show different alternating patterns using tiles with a width of 2 and a height of 1 by flipping either every other row or every other tile.
 
 Row flipped: <Playground id="#XR696D#3" title="Create a Tiled Plane With Row Flipped" description="Simple example of creating a tiled plane with row flipped."/>
-Tile filed: <Playground id="#XR696D#4" title="Create a Tiled Plane With Tile Filed" description="Simple example of creating a tiled plane with tile filed."/>
+Tile flipped: <Playground id="#XR696D#4" title="Create a Tiled Plane With Tile Filed" description="Simple example of creating a tiled plane with tile filed."/>
 
 and also how tiling can be different front and back.
 
 <Playground id="#XR696D#2" title="Create a Tiled Plane With Different Tiling Front And Back" description="Simple example of creating a tiled plane with different tiling front and back."/>
 
 
-The final example use the same image to show all 63 permutations. To see heading view the full playground.
+The final example uses the same image to show all 63 permutations. To see the headings, view the full playground.
 <Playground id="#XR696D#5" title="Create a Tiled Plane With 63 Different Permutations" description="Simple example of creating a tiled plane with 63 different permutations."/>

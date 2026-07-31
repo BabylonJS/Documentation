@@ -10,4 +10,4 @@ video-content:
 
 # Babylon.js Official Add-ons
 
-This section will contain all of our official addons from the [Addons npm package](https://www.npmjs.com/package/@babylonjs/addons).
+This section contains all of our official add-ons from the [Addons npm package](https://www.npmjs.com/package/@babylonjs/addons).

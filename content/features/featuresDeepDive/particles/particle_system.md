@@ -12,4 +12,4 @@ The particle system uses small 2D sprites that may be animated and always face t
 
 ![Particles](/img/features/particle0.webp)  
 
-From Babylon.js V3.2, where the browser supports WebGL2, GPU particles are available. These make full use of the GPU, though there are some restrictions in its use. When WebGL2 is not available, the *GPUParticleSystem* will fall back to the *ParticleSystem* automatically.
+From Babylon.js v3.2, when the browser supports WebGL2, GPU particles are available. These make full use of the GPU, though there are some restrictions on their use. When WebGL2 is not available, the *GPUParticleSystem* will fall back to the *ParticleSystem* automatically.

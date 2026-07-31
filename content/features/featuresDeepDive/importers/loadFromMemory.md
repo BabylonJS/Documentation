@@ -10,15 +10,15 @@ video-content:
 
 ## Loading Assets Directly From Memory
 
-There may be times where you'll want to pre-load (store) assets in memory and load those assets from memory into your Babylon scene. This is achievable by using a blob url.
+There may be times when you'll want to pre-load (store) assets in memory and load those assets into your Babylon scene from memory. This is achievable by using a blob URL.
 
 <Playground id="#FIWM5X#57" title="Load Asset From Memory" description="Simple example of loading an asset from memory."/>
 
-The way this works is that you load an asset into memory, convert it to a blob, create a url to that blob in memory, and then you have a url that you can use with any of the loading methods in Babylon.
+This works by loading an asset into memory, converting it to a blob, creating a URL for that blob in memory, and then using that URL with any of Babylon's loading methods.
 
-Let's take a quick look at the 4 lines of code to achieve this.
+Let's take a quick look at the four lines of code needed to achieve this.
 
-First we load an object from a url directly into an arrayBuffer in memory.
+First, we load an object from a URL directly into an `ArrayBuffer` in memory.
 
 ```javascript
 const assetArrayBuffer = await BABYLON.Tools.LoadFileAsync("scenes/BoomBox.glb", true);
@@ -30,13 +30,13 @@ Next we convert that array buffer to a blob (in memory).
 const assetBlob = new Blob([assetArrayBuffer]);
 ```
 
-Then we create a url to that blob.
+Then we create a URL for that blob.
 
 ```javascript
 const assetUrl = URL.createObjectURL(assetBlob);
 ```
 
-Then finally we load the asset into the scene from the url which points to the memory blob.
+Finally, we load the asset into the scene from the URL that points to the in-memory blob.
 
 ```javascript
 await BABYLON.AppendSceneAsync(assetUrl, scene, {

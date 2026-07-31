@@ -13,9 +13,9 @@ video-content:
 
 ## Follow That Character
 
-Without using parenting we can also track the characters movements with a *FollowCamera*.
+Without using parenting, we can also track the character's movements with a *FollowCamera*.
 
-We give a *FollowCamera* a start position and a target to follow and a goal position from which to view the target. 
+We give a *FollowCamera* a start position, a target to follow, and a goal position from which to view the target. 
 
 We create the *FollowCamera* with a name, start position and the optional scene parameter.
 ```javascript
@@ -48,16 +48,16 @@ speed at which acceleration is halted
 camera.maxCameraSpeed = 10
 ```	
 
-Of course we also attach the camera to the canvas
+Of course, we also attach the camera to the canvas.
 ```javascript
     camera.attachControl(canvas, true);
 ```
 
-Finally we set the target
+Finally, we set the target.
 ```javascript
 camera.lockedTarget = targetMesh;
 ```
 
 <Playground id="#KBS9I5#98" title="Follow The Character" description="Use the follow cam to follow the character around the village." image="/img/playgroundsAndNMEs/gettingStartedFollowCam.webp"/>
 
-Having created a 3D world, albeit just a small village, it would be good to see it in all its 3D glory. All you need is a 3D viewer whether a simple one such as the Google Carboard or a high tech one and the appropriate camera from Babylon.js.
+Having created a 3D world, albeit just a small village, it would be good to see it in all its 3D glory. All you need is a 3D viewer, whether a simple one such as Google Cardboard or a high-tech one, and the appropriate camera from Babylon.js.

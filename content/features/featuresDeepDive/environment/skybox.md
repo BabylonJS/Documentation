@@ -69,11 +69,11 @@ You can search the web for "skybox images" to find many examples. These are ofte
 
 Cube textures must be applied using [reflectionTexture](/features/featuresDeepDive/materials/using/reflectionTexture) even though skyboxes are not actually reflections; set [coordinatesMode](/typedoc/classes/babylon.texture#coordinatesmode) to SKYBOX_MODE to paint the texture directly on the cube rather than simulating reflection.
 
-There are two ways to proceed. Let's start with a manual creation to understand how things work under the hood and then we will be able to use an automatic one.
+There are two ways to proceed. Let's start with a manual creation to understand how things work under the hood, and then we will be able to use an automatic one.
 
 ### Manual creation
 
-First, create our box, nothing new, just take notice of the disabled [backface culling](https://en.wikipedia.org/wiki/Back-face_culling):
+First, create our box. There is nothing new here; just note the disabled [backface culling](https://en.wikipedia.org/wiki/Back-face_culling):
 
 ```javascript
 const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 100.0 }, scene);
@@ -95,7 +95,7 @@ Now we must remove all light reflections on our box (the sun doesn't reflect on 
 skyboxMaterial.disableLighting = true;
 ```
 
-Next, we apply our special sky texture to it. This texture must have been prepared to be a skybox, in a dedicated directory, named “skybox” in our example:
+Next, we apply our special sky texture to it. This texture must have been prepared as a skybox, in a dedicated directory named “skybox” in our example:
 
 ```javascript
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/skybox", scene);
@@ -106,7 +106,7 @@ skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 
 In that `/skybox` directory, we must find 6 sky textures, one for each face of our box. Each image must be named per the corresponding face: “skybox_nx.jpg” (left), “skybox_ny.jpg” (down), “skybox_nz.jpg” (back), “skybox_px.jpg” (right), “skybox_py.jpg” (up), “skybox_pz.jpg” (front). The "\_nx.jpg" is added to your path.
 
-Skybox textures need not be textures of sky alone. You can search the Internet for skyboxes and find buildings, hills, mountains, trees, lakes, planets, stars, you name it (all can be used nicely) as part of skybox textures, but some require a payment.
+Skybox textures need not be textures of sky alone. You can search the internet for skyboxes and find buildings, hills, mountains, trees, lakes, planets, stars, and more as part of skybox textures, but some require payment.
 
 You can also use dds files to specify your skybox. These special files can contain all information required to setup a cube texture:
 
@@ -114,7 +114,7 @@ You can also use dds files to specify your skybox. These special files can conta
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", scene);
 ```
 
-Final note, if you want your skybox to render behind everything else, set the skybox's `renderingGroupId` to `0`, and every other renderable object's `renderingGroupId` greater than zero, for example:
+Final note: if you want your skybox to render behind everything else, set the skybox's `renderingGroupId` to `0`, and every other renderable object's `renderingGroupId` to a value greater than zero, for example:
 
 ```javascript
 skybox.renderingGroupId = 0;
@@ -129,7 +129,7 @@ More info about rendering groups and rendering order can be found [here](/featur
 
 ### Automatic creation
 
-Now that we understand how a skybox can be created let's move to a simpler way:
+Now that we understand how a skybox can be created, let's move to a simpler way:
 
 ```javascript
 envTexture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", scene);
@@ -142,7 +142,7 @@ Check out [scene helpers](/features/featuresDeepDive/scene/fastBuildWorld#enviro
 
 ## Ground Projection
 
-Introduced in version 6.27.0 you can now "fake" a ground from within your skybox. This can help a lot "grounding" your models without requiring extra meshes or textures. It ensures a smooth transition from the "ground" to the environment. As it might be hard to understand, here is a playground highlighting the same scene with and without ground projection.
+Introduced in version 6.27.0, ground projection lets you "fake" a ground from within your skybox. This can help a lot with grounding your models without requiring extra meshes or textures. It ensures a smooth transition from the "ground" to the environment. As this can be hard to understand, here is a Playground showing the same scene with and without ground projection.
 
 <Playground id="#25JK74#0" title="Ground Projection Playground" description="Simple example of using Ground Projection." image="/img/playgroundsAndNMEs/divingDeeperSkyboxGroundProjection.webp" category="Environment"/>
 
@@ -157,9 +157,9 @@ skydome.position.y = size / 2;
 skydome.receiveShadows = true;
 ```
 
-You can notice the side orientation is flipped to see the faces from within the box. This prevents the need to alter the backFaceCulling setup.
+Notice that the side orientation is flipped so you can see the faces from within the box. This prevents the need to alter the backFaceCulling setup.
 
-Next, lets create a [BackgroundMaterial](/features/featuresDeepDive/environment/backgroundMaterial) to support ground projection.
+Next, let's create a [BackgroundMaterial](/features/featuresDeepDive/environment/backgroundMaterial) to support ground projection.
 
 ```javascript
 const sky = new BABYLON.BackgroundMaterial("skyMaterial", scene);
@@ -169,11 +169,10 @@ sky.projectedGroundHeight = 3;
 skydome.material = sky;
 ```
 
-The `projectedGroundRadius` and `projectedGroundHeight` are respectively simulating the radius of the disc representing the ground and how high it should be within the skybox. The size of the box you picked in the first step should at least be equal or bigger to the selected radius.
+The `projectedGroundRadius` and `projectedGroundHeight` respectively simulate the radius of the disc representing the ground and how high it should be within the skybox. The size of the box you picked in the first step should be at least equal to or larger than the selected radius.
 
 Next, we apply our special sky texture to it. This texture must have been prepared to be a skybox, in a dedicated directory, named “skybox” in our example:
 
 ```javascript
 sky.reflectionTexture = new BABYLON.CubeTexture("textures/skybox", scene);
 ```
-

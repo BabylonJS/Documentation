@@ -46,7 +46,7 @@ Load assets into the Sandbox using one of the following methods:
 - **Drag and Drop**: Drag supported files directly onto the Sandbox interface.
 - **File Selection**: Use the open button on the toolbar to browse the file system and load assets.
 
-Note that all required assets including files referenced from the main asset file must all be dropped or
+Note that all required assets, including files referenced from the main asset file, must be dropped or
 selected so that the browser knows about them. For example, if the asset is a glTF, the `.bin` file and
 all image files must be dropped or selected for the asset to load properly.
 

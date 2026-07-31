@@ -23,10 +23,10 @@ Marble procedural texture can be found here:
 
 A demo can be found here:  <Playground id="#HS1SK#4" title="Marble Procedural Texture Demo" description="Marble Procedural Texture Demo"/>
 
-This texture has 4 parameters :
-- **numberOfTilesHeight** controls the number of tiles in height (Int)
-- **numberOfTilesWidth** controls the number of tiles in width (Int)
-- **jointColor** changes the color for the joint between tiles (BABYLON.Color3/4)
+This texture has 4 parameters:
+- **numberOfTilesHeight** controls the number of tiles vertically (Int)
+- **numberOfTilesWidth** controls the number of tiles horizontally (Int)
+- **jointColor** changes the color of the joint between tiles (BABYLON.Color3/4)
 - **marbleColor** changes the color for the tile itself (BABYLON.Color3/4)
 
 ```javascript

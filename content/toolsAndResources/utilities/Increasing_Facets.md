@@ -10,12 +10,12 @@ video-content:
 
 ## Increasing Vertices of a Mesh
 
-The appearance of a softbody or the effect of a shader depends on the number of facets the mesh has. Some meshes 
-such as a ground or sphere can have smaller or larger numbers of facets depending on the parameters set during their 
-creation. For other meshes such as a box or disc there can be no or little choice. In these circumstances it may 
-be useful to have a function that can increase the facets.
+The appearance of a soft body or the effect of a shader depends on the number of facets a mesh has. Some meshes, 
+such as a ground or sphere, can have smaller or larger numbers of facets depending on the parameters set during their 
+creation. For other meshes, such as a box or disc, there may be little or no choice. In these circumstances, it can 
+be useful to have a function that increases the facets.
 
-When n is the number of points per side added to each side of a facet the number of facets is increased by (n + 1)<sup>2</sup>.
+If n is the number of points per side added to each side of a facet, the number of facets is increased by (n + 1)<sup>2</sup>.
 
 **NOTE** From Babylon.js version 4.0 onwards this utility now exists as a standard method on a mesh.
 
@@ -25,13 +25,13 @@ mesh.increaseVertices(n);
 
 ## The Playground
 
-The disc at the top left has the number of facets made when it was created. The lower right has had the facets increased.
+The disc at the top left has the number of facets it had when it was created. The one at the lower right has had its facets increased.
 
 <Playground id="#5ITGBA#1" title="Increase Facets 1" description="Simple example of increasing facets of a mesh."/>
 
 ## Prior to Version 4.0
 
-Use the function below. Any examples found in the playground then used the term 'increaseFacets' rather than 'increaseVertices'.
+Use the function below. Any examples found in the Playground used the term 'increaseFacets' rather than 'increaseVertices'.
 
 ## The Function
 
@@ -156,6 +156,6 @@ BABYLON.Mesh.prototype.increaseFacets = function(pps) { //pps points per side
 
 ## The Playground
 
-The disc at the top left has the number of facets made when it was created. The lower right has had the facets increased.
+The disc at the top left has the number of facets it had when it was created. The one at the lower right has had its facets increased.
 
 <Playground id="#2322Y7#14" title="Increase Facets 2" description="Simple example of increasing facets of a mesh."/>

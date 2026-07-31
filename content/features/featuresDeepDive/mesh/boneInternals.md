@@ -1,7 +1,7 @@
 ---
 title: Bone Class Internals
 image:
-description: Learn all about how bones are internally implemented by the Bone class
+description: Learn all about how bones are internally implemented by the Bone class.
 keywords: diving deeper, meshes, bones, skeletons, rigging
 further-reading:
 video-overview:
@@ -9,13 +9,13 @@ video-content:
 ---
 
 The purpose of this page is to explain how a bone is implemented in Babylon.js, and in particular which matrices are used internally to calculate the final transformation matrix of the bone.
-If you want to manipulate bones manually, or simply understand how they work, this page is for you, as it's not easy at first to understand how everything works together.
+If you want to manipulate bones manually, or simply understand how they work, this page is for you, as it can be hard at first to understand how everything works together.
 
 Note that we won't be going back over the basics of bones, so if you don't know what a bone is, or how it works, first read the [Bones and skeletons](/features/featuresDeepDive/mesh/bonesSkeletons) page.
 
 ## Bone class generalities
 
-The `Bone` class extends `Node` and not `TransformNode`, which may seem surprising at first glance since position/rotation/scale only exists in `TransformNode` and not in `Node`, but this is for historical reasons.
+The `Bone` class extends `Node` and not `TransformNode`, which may seem surprising at first glance since position/rotation/scale only exist in `TransformNode` and not in `Node`, but this is for historical reasons.
 
 This means that `Bone` implements its own position/rotation/scale properties, and that a bone will not appear in the scene node hierarchy displayed by the inspector, since only transform nodes (and derived classes) are displayed in the hierarchy.
 
@@ -31,7 +31,7 @@ An ad-hoc length is therefore required for the last bone in a chain, which is wh
 
 Each bone can have a linked `TransformNode` (which you can retrieve with a call to `Bone.getTransformNode()`), in which case it's this node that will undergo the transformations (through animations, for example), and the transformations of this node will be copied into the bone (this copy is made in `Skeleton.prepare`).
 
-This mode has been added to handle skeletons loaded from gltf/glb files, where the skeleton bones are in fact regular nodes in the scene node hierarchy.
+This mode was added to handle skeletons loaded from gltf/glb files, where the skeleton bones are in fact regular nodes in the scene node hierarchy.
 
 It's important to understand that when a bone is linked to a transform node, modifying the [translation](/typedoc/classes/babylon.transformnode#translate)/rotation/scaling of the bone will have no effect; instead, you need to update the linked transform node!
 
@@ -159,4 +159,3 @@ For example, in the first playground where we've created the bones with a **bind
 This is compatible with our way of dealing with bones: when rendering, we remove the **bind** matrix from the **local** matrix (in fact, we do this calculation in world space, so we remove the **absolute bind** matrix from the **absolute** matrix), so in the example above, we'll render the mesh unmodified by the animation data.
 
 Note that we need to know the **bind** (or **inverse bind**) matrix for each bone, so this information is also exported by the DCC tool, but in a section other than the animation section (in glTF, it's exported in the "skins" section), as the **bind** matrix doesn't change during an animation, it's a bone invariant.
-

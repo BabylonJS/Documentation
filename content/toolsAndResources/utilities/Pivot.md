@@ -8,8 +8,8 @@ video-overview:
 video-content:
 ---
 
-## Rotating and Enlarging Relative to a Centre.
-The following two code snippets give the opportunity to place a centre of rotation or enlargement, or pivot, at any time and have a mesh rotate or enlarge relative to that centre.
+## Rotating and Enlarging Relative to a Centre
+The following two code snippets let you place a centre of rotation or enlargement, or pivot, at any time and have a mesh rotate or enlarge relative to that centre.
 
 
 ## Rotate
@@ -32,9 +32,9 @@ BABYLON.Mesh.prototype.rotateAroundPivot = function(pivotPoint, axis, angle) {
 mesh.rotateAroundPivot(new BABYLON.Vector3(1, 2, -1), new BABYLON.Axis.Y, Math.PI/4);
 ```
 
-The parameters are the position of the pivot (centre of rotation) as a Vector3, axis of rotation as a Vector3 and an angle of rotation a number in radians.
+The parameters are the position of the pivot (centre of rotation) as a Vector3, the axis of rotation as a Vector3, and the angle of rotation as a number in radians.
 
-Succesive rotations are accumulative.
+Successive rotations are cumulative.
 
 ## Enlargement
 
@@ -50,7 +50,7 @@ BABYLON.Mesh.prototype.scaleFromPivot = function(pivotPoint, sx, sy, sz) {
 mesh.scaleFromPivotnew BABYLON.Vector3(1, 2, -1), 2, 6, 0.5);
 ```
 
-The parameters are the position of the pivot (centre of enlargemen) as a Vector3, scaling in the x, y and z directions as numbers.
+The parameters are the position of the pivot (centre of enlargement) as a Vector3, and the scaling in the x, y, and z directions as numbers.
 
 ## Playground
 

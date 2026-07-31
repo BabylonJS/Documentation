@@ -59,7 +59,7 @@ dashboards and/or distribution mechanisms for sharing the visualization
 throughout the company.
 
 The Workflow provides a pattern by which all three of these components can
-be developed more-or-less independently -- and even interchangeably -- 
+be developed more or less independently -- and even interchangeably -- 
 without sacrificing the efficiency of the development experience. For an 
 illustration of this, let's consider a canonical example of a hypothetical
 independent developer using the Babylon.js Template Repository Workflow.
@@ -80,7 +80,7 @@ disciplines including code, art, design, and so on) organized into four
 teams: three "3D experiences" teams and one "frontend/integrations" team.
 At any given time, the "3D experiences" teams may each be working on 
 separate 3D experiences, largely independent of each other and independent 
-of the frontend team does to deliver those experiences to customers. Thus,
+of what the frontend team does to deliver those experiences to customers. Thus,
 at any given time, Canonical Studios may have up to four active workstreams
 in flight: three under-development 3D experiences plus the integration 
 work to deliver the most recently finished 3D experience to customers.
@@ -91,7 +91,7 @@ pursue these simultaneous workstreams highly independently thanks to the
 separation of concerns. Each new 3D experience begins from the first two
 steps of the Quick Start guide at the top of this page; thus, every 
 individual 3D experience is its own Git repository and, eventually,
-NPM package ready to be integrated in any shipping vehicle capable of 
+an NPM package ready to be integrated in any shipping vehicle capable of 
 consuming NPM packages. Asset hosting, kept isolated from experience 
 development from the start, will not add bloat to either the Git repository
 or the NPM package and can be solved in various ways as appropriate to the
@@ -110,7 +110,7 @@ populate the NPM Package Template's `test_package` with a dummy version
 of the customer's homepage, then create their experience to add the animated
 bee to that, exposing a minimal contract from `app_package` to 
 `test_package`. When the experience is satisfactory, it is exported as an 
-NPM package and handed off, along with bee asset, to the 
+NPM package and handed off, along with the bee asset, to the 
 integration/frontend team. The 3D experiences team can then move on to their
 next product (though presumably remaining available to help if needed) as
 the only thing the frontend/integration team should have to do is decide 
@@ -152,8 +152,8 @@ inconvenience.
 Another potential disadvantage of the Template Repository Workflow is that,
 out of the gate, it may not facilitate the use of certain tools. The 
 Babylon.js Community-driven Editor, for example, has its own conventions 
-and practices which may not allow both workflows to be used effeciently
+and practices which may not allow both workflows to be used efficiently
 on the same project. Similarly, the Workflow's unrestrained embrace of NPM
 may make it more difficult to adapt to situations where using NPM is not
 an option, though certain overarching themes and patterns may still be
-transferrable.
+transferable.

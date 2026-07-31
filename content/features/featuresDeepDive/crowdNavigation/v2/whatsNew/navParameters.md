@@ -22,7 +22,7 @@ V2 adds a few parameters to help tune navmesh generation and runtime behavior:
 
 - **`offMeshConnections`** — Custom connections between two points on/near the mesh (teleports, jumps, one-way links).
 - **`keepIntermediates`** — Preserve intermediate Recast build data (heightfields, contours, detail meshes) for visualization or incremental rebuilds.
-- **`maxObstacles`** — Max number of dynamic obstacles supported. If > 0, plugin uses a tile cache for dynamic obstacle updating.
+- **`maxObstacles`** — Maximum number of dynamic obstacles supported. If > 0, the plugin uses a tile cache for dynamic obstacle updates.
 - **`expectedLayersPerTile`** — Hint for expected layers per tile — useful for memory/perf tuning in highly layered environments.
 - **`tileCacheMeshProcess`** — Callback used when building tile cache mesh to set `polyAreas` and `polyFlags`. Defaults to all areas = `0` and flags = `1`.
 
@@ -55,8 +55,8 @@ const offMeshConnections: IOffMeshConnection[] = [
 
 ### keepIntermediates
 
-By default the Recast build pipeline discards intermediate structures (heightfields, compact heightfields, contour sets, detail meshes) to save memory.
-Set `keepIntermediates:` true when you want:
+By default, the Recast build pipeline discards intermediate structures (heightfields, compact heightfields, contour sets, detail meshes) to save memory.
+Set `keepIntermediates: true` when you want to:
 
 - Debugging: show voxelization, contours, and detail meshes in the [Navigation Debugger](../v2Debugger).
 - Faster iterative tuning: reuse intermediate data to avoid full recomputation when parameters change slightly.
@@ -67,7 +67,7 @@ Caveat: intermediate data increases memory usage — keep it disabled in product
 
 The maximum number of dynamic obstacles (e.g. barrels, boxes, temporary walls) that can be added to the navmesh. If > 0, the navmesh will be built with a tile cache.
 
-V1 sets this value to 128 and so does V2 for backwards compatibility. In V2 you can set this value lower to preserve memory or you can turn off tile cache generation by setting this value to `0`.
+V1 sets this value to 128, and so does V2 for backwards compatibility. In V2, you can set this value lower to preserve memory, or you can turn off tile cache generation by setting this value to `0`.
 
 If you use obstacles, there will always be a `TileCache` generated.
 
@@ -83,11 +83,11 @@ public removeObstacle(obstacle: IObstacle, doNotWaitForCacheUpdate = false): voi
 
 A new parameter `doNotWaitForCacheUpdate: boolean` has been introduced in the "obstacle" functions.
 
-Important! [Read more about the doNotWaitForCacheUpdate parameter and how to handle TileCache updates when altering obstacles](../v2TileCache)
+Important: [Read more about the doNotWaitForCacheUpdate parameter and how to handle TileCache updates when altering obstacles](../v2TileCache)
 
 ### expectedLayersPerTile
 
-Defines how many layers are expected per tile when tile cache is used. It's used for tuning memory/performance when tiles stack multiple walkable layers.
+Defines how many layers are expected per tile when a tile cache is used. It is used for tuning memory and performance when tiles stack multiple walkable layers.
 
 ### tileCacheMeshProcess
 
@@ -98,8 +98,8 @@ Think of it as a hook to assign areas and flags per polygon, giving you control 
 
 ## What is the TileCache
 
-In short `TileCache` is an extension of the navmesh system that allows dynamic updates of the navigation mesh in smaller regions (tiles) instead of rebuilding the whole mesh.
+In short, `TileCache` is an extension of the navmesh system that allows dynamic updates of the navigation mesh in smaller regions (tiles) instead of rebuilding the whole mesh.
 
 [Read more about TileCache](../v2TileCache)
 
-_Note: For more information refer to the Recast docs._
+_Note: For more information, refer to the Recast docs._

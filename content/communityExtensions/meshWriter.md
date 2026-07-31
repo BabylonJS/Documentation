@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-Generate letters in BABYLON meshes.
+Generate letters as BABYLON meshes.
 
 ## Basic-Usage
 
@@ -28,7 +28,7 @@ PG: <Playground id="#PL752W#150" title="Mesh Writer Example 1" description=""/>
 
 ## Getting the code
 
-Copy https://github.com/BabylonJS/Extensions/blob/master/MeshWriter/meshwriter.min.js or https://github.com/BabylonJS/Extensions/blob/master/MeshWriter/meshwriter.js and build it into your load sequence.
+Copy https://github.com/BabylonJS/Extensions/blob/master/MeshWriter/meshwriter.min.js or https://github.com/BabylonJS/Extensions/blob/master/MeshWriter/meshwriter.js and include it in your load sequence.
 
 ## If you prefer npm
 
@@ -78,7 +78,7 @@ The call to BABYLON.MeshWriter returns a constructor. Call it "**Writer**".
 
 ## Constructor - new Writer()
 
-new Writer() is called with a string and an (optional) options parameter.&nbsp; The options object conforms to normalBabylon.js structures and terminology.
+new Writer() is called with a string and an (optional) options parameter.&nbsp; The options object conforms to normal Babylon.js structures and terminology.
 
           FIELD                 DEFAULT
         font-family             default-font
@@ -97,13 +97,13 @@ new Writer() is called with a string and an (optional) options parameter.&nbsp; 
             ambient             #F0F0F0
             emissive            color                # from option field 'color' above
 
-**new Writer()** builds a mesh with material that is inserted into the scene.&nbsp; This is a multi-step process with interim meshes and holes per letter.&nbsp; These meshes are sucked into an SPS and then disposed.&nbsp; At the end, one mesh, one material and one SPS have been added to the scene.
+**new Writer()** builds a mesh with material that is inserted into the scene.&nbsp; This is a multi-step process with interim meshes and holes per letter.&nbsp; These meshes are combined into an SPS and then disposed of.&nbsp; At the end, one mesh, one material, and one SPS have been added to the scene.
 
 **new Writer()** also returns a **writer** instance with useful methods.&nbsp; See below.
 
 ## Instance
 
-Each **writer** instance has methods to allow one to retrieve theBabylon.js objects or to get/set attributes of the SPS.
+Each **writer** instance has methods that allow you to retrieve the Babylon.js objects or get/set SPS attributes.
 
        getSPS
        getMesh
@@ -162,6 +162,6 @@ scene.registerBeforeRender(() => {
 });
 ```
 
-Colors:&nbsp; With most lighting, it is enough just to use the "color" field to specify the letter coloring.&nbsp; However, programmers may specify all four color types by putting a "colors" object in the options object.
+Colors:&nbsp; With most lighting, it is enough to use the "color" field to specify the letter coloring.&nbsp; However, programmers may specify all four color types by putting a "colors" object in the options object.
 
-Unless you have a specific need, do not specify a font.&nbsp; The default font, Helvetica, has the most extensive characters and the fewest faces; it will be the most efficient if you have a lot of text.&nbsp; Jura was added because the author likes it for numbers.
+Unless you have a specific need, do not specify a font.&nbsp; The default font, Helvetica, has the most extensive character set and the fewest faces; it will be the most efficient if you have a lot of text.&nbsp; Jura was added because the author likes it for numbers.

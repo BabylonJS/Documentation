@@ -18,16 +18,16 @@ video-content:
 
 ## How To Use Path3D
 
-A `Path3D` is a mathematical object created from a sequence of position vectors of points on a curve. Once obtained a Path3D can be used to determine the triplet of vectors tangent, normal and binormal of the curve for each of those points. Each triplet can then be used as a local system coordinate. You could set, for example, the camera direction to the normal as it follows the curve.
+A `Path3D` is a mathematical object created from a sequence of position vectors of points on a curve. Once created, a `Path3D` can be used to determine the triplet of tangent, normal, and binormal vectors of the curve for each of those points. Each triplet can then be used as a local coordinate system. You could, for example, set the camera direction to the normal as it follows the curve.
 
-A `Path3D` object is simple to construct as follows
+A `Path3D` object is simple to construct, as follows:
 
 ```javascript
 const points = [v1, v2, ..., vn];          // array of Vector3
 const path3d = new BABYLON.Path3D(points);
 ```
 
-You can then get the array of tangents, normals and binormals as follows
+You can then get the arrays of tangents, normals, and binormals as follows:
 
 ```javascript
 const tangents = path3D.getTangents();
@@ -35,20 +35,20 @@ const normals = path3D.getNormals();
 const binormals = path3D.getBinormals();
 ```
 
-each element of the arrays is a `Vector3` .
+Each element of the arrays is a `Vector3`.
 
 <Playground id="#2DLXYB#0" title="Tangents, Normals, and Binormals" description="Simple example of exploring tangents, normals, and binormals."/>
 
-Please zoom in and rotate : tangents in red, normals in blue, binormal in green.
+Please zoom in and rotate: tangents are in red, normals in blue, and the binormal in green.
 
 Notice, in the next example, how the triplets slightly rotate when the curve goes more into depth.  
 <Playground id="#2DLXYB#1" title="Tangents, Normals, and Binormals - Color Coded" description="Simple example of exploring color coded tangents, normals, and binormals."/>
 
-Whilst at any point on the curve there is only one tangent there can be an infinite number of normals and hence binormals. If the default one does not suit you it is possible to [set the normal direction](/features/featuresDeepDive/mesh/path3D#set-the-normal)
+While there is only one tangent at any point on the curve, there can be an infinite number of normals and hence binormals. If the default one does not suit you, it is possible to [set the normal direction](/features/featuresDeepDive/mesh/path3D#set-the-normal).
 
 ## Path3D Methods
 
-As well as `getTangents`, `getNormals` and `getBinormals` there are some other methods of `Path3D`.
+As well as `getTangents`, `getNormals`, and `getBinormals`, `Path3D` provides some other methods.
 
 ### Get Curve Points
 
@@ -70,13 +70,13 @@ const distances = path3d.getDistances();
 
 ### Interpolation
 
-You can get info about any virtual point (from 0.0 to 1.0) along the path by functions that interpolate between the path points. Those are the following:
+You can get information about any virtual point from 0.0 to 1.0 along the path by using functions that interpolate between the path points. These are the following:
 
 `getPointAt`, `getTangentAt`, `getNormalAt`, `getBinormalAt`, `getDistanceAt`, `getPreviousPointIndexAt`, `getSubPositionAt`
 
 ### Copying (part of) the path
 
-The `slice` method returns a new Path3D that is subpath (slice) of the original path. It takes a _start_ and _end_ position from 0.0 to 1.0, or negative values, which wrap back around from 1.0
+The `slice` method returns a new Path3D that is a subpath, or slice, of the original path. It takes a _start_ and _end_ position from 0.0 to 1.0, or negative values, which wrap back around from 1.0.
 
 ### Update
 
@@ -89,7 +89,7 @@ const points2 = [u1, u2, ..., un];          // another array of Vector3
 path3D.update(points2);
 ```
 
-Tangents, normals and bi-normals are thus recomputed for this new path.
+Tangents, normals, and binormals are then recomputed for this new path.
 
 <Playground id="#2DLXYB#253" title="Update Path3D" description="Update a Path3D object and observe its results."/>
 
@@ -128,9 +128,9 @@ The playground example shows what happens as the vector setting the normal direc
 
 Apart from the first normal, there are two more parameters:
 
-`raw`, boolean, **false** by default. If true the tangents, normals and binormals aren't normalized. Useful to depict path acceleration or speed.
+`raw`, boolean, **false** by default. If true, the tangents, normals, and binormals are not normalized. This is useful for depicting path acceleration or speed.
 
-`alignTangentsWithPath`, boolean, **false** by default. If true the tangents will be aligned with the path.
+`alignTangentsWithPath`, boolean, **false** by default. If true, the tangents are aligned with the path.
 
 ## Objects Following A Path
 

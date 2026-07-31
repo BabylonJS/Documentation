@@ -10,14 +10,14 @@ video-content:
 
 ## Transformations
 ## Baking 
-Usually, within Babylon.js, positioning, rotating and scaling a mesh changes its world matrix only and the vertex position data of a mesh is left unchanged. In certain situations you might be interested in applying a transform (position, rotation, scale) directly to the mesh vertices and leave world matrix unchanged. This is called baking and, of course, changes the center of transformation of the mesh, and can be useful in the following situations:
+Usually, within Babylon.js, positioning, rotating, and scaling a mesh changes only its world matrix, and the mesh's vertex position data is left unchanged. In certain situations, you might want to apply a transform (position, rotation, scale) directly to the mesh vertices and leave the world matrix unchanged. This is called baking and, of course, changes the center of transformation of the mesh. It can be useful in the following situations:
 
 - building a set of static geometry
 - randomizing a series of mesh copies
 - mirroring a mesh along an axis
 - etc.
 
-The most straight forward way is to apply a transformation to the mesh. For example take a box of side 1 and position it at (0, 3, 0). Its vertices are stored as (-0.5, -0.5, -0.5), (0.5, -0.5, -0.5), (0.5, 0.5, -0.5), (-0.5, 0.5, -0.5), (-0.5, -0.5, 0.5), (0.5, -0.5, 0.5), (0.5, 0.5, 0.5), (-0.5, 0.5, 0.5) with its local origin of (0, 3, 0) stored in the world matrix. When this current transformation is baked into its vertices, the vertices are now stored as (-0.5, 2.5, -0.5), (0.5, 2.5, -0.5), (0.5, 3.5, -0.5), (-0.5, 3.5, -0.5), (-0.5, 2.5, 0.5), (0.5, 2.5, 0.5), (0.5, 3.5, 0.5), (-0.5, 3.5, 0.5) with a local origin of (0, 0, 0) stored in the world matrix. Any rotation now takes place with the center of rotation 3 below the middle of the box.
+The most straightforward way is to apply a transformation to the mesh. For example, take a box of side 1 and position it at (0, 3, 0). Its vertices are stored as (-0.5, -0.5, -0.5), (0.5, -0.5, -0.5), (0.5, 0.5, -0.5), (-0.5, 0.5, -0.5), (-0.5, -0.5, 0.5), (0.5, -0.5, 0.5), (0.5, 0.5, 0.5), (-0.5, 0.5, 0.5), with its local origin of (0, 3, 0) stored in the world matrix. When this current transformation is baked into its vertices, the vertices are stored as (-0.5, 2.5, -0.5), (0.5, 2.5, -0.5), (0.5, 3.5, -0.5), (-0.5, 3.5, -0.5), (-0.5, 2.5, 0.5), (0.5, 2.5, 0.5), (0.5, 3.5, 0.5), (-0.5, 3.5, 0.5), with a local origin of (0, 0, 0) stored in the world matrix. Any rotation now takes place with the center of rotation 3 units below the middle of the box.
 
 Baking a current transformation: <Playground id="#6AH5EL" title="Baking Current Transformation" description="Simple example of baking current transforms."/>
 
@@ -35,7 +35,7 @@ Baking using matrices <Playground id="#6AH5EL#1" title="Baking Using Matrices" d
 
 ## Use With Scaling
 
-When baking scaling the normals are simply scaled in their current direction and so baking a scale can often give unrealistic results for lighting. To correct this normals need to be recomputed. This is illustrated in the following picture: 
+When baking scaling, the normals are simply scaled in their current direction, so baking a scale can often give unrealistic results for lighting. To correct this, the normals need to be recomputed. This is illustrated in the following picture: 
 
 ![Normals illustration](/img/resources/baking-transforms/normals.webp) 
 
@@ -51,6 +51,6 @@ BABYLON.VertexData.ComputeNormals(positions, indices, normals);
 mesh.updateVerticesData(VertexBuffer.NormalKind, normals, false, false);
 ```
 
-**Note:**  recomputing the normals of your mesh may not be an ideal solution, as the results may be wrong in some parts of the mesh (e.g. seams on a sphere).
+**Note:** Recomputing the normals of your mesh may not be an ideal solution, as the results may be wrong in some parts of the mesh (e.g. seams on a sphere).
 
-Unless you have good reasons to use baking transformations then you are better with parents and pivots.
+Unless you have good reasons to use baking transformations, parents and pivots are usually a better choice.

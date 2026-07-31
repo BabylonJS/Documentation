@@ -14,19 +14,19 @@ video-content:
 
 This is the quickest way to correct spelling and grammar errors or to add sentences or a paragraph or two to clarify an explanation.
 
-Requirements: you just need a [Github](https://github.com) account and a Fork of the [Documentation](https://github.com/BabylonJS/Documentation) repository.
+Requirements: you just need a [GitHub](https://github.com) account and a fork of the [Documentation](https://github.com/BabylonJS/Documentation) repository.
 
-At the bottom of each Documentation page you will see the Github icon:
+At the bottom of each Documentation page, you will see the GitHub icon:
 
 ![Github](/img/contribute/GitHub-Mark.png)
 
-Select this and it will take you to the correct Github page from where you select the edit button:
+Select it, and it will take you to the correct GitHub page, where you can select the edit button:
 
 ![quick edit](/img/contribute/documentation/easy-edit.webp)
 
 You can now [use markdown](https://guides.github.com/features/mastering-markdown/) to edit the documentation page.
 
-Once done, try to quickly explain what your modification is for, and click on the _Propose file change_ button:
+Once done, try to quickly explain what your modification does, and click the _Propose file change_ button:
 
 ![propose file change](/img/contribute/documentation/easy-submit.webp)
 
@@ -36,7 +36,7 @@ Press the _Create pull request_ button:
 
 ![sending pull](/img/contribute/documentation/easy-pull.webp)
 
-If needed, modify your comment, and press again the _Create pull request_ button:
+If needed, modify your comment and press the _Create pull request_ button again:
 
 ![commenting pull](/img/contribute/documentation/easy-pull2.webp)
 

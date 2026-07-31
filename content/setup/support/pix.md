@@ -94,7 +94,7 @@ Once attached, click the **Timing Capture** button (stopwatch icon) on the PIX t
 
 ## Additional Resources
 
-This article covers how to set up PIX for use with Babylon.js and WebGPU. For a deeper understanding of PIX itself — including how to navigate captures, interpret timeline data, and debug shaders — the following resources from Microsoft are a great starting point.
+This article covers how to set up PIX for use with Babylon.js and WebGPU. For a deeper understanding of PIX itself — including how to navigate captures, interpret timeline data, and debug shaders — the following Microsoft resources are great starting points.
 
 Analyzing frames with GPU captures  
 https://learn.microsoft.com/en-us/windows/win32/direct3dtools/pix/articles/gpu-captures/pix-gpu-captures

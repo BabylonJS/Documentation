@@ -29,7 +29,7 @@ var createScene = function () {
 };
 ```
 
-By following this format in you own project you can quickly drop it into your own HTML page using the following as a template.
+By following this format in your own project, you can quickly drop it into your own HTML page using the following as a template.
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
@@ -112,7 +112,7 @@ The following loads a box model into an app.
 
 [First App](/webpages/app1.html)
 
-Example setup for a loaded model
+Example setup for a loaded model:
 
 ```html
 <!DOCTYPE html>
@@ -186,7 +186,7 @@ The following creates a box model in an app.
 
 [First Coded App](/webpages/app2.html).
 
-Example setup for a coded model
+Example setup for a coded model:
 
 ```html
 <!DOCTYPE html>
@@ -254,4 +254,4 @@ Example setup for a coded model
 </html>
 ```
 
-Let's move on to learning more about using Babylon.js code and build more interesting models. We start with giving our world a ground to build on.
+Let's move on to learning more about using Babylon.js code and building more interesting models. We start by giving our world a ground to build on.

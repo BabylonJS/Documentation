@@ -11,7 +11,7 @@ video-content:
 # Getting Started - The Switch On Event
 
 ## The Switch On Event
-When we click the screen pointer on the fountain we want it to start. We do this by adding a function to an *onPointerObservable* to deal with a pointer down event that switches the particle system between stop and start.
+When we click on the fountain, we want it to start. We do this by adding a function to an *onPointerObservable* to handle a pointer-down event that switches the particle system between stop and start.
 
 ```javascript
 let switched = false;  //on off flag
@@ -43,8 +43,8 @@ const pointerDown = (mesh) => {
 
 <Playground id="#TC31NV#5" title="Start/Stop Particles on Click" description="Start and stop a particle system on click." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray1.webp"/>
 
-Now we add this into the village world.
+Now we add this to the village world.
 
 <Playground id="#KBS9I5#93" title="Add The Fountain To The Village" description="Add the fountain to the village." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray2.webp"/>
 
-So far all the actions have been in daylight and now time moves to the night where we will need street lights.
+So far, all the action has taken place in daylight, and now it is time to move to night, when we will need street lights.

@@ -25,7 +25,7 @@ The place to try out coding with Babylon.js. [Playground](https://playground.bab
 Experimenting and changing any code in the playground and clicking on the **Run** button will not affect any original code in the playground you are currently using.
 Original code can be restored by refreshing the browser.
 
-You can write the code in JavaScript or Typescript. The playground software compiles the code to JavaScript, in the background, before rendering.
+You can write the code in JavaScript or TypeScript. The Playground compiles the code to JavaScript in the background before rendering.
 
 ### Scene creation functions
 
@@ -42,7 +42,7 @@ The Playground consists of four areas:
 - A menu bar at the top.
 - A links bar at the bottom.
 - A coding editor on the left
-- A rendering area of the right.
+- A rendering area on the right.
 
 The space for the coding editor and rendering area can be adjusted by dragging the vertical bar between them.
 
@@ -57,14 +57,14 @@ In Typescript mode the menu has an orange color theme:
 ### Large Screen
 
 - **Title and Version**: As stated.
-- **Language**: Typescript/JavaScript switch.
+- **Language**: TypeScript/JavaScript switch.
 - **Run**: Commands the playground to try to render your scene.
 - **Save**: Causes your scene to be permanently stored in the playground's database and it will issue a unique URL for each save. On save you will be asked to complete the metadata so that it can be searched for. Once saved it is a good idea to bookmark the page so you can return to it later. You could then share the URL with others, for example, if it is not working as you expect you can ask a question in the forum along with the link to your playground.
 - **Download**: Allows you to download a zip file named _sample.zip_. Once downloaded and unzipped, you will see a file named `index.html`
   which contains everything necessary to run the code in your browser, including links to external _Babylon.js_ and other files.
 - **New**: Places a basic `createScene()` function into the editor along with code to initialize the scene variable and provide a camera.
 - **Clear**: Empties all the code out of the playground editor. You could then paste in any createScene function you are working on locally.
-- **Settings**: The Settings button has a sub menu with extra options
+- **Settings**: The Settings button has a submenu with extra options
   - _Theme_: Choose the theme for the playground
   - _Font size_: Set the font size in the editor.
   - _Safe Mode_: When the checkbox is ticked the playground issues a "leaving the page?" confirmation warning when you try to unload/reload a freshly-edited, un-saved scene.
@@ -73,9 +73,9 @@ In Typescript mode the menu has an orange color theme:
   - _Editor Full Screen_: Makes the editor area full screen.
   - _Format Code_: Pretty prints the code.
   - _Minimap_: Display the minimap of the code editor.
-  - _Metadata_: This is where you describe your playground allowing yourself and other to search the playground database for examples of use.
+  - _Metadata_: This is where you describe your playground, allowing yourself and others to search the playground database for examples of use.
 - **Version**: Allows and shows your choice of the Babylon.js framework, either the current stable one or the latest preview version.
-- **Examples**: A drop down menu giving examples of playgrounds with a search filter.
+- **Examples**: A drop-down menu that gives examples of playgrounds with a search filter.
 
 ### Small Screens
 
@@ -86,7 +86,7 @@ In Typescript mode the menu has an orange color theme:
 
 ## Playground URL formats and templates
 
-After editing any saves of the playground are numbered incrementally from one, for example:
+After editing, any saves of the playground are numbered incrementally from one. For example:
 
 - https://playground.babylonjs.com/#6F0LKI#1
 - https://playground.babylonjs.com/#6F0LKI#2
@@ -102,9 +102,9 @@ Some useful HTML templates are also available:
 
 ## Forum sharing
 
-Of course the playground is extremely useful to get help from the community. In the forum, simply paste the link of your playground.
+Of course, the Playground is extremely useful for getting help from the community. In the forum, simply paste the link to your playground.
 
-You can have fun showing directly your playground embedded into your message, using iframe. But take note that you have to be sparing with this functionality: this will slow down the loading of your topic.
+You can also embed your playground directly in your message using an iframe. But use this sparingly, because it will slow down the loading of your topic.
 
 ```html
 <iframe src="https://playground.babylonjs.com/frame.html#6F0LKI#2" width="400px" height="250px"></iframe>
@@ -120,4 +120,4 @@ Any errors in your playground are flagged with a red pop-up box containing limit
 
 ## Focus
 
-Whenever a scene in the playground needs the use of keys to move an object, such as a mesh or camera, around then the rendering area needs to have the focus. After running the playground ensure that the render area has the focus by clicking inside it before using the keys.
+Whenever a scene in the Playground requires the use of keys to move an object, such as a mesh or camera, the rendering area needs to have focus. After running the Playground, ensure that the render area has focus by clicking inside it before using the keys.

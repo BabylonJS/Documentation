@@ -1,6 +1,6 @@
 ---
 title: WebXR extension / Space markup
-description: Space markup in immersive mode 
+description: Space markup in immersive mode
 keywords: extensions, WebXR
 further-reading:
   - title: Using slopes live demo
@@ -14,15 +14,15 @@ video-content:
 # Space markup
 
 ## Introduction
-Space markup is used for quickly constructing simple XR simulators and helps
-easily organize phantom objects in space. These objects can "interact" with the user,
+Space markup is used to quickly construct simple XR simulators and helps
+organize phantom objects in space. These objects can "interact" with the user,
 emulating walls, slopes, curved surfaces, stairs, elevators, etc.
 
 ### Preparing the space
-To enable functionality, we need to include the SPACE_MARKUP
+To enable this functionality, we need to include the SPACE_MARKUP
 feature in the configuration.
 
-Useful types options and floor description: 
+Useful option types and floor description:
 ```typescript
 type TSpaceMarkUpOptions = {
 	// Minimum height difference recognized as a step or elevation change
@@ -82,7 +82,7 @@ export type FloorDescription = {
 };
 ```
 
-In code of application:
+In application code:
 
 ```typescript
 

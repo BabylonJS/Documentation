@@ -1,7 +1,7 @@
 ---
 title: Creating A 3D Text object
 image:
-description: Learn how to create a 3d text in Babylon.js.
+description: Learn how to create 3D text in Babylon.js.
 keywords: diving deeper, meshes, set shapes, standard shapes, text, font
 further-reading:
 video-overview:
@@ -10,11 +10,11 @@ video-content:
 
 ## Text
 
-The created mesh will be 3D object created as an extrusion of a given text. It will have its origin at the center of the text.
+The created mesh is a 3D object created by extruding a given text. Its origin is at the center of the text.
 
-## Prerequesite
+## Prerequisite
 
-The `MeshBuilder.CreateText` is leveraging our ExtrudePolygon feature which requires you to have **Earcut library available**. Whilst an Earcut script is pre-loaded in the Playground you will have to add a reference to such a script in your own projects. One is available at [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or via a [npm package](https://github.com/mapbox/earcut#install).
+`MeshBuilder.CreateText` uses our ExtrudePolygon feature, which requires the **Earcut library** to be available. While an Earcut script is preloaded in the Playground, you must add a reference to it in your own projects. One is available on [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or via an [npm package](https://github.com/mapbox/earcut#install).
 
 ## MeshBuilder
 
@@ -44,10 +44,10 @@ const text = BABYLON.MeshBuilder.CreateText(
 
 ### Generating font data
 
-To be able to trace and extrude the mesh, you have to provide font data information.
-Babylon.js is supporting the fantastic work done by Gero3 on http://gero3.github.io/facetype.js/
+To trace and extrude the mesh, you must provide font data.
+Babylon.js supports the fantastic work done by Gero3 on http://gero3.github.io/facetype.js/
 
-Simply go to this site and generate the json description file for the font you want to use.
+Simply go to this site and generate the JSON description file for the font you want to use.
 
 We are also offering already exported fonts on assets.babylonjs.com:
 
@@ -76,10 +76,10 @@ var myText = BABYLON.MeshBuilder.CreateText("myText", "HELLO WORLD", fontData, {
     });
 ```
 
-The faceUV array defines an array of Vector4 elements used to set different texture coordinates to the front, top and back faces respectively.
+The faceUV array defines a set of Vector4 elements used to set different texture coordinates for the front, top, and back faces respectively.
 You can do the same for colors with faceColors.
 
-But you may want to go further and control the texture coordinates or colors per letter. To do so you can use the following code:
+But you may want to go further and control the texture coordinates or colors per letter. To do so, you can use the following code:
 
 ```javascript
 const letterCount = 10;
@@ -99,6 +99,6 @@ const letterCount = 10;
     });
 ```
 
-The perLetterFaceUV (and its sister perLetterFaceColors) is a callback used to provide the data per letter instead of per mesh.
+`perLetterFaceUV` (and its sister `perLetterFaceColors`) is a callback used to provide data per letter instead of per mesh.
 
 <Playground id="#8S9WRP" title="Create a 3d text" description="Example of creating a 3d text with per letter UV coordinates"/>

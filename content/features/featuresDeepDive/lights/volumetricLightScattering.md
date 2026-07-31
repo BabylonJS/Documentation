@@ -10,7 +10,7 @@ video-content:
 
 ## The Volumetric LightScattering post-process
 
-BABYLON.VolumetricLightScatteringPostProcess is a post-process that will compute the light scattering according to a light source mesh.
+BABYLON.VolumetricLightScatteringPostProcess is a post-process that computes light scattering based on a light source mesh.
 
 ### How to use it? Easy!
 
@@ -21,7 +21,7 @@ const vls = new BABYLON.VolumetricLightScatteringPostProcess("vls", 1.0, camera,
 **_ Parameters _**
 
 - name \{string\} - The post-process name.
-- ratio \{any\} - The size of the post-process and/or internal pass (0.5 means that your postprocess will have a _width = canvas.width \* 0.5_ and a _height = canvas.height \* 0.5_.)
+- ratio \{any\} - The size of the post-process and/or internal pass (0.5 means that your post-process will have a _width = canvas.width \* 0.5_ and a _height = canvas.height \* 0.5_.)
 - camera \{BABYLON.Camera\} - The camera that the post-process will be attached to.
 - lightSourceMesh \{BABYLON.Mesh\} - The mesh used as a light source, to create the light scattering effect (for example, a billboard with its texture simulating the sun.)
 - samplesNum \{number\} - The post-process quality. Default is 100.
@@ -32,7 +32,7 @@ const vls = new BABYLON.VolumetricLightScatteringPostProcess("vls", 1.0, camera,
 
 The lightSourceMesh is a mesh that will contain the light color, typically a billboard with a diffuse texture. If your light source is coming from the floor, you can use the floor/ground mesh to compute the light scattering effect.
 
-**Note: The light source mesh can be null. This causes a default lightSourceMesh to be created for you as a billboard **
+**Note: The light source mesh can be null. This causes a default lightSourceMesh to be created for you as a billboard.**
 
 To create the default mesh before the post-process, there is a static method that returns a billboard as the default:
 
@@ -46,7 +46,7 @@ You can access and modify the mesh using:
 const mesh = vls.mesh;
 ```
 
-By default, the post-process is computing the light scattering using the internal mesh position. You can modify and set a custom position using (typically for the floor as the internal mesh):
+By default, the post-process computes light scattering using the internal mesh position. You can modify it and set a custom position using the following code (typically for the floor as the internal mesh):
 
 ```javascript
 vls.useCustomMeshPosition = true;
@@ -61,19 +61,19 @@ You can access the custom position using:
 const position = vls.getCustomMeshPosition();
 ```
 
-To customize the light scattering, you can modify the vertical direction of the light rays. If _invert_ is set to true, the rays will go downward. Upward, if invert is set false.
+To customize the light scattering, you can modify the vertical direction of the light rays. If _invert_ is set to true, the rays will go downward. If _invert_ is set to false, the rays will go upward.
 
 ```javascript
 vls.invert = true;
 ```
 
-To optimize performance, you can customize the rendering quality. In fact, this post-process uses an internal pass (render target texture) that will help the post-process to compute the light scattering effect. Of course, you can compute the pass in a lower ratio like:
+To optimize performance, you can customize the rendering quality. In fact, this post-process uses an internal pass (render target texture) that helps the post-process compute the light scattering effect. Of course, you can compute the pass at a lower ratio, like this:
 
 ```javascript
 const vls = new BABYLON.VolumetricLightScatteringPostProcess("vls", { postProcessRatio: 1.0, passRatio: 0.5 }, camera, lightSourceMesh, 75, BABYLON.Texture.BILINEAR_SAMPLINGMODE, engine, false);
 ```
 
-vls.useDiffuseColor is used to force rendering the diffuse color of the light source mesh instead of its diffuse texture.
+`vls.useDiffuseColor` is used to force rendering the diffuse color of the light source mesh instead of its diffuse texture.
 
 - If useDiffuseColor is true or material.diffuseTexture is undefined, use the diffuse color
 
@@ -81,7 +81,7 @@ vls.useDiffuseColor is used to force rendering the diffuse color of the light so
 
 - If useDiffuseColor is false and material.diffuseTexture is undefined, use diffuse color
 
-Using the material.diffuseColor instead of material.diffuseTexture (as default) for the light's color:
+Using `material.diffuseColor` instead of `material.diffuseTexture` (the default) for the light's color:
 
 ```javascript
 vls.useDiffuseColor = true; // False as default
@@ -97,13 +97,13 @@ vls.mesh.material.diffuseTexture= new BABYLON.Texture(...);
 
 ### And now, it's time to play
 
-Feel free to tour some examples of Volumetric LightScattering in the playground :
+Feel free to explore some examples of Volumetric LightScattering in the Playground:
 
 - <Playground id="#AU5641" title="Basic Example" description="Simple example of adding a basic light scattering post process to your scene." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP1.webp"/>
 - <Playground id="#HYFQJ" title="Spherical Harmonics as Source" description="Simple example of adding a light scattering post process with spherical harmonics as a source." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP2.webp"/>
 - <Playground id="#UUXLX#37" title="VLS through CSG-created slots" description="Simple example of adding a light scattering post process through CSG-created slots." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP3.webp"/>
 
-Have fun !
+Have fun!
 
 ## The Volumetric Lighting Task
 
@@ -143,10 +143,9 @@ frameGraph.addTask(volumetricLightingTask);
 
 This effect works best in WebGPU because we can use a compute shader to update the lighting volume, whereas in WebGL, we have to read back the shadow map texture and update the volume on the CPU side.
 
-That's why you can see in the code above that we reduce the **frequency** of volume updates when using WebGL (4 means we update every 4 frames) and use a lower **tessellation** value (i.e., fewer triangles) for the mesh to improve performance.
+That's why, in the code above, we reduce the **frequency** of volume updates when using WebGL (4 means we update every 4 frames) and use a lower **tessellation** value (i.e., fewer triangles) for the mesh to improve performance.
 
 Please refer to the [FrameGraphVolumetricLightingTask](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList#framegraphvolumetriclightingtask) page for detailed information on task parameters and PG examples.
 
 <Playground engine="webgpu" id="#WLGEJB#44" image="/img/playgroundsAndNMEs/pg-WLGEJB-3.webp" title="Volumetric lighting task" description="Example of a frame graph using the volumetric lighting task"/>
-
 

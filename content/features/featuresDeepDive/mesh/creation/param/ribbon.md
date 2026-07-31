@@ -9,9 +9,9 @@ video-content:
 ---
 
 ## Ribbon
-The ribbon is a very versatile shape. Picture a ribbon in the real world with parallel wires running down its length. You can turn such a ribbon into a wide variety of shapes. Joining one long edge to its opposite you could form a tube and bend that into different shapes. This and more is possible with a Babylon.js ribbon. Instead of parallel wires a Babylon.js ribbon is formed from paths defined by an array of vector3s and how you define the paths determines the final shape. 
+The ribbon is a very versatile shape. Picture a ribbon in the real world with parallel wires running down its length. You can turn such a ribbon into a wide variety of shapes. By joining one long edge to its opposite, you could form a tube and bend it into different shapes. This and more is possible with a Babylon.js ribbon. Instead of parallel wires, a Babylon.js ribbon is formed from paths defined by an array of vector3s, and how you define the paths determines the final shape. 
 
-On creation the local origin of a ribbon is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
+On creation, the local origin of a ribbon is coincident with the world origin. It is not possible to give a position relative to the constructed shape, as this depends on the data sets used.
 
 ## MeshBuilder
 Usage :
@@ -62,4 +62,4 @@ const ribbon = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, closeArray, closeP
 const ribbon = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, closeArray, closePath, offset, scene, updatable, sideOrientation, instance); //optional parameters after scene
 ```
 
-More about ribbons on the next page
+More about ribbons on the next page.

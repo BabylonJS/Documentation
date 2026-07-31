@@ -8,4 +8,4 @@ video-overview:
 video-content:
 ---
 
-In this section, learn all about how to use Babylon.js outside of the browser! The Babylon.js platform offers several ways to use one awesome engine both in the web AND to create native applications. If you want one codebase that deploys across different platforms, look no further!
+In this section, learn how to use Babylon.js outside the browser! The Babylon.js platform offers several ways to use one awesome engine both on the web and for native applications. If you want one codebase that deploys across different platforms, look no further!

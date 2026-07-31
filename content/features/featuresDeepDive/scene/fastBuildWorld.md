@@ -10,9 +10,9 @@ video-content:
 
 ## How To Fast Build a World
 
-There are a number of helpers that, once you to have put models into a scene, add cameras, light and environment that adjust to the models automatically allowing you to quickly view them. You can then make adjustments as you need.
+There are a number of helpers that, once you have put models into a scene, add cameras, lights, and an environment that automatically adjust to the models, allowing you to view them quickly. You can then make adjustments as needed.
 
-For beginners to Babylon.js these two sections [Fastest Build](/features/featuresDeepDive/scene/fastBuildWorld#fastest-build) and [Import and Fastest Build](/features/featuresDeepDive/scene/fastBuildWorld#import-and-fastest-build) will quickly give you a viewable world and are a good way of getting a look at models. As such they are level 1 material. It is worth considering working through Babylon101 and parts of the level 1 material in order to make the other information and details on this page more understandable.
+For beginners to Babylon.js, the [Fastest Build](/features/featuresDeepDive/scene/fastBuildWorld#fastest-build) and [Import and Fastest Build](/features/featuresDeepDive/scene/fastBuildWorld#import-and-fastest-build) sections will quickly give you a viewable world and are a good way to look at models. As such, they are level 1 material. It is worth considering working through Babylon101 and parts of the level 1 material to make the other information and details on this page easier to understand.
 
 ## Helpers
 
@@ -26,7 +26,7 @@ The following is a list of the methods of the `scene` object that help in fast b
 
 ## Fastest Build
 
-To build a world very quickly just use `createDefaultCameraOrLight` along with `createDefaultEnvironment` as in this example
+To build a world very quickly, just use `createDefaultCameraOrLight` along with `createDefaultEnvironment`, as in this example:
 
 ```javascript
 scene.createDefaultCameraOrLight(true, true, true);
@@ -35,7 +35,7 @@ scene.createDefaultEnvironment();
 
 <Playground id="#MJNICE" title="The Quickest Way To Build A World" description="Simple example of creating a world with createDefaultEnviornment." isMain={true} category="Environment"/>
 
-You can see how the camera automatically adjusts by adding a second box and repositioning it
+You can see how the camera automatically adjusts by adding a second box and repositioning it:
 
 <Playground id="#MJNICE#3" title="Fast Build With Camera Adjust" description="Simple example of building a world quickly and adjusting the camera."/>
 
@@ -43,17 +43,17 @@ More information about these methods, including details about parameters, can be
 
 ## Create Default Camera or Light
 
-As can be seen in the _Fastest Build_ section the helper, `createDefaultCameraOrLight` creates both a camera and a light in one line. The three parameters it can take are the same as for the `createDefaultCamera` method, the second parameter also refers to the light and replaces any existing camera or light when true. The approach to accessing the camera or light is the same as for the individual methods.
+As shown in the _Fastest Build_ section, the `createDefaultCameraOrLight` helper creates both a camera and a light in one line. The three parameters it takes are the same as for the `createDefaultCamera` method. The second parameter also applies to the light and replaces any existing camera or light when `true`. Accessing the camera or light works the same way as with the individual methods.
 
 ## Create Default Camera
 
-The `createDefaultCamera` takes three boolean parameters, all set to _false_ by default. They are
+`createDefaultCamera` takes three boolean parameters, all set to _false_ by default. They are:
 
 - createArcRotateCamera: creates a free camera by default and an arc rotate camera when _true_;
 - replace: when _true_ the created camera will replace the existing active one;
 - attachCameraControls: when _true_ attaches control to the canvas.
 
-This code will create an arc rotate camera, replace any existing camera and attach the camera control to the canvas
+This code will create an arc rotate camera, replace any existing camera, and attach the camera controls to the canvas:
 
 ```javascript
 scene.createDefaultCamera(true, true, true);
@@ -62,7 +62,7 @@ scene.createDefaultCamera(true, true, true);
 <Playground id="#MJNICE#4" title="Camera Helper Example (no light)" description="Simple example of the camera helper with no light."/>
 <Playground id="#MJNICE#5" title="Camera Helper Example" description="Simple example of the camera helper."/>
 
-For a free camera
+For a free camera:
 
 ```javascript
 scene.createDefaultCamera(false, true, true);
@@ -76,7 +76,7 @@ The camera will adjust depending on the size and position of each mesh in the wo
 
 ### Accessing the Camera
 
-Since creating the camera this way makes the helper created camera the active camera the simplest way to access it is using
+Since creating the camera this way makes the helper-created camera the active camera, the simplest way to access it is:
 
 ```javascript
 scene.createDefaultCamera(true, true, true);
@@ -86,7 +86,7 @@ var helperCamera = scene.activeCamera;
 
 <Playground id="#MJNICE#11" title="Camera Helper With Active Camera Changes" description="Simple example of the camera helper and making changes to the active camera."/>
 
-An alternative way to access the helper created camera immediately after creating it is, since it will be the last one in the `scene.cameras` array, to use
+An alternative way to access the helper-created camera immediately after creating it is to use the fact that it will be the last one in the `scene.cameras` array:
 
 ```javascript
 scene.createDefaultCamera(true, true, true);
@@ -103,11 +103,11 @@ scene.cameras.push(helperCamera);
 
 ## Create Default Light
 
-The `createDefaultLight` takes just one boolean parameters, set to _false_ by default:
+`createDefaultLight` takes just one boolean parameter, set to _false_ by default:
 
 - replace: when _true_ the created light will replace all the existing ones; when _false_ and there are no existing lights a hemispherical light is created; when _false_ and lights already exist, no change is made to the scene.
 
-When this method is used before the creation of any other lights then it is usually sufficient to use
+When this method is used before any other lights are created, it is usually sufficient to use:
 
 ```javascript
 scene.createDefaultLight();
@@ -115,7 +115,7 @@ scene.createDefaultLight();
 
 ### Accessing the Light
 
-Provided you access the helper created light immediately after creating it, it will be the last one in the `scene.lights` array.
+Provided you access the helper-created light immediately after creating it, it will be the last one in the `scene.lights` array.
 
 You can obtain it using
 
@@ -140,15 +140,15 @@ The simple code
 scene.createDefaultEnvironment();
 ```
 
-adds a skybox and ground to the scene, sets a wide range of environmental parameters and returns an [environmental helper](/typedoc/classes/babylon.environmenthelper) to the scene.
+adds a skybox and ground to the scene, sets a wide range of environmental parameters, and returns an [environmental helper](/typedoc/classes/babylon.environmenthelper).
 
 You will also find below a helper for [just a skybox](/features/featuresDeepDive/scene/fastBuildWorld#create-default-skybox).
 
-When you look at the following playground
+When you look at the following playground:
 
 <Playground id="#MJNICE" title="Playground Fast Build" description="Simple example of creating the default enviornment in the playground."/>
 
-it is not obvious that a skybox and ground have been added. The defaults have been set so as to be really subtle and help give a grounding feeling to the objects
+it is not obvious that a skybox and ground have been added. The defaults have been set to be very subtle and to help give the objects a grounded feel.
 
 Moving the camera further out shows that the skybox is constructed.
 
@@ -160,7 +160,7 @@ You can also see the skybox and ground by using the options parameter and settin
 
 ### Options Parameters
 
-As you can see in the above playground the `createDefaultEnvironment` method takes an options parameter. The full range of environmental helper options properties are available from the [API](/typedoc/interfaces/babylon.ienvironmenthelperoptions)
+As you can see in the above playground, the `createDefaultEnvironment` method takes an options parameter. The full range of environmental helper option properties is available in the [API](/typedoc/interfaces/babylon.ienvironmenthelperoptions).
 
 So, for example
 
@@ -190,9 +190,9 @@ var helper = scene.createDefaultEnvironment({
 
 ### Applicable Methods
 
-Since the `createDefaultEnvironment` method returns an `environmentalHelper` object then all the properties and methods of this object (as in the [API](/typedoc/classes/babylon.environmenthelper)) are available.
+Since the `createDefaultEnvironment` method returns an `environmentalHelper` object, all the properties and methods of this object (as described in the [API](/typedoc/classes/babylon.environmenthelper)) are available.
 
-So, for example if the environment color is not your favorite choice you can modify it after creation
+So, for example, if the environment color is not your preferred choice, you can modify it after creation:
 
 ```javascript
 var helper = scene.createDefaultEnvironment();
@@ -201,14 +201,14 @@ helper.setMainColor(BABYLON.Color3.Teal());
 
 <Playground id="#MJNICE#12" title="Changing The Main Color" description="Simple example of changing the scene's main color."/>
 
-or for instance should you wish to dispose of the ground after creation of the environment use
+Or, if you wish to dispose of the ground after creating the environment, use:
 
 ```javascript
 var helper = scene.createDefaultEnvironment();
 helper.ground.dispose();
 ```
 
-or how about changing the options parameters
+Or you can change the option parameters:
 
 ```javascript
 var helper = scene.createDefaultEnvironment();
@@ -243,7 +243,7 @@ The third parameter defines the scale of your skybox (this value depends on the 
 
 ## Import and Fastest Build
 
-To import models and build a world very quickly just use `createDefaultCameraOrLight` along with `createDefaultEnvironment` as in this example
+To import models and build a world very quickly, just use `createDefaultCameraOrLight` along with `createDefaultEnvironment`, as in this example:
 
 <Playground id="#MJNICE#15" title="Importing Models and Quickly Building A World" description="Simple example showcasing how to import models and quickly build a world."/>
 
@@ -251,7 +251,7 @@ The camera adjusts its position automatically to make the world viewable dependi
 
 ## Importing Models for Your World
 
-Since the `createDefault...` helpers take into account any models in the scene they can only be applied after the model is loaded and so are placed in the callback function. For example
+Since the `createDefault...` helpers take into account any models in the scene, they can only be applied after the model is loaded, so they are placed in the callback function. For example:
 
 ```javascript
 BABYLON.AppendSceneAsync("https://www.babylonjs.com/assets/DamagedHelmet/glTF/", "DamagedHelmet.gltf", scene).then(function ({ meshes }) {
@@ -260,7 +260,7 @@ BABYLON.AppendSceneAsync("https://www.babylonjs.com/assets/DamagedHelmet/glTF/",
 });
 ```
 
-There is then a problem. When creating a scene Babylon.js checks for a camera. When importing models, the existence of a camera will be checked for before the model has finished loading and so the scene will fail.
+There is then a problem. When creating a scene, Babylon.js checks for a camera. When importing models, the existence of a camera will be checked before the model has finished loading, so the scene will fail.
 
 The solution is to replace the `createScene` function with the `delayCreateScene` function. Whether in a playground or in your own project this is a direct replacement.
 

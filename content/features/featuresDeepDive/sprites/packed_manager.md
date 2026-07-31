@@ -11,13 +11,13 @@ video-content:
 ## Sprite Packed Manager
 *Available from BJS version 4.1*
 
-A packed spritesheet will look something like this
+A packed spritesheet will look something like this.
 
 ![Packed Spritesheet](/img/how_to/Sprites/pack1.webp);
 
 with sprite cells of different sizes arranged to optimize the file size.
 
-The corresponding JSON file will have the format which is based on that produced using the [TexturePacker](https://www.codeandweb.com/texturepacker) app with the following settings:
+The corresponding JSON file will have a format based on that produced by the [TexturePacker](https://www.codeandweb.com/texturepacker) app with the following settings:
 
 - Data format: *Babylon.js (JSON Hash for SpritePackedManager)* 
 - Trim: None
@@ -67,9 +67,9 @@ The corresponding JSON file will have the format which is based on that produced
 }
 ```
 
-**Note:** *SpriteMap* uses the *Babylon.js (JSON Array for SpriteMap)* format for packed spritesheets. JSON files are not interchangeable between *SpritePackedManager* and *SpritMap*.
+**Note:** *SpriteMap* uses the *Babylon.js (JSON Array for SpriteMap)* format for packed spritesheets. JSON files are not interchangeable between *SpritePackedManager* and *SpriteMap*.
 
-The minimal format required by *SpritePackedManager* is below. Although currently it only uses the frame property it may be able to use others in the future. 
+The minimal format required by *SpritePackedManager* is below. Although it currently uses only the frame property, it may be able to use others in the future. 
 
 ```javascript
 {   "frames": {
@@ -88,11 +88,11 @@ The minimal format required by *SpritePackedManager* is below. Although currentl
 	}
 }
 ```
-Reminder the above minimal format is only suitable for the *SpritePackedManager*.
+Remember, the above minimal format is only suitable for the *SpritePackedManager*.
 
 When you create a sprite instance using the packed manager you refer to the cell (frame) to use by its name rather than its index number.
 
-The above JSON is stored in the file *pack1.json* 
+The above JSON is stored in the file *pack1.json*.
 ```javascript
 const mySpritePackedManager = new BABYLON.SpritePackedManager("spm", "textures/pack1.png", 4);
 
@@ -100,9 +100,9 @@ const sprite = new BABYLON.Sprite("sprite", mySpritePackedManager);
 sprite.cellRef = "spot.png";
 ```
 
-Multiple sprites from *pack1.json<Playground id="#YCY2IL#8" title="Multiple Sprites From 1 .json File" description="Simple example of loading multiple sprites from one .json file."/>
+Multiple sprites from *pack1.json*: <Playground id="#YCY2IL#8" title="Multiple Sprites From 1 .json File" description="Simple example of loading multiple sprites from one .json file."/>
 
-The same as for the sprite manager you can apply the following properties,
+As with the sprite manager, you can apply the following properties:
 
 ```javascript
 sprite.width = 0.3;
@@ -114,7 +114,7 @@ sprite.invertV = true; //horizontal reflection
 ```
 
 
-You are able to animate using a packed spritesheet with *playAnimation*. You must ensure that the frames for the animation are consecutive and in the correct order in the JSON file.
+You can animate using a packed spritesheet with *playAnimation*. You must ensure that the frames for the animation are consecutive and in the correct order in the JSON file.
 
 Slide show animation from JSON file: <Playground id="#YCY2IL#5" title="Slide Show From .json" description="Simple example of a slide show loaded from a .json file."/>
 Slide show animation with in-line JSON to show order of slides: <Playground id="#YCY2IL#13" title="Slide Show Animation With In-Line .json" description="Simple example of a slide show animation with in-line .json."/>

@@ -10,23 +10,23 @@ video-content:
 
 ## Sprite Map Tile Layout
 
-Each sprite map is comprised of tiles of equal size, filling the output plane and forming a grid. Tiles are identified by their position on the grid. For 36 tiles laid out in 9 rows with 4 columns in each; (0, 0) is the bottom left hand corner tile and (3, 8) the top right hand corner tile. Tiles can be placed on top of one another in layers - more on layers later.
+Each sprite map is composed of tiles of equal size, filling the output plane and forming a grid. Tiles are identified by their position on the grid. For 36 tiles laid out in 9 rows with 4 columns in each, (0, 0) is the bottom left-hand corner tile and (3, 8) is the top right-hand corner tile. Tiles can be placed on top of one another in layers - more on layers later.
 
 ```javascript
 tileID = new Vector2(2, 6);
 ```
 
-Given the frameID (index in frames array) you can set one or more tiles to contain the sprite referenced by this frameID
+Given the frameID (index in the frames array), you can set one or more tiles to contain the sprite referenced by this frameID.
 ```javascript
 spriteMap.changeTiles(layerID, tileID, frameID) //Change one tile
 spriteMap.changeTiles(layerID, [tileID0, tileID1, ... tileIDn], frameID); //Change multiple tiles to sprite at frameID
 ```
 
-When you are going to make multiple changes using just one frameID then passing the tileIDs in an array is optimal. It prevents the buffers having to be updated for each tile instead of in batches. 
+If you are going to make multiple changes using just one frameID, passing the tileIDs in an array is optimal. It prevents the buffers from having to be updated for each tile instead of in batches.
 
 Change a whole row of stones to Roman columns <Playground id="#YCY2IL#20" title="Sprite Map Tile Layout" description="Simple example showing sprite map tile layouts."/>
 
-You will often find the need for a blank tile. We recommend that you find a single transparent pixel on your packed spritesheet file You can reference this in JSON file.  
+You will often need a blank tile. We recommend that you find a single transparent pixel in your packed spritesheet file. You can reference this in the JSON file.  
 
 In the spritesheet file used in these docs there is a transparent pixel at x = 221, y = 221 so we make a cell frame of width = height = 1 and maintain the same source sizes as the other frames. Adding the following to your JSON gives a blank tile.
 ```

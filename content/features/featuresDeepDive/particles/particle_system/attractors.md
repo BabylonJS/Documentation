@@ -26,4 +26,4 @@ You can change the position or the strength of an attractor at any time.
 
 To remove an attractor, simply call `particleSystem.removeAttractor(attractor)`.
 
-Finally, if you want to get a **readonly** list of attractors attached to a particle system, you can use the `particleSystem.attractors` property.
+Finally, if you want to get a **read-only** list of attractors attached to a particle system, you can use the `particleSystem.attractors` property.

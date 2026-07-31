@@ -10,17 +10,17 @@ video-content:
 
 ## Prerequisites
 
-Clone the repo https://github.com/RolandCsibrei/babylonjs-vue-messages-driven-scene and install. Instructions can be found on the repo's home page.
+Clone the repo at https://github.com/RolandCsibrei/babylonjs-vue-messages-driven-scene and install it. Instructions can be found on the repo's home page.
 
 You can also check the application running at https://babylonjs.nascor.tech/scene-director/
 
 ## The problem
 
-If you are exposing BabylonJS objects and you are manipulating them directly with Vue, you will sooner or later end up with very low FPS caused by multiple redraws of the scene. The reason is that you mess up something with Vue's reflectivity and things are being called recurrently.
+If you expose BabylonJS objects and manipulate them directly with Vue, you will sooner or later end up with very low FPS caused by multiple redraws of the scene. The reason is that you interfere with Vue's reactivity and things get called repeatedly.
 
 ## The solution
 
-Do not expose the BabylonJS objects and send always a copy of your objects in your methods or just simply use `JSON` for your data.
+Do not expose BabylonJS objects, and always send a copy of your objects in your methods, or simply use `JSON` for your data.
 
 ## Choosing JSON?
 
@@ -30,11 +30,11 @@ Having everything in JSON opens up new possibilities, so we can leverage a messa
 
 ## The idea behind messaging
 
-We don't want our Vue code to know about BabylonJS implementation details, we want methods, we can call, which will ensure the required tasks to be done. Let's jump to the example project, it will be easier to follow how the data is passed and received.
+We don't want our Vue code to know about BabylonJS implementation details. We want methods we can call that ensure the required tasks are done. Let's jump to the example project; it will be easier to follow how the data is passed and received.
 
 ## The Marble example
 
-This examples uses Mitt bus (https://github.com/developit/mitt), but you can use any messaging bus. In Vue2 you can use `new Vue()` to create a bus.
+This example uses the Mitt bus (https://github.com/developit/mitt), but you can use any messaging bus. In Vue 2, you can use `new Vue()` to create a bus.
 
 ![](/img/resources/vue/vue-messages-01.webp)
 
@@ -47,7 +47,7 @@ This examples uses Mitt bus (https://github.com/developit/mitt), but you can use
 
 ## The Bus
 
-Now that we can use messaging to communicate between Vue and BabylonJS, how about to have this communication `async`, so for example the method called by Vue can `await` a method, which runs on BabylonJS code. We can simply create an async wrapper around the synchronous bus.
+Now that we can use messaging to communicate between Vue and BabylonJS, how about making this communication `async`, so that, for example, a method called by Vue can `await` a method running in BabylonJS code? We can simply create an async wrapper around the synchronous bus.
 
 Let's introduce an interface for our message bus. I will show you only the `AsyncBus` implementation. The synchronous bus is pretty much the same. This interface must be implemented by our bus.
 
@@ -61,7 +61,7 @@ as seen in `AsyncBus.ts` it implements this interface.
 
 ## The Scene Director
 
-The Scene Director is a simple method-call-to-message converter, so your Vue code calls code on the `SceneDirector` which creates message(s) and sends it(them) using our `AsyncBus` and as far as our BabylonJS scene is interested in a message, (it is subscribed to process a particular message, basically at low level this is calling `Mitt.$on(messageType, callback)`, it gets executed. When the execution finishes, the BabylonJS scene have to notify the Scene Director, that it has finished execution. The Scene Director `awaits` for every send message with a response message with the specific message type of `SceneDirectorEventBusMessages.SceneDirectorCommandFinished` with additional information about the executed command, including the return value in `payload`. Don't worry there are helpers methods and the usage is very easy.
+The Scene Director is a simple method-call-to-message converter. Your Vue code calls methods on the `SceneDirector`, which creates messages and sends them using our `AsyncBus`. As long as our BabylonJS scene is interested in a message (that is, it is subscribed to process a particular message—basically, this calls `Mitt.$on(messageType, callback)` at a low level), it gets executed. When execution finishes, the BabylonJS scene has to notify the Scene Director that it has finished. The Scene Director `awaits` every sent message by listening for a response with the specific message type `SceneDirectorEventBusMessages.SceneDirectorCommandFinished`, along with additional information about the executed command, including the return value in `payload`. Don't worry—there are helper methods, and the usage is very easy.
 
 Let's jump to Vue!
 
@@ -71,32 +71,32 @@ This example uses `App.vue` for the whole UI, but you should not put everything 
 
 ![](/img/resources/vue/vue-messages-04.webp)
 
-First of all you have to import our `SceneDirector` class and create an instance so you can call it's methods.
+First of all, you have to import our `SceneDirector` class and create an instance so you can call its methods.
 
 ![](/img/resources/vue/vue-messages-05.webp)
 
-The example application comes with three methods. As you can see, all methods are `async`. I marked some `void`, because I just don't want to `await` methods returning `void` for now. However the `getMeshnames` method has a return type of `string[]` and I am interested in the result, so I must use `await` here.
+The example application comes with three methods. As you can see, all methods are `async`. I marked some methods as `void` because I just don't want to `await` methods returning `void` for now. However, the `getMeshnames` method has a return type of `string[]`, and I am interested in the result, so I must use `await` here.
 
 ## Scene Director methods
 
-Ok, so let's se our method implementation in the Scene Director.
+OK, so let's see our method implementation in the Scene Director.
 ![](/img/resources/vue/vue-messages-06.webp)
 
-All we do here is calling a helper method called `asyncCommand`
+All we do here is call a helper method called `asyncCommand`.
 
 ![](/img/resources/vue/vue-messages-07.webp)
 
-where we need to specify the message type and if we have something to send, the `payload`.
+where we need to specify the message type and, if we have something to send, the `payload`.
 
 ## Message types
 
-We have to specify, what messages are we going to send through our bus, so we have this:
+We have to specify what messages we are going to send through our bus, so we have this:
 
 ![](/img/resources/vue/vue-messages-08.webp)
 
-There are two types of messages, just for better readability, you can put them under one enum if you like so. `SceneDirectorEventBusMessages`, these are sent by Vue towards BabylonJS and obviously the second one is moving from BabylonJS towards Vue.
+There are two types of messages. This is just for better readability—you can put them under one enum if you like. `SceneDirectorEventBusMessages` are sent from Vue to BabylonJS, and obviously the second one moves from BabylonJS toward Vue.
 
-It is a good idea not to create a message type for every single action, for example you are not going to create a message `LookLeft` and a `LookRight`, but you will create a message `LookAt` and call it with a parameter, however in your `SceneDirector` you can have two separate methods, so Vue just calls `LookLeft` or `LookRight` and the `SceneDirector` send a message `LookAt` with a parameter \{ rot: - Math.PI / 2 \} or \{ rot: Math.PI / 2 \} which will set the cameras `alpha` for example.
+It is a good idea not to create a message type for every single action. For example, you are not going to create a `LookLeft` message and a `LookRight` message. Instead, you will create a `LookAt` message and call it with a parameter. However, in your `SceneDirector` you can still have two separate methods, so Vue just calls `LookLeft` or `LookRight`, and the `SceneDirector` sends a `LookAt` message with a parameter like \{ rot: - Math.PI / 2 \} or \{ rot: Math.PI / 2 \}, which will set the camera's `alpha`, for example.
 
 ## BabylonJS scene
 
@@ -114,13 +114,13 @@ As seen on the screenshot above, every mapped method receives a command. The `pa
 
 ![](/img/resources/vue/vue-messages-11.webp)
 
-The very important thing here is to call `this.commandFinished(sceneDirectorCommand)` after you method has finished. If you started an animation and want to wait for it, no problem, just call `this.commandFinished(sceneDirectorCommand)` in your animation end callback.
+The very important thing here is to call `this.commandFinished(sceneDirectorCommand)` after your method has finished. If you started an animation and want to wait for it, no problem—just call `this.commandFinished(sceneDirectorCommand)` in your animation end callback.
 
 If you want to send a message towards Vue, you can use
 
 ![](/img/resources/vue/vue-messages-12.webp)
 
-where `this.emitCommand` is just a helper method
+where `this.emitCommand` is just a helper method.
 
 ![](/img/resources/vue/vue-messages-13.webp)
 
@@ -128,7 +128,7 @@ and don't forget to register your message in `SceneDirector` (`MySceneDirector` 
 
 ![](/img/resources/vue/vue-messages-14.webp)
 
-Unregistering events is a must also :) Just take your time :slight_smile:
+Unregistering events is also a must :) Just take your time :slight_smile:
 
 ## Vue ref
 
@@ -140,25 +140,25 @@ what is a simple `ref`:
 
 ![](/img/resources/vue/vue-messages-16.webp)
 
-and whenever a `MarbleSelected` message arrives we just set the ref's `value`
+and whenever a `MarbleSelected` message arrives, we just set the ref's `value`.
 
 ![](/img/resources/vue/vue-messages-17.webp)
 
-**You should always prefer loosely coupled architecture of your solution, so you would rather use a callback instead of ref so you don't have to reference any Vue object in SceneDirector**. That way you could change Vue for any other framework and you don't have to rewrite any BJS related method. The Vue `ref` is used here just as an example of how to use refs. However if you are going to stick with Vue, `ref` is the way.
+**You should always prefer a loosely coupled architecture for your solution, so you would rather use a callback instead of a ref and avoid referencing any Vue object in SceneDirector**. That way, you could replace Vue with any other framework and would not have to rewrite any BJS-related method. The Vue `ref` is used here only as an example of how to use refs. However, if you are going to stick with Vue, `ref` is the way to go.
 
 ## The example app
 
 ![](/img/resources/vue/vue-messages-18.webp)
 
-The app creates 40 marbles on startup. You can add a marble by entering its name to the text input and hit Add marble. Remove marbles will remove some of the marbles with each click. The last button will query the scene for all mesh names in the scene and will print it out to the console. The methods are described above in the ##Vue page## section.
+The app creates 40 marbles on startup. You can add a marble by entering its name in the text input and clicking Add marble. The Remove marbles button will remove some of the marbles with each click. The last button will query the scene for all mesh names and print them to the console. The methods are described above in the ##Vue page## section.
 
 ## WebWorkers
 
-So we have a message drive scene?! You can easily move your BabylonJS scene to a WebWorker!! Or you can control your scene by external messages, for example a light sensors can deliver messages for controlling `light.intensity` on BabylonJS lights...
+So we have a message-driven scene?! You can easily move your BabylonJS scene to a WebWorker!! Or you can control your scene with external messages—for example, light sensors can deliver messages for controlling `light.intensity` on BabylonJS lights...
 
 ## Message flow logged in the console
 
-Example of a `getMeshNames` message flow from the `SceneDirector` to `MarbleScene` and back to `SceneDirector` and finally gets `console.logged` in `App.vue`
+Example of a `getMeshNames` message flow from the `SceneDirector` to `MarbleScene` and back to `SceneDirector`, where it finally gets `console.logged` in `App.vue`:
 
 ![](/img/resources/vue/vue-messages-19.webp)
 

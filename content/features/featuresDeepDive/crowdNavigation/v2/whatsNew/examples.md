@@ -1,7 +1,7 @@
 ---
-title: Examples how to use the NavigationPlugin V2
+title: Examples of how to use the NavigationPlugin V2
 image:
-description: Examples how to use NavigationPlugin V2
+description: Examples of how to use NavigationPlugin V2
 keywords: extensions, babylon.js, crowd, addons, navigation
 further-reading:
 video-overview:

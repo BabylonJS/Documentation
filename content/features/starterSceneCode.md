@@ -8,11 +8,11 @@ video-overview:
 video-content:
 ---
 
-The online Playground allows you to quickly experiment with a 3D scene using Babylon.js. All the code is written inside the **createScene** function which must return a scene. A scene, camera and light must always be present. Displaying the scene is all done by the Playground. No need to load or run the babylon.js Engine as this is all done for you, in the background.
+The online Playground allows you to quickly experiment with a 3D scene using Babylon.js. All the code is written inside the **createScene** function, which must return a scene. A scene, camera, and light must always be present. Displaying the scene is all done by the Playground. There is no need to load or run the Babylon.js Engine, as this is all done for you in the background.
 
 
 ### Playground Example
-In this playground a sphere and a ground have been created. Try changing the diameter of the sphere or the width of the ground. After any editing just select the run button &#x25B6; to rebuild the scene.  
+In this playground, a sphere and a ground mesh have been created. Try changing the diameter of the sphere or the width of the ground. After any editing, just select the run button &#x25B6; to rebuild the scene.  
 
 <Playground id="#WJXQP0" title="Basic Playground" description="CreateScene Playground." />  
 

@@ -8,16 +8,15 @@ video-overview:
 video-content:
 ---
 
-One straight forward method of combining a number of clips to form a cartoon is to give start times to each animation clip.
+One straightforward method of combining a number of clips to form a cartoon is to give start times to each animation clip.
 
 ## Design
 
 ### Overview
 
-The camera shows a building with a door. The camera moves closer to the door and stops. The door swings open and the camera enters the room. As the camera enters the room
-lights come on in the room. The door closes and the camera sweeps around the room.
+The camera shows a building with a door. The camera moves closer to the door and stops. The door swings open and the camera enters the room. As the camera enters the room, lights come on in the room. The door closes and the camera sweeps around the room.
 
-Since the aim is to show how the movie clip is made the room and door will be simply made with meshes with no textures.
+Since the aim is to show how the movie clip is made, the room and door will be made simply with meshes and no textures.
 
 ### Performers
 
@@ -34,14 +33,14 @@ For each performer you create an animation with key points for each timed event.
 ### Animations
 
 _For the Camera_  
-Moving the camera changes the position (a vector3) of the camera. Sweeping the camera around is a rotation around the y axis (a float).
+Moving the camera changes the position (a Vector3) of the camera. Sweeping the camera around is a rotation around the y axis (a float).
 
-Since an animation can only change one property two animations are needed for the camera.
+Since an animation can only change one property, two animations are needed for the camera.
 
-Moving the camera the key points will be at time 0 the camera will start away from the building and move towards and down until it is just outside the door at time 3 seconds.  
+For the camera movement, the key points will be: at time 0 the camera starts away from the building and moves toward and down until it is just outside the door at time 3 seconds.  
 The camera will hold its position for 2 seconds as the door opens then at time 5 seconds will move forward into the room at an angle away from the door, stopping at time 8 seconds.
 
-There will be no rotation of the camera for 9 seconds then camera will take until time 14 seconds to rotate 180 degrees to face the door.
+There will be no rotation of the camera for 9 seconds, then the camera will take until time 14 seconds to rotate 180 degrees to face the door.
 
 Key values for the camera will be its positions at frames 0, 3, 5 and 8 seconds and its rotation at 0, 9 and 14 seconds.
 
@@ -97,11 +96,11 @@ rotate.setKeys(rotate_keys);
 ```
 
 _For the door_  
-The door will sweep around a hinge about the y axis a floatin point rotation. The opening and closing rotations will each take 2 seconds.
+The door will sweep around a hinge about the y axis with a floating-point rotation. The opening and closing rotations will each take 2 seconds.
 
-Key points will be a times 0, 3, 5, and 13 and 15 seconds.
+Key points will be at times 0, 3, 5, 13, and 15 seconds.
 
-Key values for the sweep will be its rotation about the y axis at frames.
+Key values for the sweep will be its rotation about the y axis at the key frames.
 
 ```javascript
 //for door to open and close
@@ -138,9 +137,9 @@ sweep.setKeys(sweep_keys);
 ```
 
 _For Lights_
-The lights will vary in intensity (float). These will be an array of spot lights.
+The lights will vary in intensity (float). These will be an array of spotlights.
 
-Key points for lights are remaining off for 7 seconds, coming to full intensity at 10 seconds which stays until going off at 14 seconds.
+Key points for the lights are: remaining off for 7 seconds, coming to full intensity at 10 seconds, and staying there until going off at 14 seconds.
 
 ```javascript
 //for light to brighten and dim
@@ -178,7 +177,7 @@ lightDimmer.setKeys(light_keys);
 
 ## Cartoon
 
-Now just run all the clips simultaneously
+Now just run all the clips simultaneously.
 
 ```javascript
 scene.beginDirectAnimation(camera, [movein, rotate], 0, 25 * frameRate, false);

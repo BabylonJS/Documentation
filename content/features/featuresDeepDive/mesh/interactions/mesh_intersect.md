@@ -18,11 +18,11 @@ In dynamic scenes, objects are moving and interacting with each other. To get th
 
 _Final result_
 
-## How can I do this ?
+## How can I do this?
 
-This tutorial is going to show you two ways of collision detection: the first one is to raise a collision event when two meshes are in contact, the other one is detecting contact between a mesh and a single point.
+This tutorial shows you two ways of detecting collisions: the first is to raise a collision event when two meshes are in contact, and the second is to detect contact between a mesh and a single point.
 
-We are going to talk about the scene above. The first and second sphere (balloon) will collide on the rotated ground, the last one will be in collision only on a single point. Once you have created this basic scene, continue reading to learn how to check collisions.
+We are going to talk about the scene above. The first and second spheres (balloons) collide on the rotated ground, while the last one collides only at a single point. Once you have created this basic scene, continue reading to learn how to check collisions.
 
 ### Intersect mesh
 
@@ -36,15 +36,15 @@ if (balloon1.intersectsMesh(plan1, false)) {
 }
 ```
 
-To avoid costly calculation by checking many details on a mesh, Babylon engine creates a bounding box around the object, and tests for intersection between this box, and the colliding mesh. Here is an example of a bounding box:
+To avoid costly calculations from checking many details on a mesh, the Babylon.js engine creates a bounding box around the object and tests for intersections between this box and the colliding mesh. Here is an example of a bounding box:
 
 ![Collisions](/img/how_to/Collisions%20Intersect/10-1.png)
 
-But this bounding box can be more or less precise, and that’s why we have our second parameter. In short, if this parameter is set to true (false by default), then the bounding box is closer to the mesh (OBB bounding type), but it’s a more costly calculation. Be aware that this type of bounding box is especially useful when your mesh is rotated to an angle.
+But this bounding box can be more or less precise, and that’s why we have our second parameter. In short, if this parameter is set to `true` (`false` by default), then the bounding box is closer to the mesh (OBB bounding type), but it is a more costly calculation. Be aware that this type of bounding box is especially useful when your mesh is rotated.
 
 ![Collisions](/img/how_to/Collisions%20Intersect/10-2.png)
 
-So think about the collisions details you need before to choose.
+So think about the collision precision you need before choosing.
 
 If you want more information about this second parameter, you can have a look at this Wikipedia page, especially about AABB and OBB mode: [https://en.wikipedia.org/wiki/Bounding_volume](https://en.wikipedia.org/wiki/Bounding_volume)
 
@@ -59,6 +59,6 @@ if (balloon3.intersectsPoint(pointToIntersect)){
 }
 ```
 
-We defined a precise point in our scene, and if our balloon intersects this point, wherever on the balloon, then the event is raised and we change the color of the balloon.
+We defined a precise point in our scene, and if our balloon intersects this point anywhere on the balloon, the condition is met and we change the color of the balloon.
 
 You can play with the code used in this tutorial... by visiting the playground here: <Playground id="#KQV9SA" title="Mesh Intersection Example" description="Simple example of mesh intersections." isMain={true} category="Mesh"/>

@@ -14,7 +14,7 @@ video-content:
 
 ## Different meshes for multiple cameras using layer masks
 
-A `layerMask` is a number assigned to each mesh and camera. It is used at the bit level to indicate whether lights and cameras should shine-upon or show the mesh. The default value, 0x0FFFFFFF, will cause the mesh to be illuminated and shown by any stock light and camera. To determine if a mesh is seen by a camera, a [bitwise AND](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND) is performed and the result is compared to zero:
+A `layerMask` is a number assigned to each mesh and camera. It is used at the bit level to indicate whether lights and cameras should affect or show the mesh. The default value, 0x0FFFFFFF, causes the mesh to be illuminated and shown by any default light and camera. To determine whether a mesh is seen by a camera, a [bitwise AND](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND) is performed and the result is compared to zero:
 
 ```javascript
 (mesh.layerMask & camera.layerMask) !== 0;
@@ -22,9 +22,9 @@ A `layerMask` is a number assigned to each mesh and camera. It is used at the bi
 
 The feature is used primarily when multiple cameras are active at the same time. If you wish to have a mesh that is always visible on the screen and pickable, e.g. a button, you might add a second camera and light to the scene to exclusively show and light it.
 
-You'll need the 2nd camera to ONLY see the button. The button should also only be visible once.
+You'll need the second camera to see ONLY the button. The button should also only be visible once.
 
-Notice that the default `layerMask` starts with the first 4 bits being 0, or off. If the 2nd camera and button were to both have a `layerMask` with one of the 4 values below, then the 2nd camera would only see the button:
+Notice that the default `layerMask` starts with the first 4 bits set to 0, or off. If the second camera and button both have a `layerMask` with one of the four values below, then the second camera will only see the button:
 
 - 0x10000000
 - 0x20000000
@@ -33,7 +33,7 @@ Notice that the default `layerMask` starts with the first 4 bits being 0, or off
 
 It should also be noted that a mesh with a `layerMask` of 0 can never be seen by anyone. This might be good for hiding things.
 
-To setup for multi-cameras:
+To set up multiple cameras:
 
 ```javascript
 if (scene.activeCameras.length === 0){
@@ -51,7 +51,7 @@ Button.layerMask = 0x10000000;
 
 ## Lights
 
-Unless the material of the meshes for the 2nd camera is purely emissive, this still leaves any light for the button illuminating all the other meshes, and other lights in the scene illuminating the button. To keep scene lights from illuminating the button, loop through the existing lights, and set the excludeWithLayerMask value:
+Unless the material of the meshes for the second camera is purely emissive, this still leaves any light for the button illuminating all the other meshes, and other lights in the scene illuminating the button. To keep scene lights from illuminating the button, loop through the existing lights and set the `excludeWithLayerMask` value:
 
 ```javascript
 for (let i = scene.lights.length - 1; i >= 0; i--) {
@@ -66,7 +66,7 @@ const light = new BABYLON.Light(...);
 light.includeOnlyWithLayerMask = 0x10000000;
 ```
 
-Finally, if there may be more lights generated later, you can register a call-back when a light is added:
+Finally, if more lights may be generated later, you can register a callback when a light is added:
 
 ```javascript
 scene.onNewLightAdded = onNewLight;
@@ -82,9 +82,9 @@ onNewLight = function (newLight, positionInArray, scene) {
 
 ## Gun Sight Crosshair Example
 
-Here is a simple example of using a 2nd orthographic camera that shows a gun sight. To keep it simple, emissive material was used to avoid lighting it. Just copy and paste it into any scene, then call it. The `layerMask` chosen also allows Babylon's Dialog extension to inter-operate. Perhaps these could be combined to do a heads-up tank sight with a rangefinder.
+Here is a simple example of using a second orthographic camera that shows a gun sight. To keep it simple, an emissive material was used so no lighting is needed. Just copy and paste it into any scene, then call it. The chosen `layerMask` also allows Babylon's Dialog extension to interoperate. Perhaps these could be combined to create a heads-up tank sight with a rangefinder.
 
-A commercial-quality implementation would probably not use `CreateBox()`, since it creates depth faces that cannot be seen straight-on anyway. It should also take into account a window size change unless it is a tablet app.
+A commercial-quality implementation would probably not use `CreateBox()`, since it creates depth faces that cannot be seen straight-on anyway. It should also account for window size changes unless it is a tablet app.
 
 ```javascript
 function addGunSight(scene) {

@@ -1,7 +1,7 @@
 ---
 title: Gaussian Splatting
 image:
-description: Learn how use Gaussian Splatting.
+description: Learn how to use Gaussian Splatting.
 keywords: diving deeper, meshes, gaussian, splatting, nerf
 further-reading:
 video-overview:
@@ -10,14 +10,14 @@ video-content:
 
 ## What is Gaussian Splatting?
 
-Gaussian Splatting is a volume rendering method. It's useful to capture real-life data. The difference with other technics like photogrammetry is the end result consists in a point cloud with each point rendered as a semi transparent ellipsoid projected onto a billboard. Gaussian Splatting is more suitable for rendering reflective and transparent surfaces.
+Gaussian Splatting is a volume-rendering method. It's useful for capturing real-life data. Unlike other techniques such as photogrammetry, the end result consists of a point cloud in which each point is rendered as a semi-transparent ellipsoid projected onto a billboard. Gaussian Splatting is better suited to rendering reflective and transparent surfaces.
 
 ## Supported formats
 
-Supported formats are :
+Supported formats are:
 
 - .PLY https://en.wikipedia.org/wiki/PLY_(file_format)
-- .splat that is Javascript types serialized version of .PLY datas
+- .splat, which is a JavaScript typed-array serialized version of .PLY data
 - Niantic Labs .spz format https://scaniverse.com/news/spz-gaussian-splat-open-source-file-format
 - .SOG/SOGS Self-Organizing Gaussian https://github.com/fraunhoferhhi/Self-Organizing-Gaussians
 
@@ -44,21 +44,21 @@ plyTriangularSplatmesh.material = material;
 
 ## Loading a Gaussian Splatting
 
-Load asynchronously the splat or PLY file like any other supported file format:
+Load the splat or PLY file asynchronously, like any other supported file format:
 
 ```javascript
 BABYLON.ImportMeshAsync("https://assets.babylonjs.com/splats/gs_Skull.splat", scene).then((result) =>{
     const gaussianSplattingMesh = result.meshes[0]; });
 ```
 
-**Note: Gaussian splatting files do not have a standard on handness or orientation. No space change operation will happen. Some scene might appear updside down or mirrored.**
+**Note: Gaussian splatting files do not have a standard for handedness or orientation. No space-change operation will occur. Some scenes might appear upside down or mirrored.**
 
 <Playground id="#M05L0C#0" title="Nianticlabs .SPZ examples need a rotation." description="Nianticlabs .SPZ examples up is not the same as Babylon.js default."/>
 
-## Updating datas of a Gaussian Splatting
+## Updating data in Gaussian Splatting
 
-User can update or generate new Splats with the `updateData`method.
-Mandatory values are splat center position, size, orientation and color.
+Users can update or generate new splats with the `updateData` method.
+The required values are the splat center position, size, orientation, and color.
 The following example updates the Gaussian Splatting with 1 single splat.
 
 ```javascript
@@ -97,10 +97,10 @@ uBuffer[24 + 3] = 255;
 gs.updateData(uBuffer);
 ```
 
-## Updating and downloading datas of a Gaussian Splatting
+## Updating and downloading Gaussian Splatting data
 
-An access to the kept in memory splats data allows to modify loaded splats and download it after.
-A simple call to `updateData` will show the change.
+Access to the in-memory splat data allows you to modify loaded splats and download them afterward.
+A simple call to `updateData` will make the change visible.
 
 ```javascript
 function modifyMesh(gs) {
@@ -161,7 +161,7 @@ To enable this workflow:
 
 The addPart method returns a mesh instance, which can then be independently transformed or otherwise manipulated (e.g., positioning, scaling, animation) while still participating in the global splat sorting.
 
-**Note: User is responsible to check the maximum part count that can be displayed but a Gaussian Splatting.**
+**Note: The user is responsible for checking the maximum part count that can be displayed by Gaussian Splatting.**
 
 ```javascript
 const maxPartCount = BABYLON.GetGaussianSplattingMaxPartCount(scene.getEngine());
@@ -244,7 +244,7 @@ gs.material = gsMat;
 gsMat.setSourceMesh(gs);
 ```
 
-Other fragment preprocessors are : 
+Other fragment preprocessors are:
  
 - CUSTOM_FRAGMENT_DEFINITIONS
 - CUSTOM_FRAGMENT_MAIN_BEGIN

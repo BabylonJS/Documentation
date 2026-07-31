@@ -12,17 +12,17 @@ video-content:
 
 ## A bit about augmented reality
 
-The idea behind augmented reality is simple - show the real world, but add information on top of it. As opposed to virtual reality where you are fully immersed in a different scene and have no actual contact to the real world.
+The idea behind augmented reality is simple - show the real world, but add information on top of it. This is different from virtual reality, where you are fully immersed in a different scene and have no actual contact with the real world.
 
-## Getting started with Augmented reality
+## Getting started with Augmented Reality
 
 ### WebXR and AR
 
-Augmented reality using Babylon.js heavily relies on WebXR. It's recommended to first start with the [getting started with WebXR](/features/featuresDeepDive/webXR/introToWebXR) guide. Most of the information that is valid for immersive VR sessions is also valid for immersive AR sessions. The few main differences between the two will be explained here.
+Augmented reality in Babylon.js relies heavily on WebXR. It's recommended that you start with the [getting started with WebXR](/features/featuresDeepDive/webXR/introToWebXR) guide. Most of the information that is valid for immersive VR sessions is also valid for immersive AR sessions. The main differences between the two are explained here.
 
 ### Supported devices
 
-Many devices support immersive AR sessions using WebXR. Most Android devices support it using a chromium-based browser, The hololens 2 supports it in its native browser, and quest devices supporting passthrough mode will run an AR session as well. New devices are constantly added to this list. The best way to check is it to use the static `IsSessionSupported` function, available on the WebXR session manager.
+Many devices support immersive AR sessions using WebXR. Most Android devices support it in a Chromium-based browser, HoloLens 2 supports it in its native browser, and Quest devices that support passthrough mode can run an AR session as well. New devices are constantly added to this list. The best way to check is to use the static `IsSessionSupported` function, available on the WebXR session manager.
 
 Mobile phones using Android support immersive AR sessions on Chrome (Stable/Canary). Note that you will need to install [AR Core](https://play.google.com/store/apps/details?id=com.google.ar.core), otherwise it will be a very short experience.
 
@@ -59,13 +59,13 @@ var createScene = async function () {
 
 Playground for a simple immersive AR scene: <Playground id="#F41V6N#32" title="Simple Immersive AR Scene" description="Simple example of an immersive AR scene."/>
 
-Notice that no environment was created. As opposed to immersive VR sessions, AR doesn't require a skybox or ground. If you want to define ground and remove it when entering AR (for example if you develop an experience for both desktop and AR) you can use the background remover feature, defined later in this page.
+Notice that no environment was created. As opposed to immersive VR sessions, AR doesn't require a skybox or ground. If you want to define ground and remove it when entering AR (for example, if you are developing an experience for both desktop and AR), you can use the background remover feature described later on this page.
 
 ## Features
 
 Some features require the Incubation flag in the latest Chrome Canary. Visit [chrome://flags](chrome://flags) and enable WebXR incubation.
 
-You will then need to ask WebXR to enable this feature. this can be done using the optionalFeature parameter in the default experience helper:
+You will then need to ask WebXR to enable this feature. This can be done using the `optionalFeatures` parameter in the default experience helper:
 
 ```javascript
 const xr = await scene.createDefaultXRExperienceAsync({
@@ -89,9 +89,9 @@ const xr = await scene.createDefaultXRExperienceAsync({
 
 ### Hit Test
 
-Hit Test is used for sending a ray into the real world and receiving information about intersection in space. You can read about it in the [Hit Test w3c draft](https://immersive-web.github.io/hit-test/). Think about a ray that is broadcasted from your phone's screen towards to object you are looking for. If the device's AR capabilities allows it, it will let you know the position and orientation of the point relative to you.
+Hit Test is used to send a ray into the real world and receive information about intersections in space. You can read about it in the [Hit Test w3c draft](https://immersive-web.github.io/hit-test/). Think of it as a ray broadcast from your phone's screen toward the object you are looking for. If the device's AR capabilities allow it, it will tell you the position and orientation of the point relative to you.
 
-To enable hit-testing, add this after initializing XR
+To enable hit-testing, add this after initializing XR:
 
 ```javascript
 // featuresManager from the base webxr experience helper
@@ -135,7 +135,7 @@ export interface IWebXRHitTestOptions {
 }
 ```
 
-`disablePermanentHitTest` will disable the constant hit-testing, while `enableTransientHitTest` will enable hit-tests when touching the screen. The “offsets” define the offset from which the ray will be sent (relative to the center of the device's view).
+`disablePermanentHitTest` will disable constant hit testing, while `enableTransientHitTest` will enable hit tests when touching the screen. The offsets define the offset from which the ray will be sent (relative to the center of the device's view).
 
 After enabling the feature, you can register to get updates using the `onHitTestResultObservable`:
 
@@ -200,13 +200,13 @@ export interface IWebXRAnchorSystemOptions {
 
 Anchors are removed when exiting the XR session (note that the anchors get removed, not the meshes that are attached to them), which is the recommended behavior, as anchors cannot be referenced between sessions.
 
-If you want to prevent that from happening, use the `doNotRemoveAnchorsOnSessionEnded` when initializing the anchor system:
+If you want to prevent that from happening, use the `doNotRemoveAnchorsOnSessionEnded` option when initializing the anchor system:
 
 ```javascript
 const anchorSystem = featuresManager.enableFeature(BABYLON.WebXRAnchorSystem, "latest", { doNotRemoveAnchorsOnSessionEnded: true });
 ```
 
-The Anchor system fits perfectly to the Hit Test feature if you want to add an anchor at a hit-test position. To do that use the `addAnchorPointUsingHitTestResultAsync` function:
+The Anchor system works perfectly with the Hit Test feature if you want to add an anchor at a hit-test position. To do that, use the `addAnchorPointUsingHitTestResultAsync` function:
 
 ```javascript
 const arTestResult = getMeTheResultINeed();
@@ -260,7 +260,7 @@ export interface IWebXRAnchor {
 }
 ```
 
-To attach an anchor to a node (for example a mesh that you want to always be in this location in the scene) use the `attachedNode` variable. This will also update the mesh's transformation when the anchor is updated:
+To attach an anchor to a node (for example, a mesh that you want to always stay in this location in the scene), use the `attachedNode` variable. This will also update the mesh's transformation when the anchor is updated:
 
 ```javascript
 const mesh = anchorSystem.onAnchorAddedObservable.add((anchor) => {
@@ -271,7 +271,7 @@ const mesh = anchorSystem.onAnchorAddedObservable.add((anchor) => {
 
 The mesh will now be tracked by the system and will be located at the requested point.
 
-You might ask yourself why use the anchor system with hit-test results, as hit-test results are returned by the system with a position defined by the device. Setting the mesh at the hit-test's location will work just fine. The difference is that the system might update the information it has about this position - maybe it found out the plane is at a different transformation, maybe it updated its position in space. Using the anchor system will keep the transformation updated even when the system updated its knowledge of the space.
+You might ask why use the anchor system with hit-test results, since hit-test results are returned by the system with a position defined by the device. Setting the mesh at the hit-test location will work just fine. The difference is that the system might later update the information it has about this position—maybe it found out the plane has a different transformation, or maybe it updated its position in space. Using the anchor system keeps the transformation updated as the system updates its understanding of the space.
 
 ### Plane detection
 
@@ -284,7 +284,7 @@ Babylon has an experimental plane detection module that works with the underlyin
 const planeDetector = featuresManager.enableFeature(BABYLON.WebXRPlaneDetector, "latest");
 ```
 
-Just like any module you can configure it using the options object, which is of this type:
+Just like any other module, you can configure it using the options object, which has this type:
 
 ```typescript
 export interface IWebXRPlaneDetectorOptions {
@@ -301,7 +301,7 @@ export interface IWebXRPlaneDetectorOptions {
 }
 ```
 
-Similar to the anchor system, planes do not stay between sessions. If you want to keep the native XRPlane objects, set the `doNotRemovePlanesOnSessionEnded` to true, and Babylon will not delete them.
+Similar to the anchor system, planes do not persist between sessions. If you want to keep the native `XRPlane` objects, set `doNotRemovePlanesOnSessionEnded` to true, and Babylon will not delete them.
 
 The plane detector works automatically and offers three observables for you to use:
 
@@ -319,7 +319,7 @@ planeDetector.onPlaneUpdatedObservable.add((plane) => {
 });
 ```
 
-The plane object is of type IWebXRPlane:
+The plane object is of type `IWebXRPlane`:
 
 ```typescript
 export interface IWebXRPlane {
@@ -363,11 +363,11 @@ A simple use case for planes is showing them in your scene using polygons. An ex
 
 ### Background remover
 
-When in AR you want to avoid environment meshes like a skybox and a ground (unless it was your goal to keep them). If you are creating a scene that should work on both regular devices and in AR, you will want the ability to disable certain meshes when entering AR, and re-enabling them when leaving AR. This module does exactly that. It receives a list of meshes, and disables/enables them when needed.
+When in AR, you usually want to avoid environment meshes like a skybox and a ground (unless your goal is to keep them). If you are creating a scene that should work on both regular devices and in AR, you will want the ability to disable certain meshes when entering AR and re-enable them when leaving AR. This module does exactly that. It receives a list of meshes and disables or enables them when needed.
 
 When using the Babylon environment helper, the module can do the work for you automatically. In that case, the skybox and ground will be automatically removed if you enabled the feature.
 
-To enable it use:
+To enable it, use:
 
 ```javascript
 const xrBackgroundRemover = featuresManager.enableFeature(BABYLON.WebXRBackgroundRemover);
@@ -402,7 +402,7 @@ export interface IWebXRBackgroundRemoverOptions {
 }
 ```
 
-For example if you want the module to remove only the skybox and not the ground, when using the environment helper, enable the feature this way:
+For example, if you want the module to remove only the skybox and not the ground when using the environment helper, enable the feature this way:
 
 ```javascript
 const xrBackgroundRemover = featuresManager.enableFeature(BABYLON.WebXRBackgroundRemover, "latest", {
@@ -415,11 +415,11 @@ const xrBackgroundRemover = featuresManager.enableFeature(BABYLON.WebXRBackgroun
 
 ### DOM Overlay
 
-When in AR mode you may want to have a DOM element shown.
+When in AR mode, you may want to show a DOM element.
 
-When enabling the DOM overlay feature `element` is the only required option and can be either a DOM element or a string (using first element returned when passed to `document.querySelector`).
+When enabling the DOM overlay feature, `element` is the only required option and can be either a DOM element or a string (using the first element returned when passed to `document.querySelector`).
 
-The final parameter of `enableFeature` may be important for you and can set this feature as optional.
+The final parameter of `enableFeature` may be important to you because it can set this feature as optional.
 
 ```javascript
 const featuresManager = xr.baseExperience.featuresManager;
@@ -442,11 +442,11 @@ The latest options can be found in the [WebXR DOM overlay feature's source code]
 
 ### WebXR Light estimation
 
-When enabling the Light Estimation feature, WebXR will start analyzing the scene and will provide the developer with light estimation data that can be used to make the scene look more realistic.
+When enabling the Light Estimation feature, WebXR will start analyzing the scene and provide the developer with light estimation data that can be used to make the scene look more realistic.
 
 For example, when placing an element on the floor, it could provide the light direction for more realistic shadows, and the environment map for more realistic reflections.
 
-The idea is that the underlying system provides us with a lot of details that allow us to “match” the object we are placing with the real world. Light estimation can provide us:
+The idea is that the underlying system provides us with many details that allow us to “match” the object we are placing with the real world. Light estimation can provide us with:
 
 - Light color (and intensity)
 - Light direction
@@ -454,7 +454,7 @@ The idea is that the underlying system provides us with a lot of details that al
 - Spherical harmonics coefficients
 - Happiness
 
-The data is only provided per frame if requested by the developer. This allows adjusting performance on older/slower devices. When enabling light estimation you can provide the following options:
+The data is provided per frame only if requested by the developer. This helps manage performance on older or slower devices. When enabling light estimation, you can provide the following options:
 
 ```typescript
 export interface IWebXRLightEstimationOptions {
@@ -499,7 +499,7 @@ export interface IWebXRLightEstimationOptions {
 }
 ```
 
-Note that all the following demos are meant to work incorrectly while not in AR mode!
+Note that all the following demos are expected to work incorrectly when not in AR mode!
 
 This demo shows how to use the light estimation feature to create a directional light source including shadows and environment map:
 
@@ -544,13 +544,13 @@ const lightEstimationFeature = featuresManager.enableFeature(BABYLON.WebXRFeatur
 });
 ```
 
-This will update both the light data itself and the environment cube map every second (instead of every time notifies us that the data has changed).
+This will update both the light data itself and the environment cube map every second (instead of every time the system notifies us that the data has changed).
 
 ### Depth Sensing
 
-Depth Sensing can be used for obtaining depth information of cameras. If your device has capabilities such as depth estimation, you can access depth buffer via this feature. For more information, please check the [explainer for WebXR Depth Sensing Module](https://github.com/immersive-web/depth-sensing/blob/main/explainer.md).
+Depth Sensing can be used to obtain depth information from cameras. If your device has capabilities such as depth estimation, you can access the depth buffer through this feature. For more information, please check the [explainer for WebXR Depth Sensing Module](https://github.com/immersive-web/depth-sensing/blob/main/explainer.md).
 
-Enable the Depth Sensing:
+Enable Depth Sensing:
 
 ```javascript
 // featuresManager from the base webxr experience helper
@@ -570,8 +570,8 @@ const depthSensing = featureManager.enableFeature(BABYLON.WebXRFeatureName.DEPTH
 } as BABYLON.IWebXRDepthSensingOptions) as BABYLON.WebXRDepthSensing;
 ```
 
-When you enable depth sensing feature, you have to pass options.
-Options is typed with `IWebXRDepthSensingOptions`.
+When you enable the depth sensing feature, you must pass options.
+The options are typed as `IWebXRDepthSensingOptions`.
 
 ```typescript
 export type WebXRDepthUsage = "cpu" | "gpu";
@@ -612,15 +612,15 @@ export interface IWebXRDepthSensingOptions {
 }
 ```
 
-The depth usage is currently "cpu" or "gpu". You can specify when you initialize this feature. If you specify both, one supported on your device will be selected.
-Some information can be accessed only cpu mode (gpu is also same).
+The depth usage is currently `"cpu"` or `"gpu"`. You can specify it when you initialize this feature. If you specify both, one supported on your device will be selected.
+Some information can be accessed only in CPU mode.
 
-The data format is currently "ushort" or "float". It describes a data format for buffers and textures.
-Same as depth usage, you can specify when you initialize the feature.
+The data format is currently `"ushort"` or `"float"`. It describes the data format for buffers and textures.
+As with depth usage, you can specify it when you initialize the feature.
 
 Enabling this feature will automatically enable all added materials to be hidden behind real-world objects. If you want to disable this feature, you can set `disableDepthSensingOnMaterials` to `true`.
 
-With this feature, you can access some information like below.
+With this feature, you can access information like this:
 
 ```typescript
 sessionManager.onXRFrameObservable.add(() => {

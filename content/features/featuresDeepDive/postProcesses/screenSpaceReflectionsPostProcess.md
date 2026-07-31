@@ -11,7 +11,7 @@ video-content:
 <span style={{"color": "red"}}>This post process is deprecated starting with v5.48.0! It is superseded by the [Screen Space Reflections Rendering Pipeline](/features/featuresDeepDive/postProcesses/SSRRenderingPipeline).</span>
 
 ## Introduction
-Rendering reflections in real-time can be done using several methods. Each method contains its own pros and cons. For Web technologies, 2 main methods exist:
+Rendering reflections in real time can be done using several methods. Each method has its own pros and cons. For web technologies, two main methods exist:
 * **Using a Mirror Texture**:
     * pros: renders perfect reflections on a plane.
     * cons: limited to one reflection direction and complexity grows according to the scene's geometries.
@@ -32,11 +32,11 @@ You can find a simple example of the SSR post-process in our playground:
 ## Prerequisite
 To render reflections using the SSR post-process, the device must support WebGL 2 or at least the multiple render targets extension for WebGL 1. If not supported, the post-process will just work as a pass-through.
 
-To any reflecting geometry in your scene, the post-process must know what are its "reflectivity" properties. To provide these informations, your reflecting meshes must contain for:
+For any reflective geometry in your scene, the post-process must know its "reflectivity" properties. To provide this information, your reflective meshes must contain:
 * a **Standard Material**: a specular texture. The specular texture will be used to know how much the object reflects for each pixel.
-* a **PBR Material**: a reflectivity texture. The post-process doesn't still support the roughness/metallic properties for instance and will be available in future. That means the post-process takes the reflectivity texture as-is and doesn't compute any metallic/roughness workflow.
+* a **PBR Material**: a reflectivity texture. The post-process still doesn't support the roughness/metallic properties, for instance, but this will be available in the future. That means the post-process takes the reflectivity texture as-is and doesn't compute any metallic/roughness workflow.
 
-In other words, don't forget to assign a specular texture or a reflectivity texture to you material if you want the reflections enabled on it.
+In other words, don't forget to assign a specular texture or a reflectivity texture to your material if you want reflections enabled on it.
 
 ```javascript
 // For a BABYLON.StandardMaterial
@@ -48,7 +48,7 @@ myMaterial.specularTexture = new BABYLON.Texture("textures/specular.png", scene)
 myMaterial.reflectivityTexture = new BABYLON.Texture("textures/reflectivity.png", scene);
 ```
 
-**Note: the SSR post-process is a kind of greedy post-process. It is not intended to work smoothly on low-end devices and requires an enough powerful device.**
+**Note: the SSR post-process is a fairly demanding post-process. It is not intended to work smoothly on low-end devices and requires a powerful enough device.**
 
 ## Creating the SSR post-process
 Just create an instance of BABYLON.ScreenSpaceReflectionPostProcess:
@@ -64,7 +64,7 @@ var ssr = new BABYLON.ScreenSpaceReflectionPostProcess(
 ## Customizing
 
 ## Strength
-The strength is applied on the overall specular/reflectivity informations in the scene and can be customized. The default value for the strength is 1.0 and should be used only if you are looking for a particular result (means that the result will not be realistic).
+The strength is applied to the overall specular/reflectivity information in the scene and can be customized. The default value for the strength is 1.0 and should be changed only if you are looking for a particular result, because the result will not be realistic.
 
 ```javascript
 // Double specular/reflectivity strength.
@@ -84,16 +84,16 @@ ssr.reflectionSpecularFalloffExponent = 4;
 Example playground with an almost equal to 0 exponent: <Playground id="#PIZ1GK#2" title="SSR Falloff Example" description="Simple example falloff in the screen space reflection post process."/>
 
 ## Quality
-The reflections quality can be customized to save performances and should be adjusted to each scene type. 
+The reflection quality can be customized to save performance and should be adjusted for each scene type. 
 
-The post-process is based on ray-tracing algorithms. That means more the post-process picks samples, more the result looks good.
+The post-process is based on ray-tracing algorithms. That means the more samples the post-process takes, the better the result looks.
 
 The quality is defined as:
 * Low: 25 samples.
 * Medium: 50 samples.
 * High: 100 samples.
 
-According to the nature of the scene, the post-process quality can be not necessary perceptible between the medium and high qualities as the ray-tracing algorithm stops once it finds the reflection color. In other words, the high quality will be not be always needed.
+Depending on the scene, the difference between medium and high quality may not be noticeable, because the ray-tracing algorithm stops once it finds the reflection color. In other words, high quality will not always be needed.
 
 - High quality playground: <Playground id="#PIZ1GK#7" title="High Quality SSR Example" description="Example of high quality screen space reflections."/>
 - Medium quality playground: <Playground id="#PIZ1GK#5" title="Medium Quality SSR Example" description="Example of medium quality screen space reflections."/>

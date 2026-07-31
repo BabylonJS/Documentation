@@ -1,7 +1,7 @@
 ---
 title: WebXR Hand Tracking Feature
 image:
-description: Learn about key WebXR hand tracking in Babylon.js
+description: Learn about WebXR hand tracking in Babylon.js.
 keywords: babylon.js, diving deeper, WebXR, VR, AR, hand tracking, near interaction
 further-reading:
 video-overview:
@@ -10,17 +10,17 @@ video-content:
 
 ## Hand tracking
 
-Some devices and browsers support tracking the hand joints directly, with no need for external controllers. Such devices are the Oculus Quest (1 and 2) using the native Oculus browser.
+Some devices and browsers support tracking hand joints directly, with no need for external controllers. These include Oculus Quest 1 and 2 using the native Oculus browser.
 
-25 points on each hand are being tracked and delivered to you on each frame. Babylon's hand tracking feature uses this information to constantly update the WebXRHand object and its 25 children transformations.
+Twenty-five points on each hand are tracked and delivered on each frame. Babylon's hand-tracking feature uses this information to constantly update the WebXRHand object and the transforms of its 25 children.
 
-Please note that when referring to "hands" on this page we are referring to the actual handedness of the user and not left-handed vs. right-handed system. WebXR is right-handed in its nature.
+Please note that when referring to "hands" on this page, we are referring to the actual handedness of the user, not to a left-handed versus right-handed system. WebXR is right-handed by nature.
 
 ### Getting started
 
-To get started you will first need a supported device.
+To get started, you will first need a supported device.
 
-Starting version 6.40.0, hand support is enabled per default, if supported, when using the default experience helper. To configure it, pass the details when initializing the experience helper:
+Starting with version 6.40.0, hand support is enabled by default, if supported, when using the default experience helper. To configure it, pass the details when initializing the experience helper:
 
 ```javascript
 const xrHelper = scene.createDefaultXRExperienceAsync({
@@ -41,7 +41,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 });
 ```
 
-This will enable basic hand support - 25 hidden spheres will be created for each hand, and each hand will have the default hand mesh loaded and enabled:
+This will enable basic hand support: 25 hidden spheres will be created for each hand, and each hand will have the default hand mesh loaded and enabled:
 
 ![BabylonJS WebXR Hand tracking mesh](/img/how_to/xr/xrHandTrackingMesh.webp)
 
@@ -51,9 +51,9 @@ The current options for the plugin can always be found at the [WebXR hand tracki
 
 ### Hand meshes
 
-Babylon's default hand meshes are enabled per default. You can disable them entirely, or provide different ones.
+Babylon's default hand meshes are enabled by default. You can disable them entirely, or provide different ones.
 
-To disable them use the `disableDefaultHandMesh` flag when creating the feature:
+To disable them, use the `disableDefaultHandMesh` flag when creating the feature:
 
 ```javascript
 const featureManager = xrHelper.baseExperience.featuresManager;
@@ -66,13 +66,13 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 });
 ```
 
-This will disable the mesh load and will enable the 25 points to be shown (defaults to 25 spheres per hand):
+This will disable mesh loading and show the 25 points (25 spheres per hand by default):
 
 ![BabylonJS WebXR Hand tracking spheres](/img/how_to/xr/handTrackingSpheres.webp)
 
-If you want to provide different hand meshes (for example if you want to have your users wear gloves) it is recommended to take the current RHS (right hand system) hand meshes from the [hand meshes](https://github.com/BabylonJS/Assets/tree/master/meshes/HandMeshes) assets directory and modify them. Otherwise you will need to create your own skeleton/bones and weight the skin correctly.
+If you want to provide different hand meshes (for example, if you want your users to wear gloves), it is recommended that you start with the current RHS (right-handed system) hand meshes from the [hand meshes](https://github.com/BabylonJS/Assets/tree/master/meshes/HandMeshes) assets directory and modify them. Otherwise, you will need to create your own skeleton/bones and weight the skin correctly.
 
-Once you are down creating you will need two important objects per hand. The first is the actual mesh per hand. The other is the mapping between the native XR tracked joint and the bone in your model. It is a structured array with the names of the bones of each hand as strings, sorted according to the XR mapping of the joints. The default one is this:
+Once you are done creating them, you will need two important objects per hand. The first is the actual mesh for each hand. The other is the mapping between the native XR tracked joints and the bones in your model. It is a structured array of bone names as strings, sorted according to the XR joint mapping. The default one is this:
 
 ```javascript
 this._rigMapping = [
@@ -139,7 +139,7 @@ It looks roughly like this:
 
 ![BabylonJS WebXR Hand tracking spheres](/img/how_to/xr/handTrackingSpheres.webp).
 
-Each of those 25 points has an InstancedMesh created upon enabling the hand tracking feature. Those meshes can be used for physics, gesture recognition, collision detection and more. The default mesh is a sphere. To provide a different mesh use the `sourceMesh` option:
+Each of those 25 points has an InstancedMesh created when the hand-tracking feature is enabled. Those meshes can be used for physics, gesture recognition, collision detection, and more. The default mesh is a sphere. To provide a different mesh, use the `sourceMesh` option:
 
 ```javascript
 const featureManager = xrHelper.baseExperience.featuresManager;
@@ -152,7 +152,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 });
 ```
 
-Babylon will take this sourceMesh and use it to create the 25 instances per hand. This mesh will then be set invisible, unless you ask for it to stay visible for your own reasons:
+Babylon will take this `sourceMesh` and use it to create 25 instances per hand. This mesh will then be set invisible, unless you want it to remain visible:
 
 ```javascript
 const featureManager = xrHelper.baseExperience.featuresManager;
@@ -166,7 +166,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 });
 ```
 
-Those instances will be visible if there is no hand mesh enabled. if you want them to be invisible set the `invisible` flag:
+Those instances will be visible if no hand mesh is enabled. If you want them to be invisible, set the `invisible` flag:
 
 ```javascript
 const featureManager = xrHelper.baseExperience.featuresManager;
@@ -180,7 +180,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 });
 ```
 
-If you want to modify those meshes individually (for example provide a different material per joint) you can use the `onHandJointMeshGenerated` callback:
+If you want to modify those meshes individually (for example, to provide a different material per joint), you can use the `onHandJointMeshGenerated` callback:
 
 ```javascript
 const featureManager = xrHelper.baseExperience.featuresManager;
@@ -199,7 +199,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 
 ### Pointer support
 
-The underlying system will provide native pointer ray for each hand. Babylon's `WebXR Pointer system` will automatically detect it and will allow the user to interact with the scene using the pointer down/move/up events. Each hand will be provided with a pointer id to differentiate its pointer events. You can use this information to find the hand object from the pointer selection and the hand tracking features:
+The underlying system will provide a native pointer ray for each hand. Babylon's `WebXR Pointer system` will automatically detect it and allow users to interact with the scene using pointer down/move/up events. Each hand will be provided with a pointer ID to differentiate its pointer events. You can use this information to find the hand object from the pointer selection and the hand-tracking feature:
 
 ```javascript
 const featureManager = xrHelper.baseExperience.featuresManager;
@@ -217,19 +217,19 @@ scene.onPointerObservable.add((evt) => {
 });
 ```
 
-Note that each system might have different gestures for "select". In the Quest it is executed when holding the index finger and the thumb together. Other systems might have a different gesture for that.
+Note that each system might have different gestures for "select". On Quest, it is executed by holding the index finger and the thumb together. Other systems might use a different gesture.
 
 ### Near interactions
 
-The hands are perfect for near-field interactions. There are enabled per default when using the default WebXR experience helper. Otherwise you will need to enable the WebXRNearInteraction feature.
+Hands are perfect for near-field interactions. They are enabled by default when using the default WebXR experience helper. Otherwise, you will need to enable the WebXRNearInteraction feature.
 
-To enable a mesh or a GUI element to be near-interactable, simply set it to be netPickable (or near grabbable):
+To enable a mesh or a GUI element for near interaction, simply mark it as near-pickable (or near-grabbable):
 
 ```javascript
 sphere.isNearPickable = true;
 ```
 
-Now hands (and controllers) can emit pointer events straight on the mesh. Wonderful for 2D GUI interactions.
+Now hands (and controllers) can emit pointer events directly on the mesh. This is wonderful for 2D GUI interactions.
 
 <Playground id="#9K3MRA#1513" title="XR Near interactions" description="2D GUI with near interaction enabled" image=""/>
 
@@ -237,14 +237,14 @@ Now hands (and controllers) can emit pointer events straight on the mesh. Wonder
 
 Each hand has its own WebXRHand object associated with it. The WebXR hand object references the following information:
 
-- the `trackedMeshes` object, holding all 25 joint meshes, sorting according to the XR joints tracking
+- the `trackedMeshes` object, holding all 25 joint meshes, sorted according to XR joint tracking
 - the `handMesh` object (if enabled)
 - the `xrController` associated with this hand
 
 There are a few ways to get the hand object:
 
 - Use the controller id as described before
-- use the handedness:
+- Use the handedness:
 
 ```javascript
 const xrHandFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
@@ -255,7 +255,7 @@ const xrHandFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND
 const rightHand = xrHandFeature.getHandByHandedness("right");
 ```
 
-- The recommended way - use the `onHandAddedObservable`:
+- The recommended way is to use the `onHandAddedObservable`:
 
 ```javascript
 const xrHandFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
@@ -286,7 +286,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 });
 ```
 
-To configure the physics properties (which defaults to a sphere with the default friction and restitution) use the physics props option:
+To configure the physics properties (which default to a sphere with the default friction and restitution), use the physics props option:
 
 ```javascript
 const featureManager = xrHelper.baseExperience.featuresManager;
@@ -303,7 +303,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 });
 ```
 
-Notice that you can't define the mass. that is because the tracked joints will always have mass `0` to prevent them from constantly "falling down" towards the center of gravity.
+Notice that you can't define the mass. That is because the tracked joints will always have mass `0` to prevent them from constantly "falling down" toward the center of gravity.
 
 <Playground id="#X7Y4H8#73" title="Hand tracking with physics" description="A simple example of a hands-enabled physics playground" image="/img/how_to/xr/handTrackingSpheres.webp"/>
 

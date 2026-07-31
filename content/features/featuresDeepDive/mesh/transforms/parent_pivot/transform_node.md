@@ -12,16 +12,16 @@ video-content:
 
 ## A TransformNode
 
-A TransformNode is an object that is not rendered but can be used as a center of transformation. This can decrease memory usage and increase rendering speed compared to using an empty mesh as a parent and is less complicated than using a pivot matrix.
+A TransformNode is an object that is not rendered but can be used as a center of transformation. This can decrease memory usage and increase rendering speed compared to using an empty mesh as a parent, and it is less complicated than using a pivot matrix.
 
-The TransformNode can be used as a center of transformation (CoT) for a mesh and some lights and cameras by acting as a parent to them increasing versatility.
+The TransformNode can be used as a center of transformation (CoT) for a mesh and some lights and cameras by acting as a parent to them, which increases its versatility.
 
 Remember that, as with any parent, transformations are relative to the frame of reference of the parent.
-In all of the following Playgrounds the purple sphere is created only to show the TransformNode position.
+In all of the following Playgrounds, the purple sphere is created only to show the TransformNode position.
 
 ## As a Center of Rotation
 
-Set a TransformNode as a parent then rotate the TransformNode.
+Set a TransformNode as a parent, then rotate the TransformNode.
 
 ## Mesh
 
@@ -39,7 +39,7 @@ box.parent = CoT; //apply to Box
 
 The light blue cylinder is an additional stationary object to show that the camera is moving.
 
-For those examples stating a dummy camera a black sphere is used to show the intended path of the camera in the Playground that follows it. The purple ray shows the direction of view of the camera and the tube an indication of the view covered by the camera.
+For those examples that mention a dummy camera, a black sphere is used to show the intended path of the camera in the Playground that follows it. The purple ray shows the camera's viewing direction, and the tube indicates the area covered by the camera's view.
 
 ### Arc Rotate Camera
 
@@ -51,16 +51,16 @@ Target position moved by moving center of transformation.
 <Playground id="#PP962K#2" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera."/>
 <Playground id="#2JKA91#5" title="Rotating Arc Camera" description="Simple example of a rotating arc camera."/>
 
-Camera position moved relative to center of transformation just changes the distance between the camera and target.  
+Moving the camera position relative to the center of transformation simply changes the distance between the camera and target.  
 <Playground id="#PP962K#3" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera."/>
 <Playground id="#2JKA91#6" title="Rotating Arc Camera" description="Simple example of a rotating arc camera."/>
 
 ### Universal Camera
 
-The arrow keys will allow you to move camera position (reminder to click on canvas area before using keys).  
+The arrow keys allow you to move the camera position (remember to click on the canvas area before using the keys).  
 <Playground id="#2JKA91#8" title="Rotating Universal Camera 1" description="Simple example of a rotating universal camera."/>
 
-You can also have a universal camera rotating in orbit around a target and move it with keys.  
+You can also have a universal camera rotate in orbit around a target and move it with the keys.  
 <Playground id="#2JKA91#9" title="Rotating Universal Camera 2" description="Simple example of a rotating universal camera."/>
 
 ## Lights
@@ -77,9 +77,9 @@ Those lights that have a position can use a TransformNode.
 
 ## As a Center of Translation or Position
 
-When you move a center of transformation anything that is parented to it will move with it.
+When you move a center of transformation, anything parented to it will move with it.
 
-When you transform an object with a center of transformation as parent then that transformation takes place relative to the frame of reference of the center of transformation.
+When you transform an object with a center of transformation as its parent, that transformation takes place relative to the center of transformation's frame of reference.
 
 In the example below you can see that the simple movement given by
 

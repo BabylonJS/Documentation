@@ -9,13 +9,13 @@ video-content:
 ---
 
 ## Using the Solid Particle System to Copy Meshes
-There is more to the Solid Particle System (SPS) than just producing multiple copies of a mesh and these are considered in full in the Particles section. The SPS places multiple copies of a mesh all together into just one mesh. This means that instead of multiple draw calls there is just one draw call for the single mesh.
+There is more to the Solid Particle System (SPS) than just producing multiple copies of a mesh, and these features are covered in full in the Particles section. The SPS places multiple copies of a mesh together into a single mesh. This means that instead of multiple draw calls, there is just one draw call for the single mesh.
 
 The SPS is a single updatable mesh with the same properties as any other Babylon.js mesh.
 
-In order to produce multiple copies of a mesh you follow this script
+To produce multiple copies of a mesh, use the following script.
 
-Example :
+Example:
 ```javascript
 SPS = new BABYLON.SolidParticleSystem("SPS", scene);  //create the SPS
 const tetra = BABYLON.MeshBuilder.CreatePolyhedron("tetra", {}); //create the mesh
@@ -48,4 +48,4 @@ SPS.setParticles(); //apply the properties and display the mesh
 ```
 
 ## Example
-Copying a tetrahedron: <Playground id="#GKUCQP" title="Copying a Tetrahedron" description="Simple example of copying a tetrahdedron." image="/img/playgroundsAndNMEs/PGNMEProceduralTexture.webp"/>
+Copying a tetrahedron: <Playground id="#GKUCQP" title="Copying a Tetrahedron" description="Simple example of copying a tetrahedron." image="/img/playgroundsAndNMEs/PGNMEProceduralTexture.webp"/>

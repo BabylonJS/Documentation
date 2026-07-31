@@ -8,9 +8,9 @@ video-overview:
 video-content:
 ---
 
-This tutorial will guide you through the process of creating a material for the [materials library](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/materials)
+This tutorial will guide you through the process of creating a material for the [materials library](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/materials).
 
-## Setting up environment
+## Setting up the environment
 
 First of all, you need to create a folder for your shader in the /packages/dev/materials/src folder. Let's call it diffuseEmissive.
 Then you need to create your files:
@@ -21,10 +21,10 @@ Then you need to create your files:
 
 ## Update the shaders
 
-Because we used the simple material as source, we already have everything required for a complete babylon.js material.
-The simple material already supports diffuse texture.
+Because we used the simple material as a source, we already have everything required for a complete babylon.js material.
+The simple material already supports a diffuse texture.
 
-To add support for an emissive texture, let's add this code to the header of diffuseEmissive.vertex.fx file:
+To add support for an emissive texture, let's add this code to the header of the diffuseEmissive.vertex.fx file:
 
 ```glsl
 #ifdef EMISSIVE
@@ -49,9 +49,9 @@ Then add this code in the main function:
 #endif
 ```
 
-This code will generate the correct UV to read from emissive texture. Please note that we use #ifdef to take profit of the babylon.js smart shaders.
+This code will generate the correct UV to read from the emissive texture. Please note that we use #ifdef to take advantage of the babylon.js smart shaders.
 
-Then you have to update the fragment shader. First add this code to the header:
+Then you have to update the fragment shader. First, add this code to the header:
 
 ```glsl
 #ifdef EMISSIVE
@@ -73,7 +73,7 @@ Then add this code at the end of the main function (just before the last line (g
 
 First of all, rename all occurrences of _SimpleMaterialDefines_ to _DiffuseEmissiveMaterialDefines_ and _SimpleMaterial_ to _DiffuseEmissiveMaterial_.
 
-Then add this property to _SimpleMaterialDefines_ class:
+Then add this property to the _DiffuseEmissiveMaterialDefines_ class:
 
 ```javascript
 public EMISSIVE = false;
@@ -98,7 +98,7 @@ if (this.emissiveTexture && StandardMaterial.EmissiveTextureEnabled) {
 }
 ```
 
-The next function to update is _bind_. Add this code after the `//Textures` comment:
+The next function to update is the _bind_ function. Add this code after the `//Textures` comment:
 
 ```javascript
 if (this.emissiveTexture && StandardMaterial.EmissiveTextureEnabled) {
@@ -117,14 +117,14 @@ if (this.emissiveTexture && this.emissiveTexture.clone) {
 }
 ```
 
-For completeness, you will also have to complete the _serialize_ and _Parse_ functions (This is only required if you want to save/load your material to a .babylon file).
-Please note that _serialize_ function needs to output the complete material name to the serializationObject like here:
+For completeness, you will also have to complete the _serialize_ and _Parse_ functions (this is only required if you want to save/load your material to a .babylon file).
+Please note that the _serialize_ function needs to output the complete material name to the serializationObject, as shown here:
 
 ```javascript
 serializationObject.customType = "BABYLON.SimplelMaterial";
 ```
 
-And you're done for the material! Now it is time to test it.
+And you're done with the material! Now it is time to test it.
 
 ## Update the test page
 
@@ -143,7 +143,7 @@ diffuseEmissive.emissiveTexture.uScale = 10;
 diffuseEmissive.emissiveTexture.vScale = 10;
 ```
 
-Finally update the UI control:
+Finally, update the UI control:
 
 ```javascript
 gui.add(options, "material", ["standard", "simple", "diffuseEmissive"]).onFinishChange(function () {
@@ -165,15 +165,15 @@ gui.add(options, "material", ["standard", "simple", "diffuseEmissive"]).onFinish
 
 ## Testing your material
 
-After adding the files the material will be available in the local babylon server and the playground.
-If you use VSCode, select the task you want to start - if you want to edit code run the local playground.
+After adding the files, the material will be available in the local babylon server and the playground.
+If you use VSCode, select the task you want to start—if you want to edit code, run the local playground.
 
 To start the babylon server, which will also track your changes and rebuild when needed, run `npm start` or use VSCode.
 
 ## Using the material with Babylon.js file loader
 
-Babylon.js file format supports the use of custom material. You must provide a `serialize()` and a `Parse()` functions alongside with a `getClassName()` function.
-To let the loader knows about your material, you will also need to add the following line to the code using your material:
+The Babylon.js file format supports the use of custom materials. You must provide `serialize()`, `Parse()`, and `getClassName()` functions.
+To let the loader know about your material, you will also need to add the following line to the code using your material:
 
 ```javascript
 Tools.RegisteredExternalClasses["MyMaterial"] = MyMaterial;

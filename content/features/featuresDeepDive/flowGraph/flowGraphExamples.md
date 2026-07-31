@@ -7,11 +7,11 @@ keywords: diving deeper, flow graph, interactive scenes, action editor, getting 
 
 ## Flow Graph Examples
 
-As stated previously, flow graph is a perfect match for a visual editor. However, until we have this editor, if you want to use the flow graph you will need to write your own graphs.
+As stated previously, the flow graph is a perfect match for a visual editor. However, if you want to use the flow graph in code, you will need to write your own graphs.
 
-This section will show you how to write your own graphs using code. Let's start with a few basic examples
+This section will show you how to write your own graphs using code. Let's start with a few basic examples.
 
-### Example 1: Simple Output to console
+### Example 1: Simple output to the console
 
 This flow graph logs a message on the console when the scene is loaded.
 
@@ -36,7 +36,7 @@ coord.start();
 
 <Playground id="#FQWPBI" title="Flow Graph basic example 1" snapshot="refs/pull/16201/merge"/>
 
-### Example 2: Simple Output to console using a GetVariable block
+### Example 2: Simple output to the console using a GetVariable block
 
 This flow graph logs a message on the console when the scene is loaded. The message is stored in a variable on the context and can be reused.
 
@@ -98,7 +98,7 @@ coord.start();
 
 <Playground id="#FQWPBI#5" title="Flow Graph basic example 3" snapshot="refs/pull/16201/merge"/>
 
-### Example 4 - multiple contexts running the same interpolation graph
+### Example 4 - Multiple contexts running the same interpolation graph
 
 This flow graph moves the two assets in the scene using the same interpolation graph.
 

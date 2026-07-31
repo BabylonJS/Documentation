@@ -20,10 +20,10 @@ The Smart Filter core comes with an optimizer which can take a `SmartFilter` and
 
 ### With the Smart Filter Editor
 
-To familiarize yourself with Smart Filters, you can start by trying out the [Smart Filter Editor](https://sfe.babylonjs.com)
+To familiarize yourself with Smart Filters, you can start by trying out the [Smart Filter Editor](https://sfe.babylonjs.com).
 ![SFE](/img/how_to/smart-filters/sfe-default.webp)
 
-This tool lets you visually construct and run Smart Filters using the provided built in blocks, as well as with custom blocks you create and load into the tool, all before you even clone the repo.
+This tool lets you visually construct and run Smart Filters using the provided built-in blocks, as well as custom blocks you create and load into the tool, all before you even clone the repo.
 
 Read more about the Smart Filters Editor [here](../../../../toolsAndResources/sfe/)
 
@@ -36,7 +36,7 @@ You can also experiment with Smart Filters in the Playground!
 
 ### With Code
 
-Clone [BabylonJS/Babylon.js](https://github.com/BabylonJS/Babylon.js), and you can see how the Smart Filters Editor application uses Smart Filters
+Clone [BabylonJS/Babylon.js](https://github.com/BabylonJS/Babylon.js), and you can see how the Smart Filters Editor application uses Smart Filters.
 
 Once you've cloned, run `npm install` then choose one of these approaches to build the Smart Filter Editor:
 

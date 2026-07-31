@@ -2,7 +2,7 @@
 title: Compound Bodies
 image: 
 description: Learn all about physics compound bodies in Babylon.js.
-keywords: diving deeper, phyiscs, compound boides
+keywords: diving deeper, physics, compound bodies
 further-reading:
     - title: How To Use The Physics Engines
       url: /legacy/physics/usingPhysicsEngine
@@ -23,9 +23,9 @@ video-content:
 ## The Skull as a Compound Body
 
 ![Skull](/img/how_to/physics/skull.webp)
-The skull is an interesting shape to try to compound and you can see it in all its magnificence here: <Playground id="#UKNERM#0" title="Skull As A Compound Body" description="Simple example of the skull as a compound body."/>
+The skull is an interesting shape to try to turn into a compound body, and you can see it in all its magnificence here: <Playground id="#UKNERM#0" title="Skull As A Compound Body" description="Simple example of the skull as a compound body."/>
 
-It is roughly composed of a sphere for most of it with a box around the jaw area, with a bit of work involved to position the sphere and box as good as possible. The skull is compounded to these two covering meshes.
+It is roughly composed of a sphere for most of it, with a box around the jaw area. A bit of work is needed to position the sphere and box as well as possible. The skull is compounded from these two covering meshes.
 
 ![Compound Skull](/img/how_to/physics/greenSkull.webp)
 
@@ -37,8 +37,8 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 2. Create a range of appropriately shaped standard meshes to fit over the irregular mesh;
 3. Parent the standard meshes and the irregular mesh to the empty mesh;
 4. Calculate or estimate the mass for each standard mesh;
-5. Create physics imposters for each standard mesh with zero mass;
-6. Create a physics imposter for the empty mesh, using the NoImposter property, with the total mass of all the standard meshes.
+5. Create physics impostors for each standard mesh with zero mass;
+6. Create a physics impostor for the empty mesh, using the `NoImpostor` property, with the total mass of all the standard meshes.
 
 **Note** Step 3 MUST come before step 4 and step 5 before step 6.
 
@@ -49,8 +49,8 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 1. Create a range of appropriately shaped standard meshes to fit over the irregular mesh;
 2. Parent the standard meshes to the irregular mesh;
 3. Calculate or estimate the mass for each standard mesh;
-4. Create physics imposters for each standard mesh with zero mass;
-5. Create a physics imposter for the irregular mesh, using the NoImposter property, with the total mass of all the standard meshes.
+4. Create physics impostors for each standard mesh with zero mass;
+5. Create a physics impostor for the irregular mesh, using the `NoImpostor` property, with the total mass of all the standard meshes.
 
 **Note** Steps 2, 4 and 5 must be in that order.
 
@@ -62,7 +62,7 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 1. Create a range of appropriately shaped standard meshes to fit over the irregular mesh;
 2. Choose one standard mesh and parent the other standard meshes and the irregular mesh to this mesh;
 3. Calculate or estimate the mass for each standard mesh;
-4. Create physics imposters for each standard mesh with the assumed mass;
+4. Create physics impostors for each standard mesh with the assumed mass;
 
 **Note** Step 2 MUST come before step 4.
 

@@ -1,7 +1,7 @@
 ---
 title: Using the SSAO Rendering Pipeline
 image:
-description: Learn how to the SSAO Rendering Pipeline in Babylon.js.
+description: Learn how to use the SSAO Rendering Pipeline in Babylon.js.
 keywords: diving deeper, post processes, post process, render pipeline, render, SSAO
 further-reading:
 video-overview:
@@ -10,7 +10,7 @@ video-content:
 
 # How To Use the SSAO rendering pipeline
 
-BABYLON.SSAORenderingPipeline is a rendering pipeline (chained post-processes) that will compute the ambient occlusion of a given scene from the screen space.
+BABYLON.SSAORenderingPipeline is a rendering pipeline (chained post-processes) that computes the ambient occlusion of a given scene from screen space.
 You can find an example in our playground:
 
 <Playground id="#N96NXC#106" title="SSAO Rendering Pipeline Example" description="Simple example of using the SSAO rendering pipeline." isMain={true} category="Post-processing"/>
@@ -29,37 +29,37 @@ Using it is pretty straightforward:
 const ssao = new BABYLON.SSAORenderingPipeline("ssaopipeline", scene, 0.75);
 ```
 
-The third argument is the ratio used by SSAO, Horizontal blur and Vertical blur post-processes
-You can also set an array of Camera as fourth argument, then the constructor will automatically attach the rendering pipeline to the given cameras like:
+The third argument is the ratio used by the SSAO, Horizontal blur, and Vertical blur post-processes.
+You can also set an array of cameras as the fourth argument. The constructor will then automatically attach the rendering pipeline to the given cameras:
 
 ```javascript
 const ssao = new BABYLON.SSAORenderingPipeline('ssaopipeline', scene, 0.75, [camera1 etc.]);
 ```
 
-If you want to attach manually the rendering pipeline, just use the scene rendering pipeline manager like:
+If you want to attach the rendering pipeline manually, use the scene rendering pipeline manager:
 
 ```javascript
 const ssao = new BABYLON.SSAORenderingPipeline("ssaopipeline", scene, 0.75);
 scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline("ssaopipeline", cameras);
 ```
 
-**Warning: To save your performances, you should compute the SSAO/blurH/blurV with a lower ratio than 1.0 **
+**Warning: To improve performance, you should compute the SSAO/blurH/blurV with a ratio lower than 1.0.**
 
-If you want to detach and destroy the rendering pipeline, you can just call `dispose()` method
+If you want to detach and destroy the rendering pipeline, you can just call the `dispose()` method.
 
 ```javascript
 ssao.dispose();
 ```
 
-You can see the SSAO post-process output by detaching the combine post-process like:
+You can see the SSAO post-process output by detaching the combine post-process like this:
 
 ```javascript
 scene.postProcessRenderPipelineManager.disableEffectInPipeline("ssaopipeline", ssao.SSAOCombineRenderEffect, cameras);
 ```
 
-**Note: SSAO uses the depth map renderer and activates it by default. You can disable the depth map renderer by passing "true" as argument in the dispose() method **
+**Note: SSAO uses the depth map renderer and activates it by default. You can disable the depth map renderer by passing `true` as the argument to the `dispose()` method.**
 
-For more customization, you can specify the SSAO and Combine post-processes ratios like:
+For more customization, you can specify the SSAO and Combine post-process ratios like this:
 
 ```javascript
 const ssao = new BABYLON.SSAORenderingPipeline('ssaopipeline', scene, { ssaoRatio: 0.5, combineRatio: 1.0 }, [camera1 etc.]);

@@ -40,12 +40,12 @@ create it?**"
 ![Vaporwear 3D + What = E-Commerce magic?](/img/devStories/vaporwearConfigurator/question.webp)
 
 This, of course, was not a small aim, and they didn't go in with the
-expectation they'd be able to do this in the roughly one hour it had taken
-the to add the Babylon Viewer their existing site. This new Vaporwear
+expectation that they'd be able to do this in the roughly one hour it had taken
+them to add the Babylon Viewer to their existing site. This new Vaporwear
 website would be built from the ground up to be exactly what they wanted
 for their business: custom 3D assets in a custom 3D experience in a
 custom, modern Web frontend. Creating such a website would require
-expertise Vaporwear didn't have on permanent staff, so they decided to
+expertise that Vaporwear didn't have on permanent staff, so they decided to
 contract three freelancers to form a team to create this new website.
 
 - Carlos, the artist, who would create the 3D visuals.
@@ -98,6 +98,6 @@ etc.) to each other to answer questions and resolve confusion, but not
 all of them would be actively working on the Vaporwear site the whole
 time. The majority of Edie's work would happen once she'd received the
 3D experience from Diane, and the bulk of Diane's work depended on the
-3D models from Carlos. Thus, with the team assembled and the plan decided
+3D models from Carlos. Thus, with the team assembled and the plan decided,
 the first chunk of real work on the new Vaporwear website was
 [the art](./vaporwearConfigurator/art).

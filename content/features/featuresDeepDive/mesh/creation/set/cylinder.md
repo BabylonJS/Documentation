@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Cylinder or Cone
-The created cylinder has its flat sides parallel to the xz plane with its origin at the center of the vertical line of symmetry. If you set _diameterTop_ to zero, you get a cone instead of a cylinder, with different values for _diameterTop_ and _diameterBottom_ you get a truncated cone.
+The created cylinder has its flat sides parallel to the xz plane, with its origin at the center of the vertical line of symmetry. If you set _diameterTop_ to zero, you get a cone instead of a cylinder. With different values for _diameterTop_ and _diameterBottom_, you get a truncated cone.
 ## MeshBuilder
 Usage :
 ```javascript

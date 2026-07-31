@@ -1,7 +1,7 @@
 ---
 title: Multiple Platforms
 image:
-description: Learn all using Babylon.js on multiple platforms.
+description: Learn all about using Babylon.js on multiple platforms.
 keywords: diving deeper, cross-platform, platform
 further-reading:
 video-overview:
@@ -17,7 +17,7 @@ So, what are you making?
 
 The Web is Babylon's native habitat, and Babylon.js can be integrated into
 just about any Web development workflow. Here are just a few of the
-available recommended ways to build a Web app with Babylon.js.
+recommended ways to build a Web app with Babylon.js.
 
 - You could use the
   [Template Repository Workflow](/setup/templates/repos/templateRepositories#the-template-repository-workflow)
@@ -65,9 +65,9 @@ mobile app for Android or iOS. The following are a few of the best:
   inside a React Native app.
 - For developers who really need to get down to the metal,
   [Babylon Native](https://github.com/BabylonJS/BabylonNative) supports
-  mobile platforms and allows the use of Babylon.js inside your entirely
-  custom native applications, allowing for complete control of the
-  app's entire technology stack.
+  mobile platforms and lets you use Babylon.js inside fully custom
+  native applications, giving you complete control of the app's entire
+  technology stack.
 
 If you're considering Babylon Native or Babylon React Native, you might
 be interested in
@@ -105,12 +105,12 @@ and, as always, please don't hesitate to bring any questions you have to
 ## ... and More
 
 Of course, this list isn't comprehensive and these aren't the only kinds
-of apps: there are
+of apps. There are
 [VR apps](/features/featuresDeepDive/webXR),
 [server-side apps](/setup/support/serverSide),
 [multi-device apps](/guidedLearning/networking/Colyseus),
-and so many more possibilities that we could never hope to enumerate
-them. Cross-platform support is a key objective for Babylon; so
-no matter which or how many platforms your app needs to run on, we'd love
+and so many more possibilities that we could never hope to enumerate.
+Cross-platform support is a key objective for Babylon, so no matter which
+or how many platforms your app needs to run on, we'd love
 to hear about it and help make sure Babylon provides the tools you need
 to succeed. Thanks for considering Babylon.js!

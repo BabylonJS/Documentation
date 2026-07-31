@@ -14,9 +14,9 @@ The Babylon.js Timeline Control is a web control built on top of Babylon.js that
 
 ## Introduction
 
-One of the inherent issue encountered while scrolling in a video timeline built from IMG tags is performance caveats. The bigger the number of pictures to scroll through, the slower and less smooth the interactions with the web page would be.
+One of the inherent issues encountered while scrolling through a video timeline built from IMG tags is performance. The more pictures there are to scroll through, the slower and less smooth the interactions with the web page become.
 
-In order to increase the reactivity of the web page, we rely here on WebGL through Babylon.js to create an easy to reuse control displaying a video timeline.
+To make the web page more responsive, we rely on WebGL through Babylon.js to create an easy-to-reuse control that displays a video timeline.
 
 ![Timeline](/img/features/controls/timeline.webp)
 
@@ -30,7 +30,7 @@ To begin with the timeline, you first need to install the controls npm package.
 npm install @babylonjs/controls
 ```
 
-To reduce the size of your web page, the controls library is based on the es6 version of `@babylonjs/core` used as a peer dependency. Therefore if you are not relying on it so far in you project, you also need to install core:
+To reduce the size of your web page, the controls library is based on the ES6 version of `@babylonjs/core` used as a peer dependency. Therefore, if you are not relying on it so far in your project, you also need to install core:
 
 ```
 npm install @babylonjs/core
@@ -38,7 +38,7 @@ npm install @babylonjs/core
 
 ### Instantiation
 
-Once done, you can now import the timeline in your code:
+Once done, you can now import the timeline control into your code:
 
 ```
 import { Timeline } from "@babylonjs/controls/timeline";
@@ -82,19 +82,19 @@ const timeline = new Timeline(timelineCanvas, {
     });
 ```
 
-The main element to provide is a canvas on which we will be able to use a WebGL context to render the timeline. You could as well provide another Babylon.js control in order to share the WebGL context. For instance you could share the context this way with a Resizer in order to allow directly using a resized image as a thumbnail without extra copy.
+The main element to provide is a canvas on which we can use a WebGL context to render the timeline. You can also provide another Babylon.js control to share the WebGL context. For instance, you could share the context with a Resizer to use a resized image directly as a thumbnail without an extra copy.
 
-As we do not want to be opinionated about the UX you prefer or about the thumbnail generation itself it is all left to your implementation. The only information you need to provide are:
+As we do not want to be opinionated about the UX you prefer or about thumbnail generation itself, it is all left to your implementation. The only information you need to provide is:
 
-- _totalDuration_: the full duration of the video to cover (use to compute when all the thumbnails should be generated).
-- _thumbnailWidth_: define the width of your generated thumbnails (use during the rendering to know how much space they should take in the timeline)
-- _thumbnailHeight_: define the height of your generated thumbnails (use to keep the ratio intact with the width previously defined)
-- _loadingTextureURI_: define the url of an image used as a temporary replacement for not fully loaded thumbnail (this will help handling network latency gracefully)
-- _getThumbnailCallback_: last, but definitely not the least, a callback where you will be able to provide the thumbnail fitting with the requested time in parameter. You can return through the done function either a video element set on the right frame (as done in the previous code sample), a canvas element containing for instance some pre processed data or some image URL. More choices will probably be added here to for instance support texture atlas as it might be a nice transport format.
+- _totalDuration_: the full duration of the video to cover (used to compute when all the thumbnails should be generated).
+- _thumbnailWidth_: defines the width of your generated thumbnails (used during rendering to know how much space they should take in the timeline)
+- _thumbnailHeight_: defines the height of your generated thumbnails (used to keep the ratio intact with the width previously defined)
+- _loadingTextureURI_: defines the URL of an image used as a temporary replacement for a thumbnail that is not fully loaded yet (this helps handle network latency gracefully)
+- _getThumbnailCallback_: a callback through which you provide the thumbnail that matches the requested time parameter. Through the done function, you can return either a video element set to the right frame (as in the previous code sample), a canvas element containing, for instance, some preprocessed data, or an image URL. More choices will probably be added here, for instance to support texture atlases, as they might be a useful transport format.
 
-You can also provide some none mandatory options:
+You can also provide some non-mandatory options:
 
-- _useClosestThumbnailAsLoadingTexture_: it is set to true by default and if enabled, it will try to use the closest loaded thumbnail (in time) instead of the loading one as soon as some of them are ready.
+- _useClosestThumbnailAsLoadingTexture_: it is set to true by default, and if enabled, it will try to use the closest loaded thumbnail (in time) instead of the loading one as soon as some are ready.
 
 ### Render Loop
 
@@ -130,7 +130,7 @@ To zoom in/out, you can call the following code:
 
 ### Changing the current time
 
-As changing the zoom level does not change the number of visible thumbnails, you need a way to control where you currently are in the list of thumbnails. The following code can be use to do so:
+As changing the zoom level does not change the number of visible thumbnails, you need a way to control where you currently are in the list of thumbnails. The following code can be used to do so:
 
 ```
     // Sets the left side of the canvas to the current chosen time
@@ -149,14 +149,14 @@ In case you have some of the thumbnails ready before waiting for the callback, y
     timeline.addThumbnail(textureData, time);
 ```
 
-The textureData type are the same allowed to be returned in the callback: a texture, a video, a canvas or an image url.
+The `textureData` types are the same as those allowed to be returned in the callback: a texture, a video, a canvas, or an image URL.
 
-This can help if you generate the thumbnails client side to warm up the cache and thus reduce the thumbnails load time.
+This can help if you generate the thumbnails client-side to warm up the cache and thus reduce thumbnail load time.
 
 ## Full Code Sample
 
-You can find the integrability of the code sample above on [Github](https://github.com/BabylonJS/Controls/blob/master/www/timeline/index.ts) if you want to see it in action and better see how some of the functionalities could be used.
+You can find the entirety of the code sample above on [Github](https://github.com/BabylonJS/Controls/blob/master/www/timeline/index.ts) if you want to see it in action and better understand how some of the features can be used.
 
 ## Live Demo
 
-Please, have a look at the [Live Timeline Demo](https://controls.babylonjs.com/timeline) to better appreciate how it works.
+Please have a look at the [Live Timeline Demo](https://controls.babylonjs.com/timeline) to better appreciate how it works.

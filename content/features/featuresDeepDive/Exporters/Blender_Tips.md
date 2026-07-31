@@ -8,22 +8,22 @@ video-overview:
 video-content:
 ---
 
-Since Babylon and Blender often do things differently, it can sometimes be a pain working with both of them together. Here's a few tips that will smooth things out a bit.
+Since Babylon and Blender often do things differently, it can sometimes be a pain working with both of them together. Here are a few tips that will smooth things out a bit.
 
 ## Geometry
 
 ### Smooth shading
 
-If you export the default Blender scene to BJS, you'll shortly see that your cube doesn't look like exactly as it should:
+If you export the default Blender scene to BJS, you'll quickly see that your cube doesn't look exactly as it should:
 
 ![smooth-shading-issue](/img/exporters/blender/smooth-shading-basic-issue.webp)
 
-This is because a 3D modeler viewport don't act like a 3D realtime engine. By default, Blender always create object using flat shading mode.
-If you want to see your scene smoothed as in BJS, you have to select all your objects and click to _Shading_ > _Smooth_ in 3D View Toolshelf.
+This is because a 3D modeler's viewport doesn't act like a 3D real-time engine. By default, Blender always creates objects using flat shading.
+If you want to see your scene smoothed as it appears in BJS, select all your objects and click _Shading_ > _Smooth_ in the 3D View Toolshelf.
 
 ![blender-smooth-shading](/img/exporters/blender/blender-smooth-shading.webp)
 
-Now, you're cube looks ugly. You have to set up its sharpness, by adding an _edge split_ modifier, and play with edge angle and sharp edges. Job done!
+Now, your cube looks ugly. You have to adjust its sharpness by adding an _edge split_ modifier and playing with the edge angle and sharp edges. Job done!
 
 ![blender-sharp-edges](/img/exporters/blender/blender-smooth-shading-sharpness.webp)
 
@@ -33,11 +33,11 @@ Now, you're cube looks ugly. You have to set up its sharpness, by adding an _edg
 
 ### ArcRotate
 
-When choosing arc rotate camera type, you have to add a target to your camera.
+When choosing the ArcRotate camera type, you have to add a target to your camera.
 
 To do that:
 
-- first select your camera, then its target (object or empty for example),
+- first select your camera, then its target (for example, an object or an empty),
 - press `Ctrl` + `T` > `Track To Constraint`.
 
 ---
@@ -46,7 +46,7 @@ To do that:
 
 ### Quickly Export
 
-If you go to _File_ > _export_ and right click on babylon, you can select _Create Shortcut_, and make an easy to use shortcut to export to babylon! For example, you can use _Ctrl-E_.
+If you go to _File_ > _export_ and right click on babylon, you can select _Create Shortcut_, and make an easy-to-use shortcut to export to babylon! For example, you can use _Ctrl-E_.
 
 ![quick-export-shortcut](/img/exporters/blender/quick-export-shortcut.webp)
 
@@ -58,13 +58,13 @@ If you go to _File_ > _export_ and right click on babylon, you can select _Creat
 
 #### One file per animated object
 
-Usually, you will have one master scene containing all statics elements, and a blend file for each animated elements.
+Usually, you will have one master scene containing all static elements, and a blend file for each animated element.
 
-To easily see your animated element inside the master scene, open your master scene and go to File > Link, then go inside the blend containing the animated element, and import your objects. It can be more simple to link groups instead of objects, to update links in an easier way.
+To easily see your animated element inside the master scene, open your master scene and go to File > Link, then go inside the blend containing the animated element, and import your objects. It can be simpler to link groups instead of objects, which makes updating links easier.
 
 #### Rotation mode
 
-By default, Blender use the `XYZ Euler` rotation mode, which is fine for most of cases, but you have to know that `Quaternion` (which avoid gimbal lock issue) is also supported.
+By default, Blender uses the `XYZ Euler` rotation mode, which is fine for most cases, but you should know that `Quaternion` (which avoids gimbal lock issues) is also supported.
 
 - `XYZ Euler` will be stored in the [mesh.rotation](/typedoc/classes/babylon.mesh#rotation) property
 - `Quaternion` will be stored in the [mesh.rotationQuaternion](/typedoc/classes/babylon.mesh#rotationquaternion) property

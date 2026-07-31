@@ -9,25 +9,25 @@ video-content:
 ---
 
 
-Open, fork and clone the [github repository](https://github.com/BabylonJSGuide/JSProject).
+Open, fork, and clone the [github repository](https://github.com/BabylonJSGuide/JSProject).
 
-In your command line terminal move to the path of local repository folder 
+In your command-line terminal, move to the local repository folder.
 
 
 *npm -g install local-web-server*
 
-to install a simple local web server globally. Only needs to be done once.
+to install a simple local web server globally. This only needs to be done once.
 
 Then in the terminal use
 
 *ws*
 
-to obtain url addresses for the local server and use one of them in your browser to open _index.html_
+to obtain URL addresses for the local server, and use one of them in your browser to open _index.html_
 
-In your browser address bar add **/example.html/** to end of the url address to open the _example.html_
+In your browser address bar, add **/example.html/** to the end of the URL to open _example.html_
 
 ### Description
 
 ![Basic Web project](/img/quickstart/basicproj.webp)
 
-The _index.html_ only uses babylon.js whereas _example.html_ uses the loader and gui files in addition.
+_index.html_ only uses Babylon.js, whereas _example.html_ also uses the loader and GUI files.

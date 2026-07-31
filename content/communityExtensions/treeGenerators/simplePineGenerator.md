@@ -18,7 +18,7 @@ A demo can be found at: <Playground id="#LG3GS#106" title="Simple Pine Tree Gene
 
 Clone or copy the file https://github.com/BabylonJS/Extensions/tree/master/TreeGenerators/SimplePineGenerator
 
-call the function
+Call the function.
 
 
 ```javascript
@@ -27,12 +27,12 @@ const tree = simplePineGenerator(canopies, height, trunkMaterial, leafMaterial, 
 
 ## Parameters
 
-canopies - number of leaf sections.
+canopies - Number of leaf sections.
 
-height - height of tree.
+height - Height of the tree.
 
-trunkMaterial - material used for trunk.
+trunkMaterial - Material used for the trunk.
 
-leafMaterial - material for canopies.
+leafMaterial - Material for the canopies.
  
-scene - BABYLON scene.  
+scene - The BABYLON scene.  

@@ -1,16 +1,16 @@
 ---
 title: Fluid Rendering GUI
 image: 
-description: GUI classes for fluid rendering projects
+description: GUI classes for fluid rendering projects.
 keywords: diving deeper, particles, fluid rendering, gui
 further-reading:
 video-overview:
 video-content:
 ---
 
-While waiting for a proper integration of the fluid renderer in the inspector, you will find here a GUI class that you can use in your own projects to easily control how the fluid renderer works.
+While waiting for proper integration of the fluid renderer into the inspector, you can use the GUI class provided here in your own projects to control how the fluid renderer works.
 
-You simply need to create an instance of the class by doing:
+You simply need to create an instance of the class:
 ```javascript
 const gui = new FluidRendererGUI(scene);
 ...

@@ -8,11 +8,11 @@ video-overview:
 video-content:
 ---
 
-This tutorial will guide you through the process of creating a procedural texture for the [procedural textures library](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/proceduralTextures)
+This tutorial will guide you through the process of creating a procedural texture for the [procedural textures library](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/proceduralTextures).
 
-## Setting up environment
+## Setting up the environment
 
-First of all, you need to create a folder for your shader in the packages/dev//proceduralTextures/src folder. Let's call it **cloudBis**.
+First of all, you need to create a folder for your shader in the packages/dev/proceduralTextures/src folder. Let's call it **cloudBis**.
 
 Then you need to create your files:
 
@@ -21,7 +21,7 @@ Then you need to create your files:
 
 Make sure you export your files from the base `index.ts` file, just like the rest of the textures.
 
-To build while developing run the babylon server. The simplest way is running `npm run start`, but if you use VSCode you can run the playground or the babylon server from within the IDE.
+To build while developing, run the babylon server. The simplest way is to run `npm run start`, but if you use VSCode you can run the playground or the babylon server from within the IDE.
 
 ## Update the shaders
 
@@ -64,7 +64,7 @@ float fbm(vec2 n) {
 }
 ```
 
-- The **main** function which is the one called to get the pixel color
+- The **main** function, which is called to get the pixel color
 
 ```c
 void main() {
@@ -76,18 +76,18 @@ void main() {
 
 ## Write the procedural texture
 
-The procedural texture is a .ts file. It contains a class which has to inherit from the **ProceduralTexture** class.
+The procedural texture is a .ts file. It contains a class that has to inherit from the **ProceduralTexture** class.
 
-To be sure that you have intelliSense and that the compilation phase works well you have to add a reference at the top of your **babylon.cloudBisProceduralTexture.ts** file :
+To make sure you have IntelliSense and that the compilation phase works correctly, you have to add a reference at the top of your **babylon.cloudBisProceduralTexture.ts** file:
 
-The main part of the magic for a procedural texture is happening in the shader file. The TypeScript file is mainly here to give its caller the ability to set values for uniforms and pass it to the shader itself.
-By convention we create a function named **updateShaderUniforms()** which will be called from the constructor and in every setters for each property.
+Most of the work for a procedural texture happens in the shader file. The TypeScript file is mainly here to give its caller the ability to set values for uniforms and pass them to the shader itself.
+By convention, we create a function named **updateShaderUniforms()**, which is called from the constructor and in every setter for each property.
 
-Here is an example for the CloudBisProceduralTexture.
+Here is an example of the CloudBisProceduralTexture.
 
-As you can see the **setXXX** function is used to send a specific value to the shader.
+As you can see, the **setXXX** function is used to send a specific value to the shader.
 
-The shader is called by its name in the constructor using the **super** function.
+The shader is called by name in the constructor using the **super** function.
 
 ```javascript
 module BABYLON {
@@ -129,9 +129,9 @@ module BABYLON {
 
 ## Update the test page
 
-To test your material, open the /proceduralTextureLibrary/index.html page. References are added automatically.
+To test your texture, open the /proceduralTextureLibrary/index.html page. References are added automatically.
 
-Then add the procedural texture line 192:
+Then add the procedural texture at line 192:
 
 ```javascript
 const cloudBis = new BABYLON.CloudBisProceduralTexture("cloudPTBis", 256, scene);
@@ -191,11 +191,11 @@ gui.add(options, "texture", ["default", "fire", "wood", "cloud", "grass", "road"
 
 ## (Optional) enable a graphical interface.
 
-If your procedural texture contains properties that allows the dev to customize it, you can enable an interface to change them live in the sample.
+If your procedural texture contains properties that allow the developer to customize it, you can enable an interface to change them live in the sample.
 
-To do that, you only have to add a call to the **addPToptions** helper function in your **case**
+To do that, you only need to add a call to the **addPToptions** helper function in your **case**.
 
-Your code will look like this :
+Your code will look like this:
 
 ```javascript
 case "cloudBis":

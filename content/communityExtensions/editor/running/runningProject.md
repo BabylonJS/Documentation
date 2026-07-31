@@ -10,24 +10,24 @@ video-content:
 
 ## Running the project
 
-Since Babylon.JS Editor v4.0.0-rc.3, it is possible to play directly the scene that is being edited in the Editor. This means the scene, as it is in the Editor, can be played directly including all scripts that are attached in the scene. This is particularly useful to test the scene itself and see if the scripts/components are working as intended.
+Since Babylon.JS Editor v4.0.0-rc.3, it is possible to play the scene currently being edited directly in the Editor. This means the scene, as it appears in the Editor, can be played directly, including all scripts that are attached to it. This is particularly useful for testing the scene itself and seeing whether the scripts/components are working as intended.
 
 ## Playing the scene
-At the middle of the tools toolbar, there are 2 buttons:
-- Play / Stop (on the left) that generates the scene and plays the scene in the Editor's preview panel.
-- Restart (on the right) that simply reloads the scene to be played.
+In the middle of the tools toolbar, there are 2 buttons:
+- Play / Stop (on the left), which generates the scene and plays it in the Editor's preview panel.
+- Restart (on the right), which simply reloads the scene to be played.
 
 ![PlayStopButtons](/img/extensions/Editor/RunningProject/play-stop-buttons.webp)
 
-Once the play button is clicked, the scene being edited in the preview panel disappears to let the test scene being visible. Once the scene to test is loader, you can play the scene and see if all scripts are working as intented.
+Once the play button is clicked, the scene being edited in the preview panel disappears so the test scene can be shown. Once the scene to test is loaded, you can play it and see whether all scripts are working as intended.
 
 ![PlayScene](/img/extensions/Editor/RunningProject/playing_scene.webp)
 
 ## Debugging the scene
-All templates in the Editor offer the way to debug TypeScript code directly in VSCode. Just type F5 and place break points or "debugger;" in your code.
+All templates in the Editor offer a way to debug TypeScript code directly in VSCode. Just press F5 and place breakpoints or `debugger;` statements in your code.
 
 **Note: type F5 before running the scene as the remote debugger will not (sometimes) be able to attach the process created on the fly to run the scene.**
 
-Once VScode is attached to the Editor, let's run the scene and debug your code using your favorite shortcuts and debugging tools:
+Once VSCode is attached to the Editor, run the scene and debug your code using your favorite shortcuts and debugging tools:
 
 ![DebugScene](/img/extensions/Editor/RunningProject/debugging.webp)

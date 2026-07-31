@@ -49,7 +49,7 @@ Starting position:
 
 ![image](/img/features/fluidrenderer/demo_dude_start.webp)
 
-Image towards the end of the demo :
+Image toward the end of the demo:
 
 ![image](/img/features/fluidrenderer/demo_dude_end.webp)
 
@@ -69,9 +69,9 @@ Note:
 
 PG: <Playground id="#XMXDAA#114" title="Box, sphere and wall" description="Example of real fluid simulation with dragging box and sphere"/>
 
-This demo is the first to use a basic fluid simulator to simulate fluid movement (see the `FluidSimulator` class in the PG). Since the simulation is run in javascript, only a few thousand particles (at most, it depends on the power of your computer) can be simulated, hence the relatively large size of these particles.
+This demo is the first to use a basic fluid simulator to simulate fluid movement (see the `FluidSimulator` class in the PG). Since the simulation is run in JavaScript, only a few thousand particles can be simulated at most, depending on the power of your computer; hence the relatively large size of these particles.
 
-The wall and the sphere can be moved with the mouse. You can also rotate the box using the cursor keys (click on the screen first to focus on the scene!) You can also play with the **Check box bounds** and **Auto rotate box** settings.
+The wall and the sphere can be moved with the mouse. You can also rotate the box using the cursor keys (click on the screen first to focus on the scene!). You can also play with the **Check box bounds** and **Auto rotate box** settings.
 
 ![image](/img/features/fluidrenderer/demo_box_1.webp)
 
@@ -108,7 +108,7 @@ The values 0.03 / 0.04 in the names are the particle sizes used to generate the 
 
 PG: <Playground id="#XMXDAA#116" title="Glass" description="Example of real fluid simulation of wine filling a glass"/>
 
-Note: may take a little while to load, please be patient.
+Note: This may take a little while to load, so please be patient.
 
 Nothing really new in this demo except that it uses a cut hollow sphere (both for rendering and collision) for the top end of the glass (you can move the glass by dragging the top end).
 

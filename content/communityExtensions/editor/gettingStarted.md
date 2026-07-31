@@ -10,13 +10,13 @@ video-content:
 
 ## Welcome to the Babylon.JS Editor documentation
 
-Welcome to the documentation of the Babylon.JS Editor. A series of tutorials are available to understand the basics of the Editor. It is recommended to read the tutorials before starting with the Editor.
+Welcome to the documentation for the Babylon.JS Editor. A series of tutorials is available to help you understand the basics of the Editor. It is recommended that you read the tutorials before getting started with the Editor.
 
-Please note that the editor is a community project maintained mostly by Julien Moreau-Mathis ([@luaacro](https://twitter.com/Luaacro)).
+Please note that the Editor is a community project maintained mostly by Julien Moreau-Mathis ([@luaacro](https://twitter.com/Luaacro)).
 
 ## Downloading
 The Babylon.js Editor is available as a desktop application using Electron.
-When an update is available (new features, bug fixes), you'll get notified and the editor will download the new installer for you.
+When an update is available (new features, bug fixes), you will be notified and the editor will download the new installer for you.
 
 The Editor supports Windows, macOS and Linux and can be downloaded through its website: http://editor.babylonjs.com/
 
@@ -28,7 +28,7 @@ Some external tutorials are available:
 
 ## External examples
 
-Some project examples are available on Github:
+Some project examples are available on GitHub:
 
 * [Using WebXR with Babylon.JS Editor v4](https://github.com/flushpot1125/WebXR_VRController_Editor_template) by [@Limes2018](https://gist.github.com/flushpot1125)
 
@@ -38,7 +38,7 @@ Some project examples are available on Github:
 * `Ctrl+s` or `Command+s`: save the project.
 * `Ctrl+f` or `Command+f`: find a node in the current scene or run a command
 * `Ctrl+r` or `Command+r`: run the application/game in the integrated browser
-* `Ctrl+b` or `Command+b`: build the project (using WebPack, this can take a while)
+* `Ctrl+b` or `Command+b`: build the project (using Webpack, this can take a while)
 * `Ctrl+g` or `Command+g`: generate the project (generates all outputs of the current project (scripts, scene files, etc.))
 * `Ctrl+Shift+r` or `Command+Shift+r`: build and run the application/game
 * `Ctrl+z` or `Command+z`: Undo action
@@ -52,4 +52,4 @@ Some project examples are available on Github:
 * `i`: toggle the isolated mode. Isolated mode is used to help debugging a mesh by isolating it. Just select a mesh in the Editor and then type `i`. `escape` to exit isolation mode.
 * `suppr.`: remove the selected node
 * `Ctrl+c` or `Command+c`: copy the selected node
-* `Ctrl+v` or `Command+v`: past previously copied node. In case of a mesh, a new instance will be created instead of a real clone of the mesh.
+* `Ctrl+v` or `Command+v`: paste the previously copied node. In the case of a mesh, a new instance will be created instead of a real clone of the mesh.

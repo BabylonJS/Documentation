@@ -25,7 +25,7 @@ Each clip plane is a BABYLON.Plane that you can define like this:
 scene.clipPlane4 = new BABYLON.Plane(0, 1, 0, 0);
 ```
 
-The 3 first parameters of the Plane constructor defines the normal of the plane and the last one defines the distance from (0,0,0).
+The first three parameters of the Plane constructor define the normal of the plane, and the last one defines the distance from (0,0,0).
 
 You can find an interactive demo about clip planes here: <Playground id="#Y6W087" title="Clipping Planes Example 1" description="Simple example showing how to use clipping planes."/>
 

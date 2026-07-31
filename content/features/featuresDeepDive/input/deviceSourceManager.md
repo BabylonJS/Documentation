@@ -10,7 +10,7 @@ video-content:
 
 ## Introduction
 
-The [DeviceSourceManager](/typedoc/classes/babylon.devicesourcemanager) is a class that will manage the connections for various user input devices and provide methods of querying those devices for their current state.  
+The [DeviceSourceManager](/typedoc/classes/babylon.devicesourcemanager) is a class that manages connections for various user input devices and provides methods for querying those devices for their current state.  
 This class supports several methods of input:
 
 - **Keyboard** _(DeviceType: BABYLON.DeviceType.Keyboard, Inputs: number)_
@@ -21,7 +21,7 @@ This class supports several methods of input:
 - **Switch Gamepad, L+R JoyCon Grip or Pro Controller** _(DeviceType: BABYLON.DeviceType.Switch, Inputs: BABYLON.SwitchInput)_
 - **Generic/Other Gamepad** _(DeviceType: BABYLON.DeviceType.Generic, Inputs: number)_
 
-Here's an example of the DeviceSourceManager in use
+Here's an example of the DeviceSourceManager in use.
 <Playground id="#C7PM2B#18" title="DeviceSourceManager Example" description="Simple example showing how to use the DeviceSourceManager in your scene." image="/img/playgroundsAndNMEs/pg-C7PM2B-17.webp"/>
 
 To use the DeviceSourceManager, first create an instance of it. You will need to provide an engine object.
@@ -42,7 +42,7 @@ if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox)) {
 }
 ```
 
-It should also be noted that you can use optional chaining to make checks fit into a single line
+You can also use optional chaining to fit the checks into a single line.
 
 ```javascript
 if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox)?.getInput(BABYLON.XboxInput.A) === 1) {
@@ -52,7 +52,7 @@ if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox)?.getInput(BABYL
 
 ## Events and Observables
 
-You can use the following Observables to work with identifiers for a given device
+You can use the following Observables to work with a given device's identifiers.
 
 ```javascript
 // When a device is registered in the DeviceSourceManager
@@ -70,10 +70,10 @@ onDeviceDisconnectedObservable.add((device) => {
 });
 ```
 
-Here's a demonstration of how these Observables work
+Here's a demonstration of how these Observables work.
 <Playground id="#Y4YWCD#1" title="Basic DeviceSourceManager Demo" description="Simple demonstration of how the DeviceSourceManager observables work" image="/img/playgroundsAndNMEs/pg-Y4YWCD-1.webp"/>
 
-For Keyboards and Pointers, you can use an event based system to get the current input and previous input when an input is activated
+For keyboards and pointers, you can use an event-based system to get the current and previous input when an input is activated.
 
 ```javascript
 deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Keyboard).onInputChangedObservable.add((eventData) => {

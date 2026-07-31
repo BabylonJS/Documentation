@@ -8,10 +8,10 @@ video-overview:
 video-content:
 ---
 
-Babylon.js comes with an integrated support for level of detail.
+Babylon.js comes with integrated support for level of detail.
 
-This feature allows you to specify different meshes based on distance to viewer (by default), or screen coverage.
-For instance, here is how to define 4 levels of details for a given mesh, with distance comparison :
+This feature allows you to specify different meshes based on distance from the viewer (by default), or screen coverage.
+For instance, here is how to define four levels of detail for a given mesh, with distance comparison:
 
 ```javascript
 const knot00 = BABYLON.MeshBuilder.CreateTorusKnot("knot0", { radius: 0.5, tube: 0.2, radialSegments: 128, tubularSegments: 64, p: 2, q: 3 }, scene);
@@ -28,20 +28,20 @@ knot00.addLODLevel(55, null);
 The first parameter used with `addLODLevel` defines the distance to the camera. Beyond this distance, the specified level is used.
 
 Each level is independent and can have its own material.
-By defining a level of detail to null, you disable rendering of the current mesh, when it is viewed beyond the indicated distance to camera.
+By defining a level of detail as null, you disable rendering of the current mesh when it is viewed beyond the indicated distance from the camera.
 
 When a mesh is used as a level of detail for another mesh, it is linked to it and cannot be rendered directly.
 
-You can remove a LOD level by using `removeLODLevel`:
+You can remove a LOD level with `removeLODLevel`:
 
 ```javascript
 knot00.removeLODLevel(knot02);
 knot00.removeLODLevel(null);
 ```
 
-You can alternatively add LOD levels by specifying screen coverage cutoff limits. Screen coverage is computed as a ratio between 0 and 1 of the mesh's rendered screen surface area, over the total screen surface area. This method has the notable advantage over distance comparison to be scale-independent, as a big object rendered from a long distance, can still be big on the screen.
+You can alternatively add LOD levels by specifying screen coverage cutoff limits. Screen coverage is computed as a ratio between 0 and 1 of the mesh's rendered screen surface area over the total screen surface area. This method has the notable advantage of being scale-independent compared to distance comparison, as a big object rendered from a long distance can still be big on the screen.
 
-To specify that your LOD levels use screen coverage instead of distance, use :
+To specify that your LOD levels use screen coverage instead of distance, use:
 
 ```javascript
 knot00.useLODScreenCoverage = true;
@@ -49,7 +49,7 @@ knot00.useLODScreenCoverage = true;
 
 Now, all LOD levels cutoff values will be interpreted as screen coverages.
 
-Be careful of 2 things though :
+Be careful of two things, though:
 
 First, values must be between 0 and 1 :
 
@@ -57,7 +57,7 @@ First, values must be between 0 and 1 :
 knot00.addLODLevel(0.1, knot01);
 ```
 
-Second, a bigger value means a bigger size on the screen, and thus a more detailed LOD. This is the opposite order than with distance, where a big distance meant a smaller size, and therefore a less detailed LOD :
+Second, a bigger value means a bigger size on the screen, and thus a more detailed LOD. This is the opposite order from distance, where a greater distance means a smaller size and therefore a less detailed LOD:
 
 ```javascript
 knot00.addLODLevel(0.7, knot01);
@@ -69,7 +69,7 @@ Try: <Playground id="#QE7KM" title="LOD Demo" description="Simple example of usi
 
 ## Using LOD and instances
 
-By default, instances will use LOD defined on root mesh. You do not have to specify anything on instances:
+By default, instances will use the LOD defined on the root mesh. You do not have to specify anything on the instances:
 
 ```javascript
 const count = 3;

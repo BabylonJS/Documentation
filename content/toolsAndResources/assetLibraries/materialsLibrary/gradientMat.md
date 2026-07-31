@@ -10,7 +10,7 @@ video-content:
 
 ![Screenshot](/img/extensions/materials/gradient.webp)
 
-You can get the gradient material:
+You can get the gradient material by:
 
 * Using npm with npm install --save babylonjs babylonjs-materials
 * With a direct reference to: https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js
@@ -36,8 +36,8 @@ The gradient material can be configured with:
 * `topColor` and `bottomColor` are the two colors used in this gradient material
 * `offset` is a number used to offset the color on the Y axis
 * `scale` is a number used to scale the color on the Y axis
-* `smoothness` is a number (between 0 and 10) which can be used to define the speed of the color change along Y axis (1 by default)
+* `smoothness` is a number (between 0 and 10) that can be used to define the speed of the color change along the Y axis (1 by default)
 
 ## Playground example
 
-You can find a live example here:  PG: <Playground id="#2IFRKC#63" title="Gradient Material" description="Example of gradient material"/>
+You can find a live example here: PG: <Playground id="#2IFRKC#63" title="Gradient Material" description="Example of gradient material"/>

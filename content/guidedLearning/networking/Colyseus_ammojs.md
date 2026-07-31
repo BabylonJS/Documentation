@@ -1,7 +1,7 @@
 ---
 title: Network Physical Synchronization (based on ammojs + colyseus)
 image: /img/resources/networking/colyseus_ammojs/d1.webp
-description: Learn to develop Network Physical Synchronization by colyseus
+description: Learn to develop network physical synchronization with Colyseus
 keywords: colyseus, multiplayer, networking, ammojs, server
 further-reading:
 video-overview:
@@ -10,9 +10,9 @@ video-content:
 
 ![Wireframe](/img/resources/networking/colyseus_ammojs/d1.webp)
 
-This guide will help you realize the synchronization of network physical effects based on colyseus. This is a very simple demonstration. It does not include any server verification. Collision and detection only occur on the player's client. The server is responsible for synchronizing the data of physical effects and allocating the permissions of physical calculation;
+This guide will help you implement networked physics synchronization with Colyseus. This is a very simple demonstration. It does not include server-side verification. Collision detection occurs only on the player's client. The server is responsible for synchronizing physics-effect data and assigning physics-calculation authority.
 
-We use ammojs as the physical engine for this demonstration, and you can also replace it with other physical engines;
+We use ammojs as the physics engine for this demonstration, and you can replace it with other physics engines.
 
 ## Full source code
 
@@ -67,19 +67,19 @@ It will spawn a web socket server, listening on [ws://localhost:2657](ws://local
 
 ## Explanation of overall implementation logic
 
-The red mesh calculates the physical effects locally of the current user, and the green mesh calculates the physical effects on the clients of other players, and then synchronizes them through colyseus.
+The red mesh calculates the local player's physics effects, while the green mesh calculates the physics effects on other players' clients and then synchronizes them through Colyseus.
 
-the sphere represents the player character, and the cube represents the interactive objects in the scene.
+The sphere represents the player character, and the cube represents the interactive objects in the scene.
 
-The first player to enter the scene is responsible for the physical calculation of the cube, and other players are responsible for receiving data and rendering. When other players collide with the cube, the physical calculation of the cube is transferred to the collided players. You can distinguish these changes by color, just like the difference between green and red mentioned above
+The first player to enter the scene is responsible for the cube's physics calculation, and the other players are responsible for receiving data and rendering. When other players collide with the cube, responsibility for the cube's physics calculation is transferred to those players. You can distinguish these changes by color, just like the difference between green and red mentioned above.
 
-Yes, that's it
+Yes, that's it.
 
 ## Code implementation demonstration
 
 #### Character control and network synchronization
 
-First, we create a box and ground, and add physics to it,the ground represents the scene, and the box represents the interactive objects in the scene (such as a football played by many people)
+First, we create a box and ground, and add physics to them. The ground represents the scene, and the box represents the interactive objects in the scene (such as a football used by many players).
 
 ```javascript
 scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new BABYLON.HavokPlugin(true, havokInstance));
@@ -110,7 +110,7 @@ client.joinOrCreate <
   });
 ```
 
-Physical control of player characters through keyboard keys
+Controlling player characters physically with keyboard input
 
 ```javascript
 // Keyboard listeners
@@ -143,7 +143,7 @@ window.addEventListener("keyup", function (e) {
 });
 ```
 
-In runrenderloop, the rotation and position data of each frame of the player are sent to the server
+In the render loop, the player's rotation and position data for each frame are sent to the server.
 
 ```javascript
 engine.runRenderLoop(function () {
@@ -165,7 +165,7 @@ engine.runRenderLoop(function () {
 });
 ```
 
-Broadcast the position and rotation data submitted by players in the server
+The server broadcasts the position and rotation data submitted by players.
 
 ```javascript
   onCreate (options) {
@@ -191,9 +191,9 @@ Broadcast the position and rotation data submitted by players in the server
   }
 ```
 
-Update the position and rotation of other players through the broadcast rotation data;
+Update the position and rotation of other players using the broadcast rotation data.
 
-Note: to prevent jitter caused by linear speed, position will be directly used to lock the position when the target is close enough to the broadcast position.
+Note: to prevent jitter caused by linear speed, the position is used directly to lock the target when it is close enough to the broadcast position.
 
 ```javascript
 player.position.onChange = () => {
@@ -209,11 +209,11 @@ player.position.onChange = () => {
 };
 ```
 
-Now, the control of our players' characters and network synchronization are completed. Next, we will continue to realize the interaction of scene objects;
+Now, our player-character controls and network synchronization are complete. Next, we will continue implementing scene-object interactions.
 
-#### Physical interaction of scene objects(Multiplayer football)
+#### Physical interaction of scene objects (multiplayer football)
 
-We are in 'GameRoom.ts' create a variable "boxData" in the file to save the position and rotation data of the box, where "targetId" represents the "sessionId" of the player responsible for the physical calculation and hosting of the box; at the same time, you need to receive the box data sent by the player client and broadcast it to other players.
+In `GameRoom.ts`, create a variable called "boxData" to store the box's position and rotation data, where "targetId" represents the "sessionId" of the player responsible for the box's physics calculation and ownership. At the same time, you need to receive the box data sent by the player client and broadcast it to the other players.
 
 ```javascript
 export class GameRoom extends Room {
@@ -237,7 +237,7 @@ export class GameRoom extends Room {
 }
 ```
 
-We declare a variable "isUpdateBox" to record whether the local player character is responsible for the physical collision of the box. If the targetid value broadcast by the server is null or the targetid is equal to the sessionid of the local player, the local player will immediately take over the physical collision. Otherwise, the position and rotation of the box will use the data broadcast by the server
+We declare a variable called "isUpdateBox" to record whether the local player character is responsible for the box's physical collision. If the targetid value broadcast by the server is null or equal to the local player's sessionid, the local player will immediately take over the physical collision. Otherwise, the box's position and rotation will use the data broadcast by the server.
 
 ```javascript
 let isUpdateBox=false;
@@ -292,7 +292,7 @@ let isUpdateBox=false;
 });
 ```
 
-If other players collide with the box, the targetid will be replaced by the sessionid of other players. Correspondingly, the physical collision permission will also be transferred to other players.
+If other players collide with the box, the targetid will be replaced by the sessionid of those players. Correspondingly, the physical-collision authority will also be transferred to them.
 
 ```javascript
 if (key === room.sessionId) {
@@ -318,4 +318,4 @@ Now, we have completed all the functions!!!
 
 ## Homework
 
-There is a small bug in this demo, that is, when the player responsible for the physical operation of the box quits the game, the box is suspended in the air due to the loss of the computing console. In this case, you need to switch the console of the box to other players. Please try to implement this function in the case code.
+There is a small bug in this demo: when the player responsible for the box's physics leaves the game, the box remains suspended in the air because it loses its computing host. In that case, you need to transfer control of the box to another player. Please try to implement this in the sample code.

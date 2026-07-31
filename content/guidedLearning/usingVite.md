@@ -12,7 +12,7 @@ video-content:
 
 ## What is Vite and why do you need it?
 
-[Vite](https://vitejs.dev/) is a modern development environment that bundles & optimizes your code, launches local test servers instantly, automates more project configurations out-of-the-box, and contains other quality-of-life improvements. In other words, it's an all-in-one tool that lets you develop Babylon.js projects on your computer locally and with ease. It's intended to replace Webpack, which has a similar goal as Vite but requires more work and maintenance (especially with its config files.)
+[Vite](https://vitejs.dev/) is a modern development environment that bundles and optimizes your code, launches local test servers instantly, automates more project configurations out of the box, and includes other quality-of-life improvements. In other words, it's an all-in-one tool that lets you develop Babylon.js projects locally on your computer with ease. It's intended to replace Webpack, which has a similar goal but requires more work and maintenance (especially with its config files).
 
 Whether you're ready to graduate from playing with example projects in the [Playground](https://playground.babylonjs.com/), or if you're already a seasoned developer looking to upgrade your software stack, this guide can benefit any of your future Babylon.js projects!
 
@@ -20,7 +20,7 @@ Whether you're ready to graduate from playing with example projects in the [Play
 
 ***You can skip to Step 3 if you already have a code editor and npm installed.*** Otherwise, it's time to finally leave the Playground and learn how to create Babylon.js projects that you can publish and share anywhere. This is usually done with a code editor, a program that helps you write and manage your projects.
 
-**(1)** Install a code editor. This tutorial will be using [Visual Studio Code](https://code.visualstudio.com/) *(or [VSCodium](https://vscodium.com/))* but you can still follow along if you want to use a different one.
+**(1)** Install a code editor. This tutorial uses [Visual Studio Code](https://code.visualstudio.com/) *(or [VSCodium](https://vscodium.com/))* but you can still follow along if you want to use a different one.
 
 ![VSC](/img/how_to/using-vite/02.webp)
 
@@ -46,7 +46,7 @@ Once you have your code editor and Node.js installed, we can begin setting up yo
 - `npm i -D @babylonjs/core`  *(`-D` is short for `--save-dev`)*
 - `npm i -D @babylonjs/inspector`
 
-This installs Vite and some of Babylon.js' features in your created folder (in a subdirectory called `node_modules`.)
+This installs Vite and some Babylon.js features in your created folder (in a subdirectory called `node_modules`).
 
 **(5)** Now enter the command `npm init vite`. Enter the name of your Babylon.js project, such as `testProj` or whatever name you want. You can also set a package name, but the default one works fine. Choose "Vanilla" from the list that pops up, and then choose "TypeScript." (This setup also works with JavaScript, but with slightly different steps not documented here.)
 
@@ -62,14 +62,14 @@ Now let's turn our vanilla Vite folder into an example Babylon.js project that y
 
 ![new tab](/img/how_to/using-vite/06.webp)
 
-*Note to advanced users: The reason why we didn't just `cd` into the new folder is because it's convenient to have both the root and project folders open as separate tabs in our Terminal. Doing this lets us maintain our packages in the root folder separately from the project subfolder. We can install our necessary packages once in the root folder, and reference them freely in the code inside our project subfolders. NPM is smart enough to detect any packages installed in parent folders- you don't have to directly install them inside your project root directories. This is a good habit to get into instead of maintaining multiple copies of Vite and Babylon.js installed in every single project folder, resulting in wasted storage space. Feel free to deviate from this structure if you'd like, though.*
+*Note to advanced users: The reason why we didn't just `cd` into the new folder is because it's convenient to have both the root and project folders open as separate tabs in our Terminal. Doing this lets us maintain our packages in the root folder separately from the project subfolder. We can install our necessary packages once in the root folder and reference them freely in the code inside our project subfolders. NPM is smart enough to detect any packages installed in parent folders - you don't have to install them directly inside your project root directories. This is a good habit to get into instead of maintaining multiple copies of Vite and Babylon.js in every single project folder, which wastes storage space. Feel free to deviate from this structure if you'd like, though.*
 
 **(7)** Now enter the following commands in the terminal:
 
 - `npm i`
 - `npm run dev`
 
-The first command updates the Vite packages in your project root folder that still need to be directly in there, and the second one tells Vite to run a server that tests your current code.
+The first command installs the Vite packages that still need to be in your project root folder, and the second tells Vite to run a server that tests your current code.
 
 **(8)** Your terminal should now say that Vite is currently running. Ctrl+click on the localhost: URL to view your test server inside your browser.
 
@@ -154,7 +154,7 @@ This code for **index.html** contains the title that will appear in the browser 
 </html>
 ```
 
-This code for **tsconfig.json** is a slimmed-down combination between the default Vite file and the one from that other Babylon.js tutorial mentioned earlier. Each line roughly explains what each setting does. (Note that JSON files normally don't allow you to insert comments like this example here, but tsconfig.json in particular does.) You can read the [TypeScript docs](https://www.typescriptlang.org/tsconfig) if you want to learn more:
+This code for **tsconfig.json** is a slimmed-down combination of the default Vite file and the one from that other Babylon.js tutorial mentioned earlier. Each line roughly explains what each setting does. (Note that JSON files normally don't allow you to insert comments like this example here, but tsconfig.json in particular does.) You can read the [TypeScript docs](https://www.typescriptlang.org/tsconfig) if you want to learn more:
 
 ```json
 {
@@ -196,7 +196,7 @@ This code for **tsconfig.json** is a slimmed-down combination between the defaul
 - Static assets such as images or 3D models should go in the `public` folder. These can then be referenced as if they're in the root folder `"./likethis.png"`.
 - If you ever get stuck, reach out to [the Babylon forums](https://forum.babylonjs.com/) for help.
 
-And that's it- you can go code now!
+And that's it - you can go code now!
 
 ## Building and sharing online
 

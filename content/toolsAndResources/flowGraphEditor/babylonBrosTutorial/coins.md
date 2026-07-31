@@ -14,7 +14,7 @@ further-reading:
 
 ## Goal
 
-When the hero collects a coin, increase a score, log it, and play a sound. This introduces custom events, which let you keep "a coin was collected" separate from "update the score".
+When the hero collects a coin, increase the score, log it, and play a sound. This introduces custom events, which let you keep "a coin was collected" separate from "update the score".
 
 Open this step in the editor: [#W0H5RG](https://flowgraph.babylonjs.com/#W0H5RG) (scene `P41T6E#2`).
 
@@ -36,15 +36,15 @@ Run this step:
 
 ### 1. Central Collect Handler
 
-Add `ReceiveCustomEvent` named `On Collect`. Wire it into `score + 1` (a `GetVariable` + `Add` + `SetVariable`), a `ConsoleLog` for the score, and `PlaySound` for the coin. This is the single place score changes.
+Add `ReceiveCustomEvent` named `On Collect`. Wire it into `score + 1` (a `GetVariable` + `Add` + `SetVariable`), a `ConsoleLog` for the score, and `PlaySound` for the coin. This is the single place where the score changes.
 
 ### 2. Trigger From Collisions
 
-For each block, add `PhysicsCollisionEvent` on its body, a `Branch` testing an `active` variable so it fires once, set `active` to false, run the bump animation with `PlayAnimation`, then `SendCustomEvent collect`.
+For each block, add a `PhysicsCollisionEvent` on its body and a `Branch` that tests an `active` variable so it fires once. Set `active` to false, run the bump animation with `PlayAnimation`, then `SendCustomEvent collect`.
 
 ### 3. Reuse The Pattern
 
-Build the first block fully, group it (`Ctrl/Cmd+G`), copy/paste, and re-target. Copy preserves config and internal wiring; just point the new collision block at `block_2`, `block_3`.
+Build the first block fully, group it (`Ctrl/Cmd+G`), copy and paste it, then retarget it. Copying preserves the configuration and internal wiring; just point the new collision block at `block_2` and `block_3`.
 
 ## Editor Features
 

@@ -19,7 +19,7 @@ option|value|default value
 path|_(Vector3[])_  array of Vector3 points forming outer edge of the frame, z must be 0, **REQUIRED**
 profile|_(Vector3[])_  array of Vector3 points forming the frame profile, z must be 0, **REQUIRED**
 
-The profile or cross section of the frame, has to be a consecutive sequence of points in the XoY giving the corners of the profile. The left most point or points will follow the path and form the outer edge of the frame. The following profile is a square with a rebated corner.
+The profile, or cross section, of the frame has to be a consecutive sequence of points in the XoY plane that give the corners of the profile. The left-most point or points follow the path and form the outer edge of the frame. The following profile is a square with a rebated corner.
 
 ```javascript
 var profilePoints = [
@@ -32,7 +32,7 @@ var profilePoints = [
 ];
 ```
 
-The path defines the outer edge of the frame and again is given as points in the XoY plane. The following example produces a rectangular frame.
+The path defines the outer edge of the frame and is also given as points in the XoY plane. The following example produces a rectangular frame.
 
 ```javascript
 path  = [
@@ -43,7 +43,7 @@ path  = [
 ]; 
 ```
 
-The direction of the path (clockwise or counter-clockwise) determines the orientation of the profile around the frame. If it turns out you need to flip the profile then reverse the path array before passing to frameMaker.
+The direction of the path (clockwise or counter-clockwise) determines the orientation of the profile around the frame. If you need to flip the profile, reverse the path array before passing it to frameMaker.
 
 ```javascript
 path.reverse();

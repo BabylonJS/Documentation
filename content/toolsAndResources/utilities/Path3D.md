@@ -10,8 +10,8 @@ video-content:
 
 ## Displays a Path3D Curve
 
-This snippet displays a path3D curve and for on each point its tangent, normal and binormal in red, green and blue respectively.
-The size parameter, default 0.5, sets the length for the tangents, normals and binormals.
+This snippet displays a Path3D curve and, at each point, its tangent, normal, and binormal in red, green, and blue respectively.
+The size parameter, which defaults to 0.5, sets the length of the tangents, normals, and binormals.
 
 ```javascript
 function showPath3D(path3d, size) {

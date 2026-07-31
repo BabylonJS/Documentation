@@ -10,7 +10,7 @@ video-content:
 
 ## Introduction
 
-The glTF format includes the concept of extensions. Usually glTF loader extensions map 1:1 with a corresponding glTF format extensions. However, it is possible to create custom glTF loader extensions are unrelated to glTF format extensions and simply perform some additional processing on the loaded glTF data.
+The glTF format includes the concept of extensions. Usually, glTF loader extensions map 1:1 with corresponding glTF format extensions. However, it is also possible to create custom glTF loader extensions that are unrelated to glTF format extensions and simply perform additional processing on the loaded glTF data.
 
 The glTF loader includes support for many glTF format extensions through built-in glTF loader extensions. It is also possible to create your own glTF loader extensions.
 
@@ -88,4 +88,3 @@ await LoadAssetContainerAsync("path/to/model", scene, {
   },
 });
 ```
-

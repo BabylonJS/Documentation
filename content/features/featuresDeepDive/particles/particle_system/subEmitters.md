@@ -20,13 +20,13 @@ video-content:
 
 # Sub Emitters
 
-Starting from Babylon.js v3.2, you can create sub emitters, which let you spawn a new particle from an existing particle. Each one of these spawned sub particle systems is totally independent from the parent.
+Starting from Babylon.js v3.2, you can create sub emitters, which let you spawn a new particle from an existing particle. Each spawned sub-particle system is totally independent of the parent.
 
 **Note:** Sub emitters are not supported in GPU particles.
 
 ## How To Use Sub Emitters
 
-The list of sub particle systems to be used as sub emitters is kept in an array and assigned to the `subEmitters` property of the appropriate system.
+The list of sub-particle systems used as sub emitters is kept in an array and assigned to the `subEmitters` property of the appropriate system.
 
 ```javascript
 // Create sub emitter
@@ -41,7 +41,7 @@ subEmitter.inheritedVelocityAmount = 1;
 particleSystem.subEmitters = [subEmitter];
 ```
 
-Specifying an array of arrays of sub emitters will choose a random array, and all the sub emitters in the chosen array will be attached to the spawned particle.
+If you specify an array of arrays of sub emitters, a random array will be chosen, and all the sub emitters in that array will be attached to the spawned particle.
 
 ```javascript
 particleSystem.subEmitters = [[subEmitter],[subEmitter, subEmitter2, subEmitter3], [subEmitter4]];
@@ -55,7 +55,7 @@ When a particle dies, one of the particle systems in the array is selected at ra
 
 When a particle is spawned, this emitter will be cloned and attached to the new particle. This can be used to create a trailing particle effect on new particles.
 
-To support attached sub emitters having their orientation accounted for when emitting particles, their emitter must be a mesh type:
+To make attached sub emitters respect orientation when emitting particles, their emitter must be a mesh type:
 
 ```javascript
 subEmitter.particleSystem.emitter = new BABYLON.Mesh("", scene);

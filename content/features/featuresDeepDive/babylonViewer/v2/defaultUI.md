@@ -12,17 +12,17 @@ video-overview:
 video-content:
 ---
 
-The `HTML3DElement` (`<babylon-viewer>`) custom element includes default UI for a number of Viewer capabilities. All of the UI can be customized, as described later in the [styling](/features/featuresDeepDive/babylonViewer/elementStyling) doc page.
+The `HTML3DElement` (`<babylon-viewer>`) custom element includes default UI for a number of Viewer capabilities. All of this UI can be customized, as described later in the [styling](/features/featuresDeepDive/babylonViewer/elementStyling) doc page.
 
 ## Loading Progress
 
-When a model is loading a default progress bar is shown near the top of the element. If the model size can be determined, it will show actual progress. If not, it will be displayed as an indeterminate progress bar. The example below loads a large model that most likely will show the progress bar.
+When a model is loading, a default progress bar is shown near the top of the element. If the model size can be determined, it will show actual progress. If not, it will be displayed as an indeterminate progress bar. The example below loads a large model that will most likely show the progress bar.
 
 <CodePen pen="yyBexov" tab="result" title="Babylon Viewer Progress Bar" />
 
 ## Camera
 
-A reset camera pose button is always present. When pressed, the camera will interpolate to the default pose. This is the same as double clicking/tapping off the model.
+A reset camera pose button is always present. When pressed, the camera will interpolate to the default pose. This is the same as double-clicking/tapping off the model.
 
 ## Animation
 

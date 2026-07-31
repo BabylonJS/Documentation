@@ -12,14 +12,14 @@ video-content:
 
 The UtilityLayerRenderer class overlays objects in a scene without modifying the existing scene. It can be used to enable custom overlays or [Gizmos](/features/featuresDeepDive/mesh/gizmo).
 
-Default utilityLayerRenderers are available with the following
+The default utility layer renderers are available as follows:
 
 ```javascript
 UtilityLayerRenderer.DefaultUtilityLayer; // for overlays like position/scale gizmos
 UtilityLayerRenderer.DefaultKeepDepthUtilityLayer; // for occluded gizmos like bounding box)
 ```
 
-but utility layers can be created manually with the following
+Utility layers can also be created manually:
 
 ```javascript
 const utilLayer = new BABYLON.UtilityLayerRenderer(scene);
@@ -32,7 +32,7 @@ utilLayer.originalScene;
 utilLayer.utilityLayerScene;
 ```
 
-Once created meshes can be added to the utility layer's scene
+Once created, meshes can be added to the utility layer's scene:
 
 ```javascript
 // Create an overlay box
@@ -46,14 +46,14 @@ overlayLight.intensity = 0.7;
 
 ## Controls
 
-By default, the overlaid scene will be drawn on top of the existing scene ignoring the depth buffer. Of objects in the utility scene are desired to be occluded by the main scene, autoClearDepthAndStencil should be set to false
+By default, the overlaid scene will be drawn on top of the existing scene, ignoring the depth buffer. If objects in the utility scene should be occluded by the main scene, `autoClearDepthAndStencil` should be set to false.
 
 ```javascript
 utilLayer.utilityLayerScene.autoClearDepthAndStencil = false;
 ```
 
-Note: When this is set to false, transparent meshes will always be occluded by objects drawn to the utility layer
-By default, the utility layer's scene will be drawn following every draw of the original scene. To disable this behavior, the shouldRender property can be set to false. If set to false, the utility layer can be rendered manually via the render function.
+Note: When this is set to false, transparent meshes will always be occluded by objects drawn to the utility layer.
+By default, the utility layer's scene will be drawn after every draw of the original scene. To disable this behavior, the `shouldRender` property can be set to false. If set to false, the utility layer can be rendered manually via the `render` function.
 
 ```javascript
 utilLayer.shouldRender = false;
@@ -62,16 +62,16 @@ utilLayer.render();
 
 ## Pointer events
 
-Since the utility layer is rendered on top of the existing scene there are a couple options to control how pointer interactions with the scenes work.
-By default, the utility layer fires the pointerUp, pointerDown and pointerMove events as usual but pointer down events are only passed to the utility layer's scene if the pointer event contacts it first.
+Since the utility layer is rendered on top of the existing scene, there are a couple of options to control how pointer interactions with the scenes work.
+By default, the utility layer fires the `pointerUp`, `pointerDown`, and `pointerMove` events as usual, but `pointerDown` events are passed to the utility layer's scene only if the pointer event hits it first.
 
-To disable other events if the pointer event does not contact the utility layer first, the following can be used.
+To disable other events when the pointer event does not contact the utility layer first, use the following:
 
 ```javascript
 utilLayer.onlyCheckPointerDownEvents = false;
 ```
 
-To enable all events beyond up, down and move (eg. mouse wheel). processAllEvents can be set.
+To enable all events beyond up, down, and move (e.g. mouse wheel), set `processAllEvents`.
 
 ```javascript
 utilLayer.processAllEvents = true;

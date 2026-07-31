@@ -9,17 +9,17 @@ video-content:
 ---
 
 ## Extruded Shape
-An extruded shape is created by defining a shape profile using vector3 coordinates in the xy plane and providing a path along which the profile will be extruded. You must set at least the _shape_ and _path_ options. On update, you must set the _shape_, _path_ and _instance_ options and you can set the _scale_ and _rotation_ options.
+An extruded shape is created by defining a shape profile using Vector3 coordinates in the xy plane and providing a path along which the profile will be extruded. You must set at least the _shape_ and _path_ options. On update, you must set the _shape_, _path_, and _instance_ options, and you can set the _scale_ and _rotation_ options.
 
-On creation the local origin of an extrusion is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
+On creation, the local origin of an extrusion is coincident with the world origin. It is not possible to give a position relative to the constructed shape, as this depends on the data sets used.
 
-The profile shape's local origin is (0, 0, 0) relative to its defining coordinates and it is the local origin that runs along the path during the extrusion.
+The profile shape's local origin is (0, 0, 0) relative to its defining coordinates, and it is this local origin that runs along the path during the extrusion.
 
-When you need the appearance of a solid shape then there is an option to cap the ends. The caps are drawn by creating triangles from the Barycenter of the shape profile to the profile vertices, so that there are profile shapes that cause caps to not correctly fit the profile shape. In this case you can use CreatePolygon for the caps, however you do need to position and rotate these caps in addition to creating them.
+When you need the appearance of a solid shape, there is an option to cap the ends. The caps are drawn by creating triangles from the barycenter of the shape profile to the profile vertices, so there are profile shapes for which the caps will not fit correctly. In this case, you can use CreatePolygon for the caps; however, you do need to position and rotate these caps in addition to creating them.
 
-When you need sharp mitred corners there is a utility function available [Extruded Shape with Mitred Corners](/toolsAndResources/utilities/Mitred)
+When you need sharp mitred corners, there is a utility function available: [Extruded Shape with Mitred Corners](/toolsAndResources/utilities/Mitred).
 
-Because the extrusion converts the path points to a Path3D, there are two anomalies that can occur for a given set of path points. The first is that the orientation of the normal to the path is undefined when the path is a straight line. The Path3D constructor will pick a first normal, which may not be the one needed. Use the firstNormal option to set the path normal at the first point. The second anomaly occurs when the path reverses itself from one point to the next; this causes the tangent at that point to become undefined. To apply a heuristic fix for this, use the adjustFrame option set to true.
+Because the extrusion converts the path points to a Path3D, there are two anomalies that can occur for a given set of path points. The first is that the orientation of the normal to the path is undefined when the path is a straight line. The Path3D constructor will pick a first normal, which may not be the one needed. Use the firstNormal option to set the path normal at the first point. The second anomaly occurs when the path reverses itself from one point to the next; this causes the tangent at that point to become undefined. To apply a heuristic fix for this, use the adjustFrame option and set it to true.
 
 ## MeshBuilder
 Usage :

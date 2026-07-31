@@ -1,7 +1,7 @@
 ---
 title: Hotspot
 image: 
-description: Learn how compute hotspot on deformed meshes
+description: Learn how to compute hotspots on deformed meshes.
 keywords: diving deeper, meshes, hotspot
 further-reading:
 video-overview:
@@ -12,16 +12,16 @@ video-content:
 
 Hotspot is a feature designed to compute world space positions within the triangles of deformed geometry. For instance, it can calculate the center of a triangle on a mesh that is being deformed by an animated skeleton. This world space position can then be projected onto the screen, creating a 2D Hotspot. This allows certain areas of an animated mesh to be made more visible to the user.
 
-## Getting an hotspot
+## Getting a hotspot
 
-Simple example of a hotspot :
+Simple example of a hotspot:
 ```javascript
 const hotspotQuery = {pointIndex:[6527,6526,6525],barycentric:[0.723, 0.079, 0.196]};
 BABYLON.GetHotSpotToRef(mesh, hotspotQuery, worldPosition);
 ```
 
-`pointIndex` represents to 3 vertices used to compute the transformed triangle. Usually, it corresponds to a real rendered triangle indices.
-`barycentric` is the barycentric coordinates of the hotspot point in the triangle composed by `pointIndex`.
+`pointIndex` represents the three vertices used to compute the transformed triangle. Usually, it corresponds to the indices of a rendered triangle.
+`barycentric` contains the barycentric coordinates of the hotspot point in the triangle composed of `pointIndex`.
 
 ## Getting hotspot query values
 

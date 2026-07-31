@@ -13,7 +13,7 @@ video-content:
 
 ## See Our Virtual Village World in XR
 
-It could not be simpler - we remove the current camera and replace it with
+It could not be simpler: we remove the current camera and replace it with
 
 ```javascript
 const xr = scene.createDefaultXRExperienceAsync();

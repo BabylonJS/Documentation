@@ -10,30 +10,30 @@ video-content:
 
 ## Introduction
 
-Starting with v3.0, Babylon.js supports rendering using WebGL1 and WebGL2 contexts.
-The support is transparent for developers. By default the engine tries to get a WebGL2 context. If none is available then a WebGL1 one is retrieved.
+Starting with v3.0, Babylon.js supports rendering with both WebGL1 and WebGL2 contexts.
+This support is transparent to developers. By default, the engine tries to get a WebGL2 context. If none is available, it falls back to a WebGL1 context.
 
-You can test which version of WebGL is enabled with: `engine.webGLVersion` property.
+You can check which version of WebGL is enabled with the `engine.webGLVersion` property.
 
 ## Shaders
 
 When WebGL2 is enabled, the shaders are automatically converted to [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) v3.0. Babylon.js will then automatically take advantage of extended instruction/uniform counts.
 
-If you are using custom shaders, the best idea would be to provide [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) v2.0 shaders. This way your code will work on both contexts.
-You can obviously provide only v3.0 shaders but in this case your code will only work when WebGL2 is enabled.
+If you are using custom shaders, the best approach is to provide [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) v2.0 shaders. This way, your code will work on both contexts.
+You can, of course, provide only v3.0 shaders, but in that case your code will work only when WebGL2 is enabled.
 
 ## Supported features
 
-You can find here the list of supported features and the backward compatibility options (when available)
+You can find the list of supported features and backward-compatibility options, when available, here:
 
 | Feature                      | Description                                                                                                                                                                                                                                        | WebGL1 compatibility                                                                                          | Demo                                                                                                             | More info                                                                |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | Depth Frag                   | Used to compute logarithmic depth buffer                                                                                                                                                                                                           | Yes through an [extension](https://www.khronos.org/registry/webgl/extensions/EXT_frag_depth/)                 | <Playground id="#1180R5#15" title="Depth Frag" description="Depth Frag"/>                               | [Documentation](/features/featuresDeepDive/materials/advanced/logarithmicDepthBuffer) |
 | Multisample render targets   | Rendertarget textures can be multisampled to get antialiasing effect                                                                                                                                                                               | No. Has no effect on WebGL1 context                                                                           | <Playground id="#12MKMN" title="Multisample Render Targets" description="Multisample render targets."/> | [See below](/setup/support/webGL2#multisample-render-targets)          |
-| Standard derivatives         | Standard derivatites are used in Babylon.js to help compute realtime bump                                                                                                                                                                          | Yes through an [extension](https://www.khronos.org/registry/webgl/extensions/OES_standard_derivatives)        | [Demo](https://www.babylonjs.com/Demos/Bump/)                                                                    | [Documentation](/features/featuresDeepDive/materials/using/moreMaterials)             |
-| Texture LOD                  | Used by PRBMaterial to simulate microsurface                                                                                                                                                                                                       | Yes through an [extension](https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_shader_texture_lod.txt) | [Demo](/features/featuresDeepDive/materials/using/HDREnvironment)                                                             | [Documentation](/features/featuresDeepDive/materials/using/introToPBR)                |
+| Standard derivatives         | Standard derivatives are used in Babylon.js to help compute real-time bump mapping                                                                                                                                                                 | Yes through an [extension](https://www.khronos.org/registry/webgl/extensions/OES_standard_derivatives)        | [Demo](https://www.babylonjs.com/Demos/Bump/)                                                                    | [Documentation](/features/featuresDeepDive/materials/using/moreMaterials)             |
+| Texture LOD                  | Used by PBRMaterial to simulate microsurface                                                                                                                                                                                                       | Yes through an [extension](https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_shader_texture_lod.txt) | [Demo](/features/featuresDeepDive/materials/using/HDREnvironment)                                                             | [Documentation](/features/featuresDeepDive/materials/using/introToPBR)                |
 | Vertex array objects (VAO)   | A Vertex Array Object (or VAO) is an object that describes how the vertex attributes are stored in a Vertex Buffer Object (or VBO)                                                                                                                 | Yes through an [extension](https://www.khronos.org/registry/webgl/extensions/OES_vertex_array_object/)        | N/A. Every rendering is done with VAO by default                                                                 | [See below](/setup/support/webGL2#vertex-array-objects)                |
-| Uniform buffer objects (UBO) | A uniform buffer object (or UBO) let you specify a group of uniforms from a buffer                                                                                                                                                                | No. Uniforms are handled independently on WebGL1 context                                                      | N/A. Materials supporting UBO automatically uses them                                                            | [See below](/setup/support/webGL2#uniform-buffer-objects)              |
+| Uniform buffer objects (UBO) | A uniform buffer object (or UBO) lets you specify a group of uniforms from a buffer                                                                                                                                                               | No. Uniforms are handled independently on a WebGL1 context                                                    | N/A. Materials supporting UBO automatically use them                                                             | [See below](/setup/support/webGL2#uniform-buffer-objects)              |
 | Multiple Render Target (MRT) | Several Render Targets can be rendered in the same draw call.                                                                                                                                                                                      | Yes through an [extension](https://www.khronos.org/registry/webgl/extensions/WEBGL_draw_buffers)              | <Playground id="#NZ6P07" title="Multiple Render Target" description="Multiple Render Target"/>          | [See below](/setup/support/webGL2#multiple-render-target)              |
 | Occlusion Queries            | Occlusion queries detect whether a Mesh is visible in the current scene or not                                                                                                                                                                     | Yes through an [extension](https://www.khronos.org/opengl/wiki/Query_Object#Occlusion_queries)                | <Playground id="#QDAZ80#646" title="Occlusion Queries" description="Occlusion Queries"/>                  | [See below](/setup/support/webGL2#occlusion-queries)                   |
 | 3D Textures                  | 3D textures are textures with a 3rd dimension. You can see them as multiple 2D textures where every texture is a slice in the 3d texture.                                                                                                          | No. Cannot be created in WebGL1                                                                               | This feature will automatically be used when possible.                                                           | [See below](/setup/support/webGL2#3d-textures)                         |
@@ -45,8 +45,8 @@ You can find here the list of supported features and the backward compatibility 
 
 ## Multisample render targets
 
-By default render targets (like mirrors for instance) are created without support for multisampling. To turn it on, just define a value for `renderTarget.samples` > 1.
-On WebGL1 context, this will do nothing. On WebGL2 context, this will enable multisampling (more samples imply better antialiasing but a slower rendering).
+By default, render targets, such as mirrors, are created without support for multisampling. To turn it on, set `renderTarget.samples` to a value greater than 1.
+On a WebGL1 context, this does nothing. On a WebGL2 context, it enables multisampling. More samples imply better antialiasing but slower rendering.
 
 Here is an example of a mirror (512x512) with and without multisampling:
 
@@ -56,29 +56,28 @@ Here is an example of a mirror (512x512) with and without multisampling:
 
 ## Vertex array objects
 
-When possible (either on WebGL2 context or when extension is available on WebGL1 context), Babylon.js will use VAO to control rendering. VAO are a kind of geometry objects. Instead of sending all attributes and buffers used by a mesh (one for position, one for normal, one for indices, one for texture coordinates, etc..), you can build a VAO which will keep track of all attributes / buffers used.
+When possible, either on a WebGL2 context or when the extension is available on a WebGL1 context, Babylon.js uses VAOs to control rendering. VAOs are a kind of geometry object. Instead of sending all the attributes and buffers used by a mesh—one for position, one for normal, one for indices, one for texture coordinates, and so on—you can build a VAO that keeps track of all the attributes and buffers used.
 
-At rendering time, you just have to define one VAO instead of multiple VBO (vertex buffer object).
+At render time, you only need to bind one VAO instead of multiple VBOs (vertex buffer objects).
 
 You can find more details on [Tojicode's blog](http://blog.tojicode.com/2012/10/oesvertexarrayobject-extension.html).
 
-## Uniform buffer objets
+## Uniform buffer objects
+On a WebGL1 context, all uniforms are sent to the GPU independently. This means that if your shader uses 16 matrices, you will call the WebGL API 16 times to update them before using your shader.
 
-On WebGL1 context all uniforms are sent to GPU independently. This means that if your shader uses 16 matrices, you will call WebGL API 16 times to update all matrices before using your shader.
-
-On WebGL2 context, you can use a UBO to set the values in a typed array all inside JavaScript. This means that it's much faster. When all the values are set you can then send them to the GPU with only one call.
+On a WebGL2 context, you can use a UBO to set the values in a typed array in JavaScript. This is much faster. Once all the values are set, you can send them to the GPU with a single call.
 
 You can find more details on [WebGL 2 specification](https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.16)
 
 ## Multiple Render Target
 
-On former WebGL1, one draw call meant 1 target texture. Now you can bind several target textures to a shader and specify inside the fragment shader the colors you want to put on each texture. Essentially it saves you a lot of CPU time and you can achieve advanced effects like [Deferred Shading](https://fr.wikipedia.org/wiki/Deferred_Shading).
+With WebGL1, one draw call meant one target texture. Now you can bind several target textures to a shader and specify in the fragment shader which colors to write to each texture. This saves a lot of CPU time and enables advanced effects like [Deferred Shading](https://fr.wikipedia.org/wiki/Deferred_Shading).
 
 In Babylon.js, our first use of this technique is to render a geometry buffer of the scene.
 
 ## Occlusion queries
 
-Occlusion queries detect whether a Mesh is visible in the current scene or not, and based on that the Mesh get drawn or not. Occlusion queries is useful when you have an expensive object on the scene and you want to make sure that it will get drawn if it is visible to the camera and it is not behind any opaque object. BabylonJs provides an implementation for Occlusion queries using property occlusionType in AbstractMesh Class
+Occlusion queries detect whether a mesh is visible in the current scene, and based on that result the mesh is drawn or not. Occlusion queries are useful when you have an expensive object in the scene and want to make sure it is drawn only if it is visible to the camera and not behind an opaque object. Babylon.js provides an implementation for occlusion queries through the `occlusionType` property on the `AbstractMesh` class.
 
 [Babylon.js Occlusion Queries Feature](/features/featuresDeepDive/occlusionQueries)
 
@@ -86,9 +85,9 @@ Occlusion queries detect whether a Mesh is visible in the current scene or not, 
 
 ## 3D textures
 
-3D textures are mostly used for volumetric effects like color grading, fire, smoke, etc. WebGL 2 support for 3D textures is as good as that for 2D textures.
+3D textures are mostly used for volumetric effects like color grading, fire, and smoke. WebGL 2 support for 3D textures is as good as its support for 2D textures.
 
-So far Babylon.js will use them for color grading texture: <Playground id="#17VHYI#2" title="3D Textures Example" description="Simple example of using 3D textures."/>
+So far, Babylon.js uses them for color grading textures: <Playground id="#17VHYI#2" title="3D Textures Example" description="Simple example of using 3D textures."/>
 
 ## 2D array textures
 
@@ -107,4 +106,3 @@ On WebGL1 context, all textures are resized to a power of two to produce the bes
 On WebGL2 context, no resize is required and any size texture will be rendered with the best quality.
 
 You can find more details on [WebGL 2 specification](https://www.khronos.org/registry/webgl/specs/latest/2.0/#4.1.3)
-

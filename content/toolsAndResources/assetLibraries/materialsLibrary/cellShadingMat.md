@@ -20,7 +20,7 @@ A demo can be found here: PG: <Playground id="#36VUUE" title="Cell Material" des
 
 # Creating and customizing the cell material
 
-You can customize special properties of the material:
+You can customize some of the material's special properties:
 
 ```javascript
 // Create a new cell material

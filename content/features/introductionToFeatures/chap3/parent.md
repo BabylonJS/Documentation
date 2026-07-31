@@ -14,19 +14,19 @@ video-content:
 
 We are going to add a very simple car that moves through the village. 
 
-No matter how simple a car needs wheels and we have to combine the body of the car and the wheels. 
+No matter how simple, a car needs wheels, and we have to combine the body of the car and the wheels. 
 
 ![car model](/img/getstarted/carmodel.webp)
 
-Using merge meshes to combine them would result in the wheels not being able to rotate. Instead we set the body of the car as a parent of each wheel.
+Merging the meshes would result in the wheels not being able to rotate. Instead, we set the body of the car as the parent of each wheel.
 
-Before building our simple car let's take a way to set a parent and what this means.
+Before building our simple car, let's look at a way to set a parent and what this means.
 
 ```javascript
 meshChild.parent = meshParent
 ```
 
-Any use of position, scaling and rotation on the parent will also be applied to the child. Setting the position of the child is done in the parent space, setting the rotation and scale of the child takes place in the child's local space.
+Any position, scaling, or rotation applied to the parent will also be applied to the child. Setting the position of the child is done in the parent space; setting the rotation and scale of the child takes place in the child's local space.
 
 You can vary the values in the following playground to see the effect on the parent and child.
 

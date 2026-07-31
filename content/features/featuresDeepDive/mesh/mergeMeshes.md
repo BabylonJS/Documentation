@@ -10,7 +10,7 @@ video-content:
 
 ## Native Babylon.js function
 
-To easily merge a number of meshes to a single mesh use the static `MergeMeshes` of the `Mesh` class:
+To easily merge a number of meshes into a single mesh, use the static `MergeMeshes` method of the `Mesh` class:
 
 ```javascript
 const newMesh = BABYLON.Mesh.MergeMeshes(arrayOfMeshes, disposeSource, allow32BitsIndices, meshSubclass, subdivideWithSubMeshes, multiMultiMaterials);
@@ -21,8 +21,8 @@ const newMesh = BABYLON.Mesh.MergeMeshes(arrayOfMeshes, disposeSource, allow32Bi
 | arrayOfMeshes                     | An array of Meshes. They should all be of the same material.                                                   |
 | disposeSource (optional)          | When true (default), the source meshes will be disposed upon completion.                                       |
 | allow32BitsIndices (optional)     | When the sum of the vertices > 64k, this must be set to true.                                                  |
-| meshSubclass (optional)           | When set, vertices inserted into this Mesh. Meshes can then be merged into a Mesh sub-class.                   |
-| subdivideWithSubMeshes (optional) | When true (false default), subdivide mesh to his subMesh array with meshes source.                             |
+| meshSubclass (optional)           | When set, vertices are inserted into this Mesh. Meshes can then be merged into a Mesh subclass.                |
+| subdivideWithSubMeshes (optional) | When true (false by default), subdivides the mesh into its subMesh array using the source meshes.              |
 | multiMultiMaterials (optional)    | When true (false default), subdivide mesh and accept multiple multi materials, ignores subdivideWithSubMeshes. |
 
 Since `multiMultiMaterials` defaults to false, the resulting merged mesh will have only one material applied to it (taken from the first mesh):
@@ -37,9 +37,9 @@ See [this page](/features/featuresDeepDive/materials/using/multiMaterials) for m
 
 ## Use your own merge function
 
-If you want to merge meshes into a new one using a self implemented function, you can use the following code as basis and improve it to your needs:
+If you want to merge meshes into a new one using a self-implemented function, you can use the following code as a basis and adapt it to your needs:
 
-Note: Careful, when you merge cloned mesh, you need to update the world matrix of the mesh with computeWorldMatrix before calling the function.
+Note: Be careful. When you merge cloned meshes, you need to update the world matrix of each mesh with `computeWorldMatrix` before calling the function.
 
 **Note: This article covers the internal merging process. You can also use `BABYLON.VertexData` object and its `merge()` function for a simpler solution.**
 
@@ -203,7 +203,7 @@ Complete example:
 
 ### Initializing CSG2
 
-Before being able to use `CSG2` you will have to initialize the [Manifold](https://github.com/elalish/manifold) library.
+Before you can use `CSG2`, you must initialize the [Manifold](https://github.com/elalish/manifold) library.
 
 To do so you need to call the `InitializeCSG2Async` function:
 
@@ -211,7 +211,7 @@ To do so you need to call the `InitializeCSG2Async` function:
 await BABYLON.InitializeCSG2Async();
 ```
 
-Please note that if you want to import the library yourself, you have to call the `InitializeCSG2Async` with the following information:
+Please note that if you want to import the library yourself, you must call `InitializeCSG2Async` with the following information:
 
 ```
 await BABYLON.InitializeCSG2Async({

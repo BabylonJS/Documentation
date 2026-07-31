@@ -18,11 +18,11 @@ video-content:
 
 ## Introduction
 
-The Babylon.js GUI library is an extension you can use to generate interactive user interface.
+The Babylon.js GUI library is an extension you can use to generate interactive user interfaces.
 
 Babylon.GUI uses a DynamicTexture to generate a fully functional user interface which is flexible and GPU accelerated.
 
-See the demo : https://www.babylonjs.com/Demos/GUI/
+See the demo: https://www.babylonjs.com/Demos/GUI/
 
 <Alert severity="info" title="3D GUI" description="In addition to the Babylon 2D GUI system described below, with Babylon.js v3.3 and higher, you also have a <a href='/features/featuresDeepDive/gui/gui3D'>3D GUI system</a> available to leverage as well. Both systems can be used for different needs for your project."/>
 
@@ -38,11 +38,11 @@ Here is the source code on the main Babylon.js repo: https://github.com/BabylonJ
 
 ### NPM
 
-First download the gui package (see on [npmjs.com](https://www.npmjs.com/package/@babylonjs/gui))
+First, download the GUI package (see [npmjs.com](https://www.npmjs.com/package/@babylonjs/gui)):
 ```bash
 npm install @babylonjs/gui
 ```
-Then import it into your project
+Then import it into your project:
 ```javascript
 import * as GUI from '@babylonjs/gui'
 ```
@@ -77,9 +77,9 @@ const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("m
     advancedTexture.isForeground = false;
 ```
 
-**Please note that only one fullscreen mode GUI is allowed per scene**
+**Please note that only one fullscreen mode GUI is allowed per scene.**
 
-The fullscreen mode is not intended to be used with WebVR as it is a pure 2d rendering. For WebVR scenario you will have to use the texture mode below.
+The fullscreen mode is not intended to be used with WebVR, as it is pure 2D rendering. For WebVR scenarios, you will have to use the texture mode below.
 
 ### Texture mode
 
@@ -107,7 +107,7 @@ Here is an example of loading an AdvancedDynamicTexture from the Snippet Server:
 
 ## Debugging
 
-Starting with Babylon.js v4.0, the new inspector can help debugging your GUI by displaying bounding infos and letting you dynamically change properties: [Inspector Docs](/toolsAndResources/inspectorv2)
+Starting with Babylon.js v4.0, the new inspector can help you debug your GUI by displaying bounding info and letting you dynamically change properties: [Inspector Docs](/toolsAndResources/inspectorv2)
 
 ## General properties
 
@@ -127,7 +127,7 @@ All controls have the following observables:
 | onPointerClickObservable | Raised when a control is clicked on.                                             |
 | onClipboardObservable    | Raised when a clipboard event is triggered.                                      |
 
-To use the clipboard events, they first need to be enabled by calling `registerClipboardEvents` on the AdvancedDynamicTexture Instance which will register the `cut`, `copy`, `paste` events onto the canvas. Once enabled, they can be triggered via `ctrl/cmd + c` for copy, `ctrl/cmd + v` for paste and `ctrl/cmd + x` for cut and will always be listening to the canvas. If you have any other action having the same key bindings, you can prevent default triggering of these events by calling `unRegisterClipboardEvents` which will unregister them from the canvas.
+To use the clipboard events, they first need to be enabled by calling `registerClipboardEvents` on the AdvancedDynamicTexture instance, which registers the `cut`, `copy`, and `paste` events on the canvas. Once enabled, they can be triggered via `ctrl/cmd + c` for copy, `ctrl/cmd + v` for paste, and `ctrl/cmd + x` for cut, and they will always listen to the canvas. If you have any other actions that use the same key bindings, you can prevent the default triggering of these events by calling `unRegisterClipboardEvents`, which unregisters them from the canvas.
 
 Here is an example on how to use clipboard observables:
 
@@ -179,26 +179,26 @@ Paddings can be set with:
 | paddingLeft   | valueAndUnit | 0px     | Pixel        |
 | paddingRight  | valueAndUnit | 0px     | Pixel        |
 
-The padding is the space around the control (on the outside) between it and its parent or sibling controls (like CSS margin when box-sizing is set to border-box). This means that the usableWidth = width - paddingLeft - paddingRight. Same for usableHeight = height - paddingTop - paddingBottom.
+Padding is the space around the control (on the outside) between it and its parent or sibling controls (like CSS margin when `box-sizing` is set to `border-box`). This means that `usableWidth = width - paddingLeft - paddingRight`. The same applies to `usableHeight = height - paddingTop - paddingBottom`.
 
-All these properties can be defined using pixel or percentage as unit.
-To set value as pixel, use this construct: `control.left = "50px"`
-To set value as percentage, use this construct: `control.left = "50%"`
+All these properties can be defined using pixels or percentages as units.
+To set a value in pixels, use this construct: `control.left = "50px"`.
+To set a value as a percentage, use this construct: `control.left = "50%"`.
 
-You can also not define the unit (In this case the default unit will be used): `control.width = 0.5` (which is equivalent to `control.width = "50%"`)
+You can also omit the unit (in this case, the default unit will be used): `control.width = 0.5` (which is equivalent to `control.width = "50%"`).
 
 Here is an example of how to use and update positions and sizes: <Playground id="#KKA6L4" title="Positions and Sizes Example" description="Simple example demonstrating how to set and update GUI positions and sizes." isMain={true} category="GUI"/>
 
 ### Tracking positions
 
-All controls can be moved to track position of a mesh.
+All controls can be moved to track the position of a mesh.
 To do this, just call `control.linkWithMesh(mesh)`. You can then offset the position with `control.linkOffsetX` and `control.linkOffsetY`.
 
 Here is an example of a trackable label: <Playground id="#XCPP9Y#16" title="Trackable Label Example" description="Simple example of a trackable gui label." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI9.webp"/>
 
 Please note that controls that want to track position of a mesh must be at root level (at AdvancedDynamicTexture level).
 
-You can also move a control to a specific coordinates in your scene with `control.moveToVector3(position)`. Please note that the control will not stick with the vector if you change it afterwards.
+You can also move a control to specific coordinates in your scene with `control.moveToVector3(position)`. Please note that the control will not stay with the vector if you change it afterward.
 
 For Line control, you can also attach the second point to a control with `line.connectedControl = control`. In this case the `x2` and `y2` properties are used to offset the second point from the connected control.
 
@@ -208,19 +208,19 @@ With these 2 options, you can create a complete trackable label: <Playground id=
 
 ### Adaptive scaling
 
-When in fullscreen UI, you can decide to define your UI with a fixed resolution.
+When using fullscreen UI, you can choose to define your UI with a fixed resolution.
 To define this resolution, just set `myAdvancedDynamicTexture.idealWidth = 600` **or** `myAdvancedDynamicTexture.idealHeight = 400`.
 
 If both are set, the idealWidth will be used.
 
 If neither is set, you will be responsible for resizing the UI controls yourself.
 
-When ideal resolution is set, all values expressed **in pixels** are considered relatively to this resolution and scaled accordingly to match the current resolution.
+When an ideal resolution is set, all values expressed **in pixels** are considered relative to this resolution and scaled accordingly to match the current resolution.
 
-Even when ideal size is set, the fullscreen UI will be rendered at the same resolution of your canvas, but you can decide (mostly for performance reason) to force the texture to use the ideal size for resolution as well. To do so, just call `myAdvancedDynamicTexture.renderAtIdealSize = true`.
+Even when an ideal size is set, the fullscreen UI is rendered at the same resolution as your canvas, but you can choose (mostly for performance reasons) to force the texture to use the ideal size for its resolution as well. To do so, call `myAdvancedDynamicTexture.renderAtIdealSize = true`.
 
 In order to use both idealWidth and idealHeight, set both of them, and set `myAdvancedDynamicTexture.useSmallestIdeal = true`.
-When window width is smaller than window height - idealWidth will be used, otherwise - idealHeight will be used.
+When the window width is smaller than the window height, `idealWidth` will be used; otherwise, `idealHeight` will be used.
 This is a good solution for when your canvas can be resized to varying width : height ratios.
 
 Here is an example of how to use horizontal adaptive scaling: <Playground id="#XCPP9Y#39" title="Horizontal Adaptive Scaling Example" description="Simple example of horizontal adaptive scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI11.webp" isMain={true} category="GUI"/>
@@ -237,15 +237,15 @@ Controls can be transformed with the following properties:
 | transformCenterX | number | 0.5     | Define the center of transformation on X axis. Value is between 0 and 1 |
 | transformCenterY | number | 0.5     | Define the center of transformation on Y axis. Value is between 0 and 1 |
 
-**Please be aware that transformations are done at rendering level so after all computations.** This means that alignment or positioning will be done first without taking transform in account.
+**Please be aware that transformations are done at the rendering level, after all computations.** This means that alignment or positioning is done first without taking the transform into account.
 
 Here is an example of how to use rotation and scaling: <Playground id="#XCPP9Y#22" title="Rotation and Scaling Example" description="Simple example of rotation and scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI12.webp"  isMain={true} category="GUI"/>
 
 ### Optimization
 
-For complex controls (like the ColorPicker for instance), you can turn on rendering cache by using `control.useBitmapCache = true`. This will store a cached version of the control image in order to reuse it when the GUI is updated.
+For complex controls (like the ColorPicker, for instance), you can turn on rendering cache by using `control.useBitmapCache = true`. This stores a cached version of the control image so it can be reused when the GUI is updated.
 
-Starting with Babylon.js v4.0 the GUI system uses the Invalidate Rect optimization which allows the renderer to only update portions of the texture. If you want to turn it off, you can call `adtTexture.useInvalidateRectOptimization = false`
+Starting with Babylon.js v4.0, the GUI system uses the Invalidate Rect optimization, which allows the renderer to update only portions of the texture. If you want to turn it off, you can call `adtTexture.useInvalidateRectOptimization = false`.
 
 - <Playground id="#GBNTXK" title="GUI Optimization Example" description="Simple example of GUI optimization." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI13.webp"/>
 
@@ -262,7 +262,7 @@ All controls share the following properties:
 | ------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | alpha (1)                | number  | Between 0 and 1. 0 means completely transparent. 1 means fully opaque                                                                                                                                                                                                           |
 | color (Black)            | string  | Foreground color                                                                                                                                                                                                                                                                |
-| fontFamily (Ariel)       | string  | Font family can be inherited. This means that if you set it on a container, it will be transmitted to all children of the container                                                                                                                                             |
+| fontFamily (Arial)       | string  | Font family can be inherited. This means that if you set it on a container, it will be transmitted to all children of the container                                                                                                                                             |
 | fontSize (18)            | number  | Can be inherited                                                                                                                                                                                                                                                                |
 | fontStyle (unset)        | string  | Can be inherited                                                                                                                                                                                                                                                                |
 | fontWeight (unset)       | string  | Can be inherited                                                                                                                                                                                                                                                                |
@@ -272,8 +272,8 @@ All controls share the following properties:
 | shadowOffsetY (0)        | number  | the offset of the shadow on the y axis                                                                                                                                                                                                                                          |
 | shadowColor (#000)       | string  | the color of the shadow                                                                                                                                                                                                                                                         |
 | isPointerBlocker (false) | boolean | make sure gui events are triggered before the scene events                                                                                                                                                                                                                      |
-| hoverCursor ("")         | string  | the cursor to use when mouse is over the control, need to have isPointerBlocker set to true <Playground id="#XCPP9Y#888" title="HoverCursor Example" description="Simple example using the hoverCursor control." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI14.webp"/> |
-| overlapGroup             | number  | The overlapGroup which the control belongs to or undefined to exclude from moving the control to a non overlapping poisition.<Playground id="#BMW0VQ#3" title="OverlapGroup example" description="Simple example using the overlapGroup property of the control." />            |
+| hoverCursor ("")         | string  | the cursor to use when the mouse is over the control; `isPointerBlocker` needs to be set to `true` <Playground id="#XCPP9Y#888" title="HoverCursor Example" description="Simple example using the hoverCursor control." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI14.webp"/> |
+| overlapGroup             | number  | The overlapGroup to which the control belongs, or `undefined` to exclude it from moving the control to a non-overlapping position.<Playground id="#BMW0VQ#3" title="OverlapGroup example" description="Simple example using the overlapGroup property of the control." />            |
 | overlapDeltaMultiplier   | number  | The speed of the movement of the control when used with `AdvancedDynamicTexture`'s `moveToNonOverlappedPosition` method. See the playground above.                                                                                                                              |
 
 Controls can be added directly to the AdvancedDynamicTexture or to a container with:
@@ -316,14 +316,14 @@ The control currently provides 1 observable:
 
 Please note that to get crisp texts you have to ensure that your rendering resolution is aligned with the screen: <Playground id="#2ARI2W#10" title="Crisp Text Resolution Example" description="Simple example showing how to get crisp text by matching the screen resolution." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI16.webp"/>
 
-On this example you can see on line #3 that we force the engine to get the same DPI as the screen.
+In this example, you can see on line #3 that we force the engine to use the same DPI as the screen.
 Then on lines #10 and #11 we scale the GUI to align with the screen resolution.
 
 When in wrapping mode, the text is split into words before being displayed, and words are supposed to be separated by at least one space character. In some languages, however, breaking a text into words should follow some other rules.
 
 For those languages, you can use the `wordSplittingFunction` property to provide your own splitting function: this function takes a string as input and must return an array of strings (the input string broken into words).
 
-Here's an example for japanese: https://jsfiddle.net/3ph9m0cx/
+Here's an example for Japanese: https://jsfiddle.net/3ph9m0cx/
 
 ### Line spacing
 
@@ -339,7 +339,7 @@ When resizeToFit is set to true, the width and height of the rendered text will 
 
 This property allows you to change the text and font of a TextBlock without having to worry about manually setting the estimated rendered width and height.
 
-**Warning** When resizeToFit and textWrapping are both set to true the width of the block will not be resized to fit the text, however the height will be. This means that, depending on the font size, parts of the text on each line may be missing and the width of the block may need to be changed manually.
+**Warning** When `resizeToFit` and `textWrapping` are both set to `true`, the width of the block will not be resized to fit the text; however, the height will be. This means that, depending on the font size, parts of the text on each line may be missing, and the width of the block may need to be changed manually.
 
 ## InputText
 
@@ -377,7 +377,7 @@ The control provides several observables to track its state:
 | onTextPasteObservable              | Raised when the paste event is triggered                |
 | onKeyboardEventProcessedObservable | Raised when a key event was processed                   |
 
-Please note that the InputText has pretty limited edition support. Here are the supported keys:
+Please note that the InputText has fairly limited editing support. Here are the supported keys:
 
 - Delete
 - Backspace
@@ -400,7 +400,7 @@ The observable is triggered just before a printable key will be added to the tex
 | addKey     | If true, the key in currentKey will be added to the text, otherwise it will be skipped |
 | deadKey    | Set to true if the user hit the dead key on the keyboard. Handler must reset to false  |
 
-For example, if the handler wants to limit the control to only accept numerical keys, then it can set addKey to false if the value of currentKey is not numerical. The key will then not be added to the text. Similarly dead key support can be implemented by checking the deadKey flag and setting currentKey to the appropriate character for the dead key + key combination.
+For example, if the handler wants to limit the control to only accept numerical keys, it can set `addKey` to `false` if the value of `currentKey` is not numerical. The key will then not be added to the text. Similarly, dead key support can be implemented by checking the `deadKey` flag and setting `currentKey` to the appropriate character for the dead key + key combination.
 
 Please note that the observable is only triggered by printable keys, that is, keys that can be added to the text, and not by control keys like backspace and enter.
 
@@ -437,13 +437,13 @@ There are no configuration options available that are specific to this control. 
 
 ## Button
 
-A button can be used to interact with your user.
+A button can be used to interact with the user.
 Please see the events chapter to see how to connect your events with your buttons.
-The onPointerClickObservable is raised when a button is clicked, meaning both the down and up event happen while the cursor is over the control.
+The `onPointerClickObservable` is raised when a button is clicked, meaning both the down and up events happen while the cursor is over the control.
 
 There are three kinds of buttons available out of the box:
 
-- ImageButton: An image button is a button made with an image and a text. You can create one with:
+- ImageButton: An image button is a button made with an image and text. You can create one with:
 
 ```javascript
 const button = BABYLON.GUI.Button.CreateImageButton("but", "Click Me", "textures/grass.png");
@@ -459,7 +459,7 @@ const button = BABYLON.GUI.Button.CreateImageWithCenterTextButton("but", "Click 
 
 You can try it here: <Playground id="#PLTRBV" title="ImageWithCenterTextButton Example" description="Simple example showing how to add an ImageWithCenterTextButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI23.webp"/>
 
-- SimpleButton: A simple button with text only
+- SimpleButton: A simple button with text only.
 
 ```javascript
 const button = BABYLON.GUI.Button.CreateSimpleButton("but", "Click Me");
@@ -475,18 +475,18 @@ const button = BABYLON.GUI.Button.CreateImageOnlyButton("but", "textures/grass.p
 
 You can try it here: <Playground id="#XCPP9Y#28" title="ImageOnlyButton Example" description="Simple example showing how to add an ImageOnlyButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI25.webp"/>
 
-Please also note that by default buttons will handle hit testing based on their bounding info. If you want to have embedded controls to handle the picking you can call `button.delegatePickingToChildren = true`
+Please also note that by default, buttons handle hit testing based on their bounding info. If you want embedded controls to handle the picking, you can call `button.delegatePickingToChildren = true`.
 
 ### Accessing parts
 
-You can use the following properties to get button's parts (if available):
+You can use the following properties to get a button's parts (if available):
 
 - image: Returns the image part of the button (if any)
 - textBlock: Returns text related properties of the button
 
 ### Visual animations
 
-By default a button will change its opacity on pointerOver and will change it scale when clicked.
+By default, a button changes its opacity on pointerOver and changes its scale when clicked.
 You can define your own animations with the following callbacks:
 
 - pointerEnterAnimation
@@ -560,7 +560,7 @@ Here is an example of a radiobutton: <Playground id="#U9AC0N#13" title="RadioBut
 The slider is used to control a value within a range.
 You can specify the range with `slider.minimum` and `slider.maximum`.
 
-The value itself is specified with `slider.value` and will raise an observable everytime it is changed (`slider.onValueChangedObservable`).
+The value itself is specified with `slider.value` and raises an observable every time it is changed (`slider.onValueChangedObservable`).
 
 The control is rendered using the following properties:
 
@@ -575,9 +575,9 @@ The control is rendered using the following properties:
 | isThumbCircle  | boolean      | false   | Indicates if the thumb should be a circle (square if false)                                                               |
 | isThumbClamped | boolean      | false   | Indicates if the thumb should be clamped                                                                                  |
 | isVertical     | boolean      | false   | Indicates that the slider will be rendered vertically instead of horizontally                                             |
-| step           | number       | 0       | Indicates the degree of precision required for sldier values (0 means full precision where 0.01 means 2 digits precision) |
+| step           | number       | 0       | Indicates the degree of precision required for slider values (0 means full precision, whereas 0.01 means 2 digits of precision) |
 
-When using vertical slider, you have to make sure that height is bigger than width. The opposite has to be true when using `isVertical = false`.
+When using a vertical slider, you have to make sure that the height is greater than the width. The opposite has to be true when using `isVertical = false`.
 
 Here is an example of a slider: <Playground id="#U9AC0N#1" title="Slider Example" description="Simple example showing how to add a Slider control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI28.webp"/>
 
@@ -598,7 +598,7 @@ It is rendered using the following properties:
 | isThumbClamped  | boolean      | false   | Indicates if the thumb should be clamped                                      |
 | isVertical      | boolean      | false   | Indicates that the slider will be rendered vertically instead of horizontally |
 
-Here is an example of a sliders and image based sliders: <Playground id="#HATGQZ" title="ImageBasedSlider Example" description="Simple example showing how to add a ImageBasedSlider control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI29.webp"/>
+Here is an example of sliders and image-based sliders: <Playground id="#HATGQZ" title="ImageBasedSlider Example" description="Simple example showing how to add a ImageBasedSlider control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI29.webp"/>
 
 ## Line
 
@@ -634,8 +634,8 @@ Here are the functions you can use:
 
 - add(): Receives any number of arguments and adds them, each argument can be a mesh, a control, or a point. Returns an array of MultiLinePoint
 - push(): Receives 1 argument and adds it, each argument can be a mesh, a control, or a point. Returns a MultiLinePoint
-- remove(): Recives an index or an instance of a MultiLinePoint and removes it
-- getAt(): Recives an index of a MultiLinePoint and returns its instance. If no MultiLinePoint exists in that index - a new one is created
+- remove(): Receives an index or an instance of a MultiLinePoint and removes it
+- getAt(): Receives an index of a MultiLinePoint and returns its instance. If no MultiLinePoint exists at that index, a new one is created
 
 Here are the properties you can define in MultiLine:
 
@@ -676,7 +676,7 @@ You can also define which part of the source image you want to use with the foll
 
 Here is an example of an image: <Playground id="#XCPP9Y#7" title="Image Example" description="Simple example showing how to add an Image control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI33.webp"/>
 
-You can use animation sheet in the image using properties `image.cellId`, `image.cellWidth`, `image.cellHeight`. <Playground id="#K60448#10" title="Image With Sprite Sheet Example" description="Simple example showing how to add an Image with a sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI34.webp"/>
+You can use an animation sheet in the image by using the properties `image.cellId`, `image.cellWidth`, and `image.cellHeight`. <Playground id="#K60448#10" title="Image With Sprite Sheet Example" description="Simple example showing how to add an Image with a sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI34.webp"/>
 
 You can also apply stretch to animation sheet using `image.stretch` property.
 
@@ -700,7 +700,7 @@ Pre-requisite: a valid single layer SVG document with width, height, viewbox def
 
 Here is an example that uses SVG assets for images and buttons: <Playground id="#E5CARD" title="SVG Asset GUI Example" description="Simple example using SVG assets for gui elements." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI37.webp"/>
 
-Known issue: The batch loading process requires the entire SVG icon sheet to be loaded as a HTMLObjectElement in the DOM. On certain browsers, you may notice a quick flash of the icon sheet on the canvas as the assets load. To alleviate this, you may employ [a loading screen](/features/featuresDeepDive/scene/customLoadingScreen).
+Known issue: The batch loading process requires the entire SVG icon sheet to be loaded as an HTMLObjectElement in the DOM. In certain browsers, you may notice a quick flash of the icon sheet on the canvas as the assets load. To alleviate this, you may use [a loading screen](/features/featuresDeepDive/scene/customLoadingScreen).
 
 ## ColorPicker
 
@@ -737,7 +737,7 @@ Here is an example of a display grid: <Playground id="#747U9T" title="DisplayGri
 
 ## VirtualKeyboard
 
-The VirtualKeyboard is a control used to display simple onscreen keyboard. This is mostly useful with WebVR scenarios where the user cannot easily use his keyboard.
+The VirtualKeyboard is a control used to display a simple onscreen keyboard. This is mostly useful for WebVR scenarios where the user cannot easily use a keyboard.
 
 ### Keys
 
@@ -767,7 +767,7 @@ You can also override each property by providing an array containing properties 
 addKeysRow(["a", "b"], [null, { width: "200px" }]);
 ```
 
-You can define each default properties based on the following class:
+You can define each default property set based on the following class:
 
 ```javascript
 class KeyPropertySet {
@@ -802,35 +802,35 @@ addKeysRow([" "], [{ width: "200px" }]);
 
 ### VirtualKeyboard Events
 
-Every time a key is pressed the `onKeyPressObservable` observable is triggered. But you can also rely on `keyboard.connect(inputText)` to automatically connect a VirtualKeyboard to an InputText. In this case, the keyboard will only appear when the InputText will be focused and all key pressed events will be sent to the InputText.
+Every time a key is pressed, the `onKeyPressObservable` observable is triggered. But you can also rely on `keyboard.connect(inputText)` to automatically connect a VirtualKeyboard to an InputText. In this case, the keyboard will appear only when the InputText is focused, and all key-press events will be sent to the InputText.
 
 You can find a complete demo here: <Playground id="#S7L7FE" title="VirtualKeyboard Events Example" description="Simple example showing how to add VirtualKeyboard Events to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI40.webp"/>
 
 ## Containers
 
 The containers are controls used to host other controls. Use them to organize your UI.
-Containers has one specific property: `container.background`. Use it to define the background color of your container.
+Containers have one specific property: `container.background`. Use it to define the background color of your container.
 
 By default containers do not block pointer events (ie. the underlying scene will receive the pointer event even if the pointer is over a container). You can prevent this behavior by calling `container.isPointerBlocker = true`.
 
 Containers are responsible for managing their children's layout. To prevent layout cycles, the system will not let the layout being updated during a cycle more than 3 times. This value can be changed with `container.maxLayoutCycle`. You can also turn on console warnings when layout cycles are detected with `container.logLayoutCycleErrors = true`.
 
-### Adaptative size
+### Adaptive size
 
-You can decide to have your containers to adapt their size to their children by using one of these properties:
+You can have your containers adapt their size to their children by using one of these properties:
 
 - adaptWidthToChildren (false by default)
 - adaptHeightToChildren (false by default)
 
-If you set one of these properties to true, the associated dimension (width, height or both) will be computed based on direct children size as long as it is defined in pixel (size cannot be defined in percentage because this will generate an infinite loop as the child will need the parent size and the parent will need the child size)
+If you set one of these properties to `true`, the associated dimension (width, height, or both) is computed based on the direct children's size as long as it is defined in pixels (size cannot be defined as a percentage because this would generate an infinite loop: the child would need the parent size, and the parent would need the child size).
 You can find a demo here: <Playground id="#GL5SIM" title="Adaptative size Example" description="Simple example showing how to use adaptative sizing in your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI41.webp"/>
 
 ### Make your controls non-overlapping
 
-If you link your control with a mesh, the control will follow the mesh and the position of the control will be automatically changed relative to the position of the linked mesh. Sometimes your controls will be overlapped by each other.
+If you link your control with a mesh, the control will follow the mesh and its position will be changed automatically relative to the position of the linked mesh. Sometimes your controls will overlap each other.
 
-To solve this problem you can use the `moveToNonOverlappedPosition` method of the `AdvancedDynamicTexture` class.
-First you need to set a value for the `overlapGroup` property on your control. If you leave it `undefined` the control will be not touched during the execution of the `moveToNoveOverlappedPosition` method. Second you need to call the `moveToNonOverlappedPosition` method of the `AdvancedDynamicTexture` class manually each frame, for example in the render loop or using an observer. The `onBeginRenderObservable` of the `AdvancedDynamicTexture` is a good place.
+To solve this problem, you can use the `moveToNonOverlappedPosition` method of the `AdvancedDynamicTexture` class.
+First, you need to set a value for the `overlapGroup` property on your control. If you leave it `undefined`, the control will not be touched during the execution of the `moveToNonOverlappedPosition` method. Second, you need to call the `moveToNonOverlappedPosition` method of the `AdvancedDynamicTexture` class manually each frame, for example in the render loop or by using an observer. The `onBeginRenderObservable` of the `AdvancedDynamicTexture` is a good place for this.
 
 Please refer to this playground with detailed comments in the code on how to use this functionality: <Playground id="#BMW0VQ#3" title="Non-overlapping controls Example" description="Simple example showing how to make your mesh linked controls non-overlapping." />
 
@@ -935,7 +935,7 @@ You can update or delete columns and rows with the following functions:
 - removeRowDefinition(index): Remove a row definition at specified index
 - removeColumnDefinition(index): Remove a column definition at specified index
 
-Two properties can also help you getting rows and columns count:
+Two properties can also help you get the row and column counts:
 
 - rowCount: Will give you the number of rows
 - columnCount: Will give you the number of columns
@@ -965,13 +965,13 @@ style.fontStyle = "italic";
 style.fontFamily = "Verdana";
 ```
 
-Then affect the style to a control:
+Then apply the style to a control:
 
 ```javascript
 textControl.style = style;
 ```
 
-Here is the lsit of properties supported by styles so far:
+Here is the list of properties supported by styles so far:
 
 - fontSize
 - fontStyle
@@ -986,7 +986,7 @@ You can find a demo here: <Playground id="#5N4JIS" title="Styles Example" descri
 
 To reduce the amount of code required to achieve frequent tasks you can use the following helpers:
 
-- `BABYLON.GUI.Control.AddHeader(control, text, size, options { isHorizontal, controlFirst })`: This function will create a StackPanel (horizontal or vertical based on options) and will add your control plus a TextBlock in it. Options can also be used to specify if the control is inserted first of after the header. Depending on the orientation, size will either specify the widht or the height used for the TextBlock.
+- `BABYLON.GUI.Control.AddHeader(control, text, size, options { isHorizontal, controlFirst })`: This function creates a StackPanel (horizontal or vertical based on options) and adds your control plus a TextBlock to it. Options can also be used to specify whether the control is inserted first or after the header. Depending on the orientation, `size` specifies either the width or the height used for the TextBlock.
 
 - `BABYLON.GUI.Checkbox.AddCheckBoxWithHeader(title, onValueChanged)`: This function will create a horizontal StackPanel and will add a checkbox alongside a text block displaying the `title` property. `onValueChanged` defines the callback to call when checkbox state changes.
 
@@ -1035,7 +1035,7 @@ myMesh.layerMask = 1;
 
 ### Multi-scenes
 
-The other option will be to use a multi scene approach with a renderloop defined like this:
+The other option is to use a multi-scene approach with a render loop defined like this:
 
 ```javascript
 guiScene.autoClear = false;
@@ -1049,7 +1049,7 @@ In this case the `guiScene` will host your GUI and the `mainScene` will host you
 
 ## GUI and HighDPI Displays
 
-If you are viewing the scene on a high dpi (or "retina") device (such as many mobile devices, or some laptops), you may notice that text on the UI appears "blurry" or "pixelated". This is because, starting in Babylon.js v2.6, the engine no longer defaults to adapting to the device pixel ratio. This was done for performance reasons on mobile devices; turning it on can have a large impact on performance. To improve the rendering of text (at the cost of performance), you will need to enable the `adaptToDeviceRatio` option when constructing your engine.
+If you are viewing the scene on a high-DPI (or "retina") device (such as many mobile devices or some laptops), you may notice that text on the UI appears "blurry" or "pixelated". This is because, starting in Babylon.js v2.6, the engine no longer defaults to adapting to the device pixel ratio. This was done for performance reasons on mobile devices; turning it on can have a large impact on performance. To improve text rendering (at the cost of performance), you need to enable the `adaptToDeviceRatio` option when constructing your engine.
 
 Please see [Turning AdaptToDeviceRatio Off/On](/features/featuresDeepDive/scene/optimize_your_scene#turning-adapttodeviceratio-offon) for more information on the trade-offs.
 

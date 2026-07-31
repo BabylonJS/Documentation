@@ -14,7 +14,7 @@ video-content:
 
 ## Overview
 
-Using the [geodesic mathematics](/guidedLearning/workshop/Geodesic_Math) already described the code needed to produce Geodesic and Goldberg polyhedra is developed and tested.
+Using the [geodesic mathematics](/guidedLearning/workshop/Geodesic_Math) already described, the code needed to produce Geodesic and Goldberg polyhedra is developed and tested.
 
 ## Isometric Vectors
 
@@ -324,9 +324,9 @@ const GDmnDATA = {
     "face":[ //Array of vertex indices in form [index0, index1, index2]
 };
 ```
-So far when mapping the primary triangle to each icosahedron face some vertex positions are repeated. These the original icosahedron vertices plus any that lie along the edges of the icosahedron. We need to ensure there are no repeats in  GDmnDATA.vertex. For the original icosahedron vertices we add the positions from its IDATA.
+So far, when mapping the primary triangle to each icosahedron face, some vertex positions are repeated. These include the original icosahedron vertices plus any that lie along the edges of the icosahedron. We need to ensure there are no repeats in GDmnDATA.vertex. For the original icosahedron vertices, we add the positions from its IDATA.
 
-We need to know using Fig 2 above and Table 1 for the Geodesic Math page which icosahedron faces are adjacent and which rotations between faces give the shared GD(m, n) facet vertices. We therefore add to the IDATA and GDmnDATA objects.
+Using Fig 2 above and Table 1 on the Geodesic Math page, we need to know which icosahedron faces are adjacent and which rotations between faces give the shared GD(m, n) facet vertices. We therefore add to the IDATA and GDmnDATA objects.
 
 ```javascript
 const IDATA = { 
@@ -482,13 +482,13 @@ Primary.prototype.SetIndices = function() {
 }
 ```
 
-The following playground both generates grey spheres, which have repeats, for all the facet vertex positions with repeats as in *_Icosahedron_* Test 2 above and red spheres showing all the facet vector positions uniquely.
+The following playground generates both grey spheres, which have repeats, for all the facet vertex positions with repeats as in *_Icosahedron_* Test 2 above, and red spheres showing all the facet vector positions uniquely.
 
 PG: <Playground id="#GLLBLZ#30" title="Icosahedron Test 3" description="Map GD(m, n) Unique Vertices"/> 
 
-Now having the unique vertices we need to join them up correctly into the facet triangles to form the GDmn mesh.
+Now that we have the unique vertices, we need to join them correctly into the facet triangles to form the GDmn mesh.
 
-The first step is to generate the facet triple vertex indices for all the facets that lie wholly inside the primary triangle. This is relatively straight forward.
+The first step is to generate the facet triple vertex indices for all the facets that lie wholly inside the primary triangle. This is relatively straightforward.
 
 ```javascript
 Primary.prototype.InnerFacets = function() {
@@ -513,7 +513,7 @@ Primary.prototype.InnerToGDmnData = function(face) {
 }
 ```
 
-Next we deal with overlapping facets between edges AB and OB where the primary triangle is rotated right about B
+Next, we deal with overlapping facets between edges AB and OB, where the primary triangle is rotated right about B.
 
 ```javascript
 Primary.prototype.EdgeVecsABOB = function() {
@@ -622,7 +622,7 @@ Primary.prototype.OBOAtoGDmnDATA = function (faceNb) {
 };
 ```
 
-Finally Overlapping facets between edges BA and OA where the primary triangle is rotated right about A
+Finally, we deal with overlapping facets between edges BA and OA, where the primary triangle is rotated right about A.
 
 ```javascript
 Primary.prototype.ABOBtoBAOA = function() {
@@ -659,7 +659,7 @@ Primary.prototype.BAOAtoGDmnDATA = function (faceNb) {
 };
 ```
 
-These methods are called for each appropriate face
+These methods are called for each appropriate face.
 
 ```javascript
 PT = CreatePrimary(m, n);
@@ -760,8 +760,8 @@ Since each is the dual of the other we need to form the data for the Goldberg po
  };
 ```
 
-This gives us a final test before creating a more user friendly example.
+This gives us a final test before creating a more user-friendly example.
 
 PG: <Playground id="#GLLBLZ#27" title="Goldberg Test 1" description="Goldberg(m, n) Mesh Mapped to Sphere"/> 
 
-For different m and n change their values on lines 53 and 54, **note** m must be greater than n. 
+For different m and n, change their values on lines 53 and 54. **Note** that m must be greater than n. 

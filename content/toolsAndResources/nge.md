@@ -11,7 +11,7 @@ video-content:
 ## What Is Node Geometry Editor?
 The Node Geometry Editor will be familiar for anyone who has already used the Node Material Editor. This editor, like the Node Material Editor, was created to speed up the process of creating Node Geometry and reduce the amount and complexity of code that needs to be written to generate Node Geometry. Additionally, users will not need deep knowledge of the Node Geometry Class as the tool handles all of the necessary syntax and validation for us. 
 
-The tool is available as a stand alone experience by visiting [Node Geometry Editor](https://nge.babylonjs.com) and can also be opened from the inspector when selecting any Node Geometry in scene.
+The tool is available as a stand-alone experience at [Node Geometry Editor](https://nge.babylonjs.com) and can also be opened from the inspector when selecting any Node Geometry in the scene.
 
 ![Node Geometry Editor Launch Button](/img/tools/nge/ngeButton.webp)
 
@@ -27,7 +27,7 @@ Input is just one type of several other node types such as contextual, logical, 
 
 ## Adding Nodes
 
-Adding nodes to the graph is one of the most common actions taken while working with the editor. There are two main methods for adding node to the graph. The first method is clicking and dragging a node from the node list onto the graph and releasing the mouse button. This will drop the selected node at the mouse position. The node list can be filtered by entering a keyword in the search bar at the top of the list to help find a node faster.
+Adding nodes to the graph is one of the most common actions while working with the editor. There are two main methods for adding a node to the graph. The first method is to click and drag a node from the node list onto the graph, then release the mouse button. This will drop the selected node at the mouse position. The node list can be filtered by entering a keyword in the search bar at the top to help you find a node faster.
 
 The second method is to press the space bar for a shortcut to open a search window with a full node list at the mouse position on the graph. Once the window is open, we can simply start typing to enter a keyword in the search bar. Once the list is filtered, use either the mouse to click the desired node or use the arrow keys to highlight the desired node and press enter. This will drop the node at the mouse position when the shortcut was invoked. If a wire was selected when the shortcut was opened, the editor will attempt to connect the node in the middle of the connection that was selected. If the node to be placed contains compatible inputs and outputs, a connection will be made.
 
@@ -84,7 +84,7 @@ To help group nodes together visually, frames can be drawn around them by pressi
 
 ![Frames can be drawn around nodes to help visually organize the graph and allow multiple nodes to be moved at once.](/img/tools/nge/graphFrames.webp)
 
-Frames can also be customized to help them stand out when looking at a graph. They can be given custom names and colors right in the parameters panel. Importantly, comments can also be added to frames and are displayed at the top of the frame. Comments will text wrap at the width of the frame so this is the best way to leave longer comments in the graph to describe what a section of the graph is doing. 
+Frames can also be customized to help them stand out when looking at a graph. They can be given custom names and colors right in the parameters panel. Importantly, comments can also be added to frames and are displayed at the top of the frame. Comments will wrap to the width of the frame, so this is the best way to leave longer comments in the graph to describe what a section of the graph is doing.
 
 ![Frame names and colors can be set in the parameters panel. Long comments can be left on frames which will always display at the top of the frame.](/img/tools/nge/customizeFrame.webp)
 
@@ -92,7 +92,7 @@ Note that on the header bar for a frame there is a close button to remove the fr
 
 ![Frames can be collapsed to hide all nodes within and take up less space on the graph.](/img/tools/nge/collapsedFrame.webp)
 
-The names of the inputs and outputs are taken from the name of the input or output where the wire originated. To help with clarity, however, by clicking on any input or output on a collapsed frame, the parameters panel will display an option to set a custom name. This allows collapsed frames to be more specific about where the port will lead inside the frame when collapsed. Expanding the frame will retain the original node positions and wire passing outside the frame. Note that an input or output that was renamed when collapsed will retain the custom name when expanded.
+The names of the inputs and outputs are taken from the name of the input or output where the wire originated. To help with clarity, however, clicking on any input or output on a collapsed frame will display an option in the parameters panel to set a custom name. This allows collapsed frames to be more specific about where the port will lead inside the frame when collapsed. Expanding the frame will retain the original node positions and wires passing outside the frame. Note that an input or output that was renamed when collapsed will retain the custom name when expanded.
 
 ![To make a collapsed frame more user friendly, click on an input or output to change the name of the port.](/img/tools/nge/customInputName.webp)
 
@@ -147,11 +147,11 @@ In this example, the `Box` node has **Evaluate context** disabled, which means t
 ### Performance and Evaluating Context
 There are also times where **Evaluate context** should be disabled for performance reasons. If we consider the following graph which is just a slight change from the examples above, we have a `Box` node being instantiated on the vertices of a `Grid` node. 
 
-![Graph wired to create 50 boxes at the same size in in a 10 by 10 grid at random grid locations with evaluate context enabled taking 5 ms](/img/tools/nge/perfEvaluateContext.webp)
+![Graph wired to create 50 boxes at the same size in a 10 by 10 grid at random grid locations with evaluate context enabled, taking 5 ms](/img/tools/nge/perfEvaluateContext.webp)
 
 The data feeding the `Box` node is static and sets the same values for width, height, and depth each time the box node is evaluated. In this case, the `Instantiate on vertices` node will loop through the 10 x 10 grid of vertices and instantiate a box on half of them randomly. This means that the `Box` node, with **Evaluate context** enabled will evaluate the float node feeding the box size and generate a box 50 times. Even in this very simple example, we can see how that effect can be exponential as a graph gets more complex. In real terms, this graph takes 5 ms to build which can be seen on the `Geometry Output` node. This value will vary as there is some randomness in how long it takes to generate the instances being that it is randomly choosing vertices for instantiation, but this is still a good representation of the time this graph takes. Now let's see the difference if we disable **Evaluate context** on the `Box` node.
 
-![Graph wired to create 50 boxes at the same size in in a 10 by 10 grid at random grid locations with evaluate context disabled taking 0.4 ms](/img/tools/nge/perfNoEvaluateContext.webp)
+![Graph wired to create 50 boxes at the same size in a 10 by 10 grid at random grid locations with evaluate context disabled, taking 0.4 ms](/img/tools/nge/perfNoEvaluateContext.webp)
 
 In this case the `Box` node only evaluates its context once, the first time it is reached in the graph. The `Instantiate on vertices` node still makes 50 requests of the `Box` node, but each time the geometry passed is the one that was first generated and the `Box` node does no further calculation. With this one change we reduce the time to build this graph from 5 ms to 0.4 ms. Again, the time it takes to build the graph varies slightly, but will always build much faster when **Evaluate context** is disabled.
 
@@ -166,7 +166,7 @@ Launching the editor from here will connect the editor to the scene allowing cha
 
 ![Pressing the Update mesh in scene button in the Sync category will regenerate the mesh in the connected scene to reflect any updates to the graph](/img/tools/nge/updateMeshInScene.webp)
 
-The **Update in scene** button will regenerate the mesh in the scene based on the current graph, so any changes made to the graph will be reflected in the new mesh. The **Rebuild** button will only rebuild the graph within the tool, which will update the mesh generated in the preview window. While the graph automatically rebuilds with every change to the graph, the rebuild button is useful when the graph includes nodes that produce procedurally generated output like `Random` or `Instantiate`. Pressing the rebuild node will allow testing of the graph to see the types of output generated by procedural nodes without needing to make a change to the graph itself. 
+The **Update mesh in scene** button will regenerate the mesh in the scene based on the current graph, so any changes made to the graph will be reflected in the new mesh. The **Rebuild** button will only rebuild the graph within the tool, which will update the mesh generated in the preview window. While the graph automatically rebuilds with every change to the graph, the Rebuild button is useful when the graph includes nodes that produce procedurally generated output like `Random` or `Instantiate`. Pressing the Rebuild button lets you test the graph and see the types of output generated by procedural nodes without needing to make a change to the graph itself.
 
 There may be a time when it is necessary to debug the interaction between the `NodeGeometry` graph and the code generating the scene. If, for some reason, the `NodeGeometry` graph fails to generate a mesh, the ability to open the Node Geometry Editor from the inspector is lost because there is no mesh holding the button to launch the editor. In cases like this, there is still a way to debug the graph by opening the Node Geometry Editor with the call:
 

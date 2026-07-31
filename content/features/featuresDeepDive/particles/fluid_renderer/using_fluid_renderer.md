@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-The fluid renderer has been implemented as a scene component (like the depth renderer, for example), so you can enable it by doing `scene.enableFluidRenderer()` (and do `fluidRenderer = scene.enableFluidRenderer()` to get a pointer to the renderer) and disable it with `scene.disableFluidRenderer()`.
+The fluid renderer has been implemented as a scene component (like the depth renderer, for example), so you can enable it with `scene.enableFluidRenderer()` (or use `fluidRenderer = scene.enableFluidRenderer()` to get a reference to the renderer) and disable it with `scene.disableFluidRenderer()`.
 
 ## Main classes
 
@@ -16,7 +16,7 @@ The fluid renderer handles two entities: `FluidRenderingObject` and `FluidRender
 * `FluidRenderingObject` is an object you want to render as a fluid: either a particle system (`FluidRenderingObjectParticleSystem`) or a raw list of particles (vertex coordinates - `FluidRenderingObjectCustomParticles`).
 * `FluidRenderingTargetRenderer` is the class that generates the depth, thickness and diffuse textures and renders the object(s) as a fluid.
 
-You can associate multiple `FluidRenderingObject` with a single `FluidRenderingTargetRenderer` or have multiple instances of `FluidRenderingTargetRenderer` and distribute your fluid objects among these target renderers. For performance reasons, it's better to use a single target renderer for multiple objects rather than creating a new target renderer instance for each object, but if the target renderer settings need to be different depending on the object being rendered, you have no choice but to create additional target renderers.
+You can associate multiple fluid rendering objects with a single `FluidRenderingTargetRenderer`, or have multiple instances of `FluidRenderingTargetRenderer` and distribute your fluid objects among those target renderers. For performance reasons, it is better to use a single target renderer for multiple objects rather than creating a new target renderer instance for each object. However, if the target renderer settings need to differ depending on the object being rendered, you will need to create additional target renderers.
 
 ## Rendering objects as a fluid
 
@@ -46,8 +46,8 @@ Note that the `buffers` object must contain at least one **position** buffer! If
 
 ## Debugging
 
-The `FluidRendererGUI` class allows you to see the fluid objects and target renderers registered with the fluid renderer and allows you to modify their properties easily:
+The `FluidRendererGUI` class allows you to see the fluid objects and target renderers registered with the fluid renderer, and to modify their properties easily:
 
 ![Fluid Debugging](/img/features/fluidrenderer/gui_debugging.webp)
 
-This class is not integrated into Babylon.js because we will update the inspector instead, so in the meantime you can find it [here](/features/featuresDeepDive/particles/fluid_renderer/fluid_gui).
+This class is not integrated into Babylon.js because the inspector will be updated instead, so in the meantime you can find it [here](/features/featuresDeepDive/particles/fluid_renderer/fluid_gui).

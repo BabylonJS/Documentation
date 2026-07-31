@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Color Ramps and Blends, and Billboard Mode
+# Color Ramps, Blends, and Billboard Mode
 
 ## Ramp Gradients
 
@@ -62,7 +62,7 @@ particleSystem.addColorRemapGradient(0.5, 0.95, 1.0);
 particleSystem.addColorRemapGradient(1.0, 0.95, 1.0);
 ```
 
-The color remap gradients define a min and max that will vary over the particle lifetime. The index is then remapped from [min, max] to [0, 1] with this formula: `finalIndex = clamp((index - min) / (max - min), 0.0, 1.0)`.
+The color remap gradients define a min and max that vary over the particle lifetime. The index is then remapped from [min, max] to [0, 1] with this formula: `finalIndex = clamp((index - min) / (max - min), 0.0, 1.0)`.
 
 With remap over lifetime of particle: <Playground id="#E3VU3R#1" title="Ramp Gradient With Remap Over Lifetime" description="Simple example of using ramp gradients with a remap over the lifetime of the particle."/>
 
@@ -95,7 +95,7 @@ particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_STANDARD;
 
 ## Billboard Modes
 
-By default, all particles are rendered as billboards — that is, facing the camera. But you can decide to instead align them with the particle direction with:
+By default, all particles are rendered as billboards — that is, they face the camera. However, you can instead align them with the particle direction with:
 
 ```javascript
 particleSystem.isBillboardBased = false;

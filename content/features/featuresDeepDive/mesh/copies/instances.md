@@ -14,7 +14,7 @@ video-content:
 
 ## How to use Instances
 
-Instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes (let's imagine a forest or an army).
+Instances are an excellent way to use hardware-accelerated rendering to draw a huge number of identical meshes (let's imagine a forest or an army).
 
 Instances are built from a mesh with the following code:
 
@@ -38,7 +38,7 @@ BABYLON.ImportMeshAsync("https://www.babylonjs.com/assets/Tree/tree.babylon", sc
 
 A mesh can have as many instances as you want.
 
-Each instance has the same material as the root mesh. They can vary on the following properties:
+Each instance has the same material as the root mesh. They can vary in the following properties:
 
 - `position`
 - `rotation`
@@ -46,11 +46,11 @@ Each instance has the same material as the root mesh. They can vary on the follo
 - `setPivotMatrix`
 - `scaling`
 
-Note: related are **thin instances**, if you want yet more performances but with less control on each instance. See the [dedicated page](/features/featuresDeepDive/mesh/copies/thinInstances) for further information.
+Note: related are **thin instances**, if you want even more performance but with less control over each instance. See the [dedicated page](/features/featuresDeepDive/mesh/copies/thinInstances) for further information.
 
 ## Use Instances with Node Material
 
-The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). To use a Node Material in a mesh with Instances, you need to add the Instances node to it so that the object is properly instanced:
+The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows you to create shaders without having to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). To use a Node Material on a mesh with instances, you need to add the Instances node to it so that the object is properly instanced:
 
 ![Use Instances with Node Material](/img/how_to/instances-node.webp)
 
@@ -60,9 +60,9 @@ The Instances node also gives information on the instance number of the object, 
 
 ## Instancing a glTF Object
 
-When you instantiate a glTF object, you need to make sure that the new instance will be under the same parent or you need to remove the parent from the source object.
+When you instantiate a glTF object, you need to make sure that the new instance will be under the same parent, or you need to remove the parent from the source object.
 
-This is because every gltf file comes from a right handed world. To get it into Babylon.js left handed world, we are adding an arbitrary parent that is adding a negative scale on z.
+This is because every glTF file comes from a right-handed world. To get it into Babylon.js's left-handed world, we add an arbitrary parent with a negative scale on z.
 
 So when instancing a glTF object you have to (either):
 
@@ -71,7 +71,7 @@ So when instancing a glTF object you have to (either):
 
 ## Custom Buffers
 
-You also have the opportunity to specify per instance values for any attribute. For instance (no pun intended), if you want to have a specific color per instance, you only need to provide a vertex buffer flagged as "instanceable" and fill it with a color per instance:
+You also have the opportunity to specify per-instance values for any attribute. For instance (no pun intended), if you want to have a specific color per instance, you only need to provide a vertex buffer flagged as "instanceable" and fill it with a color for each instance:
 
 ```javascript
 let instanceCount = 1000;
@@ -137,7 +137,7 @@ mesh.worldMatrixInstancedBuffer.set(mat, offset); // mat is the matrix you want 
 offset += 16; (a matrix is composed of 16 floats
 ```
 
-It is recommended to freeze the active meshes when controling the world matrix instanced buffer to avoid having a discrepancy between the values you store and the number of active instances:
+It is recommended to freeze the active meshes when controlling the world matrix instanced buffer to avoid having a discrepancy between the values you store and the number of active instances:
 
 ```javascript
 scene.freezeActiveMeshes(true);
@@ -147,7 +147,7 @@ You can find a complete example here: <Playground id="#HJGC2G" title="Instancing
 
 ## Support
 
-Instances are supported for collisions, picking, rendering and shadows. Even if the current hardware does not support hardware accelerated instances, babylon.js will be able to optimize rendering to take instances into account.
+Instances are supported for collisions, picking, rendering, and shadows. Even if the current hardware does not support hardware-accelerated instances, Babylon.js will still optimize rendering to take instances into account.
 
 Starting from 5.0, instances that have a transparent material applied can be sorted from back to front to remove/limit rendering artifacts. This mode is enabled by setting `BABYLON.Mesh.INSTANCEDMESH_SORT_TRANSPARENT = true`.
 
@@ -157,25 +157,25 @@ Note that for performance sake the master mesh (the mesh from which instances ar
 
 ## Blender
 
-Using Blender, you can create instances of a mesh by just creating a linked object:
+Using Blender, you can create instances of a mesh simply by creating a linked object:
 
 ![](/img/how_to/use-instance/blender-linked-object.webp)
 
 ## 3ds Max
 
-Using 3DS Max, you can create instances of a mesh by just creating a clone instance object with clic right on the object:
+Using 3ds Max, you can create instances of a mesh simply by creating a clone instance object with a right-click on the object:
 
 ![](/img/how_to/use-instance/3ds-linked-object.webp)
 
 ## Limitations
 
-- You can use instances with LOD but one limitation will apply in this case: You will have to hide the root objects.
+- You can use instances with LOD, but one limitation applies in this case: you will have to hide the root objects.
   Here is an example where LODs reuse instances:
   <Playground id="#0720FC#10" title="Instances and LODs" description="Simple example of instancing and LODs."/>
 
-- Instances with a world matrix where determinant is different than root mesh world matrix will be rendered separately (like a regular mesh). This mostly happens when the sign of the scaling vector is different between an instance and the root mesh.
+- Instances with a world matrix whose determinant is different from the root mesh's world matrix will be rendered separately (like a regular mesh). This mostly happens when the sign of the scaling vector is different between an instance and the root mesh.
 
-- When using motion blur, the engine needs to store world matrices of the previous frame to compute velocity. Usually, this part is taken care of internally, but in certain cases you may have to specify these matrices manually. You may in fact see weird blurring artifacts if you update your world matrix buffer manually (using `mesh.manualUpdateOfWorldMatrixInstancedBuffer = true;`). In that case, to also update previous world matrices, you must enable the corresponding flag :
+- When using motion blur, the engine needs to store world matrices of the previous frame to compute velocity. Usually, this part is handled internally, but in certain cases you may have to specify these matrices manually. You may in fact see weird blurring artifacts if you update your world matrix buffer manually (using `mesh.manualUpdateOfWorldMatrixInstancedBuffer = true;`). In that case, to also update previous world matrices, you must enable the corresponding flag:
 
 ```javascript
 mesh.manualUpdateOfPreviousWorldMatrixInstancedBuffer = true;
@@ -187,7 +187,7 @@ And similarly to world matrices, update the previous world matrices :
 mesh.previousWorldMatrixInstancedBuffer.set(previousMat, offset);
 ```
 
-Here is an example of manual update of world matrices along with previous world matrices, to use motion blur correctly with instances :
+Here is an example of manually updating world matrices along with previous world matrices to use motion blur correctly with instances:
 <Playground id="#HJGC2G#58" title="Instances previous matrices motion blur" description="Updating manually previous world matrices for instances to work with motion blur"/>
 
 ## Demos

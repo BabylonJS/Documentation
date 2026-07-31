@@ -1,22 +1,22 @@
 ---
 title: Adding a Roof to a House Built from Plans
 image: 
-description: Using a 2D plan to describe a roof build it in 3D
+description: Using a 2D plan to describe a roof and build it in 3D
 keywords: house, roof, plan
 further-reading:
 video-overview:
 video-content:
 ---
 
-For any house there is a range of different types of roof that can be added and so there is no automatic way to use the footprint of a house to build a roof directly. However with a little bit of manual design there are methods that can complete the build. Here we present two ways to design and create a hip roof. The example used is based on the [design](/guidedLearning/workshop/House) and [coding](/guidedLearning/workshop/House_Use) of this [house](https://www.babylonjs-playground.com/#4GBWI5#265).
+For any house, there is a range of different types of roof that can be added, so there is no automatic way to use the footprint of a house to build a roof directly. However with a little bit of manual design there are methods that can complete the build. Here we present two ways to design and create a hip roof. The example used is based on the [design](/guidedLearning/workshop/House) and [coding](/guidedLearning/workshop/House_Use) of this [house](https://www.babylonjs-playground.com/#4GBWI5#265).
 
-**Please note that some functions used in this project uses Earcut, so, in non playground projects, you will have to add a reference to their [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download their [npm package](https://github.com/mapbox/earcut#install)**
+**Please note that some functions used in this project use Earcut, so in non-playground projects, you will have to add a reference to the [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download the [npm package](https://github.com/mapbox/earcut#install)**
 
 ## Design Whole Roof
 
 In this case the **rise**, or roof height, is the same for all sections of the roof.
 
-The **footprint** for the house defines the inner walls of the house, from which the data for the outer walls is calculated. A roof overhangs the outer walls. The footprint of the roof, or **roofprint**, defines the corners of this overhang. In _Fig 1_ the black area shows the thickness, or **ply** of the house walls and the red the **overhang** of the roofprint.
+The **footprint** for the house defines the inner walls of the house, from which the data for the outer walls is calculated. A roof overhangs the outer walls. The footprint of the roof, or **roofprint**, defines the corners of this overhang. In _Fig 1_, the black area shows the thickness, or **ply**, of the house walls, and the red area shows the **overhang** of the roofprint.
 
 ![overhang](/img/samples/roof1.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
@@ -29,7 +29,7 @@ var overlap = ply + overhang;
 var wholeRoofprint = roofprint(corners, overlap, height);
 ```
 
-The function **roofprint** returns a list of Vector3 representing the corners of the roof floor in counter clockwise order.
+The function **roofprint** returns a list of Vector3s representing the corners of the roof floor in counter-clockwise order.
 
 Using the roofprint the floor of the roof (or top ceiling) can be added as a mesh.
 
@@ -45,7 +45,7 @@ Though it is possibly more accurate to use the roofprint as a guide to a plan fo
 ```javascript
 var baseData = [-3, -2,  -1, -4,  1, -4,  3, -2,  5, -2,  5, 1,  2, 1,  2, 3,  -3, 3];
 ```
-The red dash lines showing the axes.
+The red dashed lines show the axes.
 
 From the diagram the roof apex data can be read off and the coordinate pairs placed in the array in sequence order. First pair is from A0, the second from A1 etc.
 
@@ -53,7 +53,7 @@ From the diagram the roof apex data can be read off and the coordinate pairs pla
 var roofApexData = [0, -2,  0, -0.5,  0, 2,  4.5, -0.5];
 ```
 
-This data the needs to be turned into an array, **apexes** for example, of Vector2 which will be used as the second parameter of the **roof** function.
+This data then needs to be turned into an array, **apexes** for example, of Vector2s that will be used as the second parameter of the **roof** function.
 
 ```javascript
 var apexes = [];
@@ -62,7 +62,7 @@ for(let i = 0; i < roofApexData.length / 2; i++) {
 	apexes.push(new BABYLON.Vector2(roofApexData[2 * i], roofApexData[2 * i + 1]))
 }
 ```
-Each roof plane can be described using the corner and apex labels. The planes should be draw so that they are described with either 3 or 4 labels. Each plane is set as an array using the labels in a counter clockwise order with corner labels coming first. Remember that the corner labels are already in counter clockwise order. An array of planes is then formed containing all the plane data arrays.
+Each roof plane can be described using the corner and apex labels. The planes should be drawn so that they are described with either 3 or 4 labels. Each plane is set as an array using the labels in a counter clockwise order with corner labels coming first. Remember that the corner labels are already in counter clockwise order. An array of planes is then formed containing all the plane data arrays.
 
 ```javascript
 var planes = [
@@ -79,7 +79,7 @@ var planes = [
 ]
 ```
 
-The roof function can then be applied to produce the sections or planes of the roof. 
+The roof function can then be applied to produce the sections, or planes, of the roof. 
 
 This takes the parameters as shown
 
@@ -89,7 +89,7 @@ roof(roofprint, apexes, planes, rise, height, uvbase)
 
 The **rise** is the distance from the roof floor to an apex, the height is the height of the house.
 
-The roof function creates uv values for each plane based on the size of the plane. So a plane that is twice as big as another will have double the uv values. For this to work the parameter _uvbase_ has to larger than the maximum width and height of all the planes. As a rule of thumb use a value about the width (horizontal) of the largest plane.
+The roof function creates uv values for each plane based on the size of the plane. So a plane that is twice as big as another will have double the uv values. For this to work, the parameter _uvbase_ has to be larger than the maximum width and height of all the planes. As a rule of thumb use a value about the width (horizontal) of the largest plane.
 
 The roof function creates the mesh of the roof.
 
@@ -110,12 +110,12 @@ When you want different parts of the roof to have different heights then althoug
 
 The simplest solution however is to use values that extend the small roof into the large roof.
 
-Following this method and using the original floor plan the plan for the lower roof section will cover the red area as in _Fig 4_
+Following this method and using the original floor plan, the plan for the lower roof section will cover the red area as in _Fig 4_.
 
 ![overlap 1](/img/samples/roof4.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 4
 
-The help prevent Z fighting the plan for the higher roof will be reduced so that parts of it will fall inside the lower roof.
+To help prevent Z fighting, the plan for the higher roof will be reduced so that parts of it will fall inside the lower roof.
 
 The plan drawing for the main roof is now as in _Fig 5_ and for the smaller roof as in _Fig 6_
 
@@ -134,7 +134,7 @@ var smallRoofprint = roofprint(smallCorners, overlap, height);
 	
 var ceiling = roofFloor(wholeRoofprint);
 ```
-Apex arrays has to be formed for both the main and small roof
+Apex arrays have to be formed for both the main and small roof.
 
 ```javascript
 var apexes = [];
@@ -150,7 +150,7 @@ for(let i = 0; i < smallRoofApexData.length / 2; i++) {
 }
 ```
 
-In the same way two plane arrays are needed, on for each roof
+In the same way, two plane arrays are needed, one for each roof.
 
 ```javascript
 var planes = [
@@ -169,7 +169,7 @@ var planes = [
 	]
 ```
 
-Then ,finally, both roof sections can be created
+Then, finally, both roof sections can be created:
 
 ```javascript
 var roofSection = roof(mainRoofprint, apexes, planes, 2, height, 5.1);

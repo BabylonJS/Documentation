@@ -34,7 +34,7 @@ myCamera.attachControl(canvas);
 
 By default `noPreventDefault` is set to `false`, meaning that `preventDefault()` is automatically called on all canvas mouse clicks and touch events.
 
-Babylon.js v2.4 introduced a different way to manage camera inputs to provide an approach oriented toward composability of inputs. You can now use an input manager and each input can be seen as a plugin that is specific to this camera family and to a given input type (mouse, keyboard, gamepad, device orientation, etc.).
+Babylon.js v2.4 introduced a different way to manage camera inputs to provide an approach oriented toward input composability. You can now use an input manager, and each input can be seen as a plugin that is specific to a camera family and a given input type (mouse, keyboard, gamepad, device orientation, etc.).
 
 Using input managers, you can add, remove, enable, or disable any input available for the camera. You can also easily implement custom input mechanisms or override the existing ones.
 
@@ -101,7 +101,7 @@ camera.inputs.clear();
 camera.inputs.addMouse();
 ```
 
-You can also remove a single input from your input manager. You can remove them by instance, or by Type name
+You can also remove a single input from your input manager. You can remove it by instance or by type name.
 
 ```javascript
 const camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
@@ -142,9 +142,9 @@ checkInputs();
 
 ## HammerJS Input
 
-If the builtin touch controls for the ArcRotateCamera are not enough for you, you can implement your own camera input using the well-known touch gestures library HammerJS. https://hammerjs.github.io/
+If the built-in touch controls for the ArcRotateCamera are not enough for you, you can implement your own camera input using the well-known touch gesture library HammerJS: https://hammerjs.github.io/
 
-We have an example of how to use HammerJS to simulate something similar to Google Earth controls. We use BabylonJS's ArcRotateCamera for this purpose. The camera is locked on the Y axis and horizontal pan moves the camera along the X axis and the vertical pan moves it along the Z axis. The `alpha` angle of the camera is taken into account when panning. By pinching you can change the `radius` of the camera so you can zoom in and out. You can change the `alpha` angle of the camera by a two finger rotate gesture so basically you can rotate around the cameras target.
+We have an example of how to use HammerJS to simulate something similar to Google Earth controls. We use BabylonJS's ArcRotateCamera for this purpose. The camera is locked on the Y axis, horizontal pan moves the camera along the X axis, and vertical pan moves it along the Z axis. The camera's `alpha` angle is taken into account when panning. By pinching, you can change the camera's `radius` to zoom in and out. You can change the camera's `alpha` angle with a two-finger rotate gesture, so you can rotate around the camera's target.
 
 Example app:
 https://demos.babylonjs.xyz/hammerjs-example/#/
@@ -152,13 +152,13 @@ https://demos.babylonjs.xyz/hammerjs-example/#/
 GitHub repo:
 https://github.com/RolandCsibrei/babylonjs-hammerjs-arc-rotate-camera
 
-The example contains `utils\ArcRotateCameraHammerJsInput.ts` which implements `ICameraInput<ArcRotateCamera>`. There are multiple parameters for the input and are pretty self explanatory. Please refer to the source code of the input and set the sensitivity and treshold values which fits your needs. First you need to install HammerJS, please refer to https://hammerjs.github.io/getting-started/ and import it
+The example contains `utils\ArcRotateCameraHammerJsInput.ts`, which implements `ICameraInput<ArcRotateCamera>`. There are multiple parameters for the input, and they are pretty self-explanatory. Please refer to the input source code and set the sensitivity and threshold values that fit your needs. First, you need to install HammerJS. Please refer to https://hammerjs.github.io/getting-started/ and import it.
 
 ```javascript
 import "hammerjs";
 ```
 
-To use the new input you add it to your `camera.inputs` after you have created the camera. To avoid one input fighting the other remove the `ArcRotateCameraPointersInput` from `camera.inputs`. After you've created your Input you can set its parameters. The default ones (please refer to https://github.com/RolandCsibrei/babylonjs-hammerjs-arc-rotate-camera/blob/680cf12155924a818faac5ff9d7f0a0271bb632b/src/utils/ArcRotateCameraHammerJsInput.ts#L21) are good for a general touch screen monitor so you may have to set them according to your needs.
+To use the new input, add it to your `camera.inputs` after you have created the camera. To avoid one input fighting the other, remove `ArcRotateCameraPointersInput` from `camera.inputs`. After you create your input, you can set its parameters. The default values (please refer to https://github.com/RolandCsibrei/babylonjs-hammerjs-arc-rotate-camera/blob/680cf12155924a818faac5ff9d7f0a0271bb632b/src/utils/ArcRotateCameraHammerJsInput.ts#L21) are good for a general touch-screen monitor, so you may need to adjust them for your needs.
 
 ```javascript
 // remove mouse input
@@ -173,7 +173,7 @@ hammerJsInput.zoomSensitivity = 2;
 camera.inputs.add(hammerJsInput);
 ```
 
-Feel free to use this Input class as a starter for your own HammerJS based input.
+Feel free to use this input class as a starter for your own HammerJS-based input.
 
 ## With Javascript
 
@@ -326,7 +326,7 @@ Remember to click on the scene before using the arrow keys.
 
 ## Using BaseCameraPointersInput to Create Custom Inputs
 
-In addition to making custom camera inputs as illustrated in the [Implementing Your Own Input](#implementing-your-own-input) section, you can also extend the functionality of some of the implemented base classes make creating some custom classes easier. One such class is the BaseCameraPointersInput class:
+In addition to making custom camera inputs as illustrated in the [Implementing Your Own Input](#implementing-your-own-input) section, you can also extend the functionality of some implemented base classes to make creating custom classes easier. One such class is `BaseCameraPointersInput`:
 
 For either Javascript (ES6+) or Typescript, you should be able to extend the functionality of the `BaseCameraPointersInput` class. From there, you just need to override a few functions.
 
@@ -394,9 +394,9 @@ class YourCustomInputClass extends BABYLON.BaseCameraPointersInput {
 }
 ```
 
-This may seem like a lot but the big takeaways are that `onTouch` is where you handle single pointer source events and `onMultiTouch` for events with at least two touch sources.
+This may seem like a lot, but the big takeaways are that `onTouch` is where you handle single-pointer source events, and `onMultiTouch` handles events with at least two touch sources.
 
-If you find yourself asking, "What benefit is there to using this versus creating my own from scratch", here are a few benefits. The BaseCameraPointersInput class will automatically handle various input and event based things like preventDefault, pointer capture, and pointer lock. On top of that, event handling is taken care of for you. While there's less flexibility in going this route, it might be easier to work with.
+If you find yourself asking, "What benefit is there to using this versus creating my own from scratch?", here are a few benefits. The `BaseCameraPointersInput` class will automatically handle various input- and event-based details such as `preventDefault`, pointer capture, and pointer lock. On top of that, event handling is taken care of for you. While there is less flexibility in going this route, it might be easier to work with.
 
 <Playground id="#73ATC0#11" title="FreeCameraPointersInput (JS) Example" description="A simple Javascript example of customizing camera inputs to combine touch and mouse." />
 

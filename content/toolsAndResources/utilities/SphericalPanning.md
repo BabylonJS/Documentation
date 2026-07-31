@@ -10,9 +10,9 @@ video-content:
 
 ## Spherical Panning for 360 Camera Rotation
 
-This snippet shows a way to add spherical panning behavior to a scene.  The behavior is similar to the interactions from viewing 3D images on Facebook, Google Maps, etc.  The function contains several constants, such as INERTIA_DECAY_FACTOR, which can be tuned to customize the default feel of the interaction.
+This snippet shows a way to add spherical panning behavior to a scene. The behavior is similar to the interactions used when viewing 3D images on Facebook, Google Maps, and similar sites. The function contains several constants, such as INERTIA_DECAY_FACTOR, that can be tuned to customize the default feel of the interaction.
 
-Note that this function uses quaternion math which is not available in Babylon.js v3.3.0 or earlier.
+Note that this function uses quaternion math, which is not available in Babylon.js v3.3.0 or earlier.
 
 ```javascript
 var addSphericalPanningCameraToScene = function (scene, canvas) {

@@ -10,8 +10,8 @@ video-content:
 
 ## Pre-Requisites
 
-- Installation of Node.js, NPM, Git, Typescript and have a Github Account;
+- Node.js, npm, Git, TypeScript, and a GitHub account;
 - A fork and clone of Babylon.js;
 - Reading the [contribution guidelines](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md);
 - An IDE such as VSCode;
-- An ability to code in Typescript. Babylon.js is written in Typescript then compiled and distributed in JavaScript.
+- An ability to code in TypeScript. Babylon.js is written in TypeScript and then compiled and distributed in JavaScript.

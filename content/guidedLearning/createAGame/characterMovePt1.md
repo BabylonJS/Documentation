@@ -11,12 +11,12 @@ video-content:
 ## Summary
 The first step I took towards making the game was to figure out how movement would work. My past experience with 3D games pushed me towards thinking that movement would be the most difficult part of the development process, so I wanted to make sure to focus on that early on. Since I was just getting started, I knew I needed to get some prototyping in for it, so I started off by making a playground to test out simple walking, jumping, and dashing: [early prototype](https://playground.babylonjs.com/#UP84Y8#10)
 
-A few things you can see from this is:
+A few things you can see from this are:
 1. The player is able to walk through the platform
-2. The player falls off of the platform before the mesh is "completely" off of the platform
+2. The player falls off the platform before the mesh is "completely" off the platform
 3. And most importantly, when you jump, the player lands partially inside of the ground
 
-This prototype underwent a lot of transformations to get to the point that it's at for the final game! For the final version, I've implemented a capsule collider + simulated rigidbody by using Babylon's collision physics and raycasting for ground detection.
+This prototype underwent a lot of transformations to get to the point it's at in the final game! For the final version, I've implemented a capsule collider and a simulated rigid body by using Babylon's collision physics and raycasting for ground detection.
 
 For part 1 we'll be going over how to detect inputs and how to get simple walking/running movement. Links to the complete files are below, but I'll be referencing certain parts that are important.
 
@@ -41,7 +41,7 @@ constructor(scene: Scene) {
     });
 }
 ```
-Within our constructor we're creating an action manager to register keydown and keyup events and using the inputMap to store whether the key was down. We're then telling the scene to call the [_updateFromKeyboard](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/inputController.ts#L58) function before the scene renders.
+Within our constructor, we're creating an action manager to register keydown and keyup events and using the inputMap to store whether the key was down. We're then telling the scene to call the [_updateFromKeyboard](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/inputController.ts#L58) function before the scene renders.
 
 ```javascript
 private _updateFromKeyboard(): void {
@@ -71,7 +71,7 @@ private _updateFromKeyboard(): void {
     }
 }
 ```
-Inside of **_updateFromKeyBoard**, we're checking for whether our arrow keys have been pressed by looking at the value that's in our inputMap. The up and down arrows are checking the vertical inputs which correspond to forward and backwards movement. The left and right arrows are checking for horizontal movement. As we press the key, we want to lerp the value so that it has a smoother transition. We are doing a couple different things here:
+Inside of **_updateFromKeyBoard**, we're checking whether our arrow keys have been pressed by looking at the value that's in our inputMap. The up and down arrows are checking the vertical inputs, which correspond to forward and backward movement. The left and right arrows are checking for horizontal movement. As we press a key, we want to lerp the value so that it has a smoother transition. We are doing a couple of different things here:
 1. As you hold the key, it gradually increases the value to 1 or -1.
 2. We're keeping track of which axis/direction we were moving in
 3. If we don't detect any inputs in an axis, we set both the direction and value to 0
@@ -81,7 +81,7 @@ Now, in order to use this *PlayerInput*, we'll need to create one in **_goToGame
 //--INPUT--
 this._input = new PlayerInput(scene); //detect keyboard/mobile inputs
 ```
-This means we will also need to update the line where we create our Player to take in the input **_initializeGameAsync**:
+This means we will also need to update the line in **_initializeGameAsync** where we create our Player to take in the input:
 ```javascript
 //Create the player
 this._player = new Player(this.assets, scene, shadowGenerator, this._input);
@@ -107,7 +107,7 @@ let correctedHorizontal = right.scaleInPlace(this._h);
 //movement based off of camera's view
 let move = correctedHorizontal.addInPlace(correctedVertical);
 ```
-Now, since we want the player to move in relation to the camera, we need to grab the forward and right vectors of the camera. We then scale them by our inputs. We now have a new movement vector called move that's the combined vertical and horizontal movement. The reason why I've implemented this is because the camera view will be rotating at certain areas of the map and if the player was moving to the right as the camera rotated, we want them to be able to continue moving right even as the orientation changes.
+Now, since we want the player to move in relation to the camera, we need to grab the forward and right vectors of the camera. We then scale them by our inputs. We now have a new movement vector called move that's the combined vertical and horizontal movement. I implemented this because the camera view rotates in certain areas of the map, and if the player is moving to the right as the camera rotates, we want them to be able to continue moving right even as the orientation changes.
 ```javascript
 //clear y so that the character doesnt fly up, normalize for next step
 this._moveDirection = new Vector3((move).normalize().x, 0, (move).normalize().z);
@@ -145,7 +145,7 @@ public activatePlayerCamera(): UniversalCamera {
     return this.camera;
 }
 ```
-What this does is, before each render, calls our character update function (_beforeRenderUpdate) and calls our camera update function (_updateCamera).
+What this does is call our character update function (_beforeRenderUpdate) and our camera update function (_updateCamera) before each render.
 2. **_beforeRenderUpdate** for now will just involve updating the movement
 ```javascript
 private _beforeRenderUpdate(): void {
@@ -154,7 +154,7 @@ private _beforeRenderUpdate(): void {
     this.mesh.moveWithCollisions(this._moveDirection);
 }
 ```
-Here we are also calling `mesh.moveWithCollisions` that uses the _moveDirection Vector3 that we created. We will update this in part 2 to account for gravity.
+Here we are also calling `mesh.moveWithCollisions`, which uses the _moveDirection_ Vector3 that we created. We will update this in part 2 to account for gravity.
 3. Call **activatePlayerCamera** in **_initializeGameAsync** after we call our Player Constructor.
 ```javascript
 //...player constructor
@@ -178,8 +178,8 @@ angle += this._camRoot.rotation.y;
 let targ = Quaternion.FromEulerAngles(0, angle, 0);
 this.mesh.rotationQuaternion = Quaternion.Slerp(this.mesh.rotationQuaternion, targ, 10 * this._deltaTime);
 ```
-Here we are calculating the angle to move the player to based off of the camera's current angle. Then we are slerping to that new target angle by a value of 10 x *this._deltaTime* so that we have a smooth transition as we rotate.
-- [this._deltaTime](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L159) is the amount of time in between frames (ms), so we divide by 1000 to get seconds.
+Here we are calculating the angle to move the player to based on the camera's current angle. Then we are slerping to that new target angle by a value of 10 x *this._deltaTime* so that we have a smooth transition as we rotate.
+- [this._deltaTime](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L159) is the amount of time between frames (ms), so we divide by 1000 to get seconds.
 
 At this point, if we run the project, we should be able to move around & see our player rotate directions!
 
@@ -211,7 +211,7 @@ If our ray has hit anything, return the pickedPoint, a Vector3. Else, we return 
 
 #### Grounded
 
-The [_isGrounded](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L298) function checks whether or not the player is on a ground by sending a raycast.
+The [_isGrounded](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L298) function checks whether or not the player is on the ground by sending a raycast.
 ```javascript
 if (this._floorRaycast(0, 0, 0.6).equals(Vector3.Zero())) {
     return false;

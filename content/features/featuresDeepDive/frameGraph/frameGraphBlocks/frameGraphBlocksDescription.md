@@ -15,11 +15,11 @@ The NRGE preview area will try to set sensible values for the external inputs (s
 
 ### Camera
 
-This input block allows you to define a camera in the graph, which you can connect to blocks that need a camera as input. This input is always an “external” input, so you will need to supply a value for this block by code when using a node render graph in your projects.
+This input block allows you to define a camera in the graph, which you can connect to blocks that need a camera as input. This input is always an “external” input, so you will need to supply a value for this block in code when using a node render graph in your projects.
 
 ### ObjectList
 
-This input block allows you to define a list of objects in the graph, which you can connect to blocks that need an input list of objects. This input is always an “external” input, so you will need to provide a value for this block by code when using a node render graph in your projects.
+This input block allows you to define a list of objects in the graph, which you can connect to blocks that need an input list of objects. This input is always an “external” input, so you will need to provide a value for this block in code when using a node render graph in your projects.
 
 Note that for the moment, an object list can contain a list of meshes + a list of particle systems. From a programmatic point of view, it is defined as follows:
 
@@ -40,7 +40,7 @@ This list may also contain a list of sprites in the future.
 
 ### ShadowLight
 
-This input block allows you to define a shadow light (that is, a light that can generate shadows - all types of lights in Babylon, except area and hemispherical lights) in the graph, which you can connect to blocks that need a shadow light as input. This input is always an “external” input, so you will need to provide a value for this block by code when you use a node render graph in your projects.
+This input block allows you to define a shadow light (that is, a light that can generate shadows - all types of lights in Babylon, except area and hemispherical lights) in the graph, which you can connect to blocks that need a shadow light as input. This input is always an “external” input, so you will need to provide a value for this block in code when you use a node render graph in your projects.
 
 The shadow light inputs are mainly used by the `ShadowGenerator` block, which itself can be connected to an `ObjectRenderer` block to render objects with shadows (see the description of the [ShadowGenerator](#shadowgenerator-and-cascadedshadowgenerator) block below).
 
@@ -138,17 +138,17 @@ Refer to [Temporal Anti-Aliasing (TAA) Rendering Pipeline](/features/featuresDee
 
 This is the main block used to render objects on a texture. You can consider it as the equivalent of `RenderTargetTexture` when you want to create a render pass programmatically.
 
-You will always get the same texture at the **output** output as the texture connected to the **target** input. The same goes for **outputDeth** and **depth** (in case you connect something to the **depth** input, which is optional).
+You will always get the same texture at the **output** output as the texture connected to the **target** input. The same goes for **outputDeth** and **depth** if you connect something to the **depth** input, which is optional.
 
 Note that this block supports multi-target rendering, which means you can render to multiple textures at once. To enable this, simply connect the textures to a [ResourceContainer](#resourcecontainer) block and connect the output of that block to the **target** input. For this mode to work, all textures must have the same dimensions and the same number of MSAA samples (if applicable). In this mode, **output** remains a single texture: it is the first texture connected to the `ResourceContainer` block.
 
 The **shadowGenerators** input is optional and can be used if you want to generate shadows at the same time as you render the objects. This input expects a connection from a **ShadowGenerator.generator** output. If you want to render objects with shadows from multiple lights, you can use a [ResourceContainer](#resourcecontainer) block to gather multiple shadow generators, and connect the container to the **shadowGenerators** input:
 
-Note that if you enable Order Independent Transparency (OIT - **Use OIT for transparent meshes** property in the property list of the block), the target/depth texture(s) must **NOT** use MSAA! So, number of samples must be 1 for these textures. If you want to get rid of anti-aliasing artifacts, you can use a FXAA or TAA post-process after the rendering pass.
+Note that if you enable Order Independent Transparency (OIT - **Use OIT for transparent meshes** property in the property list of the block), the target/depth texture(s) must **NOT** use MSAA! So the number of samples must be 1 for these textures. If you want to get rid of anti-aliasing artifacts, you can use an FXAA or TAA post-process after the rendering pass.
 
 <NRGE id="#PSA9PS#161" title="Multiple shadow generators example (NRGE)" description="Using multiple shadow generators with an ObjectRenderer block" isMain={true} category="NodeRenderGraph"/>
 
-<Playground id="#JWKDME#205" image="/img/playgroundsAndNMEs/pg-JWKDME-30.webp" title="Multiple shadow generators example (PG)" description="Using multiple shadow generators with a ObjectRenderer block" isMain={true} category="Frame Graph"/>
+<Playground id="#JWKDME#205" image="/img/playgroundsAndNMEs/pg-JWKDME-30.webp" title="Multiple shadow generators example (PG)" description="Using multiple shadow generators with an ObjectRenderer block" isMain={true} category="Frame Graph"/>
 
 <H3Image title="GeometryRenderer" image="/img/frameGraph/block_geometry_renderer.webp" alt="GeometryRenderer node"/>
 
@@ -194,7 +194,7 @@ The **generator** output is what you need to connect to the **ObjectRenderer.sha
 
 <H3Image title="UtilityLayerRenderer" image="/img/frameGraph/block_utilitylayerrenderer.webp" alt="UtilityLayerRenderer node"/>
 
-This block does not generate any outputs by itself, but can be used to display [Gizmos](/features/featuresDeepDive/mesh/gizmo) in a frame graph.
+This block does not generate any outputs by itself, but it can be used to display [Gizmos](/features/featuresDeepDive/mesh/gizmo) in a frame graph.
 
 You will need to retrieve a reference to the utility layer by code, then use it as a parameter for the Gizmo classes.
 
@@ -253,7 +253,7 @@ This block allows you to cull a list of objects against a camera frustum: you mu
 
 This block allows you to add a custom processing during the execution of a frame graph.
 
-Once you have added an `Execute` block in the graph flow, you must retrieve a reference to this block by program and provide the function to be executed when the block is executed:
+Once you have added an `Execute` block in the graph flow, you must retrieve a reference to this block in code and provide the function to be executed when the block is executed:
 ```javascript
 const executeBlock = nrg.getBlockByName("<name of the Execute block>");
 executeBlock.task.func = (_context) => {
@@ -265,7 +265,7 @@ executeBlock.task.func = (_context) => {
 
 This block allows you to apply a full-screen GUI over a frame graph texture.
 
-Once you have added a `GUI` block to the graph flow, you must retrieve a reference to this block by program and add elements to the GUI, as you would do when you create an [AdvancedDynamicTexture](/features/featuresDeepDive/gui/gui#advanceddynamictexture) yourself. For example:
+Once you have added a `GUI` block to the graph flow, you must retrieve a reference to this block in code and add elements to the GUI, just as you would when creating an [AdvancedDynamicTexture](/features/featuresDeepDive/gui/gui#advanceddynamictexture) yourself. For example:
 ```javascript
 const guiBlock = nrg.getBlockByName("<name of the GUI block>");
 const gui = guiBlock.gui;
@@ -285,7 +285,7 @@ gui.addControl(button);
 
 <H3Image title="ResourceContainer" image="/img/frameGraph/block_resourcecontainer.webp" alt="ResourceContainer node"/>
 
-This block allows you to gather several resources of any types in a single block. It can be useful when you need to pass several resources to a block that has only one input for that resource.
+This block allows you to gather several resources of any type in a single block. It can be useful when you need to pass several resources to a block that has only one input for that resource.
 
 We saw [an example earlier](#objectrenderer), when we wanted to render objects with multiple lights generating shadows. We connected the two shadow generators to a `ResourceContainer` block and linked the container to the **ObjectRenderer.shadowGenerators** input:
 

@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-This page explains the design behind the 'createTrack' function which you use to [build tracks](/guidedLearning/workshop/Track) that provide data for a carriage to follow. A track is built for an array of points (Vector3s) which is split into sections. Each section uses the designated lean, _the rotation of the carriage about the track direction_ and turn, _the rotation of the carriage about its local Y axis_, of the carriage following the track to produce arrays of matrices for each point on the track path. The direction of a rail is given by the tilt (-&pi;/2 to &pi;/2) of the rail about the z axis and its swivel (0 to 2&pi;) about the y axis.
+This page explains the design behind the 'createTrack' function, which you use to [build tracks](/guidedLearning/workshop/Track) that provide data for a carriage to follow. A track is built for an array of points (Vector3s) which is split into sections. Each section uses the designated lean, _the rotation of the carriage about the track direction_ and turn, _the rotation of the carriage about its local Y axis_, of the carriage following the track to produce arrays of matrices for each point on the track path. The direction of a rail is given by the tilt (-&pi;/2 to &pi;/2) of the rail about the z axis and its swivel (0 to 2&pi;) about the y axis.
 
 ## Rotation Matrices
 
@@ -20,7 +20,7 @@ Matrices are used since they are the fundamental operations needed to combine ro
 
 ## Obtaining the Track Data
 
-The track data produce by `createTrack` are the arrays
+The track data produced by `createTrack` are the arrays
 
 - directions: directions of travel;
 - rotations: a combination of the lean and turn rotations;
@@ -57,7 +57,7 @@ var sectionData = function (startAt, options) {
 };
 ```
 
-This data for each section is passed as an array to 'createTrack' along with the points for the track as
+This data for each section is passed as an array to 'createTrack' along with the points for the track:
 
 ```javascript
 var createTrack = function(points, sections) {
@@ -67,9 +67,9 @@ Internally 'createTrack' uses a 'createSection' function to construct the data t
 
 ## Section Build
 
-The 'createSection' takes three parameters, points, the full points array for the track, the startSection which contains the information to be used in creating the section and endSection which just provides the lean and turn values at the end of the current section.
+The 'createSection' function takes three parameters: points, the full points array for the track; startSection, which contains the information to be used in creating the section; and endSection, which just provides the lean and turn values at the end of the current section.
 
-The term rail is used to indicate a segment of track from points[i] to points[i + 1]
+The term rail is used to indicate a segment of track from points[i] to points[i + 1].
 
 ```javascript
 function createSection(points, startSection, endSection) {

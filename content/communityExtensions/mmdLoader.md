@@ -1,7 +1,7 @@
 ---
 title: MMD Loader
 image: /img/extensions/mmdLoader/ModelWithInspector.webp
-description: babylon-mmd is a MMD(MikuMikuDance) 3D model loader and animation runtime for the Babylon.js.
+description: babylon-mmd is an MMD(MikuMikuDance) 3D model loader and animation runtime for Babylon.js.
 keywords: extensions, mmd, runtime, extension, external libraries
 further-reading: 
 video-overview: 
@@ -15,7 +15,7 @@ video-content:
 
 MMD is a Japanese 3D animation creation software that has its own 3D model format, PMD/PMX, and motion formats, VPD and VMD.
 
-babylon-mmd is a library focused on loading PMX models and VMD motion files into babylon js and playing high-quality dance animations.
+babylon-mmd is a library focused on loading PMX models and VMD motion files into Babylon.js and playing high-quality dance animations.
 
 ## Features
 
@@ -41,7 +41,7 @@ babylon-mmd is a library focused on loading PMX models and VMD motion files into
 
 ## Usage
 
-These are just a few code snippets, please refer to the documentation for full usage
+These are just a few code snippets; please refer to the documentation for full usage.
 
 ### Installation
 
@@ -51,7 +51,7 @@ ES6 module:
 npm add @babylonjs/core @babylonjs/havok babylon-mmd
 ```
 
-UMD module using the html script tag:
+UMD module using the HTML script tag:
 
 ```html
 <script src="https://cdn.babylonjs.com/babylon.js"></script>
@@ -82,7 +82,7 @@ import "babylon-mmd/esm/Loader/pmxLoader"; // side effect import
 const mmdMesh = await ImportMeshAsync("your_model_path.pmx", scene).then((result) => result.meshes[0]);
 ```
 
-load PMX model by `ImportMeshAsync` always returns a 1-length array, so you can get the mesh by `result.meshes[0]`.
+Loading a PMX model with `ImportMeshAsync` always returns an array of length 1, so you can get the mesh with `result.meshes[0]`.
 
 ### Import VMD Motion
 
@@ -103,4 +103,4 @@ mmdModel.setAnimation("model_motion_1");
 
 ## Documentation
 
-In **[this document](https://noname0310.github.io/babylon-mmd/)**, you'll learn how to fully utilize babylon-mmd by creating two pieces of work together.
+In **[this document](https://noname0310.github.io/babylon-mmd/)**, you'll learn how to fully use babylon-mmd through two step-by-step examples.

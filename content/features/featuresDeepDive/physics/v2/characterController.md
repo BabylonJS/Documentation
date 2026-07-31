@@ -16,7 +16,7 @@ A character controller is a specialized component designed to manage the movemen
 
 ## Creating a Controller
 
-Users can either create and provide a Physics shape to the controller or let it create a capsule by providing its dimensions
+Users can either create and provide a physics shape to the controller or let it create a capsule by providing its dimensions.
 
 ```javascript
 let h = 1.8;
@@ -28,26 +28,26 @@ let characterController = new BABYLON.PhysicsCharacterController(characterPositi
 
 ## moveWithCollisions
 
-`moveWithCollisions` is a sync function that move the character to the targeted position taking care of collision along the way.
+`moveWithCollisions` is a synchronous function that moves the character to the target position while taking care of collisions along the way.
 
 <Playground id="WO0H1U#165" title="Character Controller moveWithCollisions" description="Character Controller moveWithCollisions" />
 
 ## Kinematic platforms
 
-Physics bodies of `PhysicsMotionType.ANIMATED` can interact with the character. This allows the creation of lift, platforms,...
+Physics bodies of `PhysicsMotionType.ANIMATED` can interact with the character. This allows the creation of lifts, platforms, and more.
 
 <Playground id="WO0H1U#166" title="Character Controller animated platform" description="Character Controller animated platform" />
 
 ## Observable
 
-Custom collision observable allows to get specific to the character controller collision information.
+The custom collision observable lets you get collision information specific to the character controller.
 
 ```javascript
 characterController.onTriggerCollisionObservable.add((event)=>{
     console.log(`Character collision : ${event.collider.transformNode.name} at ${event.impulsePosition.toString()} `);
 });
 ```
-Here, event type is `ICharacterControllerCollisionEvent` and contains informations about the collider, position and impulse.
+Here, the event type is `ICharacterControllerCollisionEvent` and it contains information about the collider, position, and impulse.
 
 <Playground id="WO0H1U#169" title="Character Controller collision observer" description="Character Controller collision observer" />
 
@@ -56,15 +56,15 @@ Here, event type is `ICharacterControllerCollisionEvent` and contains informatio
 There are 3 major steps:
 
 - Getting the support: on what surface the character is
-- Setting the desired velocity: What the character velocity is based on its properties and state
+- Setting the desired velocity: what the character's velocity is based on its properties and state
 - Tick update on the controller
 
 Then, it's possible to get the character position using `characterController.getPosition()` and set a skinned mesh position, for example.
 
-In the following example, velocity is function of the character state. That state can be `START_JUMP`, `IN_AIR` or `ON_GROUND`. These different steps allow to have different behaviors and different movement speeds.
+In the following example, velocity is a function of the character state. That state can be `START_JUMP`, `IN_AIR`, or `ON_GROUND`. These different steps allow for different behaviors and movement speeds.
 Depending on user needs, it's possible to have speed and velocity control for swimming, for example.
 
-Main loop can be summarized with these calls:
+The main loop can be summarized with these calls:
 
 ```javascript
 const support = characterController.checkSupport(dt, down);

@@ -140,7 +140,7 @@ Below is an example that creates a new spray emitter, which sends streams of par
 
 #### Create Spray Emitter
 
-In order to determine where a particle is emitted from, the cylinder is divided into two regions as in the diagram below.
+To determine where a particle is emitted from, the cylinder is divided into two regions, as shown in the diagram below.
 
 ![cylinder emitter](/img/how_to/particles/cyl_particles.webp)
 
@@ -224,7 +224,7 @@ A custom effect is achieved via a fourth parameter when creating a new particle 
 var particleSystem = new BABYLON.ParticleSystem("particles", 2000, scene, customEffect);
 ```
 
-The customEffect is a type of `BABYLON.Effect` used to target a valid shader program and is created with the `createEffectForParticles` method of the `engine` object.
+`customEffect` is a `BABYLON.Effect` that targets a valid shader program and is created with the `createEffectForParticles` method on the `engine` object.
 
 This method takes three parameters:
 

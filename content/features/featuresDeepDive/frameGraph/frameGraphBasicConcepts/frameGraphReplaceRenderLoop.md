@@ -14,9 +14,9 @@ const frameGraph = new BABYLON.FrameGraph(scene, true);
 scene.frameGraph = frameGraph;
 scene.cameraToUseForPointers = camera;
 ```
-The second parameter of the `FrameGraph` constructor instructs the framework to create debugging textures for the textures created by the frame graph, which you can browse in the inspector. This can help debug / understand what's going on in your code!
+The second parameter of the `FrameGraph` constructor instructs the framework to create debugging textures for the textures created by the frame graph, which you can browse in the inspector. This can help you debug and understand what's going on in your code!
 
-We set `scene.frameGraph = frameGraph` so that the frame graph is used instead of the usual scene rendering loop.
+We set `scene.frameGraph = frameGraph` so that the frame graph is used instead of the usual scene render loop.
 
 Let's create a color and depth texture, which will be used to render the meshes:
 ```javascript
@@ -50,13 +50,13 @@ It's pretty straightforward code.
 
 You can see that we create the textures through the `frameGraph.textureManager` object. It is important to create the textures used by the frame graph in this way and not by doing `new RenderTargetTexture(...)` or `engine.createRenderTargetTexture(...)` because the textures used by a frame graph are managed in a specific way.
 
-This is why `frameGraph.textureManager.createRenderTargetTexture` returns a texture handle (a number) and not a real texture object: most of the frame graph framework methods that deal with textures use texture handles!
+This is why `frameGraph.textureManager.createRenderTargetTexture` returns a texture handle (a number), not a real texture object: most frame graph framework methods that deal with textures use texture handles!
 
 Refer to [Introduction to Frame Graph classes](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview#texture-handles) for more information about texture handles.
 
-Note that you can import an existing texture into a frame graph by calling `frameGraph.textureManager.importTexture()`, and this method will return a texture handle that you can use as input for frame graph tasks. There is also the inverse method `frameGraph.textureManager.getTextureFromHandle()` which allows you to obtain the real texture object from a texture handle (useful when you use a frame graph at the same time as the scene render loop - see the following section for more information).
+Note that you can import an existing texture into a frame graph by calling `frameGraph.textureManager.importTexture()`, and this method will return a texture handle that you can use as input for frame graph tasks. There is also the inverse method `frameGraph.textureManager.getTextureFromHandle()`, which allows you to obtain the real texture object from a texture handle (useful when you use a frame graph at the same time as the scene render loop - see the following section for more information).
 
-An important property of the object passed to the `createRenderTargetTexture` method is `sizeIsPercentage`: if it is `true`, it means that the size values are percentages instead of fixed pixel sizes. These percentages are related to the size of the output screen. If you set `width=height=100`, this means that the texture will be created with the same size as the output screen. If you set these values to `50`, the texture will be created with half the size of the screen. Most of the time, you will want to set `sizeIsPercentage=true` to keep your frame graph independent of the output size.
+An important property of the object passed to the `createRenderTargetTexture` method is `sizeIsPercentage`: if it is `true`, it means that the size values are percentages instead of fixed pixel sizes. These percentages are related to the size of the output screen. If you set `width=height=100`, the texture will be created with the same size as the output screen. If you set these values to `50`, the texture will be created at half the size of the screen. Most of the time, you will want to set `sizeIsPercentage=true` to keep your frame graph independent of the output size.
 
 We will now create a task that clears the textures:
 ```javascript
@@ -89,7 +89,7 @@ renderTask.camera = camera;
 
 frameGraph.addTask(renderTask);
 ```
-Once again, it's a fairly simple code. We create the appropriate task (`FrameGraphObjectRendererTask`), configure it and add it to the frame graph.
+Once again, the code is fairly simple. We create the appropriate task (`FrameGraphObjectRendererTask`), configure it, and add it to the frame graph.
 Notice how the previous task is linked to this task: the color/depth output texture of the “clear” task is defined as the target/depth input texture of the “renderObjects” task.
 
 The last task simply copies the texture to the output:
@@ -100,7 +100,7 @@ copyToBackbufferTask.sourceTexture = renderTask.outputTexture;
 
 frameGraph.addTask(copyToBackbufferTask);
 ```
-Once all tasks have been added to the frame graph, you must build the graph by calling `await FrameGraph.buildAsync()`. This creates the various passes that will be executed when `FrameGraph.execute()` is called and ensures that everything is ready before the graph can be executed (among other things, it allocates textures).
+Once all tasks have been added to the frame graph, you must build it by calling `await FrameGraph.buildAsync()`. This creates the various passes that will be executed when `FrameGraph.execute()` is called and ensures that everything is ready before the graph can be executed (among other things, it allocates textures).
 
 Finally, don't forget to handle screen resizing:
 ```javascript
@@ -118,9 +118,9 @@ Here's the PG corresponding to this example: <Playground id="#6HFJ0J" image="/im
 Let's do the same thing, but this time using a node render graph created with the [Node Render Graph Editor](https://nrge.babylonjs.com/).
 
 Here is the node render graph: https://nrge.babylonjs.com/#CCDXLX#3
-(this is the default graph you get when you browse to the NRGE url)
+(this is the default graph you get when you browse to the NRGE URL)
 
-The javascript code:
+The JavaScript code:
 ```javascript
 const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("#CCDXLX", scene);
 

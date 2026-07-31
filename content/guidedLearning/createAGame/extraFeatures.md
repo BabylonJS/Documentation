@@ -10,13 +10,13 @@ video-content:
 
 ## Summary
 
-This section goes over some additional features & visual effects that you can use to enhance your game!
+This section goes over some additional features and visual effects that you can use to enhance your game!
 
 ## IBL (Image-Based Lighting)
 
-Image based lighting is really great if you want to give some ambient light to your scene without using an actual light source. Since my implementation of the lanterns took up all of the actual light sources I could use, I needed to figure out a way to add some ambient light into my scene to make the background of the player a little bit brighter.
+Image-based lighting is great if you want to give your scene ambient light without using an actual light source. Since my implementation of the lanterns took up all of the actual light sources I could use, I needed to figure out a way to add some ambient light to my scene to make the background behind the player a little brighter.
 
-[Image-based lighting](/features/featuresDeepDive/materials/using/HDREnvironment) uses an HRDI image to provide light to a scene, particularly useful for PBR materials. [Image-Based Lighting: The Easy Way](https://www.youtube.com/watch?v=W1wNF7z8vKQ) was super helpful in explaining how IBL works and how to actually create the **.env** that is needed.
+[Image-based lighting](/features/featuresDeepDive/materials/using/HDREnvironment) uses an HDRI image to provide light to a scene, which is particularly useful for PBR materials. [Image-Based Lighting: The Easy Way](https://www.youtube.com/watch?v=W1wNF7z8vKQ) was super helpful in explaining how IBL works and how to actually create the **.env** that is needed.
 
 This is what the game scene looks like before using IBL:
 
@@ -38,7 +38,7 @@ It's especially helpful when you need the player to be able to see areas they ca
 
 ## Glow Layer
 
-Another thing I've added for an extra boost of visual effect is a glow layer. The [glow layer](/features/featuresDeepDive/mesh/glowLayer) is super easy to set up and can add a lot to a dark scene. I used it primarily with the lanterns since I wanted their light to be emphasized.
+Another thing I've added for an extra visual boost is a glow layer. The [glow layer](/features/featuresDeepDive/mesh/glowLayer) is super easy to set up and can add a lot to a dark scene. I used it primarily with the lanterns since I wanted their light to be emphasized.
 
 ![without GL](/img/how_to/create-a-game/withoutGL.webp) ![withGL](/img/how_to/create-a-game/withGL.webp)
 
@@ -51,11 +51,11 @@ gl.intensity = 0.4;
 
 ## Transition Effect
 
-When switching scenes, I wanted there to be a smooth transition, and ended up finding a playground that used a post process to fade the screen to black: [here](https://www.babylonjs-playground.com/#2FGYE8#0)
+When switching scenes, I wanted there to be a smooth transition, and I ended up finding a playground that used a post-process effect to fade the screen to black: [here](https://www.babylonjs-playground.com/#2FGYE8#0)
 
 We modified the effect to use `RegisterShader` instead of `ShadersStore` so that it made a bit more sense at first glance: [here](https://www.babylonjs-playground.com/#2FGYE8#4)
 
-How I set this up in my project was by:
+I set this up in my project by:
 
 1. Setting up the post process in the goTo functions.
 
@@ -74,7 +74,7 @@ postProcess.onApply = (effect) => {
 this._transition = false;
 ```
 
-3. Having the goTo for the scene change to be called once the transition has finished rather than on button click.
+3. Having the function for the scene change be called once the transition has finished rather than on button click.
 
 ```javascript
 scene.registerBeforeRender(() => {
@@ -90,11 +90,11 @@ scene.registerBeforeRender(() => {
 
 In our button's `onPointerDownObservable` **this.\_transition** would be set to **true**.
 
-The differences you see with this and the playground have to do with the fact that we want to go from no post process to full black screen, so our fadeLevel actually decreases to make the screen dark. In addition, I set the length of the fade by just using a set value to decrease by whereas the playground cycles between fading in/out.
+The differences between this and the playground come from the fact that we want to go from no post-process effect to a full black screen, so our fadeLevel decreases to darken the screen. In addition, I set the fade length by using a fixed decrement value, whereas the playground cycles between fading in and out.
 
 ## Custom Fonts
 
-Adding custom fonts is really simple. I brought in some google fonts that I thought match well with the game's style by just modifying the _index.html_ file. In the head of your _index.html_, just add the link you get from google fonts!
+Adding custom fonts is really simple. I brought in some Google Fonts that I thought matched the game's style well by just modifying the _index.html_ file. In the head of your _index.html_, just add the link you get from Google Fonts!
 
 ```javascript
 <head>

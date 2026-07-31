@@ -1,7 +1,7 @@
 ---
 title: Extensibility API
 image:
-description: High level information about the Inspector V2 extensibility API.
+description: High-level information about the Inspector V2 extensibility API.
 keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
     - title: Examples
@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-This document is intended to provide a high level overview of the different types of APIs that can be leveraged to extend Inspector with additional features. It is not exhaustive, but is representative to help get a good sense of what is involved in extending Inspector.
+This document is intended to provide a high-level overview of the different types of APIs that can be used to extend Inspector with additional features. It is not exhaustive, but it is representative and should help give a good sense of what is involved in extending Inspector.
 
 ## Showing and Hiding Inspector
 
@@ -18,7 +18,7 @@ The `ShowInspector` function is used to show Inspector. It returns an `Inspector
 
 | API              | Description                                                                                                                                                                                                                                                                                                                                                                                       |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ShowInspector`  | Attaches Inspector to the given Babylon scene and makes it visible. Pass in options to further configure Inspector, including defining new [static](/toolsAndResources/inspectorv2/architecture#static-extensions) or [dynamic](/toolsAndResources/inspectorv2/architecture#dynamic-extensions) extensions. Returns an `InspectorToken` that can be used to hide Inspector and check its current visibility. |
+| `ShowInspector`  | Attaches Inspector to the given Babylon scene and makes it visible. Pass options to further configure Inspector, including defining new [static](/toolsAndResources/inspectorv2/architecture#static-extensions) or [dynamic](/toolsAndResources/inspectorv2/architecture#dynamic-extensions) extensions. Returns an `InspectorToken` that can be used to hide Inspector and check its current visibility. |
 | `InspectorToken` | Returned by `ShowInspector`. Call `dispose()` to hide Inspector and tear down all its resources. The `isDisposed` property can be used to check whether Inspector is currently visible, and `onDisposed` can be observed to react to Inspector being hidden.                                                                                                                                      |
 
 ### Options
@@ -108,6 +108,6 @@ There are a number of helpers that also make it easy to re-use much of the behav
 
 | Helper                 | Description                                                                                                                                                                                                                                                                                                                                    |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `InterceptProperty`    | This function enables light weight transient "instrumentation" of a property of an object. You can provide callbacks for property mutation lifecycle points, such as after the property value changes. It returns an `IDisposable` that must be disposed to "uninstrument" the object and restore it to its original state.                    |
-| `InterceptFunction`    | This function enables light weight transient "instrumentation" of a property of an object that is a function. You can provide callbacks for function invocation lifecycle points, such as after the function is called. It returns an `IDisposable` that must be disposed to "uninstrument" the function and restore it to its original state. |
+| `InterceptProperty`    | This function enables lightweight transient "instrumentation" of a property of an object. You can provide callbacks for property mutation lifecycle points, such as after the property value changes. It returns an `IDisposable` that must be disposed to "uninstrument" the object and restore it to its original state.                    |
+| `InterceptFunction`    | This function enables lightweight transient "instrumentation" of a property of an object that is a function. You can provide callbacks for function invocation lifecycle points, such as after the function is called. It returns an `IDisposable` that must be disposed to "uninstrument" the function and restore it to its original state. |
 | `ObservableCollection` | This class is a simple combination of an array and an `Observable`. The `Observable` fires whenever an item is added or removed.                                                                                                                                                                                                               |

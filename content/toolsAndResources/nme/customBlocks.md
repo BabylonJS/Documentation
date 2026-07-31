@@ -10,15 +10,15 @@ video-content:
 
 ## Custom Blocks
 
-Starting with v5.0 you can now create custom blocks by wrapping some plain [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) code. It can come in handy when you have some complicated code that could be difficult to recreate with the existing node material blocks.
+Starting with v5.0, you can create custom blocks by wrapping plain [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) code. This can be handy when you have complicated code that would be difficult to recreate with the existing node material blocks.
 
 ### Register Custom Blocks with the NME
 
-At the time, a custom block is described by a .json file that you must provide when registering a new custom block in the node material editor:
+Currently, a custom block is described by a `.json` file that you must provide when registering a new custom block in the Node Material Editor:
 
 ![Register Custom Block](/img/how_to/Materials/customBlock_register.webp)
 
-When clicking on the "+" icon to add (register) a new custom block, you will be requested for the .json file that describes the block.
+When you click the "+" icon to add (register) a new custom block, you will be prompted for the `.json` file that describes the block.
 
 Here's how a **Multiply** custom block could be implemented:
 ```json
@@ -64,17 +64,17 @@ Most of the properties should be self-explanatory. Here are the possible values 
 * in/out parameters: **Float**, **Int**, **Vector2**, **Vector3**, **Vector4**, **Color3**, **Color4**, **Matrix**, **Object**, **AutoDetect**, **BasedOnInput**
 * in parameters only: **sampler2D**, **samplerCube**
 
-As this block allows any type of input (**Float**, **Vector3**, etc as the **AutoDetect** value shows for the **left** and **right** parameter types), the type of **output** is set to `BasedOnInput` to inherit the value of the input that will be plugged to **left** (value of `typeFromInput`) at runtime. Also, we want the types of the **left** and **right** inputs to be the same (once an input is plugged, the other one should inherit the same type), that's why we have a `inLinkedConnectionTypes` section in the file.
+As this block allows any type of input (**Float**, **Vector3**, etc., as the **AutoDetect** value shows for the **left** and **right** parameter types), the type of **output** is set to `BasedOnInput` to inherit the value of the input plugged into **left** (the value of `typeFromInput`) at runtime. Also, we want the types of the **left** and **right** inputs to be the same (once an input is plugged in, the other one should inherit the same type), which is why we have an `inLinkedConnectionTypes` section in the file.
 
 As the types are not known at the time we create the .json file, we must reference them in the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) code by using the special syntax `{TYPE_XXX}` where **XXX** is the name of an input/output: at runtime, these constructs will be replaced by the right type (**float**, **vec2**, etc).
 
 Note that we used a `myHelper_{TYPE_left}` helper function only to demonstrate that you can use other functions in the code, you don't have to write all your code in the main function.
 
-Last thing, the main function (the one which is exported in the **functionName** property) must return `void` and the output parameter(s) that it returns must be declared as **out** parameters of the function (see example).
+Lastly, the main function (the one exported in the **functionName** property) must return `void`, and the output parameter(s) it returns must be declared as **out** parameters of the function (see example).
 
 ### Using Custom Blocks
 
-Custom blocks are no different from the other blocks, so you simply need to drag&drop a block from the list on the left to the main area:
+Custom blocks are no different from the other blocks, so you simply need to drag and drop a block from the list on the left into the main area:
 
 ![Register Custom Block](/img/how_to/Materials/customBlock_use.webp)
 
@@ -136,17 +136,17 @@ This block has been imported into the NME with this .json file:
 }
 ```
 
-Here's the link to the NME: <NME id="#3WEKUZ#1" title="Custom Perlin2D block" description="A node material which is using a custom Perlin2D block" image="/img/playgroundsAndNMEs/NMEPerlin2DCustomBlock.webp"/>
+Here's the link to the NME: <NME id="#3WEKUZ#1" title="Custom Perlin2D block" description="A node material that uses a custom Perlin2D block" image="/img/playgroundsAndNMEs/NMEPerlin2DCustomBlock.webp"/>
 
 ### Using Custom Blocks for Ray Marching
-Ray marching is commonly used for rendering fractals, volumetric effects, and scenes with complex, procedural objects. It’s flexible and can handle a wide range of situations, but it can be computationally intensive, especially for complex scenes or objects with intricate geometry. Ray marching has been possible in Babylon.js since its inception through authoring custom shaders. Similarly, the way to enable it in node material is through authoring custom blocks. 
+Ray marching is commonly used for rendering fractals, volumetric effects, and scenes with complex, procedural objects. It’s flexible and can handle a wide range of situations, but it can be computationally intensive, especially for complex scenes or objects with intricate geometry. Ray marching has been possible in Babylon.js since its inception through custom shaders. In Node Material, the way to enable it is by authoring custom blocks.
 
 ![An example of ray marching which fuses a rounded rectangular mesh with a sphere mesh](/img/tools/nme/rayMarchingExample.webp)
 
-There is no universal ray marching block in node material as each experience that uses ray marching may have different requirements. To learn how to get started with a custom block we have an [in-depth article about using ray marching in node material](https://medium.com/@babylonjs/ray-marching-in-the-babylon-js-node-material-editor-967b5b8c269c) including simple and complex examples. The article also talks about the additional blocks that have been added to the Node Material Editor, like the `FragDepth` block, to support ray marching in a custom block. 
+There is no universal ray marching block in Node Material, as each experience that uses ray marching may have different requirements. To learn how to get started with a custom block, we have an [in-depth article about using ray marching in node material](https://medium.com/@babylonjs/ray-marching-in-the-babylon-js-node-material-editor-967b5b8c269c) that includes simple and complex examples. The article also discusses the additional blocks that have been added to the Node Material Editor, like the `FragDepth` block, to support ray marching in a custom block.
 
-Here are a couple of examples of ray marching. One is a simple example using a custom block in the Node Material Editor and the other a very complex example showing the power of ray marching with a custom shader in a Babylon.js playground.
+Here are a couple of examples of ray marching. One is a simple example using a custom block in the Node Material Editor, and the other is a very complex example showing the power of ray marching with a custom shader in a Babylon.js Playground.
 
-<NME id="#GD8DSL#27" title="Ray Marching Custom Block" description="A node material which uses a custom Ray Marching block" image="/img/playgroundsAndNMEs/rayMarchingNME.webp"/>
+<NME id="#GD8DSL#27" title="Ray Marching Custom Block" description="A node material that uses a custom Ray Marching block" image="/img/playgroundsAndNMEs/rayMarchingNME.webp"/>
 
 <Playground id="#M3QR7E#78" title="Snail Ray Marching Scene" description="A complex example of ray marching with a custom block." image="/img/playgroundsAndNMEs/rayMarchingSnail.webp"/>

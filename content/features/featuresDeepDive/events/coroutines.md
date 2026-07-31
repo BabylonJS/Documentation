@@ -12,7 +12,7 @@ video-content:
 
 ## Introduction
 
-Babylon 5.0 brings with it a new way for writing logic that runs over time:
+Babylon 5.0 brings with it a new way to write logic that runs over time:
 coroutines!
 
 Developers with experience using
@@ -55,7 +55,7 @@ This intermediate, repeatedly-invokable object is what `Observable.runCoroutineA
 ## Coroutines and Asynchronism
 
 Coroutines are a clean and easy way to spread logic out over time, but they are not truly asynchronous in the same way as, for example, `Promise`s. Coroutines are polled per frame (or, more accurately, per `Observable`
-notification), so they work very well for logic that happens densely -- for example, a logic sequence taking place over a series of subsequent frames. `Promise`s, by contrast, work very well for logic that happens
+notification), so they work very well for logic that happens densely -- for example, a logic sequence taking place over a series of consecutive frames. `Promise`s, by contrast, work very well for logic that happens
 more sparsely -- network requests, file I/O, WebWorker calls, etc.
 Coroutines and true asynchrony thus have separate but complementary strengths, so Babylon.js makes it easy to use a coroutine within a true async method and _vice versa_.
 
@@ -79,14 +79,14 @@ const asynchronousFunc = async function () {
 asynchronousFunction();
 ```
 
-Similarly, it's just as easy to pause a coroutine until a truly asynchronous function has completed. This is achieved using the `yield` keyword. The specifics are beyond the scope of this document, but `yield` can be thought of as an intermediate `return` command that pauses a generator function rather than terminating it. In Babylon.js coroutines, we typically use `yield` by itself to "return" nothing, which the coroutine system will
-interpret as a command to pause the coroutine now and resume it next time the `Observable` is notified. However, we can also `yield` a `Promise`:
+Similarly, it's just as easy to pause a coroutine until a truly asynchronous function has completed. This is achieved using the `yield` keyword. The specifics are beyond the scope of this document, but `yield` can be thought of as an intermediate `return` command that pauses a generator function rather than terminating it. In Babylon.js coroutines, we typically use `yield` by itself to "return" nothing. The coroutine system will
+interpret this as a command to pause the coroutine now and resume it the next time the `Observable` is notified. However, we can also `yield` a `Promise`:
 
 ```javascript
 yield BABYLON.Tools.DelayAsync(1000);
 ```
 
-When we `yield` a `Promise`, the coroutine system will again immediately pause the coroutine for now; however, it won't resume it again until the first time the `Observable` is notified _after_ the `yield`ed `Promise` has been resolved. Thus, `yield`ing a `Promise` in a coroutine is very much like `await`ing a `Promise` in a true asynchronous function: it suspends execution of the function in question until the `Promise` is resolved.
+When we `yield` a `Promise`, the coroutine system will again immediately pause the coroutine for now; however, it won't resume it until the first time the `Observable` is notified _after_ the yielded `Promise` has been resolved. Thus, yielding a `Promise` in a coroutine is very much like `await`ing a `Promise` in a true asynchronous function: it suspends execution of the function in question until the `Promise` is resolved.
 
 ```javascript
 const asynchronousFunc = async function () {

@@ -10,4 +10,4 @@ video-content:
 
 ## A Better Environment
 
-Our village world is a bit flat and has no atmosphere. Let's add some grass, distant hills, sky and trees, all easily done with Babylon.js using a skybox, texture, creating a ground with a height map and sprites.
+Our village world is a bit flat and has no atmosphere. Let's add some grass, distant hills, sky, and trees, all easily done with Babylon.js by using a skybox, textures, a ground created from a height map, and sprites.

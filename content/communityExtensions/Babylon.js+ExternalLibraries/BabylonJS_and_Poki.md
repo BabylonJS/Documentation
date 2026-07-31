@@ -10,7 +10,7 @@ video-content:
 
 Poki.com is a curated discovery platform for free, high-quality online games. You can reach millions of players around the globe and get a revenue share from advertising when your game is played.
 
-This documentation explains how to transform an existing Babylon.js game to make it available on Poki.com
+This documentation explains how to transform an existing Babylon.js game to make it available on Poki.com.
 
 ## Useful links
 
@@ -55,7 +55,7 @@ PokiSDK.init()
 
 ### 3) Integrate the Poki API into your game
 
-Use the gameplayStart() event to describe when users are playing your game and the gameplayStop() event every time the gameplay halts, like in the case of a level finish, game over or when going back to a menu, pausing the game etc.
+Use the gameplayStart() event to indicate when users are playing your game, and the gameplayStop() event whenever gameplay halts, such as after a level ends, on game over, when returning to a menu, or when pausing the game.
 Use commercialBreak() to display video ads. It should be triggered on natural breaks in your game.
 Use rewardedBreak() to allow for a user to choose to watch a rewarded video ad in exchange for a certain benefit in the game (e.g. more coins, etc.).
 
@@ -63,4 +63,4 @@ You'll find more details on the [Poki SDK Implementation guide for HTML5](https:
 
 ### 4) Submit your game on Poki
 
-On the [Developers page of Poki](https://developers.poki.com/), you can get in touch with Poki team or directly submit your game.
+On the [Developers page of Poki](https://developers.poki.com/), you can get in touch with the Poki team or submit your game directly.

@@ -1,7 +1,7 @@
 ---
 title: Exposing properties
 image: 
-description: Understanding how to use the Babylon.JS Editor provided api to retrieve components references.
+description: Understanding how to use the Babylon.JS Editor provided API to expose properties in the Inspector.
 keywords: editor, scripting
 further-reading:
 video-overview:
@@ -10,8 +10,8 @@ video-content:
 
 ## Introduction
 
-Script properties can be exposed and modified in the Editor. Using `@visibleInInspector` decorator, these
-properties to expose can be customized and grouped in the `Inspector`.
+Script properties can be exposed and modified in the Editor. Using the `@visibleInInspector` decorator, these
+properties can be customized and grouped in the `Inspector`.
 
 Supported property types are:
 - number
@@ -25,10 +25,10 @@ Supported property types are:
 - Texture
 - KeyMap
 
-**Notes: the `KeyMap` type draws a button in the inspector waiting for the user to press a key in the keyboard**
+**Note: the `KeyMap` type draws a button in the inspector that waits for the user to press a key on the keyboard**
 
-Common configuration for exposed properties are its type, its name and its default value.
-Example with a decorated property named `Speed` or type `number` and with default value `0.04`:
+Common configuration options for exposed properties are their type, name, and default value.
+Example with a decorated property named `Speed`, of type `number`, and with a default value of `0.04`:
 
 ```typescript
 @visibleInInspector("number", "Speed", 0.04)
@@ -42,7 +42,7 @@ attached but will not rotate at the same speed.
 ## Importing decorators
 
 Decorators are available in the `decorators.ts` file located at `src/scenes/`. Any attached script can import this
-file and use the `@visibleInInspector` decorator. Scripts that are not attached to any node can't be customized in
+file and use the `@visibleInInspector` decorator. Scripts that are not attached to any node cannot be customized in
 the editor.
 
 ```typescript
@@ -51,15 +51,15 @@ import { visibleInInspector } from "../decorators";
 
 ## Understanding decorator options
 
-As well as type, name and default value, the decorator has an `options` parameter used to customize the property
+As well as the type, name, and default value, the decorator has an `options` parameter used to customize the property
 in the Editor. All fields are optional:
 - **min**: defines the minimum value that can be set in the Editor field. Available only for numbers and vectors.
 - **max**: defines the maximum value that can be set in the Editor field. Available only for numbers and vectors.
-- **step**: defines the step to applied on the property when the user modifies the property in the Editor using the mouse.
+- **step**: defines the step applied to the property when the user modifies it in the Editor using the mouse.
 
 **Note: If both `min` and `max` options are provided, the number field becomes a slider.**
 
-In this example, 3 properties will be visible in the inspector having distinct options.
+In this example, 3 properties will be visible in the inspector, each with distinct options.
 
 ```typescript
 @visibleInInspector("number", "Speed", 0.04, { min: 0, max: 1, step: 0.01 })
@@ -72,13 +72,13 @@ private _speed2: number = 0.04;
 private _gravity2: Vector3 = Vector3.Zero();
 ```
 
-Once script is saved and attached to at least one node, the inspector will show the exposed properties
-according to their properties and options. If the inspector is already focused on a node having the edited script
+Once the script is saved and attached to at least one node, the inspector will show the exposed properties
+according to their types and options. If the inspector is already focused on a node that has the edited script
 attached to it, the inspector will be automatically updated.
 
 ![example](/img/extensions/Editor/ExposingProperties/example.webp)
 
-As a full example, a script that uses the `Speed` decorated property to apply a rotation on a mesh.
+As a full example, here is a script that uses the decorated `Speed` property to apply a rotation to a mesh.
 
 ```typescript
 import { Mesh } from "@babylonjs/core/Meshes/mesh";

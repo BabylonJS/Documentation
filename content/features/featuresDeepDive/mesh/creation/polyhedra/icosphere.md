@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Icosphere
-This a sphere based upon an icosahedron with 20 triangular faces which can be subdivided into smaller triangles.
+This is a sphere based on an icosahedron with 20 triangular faces that can be subdivided into smaller triangles.
 
 ## MeshBuilder
 Usage:
@@ -30,7 +30,7 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 
 ## Examples 
 Icosphere: <Playground id="#HC5FA8" title="Creating An Icosphere" description="Simple example of creating an icosphere."/>  
-Smoothed Icossphere: <Playground id="#HC5FA8#2" title="Creating A Smoothed Icosphere" description="Simple example of creating a smoothed icosphere."/>  
+Smoothed Icosphere: <Playground id="#HC5FA8#2" title="Creating A Smoothed Icosphere" description="Simple example of creating a smoothed icosphere."/>  
 Less subdivisions and changed radii: <Playground id="#HC5FA8#3" title="Icosphere With Less Subdivisions" description="Simple example of creating an icosphere with less subdivisions and changed radii."/>  
 Icosphere with animation over subdivisions: <Playground id="#E3TVT#1" title="Icosphere With Animation Over Subdivisions" description="Simple example of creating an icosphere with animation over subdivisions."/>  
 
@@ -39,4 +39,4 @@ Usage:
 ```javascript
 const icosphere = BABYLON.Mesh.CreateIcoSphere("icosphere", options, scene);
 ```
-This is the same format as that for *MeshBuilder*
+This is the same format as that for *MeshBuilder*.

@@ -9,8 +9,8 @@ video-content:
 ---
 
 ## Tube
-A tube is much as you would expect it to be, a surface with  hollow length.  
-On creation the local origin of a tube is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
+A tube is much as you would expect it to be: a surface with a hollow interior along its length.  
+On creation, the local origin of a tube is coincident with the world origin. It is not possible to give a position relative to the constructed shape, as this depends on the data sets used.
 
 ## MeshBuilder
 Usage :
@@ -51,7 +51,7 @@ non updatable tube: <Playground id="#WW0ALQ" title="Create a Non Updatable Tube"
 updatable tube: <Playground id="#WW0ALQ#1" title="Create an Updatable Tube" description="Simple example of creating an updatable tube."/>
 spiral tube: <Playground id="#WW0ALQ#2" title="Create a Spiral Tube" description="Simple example of creating a spiral tube."/>
 
-When using the radiusFunction it must return a number. Its parameter refer to a path index or a distance along the path. 
+When using the radiusFunction, it must return a number. Its parameters refer to a path index or a distance along the path. 
 
 distance example: <Playground id="#WW0ALQ#3" title="Create a Tube With Radius Function 1" description="Simple example of creating a tube using the radiusFunction distance."/>
 index example: <Playground id="#WW0ALQ#4" title="Create a Tube With Radius Function 2" description="Simple example of creating a tube using the radiusFunction index."/>

@@ -11,4 +11,4 @@ video-content:
 
 # Asset Libraries
 
-A range of libraries for textures, models and more to load into the playground. These can help you to illustrate issues you may have without having to find a CORs acceptable server to load your own assets into the playground. Also a range of programmable textures and material built using a variety of shaders.
+This section includes a range of libraries for textures, models, and more that you can load into the Playground. These resources can help you illustrate issues without having to find a CORS-acceptable server to load your own assets into the Playground. It also includes a range of programmable textures and materials built using a variety of shaders.

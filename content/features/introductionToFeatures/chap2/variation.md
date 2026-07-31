@@ -13,7 +13,7 @@ video-content:
 # Getting Started - Basic House
 
 ## A Basic House
-Adding a roof would make our box more house like. We need a prism like shape. Luckily we can do that using *CreateCylinder*. Well the name might imply a cylinder rather than a prism however in using it you need to state how may points around the circumference of the cylinder and for a prism we can use three points.
+Adding a roof would make our box more house-like. We need a prism-like shape. Luckily, we can do that using *CreateCylinder*. The name might imply a cylinder rather than a prism; however, when using it, you need to state how many points there are around the circumference of the cylinder, and for a prism we can use three points.
 
 ```javascript
 const roof = BABYLON.MeshBuilder.CreateCylinder("roof", {diameter: 1.3, height: 1.2, tessellation: 3});
@@ -22,7 +22,7 @@ roof.rotation.z = Math.PI / 2;
 roof.position.y = 1.22;
 ```
 
-Since the cylinder is created vertically we needed to rotate it to a horizontal position and scale it down in one direction so that the height of the roof is less than its width.
+Since the cylinder is created vertically, we need to rotate it to a horizontal position and scale it down in one direction so that the height of the roof is less than its width.
 
 <Playground id="#KBS9I5#70" title="Adding a Prism Roof Using 'CreateCylinder'" description="A playground demonstrating how to add a 'prism' roof to your house." image="/img/playgroundsAndNMEs/gettingStartedPrism.webp"/>
 

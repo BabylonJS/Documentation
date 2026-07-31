@@ -20,7 +20,7 @@ The recommended way to use the .glTF file loader plugin is via the `@babylonjs/l
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-But for testing purposes, the following compiled JS files are offered on the public CDN, at https://preview.babylonjs.com/loaders/:
+But for testing purposes, the following compiled JS files are offered on the public CDN at https://preview.babylonjs.com/loaders/:
 
 - `babylon.glTF2FileLoader.js` - Only glTF 2.0
 - `babylon.glTF1FileLoader.js` - Only glTF 1.0
@@ -30,7 +30,7 @@ But for testing purposes, the following compiled JS files are offered on the pub
 
 ### Usage
 
-When using the `@babylonjs/loaders` package, it is preferable to register the glTF file importer via the top level dynamic loader registration function `registerBuiltInLoaders`.
+When using the `@babylonjs/loaders` package, it is preferable to register the glTF file importer via the top-level dynamic loader registration function `registerBuiltInLoaders`.
 
 If you want to import the glTF file importer statically (not recommended), you can do so via:
 
@@ -71,14 +71,14 @@ Follow the steps in the [ESM/NPM Support docs](/setup/frameworkPackages/es6Suppo
 
 ## Loading the Scene
 
-Use one of scene loader functions to load a glTF asset.
+Use one of the scene loader functions to load a glTF asset.
 See [Load from any file type](/features/featuresDeepDive/importers/loadingFileTypes).
 
 See an example here: <Playground id="#WGZLGJ#11018" title="Load a glTF Asset" description="Simple example showing how load a .glTF asset into your scene." image="/img/playgroundsAndNMEs/divingDeeperglTF1.webp" isMain={true} category="Import"/>
 
 ## Extensions
 
-See the built in [extensions](/typedoc/modules/babylon.gltf2.loader.extensions) from the API documentation.
+See the built-in [extensions](/typedoc/modules/babylon.gltf2.loader.extensions) in the API documentation.
 
 You can also [create your own extensions](/features/featuresDeepDive/importers/glTF/createExtensions).
 
@@ -111,7 +111,7 @@ LoadAssetContainerAsync("asset.glb", scene, {
 
 ### The \_\_root\_\_ node
 
-A \_root\_ node is added to hold all the **glTF** and **glb** models and model parts are stored as sub-meshes. This is so applications that save models using a right handed system will be loaded correctly into Babylon.js when you add to your create scene function
+A \_root\_ node is added to hold all **glTF** and **glb** models, and model parts are stored as sub-meshes. This ensures that applications that save models using a right-handed system are loaded correctly into Babylon.js when you add the following to your `createScene` function:
 
 ```javascript
 scene.useRightHandedSystem = true;
@@ -135,7 +135,7 @@ Though deprecated, Babylon maintains a dedicated glTF loader plugin for glTF 1.0
 
 #### IncrementalLoading
 
-Set this property to false to disable incremental loading which delays the loader from calling the success callback until after loading the meshes and shaders. Textures always loads asynchronously. For example, the success callback can compute the bounding information of the loaded meshes when incremental loading is disabled. Defaults to true.
+Set this property to false to disable incremental loading, which delays the loader from calling the success callback until after loading the meshes and shaders. Textures always load asynchronously. For example, the success callback can compute the bounding information of the loaded meshes when incremental loading is disabled. Defaults to true.
 
 ```javascript
 BABYLON.GLTFFileLoader.IncrementalLoading = false;

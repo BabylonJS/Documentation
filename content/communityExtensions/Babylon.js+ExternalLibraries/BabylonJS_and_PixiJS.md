@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-Pixi.js is a fast, lightweight, open source 2D library with full support for webGL with a very fast rendering speed. It is great to use as a UI in combination with Babylon.js, making a perfect duo for your web game world.
+Pixi.js is a fast, lightweight, open source 2D library with full support for WebGL and very fast rendering. It works great as a UI in combination with Babylon.js, making it a perfect duo for your web game world.
 
 ## Setup Pixi.js rendering
 
@@ -31,11 +31,11 @@ sprite.position.set(canvas.width / 2, canvas.height / 2);
 stage.addChild(sprite);
 ```
 
-The _clearBeforeRender_ and _autoStart_ are two very important properties that must be used and set to _false_.
+The _clearBeforeRender_ and _autoStart_ properties are very important and must both be set to _false_.
 
 ## Rendering Sequence
 
-The render sequence of Babylon.js and Pixi.js is also very important, Babylon.js must be rendered first.
+The render sequence of Babylon.js and Pixi.js is also very important: Babylon.js must be rendered first.
 
 ```javascript
 engine.runRenderLoop(function () {
@@ -55,7 +55,7 @@ It is possible to place a Pixi.js stage behind a Babylon.js scene provided you u
 scene.autoClear = false;
 ```
 
-to make the background of the scene transparent. In this case render Pixi.js before Babylon.js.
+to make the background of the scene transparent. In this case, render Pixi.js before Babylon.js.
 
 ```javascript
 engine.runRenderLoop(function () {
@@ -88,7 +88,7 @@ engine.runRenderLoop(function () {
 
 ## WebGL1 Problems
 
-When your browser is running webGL1 then you need to reset the Pixi.js context first for each rendering as below.
+When your browser is running WebGL1, you need to reset the Pixi.js context first for each render, as shown below.
 
 ```javascript
 engine.runRenderLoop(function () {
@@ -107,8 +107,8 @@ engine.runRenderLoop(function () {
 
 ![image info](https://raw.githubusercontent.com/pixijs/examples/gh-pages/examples/assets/pixi-spine/spineboy-pro.png)
 
-Running 2D spine animation is now easy using the pixi spine extension @https://github.com/pixijs/pixi-spine
-Here's a sample code of how to run a simple spineboy animation
+Running 2D Spine animation is now easy using the Pixi spine extension at https://github.com/pixijs/pixi-spine.
+Here's some sample code showing how to run a simple spineboy animation.
 
 ```javascript
 loader.add("spineboy", "https://raw.githubusercontent.com/pixijs/examples/gh-pages/examples/assets/pixi-spine/spineboy-pro.json");
@@ -127,7 +127,7 @@ loader.load((loader, resources) => {
 ```
 
 [Working playground with spine animation](https://www.babylonjs-playground.com/#DX6LWQ)
-For more api info as regards spine animation, visit [github](https://github.com/pixijs/pixi-spine)
+For more API information about Spine animation, visit [GitHub](https://github.com/pixijs/pixi-spine).
 
 ## Pixi.js Versions
 

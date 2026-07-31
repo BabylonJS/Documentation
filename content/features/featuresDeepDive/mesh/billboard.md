@@ -1,7 +1,7 @@
 ---
 title: BillBoard Mode
 image: 
-description: Learn how use Mesh BillBoard Mode.
+description: Learn how to use Mesh BillBoard Mode.
 keywords: diving deeper, meshes, billboard, camera facing
 further-reading:
 video-overview:
@@ -10,7 +10,7 @@ video-content:
 
 # Billboard Mode
 
-Billboard is a special mode for meshes, ensuring that the mesh is always facing towards the camera. This is commonly used to display information to the user, sprites or particles for instance.
+Billboard is a special mode for meshes that ensures the mesh is always facing the camera. This is commonly used to display information to the user, such as sprites or particles.
 
 Example :
 ```javascript
@@ -31,15 +31,14 @@ value|Type
 
 # Integrating with parent hierarchy
 
-The things get a bit more complex when your billboard object has a parent because then you may or may not want to integrate parent rotation in the mix.
+Things get a bit more complex when your billboard object has a parent, because you may or may not want to integrate the parent's rotation into the mix.
 
 If you set nothing but the billboardMode, the mesh will ignore its parent rotation:
 
 <Playground id="#PDO1L6#2" title="Simple Example of Mesh Billboard Mode with a parent" description="Simple Example of Mesh Billboard Mode with a parent."/>
 
-You can decide to force all the billboards to take the parent rotation in account without messing up with the billboard orientation with `BABYLON.TransformNode.BillboardUseParentOrientation = true;`:
+You can decide to force all billboards to take the parent rotation into account without interfering with the billboard orientation by setting `BABYLON.TransformNode.BillboardUseParentOrientation = true;`:
 
 <Playground id="#PDO1L6#3" title="Simple Example of Mesh Billboard Mode with a parent" description="Simple Example of Mesh Billboard Mode with a parent."/>
-
 
 

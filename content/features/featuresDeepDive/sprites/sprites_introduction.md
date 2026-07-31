@@ -14,7 +14,7 @@ video-content:
 
 Babylon.js has three ways of managing sprites, the _SpriteManager_, the _SpritePackedManager_ and the _SpriteMap_. The first manages a single image file or, for animation, a spritesheet (also called a sprite atlas) of multiple sprite images all of the same size. The second is for a packed spritesheet of different sized sprite images. The third uses a packed spritesheet to form a 2D (or 2.5D) grid of possibly thousands of sprites.
 
-The separate images in a spritesheet off either type are in what are called cells.
+The separate images in a spritesheet of either type are in what are called cells.
 
 The brief overviews on this page are further detailed within this section.
 
@@ -36,7 +36,7 @@ const mySpriteManagerTrees = new BABYLON.SpriteManager(name, url, capacity, size
 
 _Available from BJS version 4.1_
 
-When your sprites images are of varying sizes you need a packed spritesheet file and a JSON file containing the positional data of the individual sprites within the packed spritesheet. The packed spritesheet file and the JSON file should have the same name and be in the same folder, eg pack1.png and pack1.json. You can then create a sprite packed manager by either
+When your sprite images are of varying sizes you need a packed spritesheet file and a JSON file containing the positional data of the individual sprites within the packed spritesheet. The packed spritesheet file and the JSON file should have the same name and be in the same folder, for example, pack1.png and pack1.json. You can then create a sprite packed manager by either
 
 referencing just the packed spritesheet file
 
@@ -62,11 +62,11 @@ Currently the sprite packed manager only uses the cell positional and cell size 
 
 _Available from BJS version 4.1_
 
-When creating a 2D or 2.5D game you often need to render thousands of animated sprites on screen fast. This is beyond the capabilities of either of the sprite managers. The Babylon.js _SpriteMap_ was made for use in this situation. The only current limitation of this sprite mapping system is that the positions of the sprites are static to a specific grid dictated by the Sprite Maps initializing parameters.
+When creating a 2D or 2.5D game you often need to render thousands of animated sprites on screen fast. This is beyond the capabilities of either of the sprite managers. The Babylon.js _SpriteMap_ was made for use in this situation. The only current limitation of this sprite mapping system is that sprite positions are fixed to a specific grid dictated by the SpriteMap's initialization parameters.
 
-**Note:** _SpriteMap_ uses a different JSON format to _SpritePackedManager_ and so their files are not interchangeable. Also you need to create a texture from the packed spritesheet and pass this rather than a direct path to its url.
+**Note:** _SpriteMap_ uses a different JSON format from _SpritePackedManager_, so their files are not interchangeable. Also, you need to create a texture from the packed spritesheet and pass this rather than a direct path to its URL.
 
-To create a SpriteMap is simple:
+Creating a SpriteMap is simple:
 
 ```javascript
 const mySpriteMap = new BABYLON.SpriteMap(name, atlasJSON, spriteSheetTexture, options, scene);
@@ -82,7 +82,7 @@ The initializing options set up the data buffers in memory and get the system pr
 
 ## Pixel perfection
 
-You can use the `options` object to set options for the both sprite managers:
+You can use the `options` object to set options for both sprite managers:
 
 ```typescript
 export interface SpriteManagerOptions {
@@ -90,7 +90,7 @@ export interface SpriteManagerOptions {
 }
 ```
 
-This way you can set options for the sprite render:
+This way you can set options for the sprite renderer:
 
 ```typescript
 export interface SpriteRendererOptions {
@@ -98,7 +98,7 @@ export interface SpriteRendererOptions {
 }
 ```
 
-Setting `pixelPerfect` to true instantiates the sprite render in pixel perfect mode. Creating the renderer in pixel perfect mode is faster than creating it in non-pixel perfect mode and setting it's `pixelPerfect` property to `true`.
+Setting `pixelPerfect` to true instantiates the sprite renderer in pixel-perfect mode. Creating the renderer in pixel-perfect mode is faster than creating it in non-pixel-perfect mode and setting its `pixelPerfect` property to `true`.
 
 ### Example:
 

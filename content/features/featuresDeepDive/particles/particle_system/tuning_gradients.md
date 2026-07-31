@@ -181,7 +181,7 @@ Speed limit increases over lifetime: <Playground id="#0K3AQ2#3861" title="Partic
 
 ## Change Rotation Speed Over Lifetime
 
-To change the rotation or angular speed over the lifetime of the particle:
+To change the angular speed over the lifetime of the particle:
 
 ```javascript
 particleSystem.addAngularSpeedGradient(0, 0.5); //angular speed at start of particle lifetime

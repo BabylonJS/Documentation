@@ -12,10 +12,10 @@ The goal of this article is to clearly explain what is happening with normal tex
 
 To do so we are going to use this playground as an example: <Playground id="#YCCU8U" title="Normal Texture Example" description="Simple example of using a normal texture in your scene." image="/img/playgroundsAndNMEs/divingDeeperNormalMaps1.webp"/>
 
-What the normal map formats are and what they look like?
+What are the normal map formats, and what do they look like?
 
-* OpenGL expects the first pixel in the texture to be at the bottom (lower-left pixel) and can be thought of as bottom up
-* DirectX expects the first pixel in the texture to be at the top (upper-left pixel) and can be thought of as top down
+* OpenGL expects the first pixel in the texture to be at the bottom (lower-left pixel) and can be thought of as bottom-up.
+* DirectX expects the first pixel in the texture to be at the top (upper-left pixel) and can be thought of as top-down.
 
 To see what that looks like, we can consider this normal map comparison:
 
@@ -64,9 +64,9 @@ When we export a .babylon file, we don’t change anything about the texture fil
 
 ![Inspector](/img/how_to/Materials/normal_maps6.webp)
 
-So how do we fix this. There are three ways we can work around this issue when adding new textures to a loaded .babylon file, one art fix and two code fixes. The art fix would be to author your normal textures in DirectX format and save your textures inverted in Y. You could do this on export from your texturing tool like Substance or you could manually invert them in Y in an image editor. This could be very disruptive to your art pipeline, so it may not be the right solve.
+So how do we fix this? There are three ways we can work around this issue when adding new textures to a loaded `.babylon` file: one art fix and two code fixes. The art fix would be to author your normal textures in DirectX format and save your textures inverted in Y. You could do this on export from your texturing tool, like Substance, or you could manually invert them in Y in an image editor. This could be very disruptive to your art pipeline, so it may not be the right solution.
 
-The code fixes are simpler. One is to invert your texture when you load it by using the [invertY parameter available in BABYLON.Texture](/typedoc/classes/babylon.texture#constructor) which is the easiest solve. However, if you are loading textures through Node Material rather than in your javascript, that won’t work. This leads us to the other code solve which is to add a one minus Y operation to the UVs fed to your texture as you can see below.
+The code fixes are simpler. One is to invert your texture when you load it by using the [invertY parameter available in BABYLON.Texture](/typedoc/classes/babylon.texture#constructor), which is the easiest solution. However, if you are loading textures through Node Material rather than in your JavaScript, that won’t work. This leads us to the other code solution, which is to add a one-minus-Y operation to the UVs fed to your texture, as you can see below.
 
 ![Node material](/img/how_to/Materials/normal_maps7.webp)
 
@@ -74,4 +74,4 @@ This will correct your texture inversion issue and as you can see this will fix 
 
 ![Final result](/img/how_to/Materials/normal_maps9.webp)
 
-It is a deep topic which is made more complex by multiple file formats with their own conventions, but there are tools available in engine to switch to whatever you need. In a way we can say that while Babylon.js was originally designed based on DirectX principles, it has since become more convention agnostic as there are plenty of tools available to make your assets work correctly so long as you know where you are coming from and where you are going.
+It is a deep topic made more complex by multiple file formats with their own conventions, but there are tools available in the engine to switch to whatever you need. In a way, we can say that while Babylon.js was originally designed around DirectX principles, it has since become more convention-agnostic, as there are plenty of tools available to make your assets work correctly as long as you know where you are coming from and where you are going.

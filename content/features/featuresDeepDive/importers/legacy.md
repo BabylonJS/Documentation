@@ -1,8 +1,8 @@
-Once the plugin is referenced, the SceneLoader class can be used which provides a few loading methods.
+Once the plugin is referenced, the SceneLoader class can be used. It provides a few loading methods.
 
 ## SceneLoader.Append
 
-Loads all babylon assets from the file and appends them to the scene
+Loads all Babylon assets from the file and appends them to the scene.
 
 ```javascript
 BABYLON.AppendSceneAsync("duck.gltf", scene).then(function () {
@@ -12,7 +12,7 @@ BABYLON.AppendSceneAsync("duck.gltf", scene).then(function () {
 
 See an example here: <Playground id="#WGZLGJ#11155" title="Append An Object" description="Simple example showing how append an object to your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport1.webp" isMain={true} category="Import"/>
 
-Loads all babylon assets from a string and appends them to the scene
+Loads all Babylon assets from a string and appends them to the scene.
 
 ```javascript
 BABYLON.AppendSceneAsync("data:" + gltfString, scene).then(function () {
@@ -42,7 +42,7 @@ See an example here: <Playground id="#7F6S08#386" title="Load .glb From Binary D
 
 ## LoadSceneAsync
 
-Loads all babylon assets from the file and creates a new scene
+Loads all Babylon assets from the file and creates a new scene.
 
 ```javascript
 BABYLON.LoadSceneAsync("/assets/", "batman.obj", engine).then(function (scene) {
@@ -54,7 +54,7 @@ BABYLON.LoadSceneAsync("/assets/", "batman.obj", engine).then(function (scene) {
 
 <Alert severity="info">Note: This function is deprecated. Use the `ImportMeshAsync` function instead.</Alert>
 
-Loads the meshes from the file and appends them to the scene
+Loads the meshes from the file and appends them to the scene.
 
 ```javascript
 // The first parameter can be set to null to load all meshes and skeletons
@@ -68,7 +68,7 @@ See an example here: <Playground id="#JUKXQD" title="Import Mesh" description="S
 
 ### ImportMeshAsync
 
-[Asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) version of the ImportMesh function. The result can be obtained by calling on the returned [Promise](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises) or by using the [await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await) keyword (note: to be able to use the await keyword in the `createScene` function, it has to be marked as async in its definition).
+[Asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) version of the ImportMesh function. The result can be obtained by calling the returned [Promise](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises) or by using the [await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await) keyword (note: to use the `await` keyword in the `createScene` function, it has to be marked as async in its definition).
 
 ```javascript
 // The first parameter can be set to null to load all meshes and skeletons
@@ -92,7 +92,7 @@ See an example here: <Playground id="#YAL1RN#307" title="Import Mesh Async with 
 
 ## LoadAssetContainerAsync
 
-Loads all babylon assets from the file and does not append them to the scene
+Loads all Babylon assets from the file and does not append them to the scene.
 
 ```javascript
 BABYLON.LoadAssetContainerAsync("./duck.gltf", scene).then(function (container) {
@@ -109,8 +109,8 @@ See an example here: <Playground id="#JA1ND3#1053" title="Asset Container Load E
 
 ## ImportAnimationsAsync
 
-Loads the animations from the file and merges them to the scene
-You can customize the import process using options and callbacks
+Loads the animations from the file and merges them into the scene.
+You can customize the import process using options and callbacks.
 
 ```javascript
 BABYLON.ImportAnimationsAsync("./Elf_run.gltf", scene);
@@ -146,14 +146,12 @@ BABYLON.SceneLoader.OnPluginActivatedObservable.add(function (loader) {
 
 ## Loading multiple assets
 
-For assistance when load multiple assets the AssetsManager class can be used.
-See [Load Files with Assets Manager](/features/featuresDeepDive/importers/assetManager)
+For assistance when loading multiple assets, the AssetsManager class can be used.
+See [Load Files with Assets Manager](/features/featuresDeepDive/importers/assetManager).
 
 ## Direct loading base64 encoded models
 
-Babylon.JS supports directly loading models from base64 encoded [Data URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) without
-needing to create an object URL or download the file. When loading from a base64 data url the plugin is not automatically detected (with the exception of some
-glb formats). The `pluginExtension` parameter should be set when using base64 data urls in order to ensure the correct plugin is used to load the model.
+Babylon.js supports directly loading models from base64-encoded [Data URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) without needing to create an object URL or download the file. When loading from a base64 data URL, the plugin is not automatically detected (with the exception of some glb formats). The `pluginExtension` parameter should be set when using base64 data URLs to ensure the correct plugin is used to load the model.
 
 The format for a minimum base64 encoded model file is:
 

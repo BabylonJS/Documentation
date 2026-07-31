@@ -10,14 +10,14 @@ video-content:
 
 ## Introduction
 
-[OpenPBR](https://github.com/AcademySoftwareFoundation/OpenPBR?tab=readme-ov-file) is an open standard developed by Autodesk and Adobe, that defines an artist friendly material model and with a focus on interoperability. Materials authored using it should have a consistent look on platforms that support OpenPBR.
+[OpenPBR](https://github.com/AcademySoftwareFoundation/OpenPBR?tab=readme-ov-file) is an open standard developed by Autodesk and Adobe that defines an artist-friendly material model with a focus on interoperability. Materials authored using it should have a consistent look on platforms that support OpenPBR.
 
 The implementation of OpenPBR support in Babylon.js has started and its status is listed below.
 
 
 ## OpenPBR model description
 
-OpenPBR is a so-called über shader. Unlike node based or closure based models like MaterialX or MDL, which allow to describe arbitrarily complex shaders, OpenPBR has a fixed material structure. This saves valuable time because the structure is already designed (by gauging the most valuable material features to cover the majority of production needs), but is less flexible and will not cover all possible cases.
+OpenPBR is a so-called über shader. Unlike node-based or closure-based models like MaterialX or MDL, which allow arbitrarily complex shaders to be described, OpenPBR has a fixed material structure. This saves valuable time because the structure is already designed to cover the majority of production needs, but it is less flexible and will not cover all possible cases.
 
 
 ## OpenPBR support in Babylon.js

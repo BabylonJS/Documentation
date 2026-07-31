@@ -19,11 +19,11 @@ There are currently two types of hotspots:
 1. **Surface** - this type of hotspot is defined by referencing a specific face (by the three vertex indices of the triangle) and barycentric coordinates (a specific point on the surface of that face/triangle). Surface hotspots track the point even when the model is animating. The normal is calculated from the face.
 2. **World** - this type of hotspot is defined by a static world position and normal.
 
-Any hotspot can also optionally include a custom camera orbit (alpha, beta, radius) relative to the hotspot point. In the following example, there is one "surface" hotspot tied to the planet Earth, and one static hotspot that gives a top down view of the solar system.
+Any hotspot can also optionally include a custom camera orbit (alpha, beta, radius) relative to the hotspot point. In the following example, there is one "surface" hotspot tied to the planet Earth, and one static hotspot that gives a top-down view of the solar system.
 
 <CodePen pen="vEBGGmx" tab="html,result" title="Babylon Viewer HotSpots" />
 
-Defining hotspots by hand is not an easy task, but the [Viewer Configurator](/toolsAndResources/viewerConfigurator) makes this simple.
+Defining hotspots by hand is not easy, but the [Viewer Configurator](/toolsAndResources/viewerConfigurator) makes it simple.
 
 ## Annotations
 
@@ -35,7 +35,7 @@ Here is a simple example that adds labels to some of the planets within the sola
 
 ### Annotation Styling
 
-Annotations provide default UI which can be styled in several ways.
+Annotations provide default UI that can be styled in several ways.
 
 #### CSS Variables
 
@@ -55,13 +55,13 @@ By default, `HTML3DAnnotationElement` (`<babylon-viewer-annotation>`) has a redu
 | `back-facing` | This state is set when the hotspot normal is facing away from the camera.                                                                                                                                                                                                                    |
 | `invalid`     | This state is set when the hotspot is invalid. This can happen because the hotspot name specified in the element does not have corresponding hotspot data, or it can happen if the hotspot data itself is invalid (e.g. references a mesh or vertex index that does not exist in the model). |
 
-Following is an example that overrides the style for the `back-facing` state to keep the annotation at full opacity regardless of the hotspot normal:
+The following is an example that overrides the style for the `back-facing` state to keep the annotation at full opacity regardless of the hotspot normal:
 
 <CodePen pen="MYgyyVM" tab="css,result" title="Babylon Viewer Annotations - CSS States" />
 
 #### Parts
 
-For more complex styling, use the `annotation` part. Following is an example that uses this to increase the annotation font size:
+For more complex styling, use the `annotation` part. The following is an example that uses it to increase the annotation font size:
 
 <CodePen pen="mydpOyB" tab="css,result" title="Babylon Viewer Annotations - Parts" />
 
@@ -73,7 +73,7 @@ Custom annotations are also supported in two different ways.
 
 If you want annotations that track a single hotspot just like the default annotation UI, but you want to completely customize how it looks, simply add child elements to the `HTML3DAnnotationElement` (`<babylon-viewer-annotation>`). These child elements will override the default UI.
 
-Following is an example that overrides the default annotation UI:
+The following is an example that overrides the default annotation UI:
 
 <CodePen pen="wBvpovj" tab="css,result" title="Babylon Viewer Annotations - Custom UI" />
 

@@ -10,7 +10,7 @@ video-content:
 
 ## Overview
 
-There are two ways you can make and use blocks for Smart Filters:
+There are two ways you can create and use blocks for Smart Filters:
 
 1. With annotated GLSL code
 1. With TypeScript + GLSL code
@@ -43,7 +43,7 @@ In a Smart Filter block, input connection points become uniforms, and properties
 ## Important GLSL Coding Requirements
 
 <Alert severity="info">
-Regardless of which approach you use for building your blocks, you need to be sure that the GLSL code for the block follows these requirements so that it is compatible with the Smart Filter optimizer. 
+Regardless of which approach you use for building your blocks, you need to make sure that the GLSL code for the block follows these requirements so that it is compatible with the Smart Filter optimizer.
 </Alert>
 
 These requirements ensure the optimizer can collapse sections of the Smart Filter into a single draw call while minimizing code size and ensuring correctness:
@@ -86,13 +86,13 @@ This approach doesn't support custom vertex shaders or custom binding logic, but
 
 ### Naming Convention
 
-The Smart Filters core comes with a build tool to convert these annotated GLSL files into TypeScript classes. If you plan to use your block in a package, such as @babylonjs/smart-filters-blocks or your own project which will use these tools, you should follow this naming convention:
+The Smart Filters core comes with a build tool to convert these annotated GLSL files into TypeScript classes. If you plan to use your block in a package, such as @babylonjs/smart-filters-blocks, or in your own project that will use these tools, you should follow this naming convention:
 
 `blackAndWhiteBlock.block.glsl`
 
 ### Getting Started
 
-The easiest process for creating a custom block using annotated GLSL code is to:
+The easiest way to create a custom block using annotated GLSL code is to:
 
 1. Author the file in the editor of your choice
 1. Open the [Smart Filters Editor](https://sfe.babylonjs.com)
@@ -151,7 +151,7 @@ And it will appear like this in the Smart Filters Editor:
 1. There must be a single main function which takes in a vec2 named vUV and returns a vec4, and it must have a comment on its line like this:
    `// main`
 1. Functions must be declared with the open curly brace on the same line as the function name
-1. Any uniforms which should have the same value across all instances of the same block should have a comment on its line like this:
+1. Any uniforms that should have the same value across all instances of the same block should have a comment on their line like this:
    `// single`
 1. Uniforms can have metadata, such as a default value if no connection is made to their corresponding connection point
    - In the line immediately above the uniform declaration, start with a // comment followed by a JSON object
@@ -177,7 +177,7 @@ And it will appear like this in the Smart Filters Editor:
 
 #### In Your Own Project (Build Time Deserialization)
 
-When you have the blocks available at build time, it's advantageous to deserialize them then so the work doesn't have to be done at runtime. Also, you get the benefit of property accessors for input connection points.
+When you have the blocks available at build time, it's advantageous to deserialize them at that point so the work doesn't have to be done at runtime. You also get the benefit of property accessors for input connection points.
 
 1. See _Configuring Your Build_ below
 1. Your annotated GLSL (e.g. blackAndWhiteBlock.block.glsl) is converted into a TypeScript class by the build (e.g. blackAndWhiteBlock.block.ts)
@@ -191,7 +191,7 @@ const block = new BlackAndWhiteBlock(smartFilter, "B&W Block");
 
 #### In Your Own Project (Runtime Deserialization)
 
-Runtime deserialization is easier, and necessary if you need to consume blocks not available at build time, but it is slower at runtime when loading the block for the first time.
+Runtime deserialization is easier, and necessary if you need to consume blocks that are not available at build time, but it is slower when loading the block for the first time.
 
 Here's how it is done:
 
@@ -203,11 +203,11 @@ const block = CustomShaderBlock.Create(smartFilter, "Name Of This Instance", blo
 
 ## Using TypeScript + GLSL Code
 
-Use this approach if you need a custom vertex shader, custom binding logic, or don't have a need to load the block implementation dynamically at runtime in your application.
+Use this approach if you need a custom vertex shader, custom binding logic, or do not need to load the block implementation dynamically at runtime in your application.
 
 ### Naming Convention
 
-The Smart Filters core comes with a build tool to convert your GLSL files into TypeScript files which export a `ShaderProgram` your TypeScript block class can use. If you plan to use your block in a package, such as @babylonjs/smart-filters-blocks or your own project which will use these tools, you should follow this naming convention:
+The Smart Filters core comes with a build tool to convert your GLSL files into TypeScript files that export a `ShaderProgram` your TypeScript block class can use. If you plan to use your block in a package, such as @babylonjs/smart-filters-blocks, or in your own project that will use these tools, you should follow this naming convention:
 
 `compositionBlock.fragment.glsl`
 
@@ -215,7 +215,7 @@ The Smart Filters core comes with a build tool to convert your GLSL files into T
 
 1. Clone [BabylonJS/Babylon.js](https://github.com/BabylonJS/Babylon.js)
 1. Run `npm install`
-1. Now you'll create a TypeScript and glsl file for your block
+1. Now create a TypeScript and GLSL file for your block
    - See compositionBlock.ts and compositionBlock.fragment.glsl as examples
 1. Note that the TypeScript file imports a compositionBlock.fragment.js file which the build auto-generates from the .glsl file
 1. Add an entry to [builtInBlockRegistrations.ts](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/smartFilterBlocks/src/registration/builtInBlockRegistrations.ts)
@@ -238,11 +238,11 @@ import { uniforms, shaderProgram } from "./compositionBlock.fragment.js";
 1. The main fragment shader function must take in `vec2 vUV` (the name must match)
 1. You can choose if you want your shader block to be disableable
    - Disableable means that it will have a disabled input connection point, and will automatically pass the main input texture through to the output if the block is disabled
-   - This is helpful in applications which may allow the user to turn on and off many effects, since this allows effects to be disabled instantly without a need to build a new Smart Filter runtime
+   - This is helpful in applications that may allow the user to turn many effects on and off, since this allows effects to be disabled instantly without the need to build a new Smart Filter runtime
    - There are different disable strategies you can choose to get the best shader performance, based on the details of your block (see `BlockDisableStrategy` in [disableableShaderBlock.ts](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/smartFilters/src/blockFoundation/disableableShaderBlock.ts))
    - You must specify a main input when creating a disableable shader block
      - In your fragment shader, you must put `// main` on the line that declares the uniform to be treated as the main input texture
-   - If you choose the manual strategy, your fragment shader must check a uniform named `disabled` which the system will add for you, and if true, just return texture2D(your_main_input_texture, vUV)
+   - If you choose the manual strategy, your fragment shader must check a uniform named `disabled`, which the system will add for you, and if it is true, return texture2D(your_main_input_texture, vUV)
 1. Uniform names must match connection point names
 1. The ShaderBinding.bind() function must not assume texture inputs will be defined
    - If the Smart Filter has been optimized, texture inputs may be replaced with return values from other blocks instead of texture uniforms
@@ -302,16 +302,16 @@ It will then appear in the Smart Filters Editor like this:
 
 <Alert severity="info">
 
-1. In your getShaderProgram() override you must call CloneShaderProgram to ensure that the value you set does not get applied to other instances of your new block type.
+1. In your getShaderProgram() override, you must call CloneShaderProgram to ensure that the value you set is not applied to other instances of your new block type.
 1. In the string you set constPerInstance to, you must add underscores before and after the symbol name you used in your GLSL
 
 </Alert>
 
 ### Configuring Your Build
 
-If you plan to include your new block in your own project, and want to deserialize them at build time instead of runtime for the best performance, you can use build tools supplied by the Smart Filters core.
+If you plan to include your new block in your own project and want to deserialize it at build time instead of runtime for the best performance, you can use build tools supplied by the Smart Filters core.
 
-1. As part of your build, you'll need to run a tool called `buildShaders.js` and pass a path to your blocks and the name of the Smart Filters package as parameters. Use scripts similar to these in your package.json (update ./src/blocks to the path where your block files can be found):
+1. As part of your build, you'll need to run a tool called `buildShaders.js` and pass it a path to your blocks and the name of the Smart Filters package as parameters. Use scripts similar to these in your package.json (update ./src/blocks to the path where your block files can be found):
 
 ```package.json
 "build": "npm run build:runTools && npm run build:blocks",
@@ -319,16 +319,16 @@ If you plan to include your new block in your own project, and want to deseriali
 "build:blocks": "tsc -p ./tsconfig.build.json",
 ```
 
-2. You can also use the provided [watchShaders.js](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/smartFilters/src/utils/buildTools/watchShaders.ts) file for your watch mode
+2. You can also use the provided [watchShaders.js](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/smartFilters/src/utils/buildTools/watchShaders.ts) file for watch mode
    - Note you'll need to reference the js version of the utility in your node_modules folder
-1. Add these lines to your `.gitignore` file so that these auto generated files aren't committed to your repo:
+1. Add these lines to your `.gitignore` file so that these auto-generated files aren't committed to your repo:
 
 ```text
 **/*.fragment.ts
 **/*.block.ts
 ```
 
-1. If you use VSCode, we suggest you add this to your `.vscode/settings.json` file so that these auto generated files don't appear in your editor:
+1. If you use VSCode, we suggest that you add this to your `.vscode/settings.json` file so that these auto-generated files don't appear in your editor:
 
 ```json
 "files.exclude": {

@@ -10,25 +10,25 @@ video-content:
 
 ## Using the Ascii Art post-process
 
-How cool (... or nerd - ish) could it be to render all your BJS scene in Ascii ART?
+How cool (...or nerdish) would it be to render your entire BJS scene in ASCII art?
 
-If you would like it, this tutorial is made for you.
+If that sounds good, this tutorial is for you.
 
-## How to use ?
+## How to use?
 
-Ascii Art Post Process Scripts can be found here: 
+Ascii Art Post Process scripts can be found here: 
 - Normal: https://cdn.babylonjs.com/postProcessesLibrary/babylon.asciiArtPostProcess.js
 - Minified: https://cdn.babylonjs.com/postProcessesLibrary/babylon.asciiArtPostProcess.min.js
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-Please, first reference this script in your page:
+First, reference this script on your page:
 
 ```
 	<script src="babylon.asciiArtPostProcess.js"></script>
 ```
 
-Then, you only need to instantiate the post process attach to your main camera to bring it to life.
+Then, you only need to instantiate the post-process and attach it to your main camera to bring it to life.
 
 ```
 // Creates the post process
@@ -39,7 +39,7 @@ var postProcess = new BABYLON.AsciiArtPostProcess("AsciiArt", camera);
 
 ## Going further
 
-The first you can do is changing the font used in the post process.
+The first thing you can do is change the font used in the post process.
 
 ```
 // Creates the post process
@@ -63,14 +63,14 @@ var postProcess = new BABYLON.AsciiArtPostProcess("AsciiArt", camera,
 
 <Playground id="#2I28SC#26" title="Modified Ascii Post Process Demo 2" description="Modified Ascii Post Process Demo 2"/>
 
-The availables parameters are:
+The available parameters are:
 
-- font: the font to use defined the W3C css way like "30px Monospace". Note: a monospace font would provide better result.
-- caracterSet: the set of caracter to use in order of llight intensity.
-- mixToNormal: defines the amount you want to mix the "tile" or caracter space colored in the ascii art (between 0 and 1).
-- mixToTile: defines the amount you want to mix the normal rendering pass in the ascii art (between 0 and 1).
+- font: the font to use, defined in the W3C CSS style, such as "30px Monospace". Note: a monospace font provides better results.
+- caracterSet: the set of characters to use in order of light intensity.
+- mixToNormal: defines how much of the "tile" or character space coloring in the ASCII art to mix in (between 0 and 1).
+- mixToTile: defines how much of the normal rendering pass to mix into the ASCII art (between 0 and 1).
 
-Two of them mixToNormal and mixToTile are also available at run time to allow smoothly fading from matrix to your normal scene.
+Two of them, mixToNormal and mixToTile, are also available at runtime to allow a smooth fade from the matrix effect to your normal scene.
 
 ```
 // Creates the post process

@@ -7,7 +7,7 @@ keywords: diving deeper, frame graph, node render graph, rendering, node editor
 
 ### Transient errors
 
-Unlike other node editors (such as the node material editor and the node geometry editor), it often happens that the current state of the graph edited in the NRGE is wrong and generates an error in the window log, even if all the blocks are correctly connected. This is due to the nature of the graph - which represents rendering tasks - and the fact that certain parameter combinations are erroneous or may not be supported by your platform.
+Unlike other node editors (such as the node material editor and the node geometry editor), the current state of the graph being edited in the NRGE may sometimes be invalid and generate an error in the window log, even if all the blocks are correctly connected. This is due to the nature of the graph -- which represents rendering tasks -- and the fact that certain parameter combinations are erroneous or may not be supported by your platform.
 
 For example, if you clear a color and depth texture using a `Clear` block and update the number of color texture samples, you will immediately get an error in the console:
 
@@ -27,11 +27,11 @@ Some block inputs are optional: you can easily spot them because they appear in 
 
 In the `SSR` block, **target**, **geomBackDepth** and **dependencies** are optional.
 
-It is important not to connect anything to these inputs if it is not necessary, because in some cases you could suffer a performance penalty by doing so! See [SSR (Screen Space Reflection)](/features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksDescription#ssr-(screen-space-reflection)) for more explanations on the `SSR` block.
+It is important not to connect anything to these inputs if it is not necessary, because in some cases you could incur a performance penalty by doing so! See [SSR (Screen Space Reflection)](/features/featuresDeepDive/frameGraph/frameGraphBlocks/frameGraphBlocksDescription#ssr-(screen-space-reflection)) for more explanations of the `SSR` block.
 
 ### Inputs allowing several types of connection
 
-The "wheel" icon that you may see for some input connection points means that the input accepts several types of connection, but you cannot know what these types are by simply looking at the name of the input. For example, the `SSR` block needs a geometry depth texture as input:
+The "wheel" icon that you may see for some input connection points means that the input accepts several types of connection, but you cannot tell what those types are simply by looking at the input name. For example, the `SSR` block needs a geometry depth texture as input:
 
 ![SSR](/img/frameGraph/ssr.webp)
 
@@ -39,7 +39,7 @@ If you click on the connection point itself (the black wheel icon), you can see 
 
 ![SSR geomDepth accepted types](/img/frameGraph/ssr_geomdepth.webp)
 
-The main type is a texture that stores view depth data, but the connection point also accepts a texture with screen depth data.
+The main type is a texture that stores view-depth data, but the connection point also accepts a texture with screen-depth data.
 
 ### The **target** inputs
 
@@ -73,7 +73,7 @@ Note that this **dependencies** input is not specific to the node render graph f
 
 ### Connection types
 
-NRGE supports a number of connection types, those that would be expected of a node render graph: texture, camera, object list, etc.
+NRGE supports a number of connection types, which is what you would expect from a node render graph: texture, camera, object list, etc.
 
 However, in order to make things easier to discover in the user interface and to limit errors, we have divided the texture type into several types, depending on the type of data stored in the texture:
 * **TextureViewDepth**: the texture stores the depth (Z coordinate) in the camera's view space

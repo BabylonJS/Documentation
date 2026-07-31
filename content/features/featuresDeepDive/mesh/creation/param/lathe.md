@@ -9,11 +9,11 @@ video-content:
 ---
 
 ## Lathe
-A lathed shape is created by defining a shape profile using vector3 coordinates in the xy plane. The shape profile will be rotated around the y axis to form the lather shape. It is recommended that all the x values are positive. You must set at least the _shape_ option.
+A lathed shape is created by defining a shape profile using Vector3 coordinates in the xy plane. The shape profile is rotated around the y axis to form the lathed shape. It is recommended that all x values are positive. You must set at least the _shape_ option.
 
-On creation the local origin of a lathed shape is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
+On creation, the local origin of a lathed shape is coincident with the world origin. It is not possible to give a position relative to the constructed shape, as this depends on the data sets used.
 
-There in no _instance_ option for lathed shapes
+There is no _instance_ option for lathed shapes.
 
 ## MeshBuilder
 Usage :
@@ -24,8 +24,8 @@ const lathe = BABYLON.MeshBuilder.CreateLathe("lathe", options, scene); //scene 
 option|value|default value
 --------|-----|-------------
 shape|_(Vector3[])_  array of Vector3, the shape you want to turn **REQUIRED** |
-radius|_(number)_  the value to radius of the lathe|1
-tessellation|_(number)_  the number of iteration around the lathe|64
+radius|_(number)_  the radius value of the lathe|1
+tessellation|_(number)_  the number of iterations around the lathe|64
 arc|_(number)_ ratio of the circumference between 0 and 1|1
 cap|_(number)_ tube cap : NO_CAP, CAP_START, CAP_END, CAP_ALL|NO_CAP
 closed|_(boolean)_ to open/close the lathe circumference, should be set to `false` when used with `arc`|true
@@ -35,7 +35,7 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an option** | Vector4(0,0, 1,1) 
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
 
-The radius value is a multiplier for the x values in the profile shape vector3s.
+The radius value is a multiplier for the x values in the profile shape Vector3s.
 
 ### Examples
 Lathed shape: <Playground id="#PQ0GIE" title="Lathed Shape Example" description="Simple example of a lathed shape."/>
@@ -49,4 +49,4 @@ Usage:
 let lathe = BABYLON.Mesh.CreateLathe("lathe", shape, radius, tessellation, scene);
 let lathe = BABYLON.Mesh.CreateLathe("lathe", shape, radius, tessellation, scene, updatable, sideOrientation); //optional parameters after scene
 ```
-Note the limited parameters for this method
+Note the limited parameters for this method.

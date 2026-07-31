@@ -16,7 +16,7 @@ If you are not using the [XR Experience helper](/features/featuresDeepDive/webXR
 const xrCamera = new WebXRCamera("nameOfCamera", scene, xrSessionManager);
 ```
 
-Notice that as opposed to the free and target cameras, the constructor does not accept an initial position. This has a few reasons, the main one being - the first frame will populate the camera's position with the real-world information which cannot be queried when creating the camera. In the next section(s) you will see how to get an initial position from a non-XR camera and how to control the user's position correctly.
+Notice that, unlike free and target cameras, the constructor does not accept an initial position. There are a few reasons for this, the main one being that the first frame will populate the camera's position with real-world information, which cannot be queried when creating the camera. In the next sections, you will see how to get an initial position from a non-XR camera and how to control the user's position correctly.
 
 ## How positioning works
 
@@ -30,16 +30,16 @@ Just like any other camera you can get its direction:
 const direction = xrCamera.getDirection(Axis.Z);
 ```
 
-Or a position in front of the camera in a certain distance:
+Or a position in front of the camera at a certain distance:
 
 ``` javascript
 // get the position 2 meters in front of the camera
 const frontPosition = xrCamera.getFrontPosition(2);
 ```
 
-If the camera's position changes between frames (manually by you, or by the [WebXR teleportation feature](/typedoc/classes/babylon.webxrmotioncontrollerteleportation)) a new reference space is being calculated (compensating for the position change). This reference space will now be used to update the camera's position.
+If the camera's position changes between frames (manually by you, or by the [WebXR teleportation feature](/typedoc/classes/babylon.webxrmotioncontrollerteleportation)), a new reference space is calculated to compensate for the position change. This reference space will then be used to update the camera's position.
 
-The camera's Rig-system is the one responsible for rendering. The Rig-Camera's pose is always calculated based on the pose coming from the XR-Frame and **NOT** the WebXR Camera's pose. The main camera's pose is only a reference of the base transformation and is not directly influencing the rendered cameras.
+The camera's rig system is responsible for rendering. The rig cameras' poses are always calculated based on the poses coming from the XRFrame and **NOT** the WebXR Camera's pose. The main camera's pose is only a reference for the base transformation and does not directly influence the rendered cameras.
 
 ## Current user's height
 
@@ -53,11 +53,11 @@ const userHeight = xrCamera.realWorldHeight;
 
 This getter will return the height of the user or 0 if it's not available.
 
-Note that the user height depends on the type of reference space you chose to your experience. Reference space type `local-floor` will deliver the user's height, but `viewer` (for example) will deliver what you defined as a height compensation in the [XR Session Manager](/features/featuresDeepDive/webXR/webXRSessionManagers).
+Note that user height depends on the type of reference space you chose for your experience. A `local-floor` reference space will deliver the user's height, but `viewer` (for example) will deliver the height compensation you defined in the [XR Session Manager](/features/featuresDeepDive/webXR/webXRSessionManagers).
 
 ## Updating from a Non-VR Camera
 
-When entering XR you might want to duplicate the Non-XR camera's position and use it as the base position of the XR Camera. To do that you will need to find the absolute transformation of the old camera and apply it to the new one. Babylon allows you to do that with a single function of the XR Camera:
+When entering XR, you might want to duplicate the non-XR camera's position and use it as the base position of the XR Camera. To do that, you will need to find the absolute transformation of the old camera and apply it to the new one. Babylon allows you to do that with a single function on the XR Camera:
 
 ``` javascript
 // if scene.activeCamera is still the non-VR camera:
@@ -72,4 +72,4 @@ xrCamera.setTransformationFromNonVRCamera(otherCamera);
 xrCamera.setTransformationFromNonVRCamera(otherCamera, true);
 ```
 
-When executing this function the XR camera will copy the position of the old camera, and its rotation around the Y axis. The rest will be provided by the XR Frame. It is important to know that the height provided by the XR Frame (relative to the reference space) will be added to the position as a compensation for the position reset. Which means that it is possible that the XR camera's Y position will not be exactly equal to the other camera's Y position.
+When executing this function, the XR camera will copy the position of the old camera and its rotation around the Y axis. The rest will be provided by the XRFrame. It is important to know that the height provided by the XRFrame (relative to the reference space) will be added to the position as compensation for the position reset. This means that the XR camera's Y position may not be exactly equal to the other camera's Y position.

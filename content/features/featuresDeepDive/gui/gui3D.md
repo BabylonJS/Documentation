@@ -18,7 +18,7 @@ video-content:
 
 ## How To Use Babylon 3D GUI
 
-The Babylon.js 3D GUI library is an extension you can use to generate 3D interactive user interface.
+The Babylon.js 3D GUI library is an extension you can use to generate 3D interactive user interfaces.
 
 The latest version can be found on our CDN at https://cdn.babylonjs.com/gui/babylon.gui.js.
 
@@ -28,7 +28,7 @@ And the source code is available on the main Babylon.js repo: https://github.com
 
 ## Introduction
 
-Babylon.GUI uses meshes to create an interactive user interface, which is fully integrated in your scene.
+Babylon.GUI uses meshes to create an interactive user interface that is fully integrated into your scene.
 
 ## GUI3DManager
 
@@ -61,7 +61,7 @@ All containers provide the following functions to handle controls:
 - `containsControl()`: Gets a boolean indicating if the given control is in the root child list
 - `removeControl()`: Removes a control from the root child list
 
-By default, all containers will update their layout every time you add a new control to it. But you can optimize this behavior if you plan to add multiple controls in a row with `container.blockLayout = true`:
+By default, all containers update their layout every time you add a new control to them. But you can optimize this behavior if you plan to add multiple controls in a row with `container.blockLayout = true`:
 
 ```javascript
 panel.blockLayout = true;
@@ -74,9 +74,9 @@ panel.blockLayout = false;
 
 The `Container3D` class will do nothing regarding layout of its controls. You need to use one of its children to get a specialized layout mechanism.
 
-All specialized containers must implement the following function to provide layout mechanism:
+All specialized containers must implement the following function to provide a layout mechanism:
 
-- `_arrangeChildren()`: This function will be called every time a new control is added. This is where children class can decide how to organize controls
+- `_arrangeChildren()`: This function is called every time a new control is added. This is where child classes can decide how to organize controls
 
 ### StackPanel
 
@@ -95,9 +95,9 @@ See it in action here: <Playground id="#HJZBRG#0" title="3D GUI StackPanel" desc
 
 ### VolumeBasedPanel
 
-VolumeBasedPanel are containers used to dispatch items on the surface of a volume (like sphere or cylinder).
+VolumeBasedPanels are containers used to distribute items on the surface of a volume (like a sphere or cylinder).
 
-The panels will automatically arrange its content every time you add a new control.
+The panels automatically arrange their content every time you add a new control.
 
 The panels can either be row or column first depending on which property you use:
 
@@ -142,7 +142,7 @@ See it in action here: <Playground id="#HB4C01#9" title="3D GUI SpherePanel" des
 
 #### CylinderPanel
 
-The `CylinderPanel` container can be used to dispatch item on the surface of a cylinder:
+The `CylinderPanel` container can be used to distribute items on the surface of a cylinder:
 
 ```javascript
 const panel = new BABYLON.GUI.CylinderPanel();
@@ -157,7 +157,7 @@ See it in action here: <Playground id="#HB4C01#8" title="3D GUI CylinderPanel" d
 
 #### PlanePanel
 
-The `PlanePanel` container can be used to dispatch item on the surface of a plane:
+The `PlanePanel` container can be used to distribute items on the surface of a plane:
 
 ```javascript
 const panel = new BABYLON.GUI.PlanePanel();
@@ -176,7 +176,7 @@ const panel = new BABYLON.GUI.ScatterPanel();
 panel.iterations = 100;
 ```
 
-The iterations property is used to define the number of iteration to use to scatter the controls (100 by default)
+The `iterations` property is used to define the number of iterations used to scatter the controls (100 by default).
 
 ![ScatterPanel](/img/how_to/gui/ScatterPanel.webp)
 
@@ -202,14 +202,14 @@ control.linkToTransformNode(anchor);
 This way the control will always follow the linked node or mesh. Please note that in this case, the `position` and `scaling` properties are considered local to the new parent node or mesh.
 When linking a control to a transform node, please make sure that the control was first added to a container or to the root manager.
 
-Some observables are also available to help tracking control state:
+Some observables are also available to help track control state:
 
 - `onPointerEnterObservable`: An event triggered when pointer enters the control
-- `onPointerOutObservable`: An event triggered when the pointer move out of the control
+- `onPointerOutObservable`: An event triggered when the pointer moves out of the control
 - `onPointerDownObservable`: An event triggered when the pointer taps the control
 - `onPointerUpObservable`: An event triggered when pointer is up
 - `onPointerClickObservable`: An event triggered when a control is clicked on (with a mouse)
-- `onPointerMoveObservable`: An event triggered when the pointer move over the control
+- `onPointerMoveObservable`: An event triggered when the pointer moves over the control
 
 All controls can also be the target of [behaviors](/features/featuresDeepDive/behaviors) so they expose the associated properties and functions:
 
@@ -218,7 +218,7 @@ All controls can also be the target of [behaviors](/features/featuresDeepDive/be
 - `removeBehavior()`: Remove an attached behavior
 - `getBehaviorByName()`: Gets an attached behavior by name
 
-All controls can also define a callback when specific event is happening. These callbacks will be called to let the user defines an animation for the control. Here is the list of available callbacks:
+All controls can also define a callback for when a specific event occurs. These callbacks let the user define an animation for the control. Here is the list of available callbacks:
 
 - `pointerEnterAnimation`: Callback used to start pointer enter animation
 - `pointerOutAnimation`: Callback used to start pointer out animation
@@ -232,7 +232,7 @@ All these callbacks are empty by default and will be implemented by specialized 
 `Button3D` is a class used to create 3D buttons.
 
 A button is a control with default animations for enter/out/down and up events.
-It is based on a 2D GUI content.
+It is based on 2D GUI content.
 
 You can specify the content through the `content` property and set it to any regular [2D GUI content](/features/featuresDeepDive/gui):
 
@@ -256,7 +256,7 @@ See it in action here: <Playground id="#2YZFA0#0" title="3D GUI Button3D Control
 
 ### MeshButton3D
 
-This class is used to create an interactive object which will use a mesh coming from the current scene to render.
+This class is used to create an interactive object that uses a mesh from the current scene for rendering.
 
 ```javascript
 const pushButton = new BABYLON.GUI.MeshButton3D(mesh, "pushButton");
@@ -282,7 +282,7 @@ The `HolographicButton` is a specialized button that mimics the Mixed Reality To
 An `HolographicButton` can be defined with two properties:
 
 - `text`: Gets or sets text for the button
-- `imageUrl`: Gets or sets the image url for the button
+- `imageUrl`: Gets or sets the image URL for the button
 
 ![Babylon.GUI](/img/how_to/gui/MRTK_HolographicButton.webp)
 
@@ -304,7 +304,7 @@ button.content = text1;
 
 ### TouchHolographicButton
 
-The `TouchHolographicButton` is a newer version `HolographicButton` that is more suited for Hololens 2 volume interactions.  
+The `TouchHolographicButton` is a newer version of `HolographicButton` that is better suited for HoloLens 2 volumetric interactions.  
 It has the same use as `HolographicButton`:
 
 ```javascript
@@ -323,7 +323,7 @@ The main functional difference between the `TouchHolographicButton` and `Hologra
 
 ### HolographicSlate
 
-The `HolographicSlate` is used to display content. It can be dragged around, rotated and scaled. With 1 pointer you have to use the handles to rotate and scale the slate, with 2 pointers you can pinch and twist the title bar to rotate and scale.
+The `HolographicSlate` is used to display content. It can be dragged around, rotated, and scaled. With one pointer, you have to use the handles to rotate and scale the slate; with two pointers, you can pinch and twist the title bar to rotate and scale it.
 
 The `HolographicSlate` hosts an `AdvancedDynamicTexture` to display content, simply set the `content` property to a `Control` or collection of `Control`s to adjust what is displayed. It also has an adjustable title bar at the top that can display a title by setting the `title` property.
 
@@ -346,7 +346,7 @@ slate.content = new BABYLON.GUI.Image("checkers", "./textures/Checker_Albedo.png
 
 Content inside the slate can also be scrolled in X or Y directions. Use the `contentResolution` property to manipulate the resolution of the texture.
 
-The slate natively provides 2 `TouchHolographicButton` on the top right, the leftmost enables the [FollowBehavior](/features/featuresDeepDive/behaviors/meshBehaviors#followbehavior) for the slate, and the rightmost destroys the slate.
+The slate natively provides two `TouchHolographicButton`s on the top right: the leftmost enables the [FollowBehavior](/features/featuresDeepDive/behaviors/meshBehaviors#followbehavior) for the slate, and the rightmost destroys the slate.
 
 <Playground id="#SYD2M2#10" title="HolographicSlate" description="Simple Holographic Slate example"/>
 
@@ -392,7 +392,7 @@ near.rows = n;
 
 The `HandMenu` is a `NearMenu` that uses the [HandConstraintBehavior](/features/featuresDeepDive/behaviors/meshBehaviors#handconstraintbehavior). It is useful for XR experiences to always have a 3D menu in hand range.
 
-By default, the `HandMenu` positions itself on the outer side of the users left hand, and only activates when the user both has their palm facing them and is looking at (facing) their hand. These defaults can be changed by modifying the properties on the `HandConstraintBehavior` attached to the `HandMenu`.
+By default, the `HandMenu` positions itself on the outer side of the user's left hand and only activates when the user both has their palm facing them and is looking at their hand. These defaults can be changed by modifying the properties on the `HandConstraintBehavior` attached to the `HandMenu`.
 
 ### Custom controls
 

@@ -10,11 +10,11 @@ video-content:
 
 ## Basic scene
 
-This is a step-by-step guide on how to add XR features to a basic scene
+This is a step-by-step guide on how to add XR features to a basic scene.
 
 ## Basic Scene with XR Support
 
-Here we just add an environment, a sphere, and XR support
+Here we just add an environment, a sphere, and XR support.
 
 ```javascript
 const xrHelper = await scene.createDefaultXRExperienceAsync();
@@ -219,9 +219,9 @@ npm run dev -- --host 0.0.0.0
 
 Browsing to `https://<your-server-ip>:3443` on a desktop machine should show the basic scene. If
 the [WebXR API Emulator](https://github.com/MozillaReality/WebXR-emulator-extension) is enabled, you
-should also see Babylon.js's default VR headset mode icon
+should also see Babylon.js's default VR headset mode icon.
 
-If viewing from within a headset, the controller models should correspond to what is available in the global
+If viewed from within a headset, the controller models should correspond to what is available in the global
 registry for your device.
 
 To check TypeScript types and build:
@@ -230,4 +230,4 @@ To check TypeScript types and build:
 npm run build
 ```
 
-Using the setup above, vite reports a vendor.js size of ~2.4MB (520k gzipped) as of babylon-5.0.0-beta.8.
+Using the setup above, Vite reports a vendor.js size of ~2.4MB (520k gzipped) as of babylon-5.0.0-beta.8.

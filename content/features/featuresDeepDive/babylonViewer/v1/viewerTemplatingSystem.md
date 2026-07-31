@@ -18,9 +18,9 @@ video-overview:
 video-content:
 ---
 
-The viewer has a simple integrated templating system for you to use and extend. Using the templating system you can decide how the viewer components, such as the navbar, the error screen, help screen and so on, look like.
+The viewer has a simple integrated templating system for you to use and extend. Using the templating system, you can decide how viewer components such as the navbar, the error screen, the help screen, and so on look.
 
-The templating system is using [Handlebars.js](https://handlebarsjs.com/) to parse the HTML. We recommend understanding the basic concepts of Handelbars before making major changes to the HTML templates.
+The templating system uses [Handlebars.js](https://handlebarsjs.com/) to parse the HTML. We recommend understanding the basic concepts of Handlebars before making major changes to the HTML templates.
 
 ## Basics of the templating engine
 
@@ -57,9 +57,9 @@ export interface ITemplateConfiguration {
 
 ### Location vs. HTML
 
-There are two ways of defining where the template is found. The location and the html parameters. One of them will have to be defined. if both are defined, the 'html' parameter will be used.
+There are two ways to define where the template is found: the location and the html parameters. One of them must be defined. If both are defined, the 'html' parameter will be used.
 
-The location parameter define a URL where the HTML can be found, or an ID of a script tag with the type "text/x-babylon-viewer-template". For example, the HTML page can have somewhere in it the following HTML element:
+The location parameter defines a URL where the HTML can be found, or the ID of a script tag with the type "text/x-babylon-viewer-template". For example, the HTML page can contain the following HTML element:
 
 ```html
 <script id="loading-screen" type="text/x-babylon-viewer-template">
@@ -124,7 +124,7 @@ is equal to this:
 
 ### Simple walkthrough
 
-The templating engine will load all defined templates in the configuration and parse them. As part of the parsing process, it will look for tags that are defined in the template configuration and will inject them in the right place. The template that will be injected to the main component (the `<babylon>` HTML tag per default) is always called 'main'.
+The templating engine will load and parse all templates defined in the configuration. As part of the parsing process, it will look for tags that are defined in the template configuration and inject them in the right place. The template that will be injected into the main component (the `<babylon>` HTML tag by default) is always called 'main'.
 
 For example, if the templating configuration looks like this:
 
@@ -168,7 +168,7 @@ Going back to the configuration from the last section, you can see that the HTML
 <img class="loading-image" src="{{loadingImage}}" />
 ```
 
-Anything inside a `{{` and `}}` is considered to be a handlebars expression. This parameter can be defined in the configuration file, as also seen in the last section:
+Anything inside `{{` and `}}` is considered a Handlebars expression. This parameter can be defined in the configuration file, as seen in the previous section:
 
 ```javascript
     templates: {
@@ -182,13 +182,13 @@ Anything inside a `{{` and `}}` is considered to be a handlebars expression. Thi
     }
 ```
 
-Using this method you can easily achieve internationalization, injecting the parameters using the configuration and not embedding them into the HTML.
+Using this method, you can easily support internationalization by injecting the parameters through the configuration instead of embedding them in the HTML.
 
 ### Event binding
 
 Any template can have any native JavaScript event registered to it or to one of its children. The callback will be bound to the selected element, and will trigger a callback in the template, which can be used when registering the onEventTriggered observer of the template. But first, let's see how to simply bind events:
 
-Let'S take a look at the following configuration (taken from the default configuration with a bit of changes):
+Let's take a look at the following configuration (taken from the default configuration with a few changes):
 
 ```javascript
         navBar: {
@@ -200,10 +200,10 @@ Let'S take a look at the following configuration (taken from the default configu
         },
 ```
 
-This events configuration will register two events:
+This event configuration will register two events:
 
-1. pointerdown event that will be bound to the inner `#fullscreen-button` div
-1. drop event that will be bound to the navbar element itself.
+1. A pointerdown event that will be bound to the inner `#fullscreen-button` div
+1. A drop event that will be bound to the navbar element itself.
 
 _If you are wondering why the event definition (\{ 'fullscreen-button': true, 'some-other-id': true \}) is a map and not an array of IDs - the template can also be configured using HTML, and HTML DOM elements don't support Arrays. This way the HTML can override the event by setting it to "false"._
 
@@ -212,13 +212,13 @@ The event callback will deliver the following object:
 ```javascript
 export interface EventCallback {
   event: Event; // the native browser event
-  template: Template; // the template on which is was executed
+  template: Template; // the template on which it was executed
   selector: string; // the selector used (for example #fullscreen-button)
   payload?: any; // any extra payload. For future development, currently not being used.
 }
 ```
 
-To register for event listening, load the template using the template manager and add an observer to the `onEventTriggered` observable:
+To register an event listener, load the template using the template manager and add an observer to the `onEventTriggered` observable:
 
 ```javascript
 // viewer is a viewer instance. See Advanced usage (//doc.babylonjs.com/extensions/Advanced_usage) for further details on how to get it.
@@ -262,7 +262,7 @@ let canvasContainer = viewer.templateManager.getTemplate("canvasContainer");
 
 ### The template object
 
-Any configured template is creating a new instance of the [Template class](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/templating/templateManager.ts).
+Any configured template creates a new instance of the [Template class](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/templating/templateManager.ts).
 
 Here are the public variables we can access:
 
@@ -278,14 +278,14 @@ public isLoaded: boolean; // is the template fully loaded
 public parent: HTMLElement; // the HTML container of this template. In this case, the <canvas-container> element.
 ```
 
-The Template class has also a few promise-based help functions for common tasks:
+The Template class also has a few promise-based helper functions for common tasks:
 
 ```javascript
 public show(visibilityFunction?: (template: Template) => Promise<Template>): Promise<Template>;
 public hide(visibilityFunction?: (template: Template) => Promise<Template>): Promise<Template>;
 ```
 
-If calling those functions without any parameters, the `display`of this template will be set to `flex` or `none` respectively.
+If you call those functions without any parameters, the `display` of this template will be set to `flex` or `none`, respectively.
 
 To define your own show or hide functions, simply provide the visibilityFunction as the first parameter. The following is a real example from the default viewer:
 
@@ -310,7 +310,7 @@ template.hide((template) => {
 
 The default viewer comes with predefined templates that can be simply changed if needed.
 
-The list of templates that are delivered:
+The delivered templates are:
 
 - main - the main template (must always be present)
 - viewer - containing the canvas
@@ -321,13 +321,13 @@ The list of templates that are delivered:
 - help - a help screen
 - share - a share screen
 
-All templates can be found at the assets directory of the viewer - [https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/Viewer/assets/templates/default](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/Viewer/assets/templates/default). The templates include CSS internally, and are self-contained.
+All templates can be found in the viewer's assets directory: [https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/Viewer/assets/templates/default](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/Viewer/assets/templates/default). The templates include CSS internally and are self-contained.
 
 ### Changing an existing template
 
 If you want to change one of the templates, simply create a new HTML structure and set it in the viewer configuration. For example, if we want to change the loading screen so it will not show an image at all:
 
-The new loadingScreen HTML injected in the page as `<script>` tag:
+The new loadingScreen HTML injected into the page as a `<script>` tag:
 
 ```html
 <script id="loading-screen" type="text/x-babylon-viewer-template">
@@ -358,7 +358,7 @@ This can be added to the configuration of the viewer element:
 
 ### Extending an existing template
 
-The nav bar, for example, can be extended to hold further buttons. The navbar default configuration is:
+The nav bar, for example, can be extended to hold additional buttons. The default navbar configuration is:
 
 ```javascript
 navBar: {
@@ -387,17 +387,17 @@ If you want, for example, to change the visibilityTimeout to 1 second, set it us
 
 ## Creating your own templates
 
-If you don't want to use the default templates and want to completely create your own, here are a few important notes.
+If you do not want to use the default templates and want to create your own completely, here are a few important notes.
 
 ### The main template
 
-You should always have a template named "main", which will be the starting point of your template. Apart from "main", it is up to you to decide how to organize your templates. Main can technically contain everything, there is no actual need to create any other templates, unless you want to internally overwrite certain templates.
+You should always have a template named "main", which will be the starting point of your template. Apart from "main", it is up to you to decide how to organize your templates. The main template can technically contain everything, so there is no actual need to create any other templates unless you want to internally overwrite certain templates.
 
 The main template can technically be a single canvas element, and that's about it.
 
 ### You need a canvas
 
-Well, a canvas is needed, obviously. **and only one!** To avoid creating further unneeded configuration parameters, the first canvas found inside the parsed main template will be used as the canvas for Babylon.
+Well, a canvas is needed, obviously, **and only one!** To avoid creating additional unneeded configuration parameters, the first canvas found inside the parsed main template will be used as the canvas for Babylon.
 
 ## If help is needed
 

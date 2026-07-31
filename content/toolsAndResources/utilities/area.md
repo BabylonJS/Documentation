@@ -10,7 +10,7 @@ video-content:
 
 ## Surface Area Of a Mesh
 
-This functions will together find the surface area of a mesh.
+These functions work together to find the surface area of a mesh.
 
 ```javascript
 var surfaceArea = function(mesh) {
@@ -68,7 +68,7 @@ var facetArea = function(mesh, faceId) {
     return Math.sqrt(crossx * crossx + crossy * crossy + crossz * crossz) * 0.5;
 }
 ```
-The function surfaceArea has been written so that you can use the function facetArea to find the area of an individual facet should you wish to.
+The function surfaceArea is written so that you can use the function facetArea to find the area of an individual facet, should you wish to.
 
 Run the following playgrounds directly and view the results in the console.
 
@@ -76,4 +76,4 @@ Run the following playgrounds directly and view the results in the console.
 <Playground id="#3VV5IV#2" title="Surface Area of a Sphere" description="Simple example of how to get the surface area of a sphere."/>
 
 
-**NOTE** For double sided meshes the surface area will be the sum of the exterior and interior areas.
+**NOTE** For double-sided meshes the surface area will be the sum of the exterior and interior areas.

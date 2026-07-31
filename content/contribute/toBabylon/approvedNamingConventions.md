@@ -8,11 +8,11 @@ video-overview:
 video-content:
 ---
 
-If you want to contribute to babylon.js (What an _excellent_ idea!), you should attempt to align your code with the following naming conventions:
+If you want to contribute to Babylon.js (What an _excellent_ idea!), you should try to align your code with the following naming conventions:
 
 - Private variables are named starting with \_ : `_myVariable`
-- Camel casing is used for non static properties/functions/variables: `var myUberUsefulVariable`
-- Pascal casing must be used for "static" functions: `BABYLON.Vector3.Project`
+- Camel case is used for non-static properties/functions/variables: `var myUberUsefulVariable`
+- Pascal case must be used for static functions: `BABYLON.Vector3.Project`
 - Braces \{\} must be used for every block, even when there is only one line:
 
 ```
@@ -26,4 +26,4 @@ if (condition) {
 
 You have to use **TypeScript** to submit a pull request.
 
-Please, do not forget to update the [documentation](https://github.com/BabylonJS/Documentation).
+Please do not forget to update the [documentation](https://github.com/BabylonJS/Documentation).

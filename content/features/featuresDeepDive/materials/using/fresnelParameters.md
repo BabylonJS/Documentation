@@ -1,5 +1,5 @@
 ---
-title: Fresnel Paramaters
+title: Fresnel Parameters
 image: 
 description: Learn fresnel parameters in Babylon.js.
 keywords: diving deeper, materials, fresnel, fresnel parameters
@@ -20,11 +20,11 @@ There are 5 of them:
 * ```StandardMaterial.emissiveFresnelParameters```
 * ```StandardMaterial.refractionFresnelParameters```
 
-## How Fresnel is working
+## How Fresnel Works
 
-A fresnel term is computed by the StandardMaterial in order to change the way a color is applied by using viewing angle.
+A Fresnel term is computed by the StandardMaterial to change how a color is applied based on the viewing angle.
 
-For instance, you can simulate great glass or reflection effects by just using a simple fresnel. The fresnel will let you have more reflection on edges and not all on the center.
+For instance, you can simulate great glass or reflection effects by just using a simple Fresnel term. It gives you more reflection on the edges and less in the center.
 
 To do so, just use this code:
 
@@ -50,11 +50,11 @@ material.reflectionFresnelParameters.rightColor = BABYLON.Color3.White();
 
 ![](/img/how_to/Fresnel/fresnel02.webp)
 
-By using ```bias``` and ```power``` properties, you can control how the fresnel is computed along the surface of the object according to this formula:
+By using the ```bias``` and ```power``` properties, you can control how the Fresnel term is computed along the surface of the object according to this formula:
 
 _finalFresnelTerm = pow(**bias** + fresnelTerm, **power**)_
 
-By default, bias == 0 and power == 1
+By default, bias == 0 and power == 1.
 
 For instance, the following code:
 
@@ -72,11 +72,11 @@ material.reflectionFresnelParameters.power = 4;
 ## How to use it
 
 A _FresnelParameter_ is defined by the following properties:
-* ```isEnabled``` to activate or deactivate fresnel effect
-* leftColor to define color used on edges
-* rightColor to define color used on center
-* bias to define bias applied to computed fresnel term
-* power to compute exponent applied to fresnel term
+* ```isEnabled``` to activate or deactivate the Fresnel effect
+* leftColor to define the color used on the edges
+* rightColor to define the color used in the center
+* bias to define the bias applied to the computed Fresnel term
+* power to define the exponent applied to the Fresnel term
 
 Here is a simple example:
 

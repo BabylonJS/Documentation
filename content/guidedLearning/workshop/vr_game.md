@@ -8,11 +8,11 @@ video-overview:
 video-content:
 ---
 
-WebVR is deprecated and was removed from most (if not all) modern browsers. **it is strongly recommended that projects use the [WebXR experience helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers) instead of WebVR**. For more information, check out our [introduction to WebXR](/features/featuresDeepDive/webXR/introToWebXR).
+WebVR is deprecated and was removed from most, if not all, modern browsers. **It is strongly recommended that projects use the [WebXR experience helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers) instead of WebVR**. For more information, check out our [introduction to WebXR](/features/featuresDeepDive/webXR/introToWebXR).
 
-We leave this information since the code, apart from the direct interface to WebVR,  can be used in other projects.
+We leave this information here since the code, apart from the direct interface to WebVR, can be used in other projects.
 
-A simple WebVR gamelet to show how to implement key VR features.
+A simple WebVR gamelet shows how to implement key VR features.
 
 ## The Design
 
@@ -69,7 +69,7 @@ scene.registerBeforeRender(function () {
 });
 ```
 
-In order for the reticle to move with the VR Camera as well as the Web camera, we have to change the reticle's parent whenever we enter VR mode.
+In order for the reticle to move with the VR camera as well as the web camera, we have to change the reticle's parent whenever we enter VR mode.
 
 ```javascript
 VRHelper.onEnteringVR = function () {
@@ -83,7 +83,7 @@ VRHelper.onExitingVR = function () {
 
 #### Ways To Improve
 
-You could improve this reticle a number of ways. As mentioned previously, providing better feedback to the user with interactable options is one of the key factors in making an effective reticle. Additionally, a 2D reticle that rotates with the surface of what the user is looking at gives a more concrete picture of where the user is looking in 3D space.
+You could improve this reticle in a number of ways. As mentioned previously, providing better feedback to the user with interactable options is one of the key factors in making an effective reticle. Additionally, a 2D reticle that rotates with the surface of what the user is looking at gives a more concrete picture of where the user is looking in 3D space.
 
 ### Dynamic GUI
 
@@ -131,7 +131,7 @@ You can use `scene.createDefaultXRExperienceAsync()` to easily add WebXR VR supp
 ### Spatial Sound
 
 Spatializing a sound in Babylon.js can be as simple as marking the BABYLON.Sound `spatialSound` attribute as 'true'. However, there are a number of other options you can specify, including linear, inverse, or exponential distance, max distance, and the panning model.  
-A more in depth guide can be found [here](/features/featuresDeepDive/audio/playingSoundsMusic#creating-a-spatial-3d-sound).
+A more in-depth guide can be found [here](/features/featuresDeepDive/audio/playingSoundsMusic#creating-a-spatial-3d-sound).
 
 Afterwards, we make sure to attach the sound to our moving box, and register the sound to play when the box is clicked.
 

@@ -8,13 +8,13 @@ video-overview:
 video-content:
 ---
 
-This guide you will show you how you can build a multiplayer experience with Colyseus Multiplayer Framework and Babylon.js.
+This guide will show you how to build a multiplayer experience with the Colyseus Multiplayer Framework and Babylon.js.
 
 <iframe height="70%" width="70%" src="https://tutorial-babylonjs-server.glitch.me" />
 
 **By the end of this guide, you will:**
 
-- Set-up your first authoritative server with Colyseus
+- Set up your first authoritative server with Colyseus
 - Synchronize shared state data between server and client
 - Exchange messages between client and server
 - Match-make clients into game sessions (rooms)
@@ -37,9 +37,9 @@ This guide you will show you how you can build a multiplayer experience with Col
 
 ## Creating the server
 
-We will be making a basic server, hosted locally on your computer for keeping player states. Changes will be synchronized with clients accordingly.
+We will be making a basic server, hosted locally on your computer to keep player states. Changes will then be synchronized with clients accordingly.
 
-To create a fresh new Colyseus server, run the following from your command-line:
+To create a fresh Colyseus server, run the following from your command line:
 
 ```
 npm init colyseus-app ./babylonjs-multiplayer-server
@@ -52,7 +52,7 @@ cd babylonjs-multiplayer-server
 npm start
 ```
 
-If successful, the output should look like this in your command-line:
+If successful, the output should look like this on your command line:
 
 ```
 > my-app@1.0.0 start
@@ -66,7 +66,7 @@ If successful, the output should look like this in your command-line:
 
 ### Including the Colyseus JavaScript SDK
 
-For simplicity, the examples on this guide are using the [Babylon.js Playground](https://doc.babylonjs.com/toolsAndResources/tools/playground). Although the full source-code available for download uses [NPM + Webpack](https://doc.babylonjs.com/divingDeeper/developWithBjs/npmSupport).
+For simplicity, the examples in this guide use the [Babylon.js Playground](https://doc.babylonjs.com/toolsAndResources/tools/playground), although the full source code available for download uses [NPM + Webpack](https://doc.babylonjs.com/divingDeeper/developWithBjs/npmSupport).
 
 In the Playground, we inject the Colyseus JavaScript SDK manually through a `<script>` tag created via code, as described in [_"Using External Assets In The Playground"_ → _"Javascript files"_](https://doc.babylonjs.com/toolsAndResources/tools/playground/externalPGAssets#javascript-files).
 
@@ -86,7 +86,7 @@ In a real-world scenario, please follow the [official Colyseus documentation](ht
 
 ### Establishing a Client-Server Connection
 
-Now we can instantiate Colyseus `Client` instance and join a game from any script.
+Now we can instantiate a Colyseus `Client` instance and join a game from any script.
 
 ```typescript
 var createScene = function () {
@@ -164,7 +164,7 @@ export class MyRoomState extends Schema {
 
 > See more about the [Schema structures](https://docs.colyseus.io/colyseus/state/schema/).
 
-Now, still in the server-side, let's modify our `onJoin()` method to create a `Player` instance whenever a new connection is established with the room.
+Now, still on the server side, let's modify our `onJoin()` method to create a `Player` instance whenever a new connection is established with the room.
 
 ```typescript
 // MyRoom.ts
@@ -208,8 +208,8 @@ The state mutations we've done in the server-side **can be observed** in the cli
 
 For this demo, we need to create two objects in our Scene:
 
-- A Plane, mesh object to represent the floor
-- A Sphere, mesh object to represent the players, which we will initiate for each new player joining the room.
+- A plane mesh object to represent the floor
+- A sphere mesh object to represent the players, which we will instantiate for each new player joining the room.
 
 ### Creating the Plane
 
@@ -228,7 +228,7 @@ After a connection with the room has been established, the client-side can start
 
 ### Adding new players
 
-As per [Room State and Schema](#room-state-and-schema) section, whenever the server accepts a new connection - the `onJoin()` method is creating a new Player instance within the state.
+As described in the [Room State and Schema](#room-state-and-schema) section, whenever the server accepts a new connection, the `onJoin()` method creates a new Player instance within the state.
 
 We're going to listen to this event on the client-side now:
 
@@ -251,7 +251,7 @@ colyseusSDK.joinOrCreate("my_room").then(function (room) {
 
 When playing the scene, you should see a message in the browser's console whenever a new client joins the room.
 
-For the visual representation, we need to clone the "Player" object, and keep a local reference to the cloned object based on their `sessionId`, so we can operate on them later:
+For the visual representation, we need to clone the "Player" object and keep a local reference to the cloned object based on its `sessionId`, so we can operate on it later:
 
 ```typescript
 // (...)
@@ -281,7 +281,7 @@ colyseusSDK.joinOrCreate("my_room").then(function (room) {
 
 ### The "Current Player"
 
-We can give the current player, color `#ff9900` and other players `grey`, by checking the `sessionId` against the connected `room.sessionId`:
+We can give the current player the color `#ff9900` and other players `grey` by checking the `sessionId` against the connected `room.sessionId`:
 
 ```typescript
 // (...)
@@ -310,7 +310,7 @@ room.state.players.onAdd((player, sessionId) => {
 
 ### Removing disconnected players
 
-When a player is removed from the state (upon `onLeave()` in the server-side), we need to remove their visual representation as well.
+When a player is removed from the state (upon `onLeave()` on the server side), we need to remove their visual representation as well.
 
 ```javascript
 // ...
@@ -327,7 +327,7 @@ room.state.players.onRemove(function (player, sessionId) {
 
 ### Sending the new position to the server
 
-We are going to allow the `Scene.onPointerDown` event; to determine the exact `Vector3` position the player should move towards, and then send it as a message to the server.
+We are going to use the `Scene.onPointerDown` event to determine the exact `Vector3` position the player should move toward, and then send it as a message to the server.
 
 ```typescript
 scene.onPointerDown = function (event, pointer) {
@@ -452,6 +452,6 @@ You can see and interact with all spawned rooms and active client connections th
 
 ## More
 
-We hope you found this tutorial useful, if you'd like to learn more about Colyseus please have a look at the [Colyseus documentation](https://docs.colyseus.io/), and join the [Colyseus Discord community](https://discord.gg/RY8rRS7).
+We hope you found this tutorial useful. If you'd like to learn more about Colyseus, please have a look at the [Colyseus documentation](https://docs.colyseus.io/) and join the [Colyseus Discord community](https://discord.gg/RY8rRS7).
 
 [1]: https://github.com/colyseus/tutorial-babylonjs-client/

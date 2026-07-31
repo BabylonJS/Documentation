@@ -16,23 +16,23 @@ video-content:
 
 ## Goldberg Polyhedron
 
-Within Babylon.js a Goldberg polyhedron (GBP) is formed as a dual of an icosahedron based geodesic polyhedron and its vertices mapped onto a sphere. The two parameters m and n used in forming the geodesic base also determine the arrangement of faces for the GBP.
+Within Babylon.js, a Goldberg polyhedron (GBP) is formed as the dual of an icosahedron-based geodesic polyhedron, with its vertices mapped onto a sphere. The two parameters, m and n, used in forming the geodesic base also determine the arrangement of faces for the GBP.
 
 ![Dual](/img/snippets/geo31.webp)  
 Fig 1 - The red grid is the dual of the blue grid and vice-versa.
 
 On this page we explain how to create a GBP directly. More information about [GBP Mathematics](/guidedLearning/workshop/Geodesic_Math) and the [first development stage of coding a GBP](/guidedLearning/workshop/Geodesic_Code) are available in the documentation workshop.
 
-A GBP can only be created using `MeshBuilder`
+A GBP can only be created using `MeshBuilder`.
 
-A GBP consists of 12 pentagonal faces and a number of hexagonal faces determined by m and n. The option parameter when creating a GBP has different properties than those for `CreateGeodesic` or for `CreatePolyhedron`. However additional properties and methods, to those of a standard mesh, are available for a Goldberg mesh. These allow individual, or groups of pentagonal and hexagonal faces to be colored, textured or built upon giving a hexagon-grid planet shaped world.
+A GBP consists of 12 pentagonal faces and a number of hexagonal faces determined by m and n. The options used when creating a GBP have different properties from those for `CreateGeodesic` or `CreatePolyhedron`. However, additional properties and methods beyond those of a standard mesh are available for a Goldberg mesh. These allow individual or grouped pentagonal and hexagonal faces to be colored, textured, or built upon, giving you a hexagon-grid, planet-shaped world.
 
-The world consists of 12 poles, the pentagonal faces plus a number of hexagonal faces. Around each of the poles there is a group of hexagonal faces that are closer to one pole than the others. These are the unshared faces of the world. Depending on the value of the second parameter, **n**, there may be zero or more faces that are equidistant from two or even three poles. These are the shared faces.
+The world consists of 12 poles, the pentagonal faces, plus a number of hexagonal faces. Around each pole there is a group of hexagonal faces that are closer to that pole than to the others. These are the unshared faces of the world. Depending on the value of the second parameter, **n**, there may be zero or more faces that are equidistant from two or even three poles. These are the shared faces.
 
 ![Faces](/img/snippets/geo32.webp)  
 Fig 2 - Poles are black, unshared faces are colored and shared faces are white.
 
-The faces are stored in the following order
+The faces are stored in the following order:
 
 - the poles 0 to 11
 - the unshared faces for pole 0, then for pole 1, pole 2 etc
@@ -61,9 +61,9 @@ const goldbergPoly = BABYLON.MeshBuilder.CreateGoldberg("goldberg", options, sce
 
 ### Properties
 
-Over and above the features of a standard mesh there are a number of read only features stored in the property `goldbergData` object.
+In addition to the features of a standard mesh, there are a number of read-only properties stored in the `goldbergData` object.
 
-Access to each follows the following example patterns
+Each can be accessed using the following pattern:
 
 ```javascript
 const goldbergPoly = BABYLON.MeshBuilder.CreateGoldberg("goldberg", options);
@@ -71,7 +71,7 @@ const nbFaces = goldbergPoly.goldbergData.nbFaces;
 const centerOfFace32 = goldbergPoly.goldbergData.faceCenters[32];
 ```
 
-The following are all the properties of `goldbergData`
+The following are the properties of `goldbergData`:
 
 | Property        | Value                                                                |
 | --------------- | -------------------------------------------------------------------- |
@@ -85,7 +85,7 @@ The following are all the properties of `goldbergData`
 | faceXaxis       | _(Vector3[])_ Array of vectors perpendicular to normal for each face |
 | faceZaxis       | _(Vector3[])_ Array of vectors perpendicular to normal for each face |
 
-The vector properties faceCenters[face], and faceXaxis[face], faceYaxis[face] and faceZaxis[face] can be used as a frame of reference to place meshes on the given face.
+The vector properties faceCenters[face], faceXaxis[face], faceYaxis[face], and faceZaxis[face] can be used as a frame of reference to place meshes on the given face.
 
 ### Methods
 
@@ -130,7 +130,7 @@ goldbergPoly.updateGoldbergFaceUVs(uvArray); //resets face UVs only when the mes
 
 where `uvArray` is an array of elements of the form [start face, end face, center, radius, angle]
 
-center is a Vector2 with 0 &le; x, &le; 1 and 0 &le; y &le; 1 giving the relative center of a pentagon/hexagon, within an image, of given radius and set at the given angle. The image used should be square to prevent distortion of the texture.
+center is a Vector2 with 0 &le; x &le; 1 and 0 &le; y &le; 1, giving the relative center of a pentagon/hexagon within an image, of a given radius and set at the given angle. The image used should be square to prevent distortion of the texture.
 
 For example
 
@@ -141,7 +141,7 @@ const uvArray = [
 ];
 ```
 
-For the poles pentagons are used to match the uvs.
+For the poles, pentagons are used to match the UVs.
 
 ![Face Texture](/img/snippets/geo33.webp)  
 Fig 3 - Areas of Image to Use as Face Textures
@@ -149,7 +149,7 @@ Fig 3 - Areas of Image to Use as Face Textures
 ![Texture map](https://assets.babylonjs.com/environments/hexworld.jpg)  
 Fig 4 - Texture Map to Apply to Different Faces
 
-In the following playground different areas of the texture map from Fig 4 are applied to the 12 polar regions and to the shared faces
+In the following playground, different areas of the texture map from Fig 4 are applied to the 12 polar regions and to the shared faces.
 
 PG: <Playground id="#A8VZGP#38" title="Different Textures" description="The poles and their close neighbours share textures"/>
 
@@ -167,10 +167,10 @@ A mesh can be placed on a face using
 goldbergPoly.placeOnGoldbergFaceAt(mesh, face, position); //position is a Vector3
 ```
 
-The position is relative to the center of the face and the axes, faceXaxis, faceYaxis and faceZaxis
+The position is relative to the center of the face and the axes faceXaxis, faceYaxis, and faceZaxis.
 
 For example
-placing a box mesh on face 32
+Placing a box mesh on face 32:
 
 ```javascript
 const height = 2;
@@ -181,15 +181,15 @@ const position = new BABYLON.Vector3(0.53, height / 2, 0.34);
 goldbergPoly.placeOnGoldbergFaceAt(box, 32, position);
 ```
 
-Meshes should be sized according to the size of the face. To keep a mesh within a face values for position.x and position.z should be between around &PlusMinus;radius of face \* &radic;3
+Meshes should be sized according to the size of the face. To keep a mesh within a face, the values for position.x and position.z should be approximately between &PlusMinus;radius of face \* &radic;3.
 
 PG: <Playground id="#A8VZGP#40" title="Placing Meshes" description="Land masses with buildings"/>
 
 ### Faces Related to a Pole
 
-Since the faces are stored in the following order, the poles 0 to 11, the unshared faces closest to pole 0, then to pole 1, pole 2 etc and finally the shared faces, those equidistant from two or more poles, this can be used to find face numbers related to a particular pole.
+Since the faces are stored in the following order—the poles 0 to 11, the unshared faces closest to pole 0, then to pole 1, pole 2, and so on, and finally the shared faces, those equidistant from two or more poles—this ordering can be used to find face numbers related to a particular pole.
 
-For pole 0 &le; k &lt 12 you can determine the face number for the unshared faces closest to pole k using
+For pole 0 &le; k &lt; 12, you can determine the face number for the unshared faces closest to pole k using
 
 ```javascript
 const faceNumb = goldbergPoly.relatedGoldBergFace(k, s); // 0 <= s < nbFacesAtPole
@@ -203,11 +203,11 @@ For the shared faces you use
 const faceNumb = goldbergPoly.relatedGoldBergFace(n); //0 <= n < nbSharedFaces
 ```
 
-missing out the second parameter. For n = 0 the face number returned is that of the first shared face, n = 1 that of the second shared face and so on.
+by omitting the second parameter. For n = 0, the face number returned is that of the first shared face; for n = 1, it is that of the second shared face, and so on.
 
 ## Importing An Exported Goldberg Mesh
 
-Although a Goldberg mesh is a very specialized mesh Babylon.js supports the export and import of a Goldberg mesh using standard export and import methods.
+Although a Goldberg mesh is a very specialized mesh, Babylon.js supports exporting and importing a Goldberg mesh using standard export and import methods.
 
 ## Example
 

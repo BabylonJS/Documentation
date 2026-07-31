@@ -2,7 +2,7 @@
 title: Physics
 image:
 description: Learn all about the powerful physics capabilities of Babylon.js.
-keywords: diving deeper, phyiscs
+keywords: diving deeper, physics
 further-reading:
 video-overview:
 video-content:
@@ -10,9 +10,9 @@ video-content:
 
 # Support for Physics Engines
 
-Physics engines are third party external programs that can be plugged into Babylon.js. They, depending on their features, emulate "real-life" interactions between objects, which can be meshes, solid particles from the solid particle system or some cameras. One feature of a Physics Engine is the addition of gravity to a scene.
+Physics engines are third-party external programs that can be plugged into Babylon.js. Depending on their features, they emulate "real-life" interactions between objects, which can be meshes, solid particles from the solid particle system, or some cameras. One feature of a physics engine is the addition of gravity to a scene.
 
-There are 2 physics architecture in Babylon.js.
+There are 2 physics architectures in Babylon.js.
 
 - a Version 2 (V2 for short) with support for modern Physics Engines.
 
@@ -30,10 +30,10 @@ There are plugins for 1 physics engine:
 
 1. Havok - a powerful engine used in AAA games.
 
-All need to be enabled before use.
+It needs to be enabled before use.
 
-This architecture allows finer grain control on your physics scene by making the difference between collision shapes and physical body.
-A typical use case is to have only one collision shape used by numerous bodies.
+This architecture allows finer-grained control over your physics scene by distinguishing between collision shapes and physical bodies.
+A typical use case is to have one collision shape used by numerous bodies.
 This allows a lower memory footprint and more efficient memory addressing.
 A special effort has been put into better performance for a huge number of bodies. This is also the case for the collision callback mechanism.
 
@@ -49,7 +49,7 @@ There are plugins for 3 physics engines:
 
 All need to be enabled before use.
 
-Interactions between objects are achieved by imposters, simple objects that are attached to any complex objects with a scene. The imposter can be assigned physical attributes such as mass, friction, a coefficient of restitution, impulse, and linear and angular.
+Interactions between objects are achieved by impostors, simple objects that are attached to complex objects in a scene. The impostor can be assigned physical attributes such as mass, friction, a coefficient of restitution, impulse, and linear and angular velocity.
 
 Two imposters can be connected using joints such as a hinge or ball and socket.
 

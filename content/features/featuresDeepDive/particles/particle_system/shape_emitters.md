@@ -10,7 +10,7 @@ video-content:
 
 # Shape Emitters
 
-Starting from Babylon.js 3.2, you can shape the region particles are emitted from using a specific emitter type:
+Starting from Babylon.js 3.2, you can shape the region particles are emitted from by using a specific emitter type:
 
 * Point
 * Box
@@ -77,7 +77,7 @@ You can create a sphere emitter with a given radius (e.g. 1.2):
 var sphereEmitter = particleSystem.createSphereEmitter(1.2);
 ```
 
-The returned `sphereEmitter` object can be used to change the value of the radius.
+The returned `sphereEmitter` object can be used to change the radius.
 
 The particles are emitted in the direction of the surface normals, i.e. the lines from the center of the sphere through a surface point.
 
@@ -117,7 +117,7 @@ You can create a hemispheric emitter with a given radius (e.g. 1.2):
 var hemisphericEmitter = particleSystem.createHemisphericEmitter(1.2);
 ```
 
-The returned `hemisphericEmitter` object can be used to change the value of the radius.
+The returned `hemisphericEmitter` object can be used to change the radius.
 
 The particles are emitted in the direction of the surface normals, i.e. the lines from the center of the hemisphere through a surface point.
 

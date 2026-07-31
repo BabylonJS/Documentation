@@ -23,7 +23,7 @@ The editor is built for quick test cycles. Once a graph is connected, you can co
 
 The toolbar also shows the current graph state, making it easy to distinguish between stopped, running, paused, and breakpoint-driven execution.
 
-The toolbar can also select which execution context is active. When a graph uses multiple execution contexts, the active selection determines which runtime instance the editor is inspecting.
+The toolbar can also be used to select which execution context is active. When a graph uses multiple execution contexts, the active selection determines which runtime instance the editor is inspecting.
 
 ## Time Scale And Replay
 

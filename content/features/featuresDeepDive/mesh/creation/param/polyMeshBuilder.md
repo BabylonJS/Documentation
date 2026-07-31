@@ -9,15 +9,15 @@ video-content:
 ---
 
 ## Polygon Mesh Builder
-*CreatePolygon* and *ExtrudePolygon* which follow the same form as other mesh creations call *PolygonMeshBuilder* which can be used directly. It has some advantages but cannot be used with *faceUVs*. The data used in describing the polygon is given in 2D vectors, (x, y) rather than (x 0, z). Additionally, an array of vector2s as well as the polygon data can be passed as Path2 object. The advantage of using Path2 is that curves can be described using simple methods rather than your own functions. The data used to describe the polygon shape must be in counter clockwise order.
+*CreatePolygon* and *ExtrudePolygon*, which follow the same form as other mesh creation methods, call *PolygonMeshBuilder*, which can also be used directly. It has some advantages but cannot be used with *faceUVs*. The data used to describe the polygon is given as 2D vectors, (x, y), rather than (x 0, z). In addition to polygon data as an array of vector2s, you can pass a Path2 object. The advantage of using Path2 is that curves can be described using simple methods rather than your own functions. The data used to describe the polygon shape must be in counterclockwise order.
 
-The way *PolygonMeshBuilder* works is to construct and return the triangulation of the polygon and then create the mesh from this triangulation using its *build* method. The triangulation requires an Earcut script. Whilst an Earcut script is pre-loaded in the Playground you will have to add a reference to such a script in your own projects. One is available at [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or via a [npm package](https://github.com/mapbox/earcut#install).
+*PolygonMeshBuilder* works by constructing and returning the triangulation of the polygon, then creating the mesh from this triangulation using its *build* method. The triangulation requires an Earcut script. While an Earcut script is pre-loaded in the Playground, you will have to add a reference to such a script in your own projects. One is available at [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or via a [npm package](https://github.com/mapbox/earcut#install).
 
-The build function takes two optional parameters: the first is a Boolean and is true if the mesh is to be updatable and the seconds is the depth of the extrusion when required.
+The build function takes two optional parameters: the first is a Boolean and is true if the mesh is to be updatable, and the second is the depth of the extrusion when required.
 
 
 ## Constraints
-The polygon and any holes inside it must be [simple](https://en.wikipedia.org/wiki/Simple_polygon), that is no overlapping sides. Holes should be wholly inside the polygon and should not be too close to the sides of the polygon or to each other otherwise the mesh will be malformed. This [algorithm](http://geomalgorithms.com/a09-_intersect-3.html#Simple-Polygons) is one you can use to check if a polygon is simple.
+The polygon and any holes inside it must be [simple](https://en.wikipedia.org/wiki/Simple_polygon), that is, they must have no overlapping sides. Holes should be wholly inside the polygon and should not be too close to the sides of the polygon or to each other, otherwise the mesh will be malformed. This [algorithm](http://geomalgorithms.com/a09-_intersect-3.html#Simple-Polygons) is one you can use to check whether a polygon is simple.
 
 ![Safe Construction](/img/how_to/PolyMeshBuild/pmberr1.webp)
 
@@ -38,7 +38,7 @@ var polygon = polygon_triangulation.build(false, 3);
 ```
 
 ### Holes
-A hole can only be given as an array of vector2, representing the corners of the hole in consecutive counter clockwise order around the hole.
+A hole can only be given as an array of vector2s, representing the corners of the hole in consecutive counterclockwise order around the hole.
 
 Holes are added to the polygon triangulation using the addHole function.
 
@@ -49,7 +49,7 @@ polygon_triangulation.addHole(hole3);
 var polygon = polygon_triangulation.build(true, 1.4);
 ```
 ## Examples
-Each example contains polygons described with vector2s and with Path2
+Each example contains polygons described with vector2s and with Path2.
 Simple Polygons: <Playground id="#2NJYI5" title="Simple Polygons" description="Example of creating simple polygons with Mesh Builder."/> 
 Simple Extruded Polygons: <Playground id="#2NJYI5#1" title="Simple Extruded Polygons" description="Example of simple extruded polygons with Mesh Builder."/>
 Polygons with holes: <Playground id="#2NJYI5#2" title="Polygons With Holes" description="Example of creating polygons with holes."/>

@@ -38,7 +38,7 @@ export class Environment {
 
 This is a stripped down version of the Environment class. Right now we're just focusing on creating a simple ground mesh. This starting structure is important as it makes importing our final assets much easier.
 
-We'll want to create our environment in [\_setUpGame](/guidedLearning/createAGame/stateMachine#setupgame), so now it should look something like:
+We'll want to create our environment in [\_setUpGame](/guidedLearning/createAGame/stateMachine#setupgame), so now it should look something like this:
 
 ```javascript
 //--CREATE SCENE--
@@ -53,7 +53,7 @@ await this._environment.load(); //environment
 
 Before we go to the game state, we're creating our environment and loading the assets needed.
 
-\*\*Remember to include import statement for our Environment class. Imports from our files will look like this:
+\*\*Remember to include the import statement for our Environment class. Imports from our files will look like this:
 
 ```javascript
 import { Environment } from "./environment";
@@ -158,7 +158,7 @@ return {
 
 Then at the end, we return our character mesh.
 
-At the end of \_loadCharacterAssets,
+At the end of \_loadCharacterAssets:
 
 ```javascript
 return loadCharacter().then((assets) => {
@@ -168,11 +168,11 @@ return loadCharacter().then((assets) => {
 
 We can now pass these assets to the Player constructor.
 
-You'll want this kind of structuring if you plan on importing a character mesh later on because it will ensure that all of the assets are loaded before moving on.
+You'll want this kind of structure if you plan on importing a character mesh later on because it will ensure that all of the assets are loaded before moving on.
 
 ## Initialize Game Async
 
-The final steps of our player set up is to actually call the constructor in app.ts. **\_initializeGameAsync** will do all of the finishing touches to prepare the game scene once everything is imported & meshes are created. At this point this function should only need to look like this:
+The final step in setting up our player is to actually call the constructor in app.ts. **\_initializeGameAsync** will do all of the finishing touches to prepare the game scene once everything is imported and the meshes are created. At this point, this function should only need to look like this:
 
 ```javascript
 private async _initializeGameAsync(scene): Promise<void> {
@@ -196,7 +196,7 @@ We'll need at least one light to see our meshes, and that light for my game was 
 
 You'll notice that I've also created a temporary Hemispheric light. This is just so that we can see everything in the scene while we set things up (this isn't in the actual game).
 
-We want to call this in **goToGame** where we were previously setting up our light and sphere. Then, we want to set the position of the character.
+We want to call this in **goToGame**, where we were previously setting up our light and sphere. Then we want to set the position of the character.
 
 ```javascript
 //primitive character and setting
@@ -207,7 +207,7 @@ await scene.whenReadyAsync();
 scene.getMeshByName("outer").position = new Vector3(0, 3, 0);
 ```
 
-Now when you go to the game state, you'll have a player mesh and a ground!
+Now when you go to the game state, you'll have a player mesh and a ground mesh!
 ![player mesh and ground](/img/how_to/create-a-game/simplegamestate.webp)
 
 ## Resources

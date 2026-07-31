@@ -16,11 +16,11 @@ These principles have to be clear for you: [Passing of variables by Value and by
 
 Basic knowledge about Vue, Vue Components and about data passing between components is crucial for this tutorial. If you are not familiar with these topics, you will not be able to follow the tutorial. You can find the required information for data passing on [The official Vue 2 Components Basic page](https://v2.vuejs.org/v2/guide/components) and on [The official Vue 3 Components Basic page](https://vuejs.org/guide/essentials/component-basics.html).
 
-You need a clone of the repository from https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup. This is where we left off in part 1, so you can edit along reading the tutorial, or you can clone a repo with all the changes already made from here: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/all.
+You need a clone of the repository from https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup. This is where we left off in part 1, so you can edit along while reading the tutorial, or you can clone a repo with all the changes already made from here: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/all.
 
-The goal of this tutorial is to show how to connect the two frameworks together and not how to use these frameworks alone. You need to be familiar with both frameworks at basic level to get started.
+The goal of this tutorial is to show how to connect the two frameworks together, not how to use these frameworks on their own. You need to be familiar with both frameworks at a basic level to get started.
 
-This example uses Vue 2. All the techniques are the same for Vue 3, you just have to modify the Vue part of the code to make it working in Vue 3. Basically instead of `data()` you have to declare your variables in the `setup` method and the `mounted` hook is replaced by `onMounted`.
+This example uses Vue 2. All the techniques are the same for Vue 3; you just have to modify the Vue part of the code to make it work in Vue 3. Basically, instead of `data()` you have to declare your variables in the `setup` method, and the `mounted` hook is replaced by `onMounted`.
 
 ## The Example
 
@@ -39,9 +39,9 @@ After finishing this part we will learn how to pass data from the Vue component 
 
 GitHub: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/fps-by-callback
 
-This is the most verbose but safest, most extendable and reusable approach. Basically you will create methods in the BabylonJS scene code and `export` them accordingly, so they can be `imported` into the Vue component and respectively called.
+This is the most verbose approach, but also the safest, most extendable, and most reusable. Basically, you will create methods in the BabylonJS scene code and `export` them so they can be `imported` into the Vue component and called there.
 
-Modify `src/scenes/MyFirstScene.js` and copy paste this code or just follow along if you have cloned the repository for this part. This a simple scene with three cubes, red, yellow and green. The green one is rotating. It is achieved by incrementing the `rotation.y` value on the cube in each frame.
+Modify `src/scenes/MyFirstScene.js` and copy-paste this code, or just follow along if you have cloned the repository for this part. This is a simple scene with three cubes: red, yellow, and green. The green one rotates by incrementing the cube's `rotation.y` value on each frame.
 
 The main change is the addition of the second parameter `fpsCallback` in the `createScene` method. This must be a function with one parameter (the current FPS rate as a number) and will be called each frame.
 
@@ -88,7 +88,7 @@ const createScene = (canvas, fpsCallback) => {
 export { createScene };
 ```
 
-Now open `src/components/BabylonScene.vue` and use this code. The change here is that we've added a callback to our `createScene` method. Our `fpsCallback` method will be called by the BabylonJS scene in each frame as described above. The callback method then `emmits` that FPS value to the parent component, in our example to `App.vue`.
+Now open `src/components/BabylonScene.vue` and use this code. The change here is that we've added a callback to our `createScene` method. Our `fpsCallback` method will be called by the BabylonJS scene on each frame, as described above. The callback method then `emits` that FPS value to the parent component, in our example `App.vue`.
 
 ```jsx
 <template>
@@ -116,7 +116,7 @@ export default {
 </script>
 ```
 
-Now open `src/App.vue` and use this code. Please note that we have added a custom event listener to our `BabylonScene.vue` component and a method called `fpsReceived` which just sets `fps`. The `<label>` in the template gets automatically updated. Some styling has been added as well.
+Now open `src/App.vue` and use this code. Please note that we have added a custom event listener to our `BabylonScene.vue` component and a method called `fpsReceived` that just sets `fps`. The `<label>` in the template gets updated automatically. Some styling has been added as well.
 
 ```jsx
 <template>
@@ -231,9 +231,9 @@ Now it's time to run our app as usual and the result must be the same as with th
 
 GitHub: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/vue-to-bjs-no-expose
 
-As already written, we simply create a method for everything we need to access or manipulate. Modify the `src/scenes/MyFirstScene.js` BabylonJS scene file and `export` these methods so they can be imported in the Vue component.
+As already described, we simply create a method for everything we need to access or manipulate. Modify the BabylonJS scene file `src/scenes/MyFirstScene.js` and `export` these methods so they can be imported into the Vue component.
 
-We need to wrap our methods and properties into an object, in our case called `myScene` and `export` this object, so we can store the `Engine` and the `Scene` objects into this object:
+We need to wrap our methods and properties into an object, in our case called `myScene`, and `export` this object so we can store the `Engine` and the `Scene` objects on it:
 
 ```jsx
 const myScene = {
@@ -303,7 +303,7 @@ export default {
 
 When changing the `cubePosition` object in the code above, the `BabylonScene` Vue component will automatically retrieve this object in its property. So open `src/components/BabylonScene.vue` and let's look at the changes.
 
-We are exporting our BabylonJS scene from `MyFirstScene.js` as default, so we don't use curly braces when importing a default export. We've defined a property called `position` with a default value. This property will receive the `cubePosition` object from `App.vue`. We would like to be notified about the changes, so we setup a Vue `watcher` which will simply call the BabylonJS scene method for positioning the cube.
+We are exporting our BabylonJS scene from `MyFirstScene.js` as default, so we don't use curly braces when importing a default export. We've defined a property called `position` with a default value. This property will receive the `cubePosition` object from `App.vue`. We would like to be notified about changes, so we set up a Vue `watcher` that simply calls the BabylonJS scene method for positioning the cube.
 
 ```jsx
 <script>
@@ -345,7 +345,7 @@ You can now start the app and you should see the following. Click on the button 
 
 GitHub: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/vue-to-bjs-exposed-vector3
 
-In this example we will show the communication using an exposed BabylonJS object. In the last method we will expose the `Engine` and the `Scene` objects. Expose so little, so little you can. Exposing only a `Vector3` is far better, than exposing for example the whole `Scene`.
+In this example, we will show communication using an exposed BabylonJS object. In the last method, we will expose the `Engine` and the `Scene` objects. Expose as little as you can. Exposing only a `Vector3` is far better than exposing, for example, the whole `Scene`.
 
 In this scenario we get the required `Vector3` objects from the BabylonJS scene by invoking methods on it. We use the methods `getPosition` and `getRotation`. We `emit` these `Vector3` objects to the parent component, to `App.vue` afterwards, where the data gets displayed.
 
@@ -367,7 +367,7 @@ So we have added these methods to `src/scenes/MyFirstScene.js`. Pretty simple, i
   },
 ```
 
-Now we can make changes in `src/components/BabylonScene.vue`. We get two objects, the `position` of the yellow cube and the `rotation` of the green cube. We then `emit` these objects to the parent component. We have to call the functions which emits the data in the `mounted` callback after the scene was created.
+Now we can make changes in `src/components/BabylonScene.vue`. We get two objects: the `position` of the yellow cube and the `rotation` of the green cube. We then `emit` these objects to the parent component. We have to call the functions that emit the data in the `mounted` callback after the scene has been created.
 
 ```jsx
  methods: {
@@ -391,11 +391,11 @@ Now we can make changes in `src/components/BabylonScene.vue`. We get two objects
   },
 ```
 
-Finally our parent component `src/components/App.vue`. We've added two labels. The labels get automatically updated, when the `rotation` stored in `bjsRotationVector.y` gets updated and the `position`, it's the same story.
+Finally, our parent component `src/components/App.vue`. We've added two labels. The labels get updated automatically when the `rotation` stored in `bjsRotationVector.y` changes, and the same is true for the `position`.
 
-Next we have a `button`, which calls `moveCube` when clicked. This method calls some other helper methods which alters the values and the important part is in the method `moveCubeSharedVector`, where we set the `y` property directly on the BabylonJS `Vector3` object. Keep in mind, that this will work until the original `Vector3` is still existing and is still the same object. If the `Vector3` is changed in the scene code, the Vue component will not know about it. So you have to be careful, what are you doing.
+Next we have a `button` that calls `moveCube` when clicked. This method calls some other helper methods that alter the values, and the important part is the `moveCubeSharedVector` method, where we set the `y` property directly on the BabylonJS `Vector3` object. Keep in mind that this will work only while the original `Vector3` still exists and is still the same object. If the `Vector3` is changed in the scene code, the Vue component will not know about it. So you have to be careful about what you are doing.
 
-The same goes on with the `bjsRotationVector`. Vue is displaying the `y` property directly from the BabylonJS `Vector3` object. The same applies here, if you loose the object reference, this will stop working.
+The same goes for the `bjsRotationVector`. Vue displays the `y` property directly from the BabylonJS `Vector3` object. The same applies here: if you lose the object reference, this will stop working.
 
 ```jsx
 <template>
@@ -488,7 +488,7 @@ Make sure the scene code in `src/scenes/MyFirstScene.js` returns the `Engine` an
 return { engine, scene };
 ```
 
-Open `src/components/BabylonScene.vue` and make these modifications. We need a `data` section to store the `Engine` and `Scene` for later use. We create the scene and get these objects in the `mounted` callback. We have a Vue property, which receives the position for the red cube. We want to react to changes in this property, so we setup a `watch`er for the property `position`. When changed and here comes the interesting part, we directly access the BabylonJS `Scene` object and calling directly it's methods to reposition the red cube.
+Open `src/components/BabylonScene.vue` and make these modifications. We need a `data` section to store the `Engine` and `Scene` for later use. We create the scene and get these objects in the `mounted` callback. We have a Vue property that receives the position for the red cube. We want to react to changes in this property, so we set up a `watch`er for the `position` property. When it changes—and here comes the interesting part—we directly access the BabylonJS `Scene` object and call its methods to reposition the red cube.
 
 ```jsx
 props: {
@@ -528,13 +528,13 @@ mounted() {
 
 ## Other methods of data passing
 
-There are much more methods to pass data between Vue and BabylonJS, generally in Javascript as well. We have demonstrated only a few techniques. If you are interested in `WebWorkers` and want to use the offline canvas rendering capability of BabylonJS, you have to choose data communication using messaging.
+There are many more methods for passing data between Vue and BabylonJS, and in JavaScript in general. We have demonstrated only a few techniques. If you are interested in `WebWorkers` and want to use the offline canvas rendering capability of BabylonJS, you have to choose data communication using messaging.
 
 ## Conclusion
 
-As you can see, it's up to the programmer to choose the right approach. There is a safer, but slower and more verbose way and there are methods less safe, but quicker. Just keep in mind, that exposing objects from BabylonJS to Vue and make them reactive in Vue is quite dangerous. You can end up with multiple canvas redraws in one tick.
+As you can see, it's up to the programmer to choose the right approach. There is a safer but slower and more verbose way, and there are less safe but quicker methods. Just keep in mind that exposing objects from BabylonJS to Vue and making them reactive in Vue is quite dangerous. You can end up with multiple canvas redraws in one tick.
 
-Now that we've learned how to control the scene from Vue, it can be very tempting to overuse this technique. Keep your data flow between Vue and BabylonJS at minimum and for example do not animate an object on the scene by setting its properties from Vue every frame, create a method on the scene instead, let's call it `animateMeshVisibility(name, from, to, duration)` and call this method from Vue once to start the animation.
+Now that we've learned how to control the scene from Vue, it can be very tempting to overuse this technique. Keep your data flow between Vue and BabylonJS to a minimum and, for example, do not animate an object in the scene by setting its properties from Vue every frame. Create a method on the scene instead—let's call it `animateMeshVisibility(name, from, to, duration)`—and call this method from Vue once to start the animation.
 
 ## Where to go next?
 
@@ -572,6 +572,6 @@ A bit different approach with a window resize listener:
 
 https://github.com/RolandCsibrei/babylonjs-vue3-javascript
 
-If you landed on this page, because you are looking for how to use BabylonJS with Quasar on top of Vue, we ha a starter repo for you as well:
+If you landed on this page because you are looking for how to use BabylonJS with Quasar on top of Vue, we have a starter repo for you as well:
 
 https://github.com/RolandCsibrei/babylonjs-quasar-vue2-composition-api-typescript

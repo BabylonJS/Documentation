@@ -11,13 +11,13 @@ video-content:
 ---
 
 
-Hello, my name is Nikos and I run a YouTube channel catering for programmers.
+Hello, my name is Nikos and I run a YouTube channel catering to programmers.
 
 Have you ever wanted to build an awesome Real-Time Strategy (RTS) game using Babylon.js?
 Have you ever wondered how all the units in an RTS game go about their tasks?
 
 I invite you to come and build one and learn together with me as we build a unique RTS game called Density Wars!
-The game will involve you having to strategically position the units to beat your opponents. The units can link up their firepower when closer together, but you will have to balance local fire power against the overall progression of the battle.
+The game will involve you strategically positioning the units to beat your opponents. The units can link up their firepower when closer together, but you will have to balance local firepower against the overall progression of the battle.
 
 The RTS Game Development series consists of these episodes:
 
@@ -25,6 +25,6 @@ The RTS Game Development series consists of these episodes:
 2. [The RTS game project structure](https://www.youtube.com/watch?v=nbmYIcwZEys)
 3. [Rectangular Unit selection](https://www.youtube.com/watch?v=NO820DfNAew)
 
-You will benefit greatly in this series as we learn together how to make a full RTS realtime game, including server side code.
+You will benefit greatly from this series as we learn together how to make a full real-time RTS game, including server-side code.
 
-All code is open source and contained here: https://github.com/QuantumInformation/Density-Wars
+All code is open source and available here: https://github.com/QuantumInformation/Density-Wars

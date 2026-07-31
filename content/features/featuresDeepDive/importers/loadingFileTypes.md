@@ -30,7 +30,7 @@ video-content:
 
 To load a file of a given type, Babylon must first have a reference to the plugin for that file type.
 
-Currently plugins can be found for:
+Plugins are currently available for:
 
 - [.gltf](/features/featuresDeepDive/importers/glTF) (also used for binary version .glb)
 - [.obj](/features/featuresDeepDive/importers/oBJ)
@@ -41,7 +41,7 @@ You can also create your own [custom importer](/features/featuresDeepDive/import
 
 #### CDN
 
-To quickly add support for all loaders the following script can be added to your page:
+To quickly add support for all loaders, the following script can be added to your page:
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
@@ -89,7 +89,7 @@ Importers must be registered with one of these approaches before the scene loade
 
 ## LoadAssetContainerAsync
 
-Loads all babylon assets from the file and does not append them to the scene. Instead, they are returned in an `AssetContainer` object.
+Loads all Babylon assets from the file and does not append them to the scene. Instead, they are returned in an `AssetContainer` object.
 
 ```typescript
 const container = await BABYLON.LoadAssetContainerAsync("path/to/model", scene);
@@ -99,7 +99,7 @@ See an example here: <Playground id="#C3MP99#26" title="Asset Container Load Exa
 
 ## AppendSceneAsync
 
-Loads all babylon assets from the file and appends them to the scene.
+Loads all Babylon assets from the file and appends them to the scene.
 
 ```typescript
 await BABYLON.AppendSceneAsync("path/to/model", scene);
@@ -109,7 +109,7 @@ See an example here: <Playground id="#WGZLGJ#11018" title="Append An Object" des
 
 ## LoadSceneAsync
 
-Loads all babylon assets from the file and creates a new scene.
+Loads all Babylon assets from the file and creates a new scene.
 
 ```typescript
 const scene = await BABYLON.LoadSceneAsync("path/to/model", engine);
@@ -117,7 +117,7 @@ const scene = await BABYLON.LoadSceneAsync("path/to/model", engine);
 
 ## ImportAnimationsAsync
 
-Loads the animations from the file and merges them to the scene.
+Loads the animations from the file and merges them into the scene.
 You can customize the import process using options and callbacks.
 
 ```typescript
@@ -138,7 +138,7 @@ await BABYLON.ImportMeshAsync("path/to/model", scene);
 
 For any of the scene loading functions, you can also pass a string containing the model source data itself.
 
-Loads all babylon assets from a string and appends them to the scene.
+Loads all Babylon assets from a string and appends them to the scene.
 
 ```typescript
 await BABYLON.AppendSceneAsync("data:" + gltfString, scene);
@@ -173,9 +173,9 @@ See example here: <Playground id="#58T0JY#46" title="Load base64 model" descript
 
 ## Advanced usage
 
-For any of the scene loading functions, you can pass in an options object that configures the load function and the loader.
+For any of the scene loading functions, you can pass an options object that configures the load function and the loader.
 
-For example, if you need to explicitly pass in the root url (rather than allowing us to try to infer it from the file path), you can do so like this:
+For example, if you need to explicitly pass the root URL (rather than allowing Babylon to infer it from the file path), you can do so like this:
 
 ```typescript
 await BABYLON.AppendSceneAsync("model_file_name", scene, { rootUrl: "https://example.com/assets/" });
@@ -202,4 +202,4 @@ See an example here: <Playground id="#IAAJMR#4" title="Load With Detailed Option
 
 ## SceneLoader class (legacy)
 
-The [`SceneLoader` class](/features/featuresDeepDive/importers/legacy) can also be used to load model files, but has effectively been replaced by module level scene loader functions as they result in better tree shaking (smaller bundles) and offer a simple solution for passing in loader options.
+The [`SceneLoader` class](/features/featuresDeepDive/importers/legacy) can also be used to load model files, but it has effectively been replaced by module-level scene loader functions, as they result in better tree shaking (smaller bundles) and offer a simple solution for passing in loader options.

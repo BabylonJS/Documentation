@@ -24,12 +24,12 @@ const tree = QuickTreeGenerator(sizeBranch, sizeTrunk, radius, trunkMaterial, le
 
 ## Parameters
 
-sizeBranch - sphere radius used for branches and leaves 15 to 20.
+sizeBranch - Sphere radius used for branches and leaves, 15 to 20.
 
-sizeTrunk - height of trunk 10 to 15.
+sizeTrunk - Height of the trunk, 10 to 15.
 
-radius - radius of trunk 1 to 5.
+radius - Radius of the trunk, 1 to 5.
 
-trunkMaterial - material used for trunk.
+trunkMaterial - Material used for the trunk.
 
-leafMaterial - material for canopies.
+leafMaterial - Material for the canopies.

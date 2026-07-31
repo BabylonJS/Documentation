@@ -43,7 +43,7 @@ You can find a demo here: <Playground id="#MX2Z99#172" title="Particle Helper Ex
 ## ParticleSystemSet
 
 When calling `BABYLON.ParticleHelper.CreateAsync()`, you will get a Promise that resolves with a `ParticleSystemSet`.
-This class can be used with the following properties and functions:
+This class provides the following properties and functions:
 
 - `emitterNode`: Use this property to get the transform node used as the emitter by the particle systems.
 - `start(emitter)`: Call this function to start all particle systems associated with the current set. You can use the optional parameter to overwrite the emitter.
@@ -67,7 +67,7 @@ List of available effects:
 
 ## Custom ParticleSets
 
-It is reasonably simple to create your own custom particleSet. Each of the particleSets listed above is stored in a Babylon.js folder currently located [**in this URL**](https://github.com/BabylonJS/Assets/tree/master/particles/systems). For instance, when you use "sun" as the particleSet _type_, the particleHelper will pick [**this JSON**](https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json) (which defines the "sun" particleSet _type_).
+It is reasonably simple to create your own custom particleSet. Each particleSet listed above is stored in a Babylon.js folder currently located [**at this URL**](https://github.com/BabylonJS/Assets/tree/master/particles/systems). For instance, when you use "sun" as the particleSet _type_, `ParticleHelper` will load [**this JSON**](https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json), which defines the "sun" particleSet _type_.
 
 You may store these custom JSON particleSets anywhere you wish. You can set the base URL for the particleHelper with: `BABYLON.ParticleHelper.BaseAssetsUrl = “https://yourBaseUrl”;`
 
@@ -85,12 +85,12 @@ Let's look at the line of code that loads JSON particleSets into the particleHel
 
 `` Tools.LoadFile(`${ParticleHelper.BaseAssetsUrl}/systems/${type}.json`, (data) => { ``
 
-Notice the _type_ is used as the name of the JSON file. Using the previous example, your complete filename would be `tornado.json`.
+Notice that _type_ is used as the name of the JSON file. Using the previous example, your complete filename would be `tornado.json`.
 
 Also notice the `/systems/` subfolder hierarchy. Your custom particleSet JSON file needs to be located in a subfolder called `/systems/`. So, `yourDomain/systems/tornado.json` is where your file should be located and how it should be named (for our example).
 
 ## Generate Custom ParticleSets
 
-You can automatically generate a new JSON particleSet (into a variable) by creatively configuring your particle systems and then using the [ExportSet option](https://doc.babylonjs.com/api/classes/babylon.particlehelper#exportset).
+You can automatically generate a new JSON particleSet into a variable by configuring your particle systems and then using the [ExportSet option](https://doc.babylonjs.com/api/classes/babylon.particlehelper#exportset).
 
 Usage: `var mySet = BABYLON.ParticleHelper.ExportSet( [includedPS1, includedPS2, includedPS3...] );`

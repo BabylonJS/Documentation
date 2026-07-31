@@ -10,23 +10,23 @@ video-content:
 
 ## Why is it needed
 
-The Features manager, our XR plugin system, was born out of a simple need - stay backwards compatible, but still deliver cutting edge APIs in a production system.
+The Features Manager, our XR plugin system, was born out of a simple need: stay backward compatible while still delivering cutting-edge APIs in a production system.
 
 Since APIs like [Hit Test](https://github.com/immersive-web/hit-test) and [anchors](https://github.com/immersive-web/anchors) are constantly changing, and currently still have different support in different browser versions, there was a need for the “versioning” of the current development to keep up with API modifications over time.
 
-If you are a bit impatient you can check the [selected WebXR features](/features/featuresDeepDive/webXR/WebXRSelectedFeatures) section, but it is recommended to at least read this section quickly.
+If you are a bit impatient, you can check the [selected WebXR features](/features/featuresDeepDive/webXR/WebXRSelectedFeatures) section, but it is recommended that you at least read this section quickly.
 
 ## How to use
 
 ### Construct a new features manager
 
-If you are using the [base WebXR experience helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers) a features manager will be created for you and will be available in `xrBaseHelper.featuresManager`. If not, you only need to provide an XR session manager object to initialize a new one:
+If you are using the [base WebXR experience helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers), a features manager will be created for you and will be available in `xrBaseHelper.featuresManager`. If not, you only need to provide an XR session manager object to initialize a new one:
 
 ``` javascript
 const fm = new FeaturesManager(xrSessionManager);
 ```
 
-Note that even before creating the features manager you could call its static methods (check availability, register a new feature, etc.).
+Note that even before creating the features manager, you can call its static methods (check availability, register a new feature, etc.).
 
 ### What is available
 
@@ -38,7 +38,7 @@ const availableFeatures = WebXRFeaturesManager.GetAvailableFeatures(); // in pla
 // availableFeatures = ["xr-hit-test", "xr-pointer-selection", ...]
 ```
 
-To find if a specific feature is available use this code:
+To find out whether a specific feature is available, use this code:
 
 ``` javascript
 const availableFeatures = WebXRFeaturesManager.GetAvailableFeatures();
@@ -64,9 +64,9 @@ fm.enableFeature(WebXRControllerPhysics.Name, "latest");
 
 ### Versioning
 
-Just like any plugin system, the features are versioned numerically. The version is a number. Higher the number, the newer the version (pretty simple).
+Just like any plugin system, the features are versioned numerically. The version is a number. The higher the number, the newer the version.
 
-Two extra definitions available - `stable` for the latest stable version of this feature, and `latest` which is always updated with the plugin with the highest version number. Keep in mind that the `latest` definition will always be available, but the `stable` might not be — for features that are not yet considered "stable".
+Two extra definitions are available: `stable` for the latest stable version of a feature, and `latest`, which is always updated to the plugin with the highest version number. Keep in mind that `latest` will always be available, but `stable` might not be for features that are not yet considered stable.
 
 To get the available versions use the `GetAvailableVersions` static method. It will return an array of available versions, for example:
 
@@ -76,15 +76,15 @@ const availableVersions = featuresManager.GetAvailableVersions(WebXRFeatureName.
 // availableVersions = ["latest", "stable", "1", "2"];
 ```
 
-This means that you can ask for version 1, but also for the stable version which will be one of the 2 - "1" or "2", depends on our definition. The "latest" version will load "2".
+This means that you can ask for version 1, but also for the stable version, which will be either "1" or "2" depending on our definition. The "latest" version will load "2".
 
 ### Enable and disable a feature
 
-Enabling a feature means that the feature is ready to be used in a working session. When a feature is enabled, it is ready to be attached, which technically means - influence the scene actively.
+Enabling a feature means that the feature is ready to be used in a working session. When a feature is enabled, it is ready to be attached, which technically means it can actively influence the scene.
 
 As an example, **enabling** the teleportation feature will register the `onControllerAdded` and `onControllerRemoved` observers. **Attaching** this feature will register all observers required for each controller to work properly, while **detaching** it will remove such observers. Furthermore, **disabling** the teleportation feature will make sure that the meshes are invisible and the `onControllerAdded` and `onControllerRemoved` observers will be removed. Finally, **disposing** of the feature will release everything, including all associated meshes.
 
-To enable the feature use a constructed features manager's `enableFeature` function with the name and version you wish to load:
+To enable a feature, use a constructed features manager's `enableFeature` function with the name and version you wish to load:
 
 ``` javascript
 // get the features manager
@@ -102,7 +102,7 @@ const xrHitTest1 = fm.enableFeature(WebXRFeatureName.HIT_TES, 1);
 
 ### Configuring the feature
 
-Every feature (as of now) has a different configuration options object that can be provided when enabling the feature. Each feature has an options interface. For example, Version "1" of the "Hit Test" feature has the following options available:
+Every feature currently has a different configuration options object that can be provided when enabling the feature. Each feature has an options interface. For example, version "1" of the "Hit Test" feature has the following options available:
 
 ``` javascript
 interface IWebXRHitTestOptions {
@@ -160,7 +160,7 @@ const xrHitTestLatest = fm.enableFeature(WebXRFeatureName.HIT_TEST, "latest", {
 
 ## ES6 passive loader
 
-When using the ES6 module loader you will notice that no features apart from transportation and pointer selection are available. You'll have to import other features (and their versions) by yourself. This ensures that resulting bundle will include only the code that your experience actually needs to load, when it needs it. Wonderful for the "tree shaking"!
+When using the ES6 module loader, you will notice that no features apart from teleportation and pointer selection are available. You'll have to import other features (and their versions) yourself. This ensures that the resulting bundle includes only the code your experience actually needs to load, when it needs it. Wonderful for tree shaking!
 
 So this won't work in ES6
 
@@ -186,7 +186,7 @@ const xrHitTest1 = featuresManager.enableFeature(WebXRFeatureName.HIT_TEST /* Sa
 
 ## Writing a new feature
 
-If you want to add your own feature here are a few guidelines:
+If you want to add your own feature, here are a few guidelines:
 
 ### IWebXRFeature
 
@@ -220,7 +220,7 @@ interface IWebXRFeature extends IDisposable {
 }
 ```
 
-In order to ease this process you can, instead, extend the `WebXRAbstractFeature`, which has a few extra help-functions and implements most functions needed for a working feature.
+To make this process easier, you can instead extend the `WebXRAbstractFeature`, which has a few extra helper functions and implements most functions needed for a working feature.
 
 After creating the feature, you will need to register it with the features manager, so it can be enabled.
 

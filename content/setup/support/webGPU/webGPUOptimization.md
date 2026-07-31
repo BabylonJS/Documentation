@@ -8,4 +8,4 @@ video-overview:
 video-content:
 ---
 
-This section will show you how you can use some specific features to optimize your scenes when using the WebGPU engine.
+This section shows how to use specific features to optimize your scenes when using the WebGPU engine.

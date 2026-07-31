@@ -38,7 +38,7 @@ lines = BABYLON.MeshBuilder.CreateLines("lines", options); //No scene parameter 
 | colors         | _(Color4[])_ array of Color4, each point color                    | null          |
 | useVertexAlpha | _(boolean)_ false if the alpha blending is not required (faster)  | true          |
 
-Unlike a mesh Lines are colored after creation with a color property rather than a material.
+Unlike a mesh, lines are colored after creation with a color property rather than a material.
 
 ```javascript
 lines.color = new BABYLON.Color3(1, 0, 0);
@@ -51,7 +51,7 @@ non updatable closed lines: <Playground id="#MZ7QRG#8" title="Create Non Updatab
 updatable example: <Playground id="#MZ7QRG#9" title="Create Updatable Closed Lines" description="Simple example of creating updatable closed lines."/>
 updatable spiral: <Playground id="#MZ7QRG#10" title="Create Updatable Spiral Lines" description="Simple example of creating updatable spiral lines."/>
 
-multi colored lines have to be set on creation. <Playground id="#MZ7QRG#11" title="Create Multi Colored Lines" description="Simple example of creating multi colored lines."/>
+Multi-colored lines have to be set at creation. <Playground id="#MZ7QRG#11" title="Create Multi Colored Lines" description="Simple example of creating multi colored lines."/>
 
 ## Mesh
 

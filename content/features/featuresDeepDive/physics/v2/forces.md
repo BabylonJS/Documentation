@@ -2,7 +2,7 @@
 title: Forces
 image: 
 description: Learn all about applying physical forces in Babylon.js.
-keywords: diving deeper, phyiscs, forces
+keywords: diving deeper, physics, forces
 further-reading:
     - title: How To Use The Physics Engines
       url: /features/featuresDeepDive/physics/usingPhysicsEngine
@@ -12,7 +12,7 @@ video-content:
 
 ## How to use it
 
-Both forces and impulses don't have any effect on bodies whose mass is 0.
+Neither forces nor impulses have any effect on bodies whose mass is 0.
 
 ```javascript
 body.applyForce(
@@ -28,14 +28,14 @@ body.applyImpulse(
 );
 ```
 
-A reminder that, if a body's transform node contains Thin Instances, you can choose which instance to apply the force/impulse by passing `instanceIndex` as a parameter:
+As a reminder, if a body's transform node contains Thin Instances, you can choose which instance to apply the force/impulse to by passing `instanceIndex` as a parameter:
 
 ```javascript
 // Apply a force to the first instance ONLY
 body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0); 
 ```
 
-If no index is applied, the force/impulse is applied to all instances.
+If no index is provided, the force/impulse is applied to all instances.
 
 ## Difference between a force and an impulse
 
@@ -43,11 +43,11 @@ A force is a continuous effect that is applied to an object over time, which can
 
 An impulse, on the other hand, is a sudden, instantaneous effect that changes the velocity of an object. It is a specific amount of force applied over a very short duration of time, often modeled as a single frame in a game. For example, a collision between two objects might generate an impulse that changes the direction and speed of both objects.
 
-In summary, a force is a *continuous* effect over time, while an impulse is a sudden, *instantaneous* effect that changes the velocity of an object. Click on the sphere in the following examples to experiment with forces and impulses
+In summary, a force is a *continuous* effect over time, while an impulse is a sudden, *instantaneous* effect that changes the velocity of an object. Click on the sphere in the following examples to experiment with forces and impulses.
 
 <Playground id="#R66K4K#1" title="applyForce" description="An example of using applyForce" category="Physics"/>
 
-<Playground id="#Z8HTUN#677" title="applyImpulse" description="An example of using applyImpule" category="Physics"/>
+<Playground id="#Z8HTUN#677" title="applyImpulse" description="An example of using applyImpulse" category="Physics"/>
 
 
 
@@ -80,7 +80,7 @@ var gravitationalFieldEvent = physicsHelper.gravitationalField(
     falloff
 );
 // the second `radius` argument can also act as options: `.gravitationalField(origin, { radius: radius, strength: strength, falloff: falloff })`
-gravitationalFieldEvent.enable(); // need to call, if you want to activate the gravitational field.
+gravitationalFieldEvent.enable(); // call this if you want to activate the gravitational field
 setTimeout(() => gravitationalFieldEvent.disable(), 3000);
 
 // or

@@ -10,7 +10,7 @@ video-content:
 
 ## Ground
 
-A ground is a flat horizontal plane parallel to the xz plane which can be subdivided into rectangular regions. The origin of the ground is at the center of the plane. The optional properties for determining the size of the ground are width (x) and height (z) (and yes we all agree that depth would be more descriptive than height!)
+A ground is a flat, horizontal plane parallel to the xz plane that can be subdivided into rectangular regions. The origin of the ground is at the center of the plane. The optional properties that determine the size of the ground are width (x) and height (z) (and yes, we all agree that depth would be more descriptive than height!).
 
 ## MeshBuilder
 

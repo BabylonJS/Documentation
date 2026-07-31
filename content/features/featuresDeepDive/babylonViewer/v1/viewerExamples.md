@@ -18,7 +18,7 @@ video-overview:
 video-content:
 ---
 
-This section holds a list of the current demos of the viewer
+This section contains a list of the current viewer demos.
 
 ## Basic usage
 
@@ -32,7 +32,7 @@ A basic example of loading a .babylon model with the default configuration.
 
 [https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/domExample.html](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/domExample.html)
 
-An example on how to use the DOM to configure the viewer
+An example of how to use the DOM to configure the viewer.
 
 [Live demo](https://viewer.babylonjs.com/domExample.html)
 
@@ -40,7 +40,7 @@ An example on how to use the DOM to configure the viewer
 
 [https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/eventsExample.html](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/eventsExample.html)
 
-An example on how to load the viewer and use its observers using promises, observables and callbacks.
+An example of how to load the viewer and use its observers with promises, observables, and callbacks.
 
 [Live demo](https://viewer.babylonjs.com/eventsExample.html)
 
@@ -48,6 +48,6 @@ An example on how to load the viewer and use its observers using promises, obser
 
 [https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/ufoExample.html](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/ufoExample.html)
 
-An example of the animation system of the default viewer
+An example of the animation system of the default viewer.
 
 [Live demo](https://viewer.babylonjs.com/ufoExample.html)

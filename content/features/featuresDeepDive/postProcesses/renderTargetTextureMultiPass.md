@@ -10,7 +10,7 @@ video-content:
 
 ## How to use RenderTargetTexture and run multiple passes
 
-Sometimes it's interesting to render a scene multiple times and compose the generated passes for the final image. There are multiple uses for that: you can generate a texture in real time, to make a car rearview mirror for example, or you can perform complex effects with multiple independent renders that are combined together. 
+Sometimes it is useful to render a scene multiple times and compose the generated passes into the final image. There are multiple uses for this: you can generate a texture in real time to make, for example, a car rearview mirror, or you can perform complex effects with multiple independent renders that are combined together. 
 
 The PostProcess API doesn't let you render a scene twice. That's where RenderTargetTexture (RTT) comes into play. Several [games use multiple passes for their graphics](http://www.adriancourreges.com/blog/2016/09/09/doom-2016-graphics-study/).
 
@@ -43,7 +43,7 @@ var mat = new BABYLON.StandardMaterial("RTT mat", scene);
 mat.diffuseTexture = renderTarget;
 ```
 
-In this example we only add half of the spheres to the RTT, showing how you can selectively pick the objects rendered there.
+In this example, we only add half of the spheres to the RTT, showing how you can selectively choose which objects are rendered there.
 
 Playground example: <Playground id="#69DRZ1" title="Render Target Texture" description="Simple example of using the render target texture."/>
 
@@ -53,7 +53,7 @@ Playground example: <Playground id="#7ILX7T" title="Water Refraction with RTT" d
 
 ## Making multiple passes and composing them
 
-Another possibility, as mentioned, is making multiple render passes of the main camera and compose them. Let's do that, adding a simple effect on all meshes and compose it with the original material. One interesting effect to simulate with this technique is water caustics. We can render the scene applying a material that simulates caustics with a wave generator and mix it with the base texture.
+Another possibility, as mentioned, is to make multiple render passes from the main camera and compose them. Let's do that by adding a simple effect to all meshes and composing it with the original material. One interesting effect to simulate with this technique is water caustics. We can render the scene with a material that simulates caustics using a wave generator and mix it with the base texture.
 
 Since v5.0 it's very easy to use a different material than the regular material (`mesh.material`) when a mesh is rendered into a render target texture: simply use `RenderTargetTexture.setMaterialForRendering(meshOrMeshes, material)`.
 
@@ -75,7 +75,7 @@ scene.customRenderTargets.push(renderTarget);
 renderTarget.setMaterialForRendering(ground, causticMaterial);
 ```
 
-For the final pass we'll create a shader to merge the base render (which will be provided in the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) as `textureSampler`) and the caustic texture, which we declare here as `causticTexture`. 
+For the final pass, we'll create a shader to merge the base render (which will be provided in the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) as `textureSampler`) and the caustic texture, which we declare here as `causticTexture`. 
 
 ```javascript
 // create the final pass composer
@@ -94,7 +94,7 @@ finalPass.onApply = (effect) => {
 };
 ```
 
-Playground example: <Playground id="#TG2B18#60" title="Multiple Passes Example" description="Simple example showing how to run multiple passes with the render target texture." isMain={true} category="Post-processing"/>. On the left you'll see the base render, on the middle the caustic render, and on the right both combined together.
+Playground example: <Playground id="#TG2B18#60" title="Multiple Passes Example" description="Simple example showing how to run multiple passes with the render target texture." isMain={true} category="Post-processing"/>. On the left you'll see the base render, in the middle the caustic render, and on the right both combined together.
 
 ## Performance and tips
 
@@ -106,11 +106,11 @@ Remember that you'll be rendering your scene multiple times, one for each pass. 
 - prefer simpler meshes.
 - use instances. If you have a large amount of copies of the same object, instances are a good optimization. You only change the material of the base mesh.
 
-Replacing materials is an expensive operation on Babylon, as it requires a resync from the CPU. If your meshes use materials, such as `ShaderMaterial` or a `PBRMaterial`, this might impact significantly on the FPS rate. The example above is simple to follow and understand the concept, but there's a way to achieve much better performance, by freezing materials. Here's how to do it.
+Replacing materials is an expensive operation in Babylon, as it requires a resync from the CPU. If your meshes use materials such as `ShaderMaterial` or `PBRMaterial`, this might significantly impact the frame rate. The example above is simple to follow and helps explain the concept, but there is a way to achieve much better performance by freezing materials. Here's how to do it.
 
-Note that since v5.0 you don't need to add some complicated code in the `RTT.onBeforeRender` / `RTT.onAfterRender` observers to save/replace the effects manually, you just have to freeze the materials you know that they won't change and you are good to go!
+Note that since v5.0, you don't need to add complicated code in the `RTT.onBeforeRender` / `RTT.onAfterRender` observers to save or replace the effects manually. You just have to freeze the materials that you know won't change, and you're good to go!
 
-First, create objects that will be in the RTT with a clone of the RTT shader material.
+First, create objects that will be in the RTT with clones of the RTT shader material.
 
 ```javascript
 // helper function to create clones of the caustic material
@@ -152,7 +152,7 @@ Playground example: <Playground id="#S1W87B#42" title="Performance Example" desc
 
 ### Notes about your shader
 
-Note that since you replace the material with a shader from the scratch for mesh instances, you need to handle effects such as animation or the instance transformation,and this will affect your vertex shader (and possibly your fragment shader as well). There are [several includes in Babylon](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude) that help with that. Here's a sample vertex shader with support for bone animations and instances:
+Note that since you replace the material with a shader from scratch for mesh instances, you need to handle effects such as animation or instance transformations, and this will affect your vertex shader (and possibly your fragment shader as well). There are [several includes in Babylon](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude) that help with that. Here's a sample vertex shader with support for bone animations and instances:
 
 ```glsl
 precision highp float;
@@ -198,6 +198,6 @@ void main() {
 }
 ```
 
-Testing passes in separate and then adding them one at a time to the composer will make it easier to debug any issues. You can use the technique from the playgrounds above, splitting the screen on columns, each with a different pass, as well.
+Testing passes separately and then adding them one at a time to the composer will make it easier to debug any issues. You can also use the technique from the playgrounds above, splitting the screen into columns, each with a different pass.
 
 Finally you can also check RT textures with the [Babylon inspector](/toolsAndResources/inspectorv2).

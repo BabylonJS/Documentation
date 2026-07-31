@@ -9,15 +9,15 @@ keywords: diving deeper, frame graph, renderer, history texture
 
 ![History Texture in Frame Graphs](/img/frameGraph/example_historytexture.webp)
 
-Babylon supports a simplified version of history textures: ping-pong textures.
+Babylon.js supports a simplified version of history textures: ping-pong textures.
 
 For more information on this feature, see [History textures](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview#history-textures).
 
-We will use a ping-pong texture to implement onion skin rendering, which leaves a trail for all moving objects. This effect is achieved by accumulating several renderings over time and blending them appropriately.
+We will use a ping-pong texture to implement onion-skin rendering, which leaves a trail for all moving objects. This effect is achieved by accumulating several renderings over time and blending them appropriately.
 
 ## Implementing the FrameGraphOnionSkinObjectRendererTask class
 
-To simplify implementation, we will extend `FrameGraphObjectRendererTask` and implement our own `record()` method with the minimum amount of code necessary to show the use of history textures. Notably, we will not reimplement OIT, camera rigs, or bounding box rendering support: you can refer to the implementation of the `FrameGraphObjectRendererTask.record()` method if you want to add support for these features.
+To simplify the implementation, we will extend `FrameGraphObjectRendererTask` and implement our own `record()` method with the minimum amount of code needed to show the use of history textures. Notably, we will not reimplement OIT, camera rigs, or bounding-box rendering support: you can refer to the implementation of the `FrameGraphObjectRendererTask.record()` method if you want to add support for these features.
 
 ### Initializing the full screen effect
 
@@ -173,7 +173,7 @@ pass.setExecuteFunc((context) => {
 });
 ```
 
-Note that we set the **renderList** and **particleSystemList** properties of the renderer on each frame to ensure that they are always synchronized with the settings defined by the user at the class level (we could use the **objectList** setter to update them, but that would not allow us to handle changes made to the **objectList.meshes** and **objectList.particleSystems** arrays).
+Note that we set the **renderList** and **particleSystemList** properties of the renderer on each frame to ensure that they are always synchronized with the settings defined by the user at the class level (we could use the **objectList** setter to update them, but that would not let us handle changes made to the **objectList.meshes** and **objectList.particleSystems** arrays).
 
 Next, we render the objects to the current render target (by calling `context.render()`), which is **targetTexture**, defined by the call `pass.setRenderTarget(this.targetTexture);`.
 
@@ -200,4 +200,3 @@ passDisabled.setExecuteFunc((context) => {
 This PG uses the class described on this page to create a frame graph that renders objects with onion-skin effect:
 
 <Playground id="#61N9QT#7" image="/img/frameGraph/example_historytexture.webp" title="Onion-skin effect" description="Implementing onion-skin effect with frame graphs" isMain={false}/>
-

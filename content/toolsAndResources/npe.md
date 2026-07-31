@@ -11,7 +11,7 @@ video-content:
 ## What Is Node Particle Editor?
 The Node Particle Editor will be familiar for anyone who has already used the Node Material Editor or Node Geometry Editor. This editor, like its siblings, was created to speed up the process of creating particle systems and reduce the amount and complexity of code that needs to be written to generate particle effects. Additionally, users will not need deep knowledge of the Particle System API as the tool handles all of the necessary syntax and validation for us.
 
-The tool is available as a stand alone experience by visiting [Node Particle Editor](https://npe.babylonjs.com) and can also be opened from the inspector when selecting any Node Particle System in the scene.
+The tool is available as a stand-alone experience at [Node Particle Editor](https://npe.babylonjs.com) and can also be opened from the inspector when selecting any Node Particle System in the scene.
 
 ![Node Particle Editor Edit Button](/img/tools/npe/npeButton1.webp)
 
@@ -21,7 +21,7 @@ Additionally, when you select a regular particle system in the scene, you will h
 
 ## Interface
 
-The interface for the editor is broken into 4 main sections as can be seen below. The node list is the entire list of available blocks that can be dragged onto the graph. At the top of the list is a search box to help narrow the list. The graph is the workspace for arranging the blocks to create the particle system flow. There is a panel for parameters and controls on the right side of the window which displays any parameters available to the currently selected block. If nothing on the graph is selected, this panel shows controls for the tool itself to load, save, or change default settings. In the bottom right is the preview window which displays the current particle system output in real-time. Lastly, at the bottom of the window is the console log panel which gives information about the build status of the current graph.
+The interface for the editor is broken into four main sections, as shown below. The block list is the complete list of available blocks that can be dragged onto the graph. At the top of the list is a search box to help narrow the list. The graph is the workspace for arranging the blocks to create the particle system flow. There is a panel for parameters and controls on the right side of the window that displays any parameters available to the currently selected block. If nothing on the graph is selected, this panel shows controls for the tool itself to load, save, or change default settings. In the bottom right is the preview window, which displays the current particle system output in real time. Lastly, at the bottom of the window is the console log panel, which gives information about the build status of the current graph.
 
 ![Babylon.js Node Particle Editor](/img/tools/npe/npeWindow.webp)
 
@@ -29,7 +29,7 @@ The image above shows several types of blocks available in the graph. At minimum
 
 Shapes are just one type of several block categories such as Updates, Inputs, Logical, Math, Interpolation, Triggers, and more. Connecting these different block types creates an almost limitless variety of particle effects.
 
-## Adding Nodes
+## Adding Blocks
 
 Adding blocks to the graph is one of the most common actions taken while working with the editor. There are two main methods for adding blocks to the graph. The first method is clicking and dragging a block from the node list onto the graph and releasing the mouse button. This will drop the selected block at the mouse position. The node list can be filtered by entering a keyword in the search bar at the top of the list to help find a block faster.
 
@@ -41,7 +41,7 @@ There is one other shortcut to quickly add blocks in a contextual manner. For mo
 
 ![Click and drag from node input to drop an automatically connected node of the appropriate type on release of the mouse button](/img/tools/npe/dragAddNode.webp)
 
-## Connecting Nodes Together
+## Connecting Blocks Together
 
 Blocks usually have one or more inputs and one or more outputs, though there are blocks that have only inputs or only outputs. What is common to all blocks is that each individual block has requirements for the data that passes through it. These requirements typically take the form of data types that the blocks expect for their calculations. To easily tell what type of data a block expects, look at the input and output icons on the block. To help decipher the icons, please refer to the legend below:
 
@@ -55,7 +55,7 @@ Anytime a block requires a specific input to be wired, the console log will disp
 
 ![Required connections are displayed in console log](/img/tools/npe/requiredConnection.webp)
 
-### Shortcuts for Connecting Nodes
+### Shortcuts for Connecting Blocks
 
 There are several shortcuts to help speed up connecting blocks which can save a lot of mouse clicks. The first is dropping a block onto an existing wire to automatically connect compatible inputs and outputs. The block needs to already be in the graph for this to work, so drag it from the block list to the graph first. Then when dragging the block over a wire, the wire will highlight if the dragged block has inputs that are compatible with the data type represented by the wire. When releasing the mouse button, the editor will attempt to connect both inputs and outputs of the new block to maintain the original flow for the graph. There are, however, instances where a new block dropped on a wire in this way will still prevent the graph from being evaluated, mostly due to the new block having requirements that are not met.
 
@@ -85,7 +85,7 @@ To help group blocks together visually, frames can be drawn around them by press
 
 ![Frames can be drawn around nodes to help visually organize the graph and allow multiple nodes to be moved at once.](/img/tools/npe/graphFrames.webp)
 
-Frames can also be customized to help them stand out when looking at a graph. They can be given custom names and colors right in the parameters panel. Importantly, comments can also be added to frames and are displayed at the top of the frame. Comments will text wrap at the width of the frame so this is the best way to leave longer comments in the graph to describe what a section of the graph is doing.
+Frames can also be customized to help them stand out when looking at a graph. They can be given custom names and colors right in the parameters panel. Importantly, comments can also be added to frames and are displayed at the top of the frame. Comments will wrap to the width of the frame, so this is the best way to leave longer comments in the graph to describe what a section of the graph is doing.
 
 ![Frame names and colors can be set in the parameters panel. Long comments can be left on frames which will always display at the top of the frame.](/img/tools/npe/customizeFrame.webp)
 
@@ -177,7 +177,7 @@ Multiple emitters and update chains can feed into a single System block, allowin
 
 ## Iterating and Debugging
 
-When creating a Node Particle System in a scene, it can always be edited simply by launching the Node Particle Editor with the particle system selected in the inspector. The **Edit** button to launch the Node Particle Editor can be found under the particle system properties which appear when the system is selected.
+When creating a Node Particle System in a scene, you can always edit it by launching the Node Particle Editor with the particle system selected in the inspector. The **Edit** button to launch the Node Particle Editor can be found under the particle system properties that appear when the system is selected.
 
 ![Node Particle Editor Edit Button](/img/tools/npe/npeButton1.webp)
 

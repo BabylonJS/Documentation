@@ -21,7 +21,7 @@ particleSystem = new BABYLON.ParticleSystem("particles", capacity);
 particleSystem.isAnimationSheetEnabled = true; // after construction
 ```
 
-As an example, we are using the same spritesheet as for the sprite manager section of the documentation.
+As an example, we use the same spritesheet as in the sprite manager section of the documentation.
 
 ![sheet](/img/how_to/sprites/08-2.webp)
 
@@ -55,7 +55,7 @@ particleSystem.spriteRandomStartCell = true;
 
 to randomly pick the start cell ID of each particle between *startSpriteCellID* and *endSpriteCellID*.
 
-To control the speed of animation, you can experiment with adjusting direction, emitPower, and updateSpeed, though doing this adjusts the whole particle animation and not just the sprite animation frame rate.
+To control the speed of animation, you can experiment with adjusting direction, emitPower, and updateSpeed, though doing so adjusts the whole particle animation and not just the sprite animation frame rate.
 
 To adjust the sprite animation frame rate, you set the property *spriteCellChangeSpeed*. A value of 1 matches the animation rate to the lifetime of a particle. The particle will be emitted with the sprite at *startSpriteCellID* and will die displaying the sprite at *endSpriteCellID*. As values increase above 1, the animation frame rate speeds up. Although the particle will be emitted with the sprite at *startSpriteCellID*, the sprite on display when the particle dies will depend on the value of the speed and the lifetime of the particle.
 

@@ -10,8 +10,8 @@ video-content:
 
 ## Draw a Line of Given Width
 
-Four versions of **Line2D** are given below followed by a suggestion for drawing a line in 3D. All Line2Ds can be textured but in only one (the second version) doe the texture follow the line direction.
-In addition the code is adapted as **parallelLines** to produce lines parallel to a central line 
+Four versions of **Line2D** are given below, followed by a suggestion for drawing a line in 3D. All Line2Ds can be textured, but only one of them (the second version) has the texture follow the line direction.
+In addition, the code is adapted as **parallelLines** to produce lines parallel to a central line.
 
 ## Line in XoY Plane Formed from Central Path
 
@@ -30,7 +30,7 @@ Just copy the code below if you want to use it.
 
 ### Playground Examples
 
-These examples use an orthographic camera giving a 2D view
+These examples use an orthographic camera to give a 2D view.
 
 <Playground id="#FA2H7X#479" title="Open Line" description="Open line example."/>
 <Playground id="#FA2H7X#4" title="Closed Line" description="Closed line example."/>
@@ -243,7 +243,7 @@ Just copy the code below if you want to use it.
 
 ### Playground Examples
 
-These examples use an orthographic camera giving a 2D view
+These examples use an orthographic camera to give a 2D view.
 
 <Playground id="#9MYFC2" title="Open Texture Line" description="Open line example."/>
 <Playground id="#9MYFC2#1" title="Closed Texture Line" description="Closed line example."/>
@@ -594,7 +594,7 @@ var line2D = function(name, options, scene) {
 
 ## Line in XoZ Plane Formed from Inner Path
 
-With this version you can use it as an edge of a given width to a polygon
+With this version, you can use it as an edge of a given width for a polygon.
 
 ```javascript
 var line = line2D("line", options, scene);
@@ -808,13 +808,13 @@ var line2D = function(name, options, scene) {
 
 ## Lines in 3D
 
-The [lines](/features/featuresDeepDive/mesh/creation/param#lines) and [line system](/features/featuresDeepDive/mesh/creation/param#line-system) methods just produce a thin line and you cannot vary the width. The best way to simulate a line with a given width in 3D is to use a [tube](/features/featuresDeepDive/mesh/creation/param#tube).
+The [lines](/features/featuresDeepDive/mesh/creation/param#lines) and [line system](/features/featuresDeepDive/mesh/creation/param#line-system) methods only produce a thin line, and you cannot vary the width. The best way to simulate a line with a given width in 3D is to use a [tube](/features/featuresDeepDive/mesh/creation/param#tube).
 
 <Playground id="#MRE78Z" title="Tube As Line" description="Tube as a line example."/>
 
 ## Parallel Lines in XoY Plane
 
-Given the path of a central line the function **parallelLines** with return the path points of two lines either side of this line.
+Given the path of a central line, the function **parallelLines** will return the path points of two lines on either side of it.
 
 ```javascript
 var line = line2D("line", options, scene);

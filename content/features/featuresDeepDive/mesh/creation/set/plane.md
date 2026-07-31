@@ -34,10 +34,10 @@ Double sided: <Playground id="#Q9VZS9#2" title="Create a Double Sided Plane" des
 
 Using this image  
 ![Two Tile Pattern](/img/how_to/Mesh/tiles2.webp)  
-to texture the front and back  
+to texture the front and back:  
 front and back <Playground id="#Q9VZS9#3" title="Front and Back Texture" description="Simple example of assigning front and back textures to a plane."/>
 
-We can also create a plane from an abstract math plane  
+We can also create a plane from an abstract mathematical plane.  
 <Playground id="#Q9VZS9#1" title="Create a Plane From Math Path" description="Simple example of creating a plane from an abstract math plane."/>
 
 ## Mesh
@@ -47,4 +47,4 @@ const plane = BABYLON.Mesh.CreatePlane("plane", size, scene);
 const plane = BABYLON.Mesh.CreatePlane("plane", size, scene, updatable, sideOrientation); //optional parameters after scene
 ```
 
-It is only possible to create a square with this method, for a rectangle you need to use scaling.
+It is only possible to create a square with this method; for a rectangle, you need to use scaling.

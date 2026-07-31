@@ -16,10 +16,10 @@ The bouncing behavior (`BABYLON.BouncingBehavior`) is designed to produce a smal
 
 This behavior can be configured using the following properties:
 
-- `transitionDuration`: Define the duration of the animation, in milliseconds. The default value is 450ms.
-- `lowerRadiusTransitionRange`: Define the length of the distance animated by the transition when the lower radius is reached. The default value is 2.
-- `upperRadiusTransitionRange`: Define the length of the distance animated by the transition when the upper radius is reached. The default value is -2.
-- `autoTransitionRange`: Define a value indicating if the `lowerRadiusTransitionRange` and `upperRadiusTransitionRange` are defined automatically. Transition ranges will be set to 5% of the bounding box diagonal in world space.
+- `transitionDuration`: Defines the duration of the animation, in milliseconds. The default value is 450ms.
+- `lowerRadiusTransitionRange`: Defines the length of the distance animated by the transition when the lower radius is reached. The default value is 2.
+- `upperRadiusTransitionRange`: Defines the length of the distance animated by the transition when the upper radius is reached. The default value is -2.
+- `autoTransitionRange`: Defines whether `lowerRadiusTransitionRange` and `upperRadiusTransitionRange` are defined automatically. Transition ranges will be set to 5% of the bounding box diagonal in world space.
 
 To enable this behavior on an `ArcRotateCamera`:
 
@@ -31,14 +31,14 @@ You can find a live demo here: <Playground id="#6FBD14" title="Bouncing Behavior
 
 ## AutoRotation Behavior
 
-The autoRotation behavior (`BABYLON.AutoRotationBehavior`) is designed to create a smooth rotation of an `ArcRotateCamera` when there is no user interaction.
+The auto-rotation behavior (`BABYLON.AutoRotationBehavior`) is designed to create a smooth rotation of an `ArcRotateCamera` when there is no user interaction.
 
 This behavior can be configured with the following properties:
 
-- `idleRotationSpeed`: Speed at which the camera rotates around the mesh
-- `idleRotationWaitTime`: Time (in milliseconds) to wait after user interaction before the camera starts rotating
-- `idleRotationSpinupTime`: Time (milliseconds) to take to spin up to the full idle rotation speed
-- `zoomStopsAnimation`: Flag that indicates if user zooming should stop animation
+- `idleRotationSpeed`: Speed at which the camera rotates around the mesh.
+- `idleRotationWaitTime`: Time (in milliseconds) to wait after user interaction before the camera starts rotating.
+- `idleRotationSpinupTime`: Time (in milliseconds) to take to spin up to the full idle rotation speed.
+- `zoomStopsAnimation`: Flag that indicates whether user zooming should stop the animation.
 
 To enable this behavior on an `ArcRotateCamera`:
 
@@ -55,15 +55,15 @@ The framing behavior (`BABYLON.FramingBehavior`) is designed to automatically po
 This behavior can be configured using the following properties:
 
 - `mode`: The behavior can be configured to:
-- `BABYLON.FramingBehavior.IgnoreBoundsSizeMode`: The camera can move all the way towards the mesh
-- `BABYLON.FramingBehavior.FitFrustumSidesMode`: The camera is not allowed to zoom closer to the mesh than the point at which the adjusted bounding sphere touches the frustum sides
-- `radiusScale`: Define the scale applied to the radius (1 by default)
-- `positionScale`: Sets the scale to apply on Y axis to position camera focus. (0.5 by default which means center of bounding box)
-- `defaultElevation`: Define the angle above/below the horizontal plane to return to when the return to default elevation idle behavior is triggered, in radians (0.3 by default)
-- `elevationReturnTime`: Define the time (in milliseconds) taken to return to the default beta position (1500 by default). A negative value indicates the camera should not return to the default.
-- `elevationReturnWaitTime`: Define the delay (in milliseconds) taken before the camera returns to the default beta position (1000 by default)
-- `zoomStopsAnimation`: Define if user zooming should stop animation
-- `framingTime`: Define the transition time when framing the mesh, in milliseconds (1500 by default)
+- `BABYLON.FramingBehavior.IgnoreBoundsSizeMode`: The camera can move all the way toward the mesh.
+- `BABYLON.FramingBehavior.FitFrustumSidesMode`: The camera is not allowed to zoom closer to the mesh than the point at which the adjusted bounding sphere touches the frustum sides.
+- `radiusScale`: Defines the scale applied to the radius (1 by default).
+- `positionScale`: Sets the scale to apply on the Y axis to position the camera focus (0.5 by default, which means the center of the bounding box).
+- `defaultElevation`: Defines the angle above or below the horizontal plane to return to when the return-to-default-elevation idle behavior is triggered, in radians (0.3 by default).
+- `elevationReturnTime`: Defines the time (in milliseconds) taken to return to the default beta position (1500 by default). A negative value indicates that the camera should not return to the default.
+- `elevationReturnWaitTime`: Defines the delay (in milliseconds) before the camera returns to the default beta position (1000 by default).
+- `zoomStopsAnimation`: Defines whether user zooming should stop the animation.
+- `framingTime`: Defines the transition time when framing the mesh, in milliseconds (1500 by default).
 
 To enable this behavior on an `ArcRotateCamera`:
 

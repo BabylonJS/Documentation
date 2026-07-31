@@ -1,7 +1,7 @@
 ---
 title: 3DS MAX Plugin
 image:
-description: How To install the 3DS MAX plugin .
+description: How to install the 3DS MAX plugin.
 keywords: babylon.js, exporter, export, extension
 further-reading:
 video-overview:
@@ -14,11 +14,11 @@ video-content:
 
 We have recently introduced a new tool to simplify the installation of the plugin for both Max and Maya.
 
-First, you can download the latest version of the installer from our [Github Releases](https://github.com/BabylonJS/Exporters/releases). Once on the releases page, you can find all our packages in the assets section of each release:
+First, you can download the latest version of the installer from our [GitHub Releases](https://github.com/BabylonJS/Exporters/releases). Once on the releases page, you can find all our packages in the assets section of each release:
 
 ![releases](/img/exporters/installer/GithubPreRelease.webp)
 
-From there, you can download the Installer.zip file. Chrome is currently warning of potential threat as the installer.exe has currently not been downloaded enough to pass the Chromium checks. In this case, you might see a message like this:
+From there, you can download the Installer.zip file. Chrome currently warns of a potential threat because installer.exe has not been downloaded enough to pass the Chromium checks. In this case, you might see a message like this:
 
 ![chrome warning](/img/exporters/installer/ChromeDLWarning.webp)
 
@@ -26,47 +26,47 @@ You can nevertheless continue to download by pressing the little arrow and choos
 
 ![chrome warning keep](/img/exporters/installer/ChromeDLWarningKeep.webp)
 
-Once downloaded, you can extract the content of the zip in your favorite location.
+Once downloaded, you can extract the contents of the zip in your preferred location.
 
 ### Using the installer
 
-Launch the executable file contained in the previous zip. On the first launch Windows like Chrome previously will emit a Smart Screen warning as the application has currently not being launched enough to be trusted.
+Launch the executable file contained in the zip. On first launch, Windows, like Chrome previously, will show a SmartScreen warning because the application has not yet been launched enough times to be trusted.
 
 ![smart screen warning](/img/exporters/installer/SmartScreen.webp)
 
-As before, you can choose to continue by pressing more info and then Run anyway:
+As before, you can choose to continue by pressing More info and then Run anyway:
 
 ![smart screen warning keep](/img/exporters/installer/SmartScreenKeep.webp)
 
-No worries, you are almost there. A second warning is raised by Windows as the installer needs to write files in the program files and therefore run in elevated mode. You can access the User Account Control and finally start using the application.
+No worries, you are almost there. A second warning is raised by Windows because the installer needs to write files in Program Files and therefore run in elevated mode. Approve the User Account Control prompt to start using the application.
 
 From this point, it gets simpler:
 
 ![smart screen warning keep](/img/exporters/installer/Installer.webp)
 
-Once launched the application should auto detect all the installation folders from your Autodesk applications. In case it fails to do so, you could still manually location the targeted software.
+Once launched, the application should auto-detect all the installation folders for your Autodesk applications. If it fails to do so, you can still manually locate the target software.
 
-You can now easily install or update any of your 3d authoring tools to the latest prerelease available on Github.
+You can now easily install or update any of your 3D authoring tools to the latest prerelease available on GitHub.
 
-Would you want to upgrade to the latest available pre-release of the exporter plugins, you can easily launch back the installer and follow the same exact procedure to update the installed plugins to their latest versions.
+If you want to upgrade to the latest available pre-release of the exporter plugins, you can simply launch the installer again and follow the same procedure to update the installed plugins to their latest versions.
 
-Please note that both the software you are trying to install the plugin for should be closed during the installation.
+Please note that the software you are installing the plugin for should be closed during the installation.
 
 ## Manual Install
 
-The plugin is designed for 3DS Max 2015 or later. To download it, go to the [Github project Releases](https://github.com/BabylonJS/Exporters/releases).
+The plugin is designed for 3DS Max 2015 or later. To download it, go to the [GitHub project Releases](https://github.com/BabylonJS/Exporters/releases).
 
 ![releases](/img/exporters/installer/GithubPreRelease.webp)
 
 In the assets section of the release you can find one zip file per supported tool (like max_2019.zip) containing the plugin files.
 
-Click on the zip file, to start Downloading.
+Click on the zip file to start downloading.
 
-By default, Windows blocks all .dll files coming from the web, so we have to unblock them first. Select the zip file, and with a right click select _Properties_, select _Unblock_, and then _OK_.
+By default, Windows blocks all .dll files coming from the web, so we have to unblock them first. Select the zip file, right-click it, select _Properties_, select _Unblock_, and then _OK_.
 
 ![dll unblocking](/img/exporters/3DSMax/3_dll_unlocking.webp)
 
-Then, extract the content of the zip file on your computer, and open the directory corresponding to your 3DS Max version. Finally, make sure 3ds Max is not running, and move all .dll files into the installation directory of 3DS Max (in `C:/Programs/Autodesk/3ds Max 2015/bin/assemblies`). The next time you will start 3ds Max, the plugin will be automatically launched, and a new tab should appear:
+Then, extract the contents of the zip file on your computer and open the directory corresponding to your 3DS Max version. Finally, make sure 3ds Max is not running, and move all .dll files into the installation directory of 3DS Max (in `C:/Programs/Autodesk/3ds Max 2015/bin/assemblies`). The next time you start 3ds Max, the plugin will be launched automatically, and a new tab should appear:
 
 ![plugin visible](/img/exporters/3DSMax/4_plugin_visible.webp)
 
@@ -134,7 +134,7 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
 
 - _Lights_
       * Omni / spot / directional / Ambient(Hemispheric)
-      * Shadows maps for directional lights (Variance shadow maps can be activated by checking [Absolute Map Bias] in light properties)
+      * Shadow maps for directional lights (Variance shadow maps can be activated by checking [Absolute Map Bias] in light properties)
       * Inclusion / exclusion lists
       * Position / direction
       * Intensity
@@ -198,8 +198,8 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
 
 ## Scene properties
 
-If you right-click on your scene, you will have a menu _Babylon -> Babylon Properties:_
-All the available blend modes are listed below:
+If you right-click on your scene, you will see the menu _Babylon -> Babylon Properties:_
+All the available properties are listed below:
 
 ![Property button](/img/exporters/3DSMax/5_properties_button.webp)
 
@@ -210,14 +210,14 @@ The scene properties allow you to do these things:
 - Set the scene gravity
 - **Export quaternions for all nodes instead of Euler angles**. If this option is selected, an exported model rotation won’t be updated by setting its `rotation` parameter. Instead, you will have to use the `rotationQuaternion` parameter.
 - **Do not optimize animations**. You should check this option if animations are not exported correctly.
-- Create a default skybox from the environment texture when scene is being loaded. An environment texture must be setup to enable this feature.
+- Create a default skybox from the environment texture when the scene is loaded. An environment texture must be set up to enable this feature.
 - Set the blur effect intensity applied to the skybox texture. By default it is slightly blurred. Setting value to 0 disables the blur effect.
 - **Add a default light, if no light is exported**. If this option is checked and there is no light selected for the export, a hemispheric light is added in the exported scene. By default this option is checked.
 - **Export normals** and **Export tangents** checkboxes allow you to control the morph target export. Note that if you want to export the target morph tangent, you have to check both the **Export tangents** checkbox and the other **Export tangents** checkbox of [the exporter window](#the-exporter-window).
 
 ## Object properties
 
-With a right click on a mesh, select the menu _Babylon -> Babylon Properties_ to open the window Object Properties:
+Right-click a mesh and select the menu _Babylon -> Babylon Properties_ to open the Object Properties window:
 
 ![Object properties](/img/exporters/3DSMax/7_object_properties_window.webp)
 
@@ -229,16 +229,16 @@ With this window, you can set the following properties:
 - **Try to optimize vertices**: The Babylon exporter will try to optimize the number of vertices to export instead of exporting everything naively (if a vertex is part of two faces, this vertex won’t be exported twice with this option checked). False by default.
 - **Show bounding box**: Display the bounding box of this object in the scene. False by default.
 - **Show submeshes bounding boxes**. Same as above. False by default.
-- **Alpha index**: Used to sort transparent meshes. The mesh with the bigger alpha index is rendered first (then the depth is taken into account). Default value is 1000.
+- **Alpha index**: Used to sort transparent meshes. The mesh with the larger alpha index is rendered first (then the depth is taken into account). Default value is 1000.
 - **Tag**: Used to add a custom tag to this object. Empty by default.
-- **Auto animate**: All animations for this object will start when this object is being added to the scene. True by default.
+- **Auto animate**: All animations for this object will start when this object is added to the scene. True by default.
 - **From/To/Loop**: The starting and ending frame for this object, and if the animation loops. Default values are 0, 100 and true.
 - **Impostor**: Add an impostor to this object. Default is none.
-- **Mass/Friction/Restitution**: set the physics value of the impostor. Default values are 0.20, 0.20, and 0.20.
+- **Mass/Friction/Restitution**: Set the physics values of the impostor. Default values are 0.20, 0.20, and 0.20.
 
 ## Light properties
 
-If you create a standard light and right click on it, select the menu Babylon -> Babylon Properties to display this window:
+If you create a standard light and right-click it, select the menu Babylon -> Babylon Properties to display this window:
 
 ![Light properties](/img/exporters/3DSMax/8_light_properties_window.webp)
 
@@ -271,7 +271,7 @@ This window is composed of 3 panels:
 
 The _Scale factor_ can be used to rescale the whole world. If you set a scale factor equal to 100, the resulting scene will be 100 times smaller (1%). By default the scale factor is equal to 1, meaning no rescale.
 
-The _Texture quality_ sets the conversion quality of bitmap to JPEG. At 100 (the maximum value), it gives the highest image quality but no file size reduction. On the contrary at 0 (the minimum value), it gives the lowest image quality but the greatest file size reduction. By default the _Texture quality_ is set to 100.
+The _Texture quality_ sets the conversion quality of bitmaps to JPEG. At 100 (the maximum value), it gives the highest image quality but no file size reduction. Conversely, at 0 (the minimum value), it gives the lowest image quality but the greatest file size reduction. By default, the _Texture quality_ is set to 100.
 
 The _Merge AO map_ option enables the merging of the Ambient Occlusion shadow map (stored on Diffuse Roughness slot) with the Metalness and Roughness map.
 
@@ -279,7 +279,7 @@ The _write textures_ option enables writing the textures to the output directory
 
 The _overwrite textures_ option enables overwriting existing textures in the output directory.
 
-The _Use Draco compression_ option is only available for gltf and glb output format. More detail [here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#draco-compression).
+The _Use Draco compression_ option is only available for gltf and glb output formats. More details [here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#draco-compression).
 
 The _Export Animations_ option enables you to export only the geometry and materials.
 
@@ -287,7 +287,7 @@ The _Export Animations Only_ option enables you to export only animations. The _
 
 The _Export_ button should be used to create the Babylon file representing your scene. The _Export & Run_ button will also create the Babylon file, but will also launch your default browser and run the newly made Babylon file. This button is very useful if you just want to test the render of your scene in Babylon.js.
 
-As babylon.js script is retrieved directly from the official website directly, you should have internet access in order to correctly use Export & Run.
+As the babylon.js script is retrieved directly from the official website, you should have internet access in order to use Export & Run correctly.
 
 The log panel indicates in real time which mesh has been exported, which material, and if there are any problems with these objects.
 
@@ -343,9 +343,9 @@ Animations are exported by sampling keyframes which can generate a lot of data. 
 
 Also, if animations are not exported correctly, you may want to disable animation optimization by using the Babylon properties menu on the scene (Right-click on the scene and select "Babylon properties" menu).
 
-## Consideration about bones
+## Considerations about bones
 
-To ensure that bones are correctly exported, you have to use the Skin modifier. Skin should be positioned at origin. [More info here](/features/featuresDeepDive/Exporters/Bones_influences_per_vertex)
+To ensure that bones are correctly exported, you have to use the Skin modifier. Skin should be positioned at the origin. [More info here](/features/featuresDeepDive/Exporters/Bones_influences_per_vertex)
 
 ## Textures image format
 
@@ -375,17 +375,17 @@ Multi-Materials are supported, but **inputting a Multi-Material into another Mul
 
 ## Physical materials
 
-The handling of physical materials is mimic from glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#pbr-materials)
+The handling of physical materials mimics the glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#pbr-materials)
 
 ## Arnold materials
 
-The handling of arnold materials is mimic from glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#standard-surface-arnold-material)
+The handling of Arnold materials mimics the glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#standard-surface-arnold-material)
 
 As well as the default supported GLTF parameters, in Babylon format, we support the coating parameters of the material. You can see below the supported parameters:
 
 ![texture](/img/exporters/3DSMax/Coating.webp)
 
-Please note that if a map is used for the weight or the roughness parameter, they will be combined in the same way the ORM texture is created in the Detailed explanations. In 3DS MAX, metalness and roughness maps are black and white images (R=G=B). The 2 maps must have same sizes to be merged successfully.
+Please note that if a map is used for the weight or roughness parameter, they will be combined in the same way the ORM texture is created in the detailed explanations. In 3DS MAX, metalness and roughness maps are black and white images (R=G=B). The 2 maps must have the same size to be merged successfully.
 
 In Babylon format, weight is stored in red channel, roughness in green.
 
@@ -406,7 +406,7 @@ When exporting, the geometry of all meshes using a double sided material is dupl
 - the number of vertices and faces is doubled
 - faces, normals and tangents are inverted for the duplicated geometry
 
-This mean that the exporter is automatically creating a back side. If you already have a back side, you should use a Multi-material instead.
+This means that the exporter automatically creates a back side. If you already have a back side, you should use a Multi-material instead.
 
 Moreover, the _Double sided_ material should not be confused with the _2-sided_ property of a _Standard_ material. This last property is used to put the same material to the front and back faces.
 
@@ -425,11 +425,11 @@ Limitations:
 
 ## Shell material
 
-The handling of the shell material is mimic from glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#shell-material)
+The handling of the shell material mimics the glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#shell-material)
 
 ## DirectX Shader
 
-The handling of the directX shader material is mimic from glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#directx-shader-material)
+The handling of the DirectX shader material mimics the glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#directx-shader-material)
 
 ## Texture transparency
 
@@ -448,12 +448,12 @@ Native materials are enhanced to have extra attributes under Babylon attributes 
 Most Babylon attributes are common to all materials:
 
 - **Unlit**: A material can be exported as Unlit, meaning independent of lighting. This implies that light-relative attributes or textures are not exported: ambient, specular, emissive, bump mapping and reflection texture.
-- **Backface Culling**: When true, the back faces are not rendered. When false, back faces are rendered using same material as front faces. **This property is native to Standard material and is called _2-Sided_.**
+- **Backface Culling**: When true, the back faces are not rendered. When false, back faces are rendered using the same material as the front faces. **This property is native to the Standard material and is called _2-Sided_.**
 - **Max Simultaneous Lights**: Number of Simultaneous lights allowed on the material.
 - **Opacity/Transparency Mode**: You can select how transparency is handled for this material among 3 choices:
   - _Opaque_: The alpha color and texture are ignored during export process.
   - _Cutoff_: The alpha cutoff value is 0.5. Alpha values under this threshold are fully transparent. Alpha values above this threshold are fully opaque.
-  - _Blend_: This how 3ds Max handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
+  - _Blend_: This is how 3ds Max handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
 
 ## Custom attributes
 
@@ -470,13 +470,13 @@ Custom attributes are exported under _metadata_:
 
 ![3DS MAX custom attributes babylon](/img/exporters/3DSMax/CustomAttributes_babylon.webp)
 
-Following types have particularities you should know:
+The following types have particularities you should know:
 
 - _Angle_ : Set in degrees (°) in 3ds Max but exported as radians. Ex: 360° => 3.1416 rads
 - _Array_ : An array in 3ds Max is an enumeration of values. Each value has an incremental index, starting from 1. Only one value can be selected. The index of selected item is exported, not the displayed label.
 - _Color_ and _FRGBA_ : Exported in base 1 as all other colors. Ex: Red = (255,0,0) => (1,0,0)
 - _Percent_ : Exported in base 1 as well. Ex: 80% => 0.8
-- _Texture_ : The texture is fully exported, including its bitmap. However, the Babylon loader doesn't interpret the data as a BABYLON.Texture. They are instead row data that can be read or parsed after import.
+- _Texture_ : The texture is fully exported, including its bitmap. However, the Babylon loader doesn't interpret the data as a BABYLON.Texture. It is instead raw data that can be read or parsed after import.
 
 Now that you know all about the exporter features, it’s time to use it!
 

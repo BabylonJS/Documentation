@@ -1,7 +1,7 @@
 ---
 title: How To Use Post Processes
 image:
-description: Learn how to use post process effect in Babylon.js.
+description: Learn how to use post process effects in Babylon.js.
 keywords: diving deeper, post processes, post process
 further-reading:
 video-overview:
@@ -16,7 +16,7 @@ Every postprocess is based upon `BABYLON.PostProcess` which uses this constructo
 BABYLON.PostProcess = function (name, fragmentUrl, parameters, samplers, ratio, camera, samplingMode, engine, reusable)
 ```
 
-We will get back to _fragmentUrl_, _parameters_ and _samplers_ parameters.
+We will get back to the _fragmentUrl_, _parameters_, and _samplers_ parameters.
 
 The _ratio_ is used to define the size of the postprocess (0.5 means that your postprocess will have a width = canvas.width _ 0.5 and a height = canvas.height _ 0.5).
 
@@ -28,15 +28,15 @@ The _samplingMode_ can be one of the following:
 - BABYLON.Texture.BILINEAR_SAMPLINGMODE (**default**)
 - BABYLON.Texture.TRILINEAR_SAMPLINGMODE
 
-Please note that postprocesses with trilinear sampling will be forced to have a power of two size (256, 512, 1024, etc.)
+Please note that postprocesses with trilinear sampling will be forced to have a power-of-two size (256, 512, 1024, etc.)
 
 The _engine_ parameter is the engine where you want to attach your postprocess.
 
-The _reusable_ parameter indicates if your postprocess can be reused multiple times on the same camera (default is false).
+The _reusable_ parameter indicates whether your postprocess can be reused multiple times on the same camera (default is false).
 
 ## Additional parameters
 
-By default (and if you are not using trilinear sampling) postprocesses use the size of the screen scaled by the ratio you provide. But you can decide to force them to be rescaled to a power of two size in order to be more efficient. To enable this, just call `mypostprocess.alwaysForcePOT = true`.
+By default (and if you are not using trilinear sampling), postprocesses use the size of the screen scaled by the ratio you provide. But you can decide to force them to be rescaled to a power-of-two size to make them more efficient. To enable this, just call `mypostprocess.alwaysForcePOT = true`.
 
 You can also control how the size is chosen by setting `mypostprocess.scaleMode` to one of these values:
 
@@ -71,11 +71,11 @@ NUMBER function(PostProcess postProcess [,NUMBER[] atIndices])
 
 ## Builtin postprocesses
 
-Babylon.js comes with a set of ready to use postprocesses.
+Babylon.js comes with a set of ready-to-use postprocesses.
 
 ## Pass
 
-Do nothing. Used to copy the framebuffer into a postprocess for further use
+Does nothing. It is used to copy the framebuffer into a postprocess for further use.
 
 ```javascript
 var postProcess = new BABYLON.PassPostProcess("Scene copy", 1.0, camera);
@@ -97,7 +97,7 @@ Apply a directional blur using a kernel-based blur:
 var postProcess = new BABYLON.BlurPostProcess("Horizontal blur", new BABYLON.Vector2(1.0, 0), kernel, 0.25, camera);
 ```
 
-The kernel value will define the ideal number of taps done by the postprocess. The postprocess will then adapt the kernel-based on screen size and DPI resolution.
+The kernel value defines the ideal number of taps used by the postprocess. The postprocess will then adapt the kernel based on screen size and DPI resolution.
 
 For instance here is an example with a kernel value of 32: <Playground id="#FBH4J7#3" title="Blur Post Process Example" description="Simple example of a blur post process."/>
 Or 256: <Playground id="#FBH4J7#4" title="Blur Post Process With Kernel Value Of 256" description="Simple example of a blur post process with a kernel value of 256."/>
@@ -184,16 +184,16 @@ All features can be turned on and off with the following booleans:
 
 #### Configuration
 
-Image postprocessing can be done with the ImageProcessingPostProcess, but you can also use the built-in image processing features in StandardMaterial and PBRMaterial. To simplify the overall configuration of your image processing setup, you can define the properties you want on `scene.imageProcessingConfiguration`.
+Image post-processing can be done with the ImageProcessingPostProcess, but you can also use the built-in image processing features in StandardMaterial and PBRMaterial. To simplify the overall configuration of your image processing setup, you can define the properties you want on `scene.imageProcessingConfiguration`.
 This object hosts the same properties as the ImageProcessingPostProcess.
 
 By default, ImageProcessingPostProcess, StandardMaterial and PBRMaterial share the same configuration object (The one from the scene). This means that if you change a value on `scene.imageProcessingConfiguration` or directly on ImageProcessingPostProcess, StandardMaterial or PBRMaterial, this will affect all entities sharing the same configuration.
 
 Here is an example of a global configuration: <Playground id="#J9H084#13" title="Post Process Global Configuration" description="Simple example of a post process global configuration."/>
 
-Furthermore, as they share the same configuration, you can just dispose a postprocess you were using and automatically the image processing will be done at materials level. So here is an example of a configuration done at scene level, but with no postprocess to use it: <Playground id="#J9H084#14" title="Configuration At The Scene Level" description="Simple example of a scene level configuration."/> (As you can see the processing is then done by the material itself).
+Furthermore, as they share the same configuration, you can simply dispose of a postprocess you were using, and the image processing will automatically be done at the material level. So here is an example of a configuration done at the scene level, but with no postprocess to use it: <Playground id="#J9H084#14" title="Configuration At The Scene Level" description="Simple example of a scene level configuration."/> (As you can see, the processing is then done by the material itself).
 
-You can also decide to instantiate your own configuration and affect it to your material or to your postprocess with `postProcess.imageProcessingConfiguration = new BABYLON.ImageProcessingConfiguration()`. In this case, you will be able to configure this object independently.
+You can also decide to instantiate your own configuration and assign it to your material or your postprocess with `postProcess.imageProcessingConfiguration = new BABYLON.ImageProcessingConfiguration()`. In this case, you will be able to configure this object independently.
 
 _Troubleshoot_
 If you use post-processes with built-in image processing features, you might run into brighter color issues.  
@@ -224,7 +224,7 @@ BABYLON.RefractionPostProcess = function (name, refractionTextureUrl, color, dep
 ```
 
 _refractionTextureUrl_ is the URL of the refraction map. The luminance of every pixel is used to define the refraction level (white = min, black = max)
-_color_ is the base color of the refraction (used to taint the rendering)
+_color_ is the base color of the refraction (used to tint the rendering)
 _depth_ is the simulated refraction depth
 _colorLevel_ is the coefficient of the base color (0 to remove base color tainting)
 
@@ -253,11 +253,11 @@ Examples of filtered LUT to use for various filters:
 ![LUT](/img/how_to/post-processes/lut-posterized.webp)
  Posterize
 
-You can easily create new filters by using an image editing software to alter the look-up table to fit your needs. Copy/paste the default look-up table on a screenshot or picture before altering it to see in real time what the filtered image will look like.
+You can easily create new filters by using image-editing software to alter the look-up table to fit your needs. Copy and paste the default look-up table onto a screenshot or picture before altering it to see in real time what the filtered image will look like.
 
 ## Custom postprocesses
 
-You can also develop your own postprocess using `BABYLON.PostProcess` object.
+You can also develop your own postprocess using the `BABYLON.PostProcess` object.
 
 To do so, you need to create a .fragment.fx file, a shader-storing DOM node, or a ShaderStore entry where you will store the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) shader code used for every pixel of the screen:
 
@@ -298,7 +298,7 @@ Your shader must define the following values:
 - A varying vUV must be used to read texture coordinates
 - The first sampler must be named textureSampler
 
-Once you created your sampler, you can create a postprocess:
+Once you have created your shader, you can create a postprocess:
 
 ```javascript
 var postProcess = new BABYLON.PostProcess("Down sample", "./Scenes/Customs/postprocesses/downsample", ["screenSize", "highlightThreshold"], null, 0.25, camera);
@@ -307,7 +307,7 @@ var postProcess = new BABYLON.PostProcess("Down sample", "./Scenes/Customs/postp
 You have to specify:
 
 - A name
-- The URL of the shader coder\*
+- The URL of the shader code\*
 - A list of your uniforms parameters
 - A list of additional samplers
 - The ratio
@@ -318,7 +318,7 @@ You have to specify:
 
 (\*Please see the link at the bottom of this document to learn more ways to store shader code.)
 
-You can set up things before the postprocess is applied by specifying a onApply function:
+You can set things up before the postprocess is applied by specifying an `onApply` function:
 
 ```javascript
 postProcess.onApply = function (effect) {
@@ -329,7 +329,7 @@ postProcess.onApply = function (effect) {
 
 You can find another example here: <Playground id="#DAC1WM" title="Custom Post Process Example" description="Simple example of a custom post process." isMain={true} category="Post-processing"/>
 
-To use the output of a previous post process setTextureFromPostProcess can be used.
+To use the output of a previous post process, you can use `setTextureFromPostProcess`.
 Note: This will set sceneSampler to the output of the post process before postProcess0 NOT the output of postProcess0.
 
 ```javascript
@@ -338,7 +338,7 @@ effect.setTextureFromPostProcess("sceneSampler", postProcess0);
 
 ## Chaining postprocesses
 
-You can chain postprocesses on a specific camera. They are processed using the creation order. For instance here is the code used to simulate a bloom effect:
+You can chain postprocesses on a specific camera. They are processed in creation order. For instance, here is the code used to simulate a bloom effect:
 
 ```javascript
 var blurWidth = 1.0;

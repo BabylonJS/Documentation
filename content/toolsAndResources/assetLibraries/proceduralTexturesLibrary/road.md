@@ -23,8 +23,8 @@ Road procedural texture can be found here:
 
 A demo can be found here: <Playground id="#FBW4N#0" title="Road Procedural Texture Demo" description="Road Procedural Texture Demo"/>
 
-This texture has 1 parameter :
-- **roadColor** is the color for the road (BABYLON.Color3/4)
+This texture has 1 parameter:
+- **roadColor** is the road color (BABYLON.Color3/4)
 
 ```javascript
 var roadmaterial = new BABYLON.StandardMaterial("roadMat", scene);

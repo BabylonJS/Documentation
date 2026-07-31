@@ -12,8 +12,8 @@ video-content:
 
 ## Vertex Data
 
-The data contained in each of a mesh's vertices can be obtained from the vertex buffer. This data includes the position of and normal at the vertex 
-as well as color and/or uv values. You can also obtain the indices for each vertex. 
+The data contained in each of a mesh's vertices can be obtained from the vertex buffer. This data includes the position and normal at the vertex,
+as well as color and/or uv values. You can also obtain the indices for each vertex.
 
 ```javascript
 var positions = mesh.getVerticesData(BABYLON.VertexBuffer.PositionKind);
@@ -39,7 +39,7 @@ index|position
 
 ## Updating the Data
 
-Make sure that the mesh has been set as updatable on creation. Then this is just a matter of altering any of the data in the positions, normals, colors and uvs arrays to suit the project followed updating the vertex data 
+Make sure that the mesh has been set as updatable on creation. Then it is simply a matter of altering any of the data in the positions, normals, colors, and uvs arrays to suit the project, followed by updating the vertex data.
 
 ```javascript
 mesh.updateVerticesData(BABYLON.VertexBuffer.PositionKind, positions);
@@ -48,9 +48,9 @@ mesh.updateVerticesData(BABYLON.VertexBuffer.ColorKind, colors);
 mesh.updateVerticesData(BABYLON.VertexBuffer.UVKind, uvs);
 ```
 
-*Note: * When creating your own custom mesh to make it updatable you need to add a second parameter with value true when applying the mesh to  the vertex data.
+*Note:* When creating your own custom mesh, to make it updatable you need to add a second parameter with the value true when applying the mesh to the vertex data.
 
-When a mesh is created, the normal for each face is created smoothly to match the intended shape such as a sphere. To flatten the normals to make the mesh flatly shaded convertToFlatShadedMesh can be used.
+When a mesh is created, the normal for each face is created smoothly to match the intended shape, such as a sphere. To flatten the normals and make the mesh flat-shaded, `convertToFlatShadedMesh` can be used.
 ```javascript
 sphere.convertToFlatShadedMesh()
 ```
@@ -61,7 +61,7 @@ vertexData.applyToMesh(customMesh, true);
 ```
 ## Adding to the Data
 
-What happens if you want to add to vertexData after creating a mesh? For example many of the set and parametric meshes are created without the ColorKind array so it is not possible to use
+What happens if you want to add to vertexData after creating a mesh? For example, many of the set and parametric meshes are created without the ColorKind array, so it is not possible to use
 
 ```javascript
 mesh.updateVerticesData(BABYLON.VertexBuffer.ColorKind, colors);
@@ -69,12 +69,12 @@ mesh.updateVerticesData(BABYLON.VertexBuffer.ColorKind, colors);
 
 since _mesh.getVerticesData(BABYLON.VertexBuffer.ColorKind)_ will return _null_.
 
-In this case after creating a color for each vertex in a color array use
+In this case, after creating a color for each vertex in a color array, use
 
 ```javascript
 mesh.setVerticesData(BABYLON.VertexBuffer.ColorKind, colors);
 ```
- as an example 
+for example:
 
  ```javascript
 var colors = mesh.getVerticesData(BABYLON.VertexBuffer.ColorKind);

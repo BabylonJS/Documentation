@@ -64,11 +64,11 @@ This block provides the current system time in milliseconds. It gives access to 
 
 <H3Image title="Delta" image="/img/tools/npe/deltaNode.webp" alt="Delta node"/>
 
-This block provides the time the frame takes based on FPS and update. This value is a constant and does not measure the time since the last frame. It is essential for frame-rate-independent particle behaviors and should be used to scale velocity, rotation speed, or any time-dependent calculation so that the result is consistent regardless of frame rate.
+This block provides the frame time based on FPS and update speed. This value is a constant and does not measure the time since the last frame. It is essential for frame-rate-independent particle behaviors and should be used to scale velocity, rotation speed, or any time-dependent calculation so that the result is consistent regardless of frame rate.
 
 #### Outputs
 
-- **output** the delta time as a constant value for all frames based on update speed and fps of the renderer as a Float value.
+- **output** is the delta time as a constant value for all frames, based on update speed and renderer FPS, as a Float value.
 
 <H3Image title="Emitter Position" image="/img/tools/npe/emitterPositionNode.webp" alt="Emitter Position node"/>
 This block provides the world-space position of the particle system emitter. It is useful for calculating distances from the emitter, creating effects relative to the emitter origin, or implementing custom attraction or repulsion toward the emitter. The value updates each frame if the emitter is moving.
@@ -277,7 +277,7 @@ This block updates the particle velocity direction during simulation. It only ex
 
 <H3Image title="Update Position" image="/img/tools/npe/updatePositionNode.webp" alt="Update Position node"/>
 
-This block updates particle position during simulation, and will ignore parameters set during particle creation unless contextual inputs like position and scaled direction are a part of the graph connected to this block's input. It only executes if the position input is connected and can be used for completely custom particle paths or to constrain particles to specific surfaces.
+This block updates particle position during simulation and will ignore parameters set during particle creation unless contextual inputs like position and scaled direction are part of the graph connected to this block's input. It only executes if the position input is connected and can be used for completely custom particle paths or to constrain particles to specific surfaces.
 
 #### Inputs
 
@@ -290,7 +290,7 @@ This block updates particle position during simulation, and will ignore paramete
 
 <H3Image title="Update Color" image="/img/tools/npe/updateColorNode.webp" alt="Update Color node"/>
 
-This block updates particle color during simulation, and will ignore parameters set during particle creation unless contextual inputs like current color and color step are a part of the graph connected to this block's input. It only executes if the color input is connected and is useful for creating dynamic color effects based on gradients, noise, or other procedural sources.
+This block updates particle color during simulation and will ignore parameters set during particle creation unless contextual inputs like current color and color step are part of the graph connected to this block's input. It only executes if the color input is connected and is useful for creating dynamic color effects based on gradients, noise, or other procedural sources.
 
 #### Inputs
 
@@ -303,7 +303,7 @@ This block updates particle color during simulation, and will ignore parameters 
 
 <H3Image title="Update Scale" image="/img/tools/npe/updateScaleNode.webp" alt="Update Scale node"/>
 
-This block updates particle scale during simulation, and will ignore parameters set during particle creation unless contextual inputs like current scale are a part of the graph connected to this block's input. It provides separate control over X and Y dimensions, allowing particles to stretch or squash. It is useful for creating motion blur effects or non-uniform particle shapes.
+This block updates particle scale during simulation and will ignore parameters set during particle creation unless contextual inputs like current scale are part of the graph connected to this block's input. It provides separate control over X and Y dimensions, allowing particles to stretch or squash. It is useful for creating motion blur effects or non-uniform particle shapes.
 
 #### Inputs
 
@@ -316,7 +316,7 @@ This block updates particle scale during simulation, and will ignore parameters 
 
 <H3Image title="Update Size" image="/img/tools/npe/updateSizeNode.webp" alt="Update Size node"/>
 
-This block updates particle size during simulation, and will ignore parameters set during particle creation unless contextual inputs like current size are a part of the graph connected to this block's input. It is a scalar size adjustment that affects particle scale uniformly and is commonly used with gradients to fade particles in and out or pulse based on lifetime.
+This block updates particle size during simulation and will ignore parameters set during particle creation unless contextual inputs like current size are part of the graph connected to this block's input. It is a scalar size adjustment that affects particle scale uniformly and is commonly used with gradients to fade particles in and out or pulse based on lifetime.
 
 #### Inputs
 
@@ -342,7 +342,7 @@ This block updates particle rotation angle during simulation. It sets the rotati
 
 <H3Image title="Update Age" image="/img/tools/npe/updateAgeNode.webp" alt="Update Age node"/>
 
-This block updates particle age during simulation, and will ignore parameters set during particle creation unless contextual inputs like current age are a part of the graph connected to this block's input. It only executes if the age input is connected and can be used to create custom lifetime behaviors or synchronize particles with external timers.
+This block updates particle age during simulation and will ignore parameters set during particle creation unless contextual inputs like current age are part of the graph connected to this block's input. It only executes if the age input is connected and can be used to create custom lifetime behaviors or synchronize particles with external timers.
 
 #### Inputs
 
@@ -391,7 +391,7 @@ This block updates the sprite sheet cell index each frame, automatically advanci
 
 <H3Image title="Update Sprite Cell Index" image="/img/tools/npe/updateSpriteCellIndexNode.webp" alt="Update Sprite Cell Index node"/>
 
-This block replaces the Sprite Cell Change Speed value on the Setup Sprite Sheet block to update the sprite sheet cell index in the way calculated by the graph attached to the input of this block. This allows finite control over which sprite frame is displayed at any point in the particle's lifetime. It is useful for creating custom animation patterns or synchronizing sprite animation with other particle properties. Float values connected to the cellIndex input are floored to integer.
+This block replaces the Sprite Cell Change Speed value on the Setup Sprite Sheet block to update the sprite sheet cell index according to the graph attached to this block's input. This allows fine control over which sprite frame is displayed at any point in the particle's lifetime. It is useful for creating custom animation patterns or synchronizing sprite animation with other particle properties. Float values connected to the `cellIndex` input are floored to an integer.
 
 #### Inputs
 
@@ -537,7 +537,7 @@ This block provides a texture that can be used as input to the System block, flo
 #### Properties
 
 - **Load** opens a dialogue window to load a texture from local storage into the texture block.
-- **Serialize cached data** will serialize the texture loaded into memory to be written into the json for this particle node graph when saved. Note that saving to the snippet server ignores this toggle as no serialized data is saved to the snippet server.
+- **Serialize cached data** will serialize the texture loaded into memory so it can be written into the JSON for this particle node graph when saved. Note that saving to the snippet server ignores this toggle, as no serialized data is saved to the snippet server.
 - **Invert Y** enables the texture to be flipped on the Y axis to account for either DirectX or OpenGL standards for which pixel of a texture is read first. 
 
 #### Outputs
@@ -964,7 +964,7 @@ This is a simple function which changes the sign of the input by multiplying it 
 
 #### Outputs
 
-- **output** is the negated value from the input and matches type with the value connected to input.
+- **output** is the negated value from the input and matches the type of the value connected to `input`.
 
 <H3Image title="One Minus" image="/img/tools/npe/oneMinusNode.webp" alt="One Minus node"/>
 
@@ -980,7 +980,7 @@ This is a shortcut function which subtracts the input value from 1. When this fu
 
 #### Outputs
 
-- **output** is the transformed value from the input and matches type with the value connected to input.
+- **output** is the transformed value from the input and matches the type of the value connected to `input`.
 
 <H3Image title="Reciprocal" image="/img/tools/npe/reciprocalNode.webp" alt="Reciprocal node"/>
 
@@ -996,7 +996,7 @@ This is a shortcut function which divides 1 by the input value. This block can s
 
 #### Outputs
 
-- **output** is the transformed value from the input and matches type with the value connected to input.
+- **output** is the transformed value from the input and matches the type of the value connected to `input`.
 
 <H3Image title="Sign" image="/img/tools/npe/signNode.webp" alt="Sign node"/>
 
@@ -1044,7 +1044,7 @@ This is a simple function which transforms the input to the nearest whole number
 
 #### Outputs
 
-- **output** is the rounded value from the input and matches type with the value connected to input.
+- **output** is the rounded value from the input and matches the type of the value connected to `input`.
 
 <H3Image title="Floor" image="/img/tools/npe/floorNode.webp" alt="Floor node"/>
 
@@ -1060,7 +1060,7 @@ This is a simple function which transforms the input to the largest whole number
 
 #### Outputs
 
-- **output** is the transformed value from the input and matches type with the value connected to input.
+- **output** is the transformed value from the input and matches the type of the value connected to `input`.
 
 <H3Image title="Ceiling" image="/img/tools/npe/ceilingNode.webp" alt="Ceiling node"/>
 
@@ -1076,7 +1076,7 @@ This is a simple function which transforms the input to the smallest whole numbe
 
 #### Outputs
 
-- **output** is the transformed value from the input and matches type with the value connected to input.
+- **output** is the transformed value from the input and matches the type of the value connected to `input`.
 
 <H3Image title="Float To Int" image="/img/tools/npe/floatToIntNode.webp" alt="Float To Int node"/>
 
@@ -1140,7 +1140,7 @@ This is a simple function which limits the input value to the range set by the m
 
 #### Outputs
 
-- **output** is the clamped value from the input and matches type with the value connected to the value input.
+- **output** is the clamped value from the input and matches the type of the value connected to the `value` input.
 
 ## Math: Scientific
 
@@ -1513,7 +1513,7 @@ This logical block tests if exactly one of the left port or the right port conta
 
 <H3Image title="Or" image="/img/tools/npe/orNode.webp" alt="Or node"/>
 
-This logical block tests if either the left port or the right port contain a Float value not equal to 0.0. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed.
+This logical block tests whether either the left port or the right port contains a Float value not equal to 0.0. If the test returns true, the value of ifTrue is passed; otherwise, the value of ifFalse is passed.
 
 #### Advanced
 
@@ -1615,7 +1615,7 @@ This block will return a gradient value between 0 and 1 depending on how the inp
 
 #### Inputs
 
-- **value** is a value that can be of any input type which will be evaluated against edge0 and edge1.
+- **value** is a value that can be of any input type and will be evaluated against edge0 and edge1.
 - **edge0** is a value of Float type and sets the threshold for the lower limit of the transition.
 - **edge1** is a value of Float type and sets the threshold for the upper limit of the transition.
 
@@ -1628,7 +1628,7 @@ This block will return a value of 0 or 1 depending on if the input value is less
 
 #### Inputs
 
-- **value** is a value that can be of any input type which will be evaluated with the value connected to edge.
+- **value** is a value that can be of any input type and will be evaluated against the value connected to edge.
 - **edge** is a value of Float type and sets the threshold for the comparison with the input value.
 
 #### Outputs
@@ -1680,7 +1680,7 @@ This block generates random values within a specified range. It supports Float, 
 
 #### Outputs
 
-- **output** is a random value between min and max and matches type with the values connected to min and max.
+- **output** is a random value between `min` and `max` and matches the type of the values connected to `min` and `max`.
 
 <H3Image title="Debug" image="/img/tools/npe/debugNode.webp" alt="Debug node"/>
 
@@ -1712,7 +1712,7 @@ This is a purely organizational block that helps route wires for better graph re
 
 <H3Image title="Teleport In" image="/img/tools/npe/teleportInNode.webp" alt="Teleport In node"/>
 
-This block creates an entry point that sends data to one or more corresponding Teleport Out blocks without a visible wire. It reduces wire clutter by allowing data to jump across the graph without visible connections. A single Teleport In can feed multiple Teleport Out blocks, effectively duplicating the data stream. The data type is preserved through the teleport. To distinguish each Teleport In block, give it a unique name which will be added to a list of possible connections found in a Teleport Out block's properites.
+This block creates an entry point that sends data to one or more corresponding Teleport Out blocks without a visible wire. It reduces wire clutter by allowing data to jump across the graph without visible connections. A single Teleport In can feed multiple Teleport Out blocks, effectively duplicating the data stream. The data type is preserved through the teleport. To distinguish each Teleport In block, give it a unique name, which will be added to a list of possible connections found in a Teleport Out block's properties.
 
 #### Inputs
 
@@ -1772,7 +1772,7 @@ This block triggers a sub-emitter particle system when a condition is met during
 ## Tips for Using Blocks Effectively
 
 1. **Start Simple** — Begin with a Create Particle, Shape, and System flow then add complexity.
-2. **Use Frames** — Group related blocks in frames for organization, especially complex update chains. Collapse frames to save space in the graph and help reduce visual complexity. Hold shift while clicking on the expand frame button to open frame in pop-out mode to isolate the editable graph to just the contents of the frame.
+2. **Use Frames** — Group related blocks in frames for organization, especially complex update chains. Collapse frames to save space in the graph and help reduce visual complexity. Hold Shift while clicking the expand frame button to open the frame in pop-out mode and isolate the editable graph to just the frame's contents.
 3. **Test Incrementally** — Add blocks one at a time and check the preview to understand each effect.
 4. **Leverage Gradients** — Use Gradient and Gradient Value blocks with the Age Gradient contextual block for smooth lifetime transitions.
 5. **Combine Updates** — Chain multiple update blocks for complex behaviors such as Color then Size then Position.

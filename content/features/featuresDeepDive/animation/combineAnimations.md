@@ -12,9 +12,9 @@ video-content:
 
 ### Concurrent
 
-Simply set up more animations and add to theBabylon.js object's animations array.
+Simply set up more animations and add them to the Babylon.js object's animations array.
 
-For example adding a rotation animation to the very simple slide animation to get:
+For example, adding a rotation animation to the very simple slide animation to get:
 
 <Playground id="#9WUJN#11" title="Simple Slide Animation" description="The simple slide animation example." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.webp"/>
 
@@ -47,7 +47,7 @@ yRot.setKeys(keyFramesR);
 
 ### Slide and Faster Rotation Rate
 
-Changing the rotation values to larger numbers increases the rotation rate
+Changing the rotation values to larger numbers increases the rotation rate.
 
 ```javascript
 const yRot = new BABYLON.Animation("yRot", "rotation.y", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
@@ -76,7 +76,7 @@ yRot.setKeys(keyFramesR);
 
 ### Slide and Varying Rotation Rate
 
-Changing the second key frame position to nearer the end of the frames gives a varying rotation rate.
+Changing the second key frame position to closer to the end of the frame range gives a varying rotation rate.
 
 ```javascript
 const yRot = new BABYLON.Animation("yRot", "rotation.y", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
@@ -105,16 +105,15 @@ yRot.setKeys(keyFramesR);
 
 ## Consecutive Animations
 
-In order to have one animation follow another then a further parameter needs to be added to the beginDirectAnimation function. This parameter is
-itself a function to be called when the animation began by beginDirectAnimation is ended.
+In order to have one animation follow another, a further parameter needs to be added to the `beginDirectAnimation` function. This parameter is itself a function to be called when the animation started by `beginDirectAnimation` ends.
 
-In fact two new parameters are needed since the function to be called is the sixth parameter and so the fifth parameter position needs to be filled.
+In fact, two new parameters are needed because the function to be called is the sixth parameter, so the fifth parameter position also needs to be filled.
 
 ### beginDirectAnimation and Parameters
 
 scene.beginDirectAnimation(target, animations, start frame, end frame, loop, speed, on animation end);
 
-- _target_ - _BabylonJS Object_, theBabylon.js object to be animated
+- _target_ - _BabylonJS Object_, the Babylon.js object to be animated
 - _animations_ - _array_, of all the animations to apply to the target
 - _start frame_ - _number_, the frame at which to start the animation
 - _end frame_ - _number_, the frame at which to end the animation
@@ -124,17 +123,17 @@ scene.beginDirectAnimation(target, animations, start frame, end frame, loop, spe
 
 ### Examples
 
-The following are alterations to the slide and rotate example
+The following are changes to the slide and rotate example
 
 In the first example the box rotates for 5 seconds then goes into a looped slide.
 
-Code changes to beginDirectAnimation are looping becomes false, speed maintained as default 1, and the function nextAnimation is called as the first ends.
+The changes to `beginDirectAnimation` are that looping becomes false, the speed remains the default 1, and the `nextAnimation` function is called when the first animation ends.
 
 ```javascript
 scene.beginDirectAnimation(box, [yRot], 0, 2 * frameRate, false, 1, nextAnimation);
 ```
 
-Additional function added before this is
+The additional function added before this is
 
 ```javascript
 const nextAnimation = function () {
@@ -144,7 +143,7 @@ const nextAnimation = function () {
 
 - <Playground id="#9WUJN#15" title="Rotate Then Slide" description="The simple slide animation with rotation happening first, then sliding." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations2.webp"/>
 
-In the second example the rotation is continued as the box goes into a looped slide.
+In the second example, the rotation continues as the box goes into a looped slide.
 
 ```javascript
 const nextAnimation = function () {

@@ -17,17 +17,17 @@ video-content:
 
 ## Available Meshes for Importing into Playground
 
-All the playground examples are loaded using the default environment and default camera methods. All the meshes are different sizes and using the default methods places the camera at a distance where the whole image can be seen clearly. In order to find [values for other cameras](/toolsAndResources/assetLibraries/availableMeshes#finding-camera-values) you can use the playground scene inspector.
+All the Playground examples are loaded using the default environment and default camera methods. The meshes are different sizes, and using the default methods places the camera at a distance where the whole image can be seen clearly. To find [values for other cameras](/toolsAndResources/assetLibraries/availableMeshes#finding-camera-values), you can use the Playground scene inspector.
 
-Meshes with a large file size can take some time to load, please be patient.
+Meshes with a large file size can take some time to load, so please be patient.
 
 Some meshes appear in both file locations.
 
 ## From the Playground Scenes Folder
 
-This list of files is in the Github repo [scenes folder](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/public/scenes) of the Playground and are available for use.
+These files are in the GitHub repo [scenes folder](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/public/scenes) for the Playground and are available for use.
 
-Using a `scene` method to append or import scenes or meshes, the `rootUrl` parameter has the form `scenes/` or `scenes/folder/` and the `filename` parameter is as given below. The playground will show the actual terms required.
+When using a `scene` method to append or import scenes or meshes, the `rootUrl` parameter has the form `scenes/` or `scenes/folder/`, and the `filename` parameter is as given below. The Playground will show the actual terms required.
 
 
 Filename | Size | Image | Playground
@@ -51,7 +51,7 @@ Elf.gltf | 401 KB | ![elf](/img/resources/meshes/elf.webp) | <Playground id="#XY
 
 ## From the Assets Library
 
-This list of files is a small subset of the available models in the asset library [from the github repo](https://github.com/BabylonJS/Assets/blob/master/Assets.md) and using a `scene` method to append or import scenes or meshes, the `rootUrl` parameter uses the Asset Librarian like this:Assets.meshes.meshname.rooturl and the `filename` parameter is similar: Assets.meshes.meshname.filename. See playgrounds below for examples.
+This list of files is a small subset of the available models in the asset library [from the GitHub repo](https://github.com/BabylonJS/Assets/blob/master/Assets.md). When using a `scene` method to append or import scenes or meshes, the `rootUrl` parameter uses the Asset Librarian like this: Assets.meshes.meshname.rooturl, and the `filename` parameter is similar: Assets.meshes.meshname.filename. See the Playgrounds below for examples.
 
 Filename | Size | Image | Playground
 ---|---|---|---
@@ -86,6 +86,6 @@ ufo.glb | 17 MB | ![ufo](/img/resources/meshes/ufo.webp) | <Playground id="#058S
 
 ## Finding Camera Values
 
-To check the distance of the camera from the displayed mesh find the radius value by accessing the camera menu from the [playground scene inspector](/toolsAndResources/inspectorv2) tool bar. Other useful values are angles, position and minZ and maxZ ranges.
+To check the camera's distance from the displayed mesh, find the radius value by accessing the camera menu from the [Playground scene inspector](/toolsAndResources/inspectorv2) toolbar. Other useful values are angles, position, and the minZ and maxZ ranges.
 
 ![values](/img/resources/meshes/values.webp)
