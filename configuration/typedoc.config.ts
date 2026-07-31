@@ -64,7 +64,7 @@ const config: TypeDocConfig = {
         {
             npmPackage: "@babylonjs/viewer",
             repoPath: "packages/tools/viewer",
-            entryPoint: "packages/tools/viewer/src/index.ts",
+            entryPoint: "packages/tools/viewer/src/full/index.ts",
         },
     ],
 };
@@ -77,7 +77,7 @@ export const viewerConfig: TypeDocConfig = {
         {
             npmPackage: "@babylonjs/viewer",
             repoPath: "packages/tools/viewer",
-            entryPoint: "packages/tools/viewer/src/index.ts",
+            entryPoint: "packages/tools/viewer/src/full/index.ts",
         },
     ],
 };
