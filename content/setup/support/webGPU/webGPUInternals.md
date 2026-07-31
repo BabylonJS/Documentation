@@ -8,4 +8,4 @@ video-overview:
 video-content:
 ---
 
-This section will explain how WebGPU has been implemented in Babylon.js. It may be useful for users wanted to contribute to the engine or simply to understand what's going on under the hood.
+This section explains how WebGPU has been implemented in Babylon.js. It may be useful for users who want to contribute to the engine or simply understand what is going on under the hood.

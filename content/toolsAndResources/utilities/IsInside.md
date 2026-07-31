@@ -1,7 +1,7 @@
 ---
 title: Check When a Point is Inside a Mesh
 image: 
-description: Helpful code snippet for checking when a point is inside of a mesh in Babylon.js.
+description: Helpful code snippet for checking when a point is inside a mesh in Babylon.js.
 keywords: babylon.js, tools, resources, utilities, inside
 further-reading:
     - title: How To Create Points on a Mesh Surface
@@ -12,16 +12,16 @@ video-overview:
 video-content:
 ---
 
-## How To Check When Point is Inside a Mesh
+## How To Check When a Point Is Inside a Mesh
 
-This mesh method takes a Vector3 point and checks if it inside the mesh.
+This mesh method takes a Vector3 point and checks whether it is inside the mesh.
 
 ## Design Outline
 
-1. Check if point inside or outside of bounding box, when inside continue with following checks;
+1. Check whether the point is inside or outside the bounding box; if it is inside, continue with the following checks;
 2. Cast a ray from the point in the positive and negative x directions;
-3. When there is a hit, move forward from hit point a very small amount along ray direction and recast ray from new point;
-4. Count hits, when zero or an odd number of hits then point is inside mesh and for an even number of hits > 0 non zero then point is outside of mesh. 
+3. When there is a hit, move forward from the hit point by a very small amount along the ray direction and recast the ray from the new point;
+4. Count the hits: if there are zero hits or an odd number of hits, the point is inside the mesh; if there is a nonzero even number of hits, the point is outside the mesh. 
 
 ## Design Method
 
@@ -42,14 +42,14 @@ if(point.z < min.z || point.z > max.z) {
 }
 ```
 
-2. Use the diameter of the mesh's bounding sphere as the distance to cast the ray
+2. Use the diameter of the mesh's bounding sphere as the distance to cast the ray.
 
 ```javascript
 var diameter = 2 * boundInfo.boundingSphere.radius;
 ray = new BABYLON.Ray(point, direction, diameter);
 ```
 
-3. Set hit count to zero, while hits occurring increment hit count
+3. Set the hit count to zero; while hits occur, increment the hit count.
 
 ```javascript
 var hitCount = 0;
@@ -62,7 +62,7 @@ while (pickInfo.hit) {
 }
 ```
 
-4.  Count hits.
+4. Count the hits.
 
 ```javascript
 if((hitCount % 2) === 1) {
@@ -77,7 +77,7 @@ return pointFound;
 
 ## The Whole Function
 
-Returns true if point is inside mesh, false otherwise.
+Returns true if the point is inside the mesh, and false otherwise.
 
 ```javascript
 BABYLON.Mesh.prototype.pointIsInside = function (point) {    
@@ -127,6 +127,6 @@ BABYLON.Mesh.prototype.pointIsInside = function (point) {
 
 ## Playground Example
 
-Generate random points in a volume around a twelve pointed star mesh. Place a sphere at each point and turn it red when inside the star.
+Generate random points in a volume around a twelve-pointed star mesh. Place a sphere at each point and turn it red when it is inside the star.
 
 <Playground id="#XJEG9A#4" title="Twelve Pointed Star" description="Twelve Pointed Star"/>

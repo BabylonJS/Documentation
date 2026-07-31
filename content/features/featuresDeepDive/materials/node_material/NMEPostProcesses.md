@@ -12,11 +12,11 @@ video-content:
 
 Starting with Babylon.js v4.2, you can now create post processes with the node material editor.
 
-You need simply to change the mode to _Post Process_:
+You simply need to change the mode to _Post Process_:
 
 ![PostProcess choice](/img/how_to/Materials/postprocessMenu.webp)
 
-In this mode, the special block **CurrentScreen** corresponds to the frame buffer that will be passed to your post process when you use this material as a post process in a real scenario. You can load any texture you want, it's simply an helper for you to see how your post process will render in the end.
+In this mode, the special block **CurrentScreen** corresponds to the frame buffer that will be passed to your post process when you use this material as a post process in a real scenario. You can load any texture you want; it's simply a helper that lets you see how your post process will render in the end.
 
 Some blocks are made unavailable in this mode (they are hidden from the block list), as they have no meaning: the mesh, particle and animation blocks.
 
@@ -36,7 +36,7 @@ nodeMaterial.createEffectForPostProcess(myPostProcess);
 
 PG: <Playground id="#WB27SW#1" title="NME Post Process Playground Example" description="Playground example of using the Node Material Editor to create a Post Process effect." image="/img/playgroundsAndNMEs/PGNMEPostProcess.webp" isMain={true} category="Node Material"/>
 
-As for regular node materials, you can access the blocks programmatically and change their values:
+As with regular node materials, you can access the blocks programmatically and change their values:
 
 Base material: <Playground id="#WB27SW#4" title="NME Post Process Base Node Material" description="Playground example of a NME Post Process Base Material." image="/img/playgroundsAndNMEs/PGNMEPostProcessBaseMaterial.webp"/>
 

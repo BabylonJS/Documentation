@@ -14,7 +14,7 @@ video-content:
 
 Did you ever play an FPS (First-Person Shooter) game? In this tutorial, we are going to simulate the same camera movements: the camera is on the floor, in collision with the ground, and potentially in collision with any objects in the scene.
 
-## How can I do this ?
+## How can I do this?
 
 To replicate this movement, we have to do 3 simple steps:
 
@@ -36,7 +36,7 @@ camera.applyGravity = true;
 
 In the real world, gravity is a _force_ (ok, sort of) that is exerted downward -- _i.e._, in a negative direction along the Y-axis. On Earth, this force is roughly 9.81m/s². Falling bodies _accelerate_ as they fall, so it takes 1 second to fully reach this velocity, then the velocity reaches 19.62m/s after 2 seconds, 29.43m/s after 3 seconds, etc. In an atmosphere, wind drag eventually matches this force and velocity ceases to increase ("terminal velocity").
 
-Babylon.js follows a much simpler gravitational model, however -- `scene.gravity` represents a _constant velocity_, not a force of acceleration, and it is measured in _units/frame_ rather than _meters/second_. As each frame is rendered, the cameras you apply this gravity to will _move_ by the vector's value along each axis (usually `x` and `z` are set to 0, but you can have "gravity" in any direction!), until a collision is detected.
+Babylon.js follows a much simpler gravitational model, however: `scene.gravity` represents a _constant velocity_, not a force of acceleration, and it is measured in _units/frame_ rather than _meters/second_. As each frame is rendered, the cameras you apply this gravity to will _move_ by the vector's value along each axis (usually `x` and `z` are set to 0, but you can have "gravity" in any direction!) until a collision is detected.
 
 While Babylon.js units have no direct physical equivalent, with the default camera field of view, an approximation of 1 unit = 1 meter is a fairly standard assumption. So, if you want to approximate nominal Earth gravity, you'll need to make some assumptions about the number of frames being rendered per second, and compute a suitable vector:
 
@@ -46,13 +46,13 @@ const earthGravity = -9.81;
 scene.gravity = new BABYLON.Vector3(0, earthGravity / assumedFramesPerSecond, 0);
 ```
 
-Since this is computed once per frame, the camera isn't actually "moving," it is making tiny "hops" along the direction of the gravity vector. This may be important if you are relying on collision detection to determine if the camera (or, rather, a mesh attached to it for that purpose) has "entered" or "exited" some other mesh (for example, a plane under your "ground" layer to sense a falling character and reset the game play). Depending on your chosen gravity, the starting elevation, and the position and height of the "trigger" mesh, the camera may jump _right through_ the trigger mesh without ever "intersecting" it. Be sure to check the math to ensure that at least one multiple of `scene.gravity` added to the starting elevation will intersect your trigger mesh.
+Since this is computed once per frame, the camera is not actually "moving"; it is making tiny "hops" along the direction of the gravity vector. This may be important if you are relying on collision detection to determine whether the camera (or, rather, a mesh attached to it for that purpose) has "entered" or "exited" some other mesh (for example, a plane under your "ground" layer to sense a falling character and reset the gameplay). Depending on your chosen gravity, the starting elevation, and the position and height of the "trigger" mesh, the camera may jump _right through_ the trigger mesh without ever "intersecting" it. Be sure to check the math to ensure that at least one multiple of `scene.gravity` added to the starting elevation will intersect your trigger mesh.
 
 If you need a more accurate representation of gravitational (or other) forces, you can use the physics engines [integrated with Babylon](/features/featuresDeepDive/physics/usingPhysicsEngine).
 
 #### A Warning
 
-Adding both physics impostors and setting collision enabled to the same object might lead to unexpected behavior.
+Adding both physics impostors and collisions to the same object might lead to unexpected behavior.
 
 ### 2. Define an ellipsoid
 
@@ -60,7 +60,7 @@ The next important step is to define the ellipsoid around our camera. This ellip
 
 ![Ellipsoid](/img/babylon101/ellipsoid.webp)
 
-The [ellipsoid](/typedoc/classes/babylon.freecamera#ellipsoid) property on Babylon.js cameras is default to size (0.5, 1, 0.5). Changing these values will make you taller, bigger, smaller, thinner, depending on the adjusted axis. In the example below, we will make our camera's ellipsoid a bit wider and deeper than the default one:
+The [ellipsoid](/typedoc/classes/babylon.freecamera#ellipsoid) property on Babylon.js cameras defaults to a size of (0.5, 1, 0.5). Changing these values will make you taller, bigger, smaller, or thinner, depending on the adjusted axis. In the example below, we will make our camera's ellipsoid a bit wider and deeper than the default one:
 
 ```javascript
 //Set the ellipsoid around the camera (e.g. your player's size)
@@ -94,11 +94,11 @@ That’s it! Easy!
 
 You can play with the scene used in this tutorial: <Playground id="#4HUQQ#2439" title="Basic Camera Collision Example" description="A simple example of adding an ellipsoid collision buffer around a camera."/>
 
-Now, your camera is going to fall on the y-axis until it collides with the ground. And, your camera will collide with the box when you move it too close to it.
+Now, your camera is going to fall on the Y-axis until it collides with the ground. It will also collide with the box when you move too close to it.
 
 ### 4. Object vs. object collision
 
-You can do the same thing with a mesh by playing with the [ellipsoid](/typedoc/classes/babylon.mesh#ellipsoid) property and the [moveWithCollisions(velocity)](/typedoc/classes/babylon.mesh#movewithcollisions) function. This function will attempt to move the mesh according to a given velocity when it finds no collisions between the current mesh and any meshes with [checkCollisions](/typedoc/classes/babylon.mesh#checkcollisions) activated.
+You can do the same thing with a mesh by using the [ellipsoid](/typedoc/classes/babylon.mesh#ellipsoid) property and the [moveWithCollisions(velocity)](/typedoc/classes/babylon.mesh#movewithcollisions) function. This function will attempt to move the mesh according to a given velocity when it detects no collisions between the current mesh and any meshes with [checkCollisions](/typedoc/classes/babylon.mesh#checkcollisions) activated.
 
 You can also use a mesh's [ellipsoidOffset](/typedoc/classes/babylon.mesh#ellipsoidoffset) to move the ellipsoid on the mesh (by default, the ellipsoid is centered on the mesh).
 

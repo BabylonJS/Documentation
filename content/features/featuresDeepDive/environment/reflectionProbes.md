@@ -10,11 +10,11 @@ video-overview:
 video-content:
 ---
 
-## How to use Reflection probes
+## How to use Reflection Probes
 
 ![Reflection Probes example](/img/reflectionProbe.webp)
 
-Reflection probes are used to dynamically generate cube maps that can the be used as reflection textures for instance.
+Reflection probes are used to dynamically generate cube maps that can then be used as reflection textures, for instance.
 
 Here is how to use them:
 
@@ -30,7 +30,7 @@ mainMaterial.reflectionTexture = probe.cubeTexture;
 
 As you can see, you have to define which meshes will be rendered by the reflection probe.
 
-**You have to be cautious with reflection probes as they need to actually generate 6 textures per frame (One per face).**
+**You have to be cautious with reflection probes, as they need to generate 6 textures per frame (one per face).**
 
 You can change the update rate (on every frame by default) with this code:
 
@@ -44,8 +44,8 @@ probe.refreshRate = BABYLON.RenderTargetTexture.REFRESHRATE_RENDER_ONEVERYTWOFRA
 probe.refreshRate = 3;
 ```
 
-To get the best possible rendering, you also need to move your probe at the center of the mesh which should use the generated cube map.
-(Internally the probe will generate a ghost camera at the specific position and will then render the faces from there). You have two options to achieve this:
+To get the best possible rendering, you also need to move your probe to the center of the mesh that should use the generated cube map.
+(Internally, the probe will generate a ghost camera at that position and then render the faces from there.) You have two options to achieve this:
 
 ```javascript
 probe.attachToMesh(root);
@@ -57,22 +57,22 @@ If you want to try it, check this out: <Playground id="#KA93U#243" title="Reflec
 
 ## Probes and PBR
 
-If you want to achieve the highest quality for your PBR materials using probes for realtime reflections, the engine needs additional processing to achieve the right glossiness / roughness effect.
-Getting it right is really simple, first setup a probe on your mesh with a PBR material, as described in the previous paragraph. Then you need to enable this flag on your material :
+If you want to achieve the highest quality for your PBR materials using probes for real-time reflections, the engine needs additional processing to achieve the right glossiness/roughness effect.
+Getting it right is really simple: first, set up a probe on your mesh with a PBR material, as described in the previous paragraph. Then you need to enable this flag on your material:
 
 ```javascript
 mainMaterial.reflectionTexture = probe.cubeTexture;
 mainMaterial.realTimeFiltering = true;
 ```
 
-This flag will ensure your PBR material is correctly rendered with the probe. However, this flag involves more GPU processing for your materials, so be sure to use it wisely. In order to keep performance under control, you can set the quality of the filtering process of your material :
+This flag will ensure your PBR material is rendered correctly with the probe. However, it involves more GPU processing for your materials, so be sure to use it wisely. To keep performance under control, you can set the quality of the filtering process for your material:
 
 ```javascript
 mainMaterial.realTimeFilteringQuality = BABYLON.Constants.TEXTURE_FILTERING_QUALITY_MEDIUM;
 ```
 
-Default is `TEXTURE_FILTERING_QUALITY_LOW`. Try with different qualities and see what's the best performance / quality tradeoff for your scene.
+The default is `TEXTURE_FILTERING_QUALITY_LOW`. Try different qualities and see which gives the best performance/quality tradeoff for your scene.
 
 Here is a playground example with a reflection probe and PBR material: <Playground id="#FEEK7G#116" title="Reflection Probe and PBR Example" description="Simple example of how to use reflection probes with PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionProbes2.webp" isMain={true} category="Environment"/>
 
-You can also have a look at this [blog post](https://medium.com/@babylonjs/real-time-pbr-filtering-is-coming-to-babylon-cb0e81159d79) for more info about HDR filtering.
+You can also have a look at this [blog post](https://medium.com/@babylonjs/real-time-pbr-filtering-is-coming-to-babylon-cb0e81159d79) for more information about HDR filtering.

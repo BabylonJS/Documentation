@@ -8,17 +8,17 @@ video-overview:
 video-content:
 ---
 
-An AssetContainer can be used to manage a list of assets (like nodes, cameras, lights, meshes, etc..). These assets are still linked to a scene but are not taken in account. Consider asset containers like pool of entities.
+An AssetContainer can be used to manage a list of assets (like nodes, cameras, lights, meshes, etc.). These assets are still linked to a scene but are not taken into account. Consider asset containers as pools of entities.
 
 ## Creating an AssetContainer
 
-It can be created manually
+It can be created manually:
 
 ```javascript
 const container = new BABYLON.AssetContainer(scene);
 ```
 
-Or by loading from a file. See [loading from files](/features/featuresDeepDive/importers/loadingFileTypes)
+Or by loading from a file. See [loading from files](/features/featuresDeepDive/importers/loadingFileTypes).
 
 ## Adding or removing assets to the scene
 
@@ -36,7 +36,7 @@ container.removeAllFromScene();
 
 This can be used to add/remove all objects in a scene without the need to exit WebVR. <Playground id="#JA1ND3#1016" title="Asset Container Adding and Removing Assets in WebVR" description="Simple Example of adding and removing asset container assets into your WebVR scene." image="/img/playgroundsAndNMEs/divingDeeperAssetContainer2.webp"/>
 
-When creating assets manually the moveAllFromScene method can be used to move all assets currently in a scene into an AssetContainer and remove them from the scene for later use.
+When creating assets manually, the `moveAllFromScene` method can be used to move all assets currently in a scene into an AssetContainer and remove them from the scene for later use.
 
 ```javascript
 const keepAssets = new BABYLON.KeepAssets();
@@ -46,7 +46,7 @@ container.moveAllFromScene(keepAssets);
 
 <Playground id="#5NFRVE#3" title="Moving Assets Into an Asset Container" description="Simple Example of moving assets in a scene into an asset container."/>
 
-## Duplicating the models
+## Duplicating Models
 
 Asset containers can also be used as "templates" to duplicate models without reloading them.
 
@@ -56,7 +56,7 @@ To do so, you only need to call:
 let entries = container.instantiateModelsToScene();
 ```
 
-The return entries object will contain:
+The returned `entries` object will contain:
 
 - rootNodes: A list of all the root nodes created by the duplication process
 - skeletons: A list of all the skeletons created by the duplication process
@@ -66,8 +66,8 @@ The return entries object will contain:
 
 You can also set two parameters to the call to `instantiateModelsToScene`:
 
-- nameFunction: This will let you decide what will be the name of the cloned entities (instead of "Clone of...")
-- cloneMaterials: By default materials are not cloned but shared. With this parameter you can force the system to also clone the materials
+- nameFunction: This lets you decide what the names of the cloned entities will be (instead of "Clone of...")
+- cloneMaterials: By default, materials are not cloned but shared. With this parameter, you can force the system to also clone the materials.
 
 ```javascript
 const entries = container.instantiateModelsToScene((name) => "p" + name, true);

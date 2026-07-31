@@ -12,11 +12,11 @@ video-content:
 
 ## About
 
-[Level of Details](https://en.wikipedia.org/wiki/Level_of_detail) is a powerful tool that was added to Babylon.js in version 2.0. The concept is rather simple: when the camera is at a certain distance from the mesh, lowering the amount of faces displayed will increase performance without the user noticing the reduction.
+[Level of Details](https://en.wikipedia.org/wiki/Level_of_detail) is a powerful tool that was added to Babylon.js in version 2.0. The concept is rather simple: when the camera is at a certain distance from the mesh, reducing the number of displayed faces increases performance without the user noticing the reduction.
 
 LOD requires the developer to add a few meshes to the original mesh. One of the ways to create those meshes is simplification. Many 3D tools offer various simplification algorithms. It is sometimes called Decimation.
 
-Starting with version 2.0, Babylon.js offers an in-browser simplification functionality that works asynchronously while trying not to disturb the rendering process. These LOD levels will be automatically added to the scene after finishing the calculation.
+Starting with version 2.0, Babylon.js offers in-browser simplification functionality that works asynchronously while trying not to disturb the rendering process. These LOD levels are automatically added to the scene after the calculation finishes.
 
 ## Usage - Simplifying a mesh
 
@@ -56,15 +56,15 @@ settings.push(new BABYLON.SimplificationSettings(0.4, 150));
 
 - **Parallel Processing**
 
-The code runs async. The `parallelProcessing` flag sets the order of processing of each level. If set to true, all will run together. This will use more RAM (for a certain period of time) but will run quicker in general. There is a chance however, that the FPS will be reduced to an unaccepted level due to many parallel calculations between frames. Setting this flag to false will process one setting after the other. This will use only one single simplification object and will use less RAM. It can, however, take a little longer.
+The code runs asynchronously. The `parallelProcessing` flag sets the processing order for each level. If set to `true`, all levels run together. This uses more RAM for a period of time, but generally runs faster. There is a chance, however, that FPS will be reduced to an unacceptable level because of many parallel calculations between frames. Setting this flag to `false` processes one setting after another. This uses only a single simplification object and less RAM, but it can take a little longer.
 
 - **Type**
 
-To allow further types of simplification to be implemented (will be explained later, for those who are interested) the type of simplification should be stated. There is only one kind at the moment, BABYLON.SimplificationType.QUADRATIC. This is also the default value, if type is undefined.
+To allow additional types of simplification to be implemented, the type of simplification should be specified. There is only one kind at the moment, `BABYLON.SimplificationType.QUADRATIC`. This is also the default value if `type` is undefined.
 
 - **Success Callback**
 
-Since this is an asynchronous function (which returns immediately), a callback is required in order to run code after the simplification process is over.
+Since this is an asynchronous function, which returns immediately, a callback is required to run code after the simplification process is over.
 
 This function will be called after the Auto-LOD process is successfully done.
 
@@ -86,7 +86,7 @@ BABYLON.ImportMeshAsync("./DanceMoves.babylon", scene).then((result) => {
 });
 ```
 
-Once the simplification is finished, you can also access the simplified mesh by utilizing the [getLODLevelAtDistance](/typedoc/classes/babylon.mesh#getlodlevelatdistance) and [getLODLevels](/typedoc/classes/babylon.mesh#getlodlevels) functions of the mesh class. You can use this to clone the simplified mesh and use it indepedently of the main mesh.
+Once the simplification is finished, you can also access the simplified mesh by using the [getLODLevelAtDistance](/typedoc/classes/babylon.mesh#getlodlevelatdistance) and [getLODLevels](/typedoc/classes/babylon.mesh#getlodlevels) functions of the mesh class. You can use this to clone the simplified mesh and use it independently of the main mesh.
 <Playground id="#1ED15P#38" title="Clone simplified mesh" description="Access a simplified mesh and clone it."/>
 
 ## Demos
@@ -107,9 +107,9 @@ With optimization during simplification -
 
 ## Rules, Quirks and things to pay attention to
 
-Not all meshes can be simplified. Better said - all meshes can be simplified, some however, should not be.
+Not all meshes should be simplified. More precisely, all meshes can be simplified, but some should not be.
 
-An object like a Box (if built in an optimal way, like the BABYLON.MeshBuilder.CreateBox function) has no "extra faces" that can be removed. removing one single face will cause it to... not be a box.
+An object like a Box, if built in an optimal way such as with `BABYLON.MeshBuilder.CreateBox`, has no "extra faces" that can be removed. Removing a single face will cause it to... not be a box.
 
 ### A few "rules" to follow
 
@@ -124,7 +124,7 @@ An object like a Box (if built in an optimal way, like the BABYLON.MeshBuilder.C
 
 ### Quirks
 
-- Quadratic simplification can be calculated using many factors. Position, normals, colors, UV coordinates, etc... The more factors, the slower it will run (more calculations). The decision was made to stay with position only - this means that after simplification, the UV coordinates will sometimes be a bit off. It is usually unnoticeable if you follow rule 4 above.
+- Quadratic simplification can be calculated using many factors: position, normals, colors, UV coordinates, and so on. The more factors, the slower it runs because of the extra calculations. The decision was made to use position only. This means that after simplification, the UV coordinates may sometimes be a bit off. It is usually unnoticeable if you follow rule 4 above.
 - Meshes might change their shape. Very noticeable with a small plane.
 - Meshes might suddenly have "holes" in them. This can be avoided using the mesh optimization (starting 2.1, described further down)
 - Submeshes are supported starting with Babylon.js 2.1. Meshes with submeshes would not be decimated 100% correctly due to the lack of border detection (see next point). Give it a try and see if it fits your needs.
@@ -157,24 +157,24 @@ mesh.optimizeIndices(function () {
 });
 ```
 
-This option alters(!) the mesh's indices order. It is faster, but might change the UV coordinates of vertices of the mesh. If that is the case, use:
+This option alters the mesh's index order. It is faster, but it might change the UV coordinates of the mesh vertices. If that is the case, use:
 
-2. Optimization during simplification - The Simplification Settings now includes a new variable: optimizeMesh, which is a boolean that defaults to false. If set to true, a non-altering mesh optimization will run during the mesh's preparation for decimation. The simplification will run on a temporary array of vertices and will correlate the new vertices' positions with the old uv/color information. This is the better option, but also the slower option (will be noticeable with very large meshes like the demo skull) <Playground id="#2JBSNA#4" title="Optimization During Simplification Example" description="Simple example of optimizing while simplifying."/>
+2. Optimization during simplification - The Simplification Settings now include a new variable, `optimizeMesh`, which is a boolean that defaults to `false`. If set to `true`, a non-altering mesh optimization runs during the mesh's preparation for decimation. The simplification runs on a temporary array of vertices and correlates the new vertex positions with the old UV/color information. This is the better option, but also the slower one, which will be noticeable with very large meshes like the demo skull. <Playground id="#2JBSNA#4" title="Optimization During Simplification Example" description="Simple example of optimizing while simplifying."/>
 
-Check which one of the methods works best for you. Both have their up and down sides, for better results use the 2nd option (set optimizeMesh to true in the settings).
+Check which method works best for you. Both have their upsides and downsides. For better results, use the second option by setting `optimizeMesh` to `true` in the settings.
 
 ## Developing further simplification algorithms
 
 If you want to add a new simplification algorithm, there are a few steps that are required:
 
-1. Create a class that implements the BABYLON.ISimplifier interface (and of course implement the function! :-) )
+1. Create a class that implements the `BABYLON.ISimplifier` interface, and of course implement the function.
 2. Add the type of simplification to the SimplificationType enum
-3. Add the class init in the mesh.simplify function (the inner function "getSimplifier" should contain your type).
+3. Add the class initialization in the `mesh.simplify` function. The inner function `getSimplifier` should contain your type.
 4. We'd love to see a PR with your new simplification!
 
 ## Accessing the simplification class directly
 
-You can access the quadratic error decimation directly and play with its features. You can do that by creating an object of the class QuadraticErrorSimplification
+You can access quadratic error decimation directly and experiment with its features by creating an object of the `QuadraticErrorSimplification` class.
 
 ```javascript
 const decimator = new QuadraticErrorSimplification(meshToDecimate);
@@ -182,8 +182,8 @@ const decimator = new QuadraticErrorSimplification(meshToDecimate);
 
 Afterwards you can play with the following object variables:
 
-1. decimationIterations - max number of iterations of the decimation process. The simplification will (usually) stop before the max number of iterations, but it actually all depends on the next variable. Default: 100.
-2. aggressiveness - The threshold that decides if a triangle is up for a deletion is decided using this variable. Setting it to a low value (2, for example) will cause the decimation to be a little slower, but more percise in selecting the triangles. Setting it to a high value (15 for example) will probably cause the decimation to end in 1 or 2 iterations, since a lot of triangles will be chosen for deletion. Anyhow, once the quality is reached, the process stops. The question - did it choose the better triangles to decimate! Default: 7.
+1. decimationIterations - maximum number of iterations of the decimation process. The simplification usually stops before the maximum number of iterations, but it depends on the next variable. Default: 100.
+2. aggressiveness - The threshold that decides whether a triangle is a candidate for deletion is controlled by this variable. Setting it to a low value, such as 2, makes decimation a little slower but more precise in selecting triangles. Setting it to a high value, such as 15, will probably cause decimation to end in 1 or 2 iterations, since many triangles will be chosen for deletion. In any case, once the quality is reached, the process stops. The question is whether it chose the best triangles to decimate. Default: 7.
 3. syncIterations - the number of synchronous iterations inside the async iterations. Rather hard to explain, but a lower number will hurt the performance less but will make the process take a bit more time. If you need explanations look at the AsyncLoop class in babylon.tools.js or contact @raananw at the forum.
    After setting the variables, you can run the simplify function that will start the entire process:
 

@@ -8,23 +8,23 @@ video-overview:
 video-content:
 ---
 
-After considering the [issues](/guidedLearning/workshop/Issues) involved and slow [slow particles](/guidedLearning/workshop/Slow_Collide) we are now ready to consider **free particles**, ones that move with no restriction to their start position or velocity.
+After considering the [issues](/guidedLearning/workshop/Issues) involved and [slow particles](/guidedLearning/workshop/Slow_Collide), we are now ready to consider **free particles**, ones that move with no restriction on their start position or velocity.
 
 The velocity of a particle is its displacement per frame.
 
 
 ## Colliding with a Wall
 
-Given a particle of radius r, at position p and velocity v in *frame n*, the particle will collide with a wall when it is travelling towards the wall in *frame n* and in *frame n+1* the centre of the particle, at p + v,  is within a distance r from the wall or is moving away from the wall.
+Given a particle of radius r, at position p and velocity v in *frame n*, the particle will collide with a wall when it is travelling towards the wall in *frame n* and, in *frame n+1*, the centre of the particle, at p + v, is within a distance r from the wall or is moving away from the wall.
 
 For example consider a left hand wall, with plane parallel to the YZ plane, and a particle travelling towards it with velocity (dx, dy, dz), dx &lt; 0.
 
-In *frame n*, the position of the particle is (x, y, z) and during the time between *frame n* and *frame n+1* it overlapped the wall. At *frame n+1*, the particle may still be overlapping the wall and its centre may be to the right or left of the wall or, the particle may have gone beyond the wall completely. The 2D diagrams show the latter case but the calculations apply in all cases. Fig 16 indicates the particle passing through the wall.
+In *frame n*, the position of the particle is (x, y, z), and during the time between *frame n* and *frame n+1* it overlaps the wall. At *frame n+1*, the particle may still be overlapping the wall and its centre may be to the right or left of the wall, or the particle may have gone beyond the wall completely. The 2D diagrams show the latter case, but the calculations apply in all cases. Fig 16 indicates the particle passing through the wall.
 
 ![Fig 16](/img/samples/collide18.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 16. 
 
-The particle at *frame n+1*, is at position (x + dx, y + dy, z + dz)
+The particle at *frame n+1* is at position (x + dx, y + dy, z + dz)
 
 Sometime between *frame n* and *frame n+1* the particle would just touch the wall as in Fig 17.
 
@@ -41,7 +41,7 @@ At the point of contact with this wall the component of velocity in the x direct
 ![Fig 19](/img/samples/collide21.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 19. 
 
-The particle velocity, after the collision is now (-dx, dy, dz). For *frame n+1*, we need the position of the particle to be at (x + dx<sub>1</sub> - dx<sub>2</sub> , y + dy, z + dz). Since before *frame n+1*, is displayed the velocity (-dx, dy, dz) will be added and so we need it position before this is done to be (x + dx<sub>1</sub> - dx<sub>2</sub> , y + dy, z + dz) - (-dx, dy, dz), see Fig 20.
+The particle velocity after the collision is now (-dx, dy, dz). For *frame n+1*, we need the position of the particle to be at (x + dx<sub>1</sub> - dx<sub>2</sub> , y + dy, z + dz). Since the velocity (-dx, dy, dz) will be added before *frame n+1* is displayed, we need its position beforehand to be (x + dx<sub>1</sub> - dx<sub>2</sub> , y + dy, z + dz) - (-dx, dy, dz), see Fig 20.
 
 ![Fig 20](/img/samples/collide22.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 20.
@@ -63,7 +63,7 @@ This means after *frame n* is displayed the particle's position has to be reset 
 
 ## Colliding Particles
 
-Given two particles P and Q of radius r, at positions p and q with velocities v and u respectively travelling towards each other in *frame n*. In *frame n+1* the centres of the particle are at p + v and q + u. Between *frame n* and frame n+1* the two particles would collide when there is a time t &lt;= 1 when the distance between the positions of the particles is 2r. See Fig 22.
+Given two particles P and Q of radius r, at positions p and q with velocities v and u respectively travelling towards each other in *frame n*. In *frame n+1* the centres of the particles are at p + v and q + u. Between *frame n* and *frame n+1* the two particles would collide when there is a time t &lt;= 1 at which the distance between the positions of the particles is 2r. See Fig 22.
 
 ![Fig 22](/img/samples/collide25.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 22.
@@ -94,7 +94,7 @@ PG: <Playground id="#A4HZTV" title="First Contact" description="Two moving spher
 
 ### Reaction
 
-Since only the velocities along the line joining the centres of the particles are affected during the collision we need to consider axes along this radial line and a tangential line. The particles are at first contact at time t, with P at p + vt and Q at q + ut
+Since only the velocities along the line joining the centres of the particles are affected during the collision, we need to consider axes along this radial line and a tangential line. The particles are at first contact at time t, with P at p + vt and Q at q + ut.
 
 Let m = p + vt - (q + ut) and n = m/|m| a unit vector.
 
@@ -105,7 +105,7 @@ Q is u<sub>a</sub> = v<sub>r</sub> + u<sub>t</sub> = (v.n)n + u - (u.n)n = u + (
 
 Given that the particles collide between *frame n* and *frame n+1* what will the positions of P and Q be during *frame n+1*?
 
-In *frame n*, the position of particle P is (px, py, pz) and the position of Q is (qx, qy, qz). For some time t &lt;= 1 the particles will make first contact. Fig 23 shows the positions of P and Q for *frame n*, their positions at time t, and their positions for *frame n+1* when the collision is not detected. The radial and tangential components of their displacements (= velocities) are also shown upto and after first contact.
+In *frame n*, the position of particle P is (px, py, pz) and the position of Q is (qx, qy, qz). For some time t &lt;= 1 the particles will make first contact. Fig 23 shows the positions of P and Q for *frame n*, their positions at time t, and their positions for *frame n+1* when the collision is not detected. The radial and tangential components of their displacements (= velocities) are also shown up to and after first contact.
 
 ![Fig 23](/img/samples/collide16.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 23.
@@ -121,7 +121,7 @@ as in Fig 24
 ![Fig 24](/img/samples/collide17.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 24.
 
-However, since before *frame n+1*, is displayed the velocities of P and Q will be added to the positions of P and Q and so we need these positions to have their velocities subtracted so that the correct positions are displayed during *frame n+1*. See Fig 25 
+However, since the velocities of P and Q will be added before *frame n+1* is displayed, we need these positions to have their velocities subtracted so that the correct positions are displayed during *frame n+1*. See Fig 25 
 
 ![Fig 25](/img/samples/collide24.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 25.
@@ -150,9 +150,9 @@ q + u<sub>r</sub>t + v<sub>r</sub>(1 - t) + u<sub>t</sub> - (v<sub>r</sub> + u<s
 = q + (u<sub>r</sub> - v<sub>r</sub>)t
 
 
-After a collision these values are used to recalculate the  positions of particles before *frame n+1*.
+After a collision these values are used to recalculate the positions of particles before *frame n+1*.
 
-The following Playground shows the first contact position of two particles and their paths before and after collision. Start position and velocities may be set on lines 36 to 39.
+The following Playground shows the first contact position of two particles and their paths before and after collision. The start positions and velocities may be set on lines 36 to 39.
 
 PG: <Playground id="#A4HZTV#1" title="Contact and Rebound" description="Shows the first contact position of two particles and their paths before and after collision."/>
 
@@ -168,9 +168,8 @@ PG: <Playground id="#HIM0WS" title="Slow Moving Particles" description="Particle
 
 PG: <Playground id="#HIM0WS#1" title="Fast Moving Particles" description="."/>
 
-Maximum speeds, for both,  can be changed on lines 21 to 23.
+Maximum speeds, for both, can be changed on lines 21 to 23.
 
 ## Further Reading
 
 [Slow Particles](/guidedLearning/workshop/Slow_Collide)  
-

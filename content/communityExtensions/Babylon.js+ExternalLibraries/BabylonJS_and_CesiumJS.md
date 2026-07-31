@@ -8,9 +8,9 @@ video-overview:
 video-content:
 ---
 
-CesiumJS is an open source JavaScript library for creating world-class 3D globes and maps with the best possible performance, precision, visual quality, and ease of use. Because both BabylonJS and CesiumJS show 3D scene with javascript, it is possible to integrate them together for a better visual effect.
+CesiumJS is an open source JavaScript library for creating world-class 3D globes and maps with the best possible performance, precision, visual quality, and ease of use. Because both BabylonJS and CesiumJS render 3D scenes with JavaScript, it is possible to integrate them for a better visual effect.
 
-Inspired by [Integrating Cesium with Three.js](https://cesium.com/blog/2017/10/23/integrating-cesium-with-threejs/), the base point of the solution is to render two libraries in two canvases, the canvas upper for BabylonJS. Set the upper canvas `pointer-events: none;`, CesiumJS will have the control and we make BabylonJS's camera to follow CesiumJS's.
+Inspired by [Integrating Cesium with Three.js](https://cesium.com/blog/2017/10/23/integrating-cesium-with-threejs/), this solution renders the two libraries on two canvases, with the upper canvas used for BabylonJS. Set the upper canvas to `pointer-events: none;` so CesiumJS keeps control, then make BabylonJS's camera follow CesiumJS's camera.
 ## Setup CesiumJS
 ```javascript
 const LNG = -122.4175, LAT = 37.655;
@@ -34,7 +34,7 @@ const base_point_up = cart2vec(Cesium.Cartesian3.fromDegrees(LNG, LAT, 300));
 ```
 
 ## Setup BabylonJS
-`Scene's clearColor` is important, we should make background transparent to see things renderer in CesiumJS.
+The scene's `clearColor` is important; make the background transparent so you can see what is rendered in CesiumJS.
 ```javascript
 const engine = new BABYLON.Engine(canvas);
 const scene = new BABYLON.Scene(engine);
@@ -44,7 +44,7 @@ const camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 0, -10), 
 ```
 
 ## Rendering Sequence
-Before BabylonJS rendering, we should change BabylonJS's camera's position and rotation to make it absolutely the same with CesiumJS's.
+Before BabylonJS renders, we should change BabylonJS's camera position and rotation so they exactly match CesiumJS's.
 ```javascript
 function cart2vec(cart) {
     return new BABYLON.Vector3(cart.x, cart.z, cart.y);
@@ -84,7 +84,7 @@ camera.rotation.x = rotation_x;
 camera.rotation.y = rotation_y;
 camera.rotation.z = rotation_z;
 ```
-CesiumJs must render first as we need the parameters of its camera.
+CesiumJS must render first because we need its camera parameters.
 ```javascript
 engine.runRenderLoop(() => {
     viewer.render();
@@ -93,7 +93,7 @@ engine.runRenderLoop(() => {
 });
 ```
 ## Setup root node
-This step is actually not necessary, but it will make things easier.
+This step is not strictly necessary, but it makes things easier.
 ```javascript
 const root_node = new BABYLON.TransformNode("BaseNode", scene);
 root_node.lookAt(base_point_up.subtract(base_point));

@@ -1,25 +1,25 @@
 ---
 title: Using Build a House from Plans
 image: 
-description: Starting with a 2D plan of the outline of a house use the functions to build a house
+description: Starting with a 2D plan of the outline of a house, use the functions to build a house
 keywords: house, outline, plan, build
 further-reading:
 video-overview:
 video-content:
 ---
 
-**Please note that some functions used in this project uses Earcut, so, in non playground projects, you will have to add a reference to their [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download their [NPM package](https://github.com/mapbox/earcut#install)**
+**Please note that some functions used in this project use Earcut, so in non-playground projects, you will have to add a reference to the [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download the [NPM package](https://github.com/mapbox/earcut#install)**
 
 The walls, doors and windows of a house can be built using the function 
 
 ```javascript
 var house buildFromPlan(walls, ply, height, options, scene);
 ```
-which requires an additional prototype to `PolygonMeshBuilder`.
+which requires an additional prototype for `PolygonMeshBuilder`.
 
-The code for both of these is given below and can be copied and used in your own projects. Further details can be found by reading the [development of this code](/guidedLearning/workshop/House). 
+The code for both of these is given below and can be copied for use in your own projects. Further details can be found by reading the [development of this code](/guidedLearning/workshop/House). 
 
-The parameters are
+The parameters are:
 
 _walls_ : an array of wall objects  
 _ply_ : thickness of each wall  
@@ -32,13 +32,13 @@ _options_ : an object containing 5 optional parameters
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exteriorColor: a Color4(r, g, b, a)  
 _scene_ : the scene
 
-Each wall object has one two or three parameters
+Each wall object has one, two, or three parameters
 
 _corners_: an array of corner objects - required    
 _doorSpaces_ : an array of doorSpace objects - optional  
-_windowSpaces_ an array of windowSpace objects - optional   
+_windowSpaces_ : an array of windowSpace objects - optional   
 
-Each corner object has two parameters giving its position in 2D , example new corner(-3, 2)
+Each corner object has two parameters giving its position in 2D, for example new corner(-3, 2).
 
 Each doorSpace object has two parameters
 _door_ : door object  
@@ -61,7 +61,7 @@ _height_ : height of window
 
 ### buildFromPlan
 
-The following code should be copied and pasted inside the `createScene` function
+The following code should be copied and pasted inside the `createScene` function.
 
 ```javascript
 var buildFromPlan = function(walls, ply, height, options, scene) {
@@ -717,14 +717,14 @@ BABYLON.PolygonMeshBuilder.prototype.wallBuilder = function (w0, w1) {
 	var height = 3.2;
 ```
 ### Build Interior Walls
-Really this is a method of building walls that do not form an enclosing shell, i.e. the first and last corners do not produce a wall between them.
+Really, this is a method of building walls that do not form an enclosing shell, i.e. the first and last corners do not produce a wall between them.
 
-Add the option interior: true, for example 
+Add the option interior: true, for example,
 
 ```javascript
 var wall = buildFromPlan(walls, ply, height, {interior:true}, scene);
 ```
-You can add doors and windows (?hatches) to these walls as well.
+You can add doors and windows (or hatches) to these walls as well.
 
 ## Playground Examples
 PG: <Playground id="#4GBWI5#265" title="House From Floorplan" description="Example of a House Built from a FloorPlan."/>  

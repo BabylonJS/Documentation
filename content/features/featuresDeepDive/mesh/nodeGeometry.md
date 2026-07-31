@@ -1,7 +1,7 @@
 ---
 title: Node Geometry
 image: 
-description: Learn how use the NodeGeometry class
+description: Learn how to use the NodeGeometry class.
 keywords: geometry, procedural, non destructive, node
 further-reading:
 video-overview:
@@ -10,13 +10,13 @@ video-content:
 
 ## What Is Node Geometry
 
-The `NodeGeometry` feature was inspired by Blender Geometry Nodes where you can use a node system to build geometry procedurally. Think about it like a postprocessing system for geometry. Ultimately it produces a geometry but with a procedural approach.
+The `NodeGeometry` feature was inspired by Blender Geometry Nodes, where you can use a node system to build geometry procedurally. Think of it as a post-processing system for geometry. Ultimately, it produces geometry through a procedural approach.
 
 ## Why Use Node Geometry?
 Several reasons come to mind:
-- The cost of downloading assets on the web is a strong limiting factor. Procedural data can help solve that by limiting the download to the core pieces that are assembled later by the `NodeGeometry` system
-- The system is dynamic and can produce infinite variants at run time. While there are many digital content creation tools that can create procedural meshes with the same infinite possibilities, the limiting factor again becomes downloading assets created offline. Examples would be terrain or vegetation generation.
-- It allows a new way of modelling in Babylon.js by assembling core shapes and playing around with a node system
+- The cost of downloading assets on the web is a strong limiting factor. Procedural data can help solve that by limiting the download to the core pieces, which are assembled later by the `NodeGeometry` system.
+- The system is dynamic and can produce infinite variants at runtime. While many digital content creation tools can create procedural meshes with the same endless possibilities, the limiting factor again becomes downloading assets created offline. Examples include terrain or vegetation generation.
+- It allows a new way of modeling in Babylon.js by assembling core shapes and experimenting with a node system.
 
 ## Example
 
@@ -26,13 +26,13 @@ Here is a complete example of an advanced `NodeGeometry` which is used to genera
 
 ## How to Use
 
-The `NodeGeometry` class is a utility class, meaning it is autonomous and does not require access to an engine or a scene. So instantiation is pretty simple:
+The `NodeGeometry` class is a utility class, meaning it is autonomous and does not require access to an engine or a scene. So instantiation is straightforward:
 
 ```
 const nodeGeometry = new BABYLON.NodeGeometry("my node geometry");
 ```
 
-Once created, the system will expect you to create a flow from a source to an endpoint. In a nutshell, the `NodeGeometry` will process `VertexData` structure (See more in the section [Create Custom Meshes From Scratch](/features/featuresDeepDive/mesh/creation/custom/custom)).
+Once created, the system expects you to create a flow from a source to an endpoint. In a nutshell, `NodeGeometry` processes a `VertexData` structure (see more in the section [Create Custom Meshes From Scratch](/features/featuresDeepDive/mesh/creation/custom/custom)).
 
 By default, the `NodeGeometry` system supports the following sources:
 
@@ -236,13 +236,13 @@ Many of the previous contextual values **CANNOT** be used with the `InstantiateO
 
 ## Node Geometry Editor
 
-As we can see above, creating even a relatively simple `NodeGeometry` with code can quickly become very long. This is why we introduced a visual tool to help  build `NodeGeometry` graphs. [Learn how to use the editor in the tools section of our documentation](/toolsAndResources/nge).
+As we can see above, creating even a relatively simple `NodeGeometry` with code can quickly become very long. This is why we introduced a visual tool to help build `NodeGeometry` graphs. [Learn how to use the editor in the tools section of our documentation](/toolsAndResources/nge).
 
 ## Instancing Geometries
 
 Ok, now it is time to really unleash the core power of the `NodeGeometry`!
 
-With the `InstantiateOnVerticesBlock` class and the `InstantiateOnFacesBlock` class, you have the opportunity to instantiate a new geometry per vertex - or multiple times per face.
+With the `InstantiateOnVerticesBlock` class and the `InstantiateOnFacesBlock` class, you can instantiate a new geometry per vertex, or multiple times per face.
 
 So let's look at this graph:
 ![Using InstantiateOnVerticesBlock](/img/how_to/nge/08.webp)
@@ -254,7 +254,7 @@ You can apply rotation or scaling per instance by connecting values to the `rota
 
 The `density` input can be used to affect a percentage of the overall vertices. For example, placing an instance of the box only on 15% of the active geometry's vertices.
 
-The `InstantiateOnFacesBlock` class works similarly but will generate several instances per face. This block does not have a density input but instead a `count` input that will let you decide how many instances in total you want to distribute across all faces of the active geometry.
+The `InstantiateOnFacesBlock` class works similarly but generates several instances per face. This block does not have a density input but instead a `count` input that lets you decide how many instances in total you want to distribute across all faces of the active geometry.
 
 When using an `InstantiateOnFacesBlock`, you can only use the following contextual values:
 - positions: Contextual value pointing at the positions array of the active geometry
@@ -274,11 +274,11 @@ The `ConditionalBlock` is the central block if we want to control what is going 
 - Or
 - And
 
-For instance we can decide to have a new sphere made of boxes but we want one hemisphere to use one material and the other hemisphere to use another.
+For instance, we can decide to create a new sphere made of boxes, but we want one hemisphere to use one material and the other hemisphere to use another.
 This graph will do it:
 ![Instancing boxes on a sphere with different material per hemisphere](/img/how_to/nge/16.webp)
 
-The `ConditionBlock` is used here with a Greater than setup and will then pick the value 0 or 1 based on the y value of the normal. The normal that is evaluated belongs to the active geometry. In this case, the active geomerty is the sphere as the sphere is the manipulated by the `InstantiateOnFacesBlock` block. If the y value of the normal is greater than 0.2 then it will pass a value of 0 to the `SetMaterialIDBlock`. Otherwise it will pass a value of 1.
+The `ConditionBlock` is used here with a Greater than setup and picks the value 0 or 1 based on the y value of the normal. The normal being evaluated belongs to the active geometry. In this case, the active geometry is the sphere, as it is the geometry manipulated by the `InstantiateOnFacesBlock` block. If the y value of the normal is greater than 0.2, it passes a value of 0 to the `SetMaterialIDBlock`. Otherwise, it passes a value of 1.
 
 The outcome:
 ![Instancing boxes on a sphere with different material per hemisphere](/img/how_to/nge/17.webp)
@@ -315,13 +315,13 @@ The mesh will now have a list of subMeshes in `mesh.subMeshes` and will be rende
 
 ## Serialization
 
-A `NodeGeometry` entity can be serialized to a json object:
+A `NodeGeometry` entity can be serialized to a JSON object:
 ```
 geometry.serialize(true);
 ```
-The boolean indicates if the geometry produced by the `MeshBlock` should also be serialized into the json object. Use caution when doing this becuase the resulting json can quickly become very heavy.
+The boolean indicates whether the geometry produced by the `MeshBlock` should also be serialized into the JSON object. Use caution when doing this because the resulting JSON can quickly become very large.
 
-To load a `NodeGeometry` from a json object, call this code:
+To load a `NodeGeometry` from a JSON object, call this code:
 ```
 nodeGeometry.parseSerializedObject(json);
 ```
@@ -342,7 +342,7 @@ const nodeGeometryFile = assetsManager.addTextFileTask("load my node geometry", 
 assetsManager.load();
 ```
 
-Asset Manager has a callback we can use to convert the loaded text into a JSON object and then parse to node geometry.
+Asset Manager has a callback we can use to convert the loaded text into a JSON object and then parse it into node geometry.
 
 ```javascript
 // callback
@@ -356,7 +356,7 @@ assetsManager.onFinish = async (tasks) {
     const nodeGeometry = await BABYLON.NodeGeometry.Parse(nodeGeometryJSON);
 }
 ```
-Remember that we still need to `build` the node geometry and then use `createMesh` to actually render it into the scene. However, before we build the node geometry, now is the time to get any node that may need to be assigned a value like a color, vector, or mesh. There are a few options for finding blocks within the graph such as `getBlockByName`, `getBlockByPredicate`, or `getInputBlocks`. These methods can be used to find specific blocks and set their values.
+Remember that we still need to `build` the node geometry and then use `createMesh` to actually render it into the scene. However, before we build the node geometry, this is the time to get any node that may need to be assigned a value such as a color, vector, or mesh. There are a few options for finding blocks within the graph, such as `getBlockByName`, `getBlockByPredicate`, or `getInputBlocks`. These methods can be used to find specific blocks and set their values.
 
 ``` javascript
 nodeGeometry.getBlockByName("my_vector").value = new BABYLON.Vector3(1.0, 0.0, 1.0);
@@ -372,10 +372,10 @@ nodeGeometry.onBuildObservable.addOnce(() => {
 nodeGeometry.build();
 ```
 
-The order of operations here is important. If node geometry is built and then we try to update any values on the blocks within the graph, no changes will be seen until `nodeGeometry.build()` is called and we `createMesh` again. This also means that we can load and build a node geometry and keep it in memory until we need it with a call to `createMesh`. Or we could `dispose` of a mesh created from nodeGeometry and simply call `createMesh` again at a later point to bring the node geometry back into the scene. In this way node geometry acts a little like Asset Container where we always have it in the memory ready to create new meshes whenever we need them.
+The order of operations here is important. If node geometry is built and then we try to update any values on the blocks within the graph, no changes will be visible until `nodeGeometry.build()` is called and we call `createMesh` again. This also means that we can load and build a node geometry and keep it in memory until we need it with a call to `createMesh`. Or we could `dispose` of a mesh created from nodeGeometry and simply call `createMesh` again later to bring the node geometry back into the scene. In this way, node geometry acts a little like an Asset Container, where we always have it in memory and ready to create new meshes whenever we need them.
 
 ## Optimizations
-The `NodeGeometry` class uses the CPU to process data. Which means that we have to be cautious if expecting to generate several meshes.
+The `NodeGeometry` class uses the CPU to process data, which means that we have to be cautious if we expect to generate several meshes.
 
 For instance let's take this graph:
 ![Instancing meshes on a sphere](/img/how_to/nge/07.webp)
@@ -398,7 +398,7 @@ Launching the editor from here will connect the editor to the scene allowing cha
 
 The **Update in scene** button will regenerate the mesh in the scene based on the current graph, so any changes made to the graph will be reflected in the new mesh. The **Rebuild** button will only rebuild the graph within the tool, which will update the mesh generated in the preview window. While the graph automatically rebuilds with every change to the graph, the rebuild button is useful when the graph includes nodes that produce procedurally generated output like `Random` or `Instantiate`. Pressing the rebuild node will allow testing of the graph to see the types of output generated by procedural nodes without needing to make a change to the graph itself. 
 
-There may be a time when it is necessary to debug the interaction between the `NodeGeometry` graph and the code generating the scene. If, for some reason, the `NodeGeometry` graph fails to generate a mesh, the ability to open the Node Geometry Editor from the inspector is lost because there is no mesh holding the button to launch the editor. In cases like this, there is still a way to debug the graph by opening the Node Geometry Editor with the call:
+There may be times when it is necessary to debug the interaction between the `NodeGeometry` graph and the code generating the scene. If, for some reason, the `NodeGeometry` graph fails to generate a mesh, the ability to open the Node Geometry Editor from the inspector is lost because there is no mesh holding the button that launches the editor. In cases like this, there is still a way to debug the graph by opening the Node Geometry Editor with the call:
 
 ```javascript
 nodeGeometry.edit();

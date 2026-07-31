@@ -19,7 +19,7 @@ regarding what features the art should have. Both were of the opinion that
 the visuals should be directly dictated by the art as much as possible;
 in other words, as much as possible, art decisions should be made by an
 artist in art tools, not by a programmer in programming tools. Thus,
-they ultimately decided that following major components should be
+they ultimately decided that the following major components should be
 controlled from within the art assets:
 
 - The look and behavior of the main watch asset itself.
@@ -80,7 +80,7 @@ the main Vaporwear watch asset.
 
     ![Blender NLA](/img/devStories/vaporwearConfigurator/chapter_art/02_nla.webp)
 
-1.  **Materials**: While a key goal of main asset was to stay small by
+1.  **Materials**: While a key goal of the main asset was to stay small by
     leaving most of the materials to be downloaded later in another file,
     the main asset still needed to include the minimum number of materials
     it needed to render. Carlos took special care to make sure the
@@ -92,7 +92,7 @@ the main Vaporwear watch asset.
 1.  **Watch Face**: The face of the watch was supposed to be dynamic,
     showing the actual time, and Diane had told the team she would take
     care of that in code using Babylon's GUI textures. Carlos still needed
-    to provide a material for the watch face, but texture within it
+    to provide a material for the watch face, but the texture within it
     (specifically the emissive texture) would simply be replaced, he knew,
     by the GUI texture Diane would generate at runtime. Thus, he could
     make the provided watch face texture as small and useless as he wanted
@@ -200,7 +200,7 @@ noteworthy "tricks."
     other additional materials in a dedicated additional materials file.
 
 Again, the best way for Carlos to know for sure how his model would
-render was to export to GLB and view it in Babylon 3D
+render was to export it to GLB and view it in Babylon's 3D
 Commerce-certified Sandbox. He was even able to use the
 [Inspector](https://doc.babylonjs.com/toolsAndResources/tools/inspector)
 to modify the gemstone material as a preview of what it would look like
@@ -328,7 +328,7 @@ that would turn these 3D points of interest into 2D hotspots was for
 Diane to do in Babylon code; all Carlos had to do was specify where these
 hotspots were and when they should be visible.
 
-1.  Specifying location for the hotspots was easy: for each of the three,
+1.  Specifying the location of the hotspots was easy: for each of the three,
     Carlos simply created a named empty transform to mark the point of
     interest.
 

@@ -24,7 +24,7 @@ Here’s a complete example you can try out:
 
 To use NPE, head to [npe.babylonjs.com](https://npe.babylonjs.com).
 
-The default graph for a node particle system contains the minimum required components for the graph to function. These are the core components that every graph will have in various levels of complexity depending on the needs of the particle system.
+The default graph for a node particle system contains the minimum required components for the graph to function. These are the core components that every graph has, with varying levels of complexity depending on the needs of the particle system.
 
 ![NPE screenshot](/img/tools/npe/02.webp)
 
@@ -56,7 +56,7 @@ To control particle properties such as color, scale, or position, choose the app
 
 ![NPE screenshot](/img/tools/npe/05.webp)
 
-There are several inputs which are known as contextual values such as Position or Scaled Direction. These represent values for each particle in the context of a specific point in the particle's lifetime. For example, each frame, the Position contextual value will change for a particle based on a combination or emission power, gravity, drag, attractors, flow maps, and more. On any given rendered frame of the scene, you may need to know the position of a particle to change its color or the life of a particle to change its alpha value. This is when you would turn to contextual value input blocks for that information.
+There are several inputs known as contextual values, such as Position or Scaled Direction. These represent values for each particle at a specific point in its lifetime. For example, on each frame, the Position contextual value changes based on a combination of emission power, gravity, drag, attractors, flow maps, and more. On any given rendered frame of the scene, you may need the particle's position to change its color or its life to change its alpha value. That is when you would use contextual value input blocks.
 
 For basic behaviors, we offer direct function blocks so you don't need to manually wire everything. For example, the earlier logic can be replaced with BasicPositionUpdate:
 
@@ -77,7 +77,7 @@ The basic block for generating random values. It can generate values per particl
 
 ### Gradient
 
-Use this to create value ramps. Based on an input from 0 to 1, the value passed will be determined by the reference values of all attached gradient blocks. The gradient block with a reference that is the largest value that is still less than the input value will be the input passed through the gradient block.
+Use this to create value ramps. Based on an input from 0 to 1, the output is determined by the reference values of all attached gradient blocks. The gradient block with the largest reference value that is still less than the input value supplies the output.
 
 ![NPE screenshot](/img/tools/npe/08.webp)
 
@@ -87,7 +87,7 @@ In this case, we use the AgeGradient contextual value (representing particle lif
 
 To add more complex behaviors, you can use triggers to link multiple particle systems — for example, to start a new one when a specific condition is met.
 
-Here is a [pretty complex example](https://npe.babylonjs.com#K6F1ZB#1). More precisely, on the top-right corner:
+Here is a [pretty complex example](https://npe.babylonjs.com#K6F1ZB#1). More precisely, in the top-right corner:
 
 ![NPE screenshot](/img/tools/npe/09.webp)
 

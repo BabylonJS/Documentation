@@ -20,10 +20,10 @@ Once upon a time, I was looking at the usage of 3D in e-commerce websites
 when I began to notice a pattern: while the 3D models being rendered were
 often diverse and exciting, the camera movements in these experiences
 tended to be very, very simplistic. Wondering about this, I speculated
-that the reason for the simplicity (with each experience usually either
-having only arc-rotate or still camera behavior) is because writing
-camera control code is something of a niche specialization, and not
-every 3D e-commerce site has the resources to invest in it. This got me
+that camera movements were usually simple (with each experience generally
+having only arc-rotate or still camera behavior) because writing camera
+control code is something of a niche specialization, and not every 3D
+e-commerce site has the resources to invest in it. This got me
 wondering whether there was some common basis of behaviors that could be
 encapsulated in a Babylon Utility that many e-commerce sites could use
 to make their 3D cameras more exciting. After deciding that there was
@@ -38,7 +38,7 @@ the Unity Asset Store, for example, is Unity's solution. As a fully free
 and open-source engine, Babylon.js doesn't have that kind of infrastructure.
 However, I soon found that, by leveraging other existing open-source
 infrastructure (particularly built around NPM), I could achieve exactly the
-same goal whereby I could give, and even sell, the ability for other
+same goal: I could give away, and even sell, the ability for other
 developers to quickly and easily add my Babylon Utility into their own
 projects.
 
@@ -96,7 +96,7 @@ but with a few key differences worth elaborating on.
     went), again with the goal of being able to delete those files since
     they were not a part of my Babylon Utility.
 
-    ![Move Playground-like functionaility to demo scene](/img/devStories/showroomCamera/03_demo_code_port.webp)
+    ![Move Playground-like functionality to demo scene](/img/devStories/showroomCamera/03_demo_code_port.webp)
 
 1.  To finish this process, I changed the exports in index.ts...
 
@@ -189,7 +189,7 @@ some of the more significant pieces of the implementation.
    primary motivation for turning it into a Babylon Utility.
 1. The `ShowroomCameraDemo.Run(...)` function added in the prior section
    serves two roles. During development, this function is essentially
-   used as a test harness where uses can be added and changed to test
+   used as a test harness where use cases can be added and changed to test
    out the new functionality and APIs. After development, this function
    lives on as a demo illustrating what the `ShowroomCamera` can do and
    how to use it. For larger projects with more sophisticated testing/
@@ -202,14 +202,14 @@ publishing it to be shared through NPM was as easy as it was in
 [the first Dev Story that showed this](./fruitFalling#deploying-as-an-npm-package).
 However, there are a few noteworthy differences between the
 Showroom Camera and _Fruit Fallin'_ arising from the fact that the
-latter, as a Babylon Utility, is intended for consumption by other
+former, as a Babylon Utility, is intended for consumption by other
 developers, not just my own shipping vehicles.
 
 1. I added a README.
 
    ![Add a README](/img/devStories/showroomCamera/07_readme.webp)
 
-   Note that this isn't the README in the root directory of NPM Package
+   Note that this isn't the README in the root directory of the NPM Package
    Template repository; that README won't be published because only the
    `app_package` folder gets published. Thus, the important README for
    NPM publication is in `app_package`, not the root.
@@ -255,7 +255,7 @@ pleasantly surprised to find the process very easy.
 
    ![Update package.json for PrivJs](/img/devStories/showroomCamera/11_package_json_privjs.webp)
 
-   As a side-note, I also had to update my version because I had already
+   As a side note, I also had to update my version because I had already
    published on npmjs.com and PrivJs, which is aware of npmjs.com,
    won't accept packages with conflicting versions.
 

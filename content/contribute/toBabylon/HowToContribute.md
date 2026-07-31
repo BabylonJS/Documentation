@@ -10,19 +10,19 @@ video-content:
 
 ## Introduction
 
-Babylon.js is maintained on Github, a web-based hosting service for version control using Git. This page will introduce these and everything that is needed to make changes or additions to Babylon.js, from tools installation to testing, plus a brief description of why they are necessary. The steps are intended to be OS agnostic, allowing users to develop the same way on Windows, Mac and Linux.
+Babylon.js is maintained on GitHub, a web-based hosting service for version control using Git. This page introduces GitHub and everything needed to make changes or additions to Babylon.js, from tool installation to testing, along with a brief description of why these steps are necessary. The steps are intended to be OS-agnostic, allowing users to develop the same way on Windows, Mac, and Linux.
 
 ## Pre-Requisites
 
 - Reading the [contribution guidelines](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md).
-- An ability to code in Typescript. Babylon.js is written in Typescript then compiled and distributed in JavaScript.
+- An ability to code in TypeScript. Babylon.js is written in TypeScript and then compiled and distributed in JavaScript.
 - Know how to use a Command Line Interpreter (CLI), used to issue Git commands.
 
 ## Install Git
 
-A quick way for Windows and Mac is from the [Git Home Page](https://git-scm.com/) and for all three operating systems from the [Git Book](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+A quick option for Windows and Mac is the [Git Home Page](https://git-scm.com/), and for all three operating systems, the [Git Book](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-You then need to configure the installation to your details using a CLI. You can use the CLI built into your computer or one of many specialized ones for Git [(Git Clients)](https://git-scm.com/downloads/guis/). If you use Visual Studio Code then the Terminal is a built in CLI and can be opened with `Ctrl +'` or `Terminal > New Terminal` on the menu.
+You then need to configure the installation with your details using a CLI. You can use the CLI built into your computer or one of the many specialized ones for Git [(Git Clients)](https://git-scm.com/downloads/guis/). If you use Visual Studio Code, the Terminal is a built-in CLI and can be opened with `Ctrl +'` or `Terminal > New Terminal` on the menu.
 
 In your CLI configure git globally with your user name and email:
 
@@ -31,19 +31,19 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 ```
 
-## Fork from Github
+## Fork from GitHub
 
-If you do not have one already, open a Github account with your email address, sign in and go to the [Babylon.js repository](https://github.com/BabylonJS/Babylon.js) to fork with the top button.
+If you do not already have one, open a GitHub account with your email address, sign in, and go to the [Babylon.js repository](https://github.com/BabylonJS/Babylon.js) to fork it using the top button.
 
 ![Fork](/img/contribute/fork.webp);
 
 ## Clone to Local
 
-Now in your **forked** Babylon.js repository use the "Clone or Download" button to find **your** repository address:
+Now, in your **forked** Babylon.js repository, use the "Clone or Download" button to find **your** repository address:
 
 ![Clone](/img/contribute/clone.webp)
 
-If the CLI you are using accepts pasting, then use the copy icon to the right of the address. This will save a lot of typing. If not, enter in the CLI:
+If the CLI you are using accepts pasting, use the copy icon to the right of the address. This will save a lot of typing. If not, enter this in the CLI:
 
 ```bash
 git clone _**your repository address**_
@@ -53,7 +53,7 @@ git clone _**your repository address**_
 
 The cloning may take some time.
 
-Now you have a local repository and a remote repository on Github.
+Now you have a local repository and a remote repository on GitHub.
 
 From the folder where you cloned Babylon.js into you can simply change your directory to the local repository using:
 
@@ -69,8 +69,8 @@ git remote -v
 
 ![remote address](/img/contribute/remote1.webp)
 
-You should find it is called `origin` since it is the origin of the cloned local version. The local version is called the `master` since it is your master version of your Babylon.js.
-When the time comes this will allow you push changes in your local repository to your Github repository using:
+You should find that it is called `origin` because it is the source of the cloned local version. The local branch is called `master` because it is your primary Babylon.js branch.
+When the time comes, this will allow you to push changes from your local repository to your GitHub repository using:
 
 ```bash
 git push origin master
@@ -78,9 +78,9 @@ git push origin master
 
 ## Keeping The Local Version Up To Date
 
-When it comes time for you to request that your changes be pulled into the main Babylon.js then the only difference between your version of Babylon.js and the main one should be the changes you have made. Of course other people are making changes as well so you need to keep your master, the local version, up to date with the main version. The main version, often termed the upstream version, is another remote version your local repository can link to.
+When it comes time to request that your changes be pulled into the main Babylon.js repository, the only differences between your version and the main one should be the changes you made. Of course, other people are making changes as well, so you need to keep your local `master` up to date with the main version. The main version, often called the upstream version, is another remote that your local repository can link to.
 
-To do this you add the main version as a remote with the name upstream, making sure that your CLI is at the Babylon.js directory:
+To do this, add the main version as a remote named upstream, making sure your CLI is in the Babylon.js directory:
 
 ```bash
 git remote add upstream https://github.com/BabylonJS/Babylon.js.git
@@ -92,7 +92,7 @@ Using
 git remote -v
 ```
 
-you can check all remotes are active.
+you can check that all remotes are active.
 
 ![Added Remote](/img/contribute/remote2.webp)
 
@@ -115,7 +115,7 @@ Please note that some of these are checked on submission automatically by softwa
 
 ### Editing with Visual Studio Code
 
-Visual Studio Code is a straight forward IDE with Git integration and is available for all three operating systems. It is worth a try, even though you may already have a favorite or recommended IDE.
+Visual Studio Code is a straightforward IDE with Git integration and is available for all three operating systems. It is worth a try, even though you may already have a favorite or recommended IDE.
 
 You can install VSCode from their site: [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
@@ -137,7 +137,7 @@ This can be done in Visual Studio Code using the _source control icon_ on the le
 
 When using a Git Client you should also check that you are _only committing those files you have added or edited_ and not those produced in any testing build.
 
-When using a CLI you need to add any files you have added or editing before committing them. So _only add those files you have changed_. The full path to the files from the current directory has to be used.
+When using a CLI, you need to add any files you have added or edited before committing them. So _only add those files you have changed_. The full path to the files from the current directory has to be used.
 
 For example in the top directory
 
@@ -163,7 +163,7 @@ Node.js and npm can be installed from the [Node.js home page](https://nodejs.org
 
 Babylon.js currently requires Node.js `>=20.11.0 <23.0.0` and npm `>=8.0.0`.
 
-To check your npm and node version after node was installed:
+To check your npm and node versions after Node.js is installed:
 
 ```shell
 npm --version
@@ -172,7 +172,7 @@ node --version
 
 ### The Build
 
-run `npm install` in the main directory. This will build everything needed to get started with the repository.
+Run `npm install` in the main directory. This will install everything needed to get started with the repository.
 
 It is recommended to run `npm run build:dev` before starting to work to make sure everything is in the right place.
 
@@ -203,7 +203,7 @@ Using command line:
 The Babylon server offers 2 variants - js and ts. To load the js version (the default one) navigate to [http://localhost:1337](http://localhost:1337). To use the TS version navigate to [http://localhost:1337/index-ts.html](http://localhost:1337/index-ts.html).
 The files to edit are sceneJs.js and sceneTs.ts in the source folder of the Babylon server package.
 
-As described in the next section, the Babylon server also offers a playground-snippet debugging.
+As described in the next section, the Babylon server also offers playground-snippet debugging.
 
 #### Debug a playground snippet
 
@@ -213,7 +213,7 @@ To debug a snippet, run the localhost:1338 server in debug mode and add the snip
 
 If you started the server in VSCode you will be able to debug the code straight in your IDE.
 
-Note that the loader will react to changes in the hash (and will reload the scene), but will not save new data. To do that run the playground itself.
+Note that the loader will react to changes in the hash (and will reload the scene), but will not save new data. To do that, run the playground itself.
 
 #### Run the dev host
 
@@ -342,11 +342,11 @@ Run `npm install packageName -w @namespace/package` (add -D to define a dev-depe
 
 The package.json of the project should be changed.
 
-Note - there is a bug in npm that, in certain cases, installs the dependency but doesn't add it to the package.json file. Run the command twice if that happens.
+Note: there is a bug in npm that, in certain cases, installs the dependency but doesn't add it to the package.json file. Run the command twice if that happens.
 
 ### Edit Code
 
-Once the test task (npm run start) has been launched, any saved changes in the Typescript or shader files will automatically rebuild the associated Javascript files. Simply refresh your browser to see the changes in effect and begin to debug your new code.
+Once the test task (`npm run start`) has been launched, any saved changes in the TypeScript or shader files will automatically rebuild the associated JavaScript files. Simply refresh your browser to see the changes take effect and begin debugging your new code.
 
 _Hint_: You may need to refresh the code before adding back a new breakpoint.
 
@@ -365,7 +365,7 @@ Most packages share the same basic structure:
 
 The build/watch/test scripts will take this structure into account.
 
-All references when developing is to the src folder of the packages, but all of the references when building is to the dist folders. That means that in order to compile a package, its dependents need to be compiled already. This is mainly taken care of by the build process and the watchers.
+All references during development are to the `src` folder of the packages, but all references during builds are to the `dist` folders. That means that, in order to compile a package, its dependents need to be compiled already. This is mainly handled by the build process and the watchers.
 
 Dependencies are hoisted to the main directory, so the repository only has a single package lock file and a single node_modules directory.
 
@@ -381,8 +381,8 @@ Read more about node workspaces - [https://docs.npmjs.com/cli/using-npm/workspac
 
 ### Naming convention
 
-- npm packages always low case kebab case (i.e. gui-editor)
-- directories in camel case (i.e. guiEditor)
+- npm packages are always lowercase kebab-case (i.e. gui-editor)
+- directories are in camel case (i.e. guiEditor)
 
 ### Types of packages
 
@@ -395,7 +395,7 @@ Those packages will hold raw assets in their dist directory, and are ready to be
 
 #### Tools packages
 
-Packages with their name starting with `@tools`. Those packages hold tools that are using the main repository.
+Packages with their name starting with `@tools`. Those packages hold tools that use the main repository.
 Tools are, for example, the playground, the sandbox, node and GUI editor.
 
 #### Public packages
@@ -414,7 +414,7 @@ npm run build -w @dev/core
 
 In the main directory.
 
-In a script is missing from the package.json, you can either add it (not forgetting to commit the change) or run the script in the package directory using `npx`. For example, to use the installed typescript (and not the globally installed one) you can run:
+If a script is missing from the package.json, you can either add it (not forgetting to commit the change) or run the script in the package directory using `npx`. For example, to use the installed TypeScript (and not the globally installed one), you can run:
 
 ```shell
 npx tsc ....
@@ -432,7 +432,7 @@ The following scripts should be available for most if not all packages:
 - lint
 - watch (serve on tools)
 
-This is a work-in-progress. The scripts will be added to all. Please let @RaananW on the forums know if any script is missing from a specific package that you are trying to use.
+This is a work in progress. The scripts will be added to all packages. Please let @RaananW on the forums know if any script is missing from a specific package that you are trying to use.
 
 ### Initial source build and watch
 
@@ -455,7 +455,7 @@ format:check and lint:check will run during CI once we have an issue-free reposi
 
 ### Dealing with assets
 
-The dev and lts packages treat binary assets as files that will be a part of their dist folder. When packing those assets the packer can decide what to do with them (for example using url-loader or file-loader in webpack). The assets, which include binary media files and (s)css files are being watched and automatically copied / processed when watching the package. To explicitly watch the assets in a specific project, run the build-tools "process assets" task (which will be fully documented later):
+The dev and lts packages treat binary assets as files that will be part of their dist folder. When packing those assets, the packer can decide what to do with them (for example, by using url-loader or file-loader in webpack). The assets, which include binary media files and (s)css files, are watched and automatically copied/processed when the package is watched. To explicitly watch the assets in a specific project, run the build-tools "process assets" task (which will be fully documented later):
 
 ```shell
 npx build-tools -c process-assets --isCore --watch
@@ -463,7 +463,7 @@ npx build-tools -c process-assets --isCore --watch
 
 in the directory of the specific project. There should also be a `build:assets` and `watch:assets` script in the package.json of every package.
 
-Shaders are also considered to be assets. They are being processed differently, but using the same script. Processing a shader (`.fx` file) will result in a Typescript file, which will be compiled as part of the library during the build process. When building, `build:assets` will be executed before `compile:source` does. The `build` script will take care of that for you. For example, `@dev/core` has the following scripts:
+Shaders are also considered assets. They are processed differently, but they use the same script. Processing a shader (`.fx` file) will result in a TypeScript file, which will be compiled as part of the library during the build process. When building, `build:assets` will be executed before `compile:source`. The `build` script will take care of that for you. For example, `@dev/core` has the following scripts:
 
 ```javascript
 "build": "npm run clean && npm run compile",
@@ -477,9 +477,9 @@ Shaders are also considered to be assets. They are being processed differently, 
 
 We have a global eslint and prettier configuration in the root of the repository. This unifies code structure and formatting throughout the repository. It is running on both .js and .tsx files.
 
-When using VSCode is recommended to use both the Prettier formatter [extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and the ESlint host in order to lint in real time.
+When using VSCode, it is recommended to use both the Prettier formatter [extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and the ESLint host in order to lint in real time.
 
-To run linter using the command line, run:
+To run the linter using the command line, run:
 
 ```shell
 npm run lint
@@ -487,7 +487,7 @@ npm run lint
 
 ### Configuration options
 
-Most packages in the repository don't need any extra configuration in order to compile. However, in certain cases you would want to control the way the files are compiled and served. A good example is to enable HTTPS support, or change the standard port used for the Babylon server or the tools.
+Most packages in the repository don't need any extra configuration to compile. However, in certain cases you may want to control the way the files are compiled and served. A good example is enabling HTTPS support or changing the standard port used for the Babylon server or the tools.
 
 There are a few options to pass configuration to the different packages.
 
@@ -495,7 +495,7 @@ There are a few options to pass configuration to the different packages.
 
 Both the build tools (explained later) and webpack (which is used to serve our tools) accept command line arguments. The following will be examples, but not full documentation of the different options and commands. The full list of options can be found further down the page.
 
-When running the dev watcher you can specify which packages will be watched. Looking at the standard way of starting watching dev (`npm run watch:dev`), you can do one of two things to add the packages to the watcher:
+When running the dev watcher, you can specify which packages will be watched. Using the standard way of starting dev watching (`npm run watch:dev`), you can do one of two things to add packages to the watcher:
 
 ```shell
 # option 1, extend the npm run watch:dev command
@@ -548,13 +548,13 @@ To set all (webpack) builds to production mode, set the following in the .env fi
 NODE_ENV=production
 ```
 
-Other optional variables you can set in the .env files are:
+Other optional variables you can set in the .env file are:
 
 ```shell
 TOOLS_PORT=1338 # port for tools like the playground or the node editor
 CDN_PORT=1337 # port for the Babylon server
 CDN_BASE_URL="https://cdn.babylonjs.com" # base URL for the CDN. Defaults to localhost:1337. Useful if you want to test against a snapshot or the stable nightly
-ENABLE_HTTPS=true # enable HTTPS for the Babylon server. USeful for WebXR
+ENABLE_HTTPS=true # enable HTTPS for the Babylon server. Useful for WebXR
 ENABLE_DEV_OVERLAY=true # shows the react dev overlay
 ```
 
@@ -585,9 +585,9 @@ There are two basic ways to use the dev code:
 
 #### Dev Host
 
-The dev host allows you to write code using typescript or javascript, pack it with webpack, and serve it in your browser. The only file that should not be renamed is index.ts, which is the main entry file.
+The dev host allows you to write code using TypeScript or JavaScript, pack it with webpack, and serve it in your browser. The only file that should not be renamed is index.ts, which is the main entry file.
 
-The dev host is similar to the es6 packages we offer - everything must be imported, and no BABYLON namespace is available. If you want to test a playground scene, see the [Babylon server](#babylon-server) down below
+The dev host is similar to the ES6 packages we offer—everything must be imported, and no BABYLON namespace is available. If you want to test a playground scene, see the [Babylon server](#babylon-server) section below.
 
 To run the dev host you execute the following command:
 
@@ -603,11 +603,11 @@ When loading from the different packages in the dev host you will use the packag
 import { Scene } from "@dev/core";
 ```
 
-It is important to stay consistent when importing, i.e. not to mix published `@babylonjs/*` packages with local `@dev/*` packages for the same codepath, as TypeScript will treat them as different copies.
+It is important to stay consistent when importing, i.e. not to mix published `@babylonjs/*` packages with local `@dev/*` packages for the same code path, as TypeScript will treat them as different copies.
 
-The dev host is configured to be much more forgiving when developing. The best example is the `noImplicitAny` rule, which is set to false. This is done mainly so you could load .js files as well as typescript file. This is the reason for the `allowJs` flag being set to true.
+The dev host is configured to be much more forgiving when developing. The best example is the `noImplicitAny` rule, which is set to false. This is done mainly so you can load .js files as well as TypeScript files. This is the reason the `allowJs` flag is set to true.
 
-The current simple structure of the dev host allows you to copy code from the playground, and making the changes needed to run it in the dev host. For example, this playground:
+The current simple structure of the dev host allows you to copy code from the playground and make the changes needed to run it in the dev host. For example, this playground:
 
 ```javascript
 const createScene = function () {
@@ -764,19 +764,19 @@ export const createScene = async function () {
 
 The dev host is configured with hot reload and live reload, making sure that if you change any file in the dev host source directory, the dev host will update (or reload) the page. However, it will not react to changes to the source code in the dev packages, as it is using the compiled version of the dev packages.
 
-If you want to watch the source code of the dev packages you will need to start the watcher manually or use the configured VSCode tasks (more on that later). Using VSCode is recommended, but not a must.
+If you want to watch the source code of the dev packages, you will need to start the watcher manually or use the configured VSCode tasks (more on that later). Using VSCode is recommended, but not required.
 
 To compile the dev code once in order to get the latest code in the dev host see "Initial source build and watch".
 
-Note about dev host - the dev host is not using any best practices for production code. It is a tool for developing using the dev packages. It is not meant to be used in production.
+Note about the dev host: it does not use best practices for production code. It is a tool for developing with the dev packages and is not meant to be used in production.
 
 #### Babylon Server
 
-The Babylon server is a direct copy of the Babylon CDN structure. It serves javascript files, along with sourcemaps and declarations.
+The Babylon server is a direct copy of the Babylon CDN structure. It serves JavaScript files, along with sourcemaps and declarations.
 
 Similar to the dev host, the Babylon server will take the latest compiled code from the current monorepo packages and serve it to the browser. The default address for the local CDN is [http://localhost:1337](http://localhost:1337).
 
-The Babylon server's _index.html_ has references to all of our public packages and has the BABYLON namespace populated, similar to the way the playground is working. If you want to debug a playground scene without starting the playground, edit the files `sceneJs.js` or `sceneTs.ts` in the babylon-server package and open [http://localhost:1337/index.html](http://localhost:1337/index.html) or [http://localhost:1337/index-ts.html](http://localhost:1337/index-ts.html).
+The Babylon server's _index.html_ has references to all of our public packages and has the BABYLON namespace populated, similar to how the playground works. If you want to debug a playground scene without starting the playground, edit the files `sceneJs.js` or `sceneTs.ts` in the babylon-server package and open [http://localhost:1337/index.html](http://localhost:1337/index.html) or [http://localhost:1337/index-ts.html](http://localhost:1337/index-ts.html).
 
 To start the Babylon server, run:
 
@@ -786,9 +786,9 @@ npm run serve -w @tools/babylon-server
 
 This will start a new server on port 1337 and will host all the needed files, including a very simple _index.html_ file to make sure the CDN is working.
 
-The babylon-server also serves all other files needed for tools like the playground to work correctly. It hosts the physics engine, earcut, the draco decoder and more. See the `public` directory in the babylon-server package to see what files are available. Those files are served as static files.
+The babylon-server package also serves all other files needed for tools like the playground to work correctly. It hosts the physics engine, earcut, the draco decoder, and more. See the `public` directory in the babylon-server package to see what files are available. Those files are served as static files.
 
-The same as dev host, if you want to watch the source code of other packages, you will need to run the watcher/compile manually or use the configured VS Code tasks (more on that later). Using VSCode is recommended, but not a must. See "Initial source build and watch" for dev code compilation and watch.
+As with the dev host, if you want to watch the source code of other packages, you will need to run the watcher/compile manually or use the configured VS Code tasks (more on that later). Using VSCode is recommended, but not required. See "Initial source build and watch" for dev code compilation and watch.
 
 The Babylon server can be used wherever the compiled packages are needed, like the playground.
 
@@ -799,19 +799,19 @@ A few notes:
 1. Regarding performance - minified code loads faster (or at least SHOULD load faster). Meaning that running the server in production mode (using `npm run serve:prod -w @tools/babylon-server`) will help running code relying on the compiled packages faster. However, the actual build of the server will be roughly 2x slower than the dev build. If you want to use the server in order to work on tools like the GUI editor or the playground (working on and not with - i.e. editing those packages' code), it is recommended to run the Babylon server in production mode.
 2. Regarding the packages created by babylon-server - The packages generated by the server are very similar to the public UMD packages, but they are not entirely the same. The babylon-server is not meant to be used in production! It is just a development tool.
 
-As with any webpack-hosted package, there are a few properties that can be configured (using either the CLA od the .env file as discussed above):
+As with any webpack-hosted package, there are a few properties that can be configured (using either the CLI or the .env file, as discussed above):
 
 - mode: the type of build you will use. This can be either 'production' or 'development'. The default is 'development'.
 - cdnPort: the port that the Babylon server will be hosted on. The default is 1337.
 - enableHttps: whether or not to use https. The default is false.
-- enableHotReload: whether or not to enable hot reload. The default is false. It iss never enabled in production mode.
-- enableLiveReload: whether or not to enable live reload. The default is false. It iss never enabled in production mode.
+- enableHotReload: whether or not to enable hot reload. The default is false. It is never enabled in production mode.
+- enableLiveReload: whether or not to enable live reload. The default is false. It is never enabled in production mode.
 
 ## Tools
 
 We have several tools that we are hosting for our users. All of them (playground, sandbox, node editor and the GUI editor) are using the same architecture when it comes to referencing the core library - they use our UMD packages (the files that are hosted on our CDN). This is why, in order to get them to work you need to make sure the Babylon server is running in the background. See [Babylon Server](#babylon-server) for more information.
 
-All tools are packed and served with webpack, and are configured similarity.
+All tools are packed and served with webpack, and are configured similarly.
 
 To start the tools use the `serve` command:
 
@@ -852,7 +852,7 @@ Every package at every stage can be fully debugged using either the browser (Chr
 
 To start the debugger using VS Code use the launch task you want to debug and run it. Note that it might take a little while for VS Code to initially load the files that it is debugging.
 
-All packages are built with sourcemaps (when not in production mode), so opening the browser and choose the file to debug will allow to debug using typescript sources.
+All packages are built with sourcemaps (when not in production mode), so opening the browser and choosing the file to debug will let you debug using TypeScript sources.
 
 Unit tests can be debugged as well using the VS Code debugger. The built-in Vitest launch configurations run without file parallelism, which makes breakpoints predictable. Set the breakpoint beforehand and run the tests. The initial run might take some time, but once the debugger is connected it will stop at that breakpoint.
 
@@ -884,11 +884,11 @@ You can reference this package in other packages to link them together. Once thi
 
 To build each and every package available in the repository, run `npm run build -w @namespace/package-name`. There is, however, a quicker and more efficient way of building a package that has dependencies.
 
-`nx` is integrated in the repository, and can be seen as a local assets repository to run builds much faster. When running an npm script using nx it will automatically run the same command in local dependencies and in the right order. For example, when building a public package such as `babylonjs-gui` using `npx nx run babylonjs-gui:build`, nx will add the required dependent projects to the sequence automatically.
+`nx` is integrated into the repository and can be used as a local build orchestrator to run builds much faster. When running an npm script using nx, it will automatically run the same command in local dependencies and in the right order. For example, when building a public package such as `babylonjs-gui` using `npx nx run babylonjs-gui:build`, nx will add the required dependent projects to the sequence automatically.
 
 It will run the build in sequence (because of the predefined dependencies), but will skip building a package if it hasn't changed since the last build call. So calling `npx nx run babylonjs:build` will build the projects needed for that target and reuse anything that is already up to date when another package depends on it.
 
-This should be used only when you want to build the public packages in the repository, and will mainly be used by the CI. However, nx is available to you and is a very powerful tool. In the future we might integrate it more in the repository. TO read more about nx: [https://nx.dev/getting-started/intro](https://nx.dev/getting-started/intro)
+This should be used only when you want to build the public packages in the repository, and it will mainly be used by the CI. However, nx is available to you and is a very powerful tool. In the future, we might integrate it more deeply into the repository. To read more about nx: [https://nx.dev/getting-started/intro](https://nx.dev/getting-started/intro)
 
 ## Testing
 
@@ -959,8 +959,8 @@ Run all visualization tests (WebGL1, WebGL2 and WebGPU) using `npm run test:visu
 
 #### Before your first test run
 
-The tests are running using playwright.
-If you haven't already installed playwright's browsers, please do so by running `npx playwright install`.
+The tests are run using Playwright.
+If you haven't already installed Playwright's browsers, please do so by running `npx playwright install`.
 
 #### Running all tests
 
@@ -973,13 +973,13 @@ npm run test:visualization -- --project="webgl2"
 ```
 
 If any error occurs during the test, the tests will continue and will eventually generate a report with all the failed tests. The report will open automatically after the tests are done.
-You can break the execution and still see the report (if any tests filed) by pressing `Ctrl+C`.
+You can stop the execution and still see the report (if any tests failed) by pressing `Ctrl+C`.
 
 #### Adding a new test
 
 To add a new test to the visualization tests, add the test data to [packages/tools/tests/test/visualization/config.json](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/tests/test/visualization/config.json)
 
-The best way to do that is first create a playground, save it (using a local version of the playground, for example) and then add it at the end of the config file:
+The best way to do that is to first create a playground, save it (using a local version of the playground, for example), and then add it at the end of the config file:
 
 ```json
 //...,
@@ -1005,7 +1005,7 @@ npm run test:visualization:ui
 
 This will show you the tests for all 3 engines and you will be able to run them one by one.
 
-If you want to display only one specific engine add the following:
+If you want to display only one specific engine, add the following:
 
 ```shell
 npm run test:visualization:ui -- --project="webgl2"
@@ -1029,17 +1029,17 @@ A reminder to read the [contribution guidelines](https://github.com/BabylonJS/Ba
 
 Pull Requests are automatically validated with linting and testing.
 
-When you are happy that all testing has been validated, guidelines followed, and only necessary files committed then push your local master to your origin Github repository with your Git Client or from the CLI with:
+When you are happy that all testing has been validated, the guidelines have been followed, and only the necessary files have been committed, then push your local master to your origin GitHub repository with your Git client or from the CLI with:
 
 ```bash
 git push origin master
 ```
 
-Once this has succeeded visit your Babylon.js repository. If all your commits are ahead of the upstream Babylon.js:master you can issue a pull request using the Contribute button shown below and follow the steps:
+Once this has succeeded, visit your Babylon.js repository. If all your commits are ahead of the upstream Babylon.js:master, you can issue a pull request using the Contribute button shown below and follow the steps:
 
 ![Success](/img/contribute/pr1.webp)
 
-If some of your commits are behind the upstream Babylon.js:master then you will need to do:
+If some of your commits are behind the upstream Babylon.js:master, then you will need to run:
 
 ```bash
 git pull upstream master
@@ -1049,11 +1049,11 @@ and then push into your repository again.
 
 ## Check for Success
 
-Once your `pull-request` has been issued then it needs to be checked, reviewed, approved and merged. Find your pull-request from the list and open it:
+Once your `pull-request` has been issued, it needs to be checked, reviewed, approved, and merged. Find your pull-request in the list and open it:
 
 ![check 1](/img/contribute/pr3.webp)
 
-Scroll down to the review panel. Should there be any then a red cross indicates the area of failure. Click on details for more information:
+Scroll down to the review panel. If there are any failures, a red cross indicates the area of failure. Click on details for more information:
 
 ![check 1](/img/contribute/pr4.webp)
 
@@ -1065,9 +1065,9 @@ Then click on the link under "Build job failed" to be taken to an Azure Pipeline
 
 For any failures re-edit your local files, commit and push to your repository. The alterations will be automatically added to your pull-request and it will be re-checked.
 
-## Its Live
+## It's Live
 
-Once your pull-request has been merged it will become live once any changes have been deployed into the `Preview Release` usually overnight but sometimes delayed a couple of days.
+Once your pull-request has been merged, it will become live once the changes have been deployed into the `Preview Release`, usually overnight, though sometimes delayed by a couple of days.
 
 ## Summary
 

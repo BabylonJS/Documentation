@@ -9,7 +9,7 @@ keywords: diving deeper, frame graph, rendering, node editor, examples, volumetr
 
 ![Volumetric Lighting in Frame Graphs](/img/frameGraph/task_volumetriclighting.webp)
 
-This page aims to implement volumetric lighting post-processing “manually,” so you can see how to create custom frame graph tasks and custom nodes for use in a node render graph.
+This page aims to implement volumetric-lighting post-processing “manually,” so you can see how to create custom frame graph tasks and custom nodes for use in a node render graph.
 
 The resulting code/graphs are not intended for direct use: if you want to use volumetric lighting, it is already integrated into the [FrameGraphVolumetricLightingTask](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList#framegraphvolumetriclightingtask) task. Please refer to [this page](/features/featuresDeepDive/lights/volumetricLightScattering#the-volumetric-lighting-task) for more information on how to integrate this effect into your project.
 
@@ -126,7 +126,7 @@ public readonly outputTexture: BABYLON.FrameGraphTextureHandle;
 
 ### Initialization code
 
-The class uses other frame graph tasks as part of its implementation. It amsp uses a shader material to render the lighting volume mesh(es). Everything is initialized in the class constructor:
+The class uses other frame graph tasks as part of its implementation. It also uses a shader material to render the lighting volume mesh(es). Everything is initialized in the class constructor:
 
 ```typescript
 private readonly _renderLightingVolumeMaterial: BABYLON.ShaderMaterial;
@@ -172,7 +172,7 @@ We simply create an instance of the classes we will use to implement the effect.
 
 #### Revisit the **phaseG**, **extinction** and **lightPower** setters implementation
 
-Let's update the implementation of these properties, as these parameters are used by the material/class `VolumetricLightingBlendVolumeTask`:
+Let's update the implementation of these properties, as these parameters are used by the material and by the `VolumetricLightingBlendVolumeTask` class:
 
 ```typescript
 public set phaseG(value: number) {
@@ -292,7 +292,7 @@ for (const mesh of this.lightingVolumeMesh.meshes) {
 }
 ```
 
-First, we verify that all the parameters we use in the implementation are correctly defined, then we associate the **targetTexture** handle with **outputTexture**, as explained above. We also define our custom material for the mesh(es) we are going to render in the lighting volume texture.
+First, we verify that all the parameters used in the implementation are correctly defined, then we associate the **targetTexture** handle with **outputTexture**, as explained above. We also define our custom material for the mesh(es) we are going to render in the lighting volume texture.
 
 ```typescript
 const textureManager = this._frameGraph.textureManager;
@@ -318,7 +318,7 @@ The code should be self-explanatory, thanks to the helper functions of the textu
 
 #### Creation of the passes
 
-First, we create a normal pass (i.e., not a render pass), which defines the uniforms used by the material that needs to be updated on each frame:
+First, we create a normal pass (i.e., not a render pass), which defines the uniforms used by the material that need to be updated on each frame:
 
 ```typescript
 const InvViewProjectionMatrix = new BABYLON.Matrix();
@@ -355,7 +355,7 @@ this._blendLightingVolumeTask.camera = this.camera;
 this._blendLightingVolumeTask.record(true);
 ```
 
-Here, we create the rendering passes. It's fairly simple, as we rely on existing tasks that already implement what we need to do:
+Here, we create the rendering passes. It is fairly simple, as we rely on existing tasks that already implement what we need:
 * we clear the lighting volume texture using a `BABYLON.FrameGraphClearTextureTask` task
 * we render the meshes in the lighting volume texture using a `BABYLON.FrameGraphObjectRendererTask` task
 * we blend the lighting volume texture with the target texture using a `VolumetricLightingBlendVolumeTask` task (to be implemented below)
@@ -366,7 +366,7 @@ When we call the `record()` method on the various instances (**_clearLightingVol
 * When `FrameGraph.addPass()`, `FrameGraph.addRenderPass()`, or `FrameGraph.addObjectListPass()` is called, the pass is added to **_currentProcessedTask**.
 <br/>
 
-Thanks to this mechanism, tasks created by clear, render objects, and blend tasks will be correctly added to the `VolumetricLightingTask` task and not to their respective tasks.
+Thanks to this mechanism, the passes created by the clear, render-objects, and blend tasks will be correctly added to the `VolumetricLightingTask` task and not to their respective tasks.
 
 Note that we pass *true* to the **skipCreationOfDisabledPasses** parameter of the `record()` methods, because we don't want disabled tasks to be created: we will create a single disabled task ourselves in the code below:
 
@@ -416,14 +416,14 @@ class VolumetricLightingBlendVolumeTask extends BABYLON.FrameGraphPostProcessTas
 }
 ```
 
-This implementation is typical of a post-processing task implementation:
+This implementation is typical of a post-processing task:
 * You implement the main post-processing code in a “thin post-process” class (here `VolumetricLightingBlendVolumeThinPostProcess`, which will be described below)
 * You override the `record()` method to bind the texture uniform(s) used by your post-processing
 <br/>
 
 The code above should be self-explanatory. Noteworthy is the fact that we indicate that this task/pass has a texture dependency on **depthTexture**, so we call `pass.addDependencies(this.depthTexture);`. Refer to [Task dependencies](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphClassOverview#task-dependencies) for more information about task dependencies.
 
-`VolumetricLightingBlendVolumeThinPostProcess` is implemented like follows:
+`VolumetricLightingBlendVolumeThinPostProcess` is implemented as follows:
 
 ```typescript
 class VolumetricLightingBlendVolumeThinPostProcess extends BABYLON.ThinPassPostProcess {
@@ -467,7 +467,7 @@ class VolumetricLightingBlendVolumeThinPostProcess extends BABYLON.ThinPassPostP
 
 As you can see, the code is also simple:
 * The post-processing has four input properties: **camera**, **outputTextureWidth**, **outputTextureHeight**, and **extinction**. The first three are set by the `VolumetricLightingBlendVolumeTask` task, and the last one by the main `VolumetricLightingTask` task.
-* The `bind()` method is overriden to set the uniforms used by the shader, with the exception of texture uniforms, which are set by the task itself.
+* The `bind()` method is overridden to set the uniforms used by the shader, with the exception of texture uniforms, which are set by the task itself.
 <br/>
 
 The last point explains why post-processes are now implemented via a “thin” base class: this class does not process texture properties, which allows it to be used in the context of the frame graph (which processes textures in its own way) and in a standard way, by implementing a regular post-process. Here, we have not implemented the “non-thin” version of the class, as it is only used in the context of the frame graph, but you can refer to any post-processing class in the framework to see how the thin post-processing class is used by the implementation.
@@ -651,7 +651,7 @@ public override _deserialize(serializationObject: any) {
 
 Note: Implementing `serialize` and `_deserialize` is mandatory for the block to work in NRGE (unlike `_dumpPropertiesCode` - but if you don't implement this method, the "Generate Code" button won't work as expected)!
 
-Once again, the code is very simple, just serialize/parse the properties used by the post-process.
+Once again, the code is very simple: just serialize and parse the properties used by the post-process.
 
 ### Class registration
 
@@ -683,5 +683,4 @@ This PG uses the classes described on this page:
 <Playground id="#U9RNJ9#5" image="/img/playgroundsAndNMEs/pg-U9RNJ9-1.webp" title="Implementing volumetric lighting" description="Implementing volumetric lighting with frame graphs" isMain={false}/>
 <br/><br/>
 
-You can choose to run the NRG version by setting **useNodeRenderGraph** to *true* in the **index.ts** page.
-
+You can choose to run the NRG version by setting **useNodeRenderGraph** to *true* in the **index.ts** file.

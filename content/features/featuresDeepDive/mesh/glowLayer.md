@@ -14,13 +14,13 @@ video-content:
 
 ## How To Make a Mesh Glow
 
-Emissive meshes are equivalent to self lit meshes. Both the emissive color and texture of the material determine how the mesh will self lit. This can for instance help create a phosphorescent watch dial. Babylon JS supports natively emissive properties in both the standard and PBR materials.
+Emissive meshes are equivalent to self-lit meshes. Both the emissive color and emissive texture of the material determine how the mesh will self-light. This can, for instance, help create a phosphorescent watch dial. Babylon.js natively supports emissive properties in both standard and PBR materials.
 
-But how could we easily make the glow around those self lit areas ?
+But how can we easily create a glow around those self-lit areas?
 
 ![illustration](/img/how_to/glow-layer/introduction.webp)
 
-## How to use ?
+## How to use?
 
 Only one line is needed to make all the emissive parts of a scene glow:
 
@@ -32,7 +32,7 @@ const gl = new BABYLON.GlowLayer("glow", scene);
 
 ## Intensity Controls
 
-By default, the glow layer is filled using the material emissive parameters (emissive result = emissive color _ emissive texture color _ emissive texture level). It will also use a blur kernel of 32 which might not be adapted to your visual requirements.
+By default, the glow layer is filled using the material emissive parameters (emissive result = emissive color _ emissive texture color _ emissive texture level). It also uses a blur kernel of 32, which might not suit your visual requirements.
 
 ## Color Intensity
 
@@ -49,8 +49,8 @@ gl.intensity = 0.5;
 
 In order to control the shape of the blur, you can rely on the creation option:
 
-- **mainTextureRatio**: Multiplication factor applied to the canvas size to compute the render target size used to generate the glowing objects (the smaller the faster).
-- **mainTextureFixedSize**: Enforces a fixed size texture to ensure resize independent blur to prevent the shape of the blur to change according to the target device size.
+- **mainTextureRatio**: Multiplication factor applied to the canvas size to compute the render target size used to generate the glowing objects (the smaller, the faster).
+- **mainTextureFixedSize**: Enforces a fixed-size texture to ensure resize-independent blur and prevent the shape of the blur from changing according to the target device size.
 - **blurKernelSize**: How big is the kernel of the blur texture.
 
 ```javascript
@@ -64,11 +64,11 @@ const gl = new BABYLON.GlowLayer("glow", scene, {
 
 ### Controlling glow color per mesh
 
-By default the glow layer will use emissive texture and emissive color to generate the glow color of every active mesh.
+By default, the glow layer uses the emissive texture and emissive color to generate the glow color of every active mesh.
 But you can override this behavior with the following callbacks:
 
-- customEmissiveColorSelector: (mesh: Mesh, subMesh: SubMesh, material: Material, result: Color4) => void: Callback used to let the user override the color selection on a per mesh basis
-- customEmissiveTextureSelector(mesh: Mesh, subMesh: SubMesh, material: Material) => Texture: Callback used to let the user override the texture selection on a per mesh basis
+- customEmissiveColorSelector: (mesh: Mesh, subMesh: SubMesh, material: Material, result: Color4) => void: Callback used to let the user override the color selection on a per-mesh basis
+- customEmissiveTextureSelector(mesh: Mesh, subMesh: SubMesh, material: Material) => Texture: Callback used to let the user override the texture selection on a per-mesh basis
 
 ```javascript
 const gl = new BABYLON.GlowLayer("glow", scene);
@@ -108,7 +108,7 @@ gl.addExcludedMesh(mesh);
 
 <Playground id="#LRFB2D#29" title="Excluding Meshes From The Glow Layer" description="Simple example of excluding meshes from the glow layer."/>
 
-### Include Only some Meshes
+### Include Only Some Meshes
 
 In order to include only a subset of meshes in the glow layer you can use the dedicated function:
 

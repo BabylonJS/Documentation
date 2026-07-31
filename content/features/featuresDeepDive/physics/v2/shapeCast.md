@@ -10,13 +10,13 @@ video-content:
 
 # Shape cast
 
-Shape cast regroup different features related to using Physics V2 Shapes to do queries in the Physics world.
-To paraphrase it: use physics shapes to query collisions and distance to other physics shapes.
-This API is specific to Havok plugin.
+Shape casting groups different features related to using Physics V2 shapes to make queries in the physics world.
+In short, use physics shapes to query collisions and distances to other physics shapes.
+This API is specific to the Havok plugin.
 
 ## Common query interface
 
-These two properties are common to each query interface:
+These two properties are common to all query interfaces:
 ```javascript
 /**
  * Should trigger collisions be considered in the query?
@@ -61,12 +61,12 @@ hk.pointProximity(
     result
 );
 ```
-See below for result definition.
+See below for the result definition.
 
 PG: <Playground id="#I6AR8X#21" title="Point Proximity" description="Find the closest shape from a point within a limit"/>
 
 ## Shape Proximity Query
-Instead of a point, provide a shape. Interface becomes:
+Instead of a point, provide a shape. The interface becomes:
 
 ```javascript
 hk.shapeProximity(
@@ -85,8 +85,8 @@ Two results are returned: the first one is local to the shape. The second is in 
 PG: <Playground id="#1VT1BK#11" title="Shape Proximity" description="Find the closest shape from another shape within a limit"/>
 
 ## Shape Cast query
-When a shape goes from a start position to an end position, if there is a collision, at which fraction of that movement does it happen?
-> Note: Result will not be correct for intersecting shapes.
+When a shape moves from a start position to an end position, this query tells you at what fraction of that movement a collision occurs.
+> Note: The result will not be correct for intersecting shapes.
 
 ```javascript
 hk.shapeCast({
@@ -97,16 +97,16 @@ hk.shapeCast({
     shouldHitTriggers: false,
 }, shapeLocalResult, hitWorldResult);
 ```
-Basically, for a positioned and oriented shape, going from `startPosition` world position to `endPosition` world position, `shapeLocalResult` and `hitWorldResult`, both of `ShapeCastResult` type will have the `hasHit` property set to true.
-Then, get the fraction of that move with `hitFraction` property.
+For a positioned and oriented shape moving from `startPosition` to `endPosition`, `shapeLocalResult` and `hitWorldResult`—both of type `ShapeCastResult`—will have the `hasHit` property set to `true` when a collision occurs.
+Then, get the fraction of that movement with the `hitFraction` property.
 
 PG: <Playground id="#1VT1BK#12" title="Shape Cast" description="Find the closest shape from another shape within a limit"/>
 
 ## Queries result
 
-Result infos for these 3 queries are contained in 
+Result information for these three queries is contained in:
 - `ProximityCastResult` for proximity and shape proximity
-- `ShapeCastResult` for Shape cast
+- `ShapeCastResult` for shape cast
 
 ```javascript
 export class CastingResult {
@@ -125,9 +125,9 @@ export class CastingResult {
     public shape?: PhysicsShape;
     ...
 ```
-Raycast result inherits as well from this base class.
+Raycast results also inherit from this base class.
 
-Specific for `ProximityCastResult` consists in:
+The `ProximityCastResult`-specific property is:
 
 ```javascript
 /**
@@ -136,7 +136,7 @@ Specific for `ProximityCastResult` consists in:
 hitDistance: number;
 ```
 
-Specific for `ShapeCastResult` consists in:
+The `ShapeCastResult`-specific property is:
 
 ```javascript
 /**

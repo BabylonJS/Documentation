@@ -1,5 +1,5 @@
 ---
-title: How to use BabylonJS with Vue - all the links from this tutorial at one place
+title: How to use BabylonJS with Vue - all the links from this tutorial in one place
 image:
 description: How to integrate BabylonJS into a Vue application.
 keywords: babylonJS, extension, external libraries, external, vue, vue2, vue3, quasar
@@ -18,11 +18,11 @@ video-content:
 
 [Part 4: BabylonJS and Vue - messages driven scene](/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4/ "BabylonJS and Vue - messages driven scene")
 
-You can find a quick prototype of the mentioned solution running here https://babylonjs.nascor.tech/scene-director/
+You can find a quick prototype of the mentioned solution running here: https://babylonjs.nascor.tech/scene-director/
 
-And the source repository can be found at https://github.com/RolandCsibrei/babylonjs-vue-messages-driven-scene
+And the source repository can be found at: https://github.com/RolandCsibrei/babylonjs-vue-messages-driven-scene
 
-## A real app using Typescript, Vue 2 with Composition API, mobile friendly Quasar based GUI
+## A real app using TypeScript, Vue 2 with the Composition API, and a mobile-friendly Quasar-based GUI
 
 https://github.com/RolandCsibrei/babylonjs-real-sun-moon
 
@@ -36,7 +36,7 @@ https://github.com/RolandCsibrei/babylonjs-real-sun-moon
 
 [Installing BabylonJS - ES6 tutorial](/setup/frameworkPackages/es6Support "Installing BabylonJS - ES6 tutorial")
 
-## Abstract
+## Additional reading
 
 [Understanding reflow and repaint in the browser](https://dev.to/gopal1996/understanding-reflow-and-repaint-in-the-browser-1jbg "Understanding reflow and repaint in the browser")
 
@@ -80,6 +80,6 @@ https://github.com/RolandCsibrei/babylonjs-vue3-javascript-basic-setup
 
 https://github.com/RolandCsibrei/babylonjs-vue3-javascript
 
-## Typescript, Vue2, Composition API, Quasar
+## TypeScript, Vue 2, Composition API, Quasar
 
 https://github.com/RolandCsibrei/babylonjs-quasar-vue2-composition-api-typescript

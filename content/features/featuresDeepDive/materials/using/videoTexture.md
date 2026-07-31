@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-If you want to display a video in your scene, the Babylon engine has a special texture for that. This special texture works similar to other textures, with the exception of a few parameters. These parameters include video urls (a url array), the size of the video texture (here is 256), the scene, and a final optional boolean that indicates if you want to use [mipmap](https://en.wikipedia.org/wiki/Mipmap) or not.
+If you want to display a video in your scene, the Babylon engine has a special texture for that. This special texture works similarly to other textures, with the exception of a few parameters. These parameters include video URLs (a URL array), the size of the video texture (256 here), the scene, and a final optional boolean that indicates whether you want to use [mipmap](https://en.wikipedia.org/wiki/Mipmap) or not.
 
 Here is an example from our Flat2009 Demo: <Playground id="#ZMCFYA#83" title="Video Texture Example" description="Simple example of using video as a texture in your scene." image="/img/playgroundsAndNMEs/divingDeeperVideoTexture1.webp"/>
 
@@ -21,9 +21,9 @@ ecran.material.diffuseTexture = new BABYLON.VideoTexture("video", "textures/baby
 ```
 Note: after loading the texture, the class sets the `wrapU` and `wrapV` properties to `WRAP_ADDRESSMODE`. If you wish to use another address mode, you need to add an observer to  `VideoTexture.onLoadObservable` and modify the properties in this observer.
 
-The [_VideoTexture_ object](/typedoc/classes/babylon.videotexture) accepts an array of videos (to take into account various codecs). The first video in the array that can be loaded... is the one used as content source. Currently, HTML5 supports .mp4, .webm, and .ogv video formats.
+The [_VideoTexture_ object](/typedoc/classes/babylon.videotexture) accepts an array of videos (to take into account various codecs). The first video in the array that can be loaded is the one used as the content source. Currently, HTML5 supports .mp4, .webm, and .ogv video formats.
 
-The internal [video DOM object](https://www.w3.org/wiki/HTML/Elements/video) is accessible via the VideoTexture.video property, which allows you to control some characteristics and monitor the status of the video. e.g.  play, pause, loop, autoplay. See the link above for the full story.
+The internal [video DOM object](https://www.w3.org/wiki/HTML/Elements/video) is accessible via the VideoTexture.video property, which allows you to control some characteristics and monitor the status of the video, e.g. play, pause, loop, and autoplay. See the link above for the full story.
 
 ![video](/img/how_to/Advanced%20Texturing/3.png)
 
@@ -35,7 +35,7 @@ ecran.material.emissiveColor = new BABYLON.Color3(1, 1, 1);
 
 ## Auto Play
 
-Modern browsers have strict policies for autoplaying video. Without user interaction, most browsers will autoplay only if the audio is muted. When VideoTexture setting `autoPlay` is true (the default), Babylon.js will automatically mute the audio if the first attempt to autoplay fails. To play video with audio, a user interaction (such as a tap) is often required. To manually start a video texture playback, code like this can be used:
+Modern browsers have strict policies for autoplaying video. Without user interaction, most browsers will autoplay only if the audio is muted. When the VideoTexture `autoPlay` setting is true (the default), Babylon.js will automatically mute the audio if the first attempt to autoplay fails. To play video with audio, a user interaction (such as a tap) is often required. To manually start video texture playback, code like this can be used:
 
 ```javascript
 scene.onPointerDown = function () {
@@ -46,7 +46,7 @@ scene.onPointerDown = function () {
 
 This will start the video on the first tap in the scene. A demo can be found here: <Playground id="#1BYH8W#4" title="Tap To Play Video Texture" description="Simple example of tapping to start playing a video texture." image="/img/playgroundsAndNMEs/divingDeeperVideoTexture2.webp"/>
 
-An event is also available to detect if you are in browser preventing autoplay by policy:
+An event is also available to detect whether your browser is preventing autoplay because of its policy:
 
 ```javascript
 texture.onUserActionRequestedObservable.add(() => {
@@ -56,22 +56,22 @@ texture.onUserActionRequestedObservable.add(() => {
 });
 ```
 
-In case you wish to display a texture during the load time, you can provide in the `poster` property of the settings the URL of an image displayed during loading or until the user interacts with the video.
+If you wish to display a texture during load time, you can provide the URL of an image in the `poster` property of the settings. It will be displayed during loading or until the user interacts with the video.
 
 ## Web RTC
 
-Starting with v2.6, we introduced the support for WebRTC. So now you can create a specific VideoTexture which will be connected to your default WebCam:
+Starting with v2.6, we introduced support for WebRTC. You can now create a specific VideoTexture that will be connected to your default webcam:
 
 ```javascript
 BABYLON.VideoTexture.CreateFromWebCam(scene, function (videoTexture) {}, { maxWidth: 256, maxHeight: 256 });
 ```
 
-The third parameter is optional and can be used to define minWidth, maxWidth, minHeight and maxHeight. These values will be used to constraint the camera resolution.
+The third parameter is optional and can be used to define minWidth, maxWidth, minHeight, and maxHeight. These values will be used to constrain the camera resolution.
 
 
 ## Disposal
 
-VideoTexture creates and uses an HTML video element internally.  When VideoTexture.dispose is called, texture resources are disposed as expected. However, the underlying video element is not removed. Causing complete release of all underlying video resources is not standardized across browsers, but code like this can be used:
+VideoTexture creates and uses an HTML video element internally. When VideoTexture.dispose is called, texture resources are disposed as expected. However, the underlying video element is not removed. Fully releasing all underlying video resources is not standardized across browsers, but code like this can be used:
 
 ```javascript
 // Store reference to the underlying HTML5 video element
@@ -97,5 +97,4 @@ videoEl.load()
 videoEl.remove()
 ```
 
-This is only important to users that need to load/dispose multiple VideoTextures over time.
-
+This is only important for users who need to load and dispose of multiple VideoTextures over time.

@@ -1,7 +1,7 @@
 ---
 title: Controls
 image-url: /img/defaultImage.webp
-description: Babylon.js Controls are a set of regular web controls that are super-charged with hardware accelerated rendering through Babylon.js to provide blazing fast dedicated controls.
+description: Babylon.js Controls are a set of regular web controls supercharged with hardware-accelerated rendering through Babylon.js to provide blazing-fast performance.
 keywords: web controls, hardware accelerated, 2D
 further-reading:
   - title: Web Video Processing Made Easy Blog Post
@@ -12,9 +12,9 @@ video-content:
 
 # Controls
 
-Babylon.js Controls are a set of regular web controls that are super-charged with hardware accelerated rendering through Babylon.js to provide blazing fast dedicated controls.
+Babylon.js Controls are a set of regular web controls supercharged with hardware-accelerated rendering through Babylon.js to provide blazing-fast performance.
 
-Babylon.js provides a unified API on top of **WebGL**, **WebGL2** and **WebGPU** that controls can leverage to unleash the raw power of your GPU.
+Babylon.js provides a unified API on top of **WebGL**, **WebGL2**, and **WebGPU** that controls can leverage to unleash the raw power of your GPU.
 
 ![Resizer](/img/features/controls/resizer.webp)
 

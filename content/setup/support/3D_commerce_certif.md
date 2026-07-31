@@ -12,13 +12,13 @@ This page will walk you through the 3D Commerce Viewer Certification Program, wh
 
 ## 3D Commerce Viewer Certification Program
 
-3D visualization technologies, initially developed for gaming and visual effects, are beginning to transform online retail experiences, advertising, and even physical retail experiences with AR/VR. 3D Commerce is a standardization working group from [**Khronos Group**](https://www.khronos.org/) aiming at removing the barriers to deploying 3D in e-commerce. 
+3D visualization technologies, initially developed for gaming and visual effects, are beginning to transform online retail experiences, advertising, and even physical retail experiences with AR/VR. 3D Commerce is a standardization working group within the [**Khronos Group**](https://www.khronos.org/) that aims to remove the barriers to deploying 3D in e-commerce. 
 
 The Viewer Certification Program enables 3D viewers across the industry to demonstrate that they can accurately and consistently display 3D products, clearing the way for reliable 3D and AR-powered shopping across multiple platforms and devices.
 
 ![3D Viewer Certification Program Overview (source: Khronos Web site)](/img/how_to/3D-commerce-certif/2021-3dcommerce-certification-overview.webp)
 
-This program is still in its early days and as a member of this working group, the Babylon.js Team is fully engaged in helping to develop and support its adoption. More info on the [**3D Commerce Web site**](https://www.khronos.org/3dcommerce/).
+This program is still in its early days, and as a member of this working group, the Babylon.js team is fully engaged in helping to develop it and support its adoption. More info is available on the [**3D Commerce website**](https://www.khronos.org/3dcommerce/).
 
 ## Babylon.js Sandbox - certified version
 
@@ -33,7 +33,7 @@ This 3D Commerce certified Babylon.js Sandbox is accessible here: [**https://3dc
 
 ## Certified viewer version based on Babylon.js engine
 
-If you have an existing viewer (or are developing a viewer) based on Babylon.js engine, you can get a certified viewer version by:
+If you have an existing viewer, or are developing one, based on the Babylon.js engine, you can get a certified viewer version by:
 
 - Setting a flag in the glTF loader to enable transparency as coverage which will turn off specular over alpha:
   ```JavaScript
@@ -51,4 +51,4 @@ If you have an existing viewer (or are developing a viewer) based on Babylon.js 
   scene.imageProcessingConfiguration.toneMappingType = ImageProcessingConfiguration.TONEMAPPING_KHR_PBR_NEUTRAL;
   ```
 
-The Certification program will likely evolve with the glTF format and new extensions being taken into consideration. If some changes are not backward compatible, we'll make sure to continue documenting them on this page.
+The certification program will likely evolve with the glTF format and with new extensions being taken into account. If some changes are not backward compatible, we'll make sure to continue documenting them on this page.

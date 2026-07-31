@@ -32,12 +32,12 @@ await frameGraph.whenReadyAsync();
 
 frameGraph.pausedExecution = false;
 ```
-You should generally disable frame graph execution before calling `await FrameGraph.whenReadyAsync()`, so that the frame graph is not executed by the main rendering loop before everything is ready, which could cause errors.
+You should generally disable frame graph execution before calling `await FrameGraph.whenReadyAsync()`, so the frame graph is not executed by the main rendering loop before everything is ready, which could cause errors.
 
 ### List of tasks
-The graph itself is stored as a list (array) of tasks: explicit connections between task inputs and outputs are not stored in this class, it is up to the user to add tasks to the graph in the correct order, so that a task T2 that requires the result of another task T1 is added after T1.
+The graph itself is stored as a list (array) of tasks: explicit connections between task inputs and outputs are not stored in this class. It is up to the user to add tasks to the graph in the correct order, so that a task T2 that requires the result of another task T1 is added after T1.
 
-Tasks are (implicitly) connected together through their input and output properties: these are simple properties that are declared at the class level. For existing tasks in the framework, output properties are generally prefixed with **output** to differentiate them from inputs.
+Tasks are implicitly connected together through their input and output properties: these are simple properties declared at the class level. For existing tasks in the framework, output properties are generally prefixed with **output** to differentiate them from inputs.
 
 ### Code example
 Outline of operations for creating and using a frame graph:
@@ -114,7 +114,7 @@ Compared to other frame graph implementations, Babylon.js is a bit unusual when 
 This allows you to easily “remove” a task from the graph without actually deleting it. Removing a task from a graph can be a bit complicated, as the inputs/outputs of other tasks must be reconnected to account for the removal, and the graph must be rebuilt to regenerate the passes. In comparison, disabling a task is very easy and does not require any of these operations. However, this simplicity comes at a price: performance may be (slightly) worse when a task is disabled than when it is removed from the graph. This is because some tasks still need to perform some processing when they are disabled. For example, a post-processing task must copy the contents of its source texture to the target texture when it is disabled. If a post-processing task is completely removed from the graph, you will save this copy. As is often the case, this is a trade-off between ease of use and performance.
 
 ### Task dependencies
-Another property worth mentioning is that of **dependencies**.
+Another property worth mentioning is **dependencies**.
 
 You can add a texture to a task's dependencies to indicate that a texture must retain its contents at least until that task before the texture optimizer can reuse it for subsequent tasks. If you do not do this, in some cases, a texture may be reused too early and the graph result may not match your expectations.
 
@@ -174,7 +174,7 @@ You can refer to the code of the [FrameGraphClearTextureTask](/typedoc/classes/b
 
 ## FrameGraphTextureManager
 [Link to class](/typedoc/classes/babylon.framegraphtexturemanager).<br/><br/>
-This class is responsible for managing textures (rendering target textures, i.e., the textures we render) in a frame graph.
+This class is responsible for managing textures (render target textures, i.e., the textures we render to) in a frame graph.
 
 ### Main methods and properties
 * `getTextureFromHandle(handle)`. Retrieves the actual texture (an `InternalTexture` instance) from a texture handle.
@@ -184,7 +184,7 @@ This class is responsible for managing textures (rendering target textures, i.e.
 * `resolveDanglingHandle(danglingHandle, handle?, newTextureName?, creationOptions?)`. Associates a texture with a dangling handle. If you do not provide a handle for a texture (second parameter), the third and fourth parameters are used to create a new texture handle by calling `createRenderTargetTexture(newTextureName, creationOptions)`.
 
 ### Texture Handles
-To achieve texture reuse (enabled via [FrameGraph.optimizeTextureAllocation](/typedoc/classes/babylon.framegraph#optimizetextureallocation)), which is one of the main goals of frame graphs, textures must be manipulated via handles (which are just numbers under the hood) and not directly using a reference (pointer) to the actual texture. This way, the system is free to link the same texture to different handles without the user knowing. Whenever you need an actual texture pointer, use the `getTextureFromHandle(handle)` method.
+To achieve texture reuse (enabled via [FrameGraph.optimizeTextureAllocation](/typedoc/classes/babylon.framegraph#optimizetextureallocation)), which is one of the main goals of frame graphs, textures must be manipulated via handles (which are just numbers under the hood) and not directly through a reference (pointer) to the actual texture. This way, the system is free to link the same texture to different handles without the user knowing. Whenever you need an actual texture pointer, use the `getTextureFromHandle(handle)` method.
 
 When you want to create a texture (render target) to use in a frame graph, call the `FrameGraphTextureManager.createRenderTargetTexture(name, creationOptions)` method. This method will return a handle to the texture, which you can then use as input for certain tasks, for example:
 ```typescript

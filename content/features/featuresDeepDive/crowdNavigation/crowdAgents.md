@@ -12,9 +12,9 @@ video-content:
 
 ![a crowd ](/img/extensions/navigation/CrowdExample.webp)
 
-Now we have a navmesh, we can create autonomous agents and make them navigate within that navmesh constraint.
+Now that we have a navmesh, we can create autonomous agents and make them navigate within its constraints.
 The agents will find the best path to that destination while avoiding other crowd agents.
-An agent is attached to a Transform. That means that you have to attach a mesh to see them but also that you can attach pretty much anything.
+An agent is attached to a Transform. That means you have to attach a mesh to see it, but you can attach pretty much anything.
 
 A demo can be found at: <Playground id="#X5XCVT#240" title="Crowd and Navigation Agents" description="Crowd and navigation agents."/>
 
@@ -22,44 +22,44 @@ Click anywhere on the navmesh to make the agents go to that location.
 
 ## How to use it?
 
-First thing is to create a crowd that all agents will belong to. Parameters are the maximum number of agents in the crowd, the maximum agent radius and the scene.
+The first thing is to create a crowd to which all agents will belong. The parameters are the maximum number of agents in the crowd, the maximum agent radius, and the scene.
 
 ```javascript
 const crowd = navigationPlugin.createCrowd(10, 0.1, scene);
 ```
 
-Then to create an agent and attach it to a transform, call:
+Then, to create an agent and attach it to a transform, call:
 
 ```javascript
 const agentIndex = crowd.addAgent(position, agentParameters, transform);
 ```
 
-And that's it! You will get a non moving agent. We now want to move it.
+And that's it! You will get a non-moving agent. We now want to move it.
 
 ```javascript
 crowd.agentGoto(agentIndex, navigationPlugin.getClosestPoint(endPoint));
 ```
 
-This code will get the closest position on the navmesh to endPoint. Then it asks the agent to go to that position.
-Depending on your agent parameters, it will get there faster of slower.
+This code gets the closest position on the navmesh to `endPoint`. Then it asks the agent to go to that position.
+Depending on your agent parameters, it will get there faster or slower.
 
 ## Agent Parameters
 
-radius - Radius of the agent. World Unit.
+radius - Radius of the agent in world units.
 
-height - Heigh in World Unit.
+height - Height in world units.
 
-maxAcceleration - Acceleration max in World Unit per second.
+maxAcceleration - Maximum acceleration in world units per second.
 
-maxSpeed - Max speed in World Unit per second.
+maxSpeed - Maximum speed in world units per second.
 
-collisionQueryRange - The agent collision system will take care of others within that radius in World Unit.
+collisionQueryRange - The agent collision system will take care of other agents within that radius in world units.
 
-pathOptimizationRange - How the path will be optimized and made more straight.
+pathOptimizationRange - Controls how the path will be optimized and straightened.
 
-separationWeight - How hard the system will try to separate the agent. A Value of 0 means it will not try and agents might collide.
+separationWeight - Controls how strongly the system will try to separate the agent. A value of 0 means it will not try, and agents might collide.
 
-You can update any of these parameters, per agent, by calling :
+You can update any of these parameters per agent by calling:
 
 ```javascript
 // change speed and max speed
@@ -74,12 +74,12 @@ You can teleport an agent to any position using this call:
 crowd.agentTeleport(agentIndex, navigationPlugin.getClosestPoint(destinationPoint));
 ```
 
-Please note the navigation state is reseted when teleporting. You'll have to call `agentGoto` to choose a new destination.
+Please note that the navigation state is reset when teleporting. You'll have to call `agentGoto` to choose a new destination.
 
 ## Agent orientation and next path target
 
-Recastjs crowd system does not handle agent orientation. But the velocity is available and it's possible to orient the geometry toward it.
-To do so, you will need to use Math.atan2 like in the following example. Please take care of the length of the velocity vector. If it's not big enough, you may encounter jittering.
+The Recastjs crowd system does not handle agent orientation. However, velocity is available, and it is possible to orient the geometry toward it.
+To do so, you need to use Math.atan2, as in the following example. Please pay attention to the length of the velocity vector. If it is not large enough, you may encounter jittering.
 
 ```javascript
 let velocity = crowd.getAgentVelocity(agentIndex);
@@ -96,8 +96,8 @@ The agent's cube is oriented by the velocity and a grey little box is placed at 
 
 ## Agent reaching target Observer
 
-An observable automatically fires when an agent reaches the destination (ie, is within radius of destination). The radius is by default the agent radius but it can be changed using `reachRadius` number property in the `IAgentParameters` object.
-If there are too many agents in the crowd trying to reach the same destination, a bottleneck can happen and few agents will reach destination. Be sure to properly set those values.
+An observable automatically fires when an agent reaches the destination (i.e., is within the destination radius). By default, the radius is the agent radius, but it can be changed using the `reachRadius` number property in the `IAgentParameters` object.
+If there are too many agents in the crowd trying to reach the same destination, a bottleneck can occur and only a few agents will reach the destination. Be sure to set those values properly.
 To add an observable, simply add your function:
 
 ```javascript

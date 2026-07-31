@@ -23,7 +23,7 @@ Whether you're building UI overlays, 3D HUDs, or in-world labels, TextRenderer o
 
 ## Installation
 
-The MSDF Text Renderer is available as an UMD NPM package
+The MSDF Text Renderer is available as a UMD NPM package.
 
 ```shell
 -npm install babylonjs-addons --save
@@ -39,9 +39,9 @@ and as an ES6 package:
 
 Two assets are needed to initialize an MSDF `TextRenderer`:
 1. A texture that contains the MSDF glyphs.
-2. A json file that describes the bounds of each glyph within the texture, as well as other per-glyph information.
+2. A JSON file that describes the bounds of each glyph within the texture, as well as other per-glyph information.
 
-Because we need to load the correct shaders (either webgl or webgpu), the creation of a TextRenderer is async:
+Because we need to load the correct shaders (either WebGL or WebGPU), creating a TextRenderer is async:
 
 ```
 const sdfFontDefinition = await (await fetch("https://assets.babylonjs.com/fonts/roboto-regular.json")).text();
@@ -50,7 +50,7 @@ const fontAsset = new ADDONS.FontAsset(sdfFontDefinition, "https://assets.babylo
 const textRenderer = await ADDONS.TextRenderer.CreateTextRendererAsync(fontAsset, engine);
 ```
 
-The fontAsset is the definition of the font shapes and can be shared across several TextRenderers.
+The `fontAsset` defines the font shapes and can be shared across several TextRenderers.
 
 ## Generating font data
 
@@ -59,7 +59,7 @@ You can check the following free tools to generate font assets for your project:
 * https://msdf-bmfont.donmccurdy.com/
 * https://github.com/Chlumsky/msdfgen#using-a-multi-channel-distance-field
 
-These tools generate the required json and texture image (e.g. png). You will need to provide as an input the set of characters that you need in your app. For example, if you wanted to support typical alpha-numeric English characters along with other common characters, your input string might be:
+These tools generate the required JSON file and texture image (for example, a PNG). You will need to provide as input the set of characters that you need in your app. For example, if you want to support typical alphanumeric English characters along with other common characters, your input string might be:
 ```text
 abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 `~!@#$%^&*()-_=+[{]}\|;:'",<.>/?
 ```
@@ -86,7 +86,7 @@ textRenderer.addParagraph("What's up ?", {
 });
 ```
 
-The options are defined with that type:
+The options are defined by this type:
 
 ```
 type ParagraphOptions = {
@@ -99,7 +99,7 @@ type ParagraphOptions = {
 };
 ```
 
-You can also add a third parameter to the call to addParagraph to control where you want your text:
+You can also add a third parameter to the `addParagraph` call to control where you want your text:
 
 ```
 textRenderer.addParagraph("What's up ?", {
@@ -107,11 +107,11 @@ textRenderer.addParagraph("What's up ?", {
 }, BABYLON.Matrix.Translation(5, 0, 0));
 ```
 
-The following properties are also available to control all the rendering of a TextRenderer:
+The following properties are also available to control all rendering for a TextRenderer:
 
 * color: Color4 used to define the color of the text
-* thicknessControl: a float indication how to change the overall default thickness (between -0.5 to 0.5 with 0 as the default value)
-* parent: A node entity used to attach to text to
+* thicknessControl: a float indicating how to change the overall default thickness (between -0.5 and 0.5, with 0 as the default value)
+* parent: A node used to attach the text to
 * isBillboard: a boolean indicating you want the text to always face the camera. ** Please note that in this case only the translation part of the parent world matrix will be considered **
 * isBillboardScreenProjected: indicates whether billboard mode renders the text in screen-space. When set to true, the text keeps a constant on-screen size—its scale no longer changes with the camera’s distance.
 * strokeColor: Color4 used to define the color of the stroke around the text
@@ -122,11 +122,11 @@ The following properties are also available to control all the rendering of a Te
 
 ## Positioning and scaling
 
-By default the text will be rendered at 0,0,0. Then we apply paragraph world matrix and then the transform matrix.
+By default, the text will be rendered at 0,0,0. Then we apply the paragraph world matrix, followed by the transform matrix.
 
-You can control its position, rotation and scaling by setting a parent. If you opt to use the billboard mode then only position from the parent will be used.
+You can control its position, rotation, and scaling by setting a parent. If you opt to use billboard mode, then only the parent's position will be used.
 
-The overall location of the text will be computed as follow:
+The overall location of the text will be computed as follows:
 
 Final world matrix = Parent World * Transform Matrix * Paragraph Matrix
 

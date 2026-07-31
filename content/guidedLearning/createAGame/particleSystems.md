@@ -10,16 +10,16 @@ video-content:
 
 ## Summary
 
-Particle systems are an awesome way to add more depth to actions & movements in a game. For any particle system you're thinking about creating, test it in a playground first. The playground has a particle editor that makes everything a lot easier! I tested out all of my particle systems in the playground before bringing them into the game and figuring positioning and making minor adjustments. It's also really useful if you're going to end up duplicating the same particle system several times as all you need to do is perfect 1.
+Particle systems are an awesome way to add more depth to actions and movements in a game. For any particle system you're thinking about creating, test it in a playground first. The playground has a particle editor that makes everything a lot easier! I tested out all of my particle systems in the playground before bringing them into the game, figuring out the positioning, and making minor adjustments. It's also really useful if you're going to end up duplicating the same particle system several times, as all you need to do is perfect one.
 
 ## Fireworks
 
-The most important particle system of my game was the fireworks as it was the only one that was essential to the game. This was supposed to give an awesome ending!
-I used a playground as reference on how to make the fireworks. You can't actually use the exact code that's here in a local project because it uses some properties of the particle system that are only available in the playground. So, I had to make some adjustments to the code to get it to work.
+The most important particle system in my game was the fireworks, as it was the only one that was essential to the game. This was supposed to give an awesome ending!
+I used a playground as a reference for how to make the fireworks. You can't actually use the exact code that's here in a local project because it uses some properties of the particle system that are only available in the playground. So, I had to make some adjustments to the code to get it to work.
 
-Here's the original playground
+Here's the original playground:
 PG: <Playground id="#ZXI9H#4" title="Fireworks Base Playground" description="Playground Basis for Rocket Firework"/>
-Here's the modified playground
+Here's the modified playground:
 PG: <Playground id="#IR1S8R#10" title="Fireworks Modified Playground" description="Playground Modified Rocket."/>
 
 ![fireworks](/img/how_to/create-a-game/fireworks.webp)
@@ -72,7 +72,7 @@ Similar to this playground, I made a [Firework class](https://github.com/Babylon
     The particle system itself just uses a simple texture and decreases in size over its lifetime.
 
 2. **The Explosion**
-    The explosion has its own function [\_explosions](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L218) that creates another particle system. It's a bit more involved, but I'll do my best to try and explain what is going on:
+    The explosion has its own function [\_explosions](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L218) that creates another particle system. It's a bit more involved, but I'll do my best to explain what is going on:
 
     ```javascript
     const explosion = MeshBuilder.CreateSphere("explosion", { segments: 4, diameter: 1 }, this._scene);
@@ -107,7 +107,7 @@ Similar to this playground, I made a [Firework class](https://github.com/Babylon
     emitter.setVerticesData(VertexBuffer.ColorKind, vertColors);
     ```
 
-    For every third vertex position, we store a new position and normal as vector3s. We then generate a random color for this vertex. After we've set up our new particle system based off of vertex data, we need to actually update the emitter to use the colors we generated.
+    For every third vertex position, we store a new position and normal as Vector3s. We then generate a random color for this vertex. After we've set up our new particle system based on vertex data, we need to actually update the emitter to use the colors we generated.
 
     ```javascript
     //emitter for the particle system
@@ -117,7 +117,7 @@ Similar to this playground, I made a [Firework class](https://github.com/Babylon
     let direction = vertNormal.normalize().scale(1); // move in the direction of the normal
     ```
 
-    Still in this _for_ loop, we create an emitter mesh, similar to how we did for the rocket except this time, the emitter is positioned at the _vertPosition_ that we created. It's also been given a direction to move based off of the _vertNormal_. This will cause it to move straight out (like an explosion).
+    Still in this _for_ loop, we create an emitter mesh, similar to how we did for the rocket except that this time, the emitter is positioned at the _vertPosition_ that we created. It's also been given a direction to move based on the _vertNormal_. This will cause it to move straight out (like an explosion).
 
     ```javascript
     //actual particle system for each exploding piece
@@ -153,7 +153,7 @@ Now we have a particle system set up for a firework, but we want to have multipl
 
 ### Create Instances
 
-Before we can use the particle systems, we need to create instances of the Firework class. In the [Environment constructor](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L83), I just looped through how many fireworks I wanted and then added them to an array of fireworks.
+Before we can use the particle systems, we need to create instances of the Firework class. In the [Environment constructor](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L83), I just looped through the number of fireworks I wanted and then added them to an array of fireworks.
 
 ```javascript
 //--FIREWORKS--
@@ -229,7 +229,7 @@ I created a [\_loadStars](https://github.com/BabylonJS/SummerFestival/blob/a0abc
 You can look at how I made the particle system in this playground
 PG: <Playground id="#YLGJ52" title="Starburst Playground" description="Playground demonstration of starburst."/>
 
-It took a bit of messing around with to get the exact effect, so this is where the editor can come in super handy as you can just make quick edits to your particle systems. Just remember that if you want there to be a set duration, assign that last as the particle system won't loop in the editor if you have this set.
+It took a bit of messing around to get the exact effect, so this is where the editor can come in super handy, as you can just make quick edits to your particle systems. Just remember that if you want there to be a set duration, assign that last, as the particle system won't loop in the editor if you have this set.
 
 ## Resources
 

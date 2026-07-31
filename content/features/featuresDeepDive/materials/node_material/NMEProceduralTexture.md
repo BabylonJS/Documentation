@@ -1,7 +1,7 @@
 ---
 title: Node Material Procedural Textures
 image-url: /img/defaultImage.webp
-description: Learn how to create Proecedural Textures using the Node Material.
+description: Learn how to create Procedural Textures using the Node Material.
 keywords: shaders, glsl, node editor, graphics, GPU program, material, NME, Node Material, Node Material Editor, procedural texture
 further-reading:
 video-overview:
@@ -12,7 +12,7 @@ video-content:
 
 Starting with Babylon.js v4.2, you can now create procedural textures with the node material editor.
 
-You need simply to change the mode to _Procedural texture_ this time:
+You simply need to change the mode to _Procedural texture_ this time:
 
 Some blocks are made unavailable in this mode (they are hidden from the block list), as they have no meaning: the mesh, particle and animation blocks.
 

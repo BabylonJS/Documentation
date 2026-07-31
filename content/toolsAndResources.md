@@ -10,4 +10,4 @@ video-content:
 
 # Tools and Resources
 
-This section contains all sorts of handy information for developing in Babylon.js. From a rich set of tools to make development easier, to several free asset libraries for you to leverage in your scenes, this section is sure to help you make the most beautiful experiences possible, as quickly and efficiently as possible!
+This section contains all sorts of helpful information for developing with Babylon.js. From tools that make development easier to free asset libraries you can use in your scenes, it is designed to help you create beautiful experiences as quickly and efficiently as possible.

@@ -12,7 +12,7 @@ video-content:
 
 ## A Pivot
 
-A pivot in Babylon.js is an alternative method to using a [parent](/features/featuresDeepDive/mesh/transforms/parent_pivot/parent) to set the center of transformation for a mesh, that is the point used as the center of rotation or the center of enlargement. Using _setPivotPoint_ produces different behavior than setting a pivot point in tools such as 3DS Max and Maya and a parent should be used instead to produce a closer match to the behavior of these applications. 
+A pivot in Babylon.js is an alternative to using a [parent](/features/featuresDeepDive/mesh/transforms/parent_pivot/parent) to set the center of transformation for a mesh; that is, the point used as the center of rotation or the center of enlargement. Using _setPivotPoint_ produces behavior that differs from setting a pivot point in tools such as 3DS Max and Maya, so a parent should be used instead to produce a closer match to the behavior of those applications. 
 
 On this page the demonstration mesh is a cube with side length 1. When a mesh is created the pivot (red sphere) is always at the _local origin_ (yellow sphere); the _local origin_ and _created origin_ are at the world space origin of (0, 0, 0). When the pivot and _local origin_ are coincident they are shown as a red and yellow striped sphere, as in Fig 1.
 
@@ -35,7 +35,7 @@ mesh.getAbsolutePivotPoint(); // returns Vector3
 
 ### Set Pivot Point
 
-Using _setPivotPoint_ you simply pass a Vector3 object that is the **relative position** of the pivot to the _local origin_ of the mesh. To set a pivot at (x, y, z) relative to the _local origin_ of a mesh requires
+Using _setPivotPoint_, you simply pass a Vector3 object that is the **relative position** of the pivot with respect to the _local origin_ of the mesh. To set a pivot at (x, y, z) relative to the _local origin_ of a mesh, use
 
 ```javascript
 mesh.setPivotPoint(new BABYLON.Vector3(x, y, z));
@@ -53,13 +53,13 @@ box.setPivotPoint(new BABYLON.Vector3(-1, -1, -1));
 <Playground id="#T6IN6X#1" title="Set Pivot Point Exp. 2" description="Setting a pivot point at front, left, bottom corner of a displaced cube."/>
 
 ### Set Pivot Point To A World Space Position 
-To set the pivot at a point given in **world space** it is necessary to find the relative position of this point to the mesh _local origin_. When there is a mesh at position (xc, yc, zc) you want to set a pivot at world space point (xp, yp, zp) then the relative position is (xp - xc, yp - yc, zp - z) and use
+To set the pivot at a point given in **world space**, it is necessary to find the relative position of this point with respect to the mesh _local origin_. When a mesh is at position (xc, yc, zc) and you want to set a pivot at world space point (xp, yp, zp), the relative position is (xp - xc, yp - yc, zp - z), so use
 
 ```javascript
 mesh.setPivotPoint(BABYLON.Vector3(xp - xc, yp - yc, zp - z));
 ```
 
-To set the pivot of the cube at world space point (1, 1, 1)
+To set the pivot of the cube at world space point (1, 1, 1):
 ```javascript
 const pivotAt = new BABYLON.Vector3(1, 1, 1);
 const relativePosition = pivotAt.subtract(box.position)
@@ -68,9 +68,9 @@ box.setPivotPoint(relativePosition);
 <Playground id="#T6IN6X#3" title="Set Pivot Point" description="Setting a pivot point in world space."/>
 
 ### Set Pivoted Mesh To A World Space Position
-After a rotation or a scaling of a mesh with a pivot set the world space position of the mesh will not be the same as its position stored in _mesh.position_.
+After rotating or scaling a mesh with a pivot set, the world space position of the mesh will not be the same as its position stored in _mesh.position_.
 
-The blue sphere is at (5, 0, 0). When the yellow sphere(_local origin_) and the blue sphere coincide then a yellow and blue sphere is shown.
+The blue sphere is at (5, 0, 0). When the yellow sphere (_local origin_) and the blue sphere coincide, a yellow-and-blue sphere is shown.
 
 ![positioned mesh](/img/how_to/pivots/pivot10.webp)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 3 Pivoted Cube at (5, 0, 0)
@@ -79,7 +79,7 @@ The blue sphere is at (5, 0, 0). When the yellow sphere(_local origin_) and the 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 4 Pivoted Cube Rotated
 
 In Fig 3 and Fig 4 the value for ```box.position``` will be (5, 0, 0).   
-However in Fig 4 the actual world space position of the _local origin_ is (-5.41421365737915, 0, -1). You can obtain the world space position using ```box.getAbsolutePosition()```.
+However, in Fig 4 the actual world space position of the _local origin_ is (-5.41421365737915, 0, -1). You can obtain the world space position using ```box.getAbsolutePosition()```.
 
 In a similar way the _local origin_ of a pivoted mesh will be displaced after scaling.
 
@@ -94,16 +94,16 @@ mesh.position = mesh.position.add(mesh.position.subtract(mesh.getAbsolutePositio
 
 ### Get Pivot Point
 
-After using ```setPivotPoint``` then ```getPivotPoint``` will give you the relative position of the pivot point to the _local origin_ and `getAbsolutePivotPoint` its position in world space.
+After using ```setPivotPoint```, ```getPivotPoint``` will give you the relative position of the pivot point with respect to the _local origin_, and `getAbsolutePivotPoint` will give its position in world space.
 
-## How To Set the Pivot using a Matrix
+## How To Set the Pivot Using a Matrix
 This is achieved using
 
 ```javascript
 mesh.setPivotMatrix(BABYLON.Matrix.Translation(Vector3));
 ```
 
-To set a pivot at the point (x, y, z) with a translation matrix using
+To set a pivot at the point (x, y, z) with a translation matrix, use
 
 ```javascript
 mesh.setPivotMatrix(BABYLON.Matrix.Translation(-x, -y, -z));
@@ -115,13 +115,13 @@ Note the change of sign.
 ### Breaking Change
 From Babylon.js v3.2 this method produces the same results as using ```setPivotPoint```.
 
-Before v3.2 this would result in the mesh being moved and the local origin of the mesh being reset to the pivot point. Should you want to maintain the older behaviour of moving the mesh a second parameter, `false` is needed
+Before v3.2, this would result in the mesh being moved and the local origin of the mesh being reset to the pivot point. Should you want to maintain the older behavior of moving the mesh, a second parameter, `false`, is needed:
 
 ```javascript
 mesh.setPivotMatrix(BABYLON.Matrix.Translation(-x, -y, -z), false);
 ```
 
-**STRESSED NOTE** For those of you who wrote code using a pivot for versions of Babylon.js before v3.2 and who want to update the version of Babylon.js to a current one should change each occurrence, in their project code, of
+**STRESSED NOTE** If you wrote code using a pivot for versions of Babylon.js before v3.2 and want to update to a current version of Babylon.js, you should change each occurrence of the following in your project code:
 
 ```javascript
 mesh.setPivotMatrix(BABYLON.Matrix.Translation(-x, -y, -z));
@@ -135,20 +135,19 @@ mesh.setPivotMatrix(BABYLON.Matrix.Translation(-x, -y, -z), false);
 
 ### How To Set Pivot Position to World Space Coordinates
 
-When there is a mesh at position (xc, yc, zc) you want to set a pivot at (xp, yp, zp) then you need to use (xc - xp, yc - yp, zc - zp) as the translation.
+When a mesh is at position (xc, yc, zc) and you want to set a pivot at (xp, yp, zp), you need to use (xc - xp, yc - yp, zc - zp) as the translation.
 
 ```javascript
 mesh.setPivotMatrix(BABYLON.Matrix.Translation(xc - xp, yc - yp, zc - zp));
 ```
 
-To set the pivot of the cube at world space point (1, 1, 1)
+To set the pivot of the cube at world space point (1, 1, 1):
 ```javascript
 const pivotAt = new BABYLON.Vector3(1, 1, 1);
 const translation = box.position.subtract(pivotAt)
 box.setPivotMatrix(BABYLON.Matrix.Translation(translation.x, translation.y, translation.z));
 ```
 <Playground id="#T6IN6X#6" title="Set Pivot Point by Matrix" description="Setting a pivot point in world space."/>
-
 
 
 

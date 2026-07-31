@@ -11,12 +11,12 @@ video-content:
 ## Transformations
 ## Introduction to Coordinate Transformation
 
-The first step in understanding coordinate transformation Babylon.js is to understand how the data describing a mesh is stored. The positions of each vertex is kept in an array of coordinates in the local space of the mesh. Each transformation applied to the mesh is stored in a matrix called the *World Matrix*. For each rendered frame the current *World Matrix* is used on the local space vertex data to obtain the world data for the mesh. Except for exceptional circumstance such as *baking a transformation* or a user updating it, the mesh vertex data remains unchanged. 
+The first step in understanding coordinate transformation in Babylon.js is to understand how the data describing a mesh is stored. The positions of each vertex are kept in an array of coordinates in the local space of the mesh. Each transformation applied to the mesh is stored in a matrix called the *World Matrix*. For each rendered frame, the current *World Matrix* is used on the local space vertex data to obtain the world data for the mesh. Except in exceptional circumstances, such as *baking a transformation* or a user updating it, the mesh vertex data remains unchanged. 
 
 
-When you want one mesh, mesh_C, to locate in the frame of reference of another mesh, mesh_P, using coordinate transformation you use the _transformCoordinates_ function to apply the *World Matrix* of mesh_P to the required position.
+When you want one mesh, mesh_C, to be located in the frame of reference of another mesh, mesh_P, you can use coordinate transformation. Use the _transformCoordinates_ function to apply the *World Matrix* of mesh_P to the required position.
 
-For example take mesh_P to be a box, a cube of size 1. In the local space of the box the center of the top face is at (0, 0.5, 0). Move and rotate this box to a new position. We want mesh_C, a sphere, to be located at the center of the top face of the box at this position. To do this use
+For example, take mesh_P to be a box, a cube of size 1. In the local space of the box, the center of the top face is at (0, 0.5, 0). Move and rotate this box to a new position. We want mesh_C, a sphere, to be located at the center of the top face of the box in this new position. To do this, use
 
 ```javascript
 const matrix = mesh_P.computeWorldMatrix(true); //true forces a recalculation rather than using cache version
@@ -27,7 +27,7 @@ mesh_C.position = global_position;
 
 Position sphere using TransformCoordinates: <Playground id="#TRAIXW" title="Position a Sphere Using Transform Coordinates" description="Simple example of positioning a sphere using transform coordinates."/>
 
-To translate the sphere by the direction vector (1, 1, 1) for example you can add this to the current local position vector
+To translate the sphere by the direction vector (1, 1, 1), for example, you can add this to the current local position vector:
 
 ```javascript
 const matrix = mesh_P.computeWorldMatrix(true);
@@ -39,4 +39,4 @@ mesh_C.position = global_position;
 
 Translate sphere using TransformCoordinates: <Playground id="#TRAIXW#1" title="Translate a Sphere Using Transform Coordinates" description="Simple example of translating a sphere using transform coordinates."/>
 
-More extensive examples follow
+More extensive examples follow.

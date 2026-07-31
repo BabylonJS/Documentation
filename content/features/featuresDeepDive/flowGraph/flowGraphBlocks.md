@@ -21,8 +21,8 @@ Connections are the only way to get data from a block. The block will rarely hav
 
 ### Async execution blocks
 
-Some execution blocks are async in their nature. A good example is event blocks or the SetDelay block.
-An execution blocks always has the `out` output, which is the synchronous output. This output is triggered when the block is initialized and executed, unless it is async. If it is async, the out will be triggered on the same frame as the initialization of the block. The async trigger is called `done` (unless stated otherwise).
+Some execution blocks are asynchronous in nature. Good examples are event blocks and the SetDelay block.
+An execution block always has the `out` output, which is the synchronous output. This output is triggered when the block is initialized and executed, unless it is async. If it is async, `out` is triggered on the same frame as the block's initialization. The async trigger is called `done` (unless stated otherwise).
 In some cases the output will be called `completed`. The logic here is - `done` is for async executions, `completed` is for the completion of a long synchronous execution (like a for loop).
 
 ### Block names
@@ -41,9 +41,9 @@ Let's dive deeper into the different block types.
 
 ## Event Blocks
 
-Event blocks are a special kind of execution blocks, as they are the starting point of the graph. They have a "special" execution input that connected to events triggered by the scene.
+Event blocks are a special kind of execution block, as they are the starting point of the graph. They have a "special" execution input connected to events triggered by the scene.
 They are triggered by events in the scene, such as a pointer down or a mesh pick. When an event block is triggered, it sends a signal to the connected blocks, allowing them to execute their actions.
-Event blocks are passive in nature, and do not perform any actions on their own
+Event blocks are passive in nature and do not perform any actions on their own.
 
 ### SceneReadyEventBlock
 
@@ -62,7 +62,7 @@ sceneReady.done.connectTo(nextBlock.in);
 
 ### SceneTickEventBlock
 
-This block is triggered on each frame of the scene. using the scene.onBeforeRenderObservable observable.
+This block is triggered on each frame of the scene, using the scene.onBeforeRenderObservable observable.
 
 | data inputs | data outputs                                              | execution inputs | execution outputs                                     |
 | ----------- | --------------------------------------------------------- | ---------------- | ----------------------------------------------------- |
@@ -127,7 +127,7 @@ pointerOut.done.connectTo(nextBlock.in);
 ### ReceiveCustomEventBlock
 
 This block is used to receive a custom event that was sent with the corresponding block. It can have custom event data that is passed with the event.
-Custom events are coordinated by the graph coordinator, meaning they can be received cross-graphs as well.
+Custom events are coordinated by the graph coordinator, meaning they can also be received across graphs.
 
 | data inputs | data outputs                                | execution inputs | execution outputs                              |
 | ----------- | ------------------------------------------- | ---------------- | ---------------------------------------------- |
@@ -161,12 +161,12 @@ receiveCustomEvent.done.connectTo(nextBlock.in);
 Execution blocks are responsible for controlling the flow of execution in the graph. They can be used to create loops, branches, and other control structures. These blocks can be asynchronous.
 Think of execution blocks as active actions of more than just values passing. For example, a ForLoop block, SetDelay or even PlayAnimation block.
 
-Execution block (excluding the special type which are event blocks) have an `in` input, which is the input that triggers the execution of the block. This input is usually connected to the `out` or `done` output of another block.
+Execution blocks (excluding the special type that consists of event blocks) have an `in` input, which triggers execution of the block. This input is usually connected to the `out` or `done` output of another block.
 
 ### SendCustomEventBlock
 
 This block is used to send a custom event that can be received with the corresponding block. It can have custom event data that is passed with the event.
-Custom events are coordinated by the graph coordinator, meaning they can be triggered cross-graphs as well.
+Custom events are coordinated by the graph coordinator, meaning they can also be triggered across graphs.
 
 | data inputs                                 | data outputs | execution inputs         | execution outputs                      |
 | ------------------------------------------- | ------------ | ------------------------ | -------------------------------------- |
@@ -260,7 +260,7 @@ Think of this block as a switch. It has two execution outputs, `onOn` and `onOff
 
 ### ForLoopBlock
 
-This block behaves just like a for loop. It has a start and end index, and it iterates them until the end value is reached. Each iteration the `executionFlow` signal will be executed, and the current index will be available on the `index` output.
+This block behaves just like a for loop. It has a start and end index, and it iterates until the end value is reached. On each iteration, the `executionFlow` signal will be executed, and the current index will be available on the `index` output.
 
 | data inputs    | data outputs | execution inputs | execution outputs |
 | -------------- | ------------ | ---------------- | ----------------- |
@@ -284,7 +284,7 @@ FlowGraphForLoopBlock.MaxLoopIterations = 10000;
 
 ### MultiGateBlock
 
-This block is used to create a multi-gate in the flow graph. it has a list of execution signals, and each time the `in` signal is triggered, the next signal will be triggered. The first will be `out_0`, the second will be `out_1`, and so on. The order can be sequential or random.
+This block is used to create a multi-gate in the flow graph. It has a list of execution signals, and each time the `in` signal is triggered, the next signal will be triggered. The first will be `out_0`, the second will be `out_1`, and so on. The order can be sequential or random.
 
 | data inputs | data outputs                        | execution inputs | execution outputs                                                      |
 | ----------- | ----------------------------------- | ---------------- | ---------------------------------------------------------------------- |
@@ -369,11 +369,11 @@ This will adjust the output signals, adding or removing them as needed.
 
 ### SetDelayBlock
 
-This block is used to create a delay in the flow graph. It has a `delay` input that specifies the delay time in seconds. The `done` signal will be triggered after the delay time has passed, while the `out` signal will be triggered immediately.
+This block is used to create a delay in the flow graph. It has a `delay` input that specifies the delay time in seconds. The `done` signal will be triggered after the delay time has elapsed, while the `out` signal will be triggered immediately.
 Each delay has its own index, which increments each time a new delay is created. This index can be used to cancel a specific delay, similar to setTimeout/clearTimeout.
 
 <Alert type="info">
-  The delay is using Babylon's `AdvancedTimer`, meaning it is using the scene render loop to count time. That means that if the scene doesn't render, the delay will not be triggered!
+  The delay uses Babylon's `AdvancedTimer`, which uses the scene render loop to count time. That means that if the scene doesn't render, the delay will not be triggered!
 </Alert>
 
 | data inputs           | data outputs                                       | execution inputs                   | execution outputs                               |
@@ -388,7 +388,7 @@ setDelay.duration.setValue(2.5 /* seconds */, ctx);
 setDelay.done.connectTo(nextBlock.in); // will be triggered 2.5 seconds after the in signal
 ```
 
-This class has a static member called `MaxParallelDelayCount` [100]. This is the max number of delays that can be created by this block at the same time. If this number is reached, the next delay will not be created and the error signal will be triggered.
+This class has a static member called `MaxParallelDelayCount` [100]. This is the maximum number of delays that can be created by this block at the same time. If this number is reached, the next delay will not be created and the error signal will be triggered.
 You can set this value to your liking, but be careful with performance.
 
 ```javascript
@@ -418,8 +418,8 @@ cancelDelay.out.connectTo(nextBlock.in);
 
 ### SwitchBlock
 
-This block is used to create a switch in the flow graph. It has a list of output signals, and a `case` input that specifies which output signal to trigger. It behaves the same as a switch block in programming languages, and also has a `default` output signal.
-The list of cases can be of a number type (integer or number). The list of cases needs to be provided beforehand as part of the block's construction.
+This block is used to create a switch in the flow graph. It has a list of output signals and a `case` input that specifies which output signal to trigger. It behaves the same as a switch block in programming languages and also has a `default` output signal.
+The list of cases can be a numeric type (integer or number). The list of cases must be provided beforehand as part of the block's construction.
 
 | data inputs | data outputs | execution inputs | execution outputs                           |
 | ----------- | ------------ | ---------------- | ------------------------------------------- |
@@ -461,7 +461,7 @@ throttle.out.connectTo(nextBlock.in);
 
 ### WaitAllBlock
 
-This block is used to wait for all of its input signals to be triggered before executing its output signal. It has a `in_` inputs, based on the number of input signals. The `completed` signal will be executed when all of the input signals are triggered. Otherwise the `out` signal will be executed.
+This block is used to wait for all of its input signals to be triggered before executing its output signal. It has `in_` inputs based on the number of input signals. The `completed` signal will be executed when all input signals are triggered. Otherwise, the `out` signal will be executed.
 
 | data inputs | data outputs                                             | execution inputs | execution outputs |
 | ----------- | -------------------------------------------------------- | ---------------- | ----------------- |
@@ -514,18 +514,18 @@ consoleLog.out.connectTo(nextBlock.in);
 
 ### PlayAnimationBlock
 
-This block takes an animation or animation group and plays them. If an animation is provided, it is also required to provide the target `object` on which the animation will run.
+This block takes an animation or animation group and plays it. If an animation is provided, it is also required to provide the target `object` on which the animation will run.
 
 This block is also used to play interpolation animations. An object can have only one single interpolation animation running on it. A new interpolation will cancel the previous one.
 
-Only one of the inputs - `animation` or `animationGroup` - is required.
+Only one of the inputs -- `animation` or `animationGroup` -- is required.
 
 <Alert type="info">
   The output of this block is always an animation group. Even when providing an animation object, it will be added to a group holding this animation only.
 </Alert>
 
 <Alert type="info">
-  Babylon's animation system is using frames and not time. The `from` and `to` values are the frame numbers, and not the time in seconds.
+  Babylon's animation system uses frames, not time. The `from` and `to` values are frame numbers, not time in seconds.
 </Alert>
 
 | data inputs                                  | data outputs                                                     | execution inputs | execution outputs                           |
@@ -555,7 +555,7 @@ playAnimationGroup.done.connectTo(nextBlock.in);
 
 ### StopAnimationBlock
 
-This block takes an animation group and stops them.
+This block takes an animation group and stops it.
 
 | data inputs                                  | data outputs | execution inputs | execution outputs                           |
 | -------------------------------------------- | ------------ | ---------------- | ------------------------------------------- |
@@ -625,7 +625,7 @@ Utility blocks are helpful when manipulating different types of data.
 This block takes an object and interpolates one of its properties from one value to another over time. It is used to create smooth transitions between two values.
 Its output is an animation that can then be used with the PlayAnimationBlock. Connecting the animation output to a play animation input will generate the interpolation and start playing it.
 
-The interpolation builds keyframes based on the configuration values provided. a keyframe has duration and value. So if the keyFrameCount is 1 (default), 1 set of value/duration will be generated - `duration_0`, `value_0`.
+The interpolation builds keyframes based on the provided configuration values. A keyframe has a duration and a value. So if keyFrameCount is 1 (the default), one set of value/duration inputs will be generated -- `duration_0`, `value_0`.
 
 The target on which the interpolation is running will be set by the play animation block and not this one! This way you can reuse the same block on different objects.
 
@@ -703,7 +703,7 @@ interpolation.value_1.setValue(new Vector3(4, 5, 6), ctx);
 This block generates a bezier curve easing function. It has 4 inputs that specify the control points of the bezier curve.
 
 <Alert type="info">
-  A nice way to compute the control points is using this website - [cubic-bezier generator](https://cubic-bezier.com/)
+  A nice way to compute the control points is to use this website - [cubic-bezier generator](https://cubic-bezier.com/)
 </Alert>
 
 | data inputs                                                 | data outputs   |
@@ -748,10 +748,10 @@ This block exposes data from the context.
 #### FunctionReferenceBlock
 
 This block takes a function and returns a reference to that function. It is used to create a reference to a function that can be called later.
-It is used wherever a custom function can be provided (like interpolation or animation)
+It is used wherever a custom function can be provided (like interpolation or animation).
 
 <Alert type="info">
-  The function will not be called until it is executed by an execution block. This just create a bound function reference.
+  The function will not be called until it is executed by an execution block. This just creates a bound function reference.
 </Alert>
 
 | data inputs                                               | data outputs |
@@ -805,7 +805,7 @@ codeExecution.result.connectTo(someOtherBlock.color);
 This block takes an asset index and returns the asset. It is used to get an asset from the scene.
 
 <Alert type="info">
-  The asset comes from the context's `assetsContext`, which is the scene per default (but can be any asset container)
+  The asset comes from the context's `assetsContext`, which is the scene by default (but can be any asset container)
 </Alert>
 
 Assets types are:
@@ -923,9 +923,9 @@ const getVariable = new FlowGraphGetVariableBlock({
 
 ### Type conversion blocks
 
-There are blocks to convert from type to type. The following types are implemented:
+There are blocks to convert from one type to another. The following types are implemented:
 
-Float, int, boolean
+Float, int, and boolean
 
 There are blocks to convert from one type to another. The naming convention is
 `FlowGraphTypeToTypeBlock`, where `Type` is the type to convert from and `Type` is the type to convert to, i.e. there is a block called FlowGraphFloatToIntBlock to convert from float to int.
@@ -934,4 +934,4 @@ There are blocks to convert from one type to another. The naming convention is
 
 These are blocks that perform mathematical operations. They are passive in nature, and can be used to create complex expressions and algorithms.
 
-The list is extensive, and I recommend you to view the list in the API documentation.
+The list is extensive, and I recommend viewing it in the API documentation.

@@ -10,7 +10,7 @@ video-content:
 
 # Migrate from Physics V1
 
-Babylon 6.0 brought a new physics architecture, which aims to provide closer functionality to what most of the existing physic engines provide. However, it also includes some extra classes to make this migration easier. Here we show two ways of migrating your existing V1 scene to V2:
+Babylon 6.0 brought a new physics architecture, which aims to provide functionality closer to what most existing physics engines provide. However, it also includes some extra classes to make this migration easier. Here, we show two ways to migrate your existing V1 scene to V2:
 
 ## Option 1: Using Aggregates
 
@@ -21,7 +21,7 @@ const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segment
 const impostor = new BABYLON.PhysicsImpostor(sphere, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 1, friction: 0.2, restitution: 0.3 }, scene);
 ```
 
-You will just need to change it to:
+You only need to change it to:
 
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
@@ -32,7 +32,7 @@ Note we switched the constructor from `PhysicsImpostor` to `PhysicsAggregate`, a
 
 ## Option 2: No Aggregates
 
-One of the most important new features in the new architecture is the ability to fine-tune the collision shapes and reuse them, improving memory usage and customizability. So it is also possible to separately create bodies and shapes:
+One of the most important new features in the new architecture is the ability to fine-tune collision shapes and reuse them, improving memory usage and customizability. So it is also possible to create bodies and shapes separately:
 
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);

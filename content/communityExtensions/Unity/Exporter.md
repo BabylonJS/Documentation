@@ -1,7 +1,7 @@
 ---
 title: Scene Exporter
 image: 
-description: The features of the  Unity Toolkit scene exporter.
+description: The features of the Unity Toolkit scene exporter.
 keywords: babylon.js, exporter, unity, scene 
 further-reading:
 video-overview:
@@ -60,33 +60,26 @@ video-content:
 
 ![Collision Options](/img/exporters/unity/collision.webp)
 
-* Enable Collisions       - Enable built-in collision mesh system.
-
-* Generate Colliders      - Auto generate collision meshes for each collider component.
-
-* Collision Visibilty     - Sets the default collision mesh visibilty level for debugging.
-
-* Show Debug Colliders    - Show all collider component collision meshes for debugging.
-
-* Show Debug Sockets      - Show all socket component collision meshes for debugging.
-
+* Enable Collisions       - Enables the built-in collision mesh system.
+* Generate Colliders      - Automatically generates collision meshes for each collider component.
+* Collision Visibilty     - Sets the default collision mesh visibility level for debugging.
+* Show Debug Colliders    - Shows all collider component collision meshes for debugging.
+* Show Debug Sockets      - Shows all socket component collision meshes for debugging.
 * Socket Collider Size    - Sets the size of the socket component collision mesh for debugging.
-
-* Default Collider Detail - Set the collision mesh goemetry detail level for all generated mesh colliders.
+* Default Collider Detail - Sets the collision mesh geometry detail level for all generated mesh colliders.
 
 ## Lightmap Baking Options
 
 ![Lightmap Options](/img/exporters/unity/lightmap.webp)
 
-* Export Lightmaps        - Enable built-in shadow lightmap baking system.
-
-* Bake Iterative Maps     - Enable built-in final lightmap gather and bake option.
+* Export Lightmaps        - Enables the built-in shadow lightmap baking system.
+* Bake Iterative Maps     - Enables the built-in final lightmap gather and bake option.
 
 * Coordinates Index       - Sets the default texture coordinate index for lightmaps.
 
 * Use Material Instance   - Enables or disables material instances for shared material lightmaps.
 
-* Area Baking Lights      - Include or exclude lightmap area baking lights into exported scene.
+* Area Baking Lights      - Includes or excludes lightmap area baking lights in the exported scene.
 
 ## Project Compiler Options
 
@@ -102,43 +95,34 @@ video-content:
 
 ![Windows Options](/img/exporters/unity/windows.webp)
 
-* Launching Mode          - Specifies UWP Application initial window state.
-
-* Run App Protocol        - Enables and specifies the UWP Application protocol.
+* Launching Mode          - Specifies the initial UWP application window state.
+* Run App Protocol        - Enables and specifies the UWP application protocol.
 
 * Xbox Live Services      - Enables the toolkit managed Xbox Live Service API.
 
 * Xbox Live Plugin        - Launches the toolkit managed Xbox Live Service API NuGet install info.
 
-* Switch Windows Sandbox  - Launches the toolkit local Windows Sandbox Switcher amdinistrative tool.
+* Switch Windows Sandbox  - Launches the toolkit's local Windows Sandbox Switcher administrative tool.
 
 ## Toolkit Exporter Options
 
 ![Export Options](/img/exporters/unity/export.webp)
 
-* Attach Unity Editor     - Enables the built-in toolkit play to build and preview features.
-
-* Host Preview Server     - Toggle internal and external web server hosting options for project.
-
-* Default Server Port     - Specifies the default web server host port for previewing scene.
-
-* Remote Server Path      - Specifies the remote server host address for external server option.
-
-* Show Render Stats       - Toggle debug rendering stats default page options for project.
-
-* Set Default Scene       - Set the index page default scene name option for project.
-
-* Enable Main Menu        - Toggle html project main menu page options for project.
-
-* Truevision Graphics     - Toggle the native TARGA image file support options for project.
-
-* Embed Html Pages        - Toggle internal embed html pages into makrup store options for project.
+* Attach Unity Editor     - Enables the built-in toolkit play, build, and preview features.
+* Host Preview Server     - Toggles internal and external web server hosting options for the project.
+* Default Server Port     - Specifies the default web server host port for previewing the scene.
+* Remote Server Path      - Specifies the remote server host address for the external server option.
+* Show Render Stats       - Toggles the default page options for debug rendering stats in the project.
+* Set Default Scene       - Sets the index page default scene name option for the project.
+* Enable Main Menu        - Toggles the HTML project main menu page options for the project.
+* Truevision Graphics     - Toggles the native TARGA image file support options for the project.
+* Embed Html Pages        - Toggles options for embedding internal HTML pages into the markup store for the project.
 
 * Export Http Module      - Enables the web server http scene content management module.
 
 * Export Web Assembly     - Enables or disables the exported wasm content option.
 
-* Export Unity Metadata   - Enables or disables the default scene object metadata information.
+* Export Unity Metadata   - Enables or disables the default scene object metadata.
 
 * Precompress Contents    - Enables or disables the exported precompressed content option.
 
@@ -150,21 +134,15 @@ video-content:
 
 ![Builder Options](/img/exporters/unity/builder.webp)
 
-* Compile Script          - Compiles the projects typescript files only with no previewing
-
-* Export Scene File       - Exports scene only content with no compiling or previewing.
-
+* Compile Script          - Compiles the project's TypeScript files only, with no previewing.
+* Export Scene File       - Exports scene-only content with no compiling or previewing.
 * Build And Preview       - Exports a full scene build with compiling and optional previewing.
-
 * Rebuild Editor Project  - Rebuilds the native Unity Editor project source code.
-
-* Launch Preview Window   - Launches the current preview build in browser.
+* Launch Preview Window   - Launches the current preview build in the browser.
 
 
 ## Output Window
 
 ![Output Window](/img/exporters/unity/output.webp)
 
-The output window traces the toolkit export progress for every build. Any exported camera, light or mesh detail information will appear in this window. The output window can be docked to the editor during game development for easy access.
-
-.
+The output window traces the toolkit export progress for every build. Any exported camera, light, or mesh detail information will appear in this window. The output window can be docked in the editor during game development for easy access.

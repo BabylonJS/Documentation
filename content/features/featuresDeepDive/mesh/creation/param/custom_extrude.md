@@ -12,7 +12,7 @@ video-content:
 
 A custom extruded shape replaces the _rotation_ and _scale_ options with _rotationFunction_ or _scaleFunction_. These allow you to vary the rotation and scale of the mesh as it extrudes by defining them in terms of a path index or a distance along the path.
 
-On creation the local origin of a ribbon is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
+On creation, the local origin of a ribbon is coincident with the world origin. It is not possible to give a position relative to the constructed shape, as this depends on the data sets used.
 
 ## MeshBuilder
 
@@ -46,8 +46,8 @@ extruded = BABYLON.MeshBuilder.ExtrudeShapeCustom("ext", options); //No scene pa
 | rotationFunction | _( function(i, distance) )_ a function returning a rotation value from _(i, distance)_ parameters   | \{return 0;\}     |
 | closeShape       | _(boolean)_ closes the shape, replaces `ribbonClosePath`                                            | false             |
 | closePath        | _(boolean)_ closes the path, replaces `ribbonCloseArray`                                            | false             |
-| ribbonClosePath  | _(boolean)_ the underlying ribbon _closePath_ parameter value **depreceated**                       | false             |
-| ribbonCloseArray | _(boolean)_ the underlying ribbon _closeArray_ parameter value **depreceated**                      | false             |
+| ribbonClosePath  | _(boolean)_ the underlying ribbon _closePath_ parameter value **deprecated**                        | false             |
+| ribbonCloseArray | _(boolean)_ the underlying ribbon _closeArray_ parameter value **deprecated**                       | false             |
 | cap              | _(number)_ extrusion cap : NO_CAP, CAP_START, CAP_END, CAP_ALL                                      | NO_CAP            |
 | updatable        | _(boolean)_ true if the mesh is updatable                                                           | false             |
 | sideOrientation  | _(number)_ side orientation                                                                         | DEFAULTSIDE       |
@@ -60,7 +60,7 @@ extruded = BABYLON.MeshBuilder.ExtrudeShapeCustom("ext", options); //No scene pa
 
 You must set at least the _shape_ and _path_ options. On update, you must set the _shape_, _path_ and _instance_ options and you can set the _rotationFunction_ or _scaleFunction_ options.
 
-The _scaleFunction_ and _rotationFunction_ are called on each path point and require two parameters, _index_ and _distance_.
+The _scaleFunction_ and _rotationFunction_ are called on each path point and require two parameters: _index_ and _distance_.
 
 - index refers to the path point position in the path array
 - distance is the current point distance from the beginning of the path.
@@ -73,7 +73,7 @@ closed shape extrusion
 
 <Playground id="#ZMKN5T#112" title="Updatable Extrusion" description="Updatable extrusion."/>
 
-update of extrusion scaleFunction and rotation Function
+update of extrusion scaleFunction and rotationFunction
 
  <Playground id="#ZMKN5T#3" title="Offset Using Trigonometry" description="Offset open profile shape path defined by trigonometry."/>
 
@@ -83,7 +83,7 @@ offset open profile shape path defined by trigonometry
 
 sine wave by alternately scaling positive/negative
 
-<Playground id="#ZMKN5T#5" title="Rotation Evolving With The Distance" description="Rrotation evolving with the distance."/>
+<Playground id="#ZMKN5T#5" title="Rotation Evolving With The Distance" description="Rotation evolving with the distance."/>
 
 scale constant and rotation changing with the distance
 

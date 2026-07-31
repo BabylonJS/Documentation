@@ -14,13 +14,13 @@ video-content:
 
 ## Overview of a Parent
 
-Using a parent is an alternative method to using a Babylon.js [pivot](/features/featuresDeepDive/mesh/transforms/parent_pivot/pivots) to set the center of transformation for a mesh, that is the point used as the center of rotation or the center of enlargement. To rotate or scale a mesh using a parent as a center of transformation you apply the rotation or scaling vectors to the parent. This is different to using a Babylon.js pivot to rotate or scale a mesh.
+Using a parent is an alternative to using a Babylon.js [pivot](/features/featuresDeepDive/mesh/transforms/parent_pivot/pivots) to set the center of transformation for a mesh; that is, the point used as the center of rotation or the center of enlargement. To rotate or scale a mesh using a parent as the center of transformation, you apply the rotation or scaling vectors to the parent. This differs from using a Babylon.js pivot to rotate or scale a mesh.
 
-Making mesh P a parent of mesh C, changes the frame of reference for mesh C to the local axes of mesh P. Repositioning, rotating or scaling mesh P will apply the same transformations to mesh C. Positioning, rotating and scaling of mesh C will depend on the position and orientation of the local axes of C relative to those of P.
+Making mesh P a parent of mesh C changes the frame of reference for mesh C to the local axes of mesh P. Repositioning, rotating, or scaling mesh P will apply the same transformations to mesh C. The positioning, rotation, and scaling of mesh C will depend on the position and orientation of the local axes of C relative to those of P.
 
 Please note that non-uniform scaling (scaling with different values on different axes) is not supported on parent nodes. Indeed, decomposition of such a Matrix would result in supporting [shear mapping](https://en.wikipedia.org/wiki/Shear_mapping) at the transform level. That has not been added out of concern for performance.
 
-To parent mesh C to mesh P you use any of these three methods
+To parent mesh C to mesh P, you can use any of these three methods:
 
 ```javascript
 meshC.parent = meshP; // 1
@@ -28,16 +28,16 @@ meshC.setParent(meshP); // 2
 meshP.addChild(meshC); // 3
 ```
 
-... however the resulting behavior won't always match perfectly. Specifically, the order in which you set position and apply rotation to the parent mesh will affect the result if method 2 or 3 (but not if method 1) was used.
+... however, the resulting behavior will not always match perfectly. Specifically, the order in which you set position and apply rotation to the parent mesh will affect the result if method 2 or 3 was used, but not if method 1 was used.
 
-The following playgrounds show the different behaviors
+The following playgrounds show the different behaviors:
 
 <Playground id="#NRNBMM" title="Transform C and P After Parenting" description="Simple example of transforming C and P after parenting."/>
 <Playground id="#NRNBMM#1" title="Transform C Before and P After Parenting" description="Simple example of transforming C before and P after parenting."/>
 <Playground id="#NRNBMM#2" title="Transform P Before and C After Parenting" description="Simple example of transforming P before and C after parenting."/>
 <Playground id="#NRNBMM#3" title="Transform C and P Before Parenting" description="Simple example of transforming C and P before parenting."/>
 
-To remove a child (mesh C) from a parent (mesh P) use any of these methods
+To remove a child (mesh C) from a parent (mesh P), use any of these methods:
 
 ```javascript
 meshC.parent = null; // 1
@@ -51,7 +51,7 @@ The following playground demonstrates how using method #1 does not _just_ remove
 
 ## How To Use a Parent
 
-The parent method for these examples can be directly compared to [transforming coordinates](/features/featuresDeepDive/mesh/transforms/center_origin/transform_coords)
+The parent method used in these examples can be compared directly with [transforming coordinates](/features/featuresDeepDive/mesh/transforms/center_origin/transform_coords).
 
 ## Satellite
 
@@ -75,7 +75,7 @@ scene.registerAfterRender(function () {
 
 ## Disc World
 
-Imagine a disc flying around space with building on it. In fact the following example uses a thin cylinder as the disc since the top circular face is horizontal whilst the face of a disc in Babylon.js is vertical. (OK it doesn't make any real difference but it more natural to start with a horizontal ground).
+Imagine a disc flying through space with buildings on it. In fact, the following example uses a thin cylinder as the disc, since the top circular face is horizontal, whereas the face of a disc in Babylon.js is vertical. (OK, it does not make any real difference, but it is more natural to start with a horizontal ground.)
 
 The building will be an array of boxes with each box parented to the disc.
 
@@ -94,4 +94,4 @@ scene.registerAfterRender(function () {
 
 ## Negative scaling and local transformation
 
-When parenting a node with negative values for the scaling, some axis might change sign. When computing child local transform, all axis are assumed to be positive. This is the default behavior for legacy reason. It's however possible to keep the scaling axis sign. When calling `addChild` and `removeChild`, a second optional boolean parameter will keep sign when set to true. Both function recompute scaling value. So, set parameter to true when add or removing child.
+When parenting a node with negative scaling values, some axes might change sign. When computing the child's local transform, all axes are assumed to be positive. This is the default behavior for legacy reasons. However, it is possible to keep the scaling axis sign. When calling `addChild` and `removeChild`, a second optional boolean parameter will preserve the sign when set to true. Both functions recompute the scaling value, so set the parameter to true when adding or removing a child.

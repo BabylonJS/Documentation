@@ -36,15 +36,15 @@ video-content:
 The package provides a set of various features for working with hand gestures and organizing spaces in immersive mode.
 
 ## Installation
-just install the package: @clickon/xr-extension (for npm):
+Just install the package `@clickon/xr-extension` with npm:
 ```shell
 npm i @clickon/xr-extension
 ```
 
-## Using
+## Usage
 
 ### Initiation and exit
-Now you can initialize and use the service provided by the package. The service utilizes the standard WebXRDefaultExperience and does not interfere with its operation. This means you can continue using any standard WebXR features provided by BabylonJS.
+Now you can initialize and use the service provided by the package. The service uses the standard WebXRDefaultExperience and does not interfere with its operation. This means you can continue using any standard WebXR features provided by BabylonJS.
 ```typescript
 const xrService = new XRService();
 await xrService.init(scene, options);
@@ -68,7 +68,7 @@ export type TXRServiceOptions = {
 Some of these values will be passed to the standard BabylonJS functions that handle XR,
 while others will configure the XRService itself.
 
-The *IXRService* and *TXRFeaturesConfig* defines the capabilities of the service.
+*IXRService* and *TXRFeaturesConfig* define the capabilities of the service.
 
 Example of entering and exiting immersive mode after initialization:
 ```typescript
@@ -88,8 +88,8 @@ if(handTrackingFeatureEnv){
     // interract with feature wrapper
 }
 ```
-All feature wrappers implement the _IXRFeatEnv_ and provide access to native xr-features of Babylon.js.
-Please prefer the functions and attributes of the wrappers in all cases when they are provided.
+All feature wrappers implement _IXRFeatEnv_ and provide access to native XR features of Babylon.js.
+Prefer the functions and attributes of the wrappers whenever they are provided.
 All functions and attributes are described by corresponding interfaces for each wrapper.
 ```typescript
 export interface IXRFeatEnv<NATIVE_FEAT_TYPE extends IWebXRFeature = IWebXRFeature>{

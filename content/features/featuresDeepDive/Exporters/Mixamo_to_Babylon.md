@@ -8,10 +8,10 @@ video-overview:
 video-content:
 ---
 
-Interested in getting Adobe Mixamo characters into Babylon.js? Mixamo uses .fbx files, so you'll have to go either through .glb files or .babylon files to load your animated characters in Babylon.js.
+Interested in getting Adobe Mixamo characters into Babylon.js? Mixamo uses .fbx files, so you'll have to go through either .glb or .babylon files to load your animated characters in Babylon.js.
 
-- For the .glb file road, go to this page: [Animating Characters](https://doc.babylonjs.com/features/featuresDeepDive/animation/animatedCharacter)
-- For the .babylon file road, which uses the Blender To Babylon Exporter, it is on this page. Follow the guide below!
+- For the .glb route, go to this page: [Animating Characters](https://doc.babylonjs.com/features/featuresDeepDive/animation/animatedCharacter)
+- For the .babylon route, which uses the Blender To Babylon Exporter, use this page. Follow the guide below!
 
 Start by downloading and installing the [Blender to Babylon.js exporter](https://github.com/BabylonJS/BlenderExporter). Here are the [Installation instructions](/features/featuresDeepDive/Exporters/Blender#installation).
 
@@ -37,17 +37,17 @@ Import ybot@punch.fbx and ybot@kick.fbx into Blender the same way you did ybot.f
 
 ![image4](/img/exporters/mixamo/4.webp)
 
-Rename Armature to Character, and rename all animations, as shown in the image below (bordered red):
+Rename Armature to Character and rename all animations, as shown in the image below (bordered in red):
 
 ![image5](/img/exporters/mixamo/5.webp)
 
 Delete Armature.001 and Armature.002.
 
-As shown in the image below (bordered red), select Character (top right), click in the center of the circle (bottom right) and drag up to create a new sub-window. Select Dope Sheet (bottom left) and Action Editor (next to it), and select an animation (middle), e.g. Kick. Click play (bottom middle) to play animation. If your character is not animating, maybe you didn't select Character (top right bordered in red). Also, make sure you're in Object Mode.
+As shown in the image below (bordered in red), select Character (top right), click in the center of the circle (bottom right), and drag up to create a new sub-window. Select Dope Sheet (bottom left) and Action Editor (next to it), then select an animation (middle), for example Kick. Click Play (bottom middle) to play the animation. If your character is not animating, make sure you selected Character (top right, bordered in red). Also, make sure you're in Object Mode.
 
 ![image6](/img/exporters/mixamo/6a.webp)
 
-Change animation back to TPose from Kick. In Blender, press N, which opens the Transform tab. Note that Rotation is not all 0° and Scale is all 0.010 instead of 1.
+Change animation back to TPose from Kick. In Blender, press N, which opens the Transform tab. Note that Rotation is not all 0° and Scale is 0.010 instead of 1.
 
 ![image7](/img/exporters/mixamo/7a.webp)
 
@@ -55,13 +55,13 @@ As shown in the image below (bordered red), in Object Mode, press A to select al
 
 ![image8](/img/exporters/mixamo/8.webp)
 
-As shown in the image below (bordered red), press Ctrl + A to open the Apply menu. Click All Transforms. Location should all be set to 0, Rotation all to 0, and Scale all to 1.
+As shown in the image below (bordered red), press Ctrl + A to open the Apply menu. Click All Transforms. Location should all be set to 0, Rotation should all be set to 0, and Scale should all be set to 1.
 
 ![image9](/img/exporters/mixamo/9.webp)
 
 [Possibly useful resource](https://blender.stackexchange.com/questions/24839/how-do-i-resize-an-armature-without-ruining-its-poses)
 
-We need to change the two materials, as shown in the image below. Something about them is incompatible with .babylon format.
+We need to change the two materials, as shown in the image below. Something in them is incompatible with the .babylon format.
 
 ![image10](/img/exporters/mixamo/10.webp)
 
@@ -87,7 +87,7 @@ before "instances":[]. Save your .babylon file.
 
 Go to [Babylon.js Sandbox](https://sandbox.babylonjs.com/). Drag your .babylon file into the browser.
 
-autoAnimate lets your model animate automatically when dragged into the Babylon.js Sandbox. Why autoAnimateTo frame 152? According to the Sandbox animation and the image of the .babylon file below, all 3 animations (Kick, Punch, and TPose) take a total of 152 frames.
+autoAnimate lets your model animate automatically when dragged into the Babylon.js Sandbox. Why autoAnimateTo frame 152? According to the Sandbox animation list and the image of the .babylon file below, all 3 animations (Kick, Punch, and TPose) take a total of 152 frames.
 
 ![image12a](/img/exporters/mixamo/12a.webp)
 

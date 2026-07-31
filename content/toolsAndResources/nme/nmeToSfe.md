@@ -28,7 +28,7 @@ NME Source: <NME id="#QYN8UY#5" title="Halftone Shader" description="An example 
 
 ## New NME Blocks
 
-<Alert severity="info" title="Only Fragment Shader Support">Smart Filters are designed to support a set of screen-space optimizations— ones that don’t easily allow for customizing vertex shaders. As a result, "Smart Filters" mode does not support the usual vertex shader capabilities of NME.</Alert>
+<Alert severity="info" title="Only Fragment Shader Support">Smart Filters are designed to support a set of screen-space optimizations—ones that don’t easily allow vertex shader customization. As a result, "Smart Filters" mode does not support the usual vertex shader capabilities of NME.</Alert>
 
 Alongside the standard 2D-compatible NME blocks, the Smart Filters mode introduces a few specialized blocks:
 
@@ -63,4 +63,4 @@ To name the input connection points for the shader block, repeat the same steps 
 
 ## Exporting
 
-Once finished, use the `Export shaders for SFE` button under the graph's "File" property tab. This will download an annotated GLSL block definition file with the suffix `.block.glsl`. To import this into your SFE project, read about [using custom blocks in SFE](/toolsAndResources/sfe#custom-blocks).
+Once finished, use the `Export shaders for SFE` button under the graph's "File" property tab. This will download an annotated GLSL block definition file with the suffix `.block.glsl`. To import it into your SFE project, read about [using custom blocks in SFE](/toolsAndResources/sfe#custom-blocks).

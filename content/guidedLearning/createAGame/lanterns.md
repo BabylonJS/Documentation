@@ -10,11 +10,11 @@ video-content:
 
 ## Summary
 
-The lanterns in my game have a few different components. In this section, I'll be going over the mesh itself, texture swapping, collisions, and lights.
+The lanterns in my game have a few different components. In this section, I'll go over the mesh itself, texture swapping, collisions, and lights.
 
 ## Lantern Mesh
 
-The lanterns are duplicates of a single mesh. If a mesh is interactable, it's best to clone it as often as possible if you're going to be using multiple instances. I followed the [Demystifying Animation Groups](https://www.youtube.com/watch?v=BSqxoQ-at24) to learn how to clone the meshes.
+The lanterns are duplicates of a single mesh. If a mesh is interactable, it's best to clone it if you're going to be using multiple instances. I used [Demystifying Animation Groups](https://www.youtube.com/watch?v=BSqxoQ-at24) to learn how to clone the meshes.
 
 In [\_loadAsset](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts#L100), after we've imported our environment, we'll want to also import our single lantern mesh.
 
@@ -51,9 +51,9 @@ assets.lantern.isVisible = false; //original mesh is not visible
 const lanternHolder = new TransformNode("lanternHolder", this._scene);
 ```
 
-From our assets, we want to make our lantern invisible. This original mesh's only purpose is to be cloned to create our other meshes. Then we want to create a transform node to hold all of our lanterns. I did this just to have them organized together. It makes navigating through the inspector a lot easier when trying to debug.
+From our assets, we want to make our lantern invisible. This original mesh's only purpose is to be cloned to create our other meshes. Then we want to create a transform node to hold all of our lanterns. I did this simply to keep them organized together. It makes navigating through the inspector a lot easier when trying to debug.
 
-Then we loop through however many lanterns we want to create, for the game I made 22 lanterns. For each pass through the for loop, we want to:
+Then we loop through however many lanterns we want to create. For the game, I made 22 lanterns. For each pass through the for loop, we want to:
 
 1. Create a clone of our mesh, set it to visible, and then add it to our transform node.
 
@@ -83,7 +83,7 @@ this._lanternObjs.push(newLantern);
 
 **\_lanternObjects** should be instantiated as an empty array in the environment constructor.
 
-Once we've gone through and created all of our lanterns, we can dispose of the original lantern mesh
+Once we've gone through and created all of our lanterns, we can dispose of the original lantern mesh.
 
 ```javascript
 assets.lantern.dispose();
@@ -131,13 +131,13 @@ this.mesh.setAbsolutePosition(position);
 this.mesh.isPickable = false;
 ```
 
-I didn't want the player to be able to jump on the lantern, so I set isPickable to false (default is true). And since I didnt want the player to collide(physically) with the lantern, I kept checkCollisions to false (which is the default value). This way, the player can easily navigate through lanterns while still having a way to check that we've intersected with them.
+I didn't want the player to be able to jump on the lantern, so I set isPickable to false (default is true). And since I didn't want the player to collide (physically) with the lantern, I kept checkCollisions to false (which is the default value). This way, the player can easily navigate through lanterns while still having a way to check that we've intersected with them.
 
 ### Collisions
 
 The final setup part of our lanterns is calling [checkLanterns](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L133) in [\_initializeGameAsync](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/app.ts#L929).
 
-The first thing we'll need to do is set up an actionManager inside of the Player Constructor
+The first thing we'll need to do is set up an actionManager inside the Player constructor.
 
 ```javascript
 //--COLLISIONS--
@@ -154,7 +154,7 @@ if (!this._lanternObjs[0].isLit) {
 }
 ```
 
-2. Set up the intersection triggers for each lantern with the player. Using `ActionManger.OnIntersectionEnterTrigger`, we're watching for 1 of 2 things when the player intersects with a lantern:
+2. Set up the intersection triggers for each lantern with the player. Using `ActionManger.OnIntersectionEnterTrigger`, we're watching for one of two things when the player intersects with a lantern:
    1. The lantern is unlit and the player sparkler is lit:
    ```javascript
    //if the lantern is not lit, light it up & reset sparkler timer
@@ -208,7 +208,7 @@ this._lightmtl = lightmtl;
 
 This texture is then used to make a new material that we'll be swapping once \_setEmissiveTexture is called. This material is created in the Environment constructor, then passed into the [lantern constructor](#creating-lanterns).
 
-Here is we create a new folder for textures in the public folder.
+Here, we create a new folder for textures in the public folder.
 
 3. Dynamically create a point light where the lantern is in order to light up the surroundings.
 
@@ -237,13 +237,13 @@ this._scene
 this._lightSphere.dispose();
 ```
 
-This goes through the entire scene, looks for what the lightSphere intersects with and pushes those meshes to the list of what our light affects. I was able to achieve this by referring to what was done in this
+This goes through the entire scene, looks for what the lightSphere intersects with, and pushes those meshes to the list of what our light affects. I was able to achieve this by referring to what was done in this
 
 PG: <Playground id="#WJWSNL" title="Lanterns Playground" description="Playground Creation and Positioning of Multiple Lights."/>
 
 **Note: the implementation for the lights here is what I had before making adjustments during the performance phase. If you'd like to see the final version, take a look at the [performance](/guidedLearning/createAGame/performance#lights) section.**
 
-Now, when you run the game and collide with the lanterns, you should see their materials change (except the first one since that one is pre-lit)!
+Now, when you run the game and collide with the lanterns, you should see their materials change (except the first one, since that one is pre-lit)!
 
 ## Resources
 

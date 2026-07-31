@@ -1,8 +1,8 @@
 ---
-title: Collisions
+title: Collision Events
 image:
-description: How to access Collision Events
-keywords: diving deeper, phyiscs
+description: Learn how to access collision events in Babylon.js.
+keywords: diving deeper, physics
 further-reading:
   - title: How To Use Forces
     url: /features/featuresDeepDive/physics/forces
@@ -75,11 +75,11 @@ const observer = observable.add((collisionEvent) => {
 
 ## Collision filtering
 
-Collisions between 2 bodies can be ignored by using the filtering mechanism on their respective Physics Shapes.
+Collisions between two bodies can be ignored by using the filtering mechanism on their respective Physics Shapes.
 
 The property `filterMembershipMask` is a bitmask of categories which this shape is a member of.
 
-The property `filterCollideMask` is a bitmask of arbitrary "categories" to which this shape collides with.
+The property `filterCollideMask` is a bitmask of arbitrary "categories" with which this shape collides.
 
 Given two shapes, the engine will check if the collide mask and membership overlap:
 
@@ -97,4 +97,4 @@ Note, the engine will also perform the same test with shapeA and shapeB swapped;
 
 - Logging the collision events that happen to a body: <Playground id="#Z8HTUN#613" title="Collision events" description="Logging the collision events that happen to a body"/>
 
-- Collision filtering <Playground id="#H4UR4Z#1" title="Collision filtering" description="Filtering collisions that happen to a body"/>
+- Collision filtering: <Playground id="#H4UR4Z#1" title="Collision filtering" description="Filtering collisions that happen to a body"/>

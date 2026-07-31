@@ -12,15 +12,15 @@ video-content:
 
 In short `TileCache` is an extension of the navmesh system that allows dynamic updates of the navigation mesh in smaller regions (tiles) instead of rebuilding the whole mesh.
 
-If you alter the `TileCache` you need to wait until it's fully updated. Use this function:
+If you alter the `TileCache`, you need to wait until it is fully updated. Use this function:
 
 ```ts
 WaitForFullTileCacheUpdate(navMesh: NavMesh, tileCache: TileCache)
 ```
 
-If you are altering multiple obstacles at once set `doNotWaitForCacheUpdate = true` and call `WaitForFullTileCacheUpdate(navMesh: NavMesh, tileCache: TileCache)` at the end of the batch operation. If it's set to `false` every obstacle operation returns only after the `TileCache` has been fully updated.
+If you are altering multiple obstacles at once, set `doNotWaitForCacheUpdate = true` and call `WaitForFullTileCacheUpdate(navMesh: NavMesh, tileCache: TileCache)` at the end of the batch operation. If it is set to `false`, every obstacle operation returns only after the `TileCache` has been fully updated.
 
-_Note: If you are not dealing with a lot of obstacle updates, you can wait for the `TileCache` update in the render loop._
+_Note: If you are not dealing with many obstacle updates, you can wait for the `TileCache` update in the render loop._
 
 ## TileCacheMeshProcess
 
@@ -33,11 +33,11 @@ _Note: If you are not dealing with a lot of obstacle updates, you can wait for t
   - polyAreas → the type of area (e.g., walkable, road, stairs).
   - polyFlags → flags used by agents/queries for filtering or cost calculations.
 
-Think of it as a hook to assign areas and flags per polygon, giving you control over which parts of the navmesh different agents can traverse.
+Think of it as a hook for assigning areas and flags per polygon, giving you control over which parts of the navmesh different agents can traverse.
 
 Using `navMeshCreateParams` you can access all information you might need about the `polys` being processed.
 
-[Read more about TileCache, TileCacheMeshProcess and check the list of available NavMeshCreateParams functions](../v2TileCache)
+[Read more about TileCache and TileCacheMeshProcess, and check the list of available NavMeshCreateParams functions](../v2TileCache)
 
 Example:
 
@@ -135,4 +135,4 @@ buildBvTree(): boolean;
 setBuildBvTree(value: boolean): void;
 ```
 
-_For detailed information refer to `recast-navigation-js` docs._
+_For detailed information, refer to the `recast-navigation-js` docs._

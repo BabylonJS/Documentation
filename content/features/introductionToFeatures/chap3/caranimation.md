@@ -12,7 +12,7 @@ video-content:
 
 ## Animate the Car in the Village
 
-In a similar way to how we animated the wheels we now animate the car to travel a straight line over 5 secs., stop for 2 secs. and then repeat.
+In a similar way to how we animated the wheels, we now animate the car so that it travels in a straight line over 5 seconds, stops for 2 seconds, and then repeats.
 ```javascript
 const animCar = new BABYLON.Animation("carAnimation", "position.x", 30, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 
@@ -43,9 +43,8 @@ scene.beginAnimation(car, 0, 210, true);
 
 <Playground id="#KDPAQ9#5561" title="Animated the Car Forward" description="Simple example of how to animate the car's position forward." image="/img/playgroundsAndNMEs/gettingStartedCarAnimation1.webp"/>
 
-After adjusting the position of the car and its route so that it travels past the village houses we have 
+After adjusting the position of the car and its route so that it travels past the village houses, we have:
 
 <Playground id="#KDPAQ9#17" title="Add the Car to the Village" description="Add the animating car back into the village." image="/img/playgroundsAndNMEs/gettingStartedCarAnimation2.webp"/>
 
-In this case we have built the car. Let's now look at a model character that we can import along with its built-in animation.
-
+In this case, we built the car ourselves. Let's now look at a model character that we can import along with its built-in animation.

@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-Windows 10 introduced the Universal Windows Platform (**UWP**), which provides a common app platform on every device that runs Windows 10. The **UWP** core APIs are the same on all Windows devices. If your app only uses the core APIs, it will run on any Windows 10 device no matter whether you are targeting a desktop PC, Xbox, Mixed-reality headset, and so on. Please refer to the [Universal Windows Platform](https://docs.microsoft.com/en-us/windows/uwp/index) documentation for details.
+Windows 10 introduced the Universal Windows Platform (**UWP**), which provides a common app platform on every device that runs Windows 10. The **UWP** core APIs are the same on all Windows devices. If your app only uses the core APIs, it will run on any Windows 10 device whether you are targeting a desktop PC, Xbox, mixed reality headset, and so on. Please refer to the [Universal Windows Platform](https://docs.microsoft.com/en-us/windows/uwp/index) documentation for details.
 
 ## Hosted Web Applications
 
@@ -32,7 +32,7 @@ The toolkit's [Xbox Live Plugin](https://www.nuget.org/packages/BabylonToolkit.X
 
     Install-Package BabylonToolkit.XboxLive
 
-The toolkit scene manager provides easy to use helper functions for Xbox Live context management:
+The toolkit scene manager provides easy-to-use helper functions for Xbox Live context management:
 
 ```javascript
 declare module BABYLON {

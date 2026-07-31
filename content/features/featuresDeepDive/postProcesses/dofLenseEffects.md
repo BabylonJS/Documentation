@@ -12,7 +12,7 @@ video-content:
 
 # How To Use Depth-of-field and other Lens Effects
 
-`BABYLON.LensRenderingPipeline` is a predefined chain of postprocesses that helps achieving photograph-like realism.
+`BABYLON.LensRenderingPipeline` is a predefined chain of postprocesses that helps achieve photographic realism.
 
 ![DoF example](/img/how_to/depth-of-field/example01.webp)  
 _An example of what can be achieved with this postprocess pipeline._
@@ -23,7 +23,7 @@ You can see a live example of it here:
 
 Three post-processes are used in the pipeline:
 
-- First, a _'chromatic aberration'_ post-process, which shifts very slightly red, green and blue channels on screen. This effect is stronger on the edges. 
+- First, a _'chromatic aberration'_ post-process, which very slightly shifts the red, green, and blue channels on screen. This effect is stronger on the edges. 
 - Second, a _'highlights enhancing'_ post-process, which keeps only highlights in the scene, to be used in the depth-of-field blur
 - Third, a _'depth-of-field'_ post-process, which actually does a bit more than that: 
   - blur on the edge of the lens 
@@ -62,7 +62,7 @@ Here is a list of properties you may set on your parameters object:
 |--------|--------|--------|
 |`chromatic_aberration`|number|0 means effect is disabled, 1 is for realism. Defines the spread of the RGB channels in the chromatic aberration shader.|
 |`edge_blur`|number|0 means effect is disabled, 1 is for realism. Defines the amount of blur that will appear on the corners of the screen.|
-|`distortion`|number|0 means effect is disabled, 1 is for realism. Defines the amount of lens-like distortion. Note that this will effect the pointer position precision.|
+|`distortion`|number|0 means effect is disabled, 1 is for realism. Defines the amount of lens-like distortion. Note that this will affect pointer position precision.|
 |`grain_amount`|number|Varies from 0 to 1. Amount of grain to blend on screen.|
 |`grain_texture`|BABYLON.Texture|Texture to use for grain effect; if unset, a random B&W noise is used instead.|
 |`dof_focus_distance`|number|The distance at which focus is set. Everything out of focus will be blurred. Note that a focus distance above a few hundred units gives you infinity focus.|
@@ -73,7 +73,7 @@ Here is a list of properties you may set on your parameters object:
 |`dof_threshold`|number|Default: 1. How wide should highlights be on blurred objects.|
 |`blur_noise`|boolean|Default: true. Adds a very slight noise on the blur effect for out-of-focus objects.|
 
-The BABYLON.LensRenderingPipeline object created should be saved if you want to tweak the effects after its creation. This can be done with the following, self-explanatory methods:
+The `BABYLON.LensRenderingPipeline` object should be saved if you want to tweak the effects after creation. This can be done with the following self-explanatory methods:
 
 | Methods |
 |--------|
@@ -100,8 +100,8 @@ The BABYLON.LensRenderingPipeline object created should be saved if you want to 
 
 # A Word Of Advice ##
 
-These effects are based on general approximations of real world optics phenomenons. As such, some situations may end up looking a bit off or even completely wrong. Tweaking the parameters (including on-the-fly adjustments) will allow you to mitigate these problems, for example by lowering aperture in situations where you know that blurred objects will not render correctly.
+These effects are based on general approximations of real-world optical phenomena. As such, some situations may end up looking a bit off or even completely wrong. Tweaking the parameters (including on-the-fly adjustments) will allow you to mitigate these problems, for example by lowering the aperture in situations where you know that blurred objects will not render correctly.
 
 Keep in mind that the approximation used does not give good results when an object inside focus is rendered on top of a strongly blurred one, or the other way around. Bleeding around one object or the other will probably occur in this case.
 
-Finally, these effects can be pretty intensive on the GPU. A lower blur effect (i.e. smaller blur radius) will be less demanding, so you can try to lower aperture instead of disabling it altogether. Highlight enhancing is also quite intensive, so be sure that this effect contribute to the quality of your render if you have it active.
+Finally, these effects can be pretty intensive on the GPU. A lower blur effect (i.e. a smaller blur radius) will be less demanding, so you can try lowering the aperture instead of disabling it altogether. Highlight enhancing is also quite intensive, so be sure that this effect contributes to the quality of your render if you have it active.

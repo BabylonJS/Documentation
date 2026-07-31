@@ -10,11 +10,10 @@ video-content:
 
 ## Force Shared Vertices
 
-This function will remove some indices and vertices from a mesh. It removes facets where two of its vertices 
-share the same position and forces vertices to share normals. So it will, therefore, also change a flat shaded mesh to a smooth (for the 
-want of a better word) shaded mesh. 
+This function removes some indices and vertices from a mesh. It removes facets where two vertices 
+share the same position and forces vertices to share normals. Therefore, it also changes a flat-shaded mesh to a smooth-shaded mesh, for want of a better word. 
 
-Sometimes the additional facets and vertices are necessary, for example to prevent seams when using textures. So use carefully. 
+Sometimes the additional facets and vertices are necessary, for example, to prevent seams when using textures. So use it carefully. 
 
 More information on the need for extra facets, which turn out to be lines, can be found in [Materials and Facets](/features/featuresDeepDive/materials/using/texturePerBoxFace).
 
@@ -25,15 +24,15 @@ mesh.forceSharedVertices();
 ```
 ## Playground
 
-Using the Inspector in the Playground below with the minimise vertices function applied you will see that there are 366 vertices. However you can also see how the texture has been split and it does not seam correctly. This seaming would also happen if you used an image of the earth for example.
+Using the Inspector in the Playground below with the minimise vertices function applied, you will see that there are 366 vertices. However, you can also see how the texture has been split, so it does not align correctly at the seams. This would also happen if you used an image of the Earth, for example.
 
-If you comment out line 12 and so no longer apply the force shared vertices function you can use the Inspector to check that there are 435 vertices. In this case though the image is applied correctly.
+If you comment out line 12 so that the force shared vertices function is no longer applied, you can use the Inspector to check that there are 435 vertices. In this case, though, the image is applied correctly.
 
 <Playground id="#5ITGBA#2" title="Force Shared Vertices 1" description="Force shared vertices example."/>
 
 ## Prior to Version 4.0
 
-Use the function below. Any examples found in the playground then used the term 'minimizeVertices' rather than 'forceSharedVertices'.
+Use the function below. Any examples found in the Playground used the term 'minimizeVertices' rather than 'forceSharedVertices'.
 
 ## The Function
 

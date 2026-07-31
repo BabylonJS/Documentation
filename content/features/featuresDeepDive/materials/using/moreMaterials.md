@@ -12,20 +12,20 @@ A range of effects can be achieved with textures using a few extra lines of code
 
 ## Bump Map
 
-Bump mapping is a technique to simulate bump and dents on a rendered surface. These are made by creating a **normal map** from an image.
-The means to do this can be found on the web, a search for 'normal map generator' will bring up free and paid for methods of doing this.
+Bump mapping is a technique used to simulate bumps and dents on a rendered surface. These are created by making a **normal map** from an image.
+The means to do this can be found on the web; a search for 'normal map generator' will bring up free and paid methods of doing this.
 
 ![Image Bump Map](/img/how_to/Materials/bump.webp)
 
 Normal Map from Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Original Image
 
-A bump map can be used with a color; with its original image or another image as below.
+A bump map can be used with a color, with its original image, or with another image, as shown below.
 
 ![Bump Example](/img/how_to/Materials/bump_spheres.webp)
 
 ## Creating a Bump Map Example
 
-Just add a _bumpTexture_ to any existing textures.
+Just add a _bumpTexture_ to an existing material.
 
 ```javascript
 const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
@@ -48,11 +48,11 @@ myMaterial.invertNormalMapY = true;
 ## Opacity
 
 The opacity of a material can be graded using an image with varying transparency. The following PNG image with
-a transparency gradient can be applied to a material using _opacityTexture_
+a transparency gradient can be applied to a material using _opacityTexture_.
 
 ![Opacity Map](/img/how_to/Materials/degrade_map.webp)
 
-with the same gradient applied to the material as in the image below.
+The same gradient is then applied to the material, as shown in the image below.
 
 ![Opacity Material](/img/how_to/Materials/degraded_plane.webp)
 
@@ -60,7 +60,7 @@ with the same gradient applied to the material as in the image below.
 
 ## Applying Opacity
 
-Add an _opacityTexture_ to any existing texture.
+Add an _opacityTexture_ to an existing material.
 
 ```javascript
 const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
@@ -69,12 +69,12 @@ myMaterial.opacityTexture = new BABYLON.Texture("PATH TO OPACITY MAP", scene);
 
 ## Tiling
 
-When a material is applied to a mesh the image used for a texture is positioned according to coordinates.
-Rather than x, y which are already in use for the 3D axes the letters u and v are used for the coordinates.
+When a material is applied to a mesh, the image used for a texture is positioned according to coordinates.
+Rather than x and y, which are already in use for the 3D axes, the letters u and v are used for the coordinates.
 
 ![uv axes](/img/how_to/Materials/crate.webp)
 
-To tile an image you use the _uScale_ and/or _vScale_ properties, of the texture, to set the number of tiles in each direction.
+To tile an image, use the _uScale_ and/or _vScale_ properties of the texture to set the number of tiles in each direction.
 
 ```javascript
 myMaterial.diffuseTexture.uScale = 5.0;
@@ -112,7 +112,7 @@ You can also add a normal channel in the detail map:
 
 The first picture is the main + bump textures without detail map, the second picture is the main + bump textures + detail map with albedo and normal channels.
 
-The detail map can contains albedo (diffuse), normal and roughness (for PBR materials only) channels, dispatched this way (following **Unity** convention):
+The detail map can contain albedo (diffuse), normal, and roughness (for PBR materials only) channels, arranged this way (following the **Unity** convention):
 
 - Red channel: greyscale albedo
 - Green channel: green component of the normal map
@@ -122,7 +122,7 @@ The detail map can contains albedo (diffuse), normal and roughness (for PBR mate
 A picture can help to better visualize the channels:
 ![Channels of the detail map](/img/how_to/Materials/detailmap_channels.webp)
 
-Note that a mid-gray value (0.5 on a 0..1 scale) for the channels will disable the effect: setting 0.5 in the Green and Alpha channels will disable the detail bump map, for eg.
+Note that a mid-gray value (0.5 on a 0..1 scale) for the channels will disable the effect: setting 0.5 in the Green and Alpha channels will disable the detail bump map, for example.
 
 You can take advantage of this to make the detail map effects fade when the texture gets minimized on screen: you simply need to create mip maps that fade to the 0.5 value after a given level.
 

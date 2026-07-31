@@ -18,13 +18,13 @@ You can use **Navigation Debugger** to inspect:
 - Off-mesh connections (teleports / jump links)
 - Intermediate build data (if `keepIntermediates: true`)
 
-**Note: Keeping intermediates uses more memory. For production builds, it’s recommended to leave this `false`.**
+**Note: Keeping intermediates uses more memory. For production builds, it’s recommended to leave this set to `false`.**
 
 ### Debug overlay to display intermediate build data
 
-You have to set `keepIntermediates: true` in the nav mesh parameters to retain the intermediate build data after the nav mesh is built.
+You have to set `keepIntermediates: true` in the navmesh parameters to retain the intermediate build data after the navmesh is built.
 
-First you need to create `NavigationDebugger` instance and pass a babylon.js scene and optional parameters to the `NavigationDebugger.constructor`:
+First, you need to create a `NavigationDebugger` instance and pass a Babylon.js scene and optional parameters to the `NavigationDebugger.constructor`:
 
 ```ts
 constructor(
@@ -98,7 +98,7 @@ debug.draw(navigationPlugin.navMesh, navigationPlugin.intermediates, scene, debu
 | `NAVMESH`                      | Displays the final navigation mesh used for pathfinding.                       |
 | `NAVMESH_BV_TREE`              | Shows the bounding volume tree (BVTree) used for fast spatial queries.         |
 
-Note: You can also use the specific `draw` functions from the `NavigationDebugger`. [Refer to the NavigationDebugger API](API)
+Note: You can also use the specific `draw` functions from the `NavigationDebugger`. [Refer to the NavigationDebugger API](API).
 
 Drawing a debug nav mesh where `polyFlags` are set to `1` (default value) with `blue` color:
 
@@ -106,13 +106,13 @@ Drawing a debug nav mesh where `polyFlags` are set to `1` (default value) with `
 debug.drawNavMeshPolysWithFlags(navigationPlugin.navMesh, 1, 0x0000ff);
 ```
 
-This function visualizes the off-mesh connections as well as seen on the image:
+This function visualizes the off-mesh connections, as seen in the image:
 
 <img src="/img/extensions/navigation/debug-offmesh.webp" title="Offmesh connections visualized in a debug layer" width="30%" />
 
 #### Examples
 
-Example of creating a `line` debugger with setting the `GreasedLine` properties in the `options` parameter:
+Example of creating a `line` debugger and setting the `GreasedLine` properties in the `options` parameter:
 
 ```ts
 const debug = new ADDONS.NavigationDebugger(scene, {
@@ -135,7 +135,7 @@ You can then visualize the intermediate data as follows:
 debug.draw(navigationPlugin.navMesh, navigationPlugin.intermediates, scene, ADDONS.DebugLayerOption.COMPACT_HEIGHTFIELD_DISTANCE);
 ```
 
-<img src="/img/extensions/navigation/debug-heightfield-distance.webp" title="Heighfield distance debug layer" width="30%" />
+<img src="/img/extensions/navigation/debug-heightfield-distance.webp" title="Heightfield distance debug layer" width="30%" />
 
 #### Polymesh detail
 

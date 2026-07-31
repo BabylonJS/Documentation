@@ -10,13 +10,13 @@ video-content:
 
 ## What is it?
 
-Introduced in Babylon.js 5.0, The Performance Profiler is a fantastic visual performance debugging tool. As you develop your Babylon experience, this new tool can help you easily identify performance issues and hiccups in your scene.
+Introduced in Babylon.js 5.0, the Performance Profiler is a fantastic visual performance debugging tool. As you develop your Babylon experience, this tool can help you easily identify performance issues and hiccups in your scene.
 
 <img src="/img/tools/PerfViewer/performanceViewerStatisticsTab.webp" title="Babylon.js Performance Viewer Statistics Tab"/>
 
-Available in the Statistics tab of the inspector, it allows you to visually see data charted over time rather than seeing the latest number at any one moment. The data is normalized on the displayed range, meaning the smallest value corresponds to the bottom y-position on the graph, while the highest value corresponds to the top y-position. 
+Available in the Statistics tab of the inspector, it lets you view data charted over time instead of only seeing the latest number at any given moment. The data is normalized to the displayed range, meaning the smallest value corresponds to the bottom y-position on the graph, while the highest value corresponds to the top y-position.
 
-The Performance Profiler can collect and display 3 types of data: 1) all the data under the statistics tab, 2) user-defined data, and 3) user-defined events through code.
+The Performance Profiler can collect and display three types of data: 1) all the data in the Statistics tab, 2) user-defined data, and 3) user-defined events through code.
 
 It has two modes for recording data:
  - Real-time graph mode.
@@ -24,7 +24,7 @@ It has two modes for recording data:
 
 ## Use Case
 
-You would want to use this to debug any performance issues in your scene and figure out a potential cause. 
+You would use this to debug performance issues in your scene and identify a potential cause.
 For example, you may notice that FPS drops whenever you do a specific action in the scene, and that draws increase simultaneously.
 
 ## How to use it
@@ -37,20 +37,20 @@ There are four buttons to choose from on this screen:
  - Export Perf to CSV
  - Begin Recording
 
-"Open Realtime Perf Viewer" will open the performance viewer popout in real-time graph mode. 
-While "Load Perf viewer using CSV" will open the performance viewer popout in a view-only mode. 
+"Open Realtime Perf Viewer" opens the performance viewer popout in real-time graph mode.
+"Load Perf Viewer using CSV" opens the performance viewer popout in view-only mode.
 
 <img src="/img/tools/PerfViewer/PerformanceViewerPopout.webp" title="Babylon.js Performance Viewer Popout"/>
 
-The left sidebar in the popout holds the activated collection types. It allows the user to toggle visibility and change color through the checkbox and color picker, respectively.
+The left sidebar in the popout lists the active collection types. It allows the user to toggle visibility and change color through the checkbox and color picker, respectively.
 <img src="/img/tools/PerfViewer/PerfProfilerColor.webp" title="Changing the color of a collection type through the color picker"/>
 
-The center contains the graph, and you can hover at a particular timestamp to view all data values at the timestamp. 
+The center contains the graph, and you can hover over a particular timestamp to view all data values at that point.
 <img src="/img/tools/PerfViewer/PerfProfilerHover.webp" title="Popout"/>
 
 You can zoom in and out using the mouse wheel. 
 
-You can pan the graph by dragging while clicking, taking the graph out of the live data stream. 
+You can pan the graph by clicking and dragging, which takes the graph out of the live data stream.
 
 You can hover over a single line outside the live data stream to focus on it, fading out the other lines. 
 
@@ -60,23 +60,23 @@ A horizontal line shows where that point is relative to every other point on the
 
 To return to the live data stream, you can either catch up to the live data stream or conveniently click the "Return" button.
 
-"Begin Recording" will only begin recording in headless recording mode. This button also will allow you to stop recording when it changes the text to "Stop recording."
+"Begin Recording" starts recording only in headless recording mode. This button will also let you stop recording when its text changes to "Stop recording."
 
 <img src="/img/tools/PerfViewer/PerfProfilerStopRecording.webp" title="Babylon.js Performance Viewer Line Focus"/>
 
-"Export Perf to CSV" allows you to export the performance recording to a CSV. The CSV export provides for sharing of performance data and also importing at a later time.
+"Export Perf to CSV" lets you export the performance recording to a CSV file. The export makes it easy to share performance data and import it later.
 
-"Begin Recording" and "Export Perf to CSV" are helpful for the mobile experience, as the popout will not work as intended in real-time graph mode while on mobile. You will have to export the recording and import it on a PC. However, these can also be used on the PC outright.
+"Begin Recording" and "Export Perf to CSV" are helpful on mobile, because the popout will not work as intended in real-time graph mode there. You will need to export the recording and import it on a PC. These options can also be used directly on a PC.
 
 ## Headless recording mode vs. Real-time graph mode.
-Real-time graph mode opens up a popout and begins recording, while headless recording mode begins recording without the popout.
+Real-time graph mode opens a popout and begins recording, while headless recording mode begins recording without the popout.
 
 Therefore, real-time graph mode will allow you to see a graph updating once per frame with performance data.
 
-Headless recording mode will have a lower performance impact and not rely on the popout, useful for mobile.
+Headless recording mode has a lower performance impact and does not rely on the popout, which makes it useful for mobile.
 
 ## Collection Strategies
-A collection strategy is just a strategy defining how to collect the data and do clean up appropriately.
+A collection strategy defines how to collect data and clean it up appropriately.
 
 There are many collection strategies already defined for you in the PerfCollectionStrategy class.
 
@@ -110,12 +110,12 @@ We currently support these out of the box:
 | [CPU Utilization](https://web.dev/compute-pressure/) | CpuStrategy |
 
 
-The CPU strategy is more experimental as it uses the experimental computer pressure API. This strategy may not work as intended for all users.
-You might have to enable experimental web features in chrome settings to enable this. This strategy allows you to know the utilization percentage of the CPU.
+The CPU strategy is more experimental because it uses the experimental Compute Pressure API. This strategy may not work as intended for all users.
+You might need to enable experimental web features in Chrome settings to use it. This strategy lets you see the CPU utilization percentage.
 
 ## Adding a custom collection strategy
 
-You may have custom data that you want to track that we do not support outside of the box. Don't worry, we've made this very easy to do.
+You may have custom data that you want to track that we do not support out of the box. Don't worry, we've made this very easy to do.
 
 To start, you must define a function that returns an object like so:
 ```javascript
@@ -141,10 +141,10 @@ const someStrategyCallback = (scene) => {
     }
 };
 ```
-When added to the performance collector, the collector passes the scene object as a parameter to the function (you can omit the scene parameter if you would like).
-The function allows for any initialization of observers and other resources.
+When it is added to the performance collector, the collector passes the scene object as a parameter to the function (you can omit the scene parameter if you like).
+The function can initialize any observers and other resources it needs.
 
-The id parameter is the name of the strategy. Make sure to have a unique id, or else there may be unintended side effects. Also, if your id contains the character "@", the character will be removed, since it is already used when exporting data. The left sidebar will display the id defined.
+The `id` parameter is the name of the strategy. Make sure to use a unique ID, or there may be unintended side effects. Also, if your ID contains the character "@", it will be removed because it is already used when exporting data. The left sidebar will display the defined ID.
 The getData function in the object must return a number that cannot be NaN. It is called once per frame.
 The dispose function in the object should do any clean-up of resources created in the initialization part of the function.
 
@@ -199,12 +199,12 @@ perfCollector.addCollectionStrategies(someStrategy);
 
 ## Registering a custom event.
 An event is a particular type of strategy that can measure the number of times it was called in a frame or track a named custom value (related to an event usually) once per frame.
-To register an event you would do the following:
+To register an event, do the following:
 ```javascript
 const perfCollector = scene.getPerfCollector();
 const event = perfCollector.registerEvent("someEvent");
 ```
-The register event function returns an object containing the event passed in:
+The `registerEvent` function returns an object containing the event you passed in:
 ```javascript
 {
    /**

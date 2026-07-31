@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Dashed Lines
-Creates a contiguous series of dashed line segments from a list of points. You must set at least the _points_ option. On update, you must set the _points_ and _instance_ options properties and you should not change . Any other option will not be changed.
+Creates a contiguous series of dashed line segments from a list of points. You must set at least the _points_ option. On update, you must set the _points_ and _instance_ option properties, and you should not change them. Any other options will not be changed.
 ## MeshBuilder
 Usage:
 ```javascript
@@ -35,8 +35,8 @@ dashNb|_(number)_  intended number of dashes|200
 updatable|_(boolean)_ true if the mesh is updatable|false
 instance|_(LineMesh)_ an instance of a line mesh to be updated|null
 
-The actual length of the dashes and gaps is determined by how many are set by the *dashNb* and then the ratio, of *dashSize* and * gapSize* rather than the actual size 
-All of the following will produce equal sized dashes and gaps.
+The actual length of the dashes and gaps is determined by how many are set by *dashNb* and then by the ratio of *dashSize* and *gapSize*, rather than by their literal values.
+All of the following will produce equally sized dashes and gaps.
 ```javascript
 dashSize = 1;
 gapSize = 1;

@@ -1,7 +1,7 @@
 ---
 title: Getting Started - Chapter 3 - Wheel Animation
 image:
-description: Learn to the basics of animations in Babylon.js.
+description: Learn the basics of animations in Babylon.js.
 keywords: getting started, start, chapter 3, animation, animation basics
 further-reading:
 video-overview:
@@ -12,17 +12,17 @@ video-content:
 
 ## Foundation of Animation
 
-We will start with a wheel and rotate it about its axle. Remember that in order to have the car the upright we rotated it about the x axis and so the axle is along the y axis of the cylinder.
+We will start with a wheel and rotate it about its axle. Remember that, to make the car upright, we rotated it about the x axis, so the axle is along the y axis of the cylinder.
 
-We need to create a new animation object
+We need to create a new animation object:
 
 ```javascript
 const animWheel = new BABYLON.Animation("wheelAnimation", "rotation.y", 30, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 ```
 
-which has the parameters - name, property to animate, animation frames per second, property to animate type, loop mode, in this case repeat animation.
+This has the following parameters: name, property to animate, animation frames per second, property-to-animate type, and loop mode, which in this case repeats the animation.
 
-We follow this with the key frame array where we set values for the property to animate by frame number
+We follow this with the key frame array, where we set values for the property to animate by frame number.
 
 ```javascript
 const wheelKeys = [];
@@ -40,7 +40,7 @@ wheelKeys.push({
 });
 ```
 
-Finally we link the key frame array to the animation, the animation to the mesh and begin it.
+Finally, we link the key frame array to the animation, link the animation to the mesh, and begin it.
 
 ```javascript
 //set the keys
@@ -56,7 +56,7 @@ scene.beginAnimation(wheelRB, 0, 30, true);
 
 <Playground id="#KDPAQ9#14" title="Simple Wheel Animation" description="Simple demonstration of animating one of the car's wheels." image="/img/playgroundsAndNMEs/gettingStartedWheelAnimation1.webp"/>
 
-Since all the wheels rotate the same we can use the same animation for all.
+Since all the wheels rotate the same way, we can use the same animation for all of them.
 
 ```javascript
 scene.beginAnimation(wheelRF, 0, 30, true);
@@ -64,7 +64,7 @@ scene.beginAnimation(wheelLB, 0, 30, true);
 scene.beginAnimation(wheelLF, 0, 30, true);
 ```
 
-To ensure that in later playgrounds new code is not overwhelmed by a large amount of previous coding we will save the car as a model and import and animate it as an item.
+To ensure that new code in later playgrounds is not overwhelmed by a large amount of previous code, we will save the car as a model and import and animate it as an item.
 
 ```javascript
 BABYLON.ImportMeshAsync("url to model car" + "car.babylon").then(() => {
@@ -82,4 +82,4 @@ BABYLON.ImportMeshAsync("url to model car" + "car.babylon").then(() => {
 
 <Playground id="#KDPAQ9#15" title="Animating All 4 Wheels" description="Adding the wheel animation to all 4 tires." image="/img/playgroundsAndNMEs/gettingStartedWheelAnimation2.webp"/>
 
-We can now animate the car itself and add it into the village
+We can now animate the car itself and add it to the village.

@@ -10,14 +10,14 @@ video-content:
 
 ## Need for Contribution
 
-Many people have asked for the API documentation to be improved. This is a major task with lots of files needing comments added. Comments are very useful for future development and maintenance of the code but now they are even more useful since in the correct format they can be read by “TYPEDOC” and produce the API documentation for the classes, properties and methods used by Babylon.js. The core team has worked to make this happen as you can see by the new API documentation. Volunteers are needed to add comments so even if you only have time to do a couple of files then please do volunteer.
+Many people have asked for the API documentation to be improved. This is a major task, with lots of files needing comments. Comments are very useful for future development and maintenance of the code, and they are even more useful now because, in the correct format, they can be read by “TYPEDOC” to produce the API documentation for the classes, properties, and methods used by Babylon.js. The core team has worked to make this happen, as you can see in the new API documentation. Volunteers are needed to add comments, so even if you only have time to work on a couple of files, please do volunteer.
 
 ## How to Contribute
 
 You need to add appropriate comments according to the formats given below. Check the comments for errors and submit a PR when everything is validated.
 
-1. Fork and clone [Babylon.js](https://github.com/BabylonJS/Babylon.js) from Github;
-2. install dependencies with `npm install`
+1. Fork and clone [Babylon.js](https://github.com/BabylonJS/Babylon.js) from GitHub;
+2. Install dependencies with `npm install`
 3. Edit files from within the **src** folder by adding comments;
 4. Run `npm run lint:check` to check linting issues with your docs (or use the eslint extension for your IDE)
 5. When validated submit a PR.
@@ -26,9 +26,9 @@ You need to add appropriate comments according to the formats given below. Check
 
 We follow tsdoc as a standard for our comments.
 
-Below are descriptions of the format of comment for the various code entities with examples.
+Below are descriptions of the comment format for the various code entities, with examples.
 
-Comments go immediately in front of the entity and have the form of plain comments
+Comments go immediately before the entity and take the form of plain comments:
 
 ```
 /**
@@ -100,7 +100,7 @@ export enum DepthOfFieldEffectBlurLevel {
 
 **Template containing the constructor along with the public, private and protected properties and methods defining an object**
 
-A defines comment to describe the purpose of the CLASS
+A defining comment to describe the purpose of the CLASS.
 
 ```javascript
 /**
@@ -127,7 +127,7 @@ export class HemisphericLight extends Light {
 
 # No Parameters
 
-A creates comment to describe the CONSTRUCTOR
+A comment to describe the CONSTRUCTOR.
 
 ```javascript
 export class MapperManager {
@@ -148,11 +148,11 @@ export class MapperManager {
 
 ## With Parameters
 
-A creates comment to describe the CONSTRUCTOR and use @param for each parameter. The first item after @param must be the parameter name then a further comment. In addition should any members of the constructor be declared as public the comment should be repeated before the member in the parameters list.
+A comment to describe the CONSTRUCTOR and use `@param` for each parameter. The first item after `@param` must be the parameter name, followed by a comment. In addition, if any members of the constructor are declared as public, the comment should be repeated before the member in the parameter list.
 
 ### No Public Parameters
 
-Create and @param comments for constructor.
+Create comments and `@param` entries for the constructor.
 
 ```javascript
 /**
@@ -194,7 +194,7 @@ constructor(particleIndex: number, positionIndex: number, indiceIndex: number, m
 
 ### With Public Parameters
 
-Create and @param comments for constructor and copied comments before any public parameter in list
+Create comments and `@param` entries for the constructor, and copy comments before any public parameter in the list.
 
 ```javascript
 /**
@@ -268,7 +268,7 @@ public direction: Vector3
 
 ### Public with private variable
 
-There are occasions when a variable should be public for the use of the code but private from a user. Such variables start with an underscore. Plain comments are useful for development but the variable should be ignored when building the API documentation. Hence the use of @ignore
+There are occasions when a variable should be public for the code but effectively private to the user. Such variables start with an underscore. Plain comments are useful for development, but the variable should be ignored when building the API documentation. Hence the use of `@ignore`.
 
 ```javascript
 /**
@@ -335,7 +335,7 @@ public onTaskSuccessObservable = new Observable<AbstractAssetTask>();
 
 #### With Return Value
 
-Comments to describe the FUNCTION and use @returns
+Comments to describe the FUNCTION and use `@returns`.
 
 ```javascript
 /**
@@ -374,7 +374,7 @@ public get errorObject(): { message?: string; exception?: any; } {
 
 #### No Return Value
 
-Comments to describe the FUNCTION and use @param for each parameter. The first item after @param must be the parameter name then a further comment
+Comments to describe the FUNCTION and use `@param` for each parameter. The first item after `@param` must be the parameter name, followed by a comment.
 
 ```javascript
 /**
@@ -434,7 +434,7 @@ this.update(invertY);
 
 #### With Return Value
 
-Comments to describe the FUNCTION and use @param for each parameter and @returns to describe what the function returns. The first item after @param must be the parameter name then a further comment.
+Comments to describe the FUNCTION and use `@param` for each parameter and `@returns` to describe what the function returns. The first item after `@param` must be the parameter name, followed by a comment.
 
 ```javascript
 /**
@@ -473,7 +473,7 @@ lightIndex);
 
 ## Public with private name
 
-There are occasions when a function should be public for the use of the code but private from a user. Such names start with an underscore. Plain comments are useful for development but the variable should be ignored when building the API documentation. Hence the use of @ignore
+There are occasions when a function should be public for the code but effectively private to the user. Such names start with an underscore. Plain comments are useful for development, but the function should be ignored when building the API documentation. Hence the use of `@ignore`.
 
 ```javascript
 /**

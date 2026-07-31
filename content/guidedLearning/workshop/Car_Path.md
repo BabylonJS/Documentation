@@ -12,8 +12,8 @@ This is to show the practical use of rotate.
 
 ## The Design
 
-The car will consist of a trapezoid for the body, four cylinders for wheels. The car will be animated to follow a path and will remain parallel to it.
-The wheels will rotate and be given a texture to show that they are rotating. For simplicity all wheels will remain parallel to the car and
+The car will consist of a trapezoid for the body and four cylinders for wheels. The car will be animated to follow a path and will remain parallel to it.
+The wheels will rotate and be given a texture to show that they are rotating. For simplicity, all wheels will remain parallel to the car and
 their rotation will not be matched to the forward speed of the car. The car will move forward by following a sequence of points on the path.
 The path will be a curved line with large turning radius and will be shown in the scene.
 
@@ -21,8 +21,8 @@ The path will be a curved line with large turning radius and will be shown in th
 
 ### Car body
 
-The car body will be an extrusion of the trapezium formed from the trapezium given by the points (-4, 2), (4, 2), (5, -2), (-7, -2)
-in the direction of the positive x axis from (0, 0, 0) to (0, 0, 4)
+The car body will be an extrusion of the trapezium formed by the points (-4, 2), (4, 2), (5, -2), (-7, -2)
+in the direction of the positive x axis from (0, 0, 0) to (0, 0, 4).
 
 ```javascript
 var bodyMaterial = new BABYLON.StandardMaterial("body_mat", scene);
@@ -71,9 +71,9 @@ PG: <Playground id="#1YD970#541" title="Wheels" description="Constructing the wh
 
 ### Attaching the Wheels to the Car
 
-As the car moves forward so will the wheels, this can be achieved by making the car the parent of the wheels.
+As the car moves forward, so will the wheels. This can be achieved by making the car the parent of the wheels.
 
-As the wheels need to first rotate around the x axis to orientate the cylinder correctly and then rotate about another axis
+As the wheels first need to rotate around the x axis to orient the cylinder correctly and then rotate about another axis,
 the rotate method will be used instead of rotation.
 
 ```javascript
@@ -104,7 +104,7 @@ PG: <Playground id="#1YD970#542" title="Attach Wheels" description=" Attaching t
 
 The animation is achieved using scene.registerAfterRender and small rotations within the render loop.
 
-_Note:_ when using rotate and translate scene.register*After*Render is preferable to scene.register*Before*Render as
+_Note:_ when using rotate and translate, scene.register*After*Render is preferable to scene.register*Before*Render as
 the calculations will take place after the world matrix has been computed for each mesh.
 
 ```javascript
@@ -120,12 +120,12 @@ PG: <Playground id="#1YD970#543" title="Rotate Wheels" description="Adding a met
 
 ### Path
 
-To draw a path a sequence of points are needed. Starting with a circle of radius r in the xz plane with centre (0, 0, 0) calculate points around the
+To draw a path, a sequence of points is needed. Starting with a circle of radius r in the xz plane with centre (0, 0, 0), calculate points around the
 circle and vary r slightly and smoothly on the way round to give a less regular path. This is achieved by adding to the radius, at each angle, a fraction of r
 times the sine of a multiple of the angle turned. In addition a ground is added.
 
-Since on creation the side of the car is perpendicuar to the z axis the base circle will start with theta = 0 and x = r _ sin(theta) and z = r _ cos(theta).
-This means that when the car can be positioned tangental to the circle by setting z = r.
+Since on creation the side of the car is perpendicular to the z axis, the base circle will start with theta = 0 and x = r _ sin(theta) and z = r _ cos(theta).
+This means that the car can be positioned tangential to the circle by setting z = r.
 
 Since the circle has been given a perturbation some small rotation of the car will be necessary for it to be truly tangential.
 
@@ -147,25 +147,25 @@ PG: <Playground id="#172C5E#2" title="The Path" description="The path that the c
 
 ### Following the Path
 
-The car will be moved forward using the sequence of points calculated for the path. As it moves round the path the car side should remain tangential to the path and the wheels should rotate about an axis that is normal to the path.
-Since the normals to the path need to be calculated for the wheel axes it will be the normals that will be used to rotate the car.
+The car will be moved forward using the sequence of points calculated for the path. As it moves round the path, the car side should remain tangential to the path and the wheels should rotate about an axis that is normal to the path.
+Since the normals to the path need to be calculated for the wheel axes, it will be the normals that are used to rotate the car.
 The angle to be rotated at any point can be found from the angle between the previous normal and the current one. This angle can be found
 by using the dot product of the two normal vectors. However the dot product only gives the amount of rotation not the direction.
 
 Determining the normals at any point is achieved by forming the Path3D object from the array of points defining the path and extracting
-the normals which are unit vectors.
+the normals, which are unit vectors.
 
 ```javascript
 var path3d = new BABYLON.Path3D(points);
 var normals = path3d.getNormals();
 ```
 
-As can be seen from the diagram below the direction that the normal changes varies from clockwise to anti-clockwise depending whether the
+As can be seen from the diagram below, the direction in which the normal changes varies from clockwise to anti-clockwise depending on whether the
 path is a convex or concave curve.
 
 ![Rotation of Normal](/img/samples/car2.webp)
 
-Both normals lie in the xz plane and so the cross product of the two normals will lie in the y axis and so the direction of turn can be
+Both normals lie in the xz plane, so the cross product of the two normals will lie on the y axis, and the direction of turn can therefore be
 determined from the sign of the y component of the cross product.
 
 ```javascript
@@ -177,7 +177,7 @@ carBody.rotate(BABYLON.Axis.Y, dir * theta, BABYLON.Space.WORLD);
 
 ### Placing the Car
 
-To stand on the ground the car will need to be lifted. To be set on the path it will be moved to the point (0, r, 4). Its current normal is
+To stand on the ground, the car will need to be lifted. To set it on the path, it will be moved to the point (0, r, 4). Its current normal is
 along the z axis so determine the turn necessary from
 
 ```javascript
@@ -189,8 +189,8 @@ carBody.rotate(BABYLON.Axis.Y, theta, BABYLON.Space.WORLD);
 
 The animation is achieved using scene.registerAfterRender. Within this render loop:
 the car is moved forward from point to point;
-it is rotated tangential to the path at the current point;
-the wheels are now rotated a small amount about the _normal_ at the current point.
+it is rotated so that it remains tangential to the path at the current point;
+the wheels are rotated a small amount about the _normal_ at the current point.
 
 ```javascript
 var i = 0;
@@ -215,7 +215,7 @@ PG: <Playground id="#1YD970#582" title="Car Travels The Path" description="First
 
 ## Correction
 
-After allowing the finalised playground of the car to run for a while it can be seen that the rotating of the car becomes askew.
+After allowing the finalised playground of the car to run for a while, it can be seen that the rotation of the car becomes askew.
 This is due to rounding errors in the floating point (probably).
 
 The initial rotation quaternion is stored in _startRotation_ and is now applied to the car whenever it starts a new loop.

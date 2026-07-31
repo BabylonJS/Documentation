@@ -18,8 +18,8 @@ They are used to check collisions or intersections in the scene between meshes a
 In the [previous tutorial](/features/featuresDeepDive/scene/interactWithScenes), we used it to select meshes with the mouse (a ray goes from camera to mouse position in 3D),
 using the function `scene.pick(scene.pointerX, scene.pointerY)`.
 
-But here we will see that we can throw ray from any point and in any direction.
-For example in a shooting game at 3rd person view: collisions between our bullets and obstacles.
+But here we will see that we can throw a ray from any point and in any direction.
+For example, in a third-person shooting game, we can detect collisions between our bullets and obstacles.
 
 **Documentation of classes :**
 
@@ -41,12 +41,12 @@ In all our playgrounds, we will imagine that our character is the main box at th
 It will shoot laser beams continually forward and detect which enemy (other boxes) is hit.
 
 So with the mouse, you don't need to click but move to turn the box with this trigonometry function `mousemovef` _(line #34)_.
-A ray requires when its created: an origin, a direction and a length.
+When it is created, a ray requires an origin, a direction, and a length.
 
 First, we set `box.isPickable` to false to avoid the ray touching the box from the inside _(line #16)_.
 Because we set the starting point (origin) of the ray in the center of the box.
 
-The most important part is to get the good directional vector _(line #57)_:
+The most important part is to get the correct direction vector _(line #57)_:
 
 ```javascript
 var forward = new BABYLON.Vector3(0, 0, 1);
@@ -58,7 +58,7 @@ direction = BABYLON.Vector3.Normalize(direction);
 
 We want the forward vector relative to the box space and orientation.
 Then, to get the direction, we subtract it from the origin, the box position.
-The function `vecToLocal` is designed to transform a position from a mesh point of view by multiplicating a vector by the mesh matrix.
+The function `vecToLocal` is designed to transform a position from a mesh point of view by multiplying a vector by the mesh matrix.
 
 Then, we create the ray with all elements given and a length of 100 for example _(line #65)_:
 
@@ -72,8 +72,8 @@ Finally, we get the hit point of the ray if it touches a mesh _(line #68)_:
 var hit = scene.pickWithRay(ray);
 ```
 
-And if a mesh is hit, we do what we want with the picking info like getting the mesh name, the position of the point etc...
-Here we change its size because it's funnier!
+And if a mesh is hit, we can do whatever we want with the picking info, such as getting the mesh name or the position of the point.
+Here we change its size because it's more fun!
 
 **You're not forced to set `box.isPickable` to false**, if you need later to check rays intersection on this box for example.
 You can set the origin point of the vector in front of the box, the direction a little further and the length that you want _(line #55)_:
@@ -105,11 +105,11 @@ and in parameter here:
 scene.pickWithRay(ray, predicate);
 ```
 
-The isPickable false argument becomes irrelevant so we have to avoid box.
-We avoid also box2 for testing and allow the rest (box3 and box4 by default).
+The `isPickable = false` argument becomes irrelevant, so we have to exclude the box.
+We also exclude box2 for testing and allow the rest, box3 and box4 by default.
 
 And the result is, only box3, the second blue one behind, and box4 will grow.
-So it works fine like if box2 was transparent for the ray!
+So it works as if box2 were transparent to the ray!
 
 There is one other optional argument to the method `pickWithRay`. It's the boolean **fastCheck** (`false` by default).
 `True` will return the first mesh that intersects with the ray (in the order of the meshes array), not the closest mesh to the ray's starting point.
@@ -135,7 +135,7 @@ Live example: <Playground id="#EES9W5" title="Triangle Predicate" description="S
 
 ## Multi pick
 
-We can use `scene.multiPickWithRay` if we don't want that the ray to stop at the first obstacle:
+We can use `scene.multiPickWithRay` if we don't want the ray to stop at the first obstacle:
 
  <Playground id="#KNE0O#19" title="Get All Meshes Hit By Ray" description="Simple example of getting all meshes hit by a ray."/>
 
@@ -147,7 +147,7 @@ We can loop through the array to change all meshes hit. In the example you can s
 It's like a strong bullet!
 
 ## Alternative picking methods
-Another method of picking with a ray is to directly use the **Ray class**. There is one caveat to this method, however. When using `pickWithRay`, the method will automatically transform the ray from world coordinates to local coordinates of the mesh being picked. If you want to use the **Ray class** itself, the conversion from the world coordinates of the ray to the local space of an intersecting mesh will need to be done manually. 
+Another method of picking with a ray is to directly use the **Ray class**. There is one caveat to this method, however. When using `pickWithRay`, the method automatically transforms the ray from world coordinates to the local coordinates of the mesh being picked. If you want to use the **Ray class** itself, the conversion from the world coordinates of the ray to the local space of an intersecting mesh must be done manually. 
 
 To do this, first create a ray and mesh to check for intersection, then convert the ray into the local space of the mesh to determine the correct intersection point on the mesh.
 
@@ -190,7 +190,7 @@ Another handy feature is the createPickingRay. This special ray is cast from a c
 
 ## Debugging
 
-It could be tough to understand where a ray starts and is its direction. To help you debug you can then use the RayHelper.
+It can be hard to understand where a ray starts and what its direction is. To help you debug, you can use the RayHelper.
 
 You can either use a static function to create and show one:
 
@@ -198,7 +198,7 @@ You can either use a static function to create and show one:
 BABYLON.RayHelper.CreateAndShow(ray, scene, new BABYLON.Color3(1, 1, 0.1));
 ```
 
-or you can use a more detailled version:
+or you can use a more detailed version:
 
 ```javascript
 var rayHelper = new BABYLON.RayHelper(ray);
@@ -238,11 +238,11 @@ scene.onPointerObservable.add(() => {
 });
 ```
 
-As you can see you only need to create a `GPUPicker`, defines the list of pickable meshes and call the `pickAsync` function.
+As you can see, you only need to create a `GPUPicker`, define the list of pickable meshes, and call the `pickAsync` function.
 
-The system will then render the scene onto a texture and read from that texture at the give coordinates. Each mesh will be rendered with an unique color hence the picker will be able to return the picked mesh.
+The system will then render the scene onto a texture and read from that texture at the given coordinates. Each mesh is rendered with a unique color, so the picker can return the picked mesh.
 
-Thanks to the call to `setPickingList`, the picker will be able to prepare all the instances and will associate a new vertex buffer to store their unique colors.
+Thanks to the call to `setPickingList`, the picker can prepare all the instances and associate a new vertex buffer to store their unique colors.
 
 <Playground id="#XJKQOC#14" title="GPU picking" description="Simple example of how to use GPU picking."/>
 
@@ -250,7 +250,7 @@ Please note that if you pick a mesh with thin instances then the `pickingInfo.th
 
 ### GPU Multi picking
 
-You can perform a picking operation on multiple coordinates at once by using the `picker.multiPickAsync(coordinates: IVector2Like[])`. The function will return `Promise<BABYLON.IGPUMultiPickingInfo>`. 
+You can perform a picking operation on multiple coordinates at once by using `picker.multiPickAsync(coordinates: IVector2Like[])`. The function returns `Promise<BABYLON.IGPUMultiPickingInfo>`. 
 
 ```typescript
 export interface IGPUMultiPickingInfo {
@@ -265,23 +265,23 @@ export interface IGPUMultiPickingInfo {
 }
 ```
 
-The `meshes` property has always the length of the array of meshes you set with the  `picker.setPickingList` function so you can use index based look up for a picking hit. If the `mesh` was not picked the `meshes` property contains `undefined` at the given index. There is no difference in the `thinInstanceIndexes` property. It returns the indexes in the samy way as the `pickAsync` function does.
+The `meshes` property always has the length of the array of meshes you set with the `picker.setPickingList` function, so you can use index-based lookup for a picking hit. If a `mesh` was not picked, the `meshes` property contains `undefined` at the given index. The `thinInstanceIndexes` property works the same way and returns indexes just as `pickAsync` does.
 
-Before you can use multi picking you have to set the meshes you intend to pick with the `setPickingList` as you do when performing single picking.
+Before you can use multi picking, you have to set the meshes you intend to pick with `setPickingList`, just as you do when performing single picking.
 
-You can use multi picking for occlusion detection like demonstreted in the following Playground:
+You can use multi picking for occlusion detection, as demonstrated in the following Playground:
 
 <Playground id="#GAB1RS#63" title="GPU Multipicking example" description="Demonstrates how can you use multipicking to get occlusion statuses of multiple meshes."/>
 
-Multi picking is optimized and always renders only a portion of the picking texture defined by the an area from min to max picking coordinates. If this are is too big you should consider calling `multiPickAsync` multiple times with smaller areas or perform `pickAsync` multiple times with a single coordinate. 
+Multi picking is optimized and always renders only a portion of the picking texture defined by an area from the minimum to the maximum picking coordinates. If this area is too big, you should consider calling `multiPickAsync` multiple times with smaller areas or calling `pickAsync` multiple times with a single coordinate. 
 
 ### Important
 
 The following applies to meshes in the picking list. Due to performance reasons, checks are not performed. It is up to the user to ensure all pickable meshes follow simple rules.
 
 * All meshes in the picking list should always be enabled.
-* Mesh enabled states are not checked when picking. If you have a pickable mesh with `mesh.setEnabled(false)`, pick results will be fouled up. If you really need to disable a mesh, remove it from the picking list first, update the pick texure with `picker.setPickingList([...newList])`, then disable your mesh.
-* Any instances in the picking list must also be accompanied by its root mesh, even if its not meant to be picked.
+* Mesh enabled states are not checked when picking. If you have a pickable mesh with `mesh.setEnabled(false)`, pick results will be invalid. If you really need to disable a mesh, remove it from the picking list first, update the pick texture with `picker.setPickingList([...newList])`, then disable your mesh.
+* Any instances in the picking list must also be accompanied by their root mesh, even if it is not meant to be picked.
 * Any instances added/removed from the picking list needs a `picker.setPickingList([...list])` to update the pick texture. If you have to dispose said instance, remove instance from the picking list first, dispose said instance and then call `picker.setPickingList([...newList])`.
 * For thin instances, if you make any changes to the matrix buffer, ie, add/remove thin instances, you have to call `picker.setPickingList([...list])` to update the pick texture after.
 * GPU picking works with `mesh.visibility = 0` and `mesh.material.alpha = 0` but not with `mesh.isVisible = false`.

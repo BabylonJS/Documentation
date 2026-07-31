@@ -56,12 +56,12 @@ website -- in right around an hour.
 
 1. First, they'd spend about ten minutes adding the default viewer into
     their WordPress site.
-1. Next, they spent at most half an hour getting their 3D model hosted
+1. Next, they'd spend at most half an hour getting their 3D model hosted
     online using an
     [asset host](https://github.com/BabylonJS/asset-host-template)
     from Babylon's
     [Template Repository Workflow](/setup/templates/repos/templateRepositories#the-template-repository-workflow).
-1. Finally, they reconfigured the default viewer to display their Vaporwear
+1. Finally, they'd reconfigure the default viewer to display their Vaporwear
     3D model, disabling the features they didn't need and ensuring the
     viewer was using Khronos 3D Commerce-conformant rendering. With a
     little help from the Community on the
@@ -83,7 +83,7 @@ a little HTML-style code.
 
 Though Barnabas was quite experienced with WordPress, he'd never added 3D
 to an existing site before, so the first thing he wanted to do was make
-sure he coul get at least *something* rendering on the site in 3D. After
+sure he could get at least *something* rendering on the site in 3D. After
 finding the
 [Viewer Examples](/legacy/babylonViewer/viewerExamples#basic-usage)
 in the Babylon.js docs, Barnabas decided to just grab the code from there
@@ -196,7 +196,7 @@ to render it on the Vaporwear WordPress site.
     so he decided to tweak a few things about its appearance to make it
     look just right for Vaporwear. First, he removed the leftover code
     from the sample adding VR support. (He also cleaned up a lot of
-    copied-over comments he didn't need anymore.) Since thee Vaporwear
+    copied-over comments he didn't need anymore.) Since the Vaporwear
     site was targeting a very clean presentation bordering on minimalism,
     he decided to also remove the logo and fullscreen UI from the nav bar.
 
@@ -208,7 +208,7 @@ to render it on the Vaporwear WordPress site.
     available from Babylon 5.0 onward. However, since Barnabas was doing
     this during the leadup to the 5.0 release, he needed to switch to
     using the Viewer script from the "preview" CDN in order to get the
-    latest hot-off-the-presses featuers.
+    latest hot-off-the-presses features.
 
     ![Configure nav bar](/img/devStories/vaporwearViewer/20_change_params.webp)
 1. He then updated the page in WordPress, switched to viewing instead of

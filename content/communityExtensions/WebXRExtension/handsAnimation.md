@@ -1,6 +1,6 @@
 ---
 title: WebXR extension / Hands Animation
-description: Hands Animations. Recording and playback
+description: Hand animations: recording and playback
 keywords: extensions, WebXR, Hand tracking
 further-reading: 
   - title: Demonstration of playback feature
@@ -18,7 +18,7 @@ A good practice is to show a pre-recorded hand animation to familiarize users wi
 
 ### Capturing
 
-For capture, we use the capabilities of the HandTracking wrapper.
+For capture, use the capabilities of the HandTracking wrapper.
 
 ```typescript
 export interface IHandTrackingXRFeatEnv extends IXRFeatEnv<WebXRHandTracking> {
@@ -32,7 +32,7 @@ captureHandsAnimation(
 // ... other functions
 }
 ````
-Example of capturing
+Example of capturing:
 ``` typescript
 // 1. Create service
 // 2. Init service
@@ -44,14 +44,14 @@ const ftHandEnv =   xrService.extractFeatureEnv('HAND_TRACKING');
 // Recording will start after a 2s pause at 360 frames.
 const animation =  await ftHandEnv(360, 'both', 2000);
 ```
-!!! A great idea is to use binary packaging for the captured data, 
-but this is not an extension feature. 
-Even a short recording can take up 200-300 KB, so it's 
+!!! Using binary packaging for the captured data is a great idea,
+but it is not an extension feature.
+Even a short recording can take up 200-300 KB, so it is
 important to be mindful of animation file sizes.
 
 ### Playback
 
-For playback there is a special class AnimatedHand:
+For playback, there is a special class called AnimatedHand:
 ```typescript
 export interface IAnimatedHand {
 	readonly isReady:boolean;
@@ -86,8 +86,8 @@ export interface IAnimatedHand {
 }
 ```
 This class allows you to load the required hand model, assign a material,
-and set its position and orientation in space. 
-You can implement all this logic yourself using a class specifically
+and set its position and orientation in space.
+You can also implement all this logic yourself with a class specifically
 designed for playback. We'll demonstrate both approaches:
 
 Example 1: Playback with AnimatedHand
@@ -155,4 +155,4 @@ await player.play(
 ```
 [Animation example file*](https://webxr.projects.clickon.pro/assets/gestures/animations/activate.json)
 
-\* Warning!: To use this file as JSON, you need to add a 0 before numbers starting with '.' or '-.'
+\* Warning: To use this file as JSON, you need to add a 0 before numbers starting with '.' or '-.'

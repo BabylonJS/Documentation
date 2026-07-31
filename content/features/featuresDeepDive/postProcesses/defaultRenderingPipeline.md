@@ -55,7 +55,7 @@ This will actually create a fullscreen post-process texture.
 
 Notes:
 
-1. The HDR value should be `true` as long as possible, unless you're targeting cheap fallback for low end devices. This value allow one of the half float or float texture type, depending on the GPU. Also, some effects (like bloom) will be more accurate.
+1. The HDR value should be `true` whenever possible, unless you're targeting a cheap fallback for low-end devices. This value allows either a half-float or float texture type, depending on the GPU. Also, some effects (like bloom) will be more accurate.
 
 2. When enabling a pipeline, you may notice that your scene clearColor will not match the color you have set. This can be fixed using `.toLinearSpace()`, as in this <Playground id="#08A2BS#15" title="Clear Color Fix" description="Simple example of fixing the clear color in the default rendering pipeline to match what you have set."/>
 
@@ -63,13 +63,13 @@ Notes:
 
 ## Antialiasing
 
-The MSAA antialiasing (only supported in webGL 2.0 browsers) effect is off by default (set to 1) but can be increased using:
+The MSAA antialiasing effect (supported only in WebGL 2.0 browsers) is off by default (set to 1) but can be increased using:
 
 ```javascript
 pipeline.samples = 4;
 ```
 
-Your value will be clamped by the maxed values allowed by the hardware (queried from the webgl context).
+Your value will be clamped by the maximum values allowed by the hardware (queried from the WebGL context).
 
 The FXAA antialiasing effect can be set using:
 
@@ -77,7 +77,7 @@ The FXAA antialiasing effect can be set using:
 pipeline.fxaaEnabled = true;
 ```
 
-Note: without using the pipeline, your scene already use a MSAA antialiasing, which is webGL native. As said above, pipeline is running on a post-process texture: unfortunately, webGL 1.0 devices will not be able to apply MSAA outside of render buffers. Still, FXAA is available but not as powerful as MSAA.
+Note: without using the pipeline, your scene already uses MSAA antialiasing, which is native to WebGL. As mentioned above, the pipeline runs on a post-process texture: unfortunately, WebGL 1.0 devices will not be able to apply MSAA outside of render buffers. Still, FXAA is available, though it is not as powerful as MSAA.
 
 ## Sharpening
 
@@ -169,7 +169,7 @@ To modify the strength of the effect based on the distance from the center of th
 pipeline.chromaticAberration.radialIntensity = 3;
 ```
 
-To modify the direction the aberration the direction can be set:
+To modify the direction of the aberration, set the direction as follows:
 
 ```javascript
 var rotation = Math.PI;
@@ -187,13 +187,13 @@ You can turn the effect on and off with:
 pipeline.grainEnabled = true;
 ```
 
-Furthermore, you can control intensity of the grain with:
+Furthermore, you can control the intensity of the grain with:
 
 ```javascript
 pipeline.grain.intensity = 10;
 ```
 
-To set grain to animate on every frame set:
+To animate the grain on every frame, set:
 
 ```javascript
 pipeline.grain.animated = value;

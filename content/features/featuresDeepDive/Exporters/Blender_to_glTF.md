@@ -10,17 +10,17 @@ video-content:
 
 ## Blender to BJS, using glTF
 
-glTF exporter will allow you to export your scene using PBR workflow.
+The glTF exporter allows you to export your scene using the PBR workflow.
 
 ## Features
 
-Since Blender 2.8, glTF addon comes with Blender enabled by default. You can update it from the official [Github repo](https://github.com/KhronosGroup/glTF-Blender-IO). Official documentation is on [Blender Manual](https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html).
+Since Blender 2.8, the glTF add-on is enabled in Blender by default. You can update it from the official [Github repo](https://github.com/KhronosGroup/glTF-Blender-IO). The official documentation is in the [Blender Manual](https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html).
 
 It should be compatible with Blender 2.79b, but you may also note that the old exporter is [still available](https://github.com/KhronosGroup/glTF-Blender-Exporter) ([old documentation](https://github.com/KhronosGroup/glTF-Blender-Exporter/blob/master/docs/user.md)).
 
-Axis conventions aren't the same between Blender,Babylon.js (left handed) & glTF (right handed), so you can see below a conversion table to help you about coordinates.
+Axis conventions are not the same between Blender, Babylon.js (left-handed), and glTF (right-handed), so the conversion table below can help with coordinates.
 
-To help transforming, note that theBabylon.js loader will automatically set glTF assets as children of an object:
+To help with transforms, note that the Babylon.js loader will automatically set glTF assets as children of an object:
 
 - named `__root__`
 - rotated by default to 180° on Y axis
@@ -45,7 +45,7 @@ Once your scene is exported, you have multiple solutions to test it:
 Let's say you have exported [WaterBottle.glb](https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/WaterBottle/glTF-Binary):
 
 - export to .gltf or .glb in a folder
-- create a file named _index.html_, and copy the code above:
+- create a file named _index.html_, and copy the code below:
 
 ```html
 <!DOCTYPE html>
@@ -104,7 +104,7 @@ Let's say you have exported [WaterBottle.glb](https://github.com/KhronosGroup/gl
 
 - double-click on the _index.html_ file
 
-  - some browsers may not want loading the scene, for some security issues (e.g.: Chrome). In this case, you have to open the html file through a webserver ([local](/extensions/Babylon.js+ExternalLibraries/Running_a_local_webserver_for_BabylonJs) or not), or try into another browser (e.g.: Firefox, Edge)
+  - some browsers may not allow loading the scene for security reasons (e.g.: Chrome). In this case, you have to open the HTML file through a web server ([local](/extensions/Babylon.js+ExternalLibraries/Running_a_local_webserver_for_BabylonJs) or not), or try another browser (e.g.: Firefox, Edge)
 
 - ... profit!
 

@@ -21,7 +21,7 @@ The glTF Exporter allows Babylon scenes to be exported to [glTF 2.0](https://www
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-To quickly use the glTF Exporter in a page, import the compiled UMD Javascript from the Babylon CDN like so:
+To quickly use the glTF Exporter on a page, import the compiled UMD JavaScript from the Babylon CDN like so:
 
 <CodePen pen="raNGBqG" tab="html,result" title="glTF Exporter - Using the CDN" />
 
@@ -64,7 +64,7 @@ GLTF2Export.GLBAsync(scene, "fileName").then((glb) => {
 
 ## Export options
 
-The glTF Exporter accepts an optional `options` parameter with certain functions and properties defined.
+The glTF Exporter accepts an optional `options` parameter with various functions and properties.
 
 ```typescript
 const options: IExportOptions = {
@@ -93,7 +93,7 @@ GLTF2Export.GLTFAsync(scene, "fileName", options);
 
 ### Details
 
-- `shouldExportNode`: Sometimes, you may need to exclude geometry from export, such as the skybox. You can define a callback which accepts a Babylon.js node as an argument and returns a boolean, specifying if the node should be exported or not.
+- `shouldExportNode`: Sometimes, you may need to exclude geometry from export, such as the skybox. You can define a callback that accepts a Babylon.js node as an argument and returns a boolean specifying whether the node should be exported.
 - `removeNoopRootNodes`: When importing a glTF asset into a left-handed scene (the Babylon default), the glTF Loader inserts the imported asset under a brand new node at the scene's root. This node helps to quickly convert the asset's right-handed coordinate system (the glTF default) to the scene's left-handed one. If you'd like to keep this root conversion node on export, or keep any other "no-op" root nodes, you can specify `true`.
 - `meshCompressionMethod`: For scenes with complex or large models, it may be preferable to compress their geometries for smaller export sizes. You can specify `"Draco"` to compress all geometries in the exported scene using the [Draco compression scheme](https://github.com/google/draco?tab=readme-ov-file#description).
 
@@ -150,7 +150,7 @@ Key:
 - ✔️ Alpha coverage modes
 - ✔️ Double-sided materials
 - ❌ Specular-Glossiness Extension [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness)
-  - `SpecularGlossiness` has been superseeded by KHR_materials_specular. `KHR_materials_pbrSpecularGlossiness` will not be supported.
+  - `SpecularGlossiness` has been superseded by KHR_materials_specular. `KHR_materials_pbrSpecularGlossiness` will not be supported.
 - ✔️ Index of Refraction Extension [KHR_materials_ior](https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_materials_ior)
 - ✔️ Volume Extension [KHR_materials_volume](https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_materials_volume)
 - ✔️ Unlit Materials Extension [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_materials_unlit)
@@ -180,8 +180,8 @@ Key:
   - As skeletons in glTF are represented as collections of nodes in the scene, skeletal animation is exported as TRS animation
 - ✔️ Morph Target Weight Animation
 - ✔️ Multiple animations
-  - In scene, AnimationGroups will be exported as a single glTF Animation.
-  - In scene, Animations not associated with an AnimationGroup will be exported as a single glTF animation.
+  - In a scene, AnimationGroups will be exported as a single glTF Animation.
+  - In a scene, Animations not associated with an AnimationGroup will be exported as a single glTF animation.
 - ❌ Animation Pointer Extension [KHR_animation_pointer](https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_animation_pointer)
 
 ##### Metadata

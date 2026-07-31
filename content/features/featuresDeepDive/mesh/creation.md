@@ -10,7 +10,7 @@ video-content:
 
 ## The Creation of Different Types of Mesh
 
-There is a large variety of meshes that you can create. The range falls into four broad categories, the first three of which requiring a single Babylon.js method to build.
+There is a large variety of meshes that you can create. They fall into four broad categories, the first three of which require a single Babylon.js method to build.
 
 1. Set Shapes - which usually have names in everyday use and their forms are well known and recognized. Examples include the box, sphere, cone and plane. These shapes are created with a method having the form _Create&lt;MeshType&gt;_
 
@@ -20,7 +20,7 @@ There is a large variety of meshes that you can create. The range falls into fou
 
 4. Custom - those you design yourself and build from your own set of vertices connected into triangular facets as you choose.
 
-The current way to create a mesh is using _MeshBuilder_
+The current way to create a mesh is to use _MeshBuilder_.
 
 ```javascript
 const mesh = BABYLON.MeshBuilder.Create<MeshType> (name, options, scene);
@@ -28,7 +28,7 @@ const mesh = BABYLON.MeshBuilder.Create<MeshType> (name, options, scene);
 
 The _options_ object will have different properties according to the type of mesh and can be empty {}. The scene parameter is optional and defaults to the current scene.
 
-There is an older deprecated method, retained for backwards compatibility, which uses _Mesh_ and a string of parameters
+There is an older, deprecated method, retained for backwards compatibility, which uses _Mesh_ and a string of parameters.
 
 ```javascript
 const mesh = BABYLON.Mesh.Create<MeshType>(name, required_param1, required_param2, ..., scene, optional_parameter1, ........);

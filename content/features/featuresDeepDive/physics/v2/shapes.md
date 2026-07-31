@@ -19,7 +19,7 @@ In general, the convex hull gives the best performance while closely matching th
 
 ## Available shapes and parameters
 
-This section demonstrates how to create the available Physics Shapes and their parameters. Note that the shape parameters are determined in a **LOCAL** coordinate system, in other words, they don't depend on the body or mesh's position, rotation or scaling in the world:
+This section demonstrates how to create the available Physics Shapes and their parameters. Note that the shape parameters are determined in a **LOCAL** coordinate system. In other words, they don't depend on the body or mesh's position, rotation, or scaling in the world:
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeSphere(
@@ -55,7 +55,7 @@ const shape = new BABYLON.PhysicsShapeCapsule(
 );
 ```
 
-![Capsule Shape](/img/features/physics/capsule_shape.webp) Capsules are similar to cylinders, but have two half-spheres on each end. These are a great choice for character limbs (sometimes called ragdolls.)
+![Capsule Shape](/img/features/physics/capsule_shape.webp) Capsules are similar to cylinders, but they have two half-spheres, one on each end. They are a great choice for character limbs (sometimes called ragdolls).
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeBox(
@@ -66,7 +66,7 @@ const shape = new BABYLON.PhysicsShapeBox(
 );
 ```
 
-A box is exactly how it sounds - a box. It has a size, a center, and an orientation. This is a great choice for boxes, books, walls or anything that needs to be flat.
+A box is exactly what it sounds like—a box. It has a size, a center, and an orientation. This is a great choice for boxes, books, walls, or anything that needs to be flat.
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeConvexHull(
@@ -75,7 +75,7 @@ const shape = new BABYLON.PhysicsShapeConvexHull(
 );
 ```
 
-A convex hull is the most versatile of the physics shapes. A convex object is one where you can draw a line between any two vertices without leaving the shape. While most real-world objects are not convex, for the purposes of physics simulation, this is a great approximation for most objects. The input mesh can be concave - the physics engine will calculate the convex part of the geometry.
+A convex hull is the most versatile of the physics shapes. A convex object is one where you can draw a line between any two vertices without leaving the shape. While most real-world objects are not convex, for the purposes of physics simulation this is a great approximation for most objects. The input mesh can be concave—the physics engine will calculate the convex part of the geometry.
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeMesh(
@@ -84,7 +84,7 @@ const shape = new BABYLON.PhysicsShapeMesh(
 );
 ```
 
-A mesh shape is simply a collection of triangles. All the triangles in the input mesh will become triangles in the physics engine. This is a great choice for your static bodies, as generally, those static bodies represent highly concave objects, so this will give the closest match to your render geometry. Be aware that when two complex mesh shapes collide with each other, it might require the physics engine to calculate collisions between a huge number of triangles, which can slow down the simulation.
+A mesh shape is simply a collection of triangles. All the triangles in the input mesh will become triangles in the physics engine. This is a great choice for static bodies, which often represent highly concave objects, because it gives the closest match to your render geometry. Be aware that when two complex mesh shapes collide with each other, the physics engine may need to calculate collisions between a huge number of triangles, which can slow down the simulation.
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeContainer(
@@ -92,11 +92,11 @@ const shape = new BABYLON.PhysicsShapeContainer(
 )
 ```
 
-A container shape doesn't have any geometry by itself, however, it does allow any other shape to be added as a child, with an additional transform. If none of the other shape types are suitable to match your render geometry, you can use a container and add a number of simpler shapes to approximate your visual mesh.
+A container shape doesn't have any geometry by itself. However, it does allow any other shape to be added as a child with an additional transform. If none of the other shape types are suitable for matching your render geometry, you can use a container and add a number of simpler shapes to approximate your visual mesh.
 
 [The Container has its own page](/features/featuresDeepDive/physics/compounds) for more information.
 
-A height field is essentially a grid of height values (often stored in a 2D array) that define the elevation of a surface at each point on a regular grid. This creates a 3D surface that can be used for collision detection and physics simulations in a more efficient manner compared to using a high-resolution mesh of individual polygons. The example below constructs a height field from the `heightBuffer` returned by `CreateGroundFromHeightMap`:
+A height field is essentially a grid of height values (often stored in a 2D array) that define the elevation of a surface at each point on a regular grid. This creates a 3D surface that can be used for collision detection and physics simulations more efficiently than using a high-resolution mesh of individual polygons. The example below constructs a height field from the `heightBuffer` returned by `CreateGroundFromHeightMap`:
 
 ```javascript
 var ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("g", "https://image.jpeg", {
@@ -117,7 +117,7 @@ var ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("g", "https://image.j
     });
 ```
 
-If you want to construct a height field for a mesh which represents your "ground", but the mesh's vertices aren't evenly spaced, you could construct a height field with 10 subdivisions from x, z coordinates `(-50, -50)` to `(50, 50)` in your scene as follows:
+If you want to construct a height field for a mesh that represents your "ground", but the mesh's vertices aren't evenly spaced, you could construct a height field with 10 subdivisions using x and z coordinates from `(-50, -50)` to `(50, 50)` in your scene as follows:
 
 ```
 const planeSize = 100;

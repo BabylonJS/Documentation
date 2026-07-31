@@ -1,7 +1,7 @@
 ---
 title: Listening events
 image: 
-description: Understanding how to use the Babylon.JS Editor api to listen events in application.
+description: Understanding how to use the Babylon.JS Editor API to listen for events in an application.
 keywords: editor, scripting
 further-reading:
 video-overview:
@@ -10,11 +10,11 @@ video-content:
 
 ## Introduction
 
-The Editor api provides some tools, as decorators, to help listening events globally and on nodes. In other words, for
-example on pointer events, the api can listen for events and pick the selected mesh in order to notify the decorated
+The Editor API provides some tools, such as decorators, to help listen for events globally and on nodes. In other words, for
+example with pointer events, the API can listen for events and pick the selected mesh in order to notify the decorated
 method(s).
 
-For example, listening for pointer event `pointer tap` on the current mesh having this script attached:
+For example, here is how to listen for the `pointer tap` event on the current mesh that has this script attached:
 
 ```typescript
 import { Mesh } from "@babylonjs/core/Meshes/mesh";
@@ -46,12 +46,12 @@ export default class MyMeshComponent extends Mesh {
 
 ### On Pointer Event
 
-To listen pointer events, the decorator `@onPointerEvent` can be used to decorate methods to call.
+To listen for pointer events, the decorator `@onPointerEvent` can be used to decorate methods to call.
 This decorator takes 2 arguments:
 - the pointer event type (`PointerEventTypes` from `@babylonjs/core/Events/pointerEvents`).
-- a boolean to indicate whether or not the method should be called only when, in case of a mesh, the mesh is picked.
+- a boolean to indicate whether or not the method should be called only when, in the case of a mesh, the mesh is picked.
 
-The second boolean parameter is set to `true` by default. That means it must be set to `false` in order to listen
+The second boolean parameter is set to `true` by default. That means it must be set to `false` in order to listen for
 the pointer event globally.
 
 ```typescript
@@ -66,21 +66,21 @@ protected _tapped(info: PointerInfo): void {
 }
 ```
 
-The method signature can define the `PointerInfo` reference which contains all the pointer event info such as we get
+The method signature can define the `PointerInfo` reference, which contains all the pointer event info just as we get
 using `scene.onPointerObservable.add((info) => { ... })`.
 
-**Note: the method will be called only and only if the scene containing the mesh is instantiated in the game/application**
+**Note: the method will be called only if the scene containing the mesh is instantiated in the game/application**
 
 ### On Keyboard Event
 
-As for `@onPointerEvent` decorator, the `@onKeyboardEvent` decorator can be used to decorate methods in a script.
+As with the `@onPointerEvent` decorator, the `@onKeyboardEvent` decorator can be used to decorate methods in a script.
 This decorator takes 2 arguments:
-- the key of keys to listen (as numbers or strings).
-- the type of keyboard event to listen (key up or key down).
+- the key or keys to listen for (as numbers or strings).
+- the type of keyboard event to listen for (key up or key down).
 
 **Note: keyboard events are always listened globally**
 
-Example listening for the `z` key being up:
+Example of listening for the `z` key being released:
 
 ```typescript
 @onKeyboardEvent("z", KeyboardEventTypes.KEYUP)
@@ -89,7 +89,7 @@ protected _keyup(info: KeyboardInfo): void {
 }
 ```
 
-Multiple keys can be listened at the same time where the decorated method will be called when any of the specified
+Multiple keys can be listened to at the same time, where the decorated method will be called when any of the specified
 keys is triggered:
 
 ```typescript

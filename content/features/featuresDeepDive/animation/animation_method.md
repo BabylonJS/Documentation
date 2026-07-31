@@ -16,7 +16,7 @@ video-content:
 const myAnim = new BABYLON.Animation(name, property, frames_per_second, property_type, loop_mode);
 ```
 
-- _name_ - _string_, name of animation
+- _name_ - _string_, name of the animation
 
 - _property_ - _string_, a property of the object that the animation will be applied to. For example a Vector3 property such as position or a floating number property such as `light.intensity`.
 
@@ -31,7 +31,7 @@ const myAnim = new BABYLON.Animation(name, property, frames_per_second, property
   BABYLON.Animation.ANIMATIONTYPE_VECTOR2  
   BABYLON.Animation.ANIMATIONTYPE_VECTOR3
 
-- _loop mode_ - _number optional_, This can be set using the following Parameters:
+- _loop mode_ - _number optional_. This can be set using the following parameters:
 
   BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE - Restart the animation from initial value  
   BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT - Pause the animation at the final value  
@@ -75,7 +75,7 @@ There are several ways to manage the play state of animations. One of the simple
 myMaterial.animations.push(myAnim);
 ```
 
-Additionally, animations can be added to any object that the engine can reach, even if it does not already have an _animations_ array property. Due to the malleable nature of Javascript, simply declaring a new array property for an object will enable us to store animations on target objects. For example, if we want to target the weight property of an animation with another animation, we can add an _animations_ array property to the animation by declaring it.
+Additionally, animations can be added to any object that the engine can reach, even if it does not already have an _animations_ array property. Due to the malleable nature of JavaScript, simply declaring a new array property for an object will enable us to store animations on target objects. For example, if we want to target the weight property of an animation with another animation, we can add an _animations_ array property to the animation by declaring it.
 
 ```javascript
 myAnimation.animations = [];
@@ -92,7 +92,7 @@ Now that we have pushed an animation to a target object, starting the animation 
 scene.beginAnimation(target, from, to);
 ```
 
-- _target_ - _BabylonJS Object_, theBabylon.js object to be animated
+- _target_ - _BabylonJS Object_, the Babylon.js object to be animated
 - _from_ - _number_, the frame at which to start the animation
 - _to_ - _number_, the frame at which to end the animation
 
@@ -114,13 +114,13 @@ If it is preferable to not store animations with a target object, one or more an
 scene.beginDirectAnimation(target, animations, from, to, loop);
 ```
 
-- _target_ - _BabylonJS Object_, theBabylon.js object to be animated
+- _target_ - _BabylonJS Object_, the Babylon.js object to be animated
 - _animations_ - _array_, of all the animations to apply to the target
 - _from_ - _number_, the frame at which to start the animation
 - _to_ - _number_, the frame at which to end the animation
 - _loop_ - _boolean_, optional, default _false_, when _true_ repeats the animation
 
-Be aware that animations applied with `scene.beginDirectAnimation` do not belong to any object or the scene so the scene is not aware of these animations and they do not register in `scene.animations`. However, this method is extremely useful for applying a one-time animation to an object or for animating an object that does not have an _animations_ array property if it is desirable not to alter the target object. Further optional parameters are available and can be found in the _scene_ API. If `scene.beginDirectAnimation` is the preferable method, but additionally having a reference to the animation that can be used in the future is required, an _Animatable_ is exactly what is needed.
+Be aware that animations applied with `scene.beginDirectAnimation` do not belong to any object or the scene, so the scene is not aware of them and they do not register in `scene.animations`. However, this method is extremely useful for applying a one-time animation to an object or for animating an object that does not have an _animations_ array property if it is desirable not to alter the target object. Further optional parameters are available and can be found in the _scene_ API. If `scene.beginDirectAnimation` is the preferable method, but additionally having a reference to the animation that can be used in the future is required, an _Animatable_ is exactly what is needed.
 
 <Playground id="#7V0Y1I#1" title="Sliding Box Direct Animation" description="An example of sliding a box with direct animation." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.webp" isMain={true} category="Animation"/>
 

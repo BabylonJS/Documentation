@@ -10,14 +10,14 @@ video-content:
 
 ## How to Use Multiple Scenes
 
-To use multiple scenes create them with
+To use multiple scenes, create them with
 
 ```javascript
 var scene0 = new BABYLON.Scene(engine);
 var scene1 = new BABYLON.Scene(engine);
 ```
 
-then put the relevant camera, lights and meshes inside each scene and call them in `runRenderLoop`
+Then put the relevant camera, lights, and meshes inside each scene and call them in `runRenderLoop`.
 
 ```javascript
 engine.runRenderLoop(function () {
@@ -26,7 +26,7 @@ engine.runRenderLoop(function () {
 });
 ```
 
-However, this simple code has a potential problem. Remeber that each `scene.render` call will try to clear what has been rendered before, and to avoid one scene erasing what another has rendered, you need to set `scene.autoClear = false` on all the scenes rendered on "top" of others:
+However, this simple code has a potential problem. Remember that each `scene.render` call will try to clear what has been rendered before, and to avoid one scene erasing what another has rendered, you need to set `scene.autoClear = false` on all the scenes rendered on "top" of others:
 
 ```javascript
 var scene0 = new BABYLON.Scene(engine);
@@ -43,9 +43,9 @@ engine.runRenderLoop(function () {
 
 ### Multiple scenes on the Playground
 
-However there is a difference between writing multiple scenes within your own projects and trying them out in the playground.
+However, there is a difference between writing multiple scenes within your own projects and trying them out in the Playground.
 
-In your own project it is easy enough to set up create scene functions for each scene and call them in the engine run render loop. For example
+In your own project, it is easy enough to set up create scene functions for each scene and call them in the engine render loop. For example:
 
 ```javascript
 var createScene0 = function () {
@@ -74,7 +74,7 @@ engine.runRenderLoop(function () {
 });
 ```
 
-The playground has its own engine run render loop which needs to be stopped before running your own version:
+The Playground has its own engine render loop, which needs to be stopped before running your own version:
 
 ```javascript
 var createScene = function () {

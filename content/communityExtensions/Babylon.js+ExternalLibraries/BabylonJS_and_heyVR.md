@@ -15,7 +15,7 @@ It offers a wide range of ready-to-use gameplay features to enhance your players
 ## Useful Links
 - [heyVR.io](https://heyvr.io)
 - [heyVR Developer Area](https://developer.heyvr.io)
-- [heyVR Documentations](https://docs.heyvr.io)
+- [heyVR Documentation](https://docs.heyvr.io)
 
 ## Publishing Flow
 heyVR.io is free to use, both for players and game developers.
@@ -23,16 +23,16 @@ Developers can create an account on the [Developer Area](https://developer.heyvr
 To read more about how the process works, please refer to the documentation on [Publishing Flow](https://docs.heyvr.io/en/developer-area/publish-a-game).
 
 ## SDK Implementation
-While implementing the heyVR SDK in your games is completely optional, It's highly recommended that you take advantage of the SDK to further enhance your game and make use of features such as save games, leaderboards, inventory etc. to provide better user experience.
+While implementing the heyVR SDK in your games is completely optional, it's highly recommended that you take advantage of the SDK to further enhance your game and make use of features such as save games, leaderboards, inventory, etc. to provide a better user experience.
 
-heyVR offers 2 different ways to integrate the SDK into your Babylon.js game. Based on your development environment, you can proceed with either of these.
+heyVR offers two different ways to integrate the SDK into your Babylon.js game. Depending on your development environment, you can proceed with either of them.
 
 ### 1) Built-in SDK
-Every game submitted on heyVR has the option to enable the built-in SDK. This will inject the SDk into the game at runtime. 
+Every game submitted on heyVR has the option to enable the built-in SDK. This injects the SDK into the game at runtime. 
 
 #### 1.1) Installation
 The built-in SDK does not require any installation. 
-To enable the built-in SDK, all you need to do is to choose an SDK version for your build before uploading it. 
+To enable the built-in SDK, all you need to do is choose an SDK version for your build before uploading it. 
 You can read more about this on the [documentation website](https://docs.heyvr.io/en/developer-area/publish-a-game#game-files).
 
 > If you're using TypeScript, you can install the type definition package for the built-in SDK. Simply run:
@@ -59,8 +59,8 @@ window.heyVR.user.isLoggedIn()
     .catch( () => console.warn( 'User is not logged in.' ) );
 ```
 
-The SDK offers extensive methods and functionalities, including a sandbox version that allows your game to use the SDK features locally. 
-To read about how to use these features, please consult the [SDk Documentation](https://docs.heyvr.io/game-development/sdk/gameplay).
+The SDK offers extensive methods and functionality, including a sandbox version that allows your game to use the SDK features locally. 
+To read about how to use these features, please consult the [SDK documentation](https://docs.heyvr.io/game-development/sdk/gameplay).
 
 ### 2) NPM Package
 You might be using NPM to manage your game's dependencies.
@@ -75,7 +75,7 @@ npm i @heyvr/sdk-gameplay
 The package already includes the type definitions, in case you're using TypeScript.
 
 #### 2.2) Basic Usage
-The package's signature is extremely similar to the built-in SDk. 
+The package's API is extremely similar to the built-in SDK. 
 You can start by importing the pieces that you need. 
 Let's replicate the previous example.
 

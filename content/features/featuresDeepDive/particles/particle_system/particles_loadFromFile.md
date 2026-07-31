@@ -10,7 +10,7 @@ video-content:
 
 ## Particle System JSON Files
 
-When using the [particle system editor](/legacy/inspector/particleEditor), there is an option to save the particle system as a local JSON file that can be loaded and used in any Babylon.js scene. This is useful for sharing particle systems between different scenes as well as updating a particle system quickly. Changing the parameters for a particle system stored locally as a JSON file allows any scene using that particle system to be updated immediately without the need to manage the snippet ID referenced by any scene.
+When you use the [particle system editor](/legacy/inspector/particleEditor), you can save the particle system as a local JSON file that can be loaded and used in any Babylon.js scene. This is useful for sharing particle systems between different scenes and for updating a particle system quickly. Changing the parameters in a locally stored JSON file lets any scene that uses that particle system pick up the update immediately, without needing to manage a referenced snippet ID.
 
 ## Loading the JSON file
 
@@ -24,7 +24,7 @@ const particleFile = assetsManager.addTextFileTask("my particle system", "partic
 assetsManager.load();
 ```
 
-Create a new `TextFileTask` for each particle system that needs to be loaded. The great thing about the Asset Manager is that it will load each file in sequence and then send a callback once all of the loading is done. Since most effects are made up of several particle systems, the Asset Manager will help to quickly and efficiently load each file before parsing.
+Create a new `TextFileTask` for each particle system that needs to be loaded. The Asset Manager loads each file in sequence and then invokes a callback once all loading is complete. Since most effects are made up of several particle systems, the Asset Manager helps load each file quickly and efficiently before parsing.
 
 ```javascript
 assetsManager.onFinish = function (task) {

@@ -28,7 +28,7 @@ In the first video of the "Intro to the Inspector" series, Jason walks you throu
 
 <Youtube id="WZzMcKw2qAY"/>
 
-In the second video of the "Intro to the Inspector" series, David walks you through the 4 tabs of the Inspector Window.
+In the second video of the "Intro to the Inspector" series, David walks you through the four tabs of the Inspector window.
 
 ## Part 3: Scene Properties
 
@@ -64,7 +64,7 @@ In the seventh video of the "Intro to the Inspector" series, Trevor walks you th
 
 <Youtube id="imNGaP3VogU"/>
 
-In the eighth video of the "Intro to the Inspector" series, Patrick walks you through using render pipelines, taking advantage of post-process effects to create stunning images. 
+In the eighth video of the "Intro to the Inspector" series, Patrick walks you through using render pipelines and taking advantage of post-process effects to create stunning images.
 
 ## Part 9: The Tools Tab
 
@@ -76,4 +76,4 @@ In the ninth video of the "Intro to the Inspector" series, Saurabh walks you thr
 
 <Youtube id="1Y7Mwjfxbm8"/>
 
-In the tenth video of the "Intro to the Inspector" series, Saurabh walks you through how to open up the inspector via code, including how to customize it to your own needs.
+In the tenth video of the "Intro to the Inspector" series, Saurabh walks you through how to open the Inspector via code, including how to customize it to your own needs.

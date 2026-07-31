@@ -18,16 +18,16 @@ Fur material can be found here: [https://cdn.babylonjs.com/materialsLibrary/baby
 
 A demo can be found at: PG: <Playground id="#2322Y7#0" title="Fur Material" description="Example using high level mode"/>
 
-Fur materials have always been subjects of a lot of theories and conferences with multiple implementations thanks to multiple technologies.
-Here, with WebGL, we decided to choose one of these implementations, not hard to use and pretty smart (with performances) with simple models
+Fur materials have long been the subject of many theories and conference talks, with multiple implementations made possible by different technologies.
+Here, with WebGL, we chose one of these implementations because it is easy to use and performs well with simple models.
 
-First, activate the high level (activated by default):
+First, activate High Level mode, which is enabled by default:
 
 ```javascript
 furMaterial.highLevelFur = true;
 ```
 
-That's all. Now, the most difficult part should be to configure the shells and the fur texture to create the fur effect.
+That's all. The most difficult part is configuring the shells and the fur texture to create the fur effect.
 Indeed, you'll have to draw several times the same mesh with an offset (computed in the effect) to create the illusion of fur.
 Hopefully, there is a function that creates and returns the shells:
 
@@ -44,7 +44,7 @@ var quality = 30; // Average quality
 var shells = BABYLON.FurMaterial.FurifyMesh(myMesh, quality);
 ```
 
-It is now working!
+It now works!
 The function "BABYLON.FurMaterial.FurifyMesh" returns an array of "BABYLON.Mesh" that you can dispose later.
 The first element is the mesh you used as the source mesh (myMesh here):
 
@@ -76,7 +76,7 @@ allFurMaterials.furGravity = new BABYLON.Vector3(0, -1, 0);
 
 ## Using the fur material without High Level Mode
 
-First, deactivate the high level (activated by default so following line MUST be included):
+First, deactivate High Level mode (it is enabled by default, so the following line must be included):
 
 ```javascript
 furMaterial.highLevelFur = false;
@@ -88,9 +88,9 @@ Demos can be found at:
 PG: <Playground id="#EUCNP#6" title="Fur Material" description="Example using low level mode"/>  
  PG: <Playground id="#EUCNP#7" title="Fur Material" description="Example using low level mode and heightmap"/>
 
-The fur material needs a high number of the triangular facets that make up a mesh to work well.
+The fur material needs a high number of triangular facets in the mesh to work well.
 The number of facets needed also depends on the size of the mesh.
-Example that seem to work for ground and sphere are:
+Examples that seem to work for the ground and sphere are:
 
 ```javascript
 var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 8, height: 8, subdivisions: 200 }, scene);
@@ -121,7 +121,7 @@ furMaterial.furColor = new BABYLON.Color3(0.44, 0.21, 0.02); // is the default c
 
 A greyscale image can be used to set the fur length.
 A speckled greyscale image can produce fur like results.
-Any greyscale image with affect the fur length producing a heightMap type effect.
+Any greyscale image will affect the fur length, producing a heightmap-type effect.
 
 ```javascript
 furMaterial.heightTexture = new BABYLON.Texture("speckles.jpg", scene); // Set the fur length with a texture.
@@ -137,17 +137,17 @@ under the [license](https://creativecommons.org/licenses/by-sa/3.0/deed.en)
 furMaterial.diffuseTexture = new BABYLON.Texture("leopard_fur.jpg", scene); // Set the fur length with a texture.
 ```
 
-## Meshes where the number of facets is not user controlled on creation.
+## Meshes where the number of facets is not user-controlled at creation.
 
 Demos can be found at:
 PG: <Playground id="#EUCNP#16" title="Fur Material" description="Leopard fur converted to smooth before increasing facets"/>  
  PG: <Playground id="#EUCNP#17" title="Fur Material" description="Leopard fur converted to smooth after increasing facets"/>
 
-Unlike the ground mesh where you can supply the number of subdivisions or the sphere mesh where you can supply the number of segments the majority of meshes are created using a minimum number of facets.
-To apply the fur material to these the number of facets per face of the mesh needs to be increased.
+Unlike the ground mesh, where you can supply the number of subdivisions, or the sphere mesh, where you can supply the number of segments, the majority of meshes are created using a minimum number of facets.
+To apply the fur material to these meshes, the number of facets per face needs to be increased.
 
 The function increasedFacets will do this:
-When n is the number of points per side added to each side of a facet the number of facets is increased by the square of (n + 1).
+When n is the number of points per side added to each side of a facet, the number of facets is increased by the square of (n + 1).
 
 ```javascript
 function increasedFacets(mesh, pps) {
@@ -267,9 +267,9 @@ function increasedFacets(mesh, pps) {
 }
 ```
 
-For sharp edged meshes such as a box the shader can separate the faces since the faces meeting at the corners have their own vertices and normals at these vertices.
+For sharp-edged meshes such as a box, the shader can separate the faces since the faces meeting at the corners have their own vertices and normals at those vertices.
 These meshes are flat shaded. If this separation of the edges is a problem then the function convertToSmoothShadedMesh() can be used.
-However this can then produce some artefacts at the edges.
+However, this can produce some artifacts at the edges.
 
 ```javascript
 function convertToSmoothShadedMesh(mesh) {

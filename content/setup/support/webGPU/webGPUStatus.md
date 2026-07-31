@@ -14,13 +14,13 @@ The implementation in WebGPU is complete and, besides a few exceptions, all feat
 
 ### Features with incomplete support
 * [Point Cloud System](/typedoc/classes/babylon.pointscloudsystem)
-  * WebGPU does not support a point size different from 1, so setting a value different from 1 for the point size won't be taken into account
+  * WebGPU does not support a point size different from 1, so setting the point size to a value other than 1 will not be taken into account
 
 ### Features not working because not implemented yet
 * Support for triangle fan / line loop drawing mode
-  * WebGPU does not support those modes, we will need to emulate them with triangle strip and line strip
+  * WebGPU does not support those modes, so we will need to emulate them with triangle strip and line strip
 * [Multiview / WebXR](/features/featuresDeepDive/cameras/multiViewsPart1)
-  * Not implemented yet but not supported by Chrome / WebGPU specifications neither
+  * Not implemented yet, and neither Chrome nor the WebGPU specifications support it
 
 ## Make it fast: Optimizations
 The most important optimizations have now been done (see [Optimizations](/setup/support/webGPU/webGPUOptimization)), others could be considered:
@@ -31,6 +31,5 @@ The most important optimizations have now been done (see [Optimizations](/setup/
 * Use `CreatePipelineAsync` for asynchronous pipeline creations
 
 ## Browser Caveats
-Chrome / Chrome Canary don't support all WebGPU features yet (or some others are not fully functional yet), so here are some caveats:
+Chrome / Chrome Canary do not support all WebGPU features yet, and some others are not fully functional, so here are some caveats:
 * GPU timing in the **Inspector** does not work because timestamp queries are currently disabled in Chrome. You can start Chrome with the `--enable-dawn-features=allow_unsafe_apis` flag if you want to enable them. You can also add the `--enable-webgpu-developer-features` flag for more precise timing.
-

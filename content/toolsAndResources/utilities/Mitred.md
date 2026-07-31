@@ -10,25 +10,25 @@ video-content:
 
 ## Extrude Shape with Mitred Corners
 
-Neither [CreateTube](/features/featuresDeepDive/mesh/creation/param#tube) nor [ExtrudeShape](/features/featuresDeepDive/mesh/creation/param#extruded-shapes) were designed to handle sharp corners but to perform well over smooth curves. This can be seen by the tube and extruded shapes narrowing at the corner in the following
+Neither [CreateTube](/features/featuresDeepDive/mesh/creation/param#tube) nor [ExtrudeShape](/features/featuresDeepDive/mesh/creation/param#extruded-shapes) was designed to handle sharp corners. Instead, they were designed to perform well over smooth curves. This can be seen by the tube and extruded shapes narrowing at the corner in the following examples:
 
 <Playground id="#PDRDFA" title="Bend In Tube" description=""/>
 <Playground id="#PDRDFA#1" title="Bend In Extruded Tube" description=""/>
 <Playground id="#PDRDFA#2" title="Bend in Extruded Shape" description=""/>
 
-Whereas they are very good for smooth curves giving a bend as you would get in a physically bent tube
+They are, however, very good for smooth curves, giving a bend like the one you would get in a physically bent tube.
 
 <Playground id="#PDRDFA#6" title="Slow Bend In Tube" description=""/>
 <Playground id="#PDRDFA#2" title="Slow Bend In Extruded Shape" description=""/>
 
-The function `mitredExtrude` allows an extrusion path with sharp corners such as you would get by cutting and forming a mitre join.
+The function `mitredExtrude` allows an extrusion path with sharp corners, such as you would get by cutting and forming a mitre joint.
 
 <Playground id="#PDRDFA#4" title="Right Angle in Extruded Tube With Mitre" description=""/>
 <Playground id="#PDRDFA#5" title="Right Angle in Extruded Shape" description=""/>
 
 ## Using Mitre Extrude
 
-The function has the form
+The function has the form:
 
 ```javascript
 var extrude = mitredExtrude("name", options, scene);
@@ -42,7 +42,7 @@ var extrude = mitredExtrude("name", options, scene);
 
 ## Playground Examples
 
-To form a mitre the bend must take place along a line that is in the plane of one of the extruded faces (ie one formed by the edges of the shape to be extruded) and that line must be perpendicular to the edges of that face. For a closed extrusion to have a proper mitre when joining the first and last point the path for the extrusion must have a series of turns that allows the bend line to meet this requirement. When the requirement is not met the final join will be twisted.
+To form a mitre, the bend must take place along a line that is in the plane of one of the extruded faces (ie one formed by the edges of the shape to be extruded), and that line must be perpendicular to the edges of that face. For a closed extrusion to have a proper mitre when joining the first and last points, the path for the extrusion must have a series of turns that allows the bend line to meet this requirement. When the requirement is not met, the final join will be twisted.
 
 <Playground id="#376T60#2" title="Open" description=""/>
 <Playground id="#376T60#3" title="Closed With Twist" description=""/>

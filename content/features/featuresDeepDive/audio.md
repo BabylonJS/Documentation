@@ -8,9 +8,9 @@ video-overview:
 video-content:
 ---
 
-The Babylon.js audio engines are based on the [**Web Audio specification**](https://webaudio.github.io/web-audio-api/). They  feature ambient, spatialized and directional sounds, as well as basic audio buses for signal routing and mixing.
+The Babylon.js audio engines are based on the [**Web Audio specification**](https://webaudio.github.io/web-audio-api/). They feature ambient, spatialized, and directional sounds, as well as basic audio buses for signal routing and mixing.
 
-There are 2 sound engines in Babylon.js.
+There are two sound engines in Babylon.js.
 
 - a new `AudioEngineV2` with support for modern JavaScript using the latest features of the WebAudio API.
 

@@ -9,7 +9,7 @@ video-content:
 ---
 
 
-## Using the Edge detection post-process
+## Using the Edge Detection post-process
 
 With this Edge Detection post-process, you can create full-scene outlines in a style suited for comics or games, which cannot be achieved with renderOutline, edgeRendering, or HighlightLayer.
 
@@ -17,7 +17,7 @@ If you’re aiming for that look, this tutorial is for you.
 
 ![Screenshot](/img/resources/edgeDetectionPP/EDPP.webp)
 
-## How to use ?
+## How to use?
 
 To use it, attach the post-process to your main camera to enable the effect.
 
@@ -40,15 +40,15 @@ edgeDetectionPostProcess.edgeColor = BABYLON.Color3.Red();
 
 <Playground id="#HBSUDW#1" title="Edge Detection Post Process Render Mode Demo" description="Edge Detection Post Process Render Mode Demo"/>
 
-Additionally, you can change the render mode
+Additionally, you can change the render mode:
 
 ```javascript
 // General :0, Normal: 1, Depth: 2, Only Outline: 3 
 edgeDetectionPostProcess.renderMode = 3; // default is 1 
 ```
 
-Here is a full demo where you can control all properties of the EdgeDetection PostProcess."
-Futhermore, you can check the cel materials with outline.
+Here is a full demo where you can control all the properties of the EdgeDetection PostProcess.
+Furthermore, you can also check the cel materials with outlines.
 
 ![Screenshot](/img/resources/edgeDetectionPP/EDPP2.webp)
 

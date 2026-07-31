@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Extract Submeshes as Meshes
-This snippet takes a mesh and splits its subMeshes into individual meshes. Returns array of new meshes.
+This snippet takes a mesh and splits its subMeshes into individual meshes. It returns an array of new meshes.
 
 ```javascript
 function deconstructMesh(mesh) {

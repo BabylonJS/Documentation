@@ -12,15 +12,15 @@ video-content:
 
 ## Introduction
 
-The [WebGL Multiview extension](https://www.khronos.org/registry/webgl/extensions/OVR_multiview2/) allows rendering multiple views (eg. each eye for VR scenarios) in a single render pass. This can make rendering around 1.5 to 2.0 times faster.
+The [WebGL Multiview extension](https://www.khronos.org/registry/webgl/extensions/OVR_multiview2/) allows rendering multiple views (e.g. each eye for VR scenarios) in a single render pass. This can make rendering around 1.5 to 2.0 times faster.
 
-Multiview is not currently supported in all browsers. If it is supported, the multiview capability should be present.
+Multiview is not currently supported in all browsers. If it is supported, the multiview capability should be present:
 
 ```javascript
 scene.getEngine().getCaps().multiview;
 ```
 
-**Note:** Multiview rendering renders to a texture array instead of a standard texture. This may cause unexpected issues when applying postprocessing with custom shaders, effects, or postprocessing (_e.g._, the highlight layer will have no effect).
+**Note:** Multiview rendering renders to a texture array instead of a standard texture. This may cause unexpected issues when applying post-processing with custom shaders, effects, or post-processing steps (_e.g._, the highlight layer will have no effect).
 
 ## Using with VRExperienceHelper
 

@@ -18,7 +18,7 @@ First, you can download the latest version of the installer from our [Github Rel
 
 ![releases](/img/exporters/installer/GithubPreRelease.webp)
 
-From there, you can download the Installer.zip file. Chrome is currently warning of potential threat as the installer.exe has currently not been downloaded enough to pass the Chromium checks. In this case, you might see a message like this:
+From there, you can download the Installer.zip file. Chrome is currently warning about a potential threat because installer.exe has not yet been downloaded enough times to pass Chromium's checks. In this case, you might see a message like this:
 
 ![chrome warning](/img/exporters/installer/ChromeDLWarning.webp)
 
@@ -26,11 +26,11 @@ You can nevertheless continue to download by pressing the little arrow and choos
 
 ![chrome warning keep](/img/exporters/installer/ChromeDLWarningKeep.webp)
 
-Once downloaded, you can extract the content of the zip in your favorite location.
+Once downloaded, you can extract the contents of the zip to your preferred location.
 
 ### Using the installer
 
-Launch the executable file contained in the previous zip. On the first launch Windows like Chrome previously will emit a Smart Screen warning as the application has currently not being launched enough to be trusted.
+Launch the executable file contained in the zip. On first launch, Windows, like Chrome earlier, will display a SmartScreen warning because the application has not yet been launched enough times to be trusted.
 
 ![smart screen warning](/img/exporters/installer/SmartScreen.webp)
 
@@ -38,19 +38,19 @@ As before, you can choose to continue by pressing more info and then Run anyway:
 
 ![smart screen warning keep](/img/exporters/installer/SmartScreenKeep.webp)
 
-No worries, you are almost there. A second warning is raised by Windows as the installer needs to write files in the program files and therefore run in elevated mode. You can access the User Account Control and finally start using the application.
+No worries, you are almost there. Windows raises a second warning because the installer needs to write files in Program Files and therefore must run in elevated mode. You can access the User Account Control and finally start using the application.
 
 From this point, it gets simpler:
 
 ![smart screen warning keep](/img/exporters/installer/Installer.webp)
 
-Once launched the application should auto detect all the installation folders from your Autodesk applications. In case it fails to do so, you could still manually location the targeted software.
+Once launched, the application should auto-detect all the installation folders for your Autodesk applications. If it fails to do so, you can still manually locate the target software.
 
-You can now easily install or update any of your 3d authoring tools to the latest prerelease available on Github.
+You can now easily install or update any of your 3D authoring tools to the latest prerelease available on Github.
 
-Would you want to upgrade to the latest available pre-release of the exporter plugins, you can easily launch back the installer and follow the same exact procedure to update the installed plugins to their latest versions.
+If you want to upgrade to the latest available pre-release of the exporter plugins, you can relaunch the installer and follow the same procedure to update the installed plugins to their latest versions.
 
-Please note that both the software you are trying to install the plugin for should be closed during the installation.
+Please note that the software you are installing the plugin for should be closed during installation.
 
 ## Manual Install
 
@@ -58,11 +58,11 @@ The plug-in is designed for Maya 2017 or later. This guide is about the Windows 
 
 ![releases](/img/exporters/installer/GithubPreRelease.webp)
 
-In the assets section of the release you can find one zip file per supported tool (like Maya_2019.zip) containing the plugin files.
+In the assets section of the release, you can find one zip file per supported tool (like Maya_2019.zip) containing the plugin files.
 
-Click on the zip file, to start Downloading.
+Click the zip file to start downloading.
 
-By default, Windows blocks all .dll files coming from the web, so we have to unblock them first. Select the zip file, and with a right click select _Properties_, select _Unblock_, and then _OK_.
+By default, Windows blocks all .dll files coming from the web, so we have to unblock them first. Select the zip file, right-click it, select _Properties_, select _Unblock_, and then _OK_.
 
 ![dll unblocking](/img/exporters/Maya/3_dll_unlocking.webp)
 
@@ -70,8 +70,8 @@ Then, extract the content of the zip file on your computer.
 
 Finally:
 
-- move all .dll files into a directory defined in Maya plug-in path (for example `C:/Program Files/Autodesk/Maya2018/bin/plug-ins`). More information on how to install a plug-in in Maya [here](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-FA51BD26-86F3-4F41-9486-2C3CF52B9E17-htm.html).
-- and move all template files to their respective folders AETemplates and NETemplates. Those files are used for the UI. While not mandatory they are always welcomed!
+- move all .dll files into a directory defined in the Maya plug-in path (for example `C:/Program Files/Autodesk/Maya2018/bin/plug-ins`). More information on how to install a plug-in in Maya [here](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-FA51BD26-86F3-4F41-9486-2C3CF52B9E17-htm.html).
+- and move all template files to their respective folders AETemplates and NETemplates. Those files are used for the UI. While not mandatory, they are always welcome!
 
 You should find the _Maya2Babylon.nll.dll_ in the plug-in Manager (_Windows > Settings/Preferences > Plug-in Manager_).
 
@@ -95,12 +95,12 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
 
 - Maya2Babylon 2017-2018
 
-  - Requires atleast .NET Framework 4.6.1
+  - Requires at least .NET Framework 4.6.1
 
 - Maya2Babylon 2019
-  - Requires atleast .NET Framework 4.6.1
+  - Requires at least .NET Framework 4.6.1
 - Maya2Babylon 2020
-  - Requires atleast .NET Framework 4.6.1
+  - Requires at least .NET Framework 4.6.1
 
 ## Other Dependencies
 
@@ -186,9 +186,9 @@ This window is composed of 3 panels:
 
 The _Export_ button should be used to create the Babylon file representing your scene. The _Export & Run_ button will also create the Babylon file, but will also launch your default browser and run the newly made Babylon file. This button is very useful if you just want to test the render of your scene in Babylon.js.
 
-As babylon.js script is retrieved directly from the official website directly, you should have internet access in order to correctly use Export & Run.
+As the babylon.js script is retrieved directly from the official website, you should have internet access to use Export & Run correctly.
 
-The log panel indicates in real time which mesh has been exported, which material, and if there are any problems with these objects.
+The log panel indicates in real time which meshes and materials have been exported and whether there are any problems with these objects.
 
 Option _Optimize vertices_: The Babylon exporter will try to optimize the number of vertices to export instead of exporting everything naively (if a vertex is part of two faces, this vertex won’t be exported twice with this option checked).
 
@@ -196,7 +196,7 @@ The _Scale factor_ can be used to rescale the whole world. If you set a scale fa
 
 The _Texture quality_ sets the conversion quality of bitmap to JPEG. At 100 (the maximum value), it gives the highest image quality but no file size reduction. On the contrary at 0 (the minimum value), it gives the lowest image quality but the greatest file size reduction. By default the _Texture quality_ is set to 100.
 
-The _Use Draco compression_ option is only available for gltf and glb output format. More detail [here](/features/featuresDeepDive/Exporters/Maya_to_glTF#draco-compression).
+The _Use Draco compression_ option is only available for gltf and glb output format. More details [here](/features/featuresDeepDive/Exporters/Maya_to_glTF#draco-compression).
 
 In the _MorphTarget options_ section, the _Export normal_ and _Export tangent_ checkboxes allow you to customize the morph target export.
 
@@ -204,7 +204,7 @@ In the _MorphTarget options_ section, the _Export normal_ and _Export tangent_ c
 
 ## Camera
 
-If you want to test your scene right away by using the button Export & Run, your scene should have a camera created. Otherwise, the log panel will display the warning “No camera defined” and a default one would be created at runtime but won't be exported in .babylon file.
+If you want to test your scene right away by using the button Export & Run, your scene should have a camera created. Otherwise, the log panel will display the warning “No camera defined”, and a default one will be created at runtime but won't be exported in the .babylon file.
 
 If you have more than one camera, the first one will be set as activeCamera in Babylon.
 
@@ -237,15 +237,15 @@ Note that the exporter also supports textures with tif and dds formats. But, tho
 
 ## Physical materials
 
-The handling of physical materials is mimic from glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/Maya_to_glTF#pbr-materials)
+The handling of physical materials mimics the glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/Maya_to_glTF#pbr-materials)
 
-As well as the default supported GLTF parameters, in Babylon format, we support the coating parameters of Arnold Standard Surface. You can see below the supported parameters:
+Along with the default supported glTF parameters, the Babylon format also supports the coating parameters of Arnold Standard Surface. You can see below the supported parameters:
 
 ![texture](/img/exporters/Maya/Coating.webp)
 
-Please note that if a map is used for the weight or the roughness parameter, they will be combined in the same way the ORM texture is created in the Detailed explanations. In Maya, metalness and roughness maps are black and white images (R=G=B). The 2 maps must have same sizes to be merged successfully.
+Please note that if a map is used for the weight or the roughness parameter, they will be combined in the same way the ORM texture is created in the Detailed explanations. In Maya, metalness and roughness maps are black and white images (R=G=B). The 2 maps must have the same size to be merged successfully.
 
-In Babylon format, weight is stored in red channel, roughness in green.
+In Babylon format, weight is stored in the red channel and roughness in the green channel.
 
 ## UV sets
 
@@ -268,7 +268,7 @@ When exporting, the geometry of all meshes using a double sided material is dupl
 - the number of vertices and faces is doubled
 - faces, normals and tangents are inverted for the duplicated geometry
 
-This mean that the exporter is automatically creating a back side. If you already have a back side, you should directly apply a material to it.
+This means that the exporter is automatically creating a back side. If you already have a back side, you should directly apply a material to it.
 
 ## Babylon material attributes
 
@@ -283,31 +283,31 @@ Here is an example for 3 different materials:
 Most Babylon attributes are common to all materials:
 
 - **Unlit**: A material can be exported as Unlit, meaning independent of lighting. This implies that light-relative attributes or textures are not exported: ambient, specular, emissive, bump mapping and reflection texture.
-- **Backface Culling**: When true, the back faces are not rendered. When false, back faces are rendered using same material as front faces.
+- **Backface Culling**: When true, the back faces are not rendered. When false, back faces are rendered using the same material as front faces.
 - **Max Simultaneous Lights**: Number of Simultaneous lights allowed on the material.
 - **Opacity/Transparency Mode**: You can select how transparency is handled for this material among 3 choices:
   - _Opaque_: The alpha color and texture are ignored during export process.
   - _Cutoff_: The alpha cutoff value is 0.5. Alpha values under this threshold are fully transparent. Alpha values above this threshold are fully opaque.
-  - _Blend_: This how Maya handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
+  - _Blend_: This is how Maya handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
 
 ## Custom attributes
 
-You can add custom attributes to Meshes, Materials, Lights and Cameras with the attributes window (_Modify > Add Attribute..._) and it adds them in the extra attributes of those objects.
+You can add custom attributes to Meshes, Materials, Lights, and Cameras with the attributes window (_Modify > Add Attribute..._), which adds them to the extra attributes of those objects.
 
 ![native attributes window](/img/exporters/Maya/9_attribute_window.webp)
 
-In babylon, the custom attributes are added as metadata.
+In Babylon, the custom attributes are added as metadata.
 
 ![custom attributes as metadata](/img/exporters/Maya/CustomAttributes_Metadata.webp)
 
-Following types have particularities you should know:
+The following types have specific behaviors you should know about:
 
 - _bool_ : is equal to 0 or 1.
 - _enum_ : corresponds to the index of your Maya enum.
 
 ## Exporter through MEL script
 
-You can use the exporter through MEL script. To do so you need to generate the exporter parameters with the command 'GenerateExportersParameter' and specify a path and the export type.
+You can use the exporter through a MEL script. To do so, you need to generate the exporter parameters with the command 'GenerateExportersParameter' and specify a path and the export type.
 
 ![generate export parameter](/img/exporters/Maya/11_generate_export_parameter.webp)
 
@@ -319,4 +319,4 @@ You can find an example script in the [Maya\MELScripts](https://github.com/Babyl
 
 ## Using the exporter
 
-Export your own scene from Maya to babylon format and load it into the [Babylon Sandbox](http://sandbox.babylonjs.com/). Or load them via scripts using the [babylon loader](/features/featuresDeepDive/importers/assetManager).
+Export your own scene from Maya to babylon format and load it into the [Babylon Sandbox](http://sandbox.babylonjs.com/). Or load it via scripts using the [babylon loader](/features/featuresDeepDive/importers/assetManager).

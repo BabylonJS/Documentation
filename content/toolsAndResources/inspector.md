@@ -18,11 +18,11 @@ video-content:
 
 ## What Is It?
 
-Babylon.js inspector is a visual debugging tool created to help pinpoint issues you may have with a scene.
+The Babylon.js Inspector is a visual debugging tool created to help pinpoint issues you may have with a scene.
 
 For a video overview of the inspector, check out [Introduction to the inspector - video series](/legacy/inspector/inspectorVideoOverview).
 
-The inspector offers multiple tools like:
+The Inspector offers multiple tools, such as:
 
 - A hierarchical view of your scene
 - Multiple property grids to let you dynamically change object properties
@@ -33,7 +33,7 @@ Its interface uses two panes:
 - The scene explorer pane
 - The inspector pane
 
-It can be called in two manners:
+It can be opened in two ways:
 
 1. Without [ES Modules](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
 
@@ -90,7 +90,7 @@ Inspector.Hide(); // You don't need to pass the scene
 
 The scene explorer displays a hierarchical view of your scene. You can filter by name in the filter bar if you want to find a specific entry.
 
-By clicking on a line you will select it and the inspector will automatically update to reflect the properties of the selected item.
+Clicking a line selects it, and the Inspector automatically updates to reflect the properties of the selected item.
 
 Some entities offer shortcuts to contextual actions.
 
@@ -98,20 +98,20 @@ Some entities offer shortcuts to contextual actions.
 
 ![scene actions](/img/features/debuglayer/sceneactions.webp)
 
-The scene shortcuts are the following:
+The scene shortcuts are as follows:
 
-- The first 3 actions will turn on a specific gizmo mode ([translation](/typedoc/classes/babylon.transformnode#translate), rotation, scaling). When you click on one of them you can then click on a node in the Scene explorer or directly in your scene and it will be controllable with a gizmo:
+- The first 3 actions turn on a specific gizmo mode ([translation](/typedoc/classes/babylon.transformnode#translate), rotation, scaling). After you click one of them, you can click a node in the Scene Explorer or directly in your scene, and then control it with a gizmo:
 
 ![gizmo](/img/features/debuglayer/gizmo.webp)
 
-- The fourth action is a picker. Just pick a mesh in your scene and it will be selected in your scene explorer
-- The last one will force the scene explorer to update. For performance reasons, the scene explorer is not listening to all changes that can happen on the scene so you may end up needing to refresh it manually.
+- The fourth action is a picker. Just pick a mesh in your scene, and it will be selected in your Scene Explorer.
+- The last one forces the Scene Explorer to update. For performance reasons, the Scene Explorer does not listen to all changes that can happen in the scene, so you may need to refresh it manually.
 
 ## Mesh actions
 
 ![mesh actions](/img/features/debuglayer/meshactions.webp)
 
-The mesh shortcuts are the following:
+The mesh shortcuts are as follows:
 
 - The first action will enable the bounding box gizmo:
 
@@ -129,7 +129,7 @@ You can use the light action to turn a light on and off.
 
 ![camera actions](/img/features/debuglayer/cameraactions.webp)
 
-You can use the camera action to switch the active camera (when they are multiple cameras in a scene).
+You can use the camera action to switch the active camera when there are multiple cameras in a scene.
 
 ## GUI control actions
 
@@ -148,15 +148,15 @@ When your scene does not contain a default rendering pipeline, you can right-cli
 
 ## Inspector pane
 
-The inspector pane contains 4 tabs:
+The Inspector pane contains 4 tabs:
 
 ![inspector](/img/features/debuglayer/inspector.webp)
 
-- The property grid which will display configurable controls for the current selected entity:
+- The property grid, which displays configurable controls for the currently selected entity:
 
 ![property grid](/img/features/debuglayer/property.webp)
 
-- The debug pane will let you turn features on and off. It also let you display a grid and turn viewers (bones or physics) on and off:
+- The debug pane lets you turn features on and off. It also lets you display a grid and turn viewers (bones or physics) on and off:
 
 ![debug pane](/img/features/debuglayer/debugpane.webp)
 
@@ -164,17 +164,17 @@ The inspector pane contains 4 tabs:
 
 ![stats pane](/img/features/debuglayer/statspane.webp)
 
-- The tools pane lets you access utilities (like screen capture or recording as well as several tools related to glTF):
+- The tools pane lets you access utilities such as screen capture, recording, and several tools related to glTF:
 
 ![tools](/img/features/debuglayer/tools.webp)
 
 ## Popup mode
 
-There are occassions when opening the inspector in a child window is preferable. It may be that the canvas size is too small to effectively use the inspector or the inspector is covering too much of the canvas making it hard to debug the scene. There are a few ways you can pop the inspector into a child window that is still connected to the scene. The first is by simply clicking the icon on the right side of the pane header bar adjacent to the close button. 
+There are occasions when opening the Inspector in a child window is preferable. The canvas may be too small to use the Inspector effectively, or the Inspector may cover too much of the canvas, making the scene hard to debug. There are a few ways to pop the Inspector into a child window that is still connected to the scene. The first is to click the icon on the right side of the pane header bar adjacent to the close button. 
 
 ![popup](/img/features/debuglayer/popup.webp)
 
-This will pop out the selected pane - either Scene Explorer or Inspector - into a child window. If the panes have been opened in [embedded mode](/legacy/inspector#embedded-mode), the embedded inspector will open into a single child window. Additionally, the inspector can be opened by default as a popup. The individual Scene Explorer and Inspector panes can be opened as popups with the following code:
+This pops out the selected pane - either Scene Explorer or Inspector - into a child window. If the panes have been opened in [embedded mode](/legacy/inspector#embedded-mode), the embedded Inspector opens in a single child window. Additionally, the Inspector can be opened as a popup by default. The individual Scene Explorer and Inspector panes can be opened as popups with the following code:
 
 ``` javascript
 var debugLayer = await scene.debugLayer.show();
@@ -198,7 +198,7 @@ debugLayer.popupEmbed()
 
 ## Specific debug tools
 
-Specific debug tools can be found across the inspector:
+Specific debug tools can be found throughout the Inspector:
 
 ## Render grid
 
@@ -220,7 +220,7 @@ This tool (available in the mesh property grid when the mesh has an attached ske
 
 ## Bone Weight Shader
 
-This tool (available in the mesh property grid when the mesh has an attached skeleton) will render a heat map showing the selected bones contribution:
+This tool (available in the mesh property grid when the mesh has an attached skeleton) will render a heat map showing the selected bones' contribution:
 
 ![bones](/img/features/debuglayer/BonesWeight.webp)
 
@@ -244,13 +244,13 @@ This tool (available in the property pane when you select a mesh) will render th
 
 ## Texture painter
 
-This tool (available in the property pane when you select a material with textures in it) will render the texture directly as an emissive one:
+This tool (available in the property pane when you select a material that contains textures) will render the texture directly as an emissive one:
 
 ![texture painter](/img/features/debuglayer/texturepainter.webp)
 
 ## Extensibility
 
-The inspector can be easily extended to allow manipulation of custom node properties. Simply define your custom properties in the node's `inspectableCustomProperties` array, and they will be available under the CUSTOM heading after selecting the node in the inspector.
+The Inspector can be easily extended to allow manipulation of custom node properties. Simply define your custom properties in the node's `inspectableCustomProperties` array, and they will be available under the CUSTOM heading after selecting the node in the Inspector.
 
 <Playground id="#LQF5QR#2" title="Inspector custom properties for a node" description="An example of inspector custom properties for a node" image="/img/playgroundsAndNMEs/inspectorCustomProperties.webp" />
 
@@ -318,5 +318,5 @@ myNode.inspectableCustomProperties = [
 ];
 ```
 
-The inspector can also be extended to allow manipulation of custom material properties.
+The Inspector can also be extended to allow manipulation of custom material properties.
 <Playground id="#LQF5QR#52" title="Inspector custom properties for a material" description="An example of inspector custom properties for a material"/>

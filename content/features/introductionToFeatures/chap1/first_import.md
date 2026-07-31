@@ -14,7 +14,7 @@ The playgrounds on this page contain models (in this example, houses) which can 
 
 ## Importing a Scene or Model
 
-When you add a model to a scene, you are loading it through the browser. As you likely already know, loading anything from a website is an asynchronous function. Therefore, before you can do anything with your models, you first must ensure they have been loaded successfully. You can do this using the _ImportMeshAsync_ method of the _SceneLoader_, which can be done as follows:
+When you add a model to a scene, you are loading it through the browser. As you likely already know, loading anything from a website is an asynchronous function. Therefore, before you can do anything with your models, you must first ensure they have been loaded successfully. You can do this using the _ImportMeshAsync_ method of the _SceneLoader_, as follows:
 
 ```javascript
 BABYLON.ImportMeshAsync(folder_path + file_name, scene, optionalOptions);
@@ -28,13 +28,13 @@ BABYLON.ImportMeshAsync("/relative path/myFile", scene, { meshNames: "model1" })
 BABYLON.ImportMeshAsync("/relative path/myFile", scene, { meshNames: ["model1", "model2"] }); //Array of model names
 ```
 
-Note that any of the calls above will only load the models; however, you will not be able to manipulate them in any way. Internally, a Promise object is setup and returned, but the above code does nothing with the result of that Promise. Examples of this are in the following two playgrounds, which **only** import the named models.
+Note that any of the calls above will only load the models; however, you will not be able to manipulate them in any way. Internally, a Promise object is set up and returned, but the above code does nothing with the result of that Promise. Examples of this are in the following two playgrounds, which **only** import the named models.
 
 <Playground id="#YNEAUL#5260" title="Loading Your First Model" description="Load a model into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModel.webp"/>
 
 <Playground id="#YNEAUL#5261" title="Loading Multiple Models at Once" description="Load multiple models into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModelwGrass.webp"/>
 
-Therefore, in order to act on the result and manipulate the objects, we follow the Promise with the _then_ method to call a function with the _result_ of the _Promise_. The _result_ is an object containing, among other things, the property _meshes_ which contains all the loaded models. We can use this array, or their names, to manipulate each mesh.
+Therefore, to act on the result and manipulate the objects, we follow the Promise with the _then_ method to call a function with the _result_ of the _Promise_. The _result_ is an object containing, among other things, the property _meshes_, which contains all the loaded models. We can use this array, or the models' names, to manipulate each mesh.
 
 ```javascript
 BABYLON.ImportMeshAsync("/relative path/myFile").then((result) => {
@@ -54,13 +54,13 @@ Having a working scene in the playground is one thing, but you will ultimately w
 
 ## Warning
 
-An obvious statement - different file types export models differently.
+A clear point: different file types export models differently.
 
-A less obvious statement - different file types may be changed when importing into Babylon.js.
+A less obvious point: different file types may change when imported into Babylon.js.
 
-You need to be aware of how the type you are using affects the outcome. It is not appropriate at this stage to go into detail but the following examples indicate why this is important.
+You need to be aware of how the type you are using affects the outcome. It is not appropriate at this stage to go into detail, but the following examples indicate why this is important.
 
-1. Some software saves all meshes with a rotationQuaternion set and you cannot then use the _rotation_ methods unless you first add:
+1. Some software saves all meshes with a rotationQuaternion set, and you cannot then use the _rotation_ methods unless you first do one of the following:
 
 ```javascript
 myMesh.rotationQuaternion = null; //Any version of Babylon.js

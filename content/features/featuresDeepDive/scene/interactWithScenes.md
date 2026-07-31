@@ -12,11 +12,11 @@ video-content:
 
 ## How to Interact with A Scene
 
-There are three main ways for a user to interact with a scene, the keyboard, the [GUI](/features/featuresDeepDive/gui) and directly with a mouse, touch or gamepad. The use of keyboard and pointer interactions are described on this page.
+There are three main ways for a user to interact with a scene: the keyboard, the [GUI](/features/featuresDeepDive/gui), and directly through a mouse, touch, or gamepad. The use of keyboard and pointer interactions is described on this page.
 
 ## Keyboard Interactions
 
-This is a code template to control reactions to different keys. Both the `ascii` code for the key and the key itself are available to you.
+This is a code template to control reactions to different keys. Both the `ASCII` code for the key and the key itself are available to you.
 
 ```javascript
 scene.onKeyboardObservable.add((kbInfo) => {
@@ -63,7 +63,7 @@ scene.onPointerObservable.add((pointerInfo) => {
 });
 ```
 
-[PEP](https://github.com/jquery/PEP) is an option for supporting **touch** events in older browsers (ones that don't natively support [pointer events](https://caniuse.com/pointer)). To use PEP all that is necessary is to:
+[PEP](https://github.com/jquery/PEP) is an option for supporting **touch** events in older browsers (ones that don't natively support [pointer events](https://caniuse.com/pointer)). To use PEP, all that is necessary is to:
 
 1. Install PEP
 
@@ -84,4 +84,4 @@ scene.onPointerObservable.add((pointerInfo) => {
 <Playground id="#XZ0TH6" title="Simple Keyboard Input Example" description="Simple example of keyboard input." image="/img/playgroundsAndNMEs/divingDeeperInteractions3.webp" isMain={true} category="Interactions"/>
 <Playground id="#2SA7J8#7" title="Click+Drag to Multi Select" description="Simple example of how to multi-select objects in a scene using rectangular selection." isMain={true} category="Interactions"/>
 
-Remember to click in scene (to set focus) before using keyboard
+Remember to click in the scene (to set focus) before using the keyboard.

@@ -12,7 +12,7 @@ video-content:
 
 It is incredibly easy to utilize Physically Based Rendering with Node Materials thanks to the `PBRMetallicRoughness` block.
 
-You can use these playgrounds and materials as starting points for your own experiments to create PBR materials in the NME (note that the node material may take some time to load in the PG - the mesh will stay black until the material is loaded):
+You can use these playgrounds and materials as starting points for your own experiments creating PBR materials in the NME (note that the node material may take some time to load in the PG - the mesh will stay black until the material is loaded):
 
 -   Full use of all PBR blocks:
 -   PG: <Playground id="#D8AK3Z#44" title="PBR Blocks Playground" description="Playground of the full use of PBR blocks in NME." image="/img/playgroundsAndNMEs/PGPBRNME.webp" isMain={true} category="Node Material"/>
@@ -31,7 +31,7 @@ The inputs of the different PBR blocks are using the same names as in the `PBRMe
 
 Some of the parameters are available as properties when clicking on the block in the NME.
 
-For eg, for `Reflection`:
+For example, for `Reflection`:
 
 ![Reflection properties](/img/how_to/Materials/nme_reflection_prop.webp)
 
@@ -43,8 +43,8 @@ As for the standard `PBRMaterial`, if no texture is provided for the **Reflectio
 
 By default, if something is connected to the `a` input of the `FragmentOutput` block, alpha blending is enabled. If you don't need alpha blending, don't connect this input.
 
-Regarding the `PBRMetallicRoughness` block, you have access to each output component separately (`ambient`, `diffuse`, `specular`, ...) if you want or you can directly use `lighting` to get the composite output. In the names of the separate outputs, `dir` means `direct` (component from direct lights) and `Ind` means `Indirect` (component from indirect lighting, meaning the environment).
+Regarding the `PBRMetallicRoughness` block, you have access to each output component separately (`ambient`, `diffuse`, `specular`, ...) if you want, or you can directly use `lighting` to get the composite output. In the names of the separate outputs, `dir` means `direct` (component from direct lights) and `Ind` means `Indirect` (component from indirect lighting, meaning the environment).
 
-A note about image processing and manual compositing: Note that the composited `lighting` output of the `PBRMetallicRoughness` block also adds image processing from the scene. If you desire to add additional components to the standard lighting setup, you will want to do the compositing yourself, using the separated components. The outputs of the separated components are in Linear color space. This is important because if you desire to calculate scene image processing in your manual composite, you'll need the `ImageProcessing` block. This block assumes input values in gamma color space by default and runs an internal conversation to a linear color space output. You will need to turn this conversion off in the `ImageProcessing` block properties to pass linear through without a conversion. 
+A note about image processing and manual compositing: the composited `lighting` output of the `PBRMetallicRoughness` block also adds image processing from the scene. If you want to add additional components to the standard lighting setup, you will want to do the compositing yourself using the separate components. The outputs of the separate components are in linear color space. This is important because if you want to calculate scene image processing in your manual composite, you'll need the `ImageProcessing` block. This block assumes input values in gamma color space by default and runs an internal conversion to a linear color space output. You will need to turn this conversion off in the `ImageProcessing` block properties to pass linear values through without conversion.
 
 <Youtube id="CRg8P1Af1M0"/>

@@ -8,18 +8,18 @@ video-overview:
 video-content:
 ---
 
-The Blender export plugin can be found on [github repository](https://github.com/BabylonJS/BlenderExporter). We assume your using the last version.
+The Blender export plugin can be found on [github repository](https://github.com/BabylonJS/BlenderExporter). We assume you're using the latest version.
 
 Note that v6 is for Blender 2.8 (currently in beta), v5 for Blender 2.79b or below can be found in the `deprecated` folder.
 
 ## Installation
 
-This add-on use the standard Blender installation procedure:
+This add-on uses the standard Blender installation procedure:
 
 - Download the [last version from Github](https://github.com/BabylonJS/BlenderExporter) (click on the zip file with the appropriate exporter version you'd like to download: _Blender2Babylon-X.X.zip_ and then hit the "Download" button).
 - In Blender, go to `File` menu > `User Preferences`.
 - Switch to the `Add-ons` tab.
-- (optional) If you already have an old version installed, search for _Babylon.js_ into the filter, expand infos ofBabylon.js add-on and click `Remove` button.
+- (optional) If you already have an old version installed, search for _Babylon.js_ in the filter, expand the info for the Babylon.js add-on, and click the `Remove` button.
 - Click the `Install from File...` button at the bottom.
 - Select the zip file and click the `Install Add-on from File...` button.
 - Check the box to enable it.
@@ -36,7 +36,7 @@ This add-on use the standard Blender installation procedure:
 | Blender                                                                                          | [BJS equivalent](/typedoc/classes/babylon.scene)                                                                                                                                                                                                                  |
 | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Scene ![scene](/img/exporters/blender/scene/scene.webp)                                           | <ul><li>Camera: set scene activeCamera</li></ul>                                                                                                                                                                                                                  |
-| Exporter panel![exporter-scene-options](/img/exporters/blender/scene/exporter-scene-options.webp) | <ul><li>`Export`: <ul><li>`All`: all the file will be exported</li><li>`Selected`: only selection will be exported</li><li>`Layers`: hidden layers will not be exported</li></ul></li><li>`Max Decimal Precision`: how values are rounded during export</li></ul> |
+| Exporter panel![exporter-scene-options](/img/exporters/blender/scene/exporter-scene-options.webp) | <ul><li>`Export`: <ul><li>`All`: the entire file will be exported</li><li>`Selected`: only the selection will be exported</li><li>`Layers`: hidden layers will not be exported</li></ul></li><li>`Max Decimal Precision`: how values are rounded during export</li></ul> |
 
 ---
 
@@ -59,7 +59,7 @@ This add-on use the standard Blender installation procedure:
 
 | Blender                                                             | BJS equivalent                                                                                                                                                                                 |
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![header](/img/exporters/blender/object/header.webp)                 | <ul><li>object name will be exported as it is</li></ul>                                                                                                                                        |
+| ![header](/img/exporters/blender/object/header.webp)                 | <ul><li>object name will be exported as-is</li></ul>                                                                                                                                        |
 | Transform ![transform](/img/exporters/blender/object/transform.webp) | <ul><li>Position</li><li>Rotation<ul><li>XYZ Euler</li><li>Quaternion</li></ul></li><li>Scale<ul><li>do not forget to apply Scale before exporting: 'Ctrl' + 'A' > 'Scale'</li></ul></li></ul> |
 | Relations ![relations](/img/exporters/blender/object/relations.webp) | <ul><li>parenting is supported</li></ul>                                                                                                                                                       |
 
@@ -102,9 +102,9 @@ This add-on use the standard Blender installation procedure:
 
 | Blender                                                                                              | [BJS equivalent](/typedoc/classes/babylon.mesh)                                                                                                                                                                                                                                                                                                                                             |
 | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Normals ![normals](/img/exporters/blender/meshes/normals.webp)                                        | Auto Smooth is often use by Blender users, but is not supported. Use an edge split modifier instead, see [tip](/features/featuresDeepDive/Exporters/Blender_Tips#smooth-shading).                                                                                                                                                                                                           |
+| Normals ![normals](/img/exporters/blender/meshes/normals.webp)                                        | Auto Smooth is often used by Blender users, but it is not supported. Use an edge split modifier instead, see [tip](/features/featuresDeepDive/Exporters/Blender_Tips#smooth-shading).                                                                                                                                                                                                           |
 | UV Maps ![uv-maps](/img/exporters/blender/meshes/uv-maps.webp)                                        | <ul><li>UVMap: coordinatesIndex</li><li>limited to 2 channels</li></ul>                                                                                                                                                                                                                                                                                                                     |
-| Vertex Colors ![vertex-colors](/img/exporters/blender/meshes/vertex-colors.webp)                      | <ul><li>if multiples layers exist, they will be merge</li></ul>                                                                                                                                                                                                                                                                                                                             |
+| Vertex Colors ![vertex-colors](/img/exporters/blender/meshes/vertex-colors.webp)                      | <ul><li>if multiple layers exist, they will be merged</li></ul>                                                                                                                                                                                                                                                                                                                             |
 | Exporter panel ![exporter-meshes-options](/img/exporters/blender/meshes/exporter-meshes-options.webp) | <ul><li>**Tags**: allow using [scene.getMeshesByTags()](/typedoc/classes/babylon.scene#getmeshesbytags)</li><li>**Materials**:<ul><li>**Name Space**: automatically add a suffix to the mesh materials. Default is Blender filename.</li></ul></li><li>**Procedural Textures / Cycles Baking**: texture baking settings when using procedural textures (Blender Render) or Cycles</li></ul> |
 
 ---
@@ -115,7 +115,7 @@ This add-on use the standard Blender installation procedure:
 
 #### General
 
-- as you can notice in BJS mesh panel, materials will be suffixed by _.babylon_ filename,
+- as you can see in the BJS mesh panel, materials will be suffixed with the _.babylon_ filename,
 - other options can be found on this mesh panel, like max simultaneous lights, texture size for baking, etc,
 - texture baking will be automatic when:
   - cycles render is the current render engine,
@@ -155,7 +155,7 @@ This add-on use the standard Blender installation procedure:
 
 #### General
 
-- Blender can handle packed images, even if there isn't source file on disk, but you have to unpack all before export,
+- Blender can handle packed images, even if there isn't a source file on disk, but you have to unpack them all before export,
 - about automatic baking, see [Materials](/features/featuresDeepDive/Exporters/Blender#materials).
 
 #### Blender Render
@@ -174,14 +174,14 @@ This add-on use the standard Blender installation procedure:
 
 ### Commons & Good practices
 
-- you should export one _.babylon_ file per animated object to make your life easier (once in BJS, but also to handle the timeline in Blender). See [tip](/features/featuresDeepDive/Exporters/Blender_Tips#Animation) for a basic workflow.
-- be sure, before starting animation in Blender, that your objects have their transformations applied! (3DView > Object > Apply)
+- you should export one _.babylon_ file per animated object to make your life easier, both in BJS and when handling the timeline in Blender. See [tip](/features/featuresDeepDive/Exporters/Blender_Tips#Animation) for a basic workflow.
+- before starting animation in Blender, be sure your objects have their transformations applied! (3DView > Object > Apply)
 
 ### Classic Animations
 
-You will find an example on this [.zip archive](//doc.babylonjs.com/examples/babylon-format.zip). 3D sources files are on `sources` folder, BJS app is on `BJS` folder.
+You will find an example in this [.zip archive](//doc.babylonjs.com/examples/babylon-format.zip). 3D source files are in the `sources` folder, and the BJS app is in the `BJS` folder.
 
-In `sources`, we have our master scene, with only static objects (on the layer 1), and just for us to see it, we have the logo linked on the layer 6. When exporting, take care to have only layer 1 active, as we have checked in the [scene panel](//doc.babylonjs.com/extensions/Exporters/Blender#scene) _Export only selected layers_.
+In `sources`, we have our master scene, with only static objects (on layer 1), and just so we can see it, we have the logo linked on layer 6. When exporting, make sure only layer 1 is active, as we have checked in the [scene panel](//doc.babylonjs.com/extensions/Exporters/Blender#scene) _Export only selected layers_.
 
 Once exported, you can see in `BJS/index.html` that we create our main scene using this `.babylon`: line 36
 
@@ -189,9 +189,9 @@ Once exported, you can see in `BJS/index.html` that we create our main scene usi
 BABYLON.LoadSceneAsync("01.master-static-scene.babylon", engine).then(function (scene) {});
 ```
 
-Same way for out animated object in `sources/02.classic-animation.blend`: layer 1 is for our object, layer 6 is just for us to see the main scene in our _.blend_. _Export only selected layers_ is used to help us exporting only the first layer to babylon.
+The same goes for our animated object in `sources/02.classic-animation.blend`: layer 1 is for our object, layer 6 is just for us to see the main scene in our _.blend_. _Export only selected layers_ is used to help us export only the first layer to Babylon.
 
-Once exported, we can import our meshes inside the onSuccess of our Loader above. Check on `BJS/index.html`, line 64:
+Once exported, we can import our meshes inside the `onSuccess` callback of the loader above. Check on `BJS/index.html`, line 64:
 
 ```javascript
 BABYLON.ImportMeshAsync("02.classic-animation.babylon", scene).then(function (result) {});
@@ -201,7 +201,7 @@ Now, you already have a basic scene with animations auto-playing in it.
 
 ### Armatures
 
-- you can use any Blender rotation mode you want, the animation will be kind of baked during the export
+- you can use any Blender rotation mode you want; the animation will essentially be baked during export
 
 ---
 
@@ -209,7 +209,7 @@ Now, you already have a basic scene with animations auto-playing in it.
 
 Once your scene is exported, you have multiple solutions to test it:
 
-- quick check it into the [sandbox](https://sandbox.babylonjs.com/)
+- do a quick check in the [sandbox](https://sandbox.babylonjs.com/)
 - edit the file through the [editor](https://editor.babylonjs.com/)
 - use the [viewer](//doc.babylonjs.com/extensions/the_babylon_viewer)
 - script your own app using the [loader](/features/featuresDeepDive/importers/loadingFileTypes)
@@ -220,7 +220,7 @@ Once your scene is exported, you have multiple solutions to test it:
 
 Let's say you have exported your first scene. In this example we will use [blend files of the BJS logo](https://github.com/BabylonJS/MeshesLibrary/tree/master/BabylonJS-logo/v3):
 
-- export the babylon into a folder
+- export the Babylon file into a folder
 - create a file named _index.html_, and copy the code above:
 
 ```html
@@ -283,6 +283,6 @@ Let's say you have exported your first scene. In this example we will use [blend
 ![babylon default folder example](/img/exporters/blender/babylon/babylon-BJS-default-folder-structure.webp)
 
 - double-click on the _index.html_ file... profit!
-  - some browsers may not want loading the scene, for some security issues (e.g.: Chrome). In this case, you have to open the html file through a webserver (local or not), or try into another browser (e.g.: Firefox, Edge).
+  - some browsers may not allow loading the scene for security reasons (e.g.: Chrome). In this case, you have to open the HTML file through a web server (local or not), or try another browser (e.g.: Firefox, Edge).
 
 ![blender babylon scene loaded in BJS](/img/exporters/blender/babylon/babylon-loaded.webp)

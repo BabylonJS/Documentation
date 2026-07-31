@@ -10,7 +10,7 @@ video-content:
 
 ## Sphere
 
-The created sphere has its origin at the center of the sphere. By using different values for _diameterX_, _diameterY_ and diameterZ\_ lead you create an ellipsoid.
+The created sphere has its origin at the center of the sphere. Using different values for _diameterX_, _diameterY_, and _diameterZ_ lets you create an ellipsoid.
 
 ## MeshBuilder
 
@@ -38,7 +38,7 @@ const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", options, scene); //sce
 
 <Playground id="#WIR77Z" title="Create a Sphere" description="Simple example of creating a sphere." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes6.webp" isMain={true} category="Mesh"/>
 
-<Playground id="#WIR77Z#1" title="Create a Ellipsoid" description="Simple example of creating a ellipsoid." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes7.webp"/>
+<Playground id="#WIR77Z#1" title="Create an Ellipsoid" description="Simple example of creating an ellipsoid." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes7.webp"/>
 
 <Playground id="#WIR77Z#2" title="Create an Arc" description="Simple example of creating an arc." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes8.webp"/>
 
@@ -52,4 +52,4 @@ Usage :
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { segments, diameter }, scene);
 ```
 
-It is only possible to create a sphere with this method, for an ellipsoid you need to use scaling.
+It is only possible to create a sphere with this method; for an ellipsoid, you need to use scaling.

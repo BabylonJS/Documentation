@@ -36,7 +36,7 @@ trail.stop(); // Stops the trailing mesh.
 
 
 
-There are a variety of parameters you can set to create different types of trails to suit your needs. If you do not specify `segments`, it will default to the `length` of the trail, ie, a trail with a length of 60 will have 60 segments.
+There are a variety of parameters you can set to create different types of trails to suit your needs. If you do not specify `segments`, it will default to the `length` of the trail; i.e., a trail with a length of 60 will have 60 segments.
 
 | options property     | value                                               | default value |
 | -------------------- | --------------------------------------------------- |---------------|
@@ -53,7 +53,7 @@ TrailMesh will be affected by all modifications to the generator mesh. Using `ba
 
 ## Resetting the TrailMesh
 
-As of 7.21.0, you can now reset the `TrailMesh` via `trail.reset()`. Use this in conjunction with `trail.stop()` and `trail.start()`. This is ideal for cases where the trail appears distorted due to sudden large changes in generator position, for example, in the firing and reloading of projectile meshes.
+As of 7.21.0, you can now reset the `TrailMesh` via `trail.reset()`. Use this in conjunction with `trail.stop()` and `trail.start()`. This is ideal when the trail appears distorted because of sudden, large changes in the generator position, for example when firing and reloading projectile meshes.
 
 ## Example Usage
 

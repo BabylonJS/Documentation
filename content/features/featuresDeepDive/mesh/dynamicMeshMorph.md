@@ -8,16 +8,16 @@ video-overview:
 video-content:
 ---
 
-## What is morphing ?
+## What is morphing?
 
-This part is about the way to morph some kind of meshes.  
+This page explains how to morph certain kinds of meshes.  
 For now, it concerns only ribbons, tubes, extruded shapes and lines.
 
-When talking about morphing, we mean here changing the vertices positions of an existing mesh. Indices remain unchanged. This means the mesh keeps the same number of vertices, the same faces between vertices and it remains the same object in your code.
+When talking about morphing, we mean changing the vertex positions of an existing mesh. Indices remain unchanged. This means the mesh keeps the same number of vertices and the same faces between vertices, and it remains the same object in your code.
 Only its vertices change their coordinates.
 
-If you handle a box or another fixed basic shape, it's quite easy to access to vertices positions because your mesh has an expected shape. For example, you can guess a box has 4 vertices per face.  
-But when handling parametric shapes like ribbons, tubes, etc, it becomes very difficult to guess how and where vertices were positioned by the mesh constructor algorithm. For a tube, for instance, you only know the axis path you gave to build it (and radius, tessellation, of course).
+If you handle a box or another fixed basic shape, it's quite easy to access vertex positions because your mesh has an expected shape. For example, you can assume a box has four vertices per face.  
+But when handling parametric shapes like ribbons, tubes, and so on, it becomes very difficult to guess how and where vertices were positioned by the mesh constructor algorithm. For a tube, for instance, you only know the axis path you gave to build it, along with the radius and tessellation.
 
 So you will learn here how to update the shape of an existing mesh and how to morph it in the render loop.
 
@@ -28,9 +28,9 @@ So you will learn here how to update the shape of an existing mesh and how to mo
 _(reminder : only points positions can change in the path array, not the number of points. Please see the summary at the bottom of this page for more details)_
 
 Let's create a ribbon.  
-As explained in the Ribbon tutorial part, a good way to create a ribbon is to fill many arrays with _Vector3_ with two _for_ loops : one for each path, another one for the array of paths : the _pathArray_.
+As explained in the Ribbon tutorial, a good way to create a ribbon is to fill many arrays with _Vector3_ values using two _for_ loops: one for each path, and another for the array of paths, the _pathArray_.
 
-Here we create a simple plane ribbon in the xOz plane
+Here we create a simple plane ribbon in the xOz plane.
 
 ```javascript
 // path function
@@ -55,10 +55,10 @@ const mesh = BABYLON.MeshBuilder.CreateRibbon("ribbon", { pathArray: pathArray, 
 
 example : <Playground id="#1MSEBT" title="Dynamic Mesh Morph Example 1" description="Simple example of dynamically morphing a mesh."/> _(please rotate the cam to see it)_
 
-The important key to notice is that we set the **_updatable_** parameter to **_true_** in the _CreateRibbon()_ method : the one just between the _scene_ and the _sideO_ parameters.
+The important point to notice is that we set the **_updatable_** parameter to **_true_** in the _CreateRibbon()_ method.
 
-We can now imagine we want to change this existing ribbon _y_ coordinates according to a sinus function. So for each path in the existing _pathArray_ array we just change _Vector3_ coordinates.  
-Note we don't create new paths or a new _pathArray_ array. We just access with indexes to every element and just change values.
+We can now imagine that we want to change this existing ribbon's _y_ coordinates according to a sine function. So, for each path in the existing _pathArray_ array, we simply change the _Vector3_ coordinates.  
+Note that we don't create new paths or a new _pathArray_ array. We just access every element by index and change its values.
 
 ```javascript
 const updatePath = function (path) {
@@ -78,7 +78,7 @@ for (let p = 0; p < pathArray.length; p++) {
 }
 ```
 
-The way to update then our existing mesh is quite simple : let's just re-use the _CreateRibbon()_ method and give it this mesh as last parameter with our modified _pathArray_.
+The way to update our existing mesh is quite simple: just reuse the _CreateRibbon()_ method and pass this mesh as the last parameter along with our modified _pathArray_.
 
 ```javascript
 mesh = BABYLON.MeshBuilder.CreateRibbon(null, { pathArray: pathArray, instance: mesh });
@@ -88,7 +88,7 @@ example : <Playground id="#1MSEBT#1" title="Dynamic Mesh Morph Example 2" descri
 
 Well, we just updated our ribbon's shape once for now.
 
-If we now want its shape to evolve dynamically, we just have to set the _pathArray_ computation (fixed to change with an extra _k_ parameter) and the _CreateRibbon()_ call inside the render loop.
+If we now want its shape to evolve dynamically, we just need to move the _pathArray_ computation, adjusted with an extra _k_ parameter, and the _CreateRibbon()_ call inside the render loop.
 
 ```javascript
 const updatePath = function (path, k) {
@@ -128,8 +128,8 @@ example : <Playground id="#1MSEBT#3" title="Dynamic Mesh Morph Example 3" descri
 
 _(reminder : only points positions can change, not the number of points. Please see the summary at the bottom of this page for more details)_
 
-Once we got the understanding for ribbons, we can apply it to Lines or DashedLines.
-It's even easier as Lines just require a path of points as parameter.
+Once we understand ribbons, we can apply the same idea to Lines or DashedLines.
+It's even easier because Lines only require a path of points as a parameter.
 
 ```javascript
 const points1 = [v1, v2, ..., vN]; // vector3 array
@@ -151,7 +151,7 @@ dashed lines: <Playground id="#XKYAE#3" title="Dashed Lines Example" description
 
 _(reminder : only points positions can change in the path, not the number of points. Please see the summary at the bottom of this page for more details)_
 
-Nothing differs for tubes. Let's create a tube and then update it according to new _path_, _radius_ or _radiusFunction_ values :
+Nothing changes for tubes. Let's create a tube and then update it according to new _path_, _radius_, or _radiusFunction_ values:
 
 ```javascript
 const path1 = [v1, ..., vN]; //vector3 array : tube axis1
@@ -173,7 +173,7 @@ tube = BABYLON.MeshBuilder.CreateTube(null, {path: path2, radiusFunction: radius
 
 Example: <Playground id="#ACKC2#1" title="Tube Example" description="Simple example of dynamically morphing a tube."/>
 
-As you can read at line 53, the _radiusFunction_ is redefined here at each iteration in the _registerBeforeRender_ loop because it uses the value of the incrementing parameter _k_ : the radius changes according to each path point position and according to k varying in the time.
+As you can read at line 53, the _radiusFunction_ is redefined here at each iteration in the _registerBeforeRender_ loop because it uses the value of the incrementing parameter _k_: the radius changes according to each path point position and as _k_ changes over time.
 
 ## Extruded shape
 
@@ -183,9 +183,9 @@ As you can read at line 53, the _radiusFunction_ is redefined here at each itera
 
 _(reminder : only points positions can change in the path, not the number of points. Please see the summary at the bottom of this page for more details)_
 
-We can see extrusion as some tube generalization : a tube would be a circle _shape_ extruded along a path.  
-So we have here the same update capabilities than for a tube (_path_ or shape _scale_ which would be the equivalent to tube _radius_) and some extra parameters : the _rotation_ step can be updated and the _shape_ itself also !  
-It is mandatory that the new _shape_ array has the same number of Vector3 than the _shape_ used to build the original instance. A good way to assure this is simply to keep the original _shape_ instance and to modify it instead of creating a new one (or to modify a copy of it).
+We can think of extrusion as a generalization of a tube: a tube would be a circular _shape_ extruded along a path.  
+So we have the same update capabilities as for a tube (_path_ or shape _scale_, which would be equivalent to the tube _radius_) and some extra parameters: the _rotation_ step can be updated, and the _shape_ itself can be updated too.  
+The new _shape_ array must have the same number of Vector3 values as the _shape_ used to build the original instance. A good way to ensure this is simply to keep the original _shape_ instance and modify it instead of creating a new one, or to modify a copy of it.
 
 ```javascript
 const shape1 = [s1, s2, ...sN]; // Vector3 array
@@ -202,7 +202,7 @@ let extruded = BABYLON.MeshBuilder.ExtrudeShape("ext", { shape: shape1, path: pa
 extruded = BABYLON.MeshBuilder.ExtrudeShape(null, { shape: shape2, path: path2, scale: scale2, rotation: rotation2, instance: extruded });
 ```
 
-Idem for _ExtrudeShapeCustom()_ accepting _scaleFunction_ and _rotationFunction_ parameters :
+The same applies to _ExtrudeShapeCustom()_, which accepts _scaleFunction_ and _rotationFunction_ parameters:
 
 ```javascript
 // path and shape const declared before ...
@@ -230,17 +230,17 @@ Example: <Playground id="#20IBWW#14" title="Extruded Shape Example" description=
 
 ## Other shapes : updateMeshPositions
 
-For now, we just talked about parametric shapes which can be updated with their own _CreateXXX()_ initial method.
-But what about the other mesh types : boxes, spheres, cylinders, etc ?
+So far, we have only talked about parametric shapes, which can be updated with their own initial _CreateXXX()_ method.
+But what about other mesh types such as boxes, spheres, cylinders, and so on?
 
-There is no mean to update them with their initial _CreateXXX()_ because a box remains a box, a sphere remains a sphere whether you change their size, radius, etc.
+There is no way to update them with their initial _CreateXXX()_ method, because a box remains a box and a sphere remains a sphere even if you change its size, radius, and so on.
 So usually, the right way to change these basic shapes is to play with their `mesh.scale` property.
 
-Nevertheleless, if you create your basic shape with its _updatable_ parameter set to true, you can access another way to morph/change the shape afterwards : the _updateMeshPositions()_ method.
+Nevertheless, if you create your basic shape with its _updatable_ parameter set to true, you can use another way to morph or change the shape afterward: the _updateMeshPositions()_ method.
 
 This method needs two parameters :
 
-- a _positionFunction_ which is js function which will modify the mesh _positions_ array,
+- a _positionFunction_, which is a JavaScript function that modifies the mesh _positions_ array,
 - a _computeNormals_ boolean (default = true) to skip/unskip the normals re-computation after the mesh update .
 
 ```javascript
@@ -256,9 +256,9 @@ Example: <Playground id="#1UZIZC#6" title="Custom Shape Example" description="Si
 ## More speed : freezeNormals
 
 The former _CreateXXX()_ update functions try to be as much optimized as possible to run fast in the render loop.  
-However, you may need some more speed for any reason (huge mesh with dozens of thousands of vertices for instance).  
-So, if your mesh doesn't need to reflect the light (emissive color only for instance), you can skip the normals re-computation which is a CPU consuming process.  
-Use then the _freezeNormals()_ method just after your mesh is created :
+However, you may need more speed for any reason, for instance with a huge mesh containing tens of thousands of vertices.  
+So, if your mesh doesn't need to reflect light, for example if it uses only an emissive color, you can skip normal recomputation, which is a CPU-intensive process.  
+In that case, use the _freezeNormals()_ method just after your mesh is created:
 
 ```javascript
 const tube = BABYLON.MeshBuilder.CreateTube("tube", { path: path, radius: 3, tessellation: 12, cap: BABYLON.Mesh.NO_CAP, updatable: true }, scene);
@@ -267,7 +267,7 @@ tube.freezeNormals();
 tube = BABYLON.MeshBuilder.CreateTube(null, { path: path, instance: tube });
 ```
 
-If you need to reset the normals computation process on, use then once the _unfreezeNormals()_ method.
+If you need to turn normal computation back on, simply use the _unfreezeNormals()_ method.
 
 ```javascript
 tube.unfreezeNormals();
@@ -277,15 +277,15 @@ The normals will then be recomputed and re-applied on the next _CreateXXX()_ upd
 
 ## Summary
 
-- To create an updatable mesh, it is mandatory to set its _updatable_ parameter to _true_ when calling _CreateXXX()_ method.
-- To update then an existing parametric shape, we just have to use the same _CreateXXX_ method as we used to construct it.
+- To create an updatable mesh, you must set its _updatable_ parameter to _true_ when calling the _CreateXXX()_ method.
+- To update an existing parametric shape, you just have to use the same _CreateXXX_ method that you used to construct it.
 - Only the existing mesh and the data relative to new positions (path, pathArray, array of points) must be passed to this method, the other parameters are ignored.
 - If we want to morph the mesh, we then use the _CreateXXX()_ method within the render loop.  
-  In this case, it is important not to allocate new memory each frame : we access our arrays by indexes and just change values instead of creating new arrays, we access existing objects instead of instantiating new ones, etc. We also take care about the weight of each object (number of sides, number of vertices, etc).
+  In this case, it is important not to allocate new memory each frame: we access our arrays by index and just change values instead of creating new arrays, and we access existing objects instead of instantiating new ones. We also pay attention to the complexity of each object, such as the number of sides and vertices.
 
-example : if we need to update a Lines mesh in the render loop, it is to say to update the _points_ array each frame, it is better to change each array element values (_points[i].x = newXValue; points[i].y = newYValue; points[i].z = newZValue;_) in a _for_ loop instead of instantiating a new _points_ array.
+Example: if we need to update a Lines mesh in the render loop, that is, update the _points_ array each frame, it is better to change each array element's values (_points[i].x = newXValue; points[i].y = newYValue; points[i].z = newZValue;_) in a _for_ loop instead of creating a new _points_ array.
 
-Use case with a _path_ parameter as all parametric shapes have one :
+Use case with a _path_ parameter, as all parametric shapes have one:
 
 ```javascript
 const path = [v1, v2, ..., vN]; // your own array, created once

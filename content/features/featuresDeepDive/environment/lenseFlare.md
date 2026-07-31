@@ -10,7 +10,7 @@ video-content:
 
 ## How to use Lens Flares
 
-Babylon.js allows you to simply create lens flares effect:
+Babylon.js lets you create lens flare effects easily:
 
 ![Lens flares](/img/features/lensFlare.webp)
 
@@ -22,7 +22,7 @@ To do so, you have to first create a LensFlareSystem:
 const lensFlareSystem = new BABYLON.LensFlareSystem("lensFlareSystem", myEmitter, scene);
 ```
 
-The second parameter defines the source (the emitter) of the lens flares (it can be a camera, a light or a mesh).
+The second parameter defines the source (the emitter) of the lens flares. It can be a camera, a light, or a mesh.
 
 Then, you can add flares to your system with the following code:
 
@@ -42,7 +42,7 @@ const flare03 = new BABYLON.LensFlare(0.15, 0.25, new BABYLON.Color3(0.95, 0.89,
 To create a flare, you must specify the following parameters:
 
 - Size (a floating value between 0 and 1)
-- Position (a floating value between -1 and 1). A value of 0 is located on the emitter. A value greater than 0 is beyond the emitter and a value lesser than 0 is behind the emitter
+- Position (a floating value between -1 and 1). A value of 0 is located on the emitter. A value greater than 0 is beyond the emitter, and a value less than 0 is behind the emitter
 - Color
 - Texture
 

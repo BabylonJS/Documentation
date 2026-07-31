@@ -9,9 +9,9 @@ video-content:
 ---
 
 Starting with Babylon.js v4.2, you have the opportunity to apply delta changes to a scene.
-This means you can "record" all changes done to a scene and later on reapply these changes.
+This means you can "record" all changes made to a scene and later reapply them.
 
-This is particularly useful when you load a scene from a .babylon or a .gltf file and you want to apply changes to it (without reexporting the scene from your DCC tool).
+This is particularly useful when you load a scene from a .babylon or a .gltf file and want to apply changes to it without re-exporting the scene from your DCC tool.
 
 ## Recording the changes
 
@@ -23,7 +23,7 @@ var recorder = new BABYLON.SceneRecorder();
 recorder.track(scene);
 ```
 
-This will mark the origin of the changes eg. the original state of your scene. All changes (well, almost actually, please check the limitations chapter below) made after that call will be tracked and available in the delta file.
+This will mark the origin of the changes, e.g. the original state of your scene. All changes made after that call (well, almost all—please check the limitations chapter below) will be tracked and available in the delta file.
 
 ## Applying the changes
 
@@ -41,7 +41,7 @@ To download it, you can leverage the Tools class:
 BABYLON.Tools.Download(JSON.stringify(delta), "delta.json");
 ```
 
-If you want to apply it to your scene, you can call that static function:
+If you want to apply it to your scene, you can call this static function:
 
 ```javascript
 BABYLON.SceneRecorder.ApplyDelta(delta, scene);
@@ -110,9 +110,9 @@ This will download the file locally.
 
 ## Limitations
 
-The recorder has some limitations listed here:
+The recorder has some limitations:
 
-- It will only record simple values (array, colors, vectors, boolean, number)
+- It will only record simple values (arrays, colors, vectors, booleans, numbers)
 - It will not record large state changes like:
   - Updating the material property of a mesh
   - Updating the skeleton property of a mesh

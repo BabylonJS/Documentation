@@ -14,17 +14,17 @@ A lot of (native) VR games have a teleportation feature to allow movement in the
 
 Babylon has supported teleportation in WebVR and has now upgraded the feature to have a lot of different abilities.
 
-The teleportation feature enabled the following ways to interact with the camera's position:
+The teleportation feature enables the following ways to interact with the camera's position:
 
 1. Move forward using direct/indirect rays
 2. Move backwards
 3. Rotate in place.
 
-Quick note about the **WebXR emulator** - Even thou it doesn't have support for it just yet, the WebXR emulator adds a Thumbstick to the emulated controller, making it impossible to simulate teleportation. To get teleportation working you will need to enable `useMainComponentOnly` (described below) to disable the thumbstick's teleportation. It is recommended to only enable this during development, unless this is the required behavior.
+Quick note about the **WebXR emulator** - Even though it doesn't support this just yet, the WebXR emulator adds a thumbstick to the emulated controller, making it impossible to simulate teleportation. To get teleportation working, you will need to enable `useMainComponentOnly` (described below) to disable thumbstick teleportation. It is recommended to enable this only during development, unless this is the required behavior.
 
 ## Enabling teleportation
 
-The teleportation module is turned on per default when using the [WebXR Default Experience Helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#the-basic-experience-helper). You can pass configuration options to the default experience helper itself:
+The teleportation module is turned on by default when using the [WebXR Default Experience Helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#the-basic-experience-helper). You can pass configuration options to the default experience helper itself:
 
 ```javascript
 const xrHelper = await scene.createDefaultXRExperienceAsync({
@@ -43,7 +43,7 @@ const xrHelper = await scene.createDefaultXRExperienceAsync({
 });
 ```
 
-To turn it on or re-enable it use the following code:
+To turn it on or re-enable it, use the following code:
 
 ```javascript
 const featuresManager = xr.baseExperience.featuresManager; // or any other way to get a features manager
@@ -56,7 +56,7 @@ featuresManager.enableFeature(WebXRFeatureName.TELEPORTATION, "stable" /* or lat
 
 The latest options can be found in the [WebXR teleportation feature's source code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/XR/features/WebXRControllerTeleportation.ts#L31).
 
-Some teleportation parameters are needed during construction and are therefore only configurable in the constructor's `options` parameter. To reconfigure parameters which have no public getter/setter, re-enable the feature:
+Some teleportation parameters are needed during construction and are therefore configurable only through the constructor's `options` parameter. To reconfigure parameters that have no public getter/setter, re-enable the feature:
 
 ```javascript
 const xrHelper = await scene.createDefaultXRExperienceAsync({
@@ -72,11 +72,11 @@ xrHelper.teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORT
 });
 ```
 
-Notice that the only obligatory option for the teleportation feature is the xrInput, which are the controllers it is going to use in order to teleport the user.
+Notice that the only obligatory option for the teleportation feature is `xrInput`, which is the controllers it will use to teleport the user.
 
 ## Setting floor meshes
 
-Floor meshes are most important for teleportation, as the module needs to know where the users are allowed to land and where not.
+Floor meshes are the most important part of teleportation, as the module needs to know where users are allowed to land and where they are not.
 
 When using the [WebXR Default Experience Helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#the-basic-experience-helper) you can set the floorMeshes during initialization:
 
@@ -97,13 +97,13 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 });
 ```
 
-If you want to add a mesh after the teleportation feature was enabled, you can use the `addFloorMesh` function:
+If you want to add a mesh after the teleportation feature is enabled, you can use the `addFloorMesh` function:
 
 ```javascript
 teleportation.addFloorMesh(ground2);
 ```
 
-And to remove simply use the `removeFloorMesh` function:
+And to remove one, simply use the `removeFloorMesh` function:
 
 ```javascript
 teleportation.removeFloorMesh(ground2);
@@ -115,7 +115,7 @@ A simple example for enabling floor meshes: <Playground id="#B8D5Z6" title="Enab
 
 The teleportation landing zone is defined by the person holding the controllers. There are two ways of teleportation: direct teleportation and indirect (parabolic) teleportation.
 
-Direct teleportation means - the user aims at the position they want to land at (a straight line). This is used when the ground and the landing location is in sight and is the most convenient and straight-forward way of moving forward.
+Direct teleportation means the user aims at the position they want to land at (a straight line). This is used when the ground and the landing location are in sight, and it is the most convenient and straightforward way to move forward.
 
 ![Direct WebXR teleportation](/img/how_to/xr/xr-direct-teleportation.webp)
 
@@ -123,20 +123,20 @@ An indirect line means the user aims up high and creates a parabolic path. This 
 
 ![Indirect WebXR teleportation](/img/how_to/xr/xr-indirect-teleportation.webp)
 
-The direct teleportation is always enabled. The indirect teleportation is enabled per default, but it is possible to disable it using a flag:
+Direct teleportation is always enabled. Indirect teleportation is enabled by default, but it is possible to disable it using a flag:
 
 ```javascript
 // disable the parabolic (indirect) teleportation ray
 teleportation.parabolicRayEnabled = false;
 ```
 
-To make the parabolic ray go further you can set the radius that is used to create the inspection ray when pointing the ray at 90 degrees up (Default is 5):
+To make the parabolic ray go farther, you can set the radius used to create the inspection ray when pointing the ray 90 degrees upward (default is 5):
 
 ```javascript
 teleportation.parabolicCheckRadius = 10;
 ```
 
-Note that the parabolic ray's radius is bigger, the lower the rotation angle of the controller. The compensation calculation is done using this formula:
+Note that the parabolic ray's radius is bigger the lower the controller's rotation angle is. The compensation calculation is done using this formula:
 
 ```javascript
 const compensation = 1 + (Math.PI / 2 - Math.abs(rotationOnTheXAxis));
@@ -146,13 +146,13 @@ The compensation is multiplied by the defined radius and changes the current ray
 
 ## Different input sources
 
-The default input source is an XR headset with two handheld controllers. This input source in WebXR is called `TrackedPointer` .
+The default input source is an XR headset with two handheld controllers. This input source in WebXR is called `TrackedPointer`.
 
-When the input source has a thumbstick or a touchpad, moving the finger forward will trigger the ray-casting mode. Rotating the finger after seeing the ray casted will rotate the direction in which the user lands. Releasing the finger when seeing a landing zone will move the user there.
+When the input source has a thumbstick or a touchpad, moving the finger forward will trigger ray-casting mode. Rotating the finger after the ray is cast will rotate the direction in which the user lands. Releasing the finger when a landing zone is visible will move the user there.
 
 When no thumbstick or touchpad is available, the main component (usually a trigger) will be used. See [WebXR input sources](/features/featuresDeepDive/webXR/webXRInputControllerSupport) for more information about the main component. When using the main component, which is usually a button, you can define a certain amount of time in milliseconds after which the user will teleport, if still holding the trigger. The default is 3 seconds.
 
-This configuration value can be found in the constructor's options and it is called `timeToTeleport` :
+This configuration value can be found in the constructor's options and is called `timeToTeleport`:
 
 ```javascript
 const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATION, "stable", {
@@ -164,7 +164,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 
 Note that when using a button, it is impossible to allow rotation, so the user's orientation will stay the same as it was before they teleported.
 
-To force the user to use the main component only (even if a thumbstick is available) use the `useMainComponentOnly` flag when constructing:
+To force the user to use the main component only (even if a thumbstick is available), use the `useMainComponentOnly` flag when constructing:
 
 ```javascript
 const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATION, "stable", {
@@ -177,7 +177,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 
 ## The teleportation landing zone
 
-The teleportation landing zone is a group of meshes means to show the user where they are going to land and in which direction. Its default version looks like this:
+The teleportation landing zone is a group of meshes meant to show the user where they are going to land and in which direction. Its default version looks like this:
 
 ![Indirect WebXR teleportation](/img/how_to/xr/xr-teleportation-landing-zone.webp)
 
@@ -185,7 +185,7 @@ Each part of the teleportation landing zone is configurable:
 
 ### The landing zone's material
 
-The material of the landing zone (the dark circle on the floor) can be configured when constructing the feature using css colors:
+The material of the landing zone (the dark circle on the floor) can be configured when constructing the feature using CSS colors:
 
 ```javascript
 const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATION, "stable", {
@@ -239,11 +239,11 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 });
 ```
 
-And now the ring won't animate up and down when the target zone is casted
+And now the ring won't animate up and down when the target zone is cast.
 
 ### Disable lighting on the ring
 
-To make sure the ring is always visible no matter the lighting in the scene is, set the `disableLighting` flag when constructing the feature:
+To make sure the ring is always visible no matter what the lighting in the scene is, set the `disableLighting` flag when constructing the feature:
 
 ```javascript
 const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATION, "stable", {
@@ -261,7 +261,7 @@ This will look like this with light intensity 0.5:
 
 ## Rotating while teleporting
 
-It is possible to not allow the user to rotate after casting the initial ray. It is a flag straight on the teleportation object and it is called `rotationEnabled` :
+It is possible to prevent the user from rotating after casting the initial ray. It is a flag directly on the teleportation object and is called `rotationEnabled`:
 
 ```javascript
 teleportation.rotationEnabled = false;
@@ -269,7 +269,7 @@ teleportation.rotationEnabled = false;
 
 ## Backwards movement
 
-Backwards movement is on per default. When the user "pulls" the thumbstick or the touchpad backwards they will move a predefined distance, if this distance is available on any floor mesh behind them.
+Backward movement is enabled by default. When the user "pulls" the thumbstick or touchpad backward, they will move a predefined distance if that distance is available on any floor mesh behind them.
 
 To configure the distance to move use the `backwardsTeleportationDistance` flag:
 
@@ -277,7 +277,7 @@ To configure the distance to move use the `backwardsTeleportationDistance` flag:
 teleportation.backwardsTeleportationDistance = 1.0; // Default is 0.7
 ```
 
-To disable backwards moving use this flag:
+To disable backward movement, use this flag:
 
 ```javascript
 teleportation.backwardsMovementEnabled = false; // Default is true
@@ -285,7 +285,7 @@ teleportation.backwardsMovementEnabled = false; // Default is true
 
 ## Rotation in place
 
-When moving the thumbstick left and right (X-Axis movement on the thumbstick/touchpad) the user will rotate a predefined amount. To default rotation is 22.5 degrees (in radians: `Math.PI / 8` ). To change this use the `rotationAngle` flag:
+When moving the thumbstick left and right (X-axis movement on the thumbstick/touchpad), the user will rotate by a predefined amount. The default rotation is 22.5 degrees (in radians: `Math.PI / 8`). To change this, use the `rotationAngle` flag:
 
 ```javascript
 // rotate 45 degrees
@@ -294,12 +294,12 @@ teleportation.rotationAngle = Math.PI / 4;
 
 ## Rendering to a different layer or rendering group
 
-If you want the render the teleportation target zone on top of the rest of the meshes you can use one of two ways:
+If you want to render the teleportation target zone on top of the rest of the meshes, you can use one of two ways:
 
 1. rendering group id (See [Rendering groups](/features/featuresDeepDive/materials/advanced/transparent_rendering))
 2. Utility layer (See [UtilityLayerRenderer](/features/featuresDeepDive/mesh/utilityLayerRenderer))
 
-To set the rendering group id :
+To set the rendering group ID:
 
 ```javascript
 const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATION, "stable", {
@@ -329,7 +329,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 
 Some XR experiences require the user to land at an exact location (and sometimes ONLY at exact locations). The teleportation snap-to feature allows you to define spots where the user can land and where the teleportation ray will snap (with a specific threshold).
 
-To enable snap-to points you can use one of the two:
+To enable snap-to points, you can use one of the following:
 
 - provide an array of hotspots (Vector3) to the options when enabling the feature:
 
@@ -351,7 +351,7 @@ teleportation.addSnapPoint(new BABYLON.Vector3(0, 0, 6));
 
 Note that it is always expected that the snap-to points will be on a mesh that is defined as a floor mesh. Babylon will not check that! If you put the hotspot too far away from a floor mesh, the results will be unexpected (for example, the user might hover).
 
-To change the snap-to radius, use the `snapToPositionRadius` parameter. Default is 0.8 units or 80 cm and it cannot be 0:
+To change the snap-to radius, use the `snapToPositionRadius` parameter. The default is 0.8 units, or 80 cm, and it cannot be 0:
 
 ```javascript
 const interestingSpot = new BABYLON.Vector3(-4, 0, 4);
@@ -364,11 +364,11 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 });
 ```
 
-Now any position of target zone within a 1.2 units (meters) radius of one of the snap-to points will change the target zoné location to be the close point. You can test it in this playground:
+Now any target zone position within a 1.2-unit radius of one of the snap-to points will move the target zone location to the closest point. You can test it in this playground:
 
 - <Playground id="#DGS0NV#1" title="Snap To Point With Movement Freedom" description="Simple example of snapping to a point with movement freedom." image=""/>
 
-If you want to disable the user's free movements and only let the user land on snap-to points, set the `snapPointsOnly` , either during construction:
+If you want to disable the user's free movement and only let the user land on snap-to points, set `snapPointsOnly`, either during construction:
 
 ```javascript
 const interestingSpot = new BABYLON.Vector3(-4, 0, 4);

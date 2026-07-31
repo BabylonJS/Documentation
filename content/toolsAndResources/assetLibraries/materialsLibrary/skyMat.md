@@ -1,7 +1,7 @@
 ---
 title: Sky Material
 image:
-description: The Babylon.js materials library sky material allows the creation of dynamic and texture free effects for skyboxes.
+description: The Babylon.js materials library sky material allows the creation of dynamic and texture-free effects for skyboxes.
 keywords: library, materials, materials library, sky, sky material
 further-reading:
 video-overview:
@@ -12,15 +12,15 @@ video-content:
 
 ## Introduction
 
-The sky material allows you to create dynamic and texture free effects for skyboxes.
+The sky material allows you to create dynamic and texture-free effects for skyboxes.
 
 This work is based on ["A Practical Analytic Model for Daylight"](https://www2.cs.duke.edu/courses/cps124/spring08/assign/07_papers/p91-preetham.pdf).
-First implemented by [Simon Wallner](http://simonwallner.at/project/atmospheric-scattering/),
-improved by [Martin Upitis](http://blenderartists.org/forum/showthread.php?245954-preethams-sky-impementation-HDR)
-and finally implemented in Three.js by [zz85](http://twitter.com/blurspline)
+It was first implemented by [Simon Wallner](http://simonwallner.at/project/atmospheric-scattering/),
+improved by [Martin Upitis](http://blenderartists.org/forum/showthread.php?245954-preethams-sky-impementation-HDR),
+and finally implemented in Three.js by [zz85](http://twitter.com/blurspline).
 
-The challenge for skyboxes is to reproduce and configure the sky taking care of the atmosphere state.
-In other words, for example, determine how the light (from sun) is scattered by particles.
+The challenge for skyboxes is to reproduce and configure the sky while accounting for the state of the atmosphere.
+In other words, it means determining, for example, how light from the sun is scattered by particles.
 
 ## Playground example
 
@@ -53,7 +53,7 @@ That's all!
 
 ## Configuring the Sky Material
 
-The aspect of the sky can be customized, including the day/night time. The properties are:
+You can customize the appearance of the sky, including the time of day. The properties are:
 
 ```javascript
 skyMaterial.turbidity = 1; // Represents the amount (scattering) of haze as opposed to molecules in atmosphere
@@ -113,10 +113,10 @@ Typically:
 skyMaterial.cameraOffset.y = scene.activeCamera.globalPosition.y;
 ```
 
-**Note**: this will not modify the sun position as it considered enough far, even when camera is really high.
+**Note**: this will not modify the sun position, as it is considered far enough away, even when the camera is very high.
 
 ## Using the sky material to create a reflection texture
 
-As a common technique, it would be useful to use the sky material result to reflect the environment. For example, using a PBR material.
+A common technique is to use the result of the sky material to reflect the environment, for example when using a PBR material.
 
-The technique consists on creating a reflection probe (which is a cube texture) and render the sky mesh with the sky material assigned to it. As an example PG: <Playground id="#4R1H1U" title="Sky Material" description="Example of sky material reflecting the environment"/>
+The technique consists of creating a reflection probe (which is a cube texture) and rendering the sky mesh with the sky material assigned to it. For example: PG: <Playground id="#4R1H1U" title="Sky Material" description="Example of sky material reflecting the environment"/>

@@ -10,7 +10,7 @@ video-content:
 
 ## Environment
 
-Within the environment, I have several meshes that serve the purpose of being collision boxes and trigger areas. These are just normal meshes in Blender that I intend on making invisible within the scene after I've imported it. Babylon has no idea of knowing whether you intend to use a mesh as a collision box, so we need to set that up ourselves by setting flags.
+Within the environment, I have several meshes that serve as collision boxes and trigger areas. These are just normal meshes in Blender that I intend to make invisible within the scene after I've imported it. Babylon has no way of knowing whether you intend to use a mesh as a collision box, so we need to set that up ourselves by setting flags.
 
 Recall that we loaded the assets in the [load](/guidedLearning/createAGame/importMeshes#load) function. We then looped through the resulting meshes and allowed them to receive shadows and check collisions. Well, in this same forEach loop, this is where we want to specify our meshes that will be acting as collision boxes, the meshes that use those collision boxes, and the meshes that are trigger volumes.
 
@@ -41,7 +41,7 @@ if (m.name.includes("Trigger")) {
 We can break this up into 3 sections:
 
 1. Our first condition is for the ground. This is actually a special case that works with our player and will be discussed in the [section](#player-and-collisions) below.
-2. There are a couple meshes with either complex geometry or multiple separate parts that needed to be simplified to provide better movement, but still act as the visual mesh that we see. We disable collisions and picking for those so that we can't collide with them as we move or detect them when we raycast. Now, since we've done this, we need to do the opposite for their corresponding collision meshes. All the collision meshes had "collision" as a part of the name in Blender, so I could just refer to all of them as long as it included that. In addition, since we don't want to see these, we need to set them to not visible.
+2. There are a couple of meshes with either complex geometry or multiple separate parts that needed to be simplified to provide better movement, while still acting as the visual mesh that we see. We disable collisions and picking for those so that we can't collide with them as we move or detect them when we raycast. Now, since we've done this, we need to do the opposite for their corresponding collision meshes. All the collision meshes had "collision" as part of the name in Blender, so I could refer to all of them as long as the name included that. In addition, since we don't want to see these, we need to set them to invisible.
 3. There are meshes in the game that automatically control the rotation of the camera, and like the collision meshes, these aren't visible, nor are they pickable; however, because they're meant to just be volumes that are intersected with, we need to remove collision checks on them.
 
 ![before Setting Up](/img/how_to/create-a-game/beforeCollisionMeshes.webp) ![after Setting Up](/img/how_to/create-a-game/afterCollisionMeshes.webp)
@@ -87,7 +87,7 @@ this.mesh.actionManager.registerAction(
 );
 ```
 
-What we're doing here is setting up to check whenever the player intersects or collides with this specified mesh, and if it does, it triggers an action.
+What we're doing here is checking whenever the player intersects or collides with this specified mesh, and if it does, it triggers an action.
 
 1. Destination Platform detection
     - There's a platform where the player needs to reach, this will trigger the "win" state. For my game, that was displaying fireworks in the scene, so it will adjust the camera view to point towards where the fireworks would go off. _this.win_ is actually just a flag here because my game doesn't have a true separate win state, it just triggers an overlay to display the credits after fireworks have started.
@@ -96,7 +96,7 @@ What we're doing here is setting up to check whenever the player intersects or c
 
 ## Player and Trigger Volumes
 
-The trigger volumes in the scene are actually specifically for controlling the camera movement in areas of the game. So, respectively, these are located in the [\_updateCamera](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L442) function.
+The trigger volumes in the scene are specifically for controlling camera movement in areas of the game. These are located in the [\_updateCamera](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L442) function.
 
 ![rotation](/img/how_to/create-a-game/cornerrotation.webp)
 
@@ -140,7 +140,7 @@ if (this.mesh.intersectsMesh(this.scene.getMeshByName("destinationTrigger"))) {
 }
 ```
 
-The two areas where we're rotating the camera up/down is when the character enters and exits the festival stall area. The festival area exits into the destination area. So if they enter the festival, tilt the camera downwards more, and if they leave through that same entrance, rotate it back to the original tilt. Likewise, if they exit to the destination area, return it back to the original camera tilt. (_Player.DOWN_TILT_ and _Player.ORIGINAL_TILT_ are constants defined at the top of the [Player](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L29) class.)
+The two areas where we're rotating the camera up and down are when the character enters and exits the festival stall area. The festival area exits into the destination area. So if they enter the festival, tilt the camera downward more, and if they leave through that same entrance, rotate it back to the original tilt. Likewise, if they exit to the destination area, return it to the original camera tilt. (_Player.DOWN_TILT_ and _Player.ORIGINAL_TILT_ are constants defined at the top of the [Player](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L29) class.)
 
 ## Resources
 

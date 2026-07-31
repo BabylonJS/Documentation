@@ -10,10 +10,10 @@ video-content:
 
 # Importing Assets
 
-The built in file type is `.babylon` and Babylon.js can load these without a plugin. All other file types require a plugin as described in this section.
+The built-in file type is `.babylon`, and Babylon.js can load it without a plugin. All other file types require a plugin, as described in this section.
 
-Possible file types are glTF, splat, obj, stl.
+Possible file types include glTF, splat, OBJ, and STL.
 
-To help you with imported assets there is a manager for them.
+To help you manage imported assets, Babylon.js provides an asset manager.
 
-**Note:** Since meshes you import can have a `rotationQuaternion` set before applying a rotation set the `rotationQuaternion` to `null`.
+**Note:** Since imported meshes can already have a `rotationQuaternion` set, set `rotationQuaternion` to `null` before applying a rotation.

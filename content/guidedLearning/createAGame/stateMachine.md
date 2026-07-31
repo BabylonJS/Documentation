@@ -8,11 +8,11 @@ video-overview:
 video-content:
 ---
 
-It's definitely possible to use a single scene for the entire application, but for my game, I wanted to separate the states into individual scenes. So, I created a state machine to handle rendering the different scenes of the entire game.
+It's definitely possible to use a single scene for the entire application, but for my game, I wanted to separate the states into individual scenes. So, I created a state machine to handle rendering the different scenes in the game.
 
 ## App.ts
 
-Recall from the [Create a Scene](/guidedLearning/createAGame/gettingSetUp#creating-a-scene) section of the getting set up tutorial that we made an app.ts file. This is going to be our main file that handles our scene creations and rendering. Starting with the constructor, we're going to break up our scene creation and rendering loop call into separate functions.
+Recall from the [Create a Scene](/guidedLearning/createAGame/gettingSetUp#creating-a-scene) section of the getting set up tutorial that we made an app.ts file. This is going to be our main file that handles our scene creation and rendering. Starting with the constructor, we're going to break up our scene creation and render-loop call into separate functions.
 
 ## States
 
@@ -23,8 +23,8 @@ How I went about this was by outlining all of the different scenes I would need 
 -   GAME
 -   LOSE
 
-The reason why there's no win and pause state is because those are actually still using the game scene and so it still needs to be able to render the game scene. I've made those two "states" as GUI overlays.
-Now that we know what states we want we can go ahead and create an enum for them. All the enum does is assign names to the states and encodes them as numbers. We also want to create a class variable **\_state** to store the current state that we're in. Now, our app.ts should look something like this:
+The reason there's no win or pause state is because those still use the game scene, so it still needs to be able to render the game scene. I've made those two "states" GUI overlays.
+Now that we know what states we want, we can go ahead and create an enum for them. The enum simply assigns names to the states and encodes them as numbers. We also want to create a class variable **\_state** to store the current state that we're in. Now, our app.ts should look something like this:
 
 ```javascript
 //...imports here
@@ -115,7 +115,7 @@ this._state = State.START;
 
 When the scene is ready, we hide the loading UI, dispose of the current stored scene and then switch scenes and change the state to render the new scene.
 
-**VSCode users: At any point if you see an error for babylon specific components (like Color4 and FreeCamera...) hover over it and you should see a Quick Fix option, this will add it to your imports for you. If you don't see this, you can just manually add it to your imports at the top of the file**
+**VSCode users: At any point, if you see an error for Babylon-specific components (like Color4 and FreeCamera...), hover over it and you should see a Quick Fix option. This will add it to your imports for you. If you don't see this, you can just manually add it to your imports at the top of the file.**
 
 ### GUI setup
 
@@ -145,7 +145,7 @@ startBtn.onPointerDownObservable.add(() => {
 });
 ```
 
-Here what we're doing is creating an AdvancedDynamicTexture fullscreenUI. This is what's going to hold all of our gui elements. We then create a simple button and add an observable to detect when we click on it. This will trigger our scene to call goToCutScene. We want to make sure that we detach the controls since it's possible that as we hold down the mouse, goToCutScene gets called multiple times.
+Here, what we're doing is creating an AdvancedDynamicTexture fullscreenUI. This is what's going to hold all of our GUI elements. We then create a simple button and add an observable to detect when we click on it. This will trigger our scene to call goToCutScene. We want to make sure that we detach the controls since it's possible that, as we hold down the mouse, goToCutScene gets called multiple times.
 
 ## Other States
 
@@ -188,7 +188,7 @@ private async _goToLose(): Promise<void> {
 
 ### goToCutScene
 
-The cutscene is set up normally along with the gui; however, what we do while in this state is what allows our game to be loaded properly. If you take a look at the [\_goToCutScene](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/app.ts#L292) function, the scene setup is the same, but [scene finished loading](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/app.ts#L557) is slightly different. Notice how we don't have the hideLoadingUI. For now, we need to put this in, but in the final version I actually removed it since I hide it once my animations have finished loading and then trigger it to show once we've completed the dialogue, but the game is still loading.
+The cutscene is set up normally along with the GUI; however, what we do while in this state is what allows our game to be loaded properly. If you take a look at the [\_goToCutScene](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/app.ts#L292) function, the scene setup is the same, but [scene finished loading](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/app.ts#L557) is slightly different. Notice how we don't have the hideLoadingUI. For now, we need to put this in, but in the final version I actually removed it since I hide it once my animations have finished loading and then trigger it to show once we've completed the dialogue, while the game is still loading.
 
 The most important aspect is what we do after that:
 
@@ -199,14 +199,14 @@ await this._setUpGame().then((res) => {
 });
 ```
 
-Essentially what this is doing is telling the code to wait until **\_setUpGame** has completed its tasks and then set _finishedLoading_ to true. At this point, it may seem unnecessary to have since we haven't brought in our animation nor are we loading any heavy assets, but it's very important once we've gotten to that stage in the development process.
+Essentially, this is telling the code to wait until **\_setUpGame** has completed its tasks and then set _finishedLoading_ to true. At this point, it may seem unnecessary since we haven't brought in our animation, nor are we loading any heavy assets, but it's very important once we've gotten to that stage in the development process.
 
-This was an important discovery that ultimately led me to change the structure of importing and loading assets for my game to this. If we don't wait for our assets to finish importing, what the async functions will do is tell our code to continue as we load in the background. This can ultimately break our transitions between scenes as we'd be moving on before things were fully loaded. I discovered this happening when playtesting the web-hosted version of my game:
+This was an important discovery that ultimately led me to change the structure of importing and loading assets for my game to this. If we don't wait for our assets to finish importing, the async functions will tell our code to continue while the assets load in the background. This can ultimately break our transitions between scenes, as we'd be moving on before things were fully loaded. I discovered this happening when playtesting the web-hosted version of my game:
 
 1. Safari had several issues relating to sounds and scene transitions
-2. Assets were taking a long time to load and thus showed undefined meshes errors
+2. Assets were taking a long time to load and thus showed undefined mesh errors
 
-For testing purposes, we'll add in a _next_ button that takes use straight to the game state:
+For testing purposes, we'll add in a _next_ button that takes us straight to the game state:
 
 ```javascript
 //--PROGRESS DIALOGUE--
@@ -228,7 +228,7 @@ next.onPointerUpObservable.add(() => {
 
 ### \_setUpGame
 
-The only thing here we need to worry about here for now is:
+The only thing we need to worry about here for now is:
 
 ```javascript
 private async _setUpGame() {
@@ -299,7 +299,7 @@ Now that we have our scenes set up, how do we actually render and switch between
 
 ### Main
 
-The main function is where we'll be setting up our state machine. This will replace our current `this._engine.runRenderLoop` that we set up when we first [created the scene](/guidedLearning/createAGame/gettingSetUp#creating-a-scene)
+The main function is where we'll be setting up our state machine. This will replace our current `this._engine.runRenderLoop` that we set up when we first [created the scene](/guidedLearning/createAGame/gettingSetUp#creating-a-scene).
 
 ```javascript
 private async _main(): Promise<void> {
@@ -333,7 +333,7 @@ private async _main(): Promise<void> {
 
 We first call _await \_goToStart_ to ensure that our scene is ready to be rendered.
 
-What this switch statement does is it tells our render loop to act differently based on the state that we're in. It might seem a little unnecessary to always be calling _this.\_scene_ in each state, but this actually holds reference to our current scene. Recall that we dispose of what _this.\_scene_ was, do other detachments to that scene, create a new scene, and then re-assign _this.\_scene_ to the new scene. You could definitely use variables that reference your different scenes, but I thought this would be better since we're disposing of the scenes when not in use, and this ensures that we're rendering the right scene in the right state.
+What this switch statement does is tell our render loop how to behave based on the state that we're in. It might seem a little unnecessary to always call _this.\_scene_ in each state, but this actually holds a reference to our current scene. Recall that we dispose of what _this.\_scene_ was, do other detachments to that scene, create a new scene, and then reassign _this.\_scene_ to the new scene. You could definitely use variables that reference your different scenes, but I thought this would be better since we're disposing of the scenes when not in use, and this ensures that we're rendering the right scene in the right state.
 
 Now, when we run our game and progress through the states, we should see our sphere! The app.ts file should look something like [this](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/stateMachine/sampleApp.ts) now. This is a simple, working state machine! You can modify it for whatever states you'll need.
 

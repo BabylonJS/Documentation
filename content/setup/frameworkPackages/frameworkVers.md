@@ -11,32 +11,32 @@ video-content:
 
 ## General
 
-Babylon comes in two different versions - the preview version and the stable version. Those two differentiate themselves in the following ways:
+Babylon.js comes in two versions: the preview version and the stable version. They differ in the following ways:
 
-- The preview version is a work in progress version of the engine. Even though we do our best to never introduce backwards-compatibility issues, it sometimes includes breaking changes.
+- The preview version is a work-in-progress version of the engine. Even though we do our best never to introduce backward-compatibility issues, it sometimes includes breaking changes.
 - The stable version is our latest build from the master branch.
 
-Both versions are considered to be stable and can be used in production. In certain cases (if we still haven't introduced any new features we don't want to have on the stable branch) the preview and the stable versions are identical.
+Both versions are considered stable and can be used in production. In some cases, if no new features have been introduced that we want to keep off the stable branch, the preview and stable versions are identical.
 
 Both versions have their own CDN endpoint. The preview version is available on [preview.babylonjs.com](https://preview.babylonjs.com) and the stable version is available on [cdn.babylonjs.com](https://cdn.babylonjs.com).
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-We keep the same version for all of our public repositories. Every time we release a new version, all of our public framework packages (which can be found on npmjs.com: [https://www.npmjs.com/~babylonjs](https://www.npmjs.com/~babylonjs)) will receive a new version update as well, even when they sometimes don't change. As a rule of thumb stick with the same version for all of your dependencies. This is especially important when it comes to the major version - when using babylon's core 5.X, make sure to use all other dependencies in version 5.X.
+We keep the same version for all of our public repositories. Every time we release a new version, all of our public framework packages (which can be found on npmjs.com: [https://www.npmjs.com/~babylonjs](https://www.npmjs.com/~babylonjs)) receive a version update as well, even if some packages have not changed. As a rule of thumb, stick with the same version for all of your dependencies. This is especially important for the major version: when using Babylon core 5.x, make sure all other dependencies are also version 5.x.
 
 ## Versioning
 
 ### Stable
 
-Until Babylon 5.0 we took a different approach towards versioning. Our stable version was fixed for a long period of time, and our preview version was constantly updating. We have always recommended using the preview version to get the latest features.
+Until Babylon 5.0, we took a different approach to versioning. Our stable version remained fixed for a long period, while our preview version was updated constantly. We always recommended using the preview version to get the latest features.
 
-Starting Babylon 5.0 we take a different approach towards versioning. We are releasing a new minor version each Thursday of the week from our master branch, containing the latest features and bug fixes. During the week, if a bug fix is required we will release a patched version of the framework. That means that if for example we are at version 5.1.1 at the moment, next Thursday will introduce version 5.2.0. It is possible that until then we will release 5.1.2 or even 5.1.3. We don't update older minor versions. 5.1.1 will not include bug fixes that were introduced in 5.2.0. We recommend using the carret (`^`) when setting the framework version in your package.json. This way you will always get the latest of this major version.
+Starting with Babylon 5.0, we took a different approach to versioning. We release a new minor version each Thursday from our master branch, containing the latest features and bug fixes. During the week, if a bug fix is required, we release a patch version of the framework. That means that if, for example, the current version is 5.1.1, next Thursday introduces version 5.2.0. Before then, we may release 5.1.2 or even 5.1.3. We do not update older minor versions, so 5.1.1 will not include bug fixes introduced in 5.2.0. We recommend using the caret (`^`) when setting the framework version in your package.json. This way, you will always get the latest release within that major version.
 
-We guarantee **no breaking changes** in our public API between minor versions. Breaking changes will be introduced between major versions. The only time we might introduce breaking changes is when the browsers introduced a change in their API that forces us to change our API. As we usually abstract our APIs this rarely happens.
+We guarantee **no breaking changes** in our public API between minor versions. Breaking changes are introduced between major versions. The only time we might introduce breaking changes between minor versions is when browsers introduce a change in their API that forces us to change ours. Because we usually abstract our APIs, this rarely happens.
 
 ## Changelog
 
-To see what changed in each version you can take a look at our changelog on the main repository. It is located at [https://github.com/BabylonJS/Babylon.js/blob/master/CHANGELOG.md](https://github.com/BabylonJS/Babylon.js/blob/master/CHANGELOG.md) as is updated on every publish to npm. When updated outside of the update process (possible in certain cases) unreleased features will be included in the "upcoming" version. Those are the features that will be introduced in our next minor/patch release.
+To see what changed in each version, take a look at our changelog in the main repository. It is located at [https://github.com/BabylonJS/Babylon.js/blob/master/CHANGELOG.md](https://github.com/BabylonJS/Babylon.js/blob/master/CHANGELOG.md) and is updated on every publish to npm. When it is updated outside the publish process, which can happen in some cases, unreleased features are included in the "upcoming" version. These are the features that will be introduced in our next minor or patch release.
 
 ## Nightlies
 
@@ -49,7 +49,7 @@ We have two flavors of releases:
 - [UMD packages](/setup/frameworkPackages/npmSupport)
 - [ES6 packages](/setup/frameworkPackages/es6Support)
 
-When developing please make sure to pick the one that fits your architecture. We recommend using the ES6 packages which allow your to reduce the final release's size using tree shaking.
+When developing, please make sure to pick the one that fits your architecture. We recommend using the ES6 packages, which allow you to reduce the final release size through tree shaking.
 
 ## CDN Current Versions
 

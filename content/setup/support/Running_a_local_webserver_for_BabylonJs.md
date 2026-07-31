@@ -10,30 +10,30 @@ video-content:
 
 This tutorial:
 
-- Is for you, if you have no or limited experience with web development or servers in general.
-- Will show you how to setup and start a simple, local, NodeJs web server for your BabylonJs application.
+- Is for you if you have no or limited experience with web development or servers in general.
+- Will show you how to set up and start a simple, local Node.js web server for your Babylon.js application.
 - Is primarily focused on Windows.
 
 ## Nodejs & NPM
 
-If you already have NodeJs and NPM installed, skip to **Sample** section.
+If you already have Node.js and NPM installed, skip to the **Sample** section.
 
-Download the latest (LTS) Nodejs installer from https://nodejs.org/en/download/
+Download the latest LTS Node.js installer from https://nodejs.org/en/download/
 
-Run the installer and follow the NodeJs setup Wizard. The default settings are fine for our use.
+Run the installer and follow the Node.js setup wizard. The default settings are fine for our use.
 
 NPM is included in this installation.
 
 ## Sample
 
-Having installed NodeJs and NPM, we're now ready for our server code.
+Now that Node.js and NPM are installed, we're ready for the server code.
 
-- Create a folder for your project
+- Create a folder for your project.
 
 In this tutorial, we'll use **C:\babylon**
 
 - Download the sample server [master.zip](https://github.com/aWeirdo/babylonJs_sample_server/archive/master.zip)
-- Extract the .zip file content to C:\babylon
+- Extract the .zip file contents to C:\babylon.
 
 Your **C:\babylon** folder should now look something like this:
 
@@ -50,13 +50,13 @@ C:\babylon\Windows_START.BAT
 
 ```
 
-**On windows**
+**On Windows**
 
-- Navigate your file explorer to C:\babylon
+- In File Explorer, navigate to C:\babylon.
 - Double-click **Windows_NPM_INSTALL.BAT**
-- Wait for BAT window to finish running and close itself. This executes `npm install --save`
+- Wait for the BAT window to finish running and close itself. This executes `npm install --save`.
 
-A new folder "node_modules" should be created.
+A new `node_modules` folder should be created.
 
 - Double-click **Windows_START.BAT**. This executes `node server.js`
 - A new BAT window should open:
@@ -66,23 +66,23 @@ C:\babylon>node server.js
 Server is listening on port 80
 ```
 
-- Your server should now be running. Note: Closing this window will shut down the NodeJs server again.
+- Your server should now be running. Note: Closing this window will shut down the Node.js server again.
 - In your browser, navigate to http://localhost/
-- If the BAT immediately closes again, please re-check previous steps were done correctly.
+- If the BAT file closes immediately, please check that the previous steps were completed correctly.
 - To view errors, in a CMD or PowerShell window run `C:\babylon> node server.js`
 
-**Other OS**
+**Other OSes**
 
-- See NpmJs.org and NodeJs.org documentations for instructions.
+- See the npmjs.org and nodejs.org documentation for instructions.
 - Execute "npm install --save" on C:\babylon
 - Execute "node server.js" on C:\babylon
 
-_If anyone wish to expand this section, feel free to PR_
+_If anyone wishes to expand this section, feel free to open a PR._
 
 ## Public Folder
 
-In the Public folder you'll find a sample scene consisting of an _index.html_ and a _babylonScene.js_ file.
+In the Public folder, you'll find a sample scene consisting of an _index.html_ file and a _babylonScene.js_ file.
 
-The browser's access is restricted to this folder and it's files & sub-folders.
+The browser's access is restricted to this folder and its files and subfolders.
 
 You're now ready to start your project.

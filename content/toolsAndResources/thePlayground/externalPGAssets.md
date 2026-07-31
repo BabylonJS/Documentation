@@ -16,13 +16,13 @@ video-content:
 
 # Using External Assets in the Playground
 
-Sometimes you might want to load you own assets into the playground. Should the reason for doing so be to get help with a feature please think carefully before doing so.
+Sometimes you might want to load your own assets into the Playground. If your reason for doing so is to get help with a feature, please think carefully before doing so.
 
 It is very likely that the issue you are struggling with can be isolated and presented in a simplified and more focused form using basic meshes and existing [textures](/toolsAndResources/assetLibraries/availableTextures) and [models](/toolsAndResources/assetLibraries/availableMeshes).
 
-Doing this will lead to quicker answers as your question will be more understandable, since few people want to work through long sections of code. Using the existing assets will also ensure that they remain reachable and the playgrounds you create will still be a useful resource in the future. However should you still wish to use your own assets then this page describes ways of doing so.
+Doing this will lead to quicker answers because your question will be more understandable, and few people want to work through long sections of code. Using the existing assets will also ensure that they remain reachable and that the playgrounds you create will still be a useful resource in the future. However, if you still wish to use your own assets, this page describes ways to do so.
 
-Any site hosting you assets must be [CORS compliant](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and use the secure [https](https://en.wikipedia.org/wiki/HTTPS) protocol.
+Any site hosting your assets must be [CORS compliant](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and use the secure [HTTPS](https://en.wikipedia.org/wiki/HTTPS) protocol.
 
 ## From github.com
 
@@ -32,7 +32,7 @@ Any site hosting you assets must be [CORS compliant](https://en.wikipedia.org/wi
 - navigate to your file. We'll take as example https://github.com/BabylonJS/MeshesLibrary/blob/master/PBR_Spheres.glb
 - remove `/blob/` part
 - replace `https://github.com` by `https://raw.githubusercontent.com`
-- you now have raw access to your file `https://raw.githubusercontent.com/BabylonJS/MeshesLibrary/master/PBR_Spheres.glb`
+- you now have raw access to your file at `https://raw.githubusercontent.com/BabylonJS/MeshesLibrary/master/PBR_Spheres.glb`
 
 ```javascript
 BABYLON.ImportMeshAsync("https://raw.githubusercontent.com/BabylonJS/MeshesLibrary/master/PBR_Spheres.glb", scene);
@@ -100,14 +100,14 @@ BABYLON.ImportMeshAsync("https://yourpages.gitlab.io/yourScene/myFile.babylon", 
 
 ## From dropbox.com
 
-[Dropbox](https://dropbox.com) could be use both for playground debugging and easily sharing assets.
+[Dropbox](https://dropbox.com) can be used both for Playground debugging and for easily sharing assets.
 
 - upload your file
 - click on `Share` button
 - generate a public download link, here our example: `https://www.dropbox.com/s/rANdoMGeneR4tedLink/my-file.glb?dl=0`
-- replace `www` in url by `dl`, also remove `?dl=0` at the end if this is the only argument
-- there may also be an `rlkey` augument included which looks like `?dl=0&rlkey=rANdoMGeneR4tedValUe`, this argument needs to stay in the link, even if you remove the `dl=0&` first argument leaving `?rlkey=rANdoMGeneR4tedValUe`
-- you now have a direct access url which will look like `https://dl.dropbox.com/s/rANdoMGeneR4tedLink/my-file.glb` if there was no `rlkey` parameter or `https://dl.dropbox.com/s/rANdoMGeneR4tedLink/my-file.glb?rlkey=rANdoMGeneR4tedValUe` if there is one
+- replace `www` in the URL with `dl`, and also remove `?dl=0` at the end if this is the only argument
+- there may also be an `rlkey` argument included that looks like `?dl=0&rlkey=rANdoMGeneR4tedValUe`; this argument needs to stay in the link, even if you remove the `dl=0&` first argument, leaving `?rlkey=rANdoMGeneR4tedValUe`
+- you now have a direct-access URL that will look like `https://dl.dropbox.com/s/rANdoMGeneR4tedLink/my-file.glb` if there was no `rlkey` parameter, or `https://dl.dropbox.com/s/rANdoMGeneR4tedLink/my-file.glb?rlkey=rANdoMGeneR4tedValUe` if there is one
 
 It can be used in this way:
 
@@ -124,7 +124,7 @@ BABYLON.ImportMeshAsync("https://dl.dropbox.com/s/rANdoMGeneR4tedLink/my-file.gl
 - upload your image, here our example: https://imgur.com/a/KhuCTFr
 - copy the direct link, here https://imgur.com/yn98ktz
 - do a `right-click > View image` or add `i.` in front of `imgur.com` and image extension to the end of url, here https://i.imgur.com/yn98ktz.png
-- use this direct access url in your playground
+- use this direct-access URL in your playground
 
 ```javascript
 var texture = new BABYLON.Texture("https://i.imgur.com/yn98ktz.png", scene);
@@ -134,7 +134,7 @@ var texture = new BABYLON.Texture("https://i.imgur.com/yn98ktz.png", scene);
 
 ## Embedded assets
 
-You can make a raw text copy-paste of your assets, like the content of a .gltf file.
+You can make a raw text copy and paste of your assets, such as the content of a `.gltf` file.
 
 Note that you need to use `Append` so you can define the plugin to use as there is no more file extension.
 
@@ -155,11 +155,11 @@ Note that you need to use `Append` so you can define the plugin to use as there 
     });
 ```
 
- <Playground id="#KEY4S4#93" title="Loading Embedded Assest" description="Simple example showing how to load embedded assets."/>
+ <Playground id="#KEY4S4#93" title="Loading Embedded Asset" description="Simple example showing how to load embedded assets."/>
 
-## Javascript files
+## JavaScript files
 
-For Javascript files you need to wait for the file to be loaded before attempting to access it.
+For JavaScript files, you need to wait for the file to be loaded before attempting to access it.
 
 ```javascript
 var url = "LINK ADDRESS";
@@ -178,4 +178,4 @@ var createScene = function () {
 };
 ```
 
- <Playground id="#WF3VKZ" title="Loading Embeded Assets (javascript)" description="Another example of loading embedded assets."/>
+ <Playground id="#WF3VKZ" title="Loading Embedded Assets (JavaScript)" description="Another example of loading embedded assets."/>

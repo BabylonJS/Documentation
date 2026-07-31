@@ -10,14 +10,14 @@ video-content:
 
 ## How To Use **SceneOptimizer**
 
-Rendering a scene on a browser is a great experience because you can reach a lot of different users and hardware. But the main associated caveat is that you can encounter very low-end devices.
+Rendering a scene in a browser is great because you can reach many different users and hardware configurations. However, the main caveat is that you may encounter very low-end devices.
 
 The `SceneOptimizer` tool is designed to help you reach a specific framerate by gracefully degrading rendering quality at runtime.
 
 ## Basic usage
 
 To start using the `SceneOptimizer`, you can create a new `BABYLON.SceneOptimizer` instance.
-The `SceneOptimizer` constructor requires the current scene and a `BABYLON.SceneOptimizerOptions` object (we will get back to it later).
+The `SceneOptimizer` constructor requires the current scene and a `BABYLON.SceneOptimizerOptions` object (we will come back to it later).
 
 ```javascript
 var options = new BABYLON.SceneOptimizerOptions();
@@ -27,7 +27,7 @@ options.addOptimization(new BABYLON.HardwareScalingOptimization(0, 1));
 var optimizer = new BABYLON.SceneOptimizer(scene, options);
 ```
 
-When creating the` SceneOptimizer` you can provide the following parameters:
+When creating the `SceneOptimizer`, you can provide the following parameters:
 - A `BABYLON.Scene` which will define the scene to work on
 - A `BABYLON.SceneOptimizerOptions` which will define the options to use with the `SceneOptimizer`
 - A `boolean` which will define if priorities must be generated and not read from `SceneOptimization` property (true by default)
@@ -51,13 +51,13 @@ It also provides several functions:
 
 ## Helper
 
-You can also decide to use a static helper that will create everything you need in one line. `BABYLON.SceneOptimizer.OptimizeAsync()`. You can call this function when you want to optimize your scene. The simplest call you can do is the following:
+You can also use a static helper that will create everything you need in one line: `BABYLON.SceneOptimizer.OptimizeAsync()`. You can call this function when you want to optimize your scene. The simplest call is the following:
 
 ```javascript
 BABYLON.SceneOptimizer.OptimizeAsync(scene),
 ```
 
-You have to provide at least a scene. That previous code line is actually equivalent to this:
+You have to provide at least a scene. That previous line of code is actually equivalent to this:
 
 ```javascript
 BABYLON.SceneOptimizer.OptimizeAsync(scene, BABYLON.SceneOptimizerOptions.ModerateDegradationAllowed(),
@@ -69,11 +69,11 @@ function() {
 ```
 
 As you can see, you can provide success/fail callbacks and a set of options.
-Please note that the `BABYLON.SceneOptimizer.OptimizeAsync()` function returns a `SceneOptimizer` object which is created with `autoGeneratePriorities` to false.
+Please note that the `BABYLON.SceneOptimizer.OptimizeAsync()` function returns a `SceneOptimizer` object which is created with `autoGeneratePriorities` set to false.
 
 ## Options
 
-A set of options contains a list of optimizations to apply in a specific order. As soon as the target FPS is reached, the `SceneOptimizer` stops. There are different layers (or passes) that are applied one after another. The `SceneOptimizer` pauses between each layer to ensure a stable FPS and also for measuring. Create a  `BABYLON.SceneOptimizerOptions` like this:
+A set of options contains a list of optimizations to apply in a specific order. As soon as the target FPS is reached, the `SceneOptimizer` stops. There are different layers (or passes) that are applied one after another. The `SceneOptimizer` pauses between each layer to ensure a stable FPS and to measure it. Create a `BABYLON.SceneOptimizerOptions` like this:
 
 ```javascript
 // With a target framerate of 50fps and a check|rate of 500ms
@@ -128,25 +128,25 @@ Based on these optimizations, the basic sets are configured like this:
 
 ## The Built-in Optimizations.
 
- The `priority` of an optimization, is used by the `SceneOptimizer` to form a queue of optimizations. When performing optimizations, the `SceneOptimizer` starts with optimizations with lower `priority` then continues onwards to optimizations with higher `priorities`:
+The `priority` of an optimization is used by the `SceneOptimizer` to form a queue of optimizations. When performing optimizations, the `SceneOptimizer` starts with optimizations with lower `priority`, then continues to optimizations with higher `priorities`:
 
 
 
-* `BABYLON.MergeMeshesOptimization(priority)`: This optimization will merge meshes with same material.
+* `BABYLON.MergeMeshesOptimization(priority)`: This optimization will merge meshes with the same material.
 * `BABYLON.TextureOptimization(priority, maximumSize)`: This optimization tries to reduce the size of render textures.
-* `BABYLON.HardwareScalingOptimization(priority, maximumScale)`: This optimization increments or decrements the value of hardware scaling. This is a really aggressive optimization that could really help if you are GPU bound.
+* `BABYLON.HardwareScalingOptimization(priority, maximumScale)`: This optimization increments or decrements the value of hardware scaling. This is a really aggressive optimization that could really help if you are GPU-bound.
 * `BABYLON.ShadowsOptimization(priority)`: This optimization disables shadows (It will turn them on if the optimizer is in improvement mode (see below)).
 * `BABYLON.PostProcessesOptimization(priority)`: This optimization disables post-processes (It will turn them on if the optimizer is in improvement mode (see below)).
 * `BABYLON.LensFlaresOptimization(priority)`: This optimization disables lens flares (It will turn them on if the optimizer is in improvement mode (see below)).
 * `BABYLON.ParticlesOptimization(priority)`: This optimization disables particles (It will turn them on if the optimizer is in improvement mode (see below)).
 * `BABYLON.RenderTargetsOptimization(priority)`: This optimization disables render targets (It will turn them on if the optimizer is in improvement mode (see below)).
 * `BABYLON.CustomOptimization(priority)`: This optimization will call two callbacks when required: 
- * `onApply(scene, optimizer)`: A custom callback used to apply custom optimizations. It must return true if all optimizations where applied
+ * `onApply(scene, optimizer)`: A custom callback used to apply custom optimizations. It must return true if all optimizations were applied
  * `onGetDescription()`: This callback must return a string describing the action of the optimization
 
 ### Custom Optimizations.
 
-You can create you own optimizations by extending the class `BABYLON.CustomOptimization`. The new class must provide two functions, `onApply` and `onGetDescription`. Every instance takes a `priority` , its only argument and also a number. For example:
+You can create your own optimizations by extending the class `BABYLON.CustomOptimization`. The new class must provide two functions, `onApply` and `onGetDescription`. Every instance takes a `priority` as its only argument, and it must be a number. For example:
 
 ```javascript
 class MyCustomOptimization extends BABYLON.CustomOptimization{
@@ -179,7 +179,7 @@ options.addCustomOptimization(function () {
 
 ## Advanced Usage
 
-You can create your own set of options with the following code (please note that if `autoGeneratePriorities` is true, you don't need to define the priority value)
+You can create your own set of options with the following code (please note that if `autoGeneratePriorities` is true, you don't need to define the priority value):
 
 ```javascript
 var result = new BABYLON.SceneOptimizerOptions(60, 2000);
@@ -210,12 +210,11 @@ return result;
 
 ## Improvement Mode
 
-When created in improvement mode (4th parameter of the constructor), the `SceneOptimizer` object will run all optimization while the current FPS is above the target frame rate. So, for instance if, the target FPS is 60, the optimizer will execute all optimizations in its list while the FPS remains at 60. It is a good tool to provide rendering improvements to a given scene.
-Please note that when in improvement mode, the optimizations will adapt their behaviour automatically (for instance, the `ShadowsOptimization` will turn shadows on instead of off).
+When created in improvement mode (4th parameter of the constructor), the `SceneOptimizer` object will run all optimizations while the current FPS is above the target frame rate. So, for instance, if the target FPS is 60, the optimizer will execute all optimizations in its list while the FPS remains at 60. It is a good tool for providing rendering improvements to a given scene.
+Please note that when in improvement mode, the optimizations will adapt their behavior automatically (for instance, the `ShadowsOptimization` will turn shadows on instead of off).
 
 ## Demos
 
 <Playground id="#3Q8PCL" title="Scene Optimizer Example" description="Simple example of how to use the scene optimizer."/>
 
 <Playground id="#WZNAU4#4" title="CustomOptimization Example" description="A Playground Example Of The CustomOptimization in action"/>
-

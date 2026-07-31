@@ -12,7 +12,7 @@ video-content:
 
 ## How To Create a Custom Loading Screen
 
-Starting with Babylon.js 2.3 the loading screen (the screen used when loading assets or a scene) can be changed by the developer.
+Starting with Babylon.js 2.3, the loading screen (the screen used when loading assets or a scene) can be changed by the developer.
 
 To create a new loading screen, you will have to create a simple class, implementing the following interface:
 
@@ -43,7 +43,7 @@ CustomLoadingScreen.prototype.hideLoadingUI = function () {
 };
 ```
 
-In TypeScript the same will look like this:
+In TypeScript, the same code looks like this:
 
 ```javascript
 class CustomLoadingScreen implements ILoadingScreen {
@@ -79,11 +79,11 @@ engine.hideLoadingUI();
 
 ## Example
 
-Here a playground using a custom loading screen:
+Here is a playground using a custom loading screen:
 
 <Playground id="#5Y2GIC#847" title="Custom Loading Screen Example" description="Simple example showing how to create and use a custom loading screen."/>
 
-You might also be interested in a standalone html example:
+You might also be interested in a standalone HTML example:
 
 ```html
 <!DOCTYPE html>
@@ -179,7 +179,7 @@ You might also be interested in a standalone html example:
 
 ## Getting File Loading Rate
 
-When loading files, you can get the [SceneLoaderProgressEvent](/typedoc/classes/babylon.sceneloader) sent in the `onProgress` callback.
+When loading files, you can access the [SceneLoaderProgressEvent](/typedoc/classes/babylon.sceneloader) sent to the `onProgress` callback.
 
 Example using `BABYLON.ImportMeshAsync`:
 

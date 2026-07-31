@@ -20,13 +20,13 @@ This is used to drag a mesh around a plane or axis using a mouse or VR controlle
 const pointerDragBehavior = new BABYLON.PointerDragBehavior({ dragAxis: new BABYLON.Vector3(0, 1, 0) });
 ```
 
-It can be initialized in 3 different modes:
+It can be initialized in three different modes:
 
 - `dragAxis`: Dragging will occur along the provided axis
 - `dragPlaneNormal`: Dragging will occur along the plane defined by the normal
 - _None_: Dragging will occur along the plane facing the camera
 
-By default, the dragging plane/axis will be modified by the object's orientation. To keep the specified axis/plane fixed to the world, set `useObjectOrientationForDragging` to false.
+By default, the dragging plane/axis is modified by the object's orientation. To keep the specified axis/plane fixed to the world, set `useObjectOrientationForDragging` to false.
 
 ```javascript
 pointerDragBehavior.useObjectOrientationForDragging = false;
@@ -38,7 +38,7 @@ By default, the drag plane will update on every frame. To disable this, set `upd
 pointerDragBehavior.updateDragPlane = false;
 ```
 
-To listen to drag events, the following can be used.
+To listen to drag events, you can use the following:
 
 ```javascript
 pointerDragBehavior.onDragStartObservable.add((event) => {
@@ -67,7 +67,7 @@ To disable all dragging behavior, set `enabled` to false.
 pointerDragBehavior.enabled = false;
 ```
 
-To inspect the current state of the dragged mesh, `currentDraggingPointerID`, `dragging` and `lastDragPosition` can be inspected.
+To inspect the current state of the dragged mesh, you can check `currentDraggingPointerID`, `dragging`, and `lastDragPosition`.
 
 ```javascript
 // The id of the pointer that is currently interacting with the behavior (-1 when no pointer is active)
@@ -82,7 +82,7 @@ pointerDragBehavior.dragging;
 
 ## SixDofDragBehavior
 
-This is used to drag a mesh around in 3D space based on the pointer's origin (eg. camera or VR controller position).
+This is used to drag a mesh around in 3D space based on the pointer's origin (e.g. camera or VR controller position).
 
 ```javascript
 const sixDofDragBehavior = new BABYLON.SixDofDragBehavior();
@@ -95,7 +95,7 @@ By default, pointer jitter is smoothed by slowly moving the mesh to where the po
 sixDofDragBehavior.dragDeltaRatio = 0.2;
 ```
 
-By default, dragging objects away/towards you will be magnified to make moving objects large distances easier. To avoid/modify this, the following can be used.
+By default, dragging objects away from or toward you is magnified to make moving objects over large distances easier. To avoid or modify this, use the following:
 
 ```javascript
 // How much faster the object should move when the controller is moving towards it. This is useful to bring objects that are far away from the user to them faster. Set this to 0 to avoid any speed increase. (Default: 3)
@@ -108,7 +108,7 @@ sixDofDragBehavior.zDragFactor = 3;
 
 ## MultiPointerScaleBehavior
 
-This is used to scale a mesh based on 2 pointers (eg. fingers or VR controllers).
+This is used to scale a mesh based on two pointers (e.g. fingers or VR controllers).
 
 ```javascript
 const multiPointerScaleBehavior = new BABYLON.MultiPointerScaleBehavior();
@@ -147,15 +147,15 @@ const followBehavior = new BABYLON.FollowBehavior();
 followBehavior.attach(mesh);
 ```
 
-The position/rotation of the mesh will be updated in 3 cases:
+The position/rotation of the mesh will be updated in three cases:
 
-- Either the mesh goes outside the bounds of the field of view. Use `maxViewVerticalDegrees` and `maxViewHorizontalDegrees` to tweak these bounds.
-- Either the mesh goes too close or too far from the camera. Use `defaultDistance`, `minimumDistance` and `maximumDistance` to tweak these distances.
-- Either the mesh is facing away from the camera. Use `orientToCameraDeadzoneDegrees` to delimit the maximum angle that the mesh can be facing away.
+- The mesh goes outside the bounds of the field of view. Use `maxViewVerticalDegrees` and `maxViewHorizontalDegrees` to tweak these bounds.
+- The mesh goes too close to or too far from the camera. Use `defaultDistance`, `minimumDistance`, and `maximumDistance` to tweak these distances.
+- The mesh is facing away from the camera. Use `orientToCameraDeadzoneDegrees` to define the maximum angle that the mesh can face away.
 
 In XR experiences, it can be useful not to consider the user's complete head rotation. Use the property `ignoreCameraPitchAndRoll` to only consider the yaw (rotation around the Y axis) of the head. In this mode, you can use `pitchOffset`, to slightly put the mesh under or over the horizontal plane.
 
-Like `SixDofDragBehavior`, every transformation of the mesh is interpolated to avoid jitter. Use `lerpTime` to adjust the length of the interpolation (the higher the slower).
+Like `SixDofDragBehavior`, every transformation of the mesh is interpolated to avoid jitter. Use `lerpTime` to adjust the length of the interpolation (the higher the value, the slower it is).
 
 ## SurfaceMagnetismBehavior
 
@@ -169,13 +169,13 @@ surfaceMagnetismBehavior.attach(mesh);
 surfaceMagnetismBehavior.meshes = meshes;
 ```
 
-By default, it will intersect `meshes` everytime the pointer moves, and the position will be updated accordingly (with interpolation, like with `FollowBehavior`). Use the flag `enabled` to control whether this behavior should get into play.
+By default, it will intersect `meshes` every time the pointer moves, and the position will be updated accordingly (with interpolation, like `FollowBehavior`). Use the `enabled` flag to control whether this behavior should be active.
 
 ## HandConstraintBehavior
 
-[`HandConstraintBehavior`](/typedoc/classes/babylon.handconstraintbehavior) makes a mesh follow a hand of the user. It needs to be linked to a [WebXRExperienceHelper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#webxr-basic-experience-helper) so that it can retrieve hands' positions.
+[`HandConstraintBehavior`](/typedoc/classes/babylon.handconstraintbehavior) makes a mesh follow one of the user's hands. It needs to be linked to a [WebXRExperienceHelper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#webxr-basic-experience-helper) so that it can retrieve hand positions.
 
-[Hand tracking feature](/features/featuresDeepDive/webXR/WebXRSelectedFeatures/WebXRHandTracking) needs to be enabled, too, for this behavior to function. [WebXRDefaultExperience](/typedoc/classes/babylon.webxrdefaultexperience), if you use it, enables that feature by default if user's system supports [WebXR hand input](https://www.w3.org/TR/webxr-hand-input-1/).
+The [hand tracking feature](/features/featuresDeepDive/webXR/WebXRSelectedFeatures/WebXRHandTracking) also needs to be enabled for this behavior to function. [WebXRDefaultExperience](/typedoc/classes/babylon.webxrdefaultexperience), if you use it, enables that feature by default if the user's system supports [WebXR hand input](https://www.w3.org/TR/webxr-hand-input-1/).
 
 Basic setup looks like this:
 
@@ -185,4 +185,4 @@ behavior.attach(mesh);
 behavior.linkToXRExperience(xr);
 ```
 
-Among various public properties you can use to customize this behavior's behavior, [handedness](/typedoc/classes/babylon.handconstraintbehavior#handedness) can be used to specify which hand should be followed by the mesh.
+Among the various public properties you can use to customize this behavior, [handedness](/typedoc/classes/babylon.handconstraintbehavior#handedness) can be used to specify which hand the mesh should follow.

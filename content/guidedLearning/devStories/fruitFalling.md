@@ -26,7 +26,7 @@ independent production software?**"
 So I went to the Babylon.js docs site and read through an article titled,
 "Playground to Production: *Fruit Fallin'*." After reading that article
 (and asking any questions I had on the [forum](https://forum.babylonjs.com)),
-I knew exactly what to do and about how long I could expect it take.
+I knew exactly what to do and about how long I could expect it to take.
 
 1.	On my GitHub account, I created a new repository from the
 [Babylon.js NPM Package Template](https://github.com/BabylonJS/npm-package-template),
@@ -96,7 +96,7 @@ the Babylon.js Typescript Playground, so I decided to use that.
     I clicked the "Use this template" button to start a new repo.
 
     !["Use this template" button](/img/devStories/fruitFalling/01_use_package_template.webp!500)
-1.  I picked my repo name, choose to make it public (for non-open source,
+1.  I picked my repo name, chose to make it public (for non-open source,
     I would have chosen private), then created the repository.
 
     ![Picking repo options](/img/devStories/fruitFalling/02_choose_options.webp!500)
@@ -142,7 +142,7 @@ the Babylon.js Typescript Playground, so I decided to use that.
 1.  In Visual Studio Code (my preferred code editor), I opened up my new
     repo's root directory, then opened the file
     `app_package/src/Playground/playground.ts` and replaced the `Playground`
-    class with the one I'd copied the Web.
+    class with the one I'd copied from the Web.
 
     ![Playground.ts](/img/devStories/fruitFalling/07_paste_playground.webp!500)
 1.  While the NPM Package Template is designed to make it as easy as
@@ -236,7 +236,7 @@ to asset hosting for development.
     to see the results because the sprite from my asset host looked
     identical to the one pulled from the Internet. To make extra sure,
     then, I changed `player.png` to `player_2.png` in my asset host,
-    then cleared my brower's file cache (so it wouldn't load a cached
+    then cleared my browser's file cache (so it wouldn't load a cached
     version of `player.png`) and refreshed the test app. After confirming
     that the test app couldn't find `player.png`, I changed the code again
     to look for `player_2.png` and saved the file. When the app
@@ -262,7 +262,7 @@ work the way I wanted it.
 
     The Babylon.js Playground is a fantastic place to experiment, prototype,
     and repro bugs. In order to be as good at those things as it is,
-    however, the Playgrund make a number of implementation decisions that
+    however, the Playground makes a number of implementation decisions that
     do not translate well into production software development. Single-file
     development, kitchen-sink dependency inclusion, and the `BABYLON`
     import are prominent examples of this.
@@ -301,7 +301,7 @@ work the way I wanted it.
     customized `index.js` in the `test_package`.
 
     The test app included with the NPM Package Template has an extremely
-    simplisitic and generic appearance: it's basically just a small
+    simplistic and generic appearance: it's basically just a small
     `HTMLCanvasElement` in a blank page. Not all Web apps are designed for
     generic canvases, however, so in many cases it may be helpful to add
     features to the test app to better reflect the real environment where
@@ -352,8 +352,8 @@ work the way I wanted it.
     "double up" on what frames it has so that the same number of "updates"
     per time are always called. This trick allowed me to write
     [logic](https://github.com/syntheticmagus/fruit-falling-source/blob/278fe61755d7f16b1d5f0726f1e72c670883df06/app_package/src/drop.ts#L89-L94)
-    that was *frame*-dependent without it becoming vulnerably
-    frame*rate*-dependent.
+    that was *frame*-dependent without it becoming vulnerable to
+    frame-*rate* dependence.
 
     ![Frame-dependent game logic](/img/devStories/fruitFalling/20_frame_dependent_logic.webp!500)
 
@@ -402,7 +402,7 @@ curious, here are the various tools I used to make *Fruit Fallin'*.
     making ridiculous noises into a microphone, then fiddling with
     the recordings in [Audacity](https://www.audacityteam.org/) to get the
     sound I wanted. The exceptions are the tones which play during the
-    coutdown at the start of the game, which were generated from pitch in
+    countdown at the start of the game, which were generated from pitch in
     Audacity.
 1.  **Other:** The few remaining elements such as text are all
     generated using
@@ -491,7 +491,7 @@ easily integrated into a huge variety of different shipping solutions.
 1.	Since the `app_package` in the NPM Package Template is already
     structured as an NPM package, publishing it as such is as easy as
     publishing any other NPM package. Personally, I had never published
-    an NPM package before, so it took me an embarassingly long time to
+    an NPM package before, so it took me an embarrassingly long time to
     figure out that I could
     [login to NPM in a terminal](https://medium.com/@bretcameron/how-to-publish-your-first-npm-package-b224296fc57b)
     by opening a terminal and typing
@@ -527,7 +527,7 @@ from the same shipping vehicle.
 
 This is not an Ionic tutorial and the best way to learn about Ionic will be
 to consult [their own docs](https://ionicframework.com/docs/intro/cli); but
-as quick get-up-and-go, here's what I did to get Fruit Fallin' built for
+as a quick get-up-and-go, here's what I did to get Fruit Fallin' built for
 Web and Android using Ionic and developing on Windows.
 
 1.	```
@@ -589,7 +589,7 @@ Web and Android using Ionic and developing on Windows.
     npm install fruit-fallin
     ```
 1.  Installing the dependency brought in the *Fruit Fallin'* code, but
-    the assets need to be added a different way. I could technically have
+the assets needed to be added a different way. I could technically have
     continued having the Ionic app pull the assets from a different
     location, but because I wanted the app to be self-contained, I instead
     just dropped my assets in a new folder in the `public/assets` directory.
@@ -665,7 +665,7 @@ Web and Android using Ionic and developing on Windows.
 
     ![Fruit Fallin' Ionic](/img/devStories/fruitFalling/33_ionic_fruit_fallin_browser.webp!300)
 
-    This would be very close to the end state if I were targeting Web or WPA
+    This would be very close to the end state if I were targeting Web or PWA
     using Ionic. However, since I wanted to go to Android, there were a few
     more steps.
 1.  ```

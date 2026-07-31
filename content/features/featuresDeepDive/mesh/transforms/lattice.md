@@ -33,7 +33,7 @@ By default the lattice is created with the following properties:
 - resolutionY: 3
 - resolutionZ: 3
 
-You can define each properties at construction time:
+You can define each property at construction time:
 
 ```
 var lattice = new BABYLON.Lattice({ size: new BABYLON.Vector3(2, 2, 2), position: BABYLON.Vector3.Zero()});
@@ -41,13 +41,13 @@ var lattice = new BABYLON.Lattice({ size: new BABYLON.Vector3(2, 2, 2), position
 
 ## Object space
 
-The lattice works in object space meaning that the size you will define for a lattice has to be relatively with the deformed mesh object space.
+The lattice works in object space, meaning that the size you define for a lattice has to be relative to the deformed mesh's object space.
 
-Said differently, the mesh world matrix is not taken in account as the lattice works at the geometry level (so before the world transfom is applied).
+In other words, the mesh world matrix is not taken into account, as the lattice works at the geometry level (so before the world transform is applied).
 
 For instance, assuming you have a scene with a sphere created with a diameter of 2, you will have to set the size of the lattice to (2,2,2) in order to fully encompass the sphere, no matter what position, scaling or rotation are set on the sphere.
 
-Same applies to the lattice.position which is also in object space.
+The same applies to `lattice.position`, which is also in object space.
 
 Please note that you can call your lattice constructor with the option `autoAdaptToMesh` set to a mesh and the system will automatically compute the correct lattice size:
 
@@ -72,8 +72,8 @@ By default a lattice will simply not change your mesh until you update its data:
     }
 ```
 
-By accessing the data property you will have access to the tri-dimensional arrays containing each control point.
-It is then up to you to update this points to apply the deformation you need.
+By accessing the data property, you will have access to the three-dimensional arrays containing each control point.
+It is then up to you to update these points to apply the deformation you need.
 
 ## Applying the lattice
 
@@ -101,7 +101,7 @@ sphere.createNormals(true);
 
 ## Updating the lattice
 
-Lattice can moved by updating their position value (so the lattice will move in the object space).
+A lattice can be moved by updating its position value (so the lattice will move in object space).
 Here is a complete example of a moving lattice:
 
 ```

@@ -1,7 +1,7 @@
 ---
 title: The options parameter
 image:
-description: Detailed information about the option parameter added to the plugin functions
+description: Detailed information about the options parameter added to the plugin functions
 keywords: extensions, babylon.js, crowd, addons, navigation, new, recast
 further-reading:
 video-overview:
@@ -20,7 +20,7 @@ halfExtents?: IVector3Like;
 }
 ```
 
-Use this to apply different filter rules per agent/query and to control search area extents.
+Use this to apply different filter rules per agent or query and to control search-area extents.
 
 ### QueryFilter
 

@@ -12,9 +12,9 @@ video-content:
 
 ## How To Rotate Around an Axis About a Point
 
-Rotation needs two things specifying, they are an axis and a center of rotation with the axis passing through the center of rotation. An axis is defined by a direction vector and the center of rotation a position vector. In Babylon.js when a mesh is created the center of rotation defaults to the local origin of the mesh which is the mesh's position. Using [rotation](/features/featuresDeepDive/mesh/transforms#rotation) the axis is specified through the Euler angles alpha, beta, gamma, and using [rotationQuaternion](/features/featuresDeepDive/mesh/transforms) and [rotate](/features/featuresDeepDive/mesh/transforms#rotate) it is specified explicitly.
+Rotation requires two things: an axis and a center of rotation, with the axis passing through the center of rotation. An axis is defined by a direction vector, and the center of rotation by a position vector. In Babylon.js, when a mesh is created, the center of rotation defaults to the local origin of the mesh, which is the mesh's position. Using [rotation](/features/featuresDeepDive/mesh/transforms#rotation), the axis is specified through the Euler angles alpha, beta, and gamma, and by using [rotationQuaternion](/features/featuresDeepDive/mesh/transforms) and [rotate](/features/featuresDeepDive/mesh/transforms#rotate), it is specified explicitly.
 
-There are three ways to change a center of rotation different to the local origin, these are using a [TransformNode](/features/featuresDeepDive/mesh/transforms/parent_pivot/transform_node), a parent and [setting a pivot](/features/featuresDeepDive/mesh/transforms/parent_pivot/pivots).
+There are three ways to change the center of rotation from the local origin: using a [TransformNode](/features/featuresDeepDive/mesh/transforms/parent_pivot/transform_node), a parent, or [setting a pivot](/features/featuresDeepDive/mesh/transforms/parent_pivot/pivots).
 
 Together an axis and a center of rotation define a straight line in space and in the following animated playgrounds this line is shown in white. The asymmetric pilot mesh is used to demonstrate the rotation.
 
@@ -52,7 +52,7 @@ In these playgrounds a sphere is created only to show the position of the Transf
 
 ## How To Use a Parent as Center of Rotation
 
-The sphere is parented to the pilot, the pilot positioned and the sphere rotated.
+The sphere is parented to the pilot, the pilot is positioned, and the sphere is rotated.
 
 ```javascript
 sphere.position = CoR_At;
@@ -95,9 +95,9 @@ Notice that as the pivot is moved the axis line moves with the pivot, though the
 
 ## How to Use a Pivot as a Parent
 
-Perhaps you would like to think about achieving the positioning of the pivot by changing the pivots position rather than the pilots position. This can be done with parenting as shown in the following example.
+Perhaps you would prefer to position the pivot by changing the pivot's position rather than the pilot's position. This can be done with parenting, as shown in the following example.
 
-The sphere, representing the pivot at the center of rotation, is placed at the pivot position (CoR_At), the sphere is then made the parent of the pilot position relative to the pivot is set by matrix and the pilot rotated.
+The sphere, representing the pivot at the center of rotation, is placed at the pivot position (CoR_At). The sphere is then made the parent of the pilot, the pilot's position relative to the pivot is set by matrix, and the pilot is rotated.
 
 ```javascript
 sphere.position = CoR_At;
@@ -110,6 +110,6 @@ pilot.rotate(axis, angle, BABYLON.Space.WORLD);
 
 <Playground id="#1JLGFP#77" title="Rotating Mesh as Pivot's Child" description="Simple example of a rotating mesh as pivot's child."/>
 
-Done this way any movement of the pivot is done by moving the parent mesh representing the pivot.  
+When done this way, any movement of the pivot is achieved by moving the parent mesh representing the pivot.  
 <Playground id="#1JLGFP#78" title="Rotating Mesh Moving Pivot's Parent along Axis" description="Simple example of a rotating mesh moving pivot's parent along axis."/>
 <Playground id="#1JLGFP#80" title="Rotating Mesh Moving Pivot's Parent" description="Simple example of a rotating mesh moving pivot's parent."/>

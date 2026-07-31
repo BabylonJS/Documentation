@@ -10,21 +10,21 @@ video-content:
 
 ## Record a Scene to a Video
 
-First, you may ask why is it better than an external video capture tool?
+First, you may ask why it is better than an external video capture tool.
 
-Thanks to the Html5 standard being always in motion, we can now, in modern browsers, directly record a stream generated from a canvas. This ensures that no framerate drop will occur during the recording and it is all happening auto-magically in the browser.
+As the HTML5 standard continues to evolve, modern browsers can now directly record a stream generated from a canvas. This ensures that no framerate drop occurs during recording, and it all happens automatically in the browser.
 
-## How to record with the inspector 
+## How to record with the Inspector
 A new action has been added to the Tools tab of the inspector. You can find a Start Recording Video button in compatible browsers.
 
 ![InspectorTools](/img/how_to/scene/inspectorVideoRecorder.webp)
 
-This will by default records 7 seconds of video. You can press the button again anytime during the recording session to stop it earlier.
+This records 7 seconds of video by default. You can press the button again at any time during the recording session to stop it earlier.
 
 ## How to record by code
 
 ### Check support
-As the browser support is still not wide enough, recording the canvas should always be preceded by a capability check. You can simply use this code to ensure the correct availability of the required APIs in your browser:
+Because browser support is still limited, recording the canvas should always be preceded by a capability check. You can use this code to ensure that the required APIs are available in your browser:
 
 ```javascript
 if (BABYLON.VideoRecorder.IsSupported(engine)) {
@@ -75,7 +75,7 @@ You can see a live demo here: <Playground id="#47H64G#2" title="Chaning Default 
 This will by default record 2 seconds of video to a file name "test.webm".
 
 ### Stop video before the Record Time
-Once a record is in progress, you can stop it earlier by using the  `stopRecording` Api:
+Once a recording is in progress, you can stop it earlier by using the `stopRecording` API:
 
 ```javascript
 if (BABYLON.VideoRecorder.IsSupported(engine)) {
@@ -91,8 +91,8 @@ You can see a live version here: <Playground id="#47H64G#3" title="Stopping Vide
 
 This will record 500 milliseconds of video to a file name "babylonjs.webm".
 
-### When does the record end
-To detect the end of the recording (either reaching the record time or manually stopped), you can use the promise return by the `startRecording` API:
+### When does recording end
+To detect the end of the recording (either by reaching the record time or being manually stopped), you can use the promise returned by the `startRecording` API:
 
 ```javascript
 if (BABYLON.VideoRecorder.IsSupported(engine)) {
@@ -107,8 +107,8 @@ You can see a live version here: <Playground id="#47H64G#4" title="Detect Record
 
 This will record 7 seconds of video to a file name "babylonjs.webm" and display the "done" message.
 
-### How to not download automatically the file
-Passing the fileName to `null` will prevent the download to happen automatically and as in the previous topic, you can rely on the `startRecording` return promise to deal with the video data on your own:
+### How not to download the file automatically
+Passing `null` as the fileName will prevent the download from happening automatically and, as in the previous section, you can rely on the promise returned by `startRecording` to deal with the video data on your own:
 
 ```javascript
 if (BABYLON.VideoRecorder.IsSupported(engine)) {
@@ -124,8 +124,8 @@ You can see a live version here: <Playground id="#47H64G#5" title="Not Downloadi
 This will record 1 second of video to a blob.
 
 ## Limitations
-Video Recording is based on both MediaRecorder and Canvas.captureStream() APIs which are still not broadly supported. The recording support is then limited by the browser capability to record a canvas.
+Video recording is based on both the MediaRecorder and Canvas.captureStream() APIs, which are still not broadly supported. Recording support is therefore limited by the browser's ability to record a canvas.
 
-The second limitations is the file format you can record to seems to be currently limited to webm. You can not directly record to .mp4 or .mov with this method so far. 
+The second limitation is that the file format you can record to is currently limited to webm. You cannot directly record to .mp4 or .mov with this method so far.
 
 Let's hope that wider browser and file format support will be added soon.

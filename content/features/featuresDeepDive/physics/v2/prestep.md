@@ -2,7 +2,7 @@
 title: Physics prestep
 image: 
 description: How to use prestep to apply changes from scene to physics world
-keywords: diving deeper, phyiscs
+keywords: diving deeper, physics
 further-reading:
     - title: Performance Tips
       url: /features/featuresDeepDive/physics/perfTips
@@ -12,25 +12,25 @@ video-content:
 
 ## What is it
 
-The prestep is the process happening just before physics tick. It consists in updating physics entities position and orientation from scene transform node state. This process can be costly and is by default disabled.
-It can be manually enabled and when enabled, 2 methods exists: a teleport mode and an action mode. The teleport mode makes the body to have limited interaction with shapes in contact. Whereas the action mode make the body to effective move in the world and interact with shapes in contact.
-Teleport mode will be more suited when placing objects with a Gizmo for example. And Action mode when in game.
+The prestep is the process that happens just before a physics tick. It consists of updating the position and orientation of physics entities from the scene transform node state. This process can be costly and is disabled by default.
+It can be enabled manually and, when enabled, two modes exist: teleport mode and action mode. Teleport mode causes the body to have limited interaction with shapes in contact, whereas action mode makes the body effectively move through the world and interact with shapes in contact.
+Teleport mode is better suited for placing objects with a Gizmo, for example. Action mode is better suited for in-game use.
 
 ## How to use
 
-There are 2 ways to enable prestep. First one is using `disablePreStep` boolean. When set to true, it will enable Teleport mode.
+There are 2 ways to enable prestep. The first is to use the `disablePreStep` boolean. When it is set to true, it enables Teleport mode.
 
 ```javascript
 aggregate.body.disablePreStep = false;
 ```
 
-The second one allows finer control.
+The second allows finer control.
 
 ```javascript
 aggregate.body.setPrestepType(PhysicsPrestepType.ACTION);
 ```
 
-Depending on the Motion Type applied, the prestep will make the body to behave differently.
+Depending on the Motion Type applied, prestep makes the body behave differently.
 For Static motion, this will have no influence.
 
 The following Playground shows 2 types of Prestep with the 3 types of Motion.
@@ -38,4 +38,4 @@ The following Playground shows 2 types of Prestep with the 3 types of Motion.
            
 ## Performance
 
-As stated in Perf Tips, it can be costly to enable prestep for all physics body. 
+As stated in Perf Tips, it can be costly to enable prestep for all physics bodies. 

@@ -19,7 +19,7 @@ There are four possible ways that a material can react to light.
 3. Emissive - the color or texture of the material as if self lit;
 4. Ambient - the color or texture of the material lit by the environmental background lighting.
 
-Diffuse and Specular material require a [light source](/features/featuresDeepDive/lights/lights_introduction) to be created.  
+Diffuse and Specular materials require a [light source](/features/featuresDeepDive/lights/lights_introduction) to be created.  
 Ambient color requires the ambient color of the scene to be set, giving the environmental background lighting.
 
 ```javascript
@@ -34,7 +34,7 @@ Create a material using
 const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 ```
 
-Set the material color using one, some or all of _diffuseColor_, _specularColor_, _emissiveColor_ and _ambientColor_. Remember that _ambientColor_
+Set the material color using one, some, or all of _diffuseColor_, _specularColor_, _emissiveColor_, and _ambientColor_. Remember that _ambientColor_
 will only apply if the scene ambient color has been set.
 
 ```javascript
@@ -50,26 +50,24 @@ mesh.material = myMaterial;
 
 ## Diffuse Color Example
 
-To give an idea on how the material diffuse color reacts to the diffuse light color the following playground example shows how different color materials react to white, red, green and blue diffuse spot lights.
+To give an idea of how the material's diffuse color reacts to the diffuse light color, the following Playground example shows how different material colors react to white, red, green, and blue diffuse spot lights.
 
 <Playground id="#20OAV9#325" title="Material Color Reaction to Light Color" description="Simple example of material color reacting to light color." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro1.webp" isMain={true} category="Materials"/>
 
-This reaction of
+The following materials also show this reaction to white, red, green, and blue diffuse spot lights:
 
 - Yellow Material
 - Purple Material
 - Cyan Material
 - White Material
 
-to white, red, green and blue diffuse spot lights can also be seen in the following image.
-
 ![ Spot Light](/img/how_to/Materials/spots1.webp)
 
 ## Ambient Color Example
 
-In the image below all spheres are lit by the same hemispheric light, with _diffuse_ red and _groundColor_ green. The first sphere has no ambient color, the middle has red ambient color defined on its material and the one on the right has material with green ambient color. The scene ambient color, which must be present, is white.
+In the image below, all spheres are lit by the same hemispheric light, with _diffuse_ red and _groundColor_ green. The first sphere has no ambient color, the middle has red ambient color defined on its material, and the one on the right has a material with green ambient color. The scene ambient color, which must be present, is white.
 
-When a scene ambient color component is set to 0, for example red, then whatever the value for red in the material ambient color it will have no effect.
+When a scene ambient color component is set to 0, for example red, then whatever the value for red in the material ambient color, it will have no effect.
 
 ![Ambient](/img/how_to/Materials/ambient1.webp)
 
@@ -77,7 +75,7 @@ When a scene ambient color component is set to 0, for example red, then whatever
 
 ## Transparent Color Example
 
-Transparency is achieved by setting a materials _alpha_ property from 0 (invisible) to 1 (opaque).
+Transparency is achieved by setting a material's _alpha_ property from 0 (invisible) to 1 (opaque).
 
 ```javascript
 myMaterial.alpha = 0.5;
@@ -95,7 +93,7 @@ Create a material using
 const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 ```
 
-Set the material texture using one, some or all of _diffuseTexture_, _specularTexture_, _emissiveTexture_ and _ambientTexture_.
+Set the material texture using one, some, or all of _diffuseTexture_, _specularTexture_, _emissiveTexture_, and _ambientTexture_.
 Notice that _ambientTexture_ is applied without the scene ambient color having been set.
 
 ```javascript
@@ -113,7 +111,7 @@ Note: When no normals are specified, Babylon's standard material will compute th
 
 ## Texture Example
 
-In this image all spheres are lit by the same hemispheric light, with _diffuse_ red and _groundColor_ green. The first sphere has a diffuse texture, the middle an emissive texture and the one on the right has material with red diffuse color and an ambient texture.
+In this image, all spheres are lit by the same hemispheric light, with _diffuse_ red and _groundColor_ green. The first sphere has a diffuse texture, the middle has an emissive texture, and the one on the right has a material with red diffuse color and an ambient texture.
 
 ![Texture](/img/how_to/Materials/texture1.webp)
 
@@ -121,7 +119,7 @@ In this image all spheres are lit by the same hemispheric light, with _diffuse_ 
 
 ## Transparent Texture Examples
 
-For colors, the transparency is achieved by setting a materials _alpha_ property from 0 (invisible) to 1 (opaque).
+For colors, transparency is achieved by setting a material's _alpha_ property from 0 (invisible) to 1 (opaque).
 
 ```javascript
 myMaterial.alpha = 0.5;
@@ -129,8 +127,8 @@ myMaterial.alpha = 0.5;
 
 <Playground id="#20OAV9#17" title="Transparent Texture Example" description="Simple example of transparent textures in your scene." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro5.webp"/>
 
-In addition, the image used for the texture might already have a transparency setting, such as this picture of a dog from wikimedia commons,
-which has a transparent background;
+In addition, the image used for the texture might already have a transparency setting, such as this picture of a dog from Wikimedia Commons,
+which has a transparent background:
 
 ![A dog](/img/how_to/Materials/dog.webp)
 
@@ -152,7 +150,7 @@ Some complex scenes will require a large amount of textures for just one materia
 
 ## Back-Face Culling
 
-This is a method for efficiently drawing the 2D rendering of the 3D model. Usually there is no need to draw the back face of a cube, or other object,
+This is a method for efficiently drawing the 2D rendering of the 3D model. Usually there is no need to draw the back face of a cube or other object,
 as it will be hidden by the front face. In Babylon.js the default setting is, as you might expect, set to true. In most cases, this is helpful in maintaining the highest possible performance.
 
 Looking at the images below, when the material property _backFaceCulling_ is true you can see that the transparent areas around the
@@ -169,7 +167,7 @@ Note that backface culling is one aspect of face culling: you can also perform f
 
 ## WireFrame
 
-Every material has the capacity to display as a wireframe by setting the wireframe accessor of the material to true.
+Every material can be displayed as a wireframe by setting the wireframe accessor of the material to true.
 
 ```javascript
 materialSphere1.wireframe = true;
@@ -199,5 +197,4 @@ This enables scenarios where blending materials and wireframes is necessary. In 
 
 ## Local File Access
 
-An important thing to remember, is that for security reasons, web browsers don't allow local files to be accessed for web pages. This includes any texture files you are using. You can use a local server or an image hosting service that is CORS enabled.
-
+An important thing to remember is that, for security reasons, web browsers don't allow local files to be accessed from web pages. This includes any texture files you are using. You can use a local server or an image hosting service that is CORS enabled.

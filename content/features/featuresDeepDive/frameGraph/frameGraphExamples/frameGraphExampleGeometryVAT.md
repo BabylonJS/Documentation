@@ -7,7 +7,7 @@ keywords: diving deeper, frame graph, geometry, examples, vat,
 
 ## Introduction
 
-VAT (Vertex Animation Texture) or BVA (Baked Vertex Animation) is a way to support a large number of animated meshes by pre-calculating the animations. For more information, see [Baked Texture Animations](/features/featuresDeepDive/animation/baked_texture_animations).
+VAT (Vertex Animation Texture) or BVA (Baked Vertex Animation) is a way to support a large number of animated meshes by precomputing the animations. For more information, see [Baked Texture Animations](/features/featuresDeepDive/animation/baked_texture_animations).
 
 VAT is not supported by the [geometry buffer renderer](/typedoc/classes/babylon.geometrybufferrenderer). Therefore, if you use it to generate a normal map (or any other geometry texture) with VAT meshes, it will not work as expected.
 
@@ -20,7 +20,7 @@ Let's use a frame graph to make it work!
 ## Using a frame graph
 
 We will use a frame graph to generate the normal texture, instead of using the geometry buffer renderer as in the previous example.
-Note that the frame graph will not take control of the entire scene rendering loop: we will not set `scene.frameGraph` with our frame graph, but rather execute it manually.
+Note that the frame graph will not take control of the entire scene rendering loop: we will not set `scene.frameGraph` to our frame graph, but rather execute it manually.
 
 The frame graph is actually very simple; we only need a geometry renderer task and to configure it to generate the normal texture.
 
@@ -88,7 +88,7 @@ frameGraph.onBuildObservable.add(() => {
     mat.emissiveTexture = texture;
 });
 ```
-The texture can only be retrieved after the frame graph has been built, so `frameGraph.onBuildObservable` is the appropriate place to add our code. The code itself retrieves the actual texture (an `InternalTexture` instance) from the texture handle. Note that we increment the number of references to the texture, because we wrap this internal texture in a `Texture` instance (an `InternalTexture` instance cannot be defined as `mat.emissiveTexture`) and the `Texture.dispose` method decrements the number of references.
+The texture can only be retrieved after the frame graph has been built, so `frameGraph.onBuildObservable` is the appropriate place to add our code. The code itself retrieves the actual texture (an `InternalTexture` instance) from the texture handle. Note that we increment the number of references to the texture because we wrap this internal texture in a `Texture` instance (an `InternalTexture` instance cannot be assigned to `mat.emissiveTexture`), and the `Texture.dispose` method decrements the number of references.
 
 All that remains is to write the code to build the frame graph and execute it:
 ```javascript
@@ -117,4 +117,3 @@ PG: <Playground id="#CP2RN9#324" image="/img/playgroundsAndNMEs/pg-CP2RN9-324.we
 Notes:
 * We disable `autoFillExternalInputs` when loading the node's render graph, because the list of meshes used by the geometry renderer task must not contain the plane on which we display the geometry texture (otherwise, you will get an error such as “GL_INVALID_OPERATION: glDrawElements: feedback loop formed between the frame buffer and the active texture").
 * We disable the `Output` block in the render graph to avoid copying the result of the graph execution to the default frame buffer, which is a waste of GPU resources as it will be overwritten by the actual rendering of the scene.
-

@@ -1,7 +1,7 @@
 ---
 title: Creating A Navigation Mesh
 image:
-description: Learn how to create a mesh as a confinment system for crowd agents.
+description: Learn how to create a mesh as a confinement system for crowd agents.
 keywords: extensions, babylon.js, crowd
 further-reading:
 video-overview:
@@ -10,15 +10,15 @@ video-content:
 
 ## How to use the navigation mesh?
 
-There are many cases to use a navigation mesh: AI and path finding, replace physics for collision detection (only allow player to go where it's possible instead of using collision detection) and many more cases Babylon.js users will find.
+There are many use cases for a navigation mesh: AI and pathfinding, replacing physics for collision detection (allowing the player to go only where possible instead of using collision detection), and many more that Babylon.js users will find.
 
-First, create the navigation plugin
+First, create the navigation plugin.
 
 ```javascript
 let navigationPlugin = new BABYLON.RecastJSPlugin();
 ```
 
-Prepare some parameters for the agent constraints (described below)
+Prepare some parameters for the agent constraints (described below).
 
 ```javascript
 const parameters = {
@@ -38,7 +38,7 @@ const parameters = {
 };
 ```
 
-Call the navigation mesh generation with the parameters and the list of meshes
+Call navigation mesh generation with the parameters and the list of meshes.
 
 ```javascript
 navigationPlugin.createNavMesh([groundMesh, wallMesh1, wallMesh2, stair1, stair2], parameters);
@@ -46,7 +46,7 @@ navigationPlugin.createNavMesh([groundMesh, wallMesh1, wallMesh2, stair1, stair2
 
 And that's it! You can now use the navigation mesh with the crowd system or make queries.
 
-Optionally, you can get a display of the navmesh to ensure it corresponds to your space constraints
+Optionally, you can display the navmesh to ensure it corresponds to your space constraints.
 
 ```javascript
 navmeshdebug = navigationPlugin.createDebugNavMesh(scene);
@@ -80,7 +80,7 @@ You can find more information about those parameters on the [Recast documentatio
 
 ## Queries
 
-Basically, query functions help at getting constraint point and vector by the navigation mesh.
+Basically, query functions help get constrained points and vectors from the navigation mesh.
 
 ```javascript
 getClosestPoint(position: Vector3): Vector3;
@@ -90,9 +90,9 @@ moveAlong(position: Vector3, destination: Vector3): Vector3;
 
 Respectively:
 
-- get a point on the navmesh close to a world position parameter
-- get a random world position, on the navmesh, inside a circle of maxRadius.
-- constraint a segment by the navmesh and returns the ending world position. Like walking on the navmesh and stopping at the edge.
+- get a point on the navmesh close to a given world position.
+- get a random world position on the navmesh inside a circle of `maxRadius`.
+- constrain a segment by the navmesh and return the ending world position, like walking on the navmesh and stopping at the edge.
 
 When the query can't find a valid solution, the value (0,0,0) is returned.
 
@@ -104,7 +104,7 @@ setDefaultQueryExtent(extent: Vector3): void;
 
 If your query returns a point too far from the expected result, use a smaller extent.
 
-It's possible to get a path built for navigation as a point array. It's up to the user to use this array for drawing prediction path, trigger events,...
+It is possible to get a path built for navigation as a point array. It is up to the user to use this array for drawing a predicted path, triggering events, and more.
 
 ```javascript
 const pathPoints = navigationPlugin.computePath(crowd.getAgentPosition(agent), navigationPlugin.getClosestPoint(destinationPoint));
@@ -113,7 +113,7 @@ pathLine = BABYLON.MeshBuilder.CreateDashedLines("ribbon", { points: pathPoints,
 
 ## Baking result
 
-Building a navigation mesh can take a lot of cpu and network resources. In order to lower the download size and cpu needed, it's possible to bake the result of the navigation mesh computation to a byte stream. That byte stream can later be restored to get the navigation mesh back.
+Building a navigation mesh can take a lot of CPU and network resources. To reduce download size and CPU usage, it is possible to bake the result of the navigation mesh computation to a byte stream. That byte stream can later be restored to get the navigation mesh back.
 
 To retrieve the binary representation of the computed navigation mesh:
 
@@ -121,7 +121,7 @@ To retrieve the binary representation of the computed navigation mesh:
 const binaryData = navigationPlugin.getNavmeshData();
 ```
 
-binaryData is an Uint8Array that you can save to a file for example.
+`binaryData` is a `Uint8Array` that you can save to a file, for example.
 To restore an UInt8Array to a navigation mesh:
 
 ```javascript
@@ -130,9 +130,9 @@ navigationPlugin.buildFromNavmeshData(uint8array);
 
 ## Using 3rd party tools
 
-3rd party tools like `navmesh-generator` can help create navmesh and bake result to a binary file that is directly useable (navmesh coordinate system is right handed) : [Link to navmesh-generator](https://navmesh-generator.babylonjs.xyz/)
+Third-party tools like `navmesh-generator` can help create a navmesh and bake the result to a binary file that is directly usable (the navmesh coordinate system is right-handed): [Link to navmesh-generator](https://navmesh-generator.babylonjs.xyz/)
 
-Navmesh computation is run on drag and dropped gltf. The export can then be opened like in this Playground:
+Navmesh computation runs on dragged-and-dropped glTF files. The export can then be opened as in this Playground:
 
 <img src="/img/pageImages/navmesh-editor.webp" title="Precomputing a navmesh with navmesh-generator"/>
 
@@ -140,9 +140,9 @@ Loading a precomputed navmesh: <Playground id="#KVQP83#92" title="Loading a prec
 
 ## Web Worker
 
-Building a navigation mesh can be time and resource heavy. For many use cases, it can be necessary to delegate navmesh computation to a webworker. Work will be done in parallel, letting the engine display the content without slow downs.
+Building a navigation mesh can be time- and resource-heavy. For many use cases, it can be necessary to delegate navmesh computation to a web worker. Work will be done in parallel, letting the engine display the content without slowdowns.
 
-To enable web worker, specify a web worker .js script URL to use:
+To enable a web worker, specify the URL of a web worker `.js` script to use:
 
 ```javascript
 let navigationPlugin = new BABYLON.RecastJSPlugin();
@@ -151,7 +151,7 @@ navigationPlugin.setWorkerURL("workers/navMeshWorker.js");
 
 A default web worker is provided [at this URL](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/playground/public/workers/navMeshWorker.js)
 
-Then, provide a completion callback to `createNavMesh` method. This callback will be called when the navigation mesh is computed and ready to use by the plugin.
+Then, provide a completion callback to the `createNavMesh` method. This callback will be called when the navigation mesh is computed and ready to be used by the plugin.
 
 ```javascript
 navigationPlugin.createNavMesh([staticMesh], navmeshParameters,(navmeshData) =>
@@ -161,15 +161,15 @@ navigationPlugin.createNavMesh([staticMesh], navmeshParameters,(navmeshData) =>
     ...
 ```
 
-`navMeshData` is a binary version, ready to serialize, of the navmesh. It can be saved, streamed. User has to call `buildFromNavmeshData` to deserialize data. Once the navmesh is fully loaded, it's possible to create crowd, query the navmesh,...
+`navMeshData` is a binary version of the navmesh, ready to serialize. It can be saved or streamed. The user has to call `buildFromNavmeshData` to deserialize the data. Once the navmesh is fully loaded, it is possible to create a crowd, query the navmesh, and more.
 
 Performance note: The navmesh is constructed from geometry data. If multiple meshes are needed, their geometry will be merged before passing the geometry positions and indices to Recast. This part of the code can be CPU intensive and cannot be done in a worker because of dependencies, copies, memory footprint.
 
-An example of use with web worker : <Playground id="#TN7KNN#2" title="Navigation mesh computation with a web worker" description="Navigation mesh computation with a web worker"/>
+An example of using a web worker: <Playground id="#TN7KNN#2" title="Navigation mesh computation with a web worker" description="Navigation mesh computation with a web worker"/>
 
 ## NPM
 
-Loading Recast-Detour NPM module is different between version 1.3.0 and 1.4.0+ as later version is asynchronous. User has to use `await` like this:
+Loading the Recast-Detour NPM module differs between versions 1.3.0 and 1.4.0+, as the latter version is asynchronous. The user has to use `await` like this:
 
 ```javascript
 const recast = await Recast();

@@ -18,19 +18,19 @@ video-content:
 
 # The Scroll Viewer
 
-When you want to keep your user interface small and the information to present large you can use the **ScrollViewer** to contain the information.
+When you want to keep your user interface small but need to present a lot of information, you can use the **ScrollViewer** to contain it.
 
 ![ScrollViewer](/img/GUI/scroll1.webp).
 
-It consists of vertical and horizontal scroll bars and a viewing area. The information you want to present is created as a control that you add to your scroll viewer and is shown in the viewing area. If all the information control fits inside the scroll viewer no scroll bars will be shown.
+It consists of vertical and horizontal scroll bars and a viewing area. The information you want to present is created as a control that you add to the scroll viewer and display in the viewing area. If the control fits inside the scroll viewer, no scroll bars are shown.
 
-From Babylon.js version 4.1 onwards it is possible to use an image for the thumb control and in the bars
+From Babylon.js version 4.1 onward, it is possible to use an image for the thumb control and the bars.
 
 ![ScrollViewer with Image Bars](/img/GUI/scroll4.webp).
 
 ## Creating the Scroll Viewer
 
-The scroll viewer base is a rectangle container holding the scroll bars and the viewing area. You create it with or without a name.
+The scroll viewer base is a rectangle container that holds the scroll bars and the viewing area. You can create it with or without a name.
 
 ```javascript
 const myScrollViewer = new BABYLON.GUI.ScrollViewer();
@@ -38,7 +38,7 @@ const myScrollViewer = new BABYLON.GUI.ScrollViewer();
 const myScrollViewer = new BABYLON.GUI.ScrollViewer("name");
 ```
 
-and add it to an advanced texture as usual.
+Then add it to an advanced texture as usual.
 
 ```javascript
 const myAdvancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
@@ -53,7 +53,7 @@ myScrollViewer.addControl(myControl);
 
 - <Playground id="#13CF95#1" title="Scroll Viewer Example" description="Simple example showing how to add a Scroll Viewer to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer1.webp"/>
 
-The default setting for width and depth of the scroll viewer is 100% of the parent control.
+The default width and height of the scroll viewer are 100% of the parent control.
 
 The following table shows the additional properties of a scroll viewer.
 
@@ -64,7 +64,7 @@ The following table shows the additional properties of a scroll viewer.
 | thumbLength   | number | 0.5         | Proportion of thumb compared to scroll bar length (0 to 0.9) |
 | barSize       | number | 20          | Height of scroll bar                                         |
 
-**NOTE** All the padding values for the scroll viewer are set as 0. Any padding should be set on the control added to the scroll viewer.
+**NOTE** All padding values for the scroll viewer are set to 0. Any padding should be set on the control added to the scroll viewer.
 
 - <Playground id="#C3RDBS#3" title="Scroll Viewer of Fixed Size" description="Simple example showing how to add a Scroll Viewer of fixed size to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer2.webp"/>
 - <Playground id="#C3RDBS#2" title="Scroll Viewer of Relative Size" description="Simple example showing how to add a Scroll Viewer of relative size to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer3.webp"/>
@@ -80,13 +80,13 @@ You can then set the scrollbar position with `scrollViewer.horizontalBar.value`.
 
 ## Image Scrollbars
 
-In order to have images in the scroll bar you need to pass a name (can be empty string) and a parameter of true when creating the scroll viewer.
+To use images in the scroll bar, you need to pass a name (which can be an empty string) and a `true` parameter when creating the scroll viewer.
 
 ```javascript
 const myScrollViewer = new BABYLON.GUI.ScrollViewer("", true);
 ```
 
-Additional properties are available
+Additional properties are available.
 
 | Property                                                   | Type      | Default | Comments                                                                                                         |
 | ---------------------------------------------------------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -107,13 +107,13 @@ You can also choose to have different images for the vertical and horizontal bar
 
 ## Adding an Adjustable TextBlock Window
 
-When you add a TextBlock of a given size to a scroll viewer both horizontal and vertical scroll bars are shown as needed.
+When you add a TextBlock of a given size to a scroll viewer, both horizontal and vertical scroll bars are shown as needed.
 
 ![Contained TextBlock](/img/GUI/scroll3.webp)
 
 - <Playground id="#FX6KVK#3" title="Scroll Viewer with Fixed TextBlock" description="Simple example showing how to add a Scroll Viewer with Fixed TextBlock to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer6.webp"/>
 
-However quite often you need to present text fitting the width of the viewing window and scrolling for the height. This is achieved by setting the `textWrapping` and `reSizeToFit` as follows
+However, you will often need to present text that fits the width of the viewing window and scrolls vertically. This is achieved by setting `textWrapping` and `resizeToFit` as follows:
 
 ```javascript
 myTextBlock.textWrapping = BABYLON.GUI.TextWrapping.WordWrap;
@@ -132,9 +132,9 @@ The ScrollViewer also accepts a single CONTAINER (such as a stackpanel) for its 
 
 ## Rendering optimization
 
-If you have a lot of controls in your scroll viewer window, you may notice a slow down in the rendering time.
+If you have a lot of controls in your scroll viewer window, you may notice slower rendering.
 
-To help improving your fps, you can set `myScrollViewer.freezeControls = true`. This will "freeze" the controls in their current position (in the window) and will make their rendering faster when the window is scrolled. When controls are frozen, a change in their position/size may not work, so if you must do it, first set `freezeControls` to `false`, do your changes then revert `freezeControls` back to `true`.
+To help improve your FPS, you can set `myScrollViewer.freezeControls = true`. This "freezes" the controls in their current positions in the window and makes rendering faster when the window is scrolled. When controls are frozen, changing their position or size may not work, so if you need to do that, first set `freezeControls` to `false`, make your changes, then set `freezeControls` back to `true`.
 
 You can further improve the rendering time by using the `setBucketSizes` method:
 
@@ -142,12 +142,12 @@ You can further improve the rendering time by using the `setBucketSizes` method:
 myScrollViewer.setBucketSizes(100, 40);
 ```
 
-When `freezeControls` is true, setting a non-zero bucket size will improve performances by updating only controls that are visible. The bucket sizes is used to subdivide (internally) the window area to smaller areas into which controls are dispatched. So, the size should be roughly equals to the average size of all the controls inside the window. To disable the usage of buckets, sets either width or height (or both) to 0.
+When `freezeControls` is true, setting a non-zero bucket size improves performance by updating only visible controls. Bucket sizes are used to subdivide the window area internally into smaller areas to which controls are assigned. So, the size should be roughly equal to the average size of the controls inside the window. To disable buckets, set either width or height (or both) to 0.
 
-Please note that using this option will raise the memory usage (the higher the bucket sizes, the less memory used), that's why it is not enabled by default.
+Please note that using this option increases memory usage (the higher the bucket sizes, the less memory is used), which is why it is not enabled by default.
 
 You can also use the `ScrollViewer.forceHorizontalBar` and `ScrollViewer.forceVerticalBar` properties.
 
-When set to true, they force the display of the corresponding bars. When you know your scroll viewer will end up with visible bars, you can set those properties to true to save some initialization time, as if it is the scroll viewer control that makes a bar visible in the course of the initialization, it will trigger a children layout rebuild, adding more time to the initialization process.
+When set to true, they force the display of the corresponding bars. When you know your scroll viewer will end up with visible bars, you can set these properties to true to save some initialization time, because if the scroll viewer itself makes a bar visible during initialization, it triggers a child layout rebuild and adds more time to the initialization process.
 
 <Playground id="#KPLW9F" title="Rendering Optimization" description="Simple example showing how to optimize rendering in your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer8.webp"/>

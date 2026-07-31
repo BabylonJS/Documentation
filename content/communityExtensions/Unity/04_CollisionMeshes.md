@@ -12,11 +12,11 @@ Collider components define the shape of an object for the purposes of physical c
 
 The simplest (and least processor-intensive) colliders are the so-called primitive collider types. In 3D, these are the Box Collider, Sphere Collider and Capsule Collider. Any number of these can be added to a single object to create compound colliders.
 
-With careful positioning and sizing, compound colliders can often approximate the shape of an object quite well while keeping a low processor overhead. Further flexibility can be gained by having additional colliders on child objects (eg, boxes can be rotated relative to the local axes of the parent object). When creating a compound collider like this, there should only be one **Physics State** component, placed on the root object in the hierarchy.
+With careful positioning and sizing, compound colliders can often approximate the shape of an object quite well while keeping processor overhead low. Further flexibility can be gained by having additional colliders on child objects (e.g., boxes can be rotated relative to the local axes of the parent object). When creating a compound collider like this, there should be only one **Physics State** component, placed on the root object in the hierarchy.
 
 There are some cases, however, where even compound colliders are not accurate enough. In 3D, you can use Mesh Colliders to match the shape of the object’s mesh exactly.
 
-Colliders can be added to an object component to create floors, walls and other motionless elements of a scene. These are referred to as static colliders. Colliders on an object that does have a **Physics State** are known as dynamic colliders. Static colliders can interact with dynamic colliders but since they don’t have a **Physics State**, they will not move in response to collisions.
+Colliders can be added to an object to create floors, walls, and other motionless elements of a scene. These are referred to as static colliders. Colliders on an object that does have a **Physics State** are known as dynamic colliders. Static colliders can interact with dynamic colliders, but since they don’t have a **Physics State**, they will not move in response to collisions.
 
 Please refer to the [Unity Collision](https://docs.unity3d.com/Manual/CollidersOverview.html) documentation for details.
 

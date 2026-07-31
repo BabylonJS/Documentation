@@ -10,7 +10,7 @@ video-content:
 
 ## Baked vertex animations
 
-Animations are computed by the CPU, applying the bone effects to the mesh. This is reasonably slow and for several animated objects can be a bottleneck. One way to optimize this is pre-computing (or baking) the animations, storing them into a texture (usually called Vertex Animation Textures, or VAT) and using it on the vertex shaders . This frees the CPU, with the trade-off that you need to perform this initial baking step (which can be done at development time), add a new texture file to your downloads and consume more GPU memory. This trade-off is usually quite good, since the CPU tends to be the bottleneck.
+Animations are computed by the CPU, applying the bone effects to the mesh. This is reasonably slow and for several animated objects can be a bottleneck. One way to optimize this is pre-computing (or baking) the animations, storing them into a texture (usually called Vertex Animation Textures, or VAT) and using it in vertex shaders. This frees the CPU, with the trade-off that you need to perform this initial baking step (which can be done at development time), add a new texture file to your downloads and consume more GPU memory. This trade-off is usually quite good, since the CPU tends to be the bottleneck.
 
 A limitation of the current VAT implementation is that you cannot [blend animations to play simultaneously](./advanced_animations#animation-blending). Also, the animations may not be as smooth as when not using BVA because there is no interpolation between frames. The "smoothness" will depend on the number of frames of the animation.
 
@@ -19,8 +19,8 @@ A limitation of the current VAT implementation is that you cannot [blend animati
 The `VertexAnimationBaker` class generates a texture for you given the animation.
 
 ## New Optimized Methods
-There is a new synchronous method for baking VAT in runtime on the VertexAnimationBaker called `bakeVertexDataSync`
-The existing methods for baking vertex data remain usable but this method will be much more efficient for runtime and offline baking.
+There is a new synchronous method for baking VAT at runtime on `VertexAnimationBaker` called `bakeVertexDataSync`
+The existing methods for baking vertex data remain usable, but this method is much more efficient for runtime and offline baking.
 Additionally, for devices that support it, this method can return a `HalfFloat` which uses half the storage on disk and in memory.
 
 Here is the new API:
@@ -115,7 +115,7 @@ Here's an example for a single mesh:
 
 ## VATs for instances
 
-As explained in [How To Use Instances](/features/featuresDeepDive/mesh/copies/instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes. VATs can be used further to handle the animations efficiently. In this case you need to register a buffer to set the animation parameters for each instance.
+As explained in [How To Use Instances](/features/featuresDeepDive/mesh/copies/instances), instances are an excellent way to use hardware-accelerated rendering to draw a huge number of identical meshes. VATs can be used further to handle the animations efficiently. In this case you need to register a buffer to set the animation parameters for each instance.
 
 ```javascript
 // create the instanced buffer
@@ -154,8 +154,7 @@ Here's an example:
 
 ### VATs offset
 
-When using VAT with thin instances, you might expect each instance to start its animation with a specific time
-offset. However, this is **not guaranteed by default**.
+When using VAT with thin instances, you might expect each instance to start its animation with a specific time offset. However, this is **not guaranteed by default**.
 
 This is because multiple instances often share the same `BakedVertexAnimationManager`, which internally handles the
 current animation frame globally. To ensure that a specific instance starts at its intended offset you can manually
@@ -207,7 +206,7 @@ BABYLON.ImportMeshAsync("http://example.com/arr.babylon", scene, undefined)
   });
 ```
 
-At your actual application you can now easily load the JSON file. Here's a simple example:
+In your application, you can now easily load the JSON file. Here's a simple example:
 
 ```javascript
 let baker = null,

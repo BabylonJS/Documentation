@@ -10,14 +10,14 @@ video-content:
 
 ## Pickable Particles
 
-You can set your particles as pickable with the parameter `isPickable` (default _false_) when creating your SPS :
+You can make your particles pickable by using the `isPickable` parameter (default _false_) when creating your SPS:
 
 ```javascript
 var SPS = new BABYLON.SolidParticleSystem("SPS", scene, { isPickable: true });
 ```
 
-This will set the underlying mesh as pickable and populate two arrays called `SPS.pickedParticles` and `SPS.pickebBySubMesh`. So, don't set your SPS as pickable if you don't need it to be, this will save much memory.  
-In order to retrieve the particle picking data from these arrays, use the method `SPS.pickedParticle(pickingInfo)` that returns an object with these properties :
+This sets the underlying mesh as pickable and populates two arrays called `SPS.pickedParticles` and `SPS.pickebBySubMesh`. So don't set your SPS as pickable if you don't need it to be, as this saves a lot of memory.  
+To retrieve the particle picking data from these arrays, use the method `SPS.pickedParticle(pickingInfo)`, which returns an object with these properties:
 
 - `idx` : the picked particle idx
 - `faceId` : the face index of the picked particle (counted within this particle)
@@ -45,6 +45,6 @@ scene.onPointerDown = function(evt, pickResult) {
 };
 ```
 
-The SPS pickability is directly related to the size of its bounding box (please read 'SPS Visibility' part). So, in order to make sure your particles will be pickable, don't forget to force, at least once, the bounding box size recomputation once the particles are set in the space with `setParticles()`.  
+SPS pickability is directly related to the size of its bounding box (please read the 'SPS Visibility' part). So, to make sure your particles are pickable, remember to force the bounding box size to be recomputed at least once after the particles have been positioned in space with `setParticles()`.  
 Pickable particle example (no SPS update in the render loop): <Playground id="#2FPT1A#352" title="Pickable Solid Particles Example" description="Simple example showing how to make solid particles pickable."/>
 Pickable particle example (particle rotation): <Playground id="#2FPT1A#351" title="Pickable Solid Particles That Rotate" description="Simple example of picking solid particles that then rotate in the render loop."/>

@@ -59,7 +59,7 @@ Default particle system using the helper: <Playground id="#0K3AQ2#3955" title="D
 
 Emit particles from a box position: <Playground id="#0K3AQ2#3956" title="Emit Particles From a Box Position" description="Simple example showing how to set a particle emission point to a box's position." isMain={true} category="Particles"/>
 
-By fixing the size of the emission region, you can constrain the emission region. The values used will depend on the size of the emitted particles and the size of the region. The center of an emitted particle could be inside a box, say close to the edge, yet the particle could be big enough for its perimeter to be outside the box.
+By fixing the size of the emission region, you can constrain where particles emit. The values used will depend on the size of the emitted particles and the size of the region. The center of an emitted particle could be inside a box, say close to the edge, yet the particle could be big enough for its perimeter to be outside the box.
 
 Emit particles from wholly inside the box: <Playground id="#0K3AQ2#3957" title="Emit Particles From Completely Inside a Box" description="Simple example showing how to make particles emit from completely inside of a box."/>
 
@@ -79,7 +79,7 @@ To run the particle system for a limited time, you use:
 myParticleSystem.targetStopDuration = 5;
 ```
 
-The target duration before the system stops is dependent on how fast the particle system updates the particle frames. The faster the update speed, the shorter the time before the system stops. You set the update speed using
+The time before the system stops depends on how fast the particle system updates particle frames. The faster the update speed, the shorter the time before the system stops. You set the update speed using
 
 ```javascript
 myParticleSystem.updateSpeed = 0.01;
@@ -93,7 +93,7 @@ myParticleSystem.disposeOnStop = true;
 
 ## Pre-warming
 
-Starting with Babylon.js v3.3, you can now specify a pre-warming period to make sure your system is in a correct state before rendering.
+Starting with Babylon.js v3.3, you can now specify a pre-warming period to make sure your system is in the correct state before rendering.
 
 To do so, you need to set up two properties:
 
@@ -108,7 +108,7 @@ system.preWarmStepOffset = 5;
 system.start();
 ```
 
-It will execute the particle animation loop 100 times with a time step set to 5 times faster than real time. The more cycles you want, the slower the system will be to start. So it could be interesting to increase the time step to have fewer cycles to run. But keep in mind that too large a time step will introduce issues if the lifetime of a particle is smaller than the time step.
+It will execute the particle animation loop 100 times with a time step set to 5 times real time. The more cycles you want, the slower the system will be to start. It can therefore be useful to increase the time step so fewer cycles need to run. But keep in mind that too large a time step will introduce issues if the lifetime of a particle is smaller than the time step.
 
 Here is an example of pre-warming: <Playground id="#MX2Z99#171" title="Particle Pre-Warming Example" description="Simple example of pre-warming particles."/>
 
@@ -140,7 +140,7 @@ Multiple systems example: <Playground id="#H19RFM#1" title="Multiple Systems Wit
 
 ## Noise Texture
 
-Starting with Babylon.js v3.3, you can now use a noise texture to perturb the position of particles. The noise texture is technically used to apply changes to the direction of the particles:
+Starting with Babylon.js v3.3, you can now use a noise texture to perturb particle positions. Technically, the noise texture applies changes to particle direction:
 
 ```javascript
 var noiseTexture = new BABYLON.NoiseProceduralTexture("perlin", 256, scene);
@@ -185,4 +185,4 @@ particleSystemSet.start();
 
 Many of the properties covered in this section — such as size, color, emitter shape, and gradients — have equivalent blocks in NPE. Each page in this section includes node-based examples alongside the code-based ones.
 
-So far we have barely touched the surface of the particle system. There is a wide range of properties to find out about to further tune the particle system.
+So far we have barely touched the surface of the particle system. There is a wide range of additional properties you can use to further tune the particle system.

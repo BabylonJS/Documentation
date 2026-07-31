@@ -7,7 +7,7 @@ video-overview:
 video-content:
 ---
 
-While the Babylon team strives to maintain API backward compatibility, unfortunately it was not possible to have back compat *and* adopt modern tech for the V2 Babylon Viewer. One of the primary challenges is that V1 used [Handlebars](https://handlebarsjs.com/) which allows attributes and elements to be used interchangeably. For example, all of the following are equivalent with Handlebars:
+While the Babylon team strives to maintain API backward compatibility, unfortunately it was not possible to preserve backward compatibility *and* adopt modern technology for the V2 Babylon Viewer. One of the primary challenges is that V1 used [Handlebars](https://handlebarsjs.com/), which allows attributes and elements to be used interchangeably. For example, all of the following are equivalent in Handlebars:
 
 ```html
 <babylon camera.behaviors.auto-rotate="0" />
@@ -23,6 +23,6 @@ While the Babylon team strives to maintain API backward compatibility, unfortuna
 </babylon>
 ```
 
-Handlebars was an OSS tech that predated [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements), the web standard that covers custom elements. As part of both modernizing the Babylon Viewer and shrinking bundle sizes, we wanted to move to web standards that are already supported by the browser. However, Web Components Custom Elements requires attributes to be statically declared, so the Handlebars attribute/element model cannot practically be retained.
+Handlebars was an open-source technology that predated [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements), the web standard that covers custom elements. As part of both modernizing the Babylon Viewer and shrinking bundle sizes, we wanted to move to web standards that are already supported by the browser. However, Web Components custom elements require attributes to be statically declared, so the Handlebars attribute/element model cannot practically be retained.
 
 This means some manual steps are required to migrate from Babylon Viewer V1 to V2. We don't currently have a migration guide or tooling, but if you run into problems migrating, please reach out on the [Babylon forum](https://forum.babylonjs.com/c/questions).

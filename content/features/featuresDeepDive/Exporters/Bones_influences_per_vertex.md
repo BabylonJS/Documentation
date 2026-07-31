@@ -10,11 +10,11 @@ video-content:
 
 This is a common error you may have when working with bones:
 
-_"Too many bones influences per vertex: 5. Babylon.js only support 4 bones influences per vertex."_
+_"Too many bone influences per vertex: 5. Babylon.js only supports 4 bone influences per vertex."_
 
-This is because Babylon.js support a maximum of 4 bones influences per vertex.
+This is because Babylon.js supports a maximum of 4 bone influences per vertex.
 
-Here is how to solve this in 3ds max (By default 3ds max has a limit of 20):
+Here is how to solve this in 3ds Max (by default, 3ds Max has a limit of 20):
 
 In 3ds Max (English version)
 
@@ -24,4 +24,4 @@ In 3ds Max (French version)
 
 ![bones influences parameter Fr](https://s3-eu-west-1.amazonaws.com/sdz-upload/prod/upload/structure_limit.jpg)
 
-Simply add '4' in the red part of the image and you're done!
+Simply add '4' to the red part of the image and you're done!

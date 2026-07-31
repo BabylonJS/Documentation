@@ -12,13 +12,13 @@ video-content:
 
 ## A Walking Figure
 
-Sometimes the easiest way to add a model to a scene is to obtain one from elsewhere. This could be one you have created in your favorite model building software or one your have purchased.
+Sometimes the easiest way to add a model to a scene is to obtain one from elsewhere. This could be one you have created in your favorite model-building software or one you have purchased.
 
 The _Dude_ model is one that has been built with its own skeleton animation.
 
 ![dude walking](/img/getstarted/dude.webp)
 
-Once imported the character and its skeleton are obtained from the meshes and skeletons properties of the results object.
+Once imported, the character and its skeleton are obtained from the meshes and skeletons properties of the result object.
 
 ```javascript
 BABYLON.ImportMeshAsync("/scenes/Dude/Dude.babylon" /* model file */, scene, { meshNames: "him" }).then((result) => {
@@ -31,4 +31,4 @@ BABYLON.ImportMeshAsync("/scenes/Dude/Dude.babylon" /* model file */, scene, { m
 
 <Playground id="#SFW46K#1371" title="Loading an Animated Character" description="Simple example of loading an animated character into your scene." image="/img/playgroundsAndNMEs/getingStartedCharacterAnimation.webp"/>
 
-Currently the character is set in one position and we would like him to walk around the village. This time instead of creating another animation object for the character we will change its position and orientation before each frame is rendered.
+Currently, the character stands in one position, and we would like him to walk around the village. This time, instead of creating another animation object for the character, we will change its position and orientation before each frame is rendered.

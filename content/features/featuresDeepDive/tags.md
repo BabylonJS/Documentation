@@ -10,7 +10,7 @@ video-content:
 
 ## Concepts
 
-Tag? You may already have heard or read this word before. Let's see some generic concepts.
+A tag? You may already have heard or read this word before. Let's look at some generic concepts.
 
 ### Tags are used:
 
@@ -26,25 +26,25 @@ Tag? You may already have heard or read this word before. Let's see some generic
 
 ### Tags on forums / Categories
 
-If you spend some time on forums (let's pick one randomly: [forum](https://forum.babylonjs.com) ;)), you may have noticed that tags are attached to topics (and/or posts sometimes).
-The author can write words (tags) to shortly describe his/her topic without having to write a gramatically correct sentence. It's kind of a list of words that you could say during a brainstorming after reading the post.
+If you spend some time on forums (let's pick one randomly: [forum](https://forum.babylonjs.com);)), you may have noticed that tags are attached to topics (and sometimes to posts).
+The author can write words (tags) to briefly describe the topic without having to write a grammatically correct sentence. It's essentially a list of words you might say during a brainstorming session after reading the post.
 
-Thus, if you need information about, let's say, meshes, you can search for topics having "mesh" as a word in those topics, BUT you could also search for "mesh" as a tag of the topic. Indeed, maybe the word is never used in the topic (maybe it's only used, or not, in the title) but the author can choose to add it as a tag in the aim to categorize his/her topic.
+Thus, if you need information about, let's say, meshes, you can search for topics containing the word "mesh". But you could also search for topics tagged with "mesh". The word might never appear in the topic itself (or it might appear only in the title), but the author can still add it as a tag to categorize the topic.
 Tags can be used to categorize/group things.
 
 ### CSS classes
 
 OK...? What's the link with tags? Why are we about to talk about CSS classes?
 
-Because CSS classes are great and Tags in Babylon.js can be considered similar, in principle, to CSS classes. So let's talk about them.
+Because CSS classes are useful, and Tags in Babylon.js can, in principle, be considered similar to CSS classes. So let's talk about them.
 
 CSS stands for Cascading Style Sheets. It's used to define how to display HTML elements.
 
-CSS classes are added to HTML elements (by writing them directly in the HTML code or by adding them via javascript) as a value of the `class` attribute of the corresponding HTML elements.
+CSS classes are added to HTML elements (by writing them directly in the HTML code or by adding them via JavaScript) as a value of the `class` attribute of the corresponding HTML elements.
 
-HTML elements can have several CSS classes in their `class` attribute and the same CSS class can be used on different HTML elements. CSS classes, just like tags on forums, can then be used to categorize HTML elements. Thus, a same style (background, font, color...) can easily be applied to a group of HTML elements identified by a CSS class (or a list of CSS classes).
+HTML elements can have several CSS classes in their `class` attribute, and the same CSS class can be used on different HTML elements. CSS classes, just like tags on forums, can then be used to categorize HTML elements. Thus, the same style (background, font, color...) can easily be applied to a group of HTML elements identified by a CSS class (or a list of CSS classes).
 
-_Style for all HTML elements of the page having the "center" class on them (to find elements with a specific class, write a period character, followed by the name of the class)_
+_Style for all HTML elements on the page with the "center" class (to find elements with a specific class, write a period character followed by the name of the class)_
 
 ```css
 .center
@@ -54,7 +54,7 @@ _Style for all HTML elements of the page having the "center" class on them (to f
 }
 ```
 
-Thanks to javascript, you can even retrieve all these elements and then do further javascript operations on them (jQuery plugins largely use CSS classes).
+Thanks to JavaScript, you can even retrieve all these elements and then do further JavaScript operations on them (jQuery plugins largely use CSS classes).
 
 ```javascript
 const elements = document.getElementsByClassName(".center");
@@ -62,17 +62,17 @@ const elements = document.getElementsByClassName(".center");
 
 The above directive would gather a collection of all HTML elements that use the .center class.
 
-Here we are! **Tags in babylon.js can be used to categorize/group elements, and helper functions are provided to retrieve/gather tagged elements.**
+Here we are! **Tags in Babylon.js can be used to categorize/group elements, and helper functions are provided to retrieve/gather tagged elements.**
 
 ## Integration to babylon.js
 
-Tags were integrated into babylon.js on April 7, 2014. [Pull request](https://github.com/BabylonJS/Babylon.js/pull/170#event-109351015)
+Tags were integrated into Babylon.js on April 7, 2014. [Pull request](https://github.com/BabylonJS/Babylon.js/pull/170#event-109351015)
 
 ### Pure javascript
 
-The concept was expanded to allow the adding of tags on any javascript object (not necessarily only the objects created by babylon.js). The `Tag` class that has been added to babylon.js contains all the necessary code for this generic concept ([Typescript code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Misc/tags.ts)) and internally uses the `AndOrNotEvaluator` class ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Misc/andOrNotEvaluator.ts)).
+The concept was expanded to allow tags to be added to any JavaScript object (not necessarily only objects created by Babylon.js). The `Tag` class that was added to Babylon.js contains all the necessary code for this generic concept ([TypeScript code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Misc/tags.ts)) and internally uses the `AndOrNotEvaluator` class ([TypeScript code](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Misc/andOrNotEvaluator.ts)).
 
-The use of tags for a javascript object can be enabled/disabled like this (javascript code):
+The use of tags for a JavaScript object can be enabled or disabled like this (JavaScript code):
 
 ```javascript
 const myJSObj = {};
@@ -83,7 +83,7 @@ BABYLON.Tags.EnableFor(myJSObj);
 BABYLON.Tags.DisableFor(myJSObj);
 ```
 
-`EnableFor` adds functions to the javascript object in the aim to:
+`EnableFor` adds functions to the JavaScript object in order to:
 
 - test if it has tags `hasTags`
 - add tags to it `addTags`
@@ -92,9 +92,9 @@ BABYLON.Tags.DisableFor(myJSObj);
 
 Those functions are proxies of static methods of `Tags` (`HasTags`, `AddTagsTo`, `RemoveTagsFrom` and `MatchesQuery`).
 
-`Tags` also contains `GetTags` which retrieves the array of tags of the javascript object.
+`Tags` also contains `GetTags`, which retrieves the array of tags for the JavaScript object.
 
-Remark: Tags.AddTagsTo enables tags for the object if needed
+Remark: `Tags.AddTagsTo` enables tags for the object if needed.
 
 ```javascript
 const myJSObj1 = {};
@@ -110,7 +110,7 @@ BABYLON.Tags.AddTagsTo(myJSObj2, "tag1 tag2"); // addTags couldn't be used on my
 
 Tags query:
 
-`Tags.MatchesQuery` (and `matchesTagsQuery` if tags are enabled for the javascript object) accepts a list of correct tags (see "Rules to respect") containing parenthesis, and boolean evaluators such as `(tag1 && (tag2 || tag4 || !tag5)) || !(!tag1) && !!!tag5`. The tags query is evaluated thanks to `AndOrNotEvaluator`.
+`Tags.MatchesQuery` (and `matchesTagsQuery` if tags are enabled for the JavaScript object) accepts a list of valid tags (see "Rules to respect"), including parentheses and boolean operators such as `(tag1 && (tag2 || tag4 || !tag5)) || !(!tag1) && !!!tag5`. The tags query is evaluated using `AndOrNotEvaluator`.
 
 Full example:
 
@@ -176,25 +176,25 @@ BABYLON.Tags.MatchesQuery(myJSObj4); // true
 
 ### Use in babylon.js
 
-Since it's possible to use tags on any javascript object and since meshes are javascript objects, it's possible to add tags on them and to retrieve them according to a tags query.
+Since meshes are JavaScript objects, you can add tags to them and retrieve them according to a tags query.
 
 ```javascript
 const meshes = myScene.getMeshesByTags("tag1 && (tag2 || tag4 || !tag5)) || !(!tag1) && !!!tag5");
 ```
 
-All tags added to meshes, cameras, lights... are saved to the scene files (see [.babylon file format](/setup/support/.babylonFileFormat) and reloaded from them.
+All tags added to meshes, cameras, lights, and so on are saved to the scene files (see [.babylon file format](/setup/support/.babylonFileFormat)) and reloaded from them.
 
 ## What to do with them?
 
 It's up to you!
 
-You can use them to retrieve all the meshes that should be lighted by the light "light1":
+You can use them to retrieve all the meshes that should be lit by the light "light1":
 
 ```javascript
 const meshesToLightByLight1 = myScene.getMeshesByTags("mustBeLightedByLight1");
 ```
 
-or make some green ghosts appear when you want:
+Or make green ghosts appear whenever you want:
 
 ```javascript
 const ghosts = myScene.getMeshesByTags("ghost && green");

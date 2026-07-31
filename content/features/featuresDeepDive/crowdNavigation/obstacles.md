@@ -10,10 +10,10 @@ video-content:
 
 ## Prerequisites
 
-Internally, navigation mesh with support for obstacles differs from 'standard' use case with one static navigation mesh.
+Internally, a navigation mesh with support for obstacles differs from the 'standard' use case of a single static navigation mesh.
 Obstacles mark tiles as dirty. Those tiles need to be reprocessed to compute a portion of the navigation mesh.
-To do so, Recast introduces the concept of tiles. Each tile is a square portion of the nav mesh. Tiles a processed each frame.
-Making huge changes processed of a couple of frames.
+To do so, Recast introduces the concept of tiles. Each tile is a square portion of the nav mesh. Tiles are processed each frame.
+This makes large changes process over a couple of frames.
 
 In order to build a Tiled nav mesh instead of a single mesh, add the following lines to the nav mesh creation parameters:
 
@@ -37,11 +37,11 @@ const navmeshParameters = {
 };
 ```
 
-Note the addition of `tileSize`. It's the world unit size of each tile. If it's not present or has a value a zero, it falls back to the standard use and obstacles won't work.
-Also, depending on your use case, this value must be carefully chosen to trade between too many tiles and too much cpu intensive updates.
+Note the addition of `tileSize`. It is the world-unit size of each tile. If it is not present or has a value of zero, it falls back to the standard use case and obstacles will not work.
+Also, depending on your use case, this value must be chosen carefully to balance too many tiles against overly CPU-intensive updates.
 
 **Note :**
-The `ComputePath`` method will handle obstacles exclusively when a crowd has been instantiated. Otherwise, the path will adhere to the navmesh without considering obstacles. If your use case involves computing a path with obstacles, agents are optional but a crowd is mandatory.
+The `ComputePath` method will handle obstacles only when a crowd has been instantiated. Otherwise, the path will adhere to the navmesh without considering obstacles. If your use case involves computing a path with obstacles, agents are optional, but a crowd is mandatory.
 
 ## Obstacles API
 
@@ -53,6 +53,6 @@ addBoxObstacle(position: Vector3, extent: Vector3, angle: number): IObstacle;
 removeObstacle(obstacle: IObstacle): void;
 ```
 
-Keep a list of added obstacles in order to remove them later. An obstacle that's not colliding with the navigation mesh will have no influence.
+Keep a list of added obstacles in order to remove them later. An obstacle that is not colliding with the navigation mesh will have no influence.
 
 <Playground id="#WCSDE1" title="Adding a door to a navigation mesh" description="Example of door simulation using nav mesh obstacles."/>

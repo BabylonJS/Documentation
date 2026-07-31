@@ -10,11 +10,11 @@ video-content:
 
 ## Summary
 
-For this game, I wanted to create a third person camera that would follow the character, but still allow them to move freely and jump within camera view. In the beginning I struggled to find a good camera movement and cycled between different camera types and parenting hierarchies. Eventually, I decided to use the Universal Camera as it allowed for the most freedom in manipulating the camera view while still being able to lock onto the character mesh. I also came across the blog posts on [suzy cube's](http://louardongames.blogspot.com/2016/10/lessons-from-suzy-cube-camera-system.html) camera system. I decided to give it a try since the system allowed for different manipulations of the camera while still following the character.
+For this game, I wanted to create a third-person camera that would follow the character, but still allow them to move freely and jump within camera view. At first, I struggled to find good camera movement and cycled through different camera types and parenting hierarchies. Eventually, I decided to use the Universal Camera as it allowed the most freedom when manipulating the camera view while still being able to lock onto the character mesh. I also came across the blog posts on [Suzy Cube's](http://louardongames.blogspot.com/2016/10/lessons-from-suzy-cube-camera-system.html) camera system. I decided to give it a try since the system allowed for different camera manipulations while still following the character.
 
 ## Camera Hierarchy
 
-Previously, in [Simple Game State](/guidedLearning/createAGame/simpleGameState#character-controller) we made a \_setupPlayerCamera. Here is where we'll be creating our camera hierarchy.
+Previously, in [Simple Game State](/guidedLearning/createAGame/simpleGameState#character-controller), we made a \_setupPlayerCamera function. This is where we'll be creating our camera hierarchy.
 
 ```javascript
 private _setupPlayerCamera(): UniversalCamera {
@@ -52,9 +52,9 @@ Here's a breakdown of the hierarchy for the camera system:
 
 **\_yTilt** is the rotation along the x-axis of our camera. If we need to tilt our camera up or down, this will handle those rotations.
 
-**camera** is the actual camera object that controls what we see on the screen
+**camera** is the actual camera object that controls what we see on the screen.
 
-The suzy cube blog posts go into more detail, but this is the extent of what I needed for my game.
+The Suzy Cube blog posts go into more detail, but this is the extent of what I needed for my game.
 
 ## Update Camera
 

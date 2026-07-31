@@ -12,7 +12,7 @@ video-content:
 
 ## Direct Usage
 
-These packages can be imported directly from the CDN, as needed, using
+These packages can be imported directly from the CDN, as needed, using:
 
 ```javascript
 <script src="https://cdn.babylonjs.com/babylon.js"></script>
@@ -77,13 +77,13 @@ Readable Version - [https://cdn.babylonjs.com/viewer/babylon.viewer.max.js](http
 
 As the notice above states, it is not recommended to use the latest CDN version directly in production. Although the Babylon team won't do it deliberately, it is always possible that something could go wrong during the build or deployment of a specific version, and that the CDN could be updated with some code that will break your production application. We also can't guarantee 100% uptime, though we do our best to keep the server online.
 
-Babylon itself is using the CDN throughout the framework, for example with Draco or Basis decoding, or the inspector. When loading these components without loading the module yourself before, the CDN will be used to download the file.
+Babylon itself uses the CDN throughout the framework, for example with Draco or Basis decoding, or the inspector. When loading these components without loading the module yourself before, the CDN will be used to download the file.
 
-Babylon allows you to either load the module yourself and inject it to the components that are using the external dependencies, or allow you to provide a different base URL (or a full URL) for all components, or for each component individually.
+Babylon allows you to either load the module yourself and inject it into the components that are using the external dependencies, or provide a different base URL (or a full URL) for all components, or for each component individually.
 
 ### Simple - Changing base URL for external resources
 
-To change the base URL for all resources loaded by Babylon, use the static member of tools:
+To change the base URL for all resources loaded by Babylon, use the static member of Tools:
 
 ```javascript
 BABYLON.Tools.CDNBaseUrl = "https://my.wonderfull.server";
@@ -100,7 +100,7 @@ BABYLON.Tools.ScriptBaseUrl = "https://my.wonderfull.server";
 BABYLON.Tools.AssetBaseUrl = "https://my.wonderfull.server";
 ```
 
-What are the simplest way to get the resources structured? Let's dive in.
+What is the simplest way to get the resources structured? Let's dive in.
 
 #### 1. Using the CDN but with a fixed version
 
@@ -112,13 +112,13 @@ BABYLON.Tools.ScriptBaseUrl = "https://cdn.babylonjs.com/v6.30.0";
 
 The CDN structure is guaranteed to be correct.
 
-#### 2. Downloading the resources and deploy them on your own CDN
+#### 2. Downloading the resources and deploying them on your own CDN
 
-This option is the best for you, as you are in full control of the resources. To get the resources in the CDN structure you can download a Github release at [Github Babylon.js releases](https://github.com/BabylonJS/Babylon.js/releases).
+This option is the best for you, as you are in full control of the resources. To get the resources in the CDN structure you can download a GitHub release at [GitHub Babylon.js releases](https://github.com/BabylonJS/Babylon.js/releases).
 
-After downloading the cdn snapshot zip file and deploying it on your server, change the base URL to the base URL of the resources deployed.
+After downloading the CDN snapshot ZIP file and deploying it on your server, change the base URL to the base URL of the resources deployed.
 
-Make sure that your Server/CDN supports CORS, at least from your own Babylon experience.
+Make sure that your server/CDN supports CORS, at least for your own Babylon experience.
 
 ### A bit more complex - deploy and configure specific resources
 

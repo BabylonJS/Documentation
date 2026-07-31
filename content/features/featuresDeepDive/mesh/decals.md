@@ -1,7 +1,7 @@
 ---
 title: Decals
 image:
-description: Learn how use decals in Babylon.js.
+description: Learn how to use decals in Babylon.js.
 keywords: diving deeper, meshes, decals
 further-reading:
   - title: Basic Shapes
@@ -12,7 +12,7 @@ video-content:
 
 ## What are Decals for
 
-These are usually used to add details on meshes (bullets hole, local details, etc...).
+These are usually used to add details to meshes (bullet holes, local details, etc.).
 A decal is either a mesh produced from a subset of a previous one with a small offset in order to appear on top of it, or an additional texture applied to a mesh (a "decal map").
 
 ### Mesh Decals
@@ -44,24 +44,24 @@ Starting with v5.28.0, decals can be created for rigged meshes and two new optio
 | <nobr>cullBackFaces</nobr> | defines if the back faces should be removed from the decal mesh                                                                                                                                                     | false         |
 
 <br/>
-Note that `localMode=true` is automatically enforced for rigged meshes (when `sourceMesh.skeleton !== null`) otherwise it would not work. Also, you should probably always set `localMode` to `true` even for non rigged meshes as it will allow your decal to follow the source mesh even if this mesh moves/rotates.
+Note that `localMode=true` is automatically enforced for rigged meshes (when `sourceMesh.skeleton !== null`); otherwise, it would not work. Also, you should probably always set `localMode` to `true` even for non-rigged meshes, as it allows your decal to follow the source mesh even if the mesh moves or rotates.
 
 The `cullBackFaces` option set to `true` will make sure the faces that are back facing the direction of projection (the inverse direction of the `normal` option) won't be created. It can help you avoid leaking a texture in the back of an object if your decal size is too big in the z dimension (`size.z`).
 
-For eg:
+For example:
 
 ![Projection box](/img/features/decals/decal_projbox.webp)
 
-In this picture, the red box materializes the projection box and has the `size` dimensions passed in `options`.
+In this picture, the red box represents the projection box and has the `size` dimensions passed in `options`.
 
-As the projection box extends farther from the back, with `cullBackFaces=false` the projected texture will be visible on the back:
+As the projection box extends past the back, the projected texture will be visible there when `cullBackFaces=false`:
 
 | front                                              | back                                                 |
 | -------------------------------------------------- | ---------------------------------------------------- |
 | ![Front](/img/features/decals/decal_front.webp!350) | ![Back](/img/features/decals/decal_back_nok.webp!350) |
 
 <br/>
-With `cullBackFaces=true` however, the projected texture will not be visible on the back:
+With `cullBackFaces=true`, however, the projected texture will not be visible on the back:
 
 | front                                              | back                                                |
 | -------------------------------------------------- | --------------------------------------------------- |
@@ -82,9 +82,9 @@ Note that the decal is created with `localMode=true`, that's why it works as exp
 
 ### Texture Decals (or Decal Maps)
 
-Decal Maps are new in Babylon.js since 5.49.0. They are a way to add decal to a mesh without having to create a new mesh. It is a texture that is applied to a mesh in such a way that it appears to be a decal on the mesh.
+Decal Maps are new in Babylon.js since 5.49.0. They are a way to add a decal to a mesh without creating a new mesh. A Decal Map is a texture applied to a mesh so that it appears to be a decal on the mesh.
 
-The advantage of Decal Maps over Mesh Decals is that they are much faster to create and render. Also, they can be applied to meshes with morph targets or any other custom vertex deformation, which is not the case with Mesh Decals. The main drawback is that you need an additional texture for each mesh you want to apply a decal map to. Other problems are:
+The advantage of Decal Maps over Mesh Decals is that they are much faster to create and render. They can also be applied to meshes with morph targets or any other custom vertex deformation, which is not the case with Mesh Decals. The main drawback is that you need an additional texture for each mesh you want to apply a decal map to. Other limitations are:
 * If your mesh has large extensions, you may need to use large decal textures to get enough detail for the decals.
 * You cannot selectively remove some decals and not others in a decal texture: you can either remove them all (by deleting the decal texture or turning off the effect in the mesh), or none.
 * The texture coordinates of the mesh must be unique, which means that each triangle in the mesh must correspond to a different texture area.
@@ -127,7 +127,7 @@ Here are sample playgrounds that show how to use decal maps. Click on the meshes
 
 Sometimes you may see artifacts when you add a decal to a texture.
 
-This is because the mesh on which you're projecting the decal has different uv islands, and artifacts occur when the decal crosses several islands.
+This is because the mesh onto which you're projecting the decal has different UV islands, and artifacts appear when the decal crosses several islands.
 
 As of version 6.33.1, you can solve the problem by passing the `uvEdgeBlending: true` option when creating the `MeshUVSpaceRenderer` instance:
 ```javascript

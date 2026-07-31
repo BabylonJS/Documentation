@@ -10,7 +10,7 @@ video-content:
 
 ## Polyhedra Provided by Number
 
-There are fifteen polyhedra that can be created by setting its type number from 0 to 14. These are
+There are fifteen polyhedra that can be created by setting their type number from 0 to 14. These are:
 
 | type | name                                 | number of faces |
 | ---- | ------------------------------------ | --------------- |
@@ -67,4 +67,4 @@ usage :
 const polyhedron = BABYLON.Mesh.CreatePolyhedron("oct", options, scene); //scene is optional and defaults to the current scene
 ```
 
-This is the same format as that for _MeshBuilder_
+This is the same format as that for _MeshBuilder_.

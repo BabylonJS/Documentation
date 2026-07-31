@@ -16,7 +16,7 @@ There is a close relationship between **Materials**, **Shaders** and **Textures*
 
 - **Textures** are bitmap images. A Material may contain references to textures, so that the Material’s shader can use the textures while calculating the surface color of an object. In addition to basic color (albedo) of an object’s surface, textures can represent many other aspects of a material’s surface such as its reflectivity or roughness.
 
-A material specifies one specific shader to use, and the shader used determines which options are available in the material. A shader specifies one or more textures variables that it expects to use, and the Material Inspector in Unity allows you to assign your own texture assets to these texture variables.
+A material specifies one specific shader to use, and the shader used determines which options are available in the material. A shader specifies one or more texture variables that it expects to use, and the Material Inspector in Unity allows you to assign your own texture assets to these texture variables.
 
 For most normal rendering - by which we mean characters, scenery, environments, solid and transparent objects, hard and soft surfaces etc., the Standard Shader is usually the best choice. This is a highly customisable shader which is capable of rendering many types of surface in a highly realistic way. You may choose the **Babylon Standard Material** shader for a legacy diffuse workflow.
 
@@ -44,7 +44,7 @@ There are two ways to apply a Texture to a property.
 
 ## Unity Shader Technical Details
 
-A Shader is a script which contains mathematical calculations and algorithms for how the pixels on the surface of a model should look. The standard shader performs complex and realistic lighting calculations. Other shaders may use simpler or different calculations to show different results. Within any given Shader are a number of properties which can be given values by a Material using that shader. These properties can be numbers, colors definitions or textures, which appear in the inspector when viewing a Material. Materials are then used by Renderer components attached to Game Objects, to render each Game Object’s mesh.
+A Shader is a script which contains mathematical calculations and algorithms for how the pixels on the surface of a model should look. The standard shader performs complex and realistic lighting calculations. Other shaders may use simpler or different calculations to show different results. Within any given Shader are a number of properties that can be given values by a Material using that shader. These properties can be numbers, color definitions, or textures, which appear in the inspector when viewing a Material. Materials are then used by Renderer components attached to Game Objects to render each Game Object’s mesh.
 
 It is possible and often desirable to have several different Materials which may reference the same textures. These materials may also use the same or different shaders, depending on the requirements.
 
@@ -60,7 +60,7 @@ Each car body material has a reference to the “Car Texture”, which is a text
 
 The Carbody shader also accepts a tint color, which is set to a different color for the red and blue cars, giving each car a different look while using a single texture for both of them.
 
-The car wheel models use a separate material again, but this time both cars share the same material for their wheels, as the wheels do not differ on each car. The wheel material uses the Standard Shader, and has a reference again to the Car Texture.
+The car wheel models use a separate material again, but this time both cars share the same material for their wheels, as the wheels do not differ between the cars. The wheel material uses the Standard Shader and also has a reference to the Car Texture.
 
 Notice how the car texture contains details for the bodywork and wheels - this is a texture atlas, meaning different parts of the texture image are explicitly mapped to different parts of the model.
 
@@ -68,7 +68,7 @@ Even though the bodywork materials are using a texture that also contains the wh
 
 Similarly, the wheel material is using the same texture, which has bodywork detail in it. The bodywork detail does not appear on the wheel, because only the portion of the texture showing the wheel detail is mapped to the wheel geometry.
 
-This mapping is done by the 3D artist in an external 3d application, and is called “UV mapping”.
+This mapping is done by the 3D artist in an external 3D application and is called “UV mapping”.
 
 To be more specific, a Shader defines:
 
@@ -78,7 +78,7 @@ A Material defines:
 
 Which shader to use for rendering this material.
 The specific values for the shader’s parameters - such as which texture maps, the color and numeric values to use.
-Custom Shaders are meant to be written by graphics programmers. They are created using the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) shader language, which is quite simple. However, getting a shader to work well on a variety graphics cards is an involved job and requires a fairly comprehensive knowledge of how graphics cards work.
+Custom Shaders are meant to be written by graphics programmers. They are created using the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) shader language, which is quite simple. However, getting a shader to work well on a variety of graphics cards is an involved job and requires a fairly comprehensive knowledge of how graphics cards work.
 
 ## Babylon Shader Material Pipeline
 
@@ -92,7 +92,7 @@ The **BABYLON.StandardMaterial** is used as the base shader for **all non** phys
 
 ## Custom Shader Materials
 
-Custom shader materials creates a custom unity shader (.shader) program for use as the design time shader. You can change the content of the unity design time as it is only used for design time _ **WYSIWYG** _ display purposes. The actual **Shader Controller** class defines the native babylon shader material class to control the material export.
+Custom shader materials create a custom Unity shader (`.shader`) program for use as the design-time shader. You can change the content of the Unity design-time shader, as it is used only for design-time _ **WYSIWYG** _ display purposes. The actual **Shader Controller** class defines the native Babylon shader material class to control the material export.
 
 You can create a custom shader material from the **Create** menu at the top left of the Project panel or by selecting **Assets > Create > Babylon > Custom Shader Material** from the main menu.
 
@@ -160,7 +160,7 @@ Example library **Water Material** shader asset:
     }
 ```
 
-The **CGINCLUDE** section defines that native **BABYLON.PushMaterial** shader controller subclass:
+The **CGINCLUDE** section defines the native **BABYLON.PushMaterial** shader controller subclass:
 
 ```
  CGINCLUDE #ifdef BABYLON_INFO controller: "BABYLON.WaterMaterialController" #endif //BABYLON_INFO_END ENDCG`

@@ -12,7 +12,7 @@ video-content:
 
 ## Changing the Viewer's Camera
 
-What happens when we put the **Village** as a model in the viewer?
+What happens when we use **Village** as a model in the viewer?
 
 <CodePen pen="pvzaPBV" tab="result" title="Babylon Viewer Basics" />
 
@@ -22,4 +22,4 @@ If you want to get the camera closer to the model, you can use the `camera-orbit
 
 <CodePen pen="EaYQmzJ" tab="html,result" title="Babylon Viewer Basics" />
 
-When you are developing a web game or app you probably want more flexibility than the Viewer can give. Let's take another look at using the HTML template.
+When you are developing a web game or app, you probably want more flexibility than the Viewer provides. Let's take another look at using the HTML template.

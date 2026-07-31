@@ -10,20 +10,20 @@ video-content:
     url: https://youtu.be/BSqxoQ-at24
 ---
 
-An `AnimationGroup` allows you to link together animations and meshes and play them, pause them and stop them as a group.
+An `AnimationGroup` allows you to link together animations and meshes and play them, pause them, and stop them as a group.
 
 ## Forming a Group
 
-Following the tutorial for [creating an animation](/features/featuresDeepDive/animation/animation_introduction) set up one or more animations.
+Follow the tutorial for [creating an animation](/features/featuresDeepDive/animation/animation_introduction) to set up one or more animations.
 
-For example having created _animation1_, _animation2_ and _animation3_ and also meshes _mesh1_, _mesh2_, _mesh3_ and _mesh4_ you can form the following animation groups
+For example, having created _animation1_, _animation2_, and _animation3_, and also meshes _mesh1_, _mesh2_, _mesh3_, and _mesh4_, you can form the following animation groups
 
 ```javascript
 const animationGroup1 = new BABYLON.AnimationGroup("Group1");
 const animationGroup2 = new BABYLON.AnimationGroup("Group2");
 ```
 
-and then use the **addTargetedAnimation** method to link the animations with the meshes and add these to the groups
+and then use the **addTargetedAnimation** method to link the animations with the meshes and add them to the groups
 
 ```javascript
 animationGroup1.addTargetedAnimation(animation1, mesh1);
@@ -36,7 +36,7 @@ animationGroup2.addTargetedAnimation(animation2, mesh4);
 animationGroup2.addTargetedAnimation(animation3, mesh4);
 ```
 
-As the animations may have been created with differing timelines and these have to be aligned using **normalize**
+Because the animations may have been created with different timelines, they may need to be aligned using **normalize**
 
 ## Normalize a Group
 
@@ -57,16 +57,16 @@ The _endFrame_ number must be greater than or equal to the largest end frame of 
 
 ## Speed Ratio for the Group
 
-The **speedRatio** for all animations in the group can be set, for example
+The **speedRatio** for all animations in the group can be set, for example,
 
 ```javascript
 animationGroup1.speedRatio = 0.25;
 animationGroup2.speedRatio = 3;
 ```
 
-speeding up or slowing down the animation.
+This speeds up or slows down the animation.
 
-- <Playground id="#CBGEQX#5" title="Animation Group Speed Ratio" description="Example of adjust an animation group's speed ratio."/>
+- <Playground id="#CBGEQX#5" title="Animation Group Speed Ratio" description="Example of adjusting an animation group's speed ratio."/>
 
 ## Creating a group from existing animatables
 
@@ -104,7 +104,7 @@ animationGroup1.onAnimationLoopObservable.add(function (targetAnimation) {
 });
 ```
 
-There is also an **onAnimationGroupLoop** observable that can be used to trigger a function when all the animation of the group have looped:
+There is also an **onAnimationGroupLoop** observable that can be used to trigger a function when all the animations in the group have looped:
 
 ```javascript
 animationGroup1.onAnimationGroupLoopObservable.add(function (group) {
@@ -116,7 +116,7 @@ animationGroup1.onAnimationGroupLoopObservable.add(function (group) {
 
 Masking allows you to define which animations should or should not be played.
 
-By default (without mask), all animations added to an animation group will be played. If you whish only certain animations to be played, you can create an `AnimationGroupMask`:
+By default (without mask), all animations added to an animation group will be played. If you wish only certain animations to be played, you can create an `AnimationGroupMask`:
 
 ```javascript
 const mask1 = new BABYLON.AnimationGroupMask([sphereA.name, sphereB.name], BABYLON.AnimationGroupMaskMode.Include); // play only animations affecting sphereA and sphereB

@@ -14,7 +14,7 @@ This page contains some ideas for using GreasedLine.
 
 ### Audio analyzer
 
-Shows how you can use `widths` and `offsets` to create a simple audio analyzer. There are two horizontal lines drawn. The big analyzer's widths are changed and the smaller's offsets according to the frequency data of the music. It also shows how can you manually create a `RawTexture` for the `colors` option. The colors are animated simply by modifying the UV offset of the colors texture.
+Shows how you can use `widths` and `offsets` to create a simple audio analyzer. There are two horizontal lines. The larger analyzer's widths and the smaller analyzer's offsets are changed according to the music's frequency data. It also shows how you can manually create a `RawTexture` for the `colors` option. The colors are animated simply by modifying the UV offset of the color texture.
 
 Please unmute the audio after the PG starts.
 
@@ -22,7 +22,7 @@ Please unmute the audio after the PG starts.
 
 ### Circular audio analyzer
 
-A cool circular audio analyzer using one line. Uses `GreasedLineTools.GetCircleLinePoints` to get the points. Setting to dash mode creates the sections. Adding some calm colors and animating the colors texture's uv in the other direction as the circle is rotating results to static colors on the circle. Modify the `widths` of the line according to the audio frequencies and you get the audio analyzer. Finally add some particles to make it cooler.
+A cool circular audio analyzer using one line. It uses `GreasedLineTools.GetCircleLinePoints` to get the points. Setting it to dash mode creates the sections. Adding calm colors and animating the color texture's UV in the opposite direction of the circle's rotation results in static colors on the circle. Modify the `widths` of the line according to the audio frequencies, and you get the audio analyzer. Finally, add some particles to make it cooler.
 
 Please unmute the audio after the PG starts.
 
@@ -30,9 +30,9 @@ Please unmute the audio after the PG starts.
 
 ### Light speed
 
-Shows how to create a light speed effect using `widths`, `visibility` and scaling the lines along the `z` axis. There are several lines draw in `lazy` mode and joined into one mesh when the `updateLazy()` method is called.
+Shows how to create a light speed effect using `widths`, `visibility`, and scaling the lines along the `z` axis. There are several lines drawn in `lazy` mode and joined into one mesh when the `updateLazy()` method is called.
 
-Visibility is set to a very low value so the lines appears as dots at the beginning (stars). Widths are also kept low at startup. Simply by increasing the visiblity, widths and scaling the lines the effect becomes alive. Playing a bit with the glow value also helps the effect to be more attractive.
+Visibility is set to a very low value so the lines appear as dots at the beginning (stars). Widths are also kept low at startup. Simply by increasing the visibility, widths, and scaling of the lines, the effect comes alive. Adjusting the glow value also helps make the effect more attractive.
 
 If you want a longer effect you can create more instances of the line mesh and start animating them just at the right time. You could also use only two instances and reuse them. Animate one, prepare the other, animate the second and prepare the first one. Repeat and you will get an infinite light speed effect.
 
@@ -42,7 +42,7 @@ If you want a longer effect you can create more instances of the line mesh and s
 
 Slowly revealing beautiful text drawn by flowers.
 
-Uses `GreasedLineTools.GetPointsFromText` function to get the points coordinates of the drawn text. The text is then hidden and only it's line coordinates are used. Using the `GreasedLineTools.GetPositionOnLineByVisibility` goes through the drawn text by incrementing the visibility value and adds animated `Sprite`s of flowers to slowly reveal the whole text.
+Uses the `GreasedLineTools.GetPointsFromText` function to get the point coordinates of the drawn text. The text is then hidden, and only its line coordinates are used. `GreasedLineTools.GetPositionOnLineByVisibility` steps through the drawn text by incrementing the visibility value and adds animated `Sprite`s of flowers to slowly reveal the whole text.
 
 If your text is not complete and flowers are missing you have to increase the capacity of the `SpriteManager` or lower the density of the flowers by lowering the value at line 47. You can also alter the target size of the flowers in the `addFlower` function.
 
@@ -50,7 +50,7 @@ If your text is not complete and flowers are missing you have to increase the ca
 
 ### Lighting bolts
 
-These lightnings will make even Thor envy. Calculates the position and widths of the bolts using a simple recursive algorithm and draws the lines. Add a bit of glow and you get a cool lightning.
+These lightning bolts will make even Thor envious. It calculates the positions and widths of the bolts using a simple recursive algorithm and draws the lines. Add a bit of glow, and you get cool lightning.
 
 <Playground id="#P5GH2C#13" title="Lighting bolts" description="Create cool looking lighting bolts using GreasedLine." />
 
@@ -58,7 +58,7 @@ These lightnings will make even Thor envy. Calculates the position and widths of
 
 GreasedLine can be used to create sparks.
 
-First generate the path the sparks will follow. Create GreasedLines each with a random color from a predefined color palette and with different widths from these paths.
+First generate the path the sparks will follow. Create `GreasedLine`s, each with a random color from a predefined color palette and with different widths based on these paths.
 
 <Playground id="#KIW47V#1" title="Simulating sparks - step 1" description="A cool UFO surrounded by sparks created by GreasedLine - step 1." />
 
@@ -91,7 +91,7 @@ All we need to do now is add the UFO and some particles.
 
 ### Revealing text
 
-Shows how can you make a revealing text using the `visibility` property. If the text pops up already visible just run the PG once again by click the Play button.
+Shows how you can create revealing text using the `visibility` property. If the text appears already visible, just run the PG again by clicking the Play button.
 
 <Playground id="#H1LRZ3#234" title="Revealing text" description="The text is slowly drawn on the screen." />
 
@@ -105,7 +105,7 @@ A supernova like star using `GreasedLine`. It draws the main star, applies volum
 
 Just some vegetation drawn using GreasedLines.
 
-You will want to tweak the parameters for sure to get a low poly version of the tree/grass/bush otherwise this technique is not recommended for production because it generates a lot of geometry. The visual appearance is neither not quite satisfying but you can achieve quite good results by generating grass/bushes (remove the trunk of the tree). Instancing is highly recommended.
+You will probably want to tweak the parameters to get a low-poly version of the tree, grass, or bush. Otherwise, this technique is not recommended for production because it generates a lot of geometry. The visual appearance is not always quite satisfying, but you can achieve good results by generating grass or bushes (remove the trunk of the tree). Instancing is highly recommended.
 
 Press PLAY to generate a new one.
 
@@ -119,8 +119,8 @@ Simply by drawing a circle and setting the `widths` of the line in the right pla
 
 ### Navigation path line or displaying wind/ocean currents
 
-Shows how can you draw navigation path lines or display currents in the air or in the water. This PG shows only one line but you can ofcourse draw as many as needed.
+Shows how you can draw navigation path lines or display currents in the air or water. This PG shows only one line, but you can of course draw as many as needed.
 
-The line uses an alpha texture which is animated using modifying the `uOffset` of the texture.
+The line uses an alpha texture that is animated by modifying the `uOffset` of the texture.
 
-<Playground id="#F2M8GA#5" title="Navigation path or Displaying currents" description="Shows how can you draw navigation path lines or display currents." />
+<Playground id="#F2M8GA#5" title="Navigation path or Displaying currents" description="Shows how you can draw navigation path lines or display currents." />

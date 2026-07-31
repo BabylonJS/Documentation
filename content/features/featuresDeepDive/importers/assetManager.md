@@ -14,13 +14,13 @@ In order to help developers load multiple assets, Babylon.js (starting with vers
 
 This class can be used to import meshes into a scene or load text and binary files.
 
-**Note:** Since meshes you import can have a _rotationQuaternion_ set applying a _rotation_ to one will have unforeseen consequences as detailed in this [warning](/features/featuresDeepDive/mesh/transforms/center_origin/rotation_conventions).
+**Note:** Since meshes you import can have a _rotationQuaternion_ set, applying a _rotation_ to one can have unforeseen consequences, as detailed in this [warning](/features/featuresDeepDive/mesh/transforms/center_origin/rotation_conventions).
 
 ## Using AssetsManager
 
 ### Initializing and creating tasks
 
-To use it, you just have to instantiate it with a current scene:
+To use it, you just have to instantiate it with the current scene:
 
 ```javascript
 const assetsManager = new BABYLON.AssetsManager(scene);
@@ -46,7 +46,7 @@ meshTask.onError = function (task, message, exception) {
 };
 ```
 
-You can do the same thing but with text and binary files:
+You can do the same thing with text and binary files:
 
 ```javascript
 const textTask = assetsManager.addTextFileTask("text task", "msg.txt");
@@ -60,7 +60,7 @@ binaryTask.onSuccess = function (task) {
 };
 ```
 
-Images are also supported through imageTask:
+Images are also supported through `imageTask`:
 
 ```javascript
 const imageTask = assetsManager.addImageTask("image task", "img.jpg");
@@ -69,7 +69,7 @@ imageTask.onSuccess = function (task) {
 };
 ```
 
-Textures can also be loaded, through textureTask:
+Textures can also be loaded through `textureTask`:
 
 ```javascript
 const textureTask = assetsManager.addTextureTask("image task", "img.jpg");
@@ -78,7 +78,7 @@ textureTask.onSuccess = function (task) {
 };
 ```
 
-And make sure to call load() to initialize the tasks:
+And make sure to call `load()` to initialize the tasks:
 
 ```javascript
 textureTask.load();
@@ -93,16 +93,16 @@ textureTask.onFinish = (tasks) => {
 
 ### Task state and error handling
 
-Each task has a state object that represents the current execution state of the task. The state is represented by an enum, `BABYLON.AssetTaskState` and has 4 states:
+Each task has a state object that represents its current execution state. The state is represented by an enum, `BABYLON.AssetTaskState`, and has four states:
 
 - INIT - before the task started executing
 - RUNNING - when the task started executing but hasn't finished yet.
 - DONE - when the task successfully finished execution
 - ERROR - when the task failed.
 
-If a task has the error state (`BABYLON.AssetTaskState.ERROR`) a new object will be added to the task: `task.errorObject` . The error object have 2 variables defined, both optional:
+If a task has the error state (`BABYLON.AssetTaskState.ERROR`), a new object will be added to the task: `task.errorObject`. The error object has two optional variables:
 
-- message - a string explaining the error shortly (such as "request returned 404")
+- message - a string briefly explaining the error (such as "request returned 404")
 - exception - in case an exception was thrown during execution, the exception object will contain the stack trace information
 
 This way the error is accessible also when using the assets manager observers:
@@ -173,7 +173,7 @@ assetsManager.load();
 
 There are 7 types of tasks that can be executed using the assets manager.
 
-Each task is extending the AbstractAssetTask class (and implementing IAssetTask interface) with the following properties:
+Each task extends the AbstractAssetTask class (and implements the IAssetTask interface) with the following properties:
 
 ```javascript
 onSuccess: (task: IAssetTask) => void;
@@ -185,7 +185,7 @@ taskState: AssetTaskState;
 errorObject: { message?: string; exception?: any; };
 ```
 
-Note that the properties required to initialize a task are always corresponding to the object type it creates. Foe example, the constructor signature of the CubeTextureAssetTask takes the same variables as the class BABYLON.CubeTexture . The order of the variables might vary.
+Note that the properties required to initialize a task always correspond to the object type it creates. For example, the constructor signature of the CubeTextureAssetTask takes the same variables as the `BABYLON.CubeTexture` class. The order of the variables might vary.
 
 ### MeshAssetTask
 
@@ -207,7 +207,7 @@ public loadedSkeletons: Array<Skeleton>;
 
 ### TextFileAssetTask
 
-Is used to async-load a (text) file.
+This task is used to asynchronously load a text file.
 
 Constructor signature:
 
@@ -224,7 +224,7 @@ public text: string;
 
 ### BinaryFileAssetTask
 
-This task is used to load a binary file. The main difference between this and the TextFileAssetTask is that the data will be stored in an [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+This task is used to load a binary file. The main difference between this and the TextFileAssetTask is that the data is stored in an [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer).
 
 Constructor signature:
 
@@ -241,7 +241,7 @@ public data: ArrayBuffer;
 
 ### ImageAssetTask
 
-This function will load an image (.png, .jpg, .gif). It will create an [HTMLImageElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement) object
+This task loads an image (.png, .jpg, .gif). It creates an [HTMLImageElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement) object.
 
 Constructor signature:
 
@@ -258,7 +258,7 @@ public image: HTMLImageElement;
 
 ### TextureAssetTask
 
-This will create a new BABYLON.Texture from a provided single url.
+This creates a new `BABYLON.Texture` from a provided URL.
 
 Constructor signature:
 
@@ -274,7 +274,7 @@ public texture: Texture;
 
 ### CubeTextureAssetTask
 
-The same as the TextureAssetTask but for a cube texture
+This is the same as the TextureAssetTask, but for a cube texture.
 
 Constructor signature:
 
@@ -290,7 +290,7 @@ public texture: CubeTexture;
 
 ### HDRCubeTextureAssetTask
 
-Same as the CubeTextureAssetTask, but for HDR cube textures
+This is the same as the CubeTextureAssetTask, but for HDR cube textures.
 
 ```javascript
 constructor(name: string, url: string, size?: number, noMipmap = false, generateHarmonics = true, useInGammaSpace = false, usePMREMGenerator = false)
@@ -304,7 +304,7 @@ public texture: HDRCubeTexture;
 
 ### EquiRectangularCubeTextureAssetTask
 
-Same as the CubeTextureAssetTask, but for Equirectangular cube textures
+This is the same as the CubeTextureAssetTask, but for equirectangular cube textures.
 
 ```javascript
 constructor(name: string, url: string, size: number, noMipmap = false, useInGammaSpace = true)
@@ -341,13 +341,13 @@ engine.displayLoadingUI();
 engine.hideLoadingUI();
 ```
 
-Loading text is controlled using `loadingUIText` :
+Loading text is controlled using `loadingUIText`:
 
 ```javascript
 engine.loadingUIText = "text";
 ```
 
-Background color is controlled using `loadingUIBackgroundColor` :
+Background color is controlled using `loadingUIBackgroundColor`:
 
 ```javascript
 engine.loadingUIBackgroundColor = "red";

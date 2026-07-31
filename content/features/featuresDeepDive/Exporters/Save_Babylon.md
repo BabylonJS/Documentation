@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-Any scene or mesh can be downloaded as a file to you computer. This is achieved with the [scene serializer](/typedoc/classes/babylon.sceneserializer)
+Any scene or mesh can be downloaded as a file to your computer. This is achieved with the [scene serializer](/typedoc/classes/babylon.sceneserializer)
 
 ## Scene
 
@@ -35,12 +35,12 @@ function doDownload(filename, scene) {
 }
 ```
 
-The following playground is an example of creating a scene, using the serializer, converting it to a JSON file and then giving the option of downloading it to your computer.  
+The following playground shows how to create a scene, use the serializer, convert it to a JSON file, and then offer it for download to your computer.  
 PG: <Playground id="#1AGCWP#1" title="Save Scene" description="Example of saving a scene." image="/img/playgroundsAndNMEs/pg-1AGCWP-1.webp"/>
 
 ## Meshes
 
-The following code shows the changes necessary to just download a mesh to your computer.
+The following code shows the changes needed to download only a mesh to your computer.
 
 ```javascript
 let objectUrl;

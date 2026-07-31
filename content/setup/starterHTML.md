@@ -1,7 +1,7 @@
 ---
 title: Starter HTML Template 
 image: 
-description: Getting started with the workflow from simple webpage to complete app with IDE and developmental frameworks.
+description: Get started with the workflow, from a simple webpage to a complete app with an IDE and development frameworks.
 keywords: workflow, babylon.js
 further-reading:
 video-overview:
@@ -88,7 +88,7 @@ video-content:
 </html>
 ```
 
-<a href="https://raw.githubusercontent.com/BabylonJSGuide/Tiled/master/basic1/index.zip" download="index.zip">Download</a> the template file where Babylon.js is in the cloud.   
+<a href="https://raw.githubusercontent.com/BabylonJSGuide/Tiled/master/basic1/index.zip" download="index.zip">Download</a> the template file that uses Babylon.js from the CDN.   
 <br />
 <a href="https://raw.githubusercontent.com/BabylonJSGuide/Tiled/master/basic2.zip" download="basic template">Download</a> the template file containing a local version of Babylon.max.js
 
@@ -103,6 +103,6 @@ video-content:
 ![Basic Webpage](/img/quickstart/htmlbjs.webp)
 
 ## Playground to Download From
-Use the &#x2913; button to download the template from the playground
+Use the &#x2913; button to download the template from the Playground.
 
 <Playground id="#WJXQP0" title="Basic Playground" description="CreateScene Playground Template." />  

@@ -21,7 +21,7 @@ This is useful for the inspector to know which object renderer to use for additi
 
 It is also used to determine the main camera used by the frame graph: this is the camera used by the main object renderer.
 
-### Set the texture sampling mode to the correct location
+### Set the texture sampling mode in the correct location
 
 When writing your own post-processing task that extends `FrameGraphPostProcessTask`, you may need to set the sampling mode of a texture: don't do it via the `additionalBindings` parameter of the `FrameGraphPostProcessTask.record(skipCreationOfDisabledPasses, additionalExecute, additionalBindings)` method, but via the `additionalExecute` parameter instead!
 
@@ -78,7 +78,7 @@ Often, you will need to update one or more blocks of a node render graph before 
 
 This can help you better structure your code, instead of having all the code at the global level.
 
-For example (taken from [This PG](https://playground.babylonjs.com/#1QCA2M#35)):
+For example (taken from [this PG](https://playground.babylonjs.com/#1QCA2M#35)):
 
 ```typescript
 nrg.onBeforeBuildObservable.add(() => {
@@ -104,7 +104,7 @@ nrg.onBeforeBuildObservable.add(() => {
 
 ### Why am I getting the error message "Trying to bind a null texture/sampler"?
 
-You will get this error (in the browser console log) with WebGPU if you render to the default back buffer color texture and use at least one post-process.
+You will get this error (in the browser console log) with WebGPU if you render to the default back-buffer color texture and use at least one post-process.
 
 This is because post-processing reads from the texture connected to its **source** input, which is impossible if the texture is the back buffer color texture (at least in WebGL, so also prohibited in WebGPU).
 

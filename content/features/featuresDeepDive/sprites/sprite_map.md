@@ -8,22 +8,22 @@ video-overview:
 video-content:
 ---
 
-## Sprite Map 
+## Sprite Map
 *Available from BJS version 4.1*
 
-A sprite map allows you to display layers of sprites on a grid and can render thousands (dare I say millions?) of animated sprites on screen.  A large area of use, as used in this section, is in 2D and 2.5D games but other applications can also benefit. The only current limitation of this system is that the positions of the sprites are static within the grid and are dictated by the sprite map's initializing parameters. 
+A sprite map allows you to display layers of sprites on a grid and can render thousands (dare I say millions?) of animated sprites on screen. A major use case, as shown in this section, is 2D and 2.5D games, but other applications can also benefit. The only current limitation of this system is that the positions of the sprites are static within the grid and are dictated by the sprite map's initialization parameters.
 
-A  sprite map is displayed on a standard plane mesh in 3D space. and has the ability to be transformed in 3d space.  The speed of rendering is based on the use of texture buffers and each map only requires one draw call.
+A sprite map is displayed on a standard plane mesh in 3D space and can be transformed in 3D space. The rendering speed is based on the use of texture buffers, and each map requires only one draw call.
 
-Since the plane is split into a grid of tiles of the same size the cells of the packed spritesheet should be of the same size.
+Since the plane is split into a grid of tiles of the same size, the cells of the packed spritesheet should also be the same size.
 
-It uses the *Babylon.js (JSON Array for SpriteMap)* format of [TexturePacker](https://www.codeandweb.com/texturepacker) and benefits from using the properties, rotation, extrude and padding.  *Soon the trim support will be functional as well*
+It uses the *Babylon.js (JSON Array for SpriteMap)* format from [TexturePacker](https://www.codeandweb.com/texturepacker) and benefits from the rotation, extrude, and padding properties. *Soon, trim support will be functional as well.*
 
-**Note:** *SpritePackedManager* uses the JSON Hash format for packed spritesheets. JSON files are not interchangeable between *SpritePackedManager* and *SpritMap*.
+**Note:** *SpritePackedManager* uses the JSON Hash format for packed spritesheets. JSON files are not interchangeable between *SpritePackedManager* and *SpriteMap*.
 
 ![spritesheet](/img/how_to/Sprites/legends.webp)
 
-The start of the JSON file format for the above packed spritesheet is shown below.
+The beginning of the JSON file format for the packed spritesheet above is shown below.
 
 ```json
 {
@@ -66,7 +66,7 @@ The start of the JSON file format for the above packed spritesheet is shown belo
     ]
 }
 ```
-The complete JSON file can be found on the Github [Babylon.js repository](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/textures/spriteMap/none_trimmed/Legends_Level_A.json)
+The complete JSON file can be found on the GitHub [Babylon.js repository](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/textures/spriteMap/none_trimmed/Legends_Level_A.json).
 
 First we will start with a background that uses a 2 x 2 grid of tiles and just 4 sprites.
 
@@ -75,7 +75,7 @@ First we will start with a background that uses a 2 x 2 grid of tiles and just 4
 let backgroundSize = new BABYLON.Vector2(2, 2); //set the size of the sprite map stage
 ```
 
-Once the atlas JSON and the spritesheet texture have been loaded we can create the sprite map, setting two of the options parameter properties
+Once the atlas JSON and the spritesheet texture have been loaded, we can create the sprite map, setting two of the option parameter properties.
 ```javascript
 let background = new BABYLON.SpriteMap('background', atlasJSON, spriteSheet,
     {
@@ -86,9 +86,9 @@ let background = new BABYLON.SpriteMap('background', atlasJSON, spriteSheet,
 );
 ```
 
-One the sprite map is created sprites are assigned to the tiles, in the grid, by their frameID, their index in the frames array. 
+Once the sprite map is created, sprites are assigned to the tiles in the grid by their frameID, which is their index in the frames array.
 
-For simplicity and variation we choose indices 9, 18, 27 and 26 for the frameIDs
+For simplicity and variation, we choose indices 9, 18, 27, and 26 for the frameIDs.
 ```javascript
 for(let i = 0; i < 4; i++){
     background.changeTiles(0, new BABYLON.Vector2(i % 2, Math.floor(i / 2)), 9 * i + 9)
@@ -103,17 +103,17 @@ The parameters are
 
 A 2 x 2 single layer sprite map, JSON loaded from file: <Playground id="#YCY2IL#14" title="Single Layer Sprite Map From A File" description="Simple example of a 2x2 single layer sprite map loaded from a .json file."/>
 
-Once created you can export the sprite map to save it and then load it into another sprite sheet of the same structure.
+Once created, you can export the sprite map to save it and then load it into another sprite map with the same structure.
 
 ## Saving a Sprite Map
-After you have created a sprite map you can export this composition for later use, with
+After you have created a sprite map, you can export this composition for later use with:
 
 ```javascript
 mySpriteMap.saveTileMaps()
 ```
-creating a *.tilemaps* file.
+This creates a *.tilemaps* file.
 
-When importing it you must make sure that the sprite map you are importing it into has the same tile layout and number of layers as the one it was exported from.  You import it with
+When importing it, you must make sure that the sprite map you are importing it into has the same tile layout and number of layers as the one it was exported from. You import it with:
 
 ```javascript
 spriteMap.loadTileMaps(url); //url is the location of the .tilemaps file

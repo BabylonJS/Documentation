@@ -12,17 +12,17 @@ video-content:
 
 ## Creating GUIs With Ease
 
-Introduced in Babylon.js 5.0, the GUI Editor is a visual editor for building complex and beautiful graphical user interfaces. Traditionally, Babylon GUIs had to be constructed using code, which could be a tedious and confusing process. The GUI Editor lets you see the interface as you're assembling it, and makes it easy to manipulate all the parameters of each control.
+Introduced in Babylon.js 5.0, the GUI Editor is a visual editor for building complex and beautiful graphical user interfaces. Traditionally, Babylon GUIs had to be built in code, which could be a tedious and confusing process. The GUI Editor lets you see the interface as you're assembling it and makes it easy to manipulate all the parameters of each control.
 
-You can access the GUI Editor here: https://gui.babylonjs.com/. The GUI editor can also be opened in a pop-up window from the inspector, allowing you to edit a GUI inside a scene and see your changes propagate back instantly!
+You can access the GUI Editor here: https://gui.babylonjs.com/. The GUI Editor can also be opened in a pop-up window from the Inspector, allowing you to edit a GUI inside a scene and see your changes propagate back instantly!
 
-This document will walk you through the editor and its capabilities and should help you quickly start creating your own GUIs. If you're not familiar with the GUI system in Babylon.js and would like to learn more, you can read all about it here: [Babylon GUI Documentation](/features/featuresDeepDive/gui/gui)
+This document walks you through the editor and its capabilities and should help you start creating your own GUIs quickly. If you're not familiar with the GUI system in Babylon.js and would like to learn more, you can read about it here: [Babylon GUI Documentation](/features/featuresDeepDive/gui/gui)
 
 <Youtube id="9VXgZ_af-nE"/>
 
 ## Getting Familiar With The Layout
 
-Let's start by familiarizing ourselves with different parts of the editor.
+Let's start by familiarizing ourselves with the different parts of the editor.
 
 ### Header Bar
 
@@ -34,7 +34,7 @@ The Header Bar provides several handy items to help you navigate and manage your
 
 <img src="/img/tools/guiEditor/hamburgerMenu.webp" title="GUI Editor Hamburger Menu"/>
 
-The hamburger menu provies some basic helpful scene management options, including saving and loading your progress locally, saving and loading your progress to the snippet server, and a quick 'help' link to access the Babylon.js GUI documentation.
+The hamburger menu provides some helpful scene-management options, including saving and loading your progress locally, saving and loading your progress to the snippet server, and a quick 'help' link to access the Babylon.js GUI documentation.
 
 #### Select (S)
 
@@ -74,7 +74,7 @@ Allows you to change the background color in the region outside of the canvas.
 
 #### Responsiveness and Resolution
 
-You can either specify a specific resolution for your canvas in pixels, or you can turn on responsive mode, which lets you easily swap between common resolutions such as mobile and desktop. Responsiveness is an editor-only concept, it does not affect the exported GUI.
+You can either specify a resolution for your canvas in pixels or turn on responsive mode, which lets you easily swap between common resolutions such as mobile and desktop. Responsiveness is an editor-only concept; it does not affect the exported GUI.
 
 <img src="/img/tools/guiEditor/resolutionResponsive.webp" title="GUI Editor Responsive Resolution"/>
 
@@ -86,7 +86,7 @@ The Hierarchy Panel is an organized list of all of the GUI controls that you've 
 
 <img src="/img/tools/guiEditor/parenting.webp" title="GUI Editor Parenting"/>
 
-The order of controls listed in the Layers Panel reflects the z-order of the scene with the elments at the top of the list having a z-order that will render them on top of elements towards the bottom of the list.
+The order of controls listed in the Layers Panel reflects the z-order of the scene, with the elements at the top of the list rendering above elements toward the bottom of the list.
 
 If a control is placed behind another control in the scene, and it has a lower z-order, the only way to select it is from the hierarchy.
 
@@ -98,7 +98,7 @@ The 'eye' icon will show/hide controls on the canvas.
 
 <img src="/img/tools/guiEditor/toolsBar.webp" title="GUI Editor Tools Bar"/>
 
-The Controls Bar allows you to create GUI controls, such as a text box, rectangle, grid, etc. Each icon in this bar can be clicked on to add a specific GUI control to your canvas. You can also drag and drop these icons into either the canvas or the hierarchy tree to add it to the scene.
+The Controls Bar allows you to create GUI controls, such as a text box, rectangle, or grid. Each icon in this bar can be clicked to add a specific GUI control to your canvas. You can also drag and drop these icons into either the canvas or the hierarchy tree to add them to the scene.
 
 If you'd like to see a full list of supported GUI controls in the editor, [click here.](#supported-controls)
 
@@ -106,9 +106,9 @@ If you'd like to see a full list of supported GUI controls in the editor, [click
 
 <img src="/img/tools/guiEditor/canvas.webp" title="GUI Editor Canvas"/>
 
-The Canvas is the main play area of the tool. The canvas contains the artboard where you can add controls, select controls, and click and drag controls to move them around. This panel represents a WYSIWYG (what you see is what you get) experience to how GUIs will show up in Babylon Scenes.
+The Canvas is the main work area of the tool. It contains the artboard where you can add controls, select controls, and click and drag controls to move them around. This panel provides a WYSIWYG (what you see is what you get) view of how GUIs will appear in Babylon.js scenes.
 
-The checkerboard area reflects the content that will actually be visible in your scene when you load the GUI in. Note that controls can be moved outside of that region, which may be helpful if, for example, your UI has components that animate on and off-screen.
+The checkerboard area reflects the content that will actually be visible in your scene when you load the GUI. Note that controls can be moved outside that region, which may be helpful if, for example, your UI has components that animate on and off screen.
 
 ### Handy Keyboard Shortcuts
 
@@ -136,7 +136,7 @@ There are several handy keyboard shortcuts that you can utilize in the GUI Edito
 
 The Properties Panel will change based on which controls are selected to reflect the properties specific to those controls. This is where you'll find all of the properties and can fully customize each individual element of your overall GUI.
 
-For example here is how to change the name of a GUI.
+For example, here is how to change the name of a GUI.
 
 <img src="/img/tools/guiEditor/changeName.webp" title="GUI Editor Change Name"/>
 
@@ -144,35 +144,35 @@ For properties which can be expressed in either pixels or percentage values, you
 
 <img src="/img/tools/guiEditor/changeUnits.jpg" title="GUI Editor Change Units"/>
 
-Note: While using the GUI Editor to create a GUI and modify its properties, these properties can later be changed in the Babylon.js scene code. So you have full control over all of the GUI Control properties at creation time as well as runtime!
+Note: While using the GUI Editor to create a GUI and modify its properties, these properties can later be changed in your Babylon.js scene code. This gives you full control over all GUI control properties at creation time as well as at runtime.
 
 ### Special Properties for Grid Control
 
-Grids are a powerful tool for building complex UI layouts. Grids are helpful for setting up the foundation of your design. Just like in code, in the GUI Editor you can define your grid's row and column definitions.
-You can add and remove rows and columns, as well as modify the sizes using either pixels or percent.
+Grids are a powerful tool for building complex UI layouts. They are helpful for setting up the foundation of your design. Just like in code, in the GUI Editor you can define your grid's row and column definitions.
+You can add and remove rows and columns, as well as modify their sizes using either pixels or percentages.
 
 <img src="/img/tools/guiEditor/grid.webp" title="GUI Editor Grid Properties"/>
 
-You can then add them to the grid through parenting in the layers panel. Once parented, you can modify a control's grid cell by selecting the control and editing the newly added property at the bottom of the Properties Panel.
+You can then add controls to the grid through parenting in the Layers Panel. Once parented, you can modify a control's grid cell by selecting the control and editing the newly added property at the bottom of the Properties Panel.
 
 <img src="/img/tools/guiEditor/cell.webp" title="GUI Editor Changing Control's Grid Cell"/>
 
-Note: the zOrder of each control is determined by its position in the hierarchy tree, and can be reordered with normal dragging regardless of which grid cell it belongs to.
+Note: The zOrder of each control is determined by its position in the hierarchy tree, and it can be reordered with normal dragging regardless of which grid cell it belongs to.
 
-### Saving GUIs Out Of the Editor
+### Saving GUIs Out of the Editor
 
-You can save your GUI creations from the Editor in two different ways, locally or on the Babylon.js Snippet Server.
+You can save your GUI creations from the Editor in two different ways: locally or on the Babylon.js Snippet Server.
 
 #### Saving Locally
 
-Saving locally will download a .JSON object of your GUI to your local machine. This can then be either loaded back into the editor later for future use, or can be hosted somewhere of your choosing and then loaded directly into your Babylon scene. [See Loading GUIs Into The Playground](#loading-locally)
+Saving locally will download a .JSON object of your GUI to your local machine. It can later be loaded back into the editor for future use, or hosted wherever you choose and loaded directly into your Babylon scene. [See Loading GUIs Into The Playground](#loading-locally)
 
 You can save locally by selecting the 'Save' button in the hamburger menu:
 <img src="/img/tools/guiEditor/saveLocal1.webp" title="GUI Editor Save Local 1"/>
 
 #### Saving To The Snippet Server
 
-Just like all Babylon tools, you have the option of saving your GUI creation directly to the Babylon.js snippet server. Saving in this manner saves the .json object to a Babylon.js server and provides a simple URL hash back for you to reference in the future. You can then load your GUI back into the editor by using this unique hash, or you can use the hash to load your GUI directly into the Babylon scene. [See Loading GUIs Into The Playground](#load-from-snippet-server). Saving to the snippet server will also update the browser's URL to point to that snippet (e.g., gui.babylonjs.com/#aaaaaa)
+Like all Babylon tools, the GUI Editor lets you save your GUI creation directly to the Babylon.js snippet server. This saves the .json object to a Babylon.js server and returns a simple URL hash that you can reference later. You can then load your GUI back into the editor by using this unique hash, or use the hash to load your GUI directly into the Babylon scene. [See Loading GUIs Into The Playground](#load-from-snippet-server). Saving to the snippet server will also update the browser's URL to point to that snippet (e.g., gui.babylonjs.com/#aaaaaa)
 
 You can save to the snippet server by selecting the 'Save To Snippet' button in the hamburger menu:
 <img src="/img/tools/guiEditor/saveSnippet1.webp" title="GUI Editor Save Snippet 1"/>
@@ -190,7 +190,7 @@ You can load locally by selecting the 'Load' button in the hamburger menu:
 
 #### Loading From The Snippet Server
 
-Loading from the snippet server will take a unique hash of a previously saved GUI and load it into the Editor.
+Loading from the snippet server uses the unique hash of a previously saved GUI and loads it into the Editor.
 
 You can load from the snippet server by selecting the 'Load From Snippet Server' button in the hamburger menu:
 <img src="/img/tools/guiEditor/loadSnippet1.webp" title="GUI Editor Load Snippet 1"/>
@@ -201,7 +201,7 @@ It is very easy to load your saved GUIs into your Babylon.js scene and modify th
 
 #### Load From .JSON Object
 
-You can load a GUI into your Babylon scene from a saved .JSON file somewhere on the web like this:
+You can load a GUI into your Babylon scene from a saved .JSON file hosted somewhere on the web, like this:
 
 ```javascript
 let advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("GUI", true, scene);
@@ -249,7 +249,7 @@ Further information about GUIs as in-scene textures can be found here: [GUIs as 
 
 #### Changing GUI Control Properties In Your Scene
 
-After loading a saved GUI into your scene, you can easily access the properties of your GUI Controls.
+After loading a saved GUI into your scene, you can easily access the properties of your GUI controls.
 
 You can access an individual control by name like this:
 
@@ -295,4 +295,4 @@ Here is a list of supported GUI controls available in the GUI Editor:
 ### Demos
 
 Check out additional demos here:
-<Playground id="#5JEP1H" title="Full Color Picker Demo" description="More advance example that shows how to load a GUI and modify GUI controls."/>
+<Playground id="#5JEP1H" title="Full Color Picker Demo" description="A more advanced example that shows how to load a GUI and modify GUI controls."/>

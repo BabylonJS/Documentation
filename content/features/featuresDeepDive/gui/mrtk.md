@@ -24,22 +24,22 @@ video-content:
 
 MRTK stands for the Mixed Reality Toolkit, a set of features, controls, and components designed to ease and accelerate development for VR and AR applications.
 
-There currently only exists documentation for MRTK's [Unity](https://docs.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/) and [Unreal](https://docs.microsoft.com/en-us/windows/mixed-reality/develop/unreal/unreal-mrtk-introduction) implementations, and so when we talk about matching what MRTK offers, we are comparing to what these offer.
+Documentation currently exists only for MRTK's [Unity](https://docs.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/) and [Unreal](https://docs.microsoft.com/en-us/windows/mixed-reality/develop/unreal/unreal-mrtk-introduction) implementations, so comparisons here refer to those versions.
 
-This page will go over each of the MRTK-relevant controls and features present in BabylonJS, showing how each can be used. Many of the controls can also be viewed on the [3D GUI page here](/features/featuresDeepDive/gui/gui3D), and if a section has a relevant page, that will also be linked.
+This page goes over each MRTK-relevant control and feature present in Babylon.js, showing how each can be used. Many of the controls can also be viewed on the [3D GUI page](/features/featuresDeepDive/gui/gui3D), and relevant pages are linked where applicable.
 
 ## GUI Controls
 
-The following BabylonJS controls have roots as MRTK features. As they extend the `Control3D` class, they all support the basic capabilities that `Control3D` objects have.
+The following Babylon.js controls have roots in MRTK features. As they extend the `Control3D` class, they all support the basic capabilities that `Control3D` objects have.
 
 More on the `Control3D` class, and 3D GUI elements in general, can be found [here](/features/featuresDeepDive/gui/gui3D).
 
-The following is an example that showcases several of the controls listed, including `TouchHolographicButtons` , `TouchMeshButtons`, and the `NearMenu`. This scene is designed for use in XR, and supports use of `WebXRNearInteraction`:
+The following example showcases several of the controls listed, including `TouchHolographicButtons`, `TouchMeshButtons`, and the `NearMenu`. This scene is designed for use in XR and supports `WebXRNearInteraction`:
 <Playground id="#24DLJ4#7" title="Near Interaction Button Scene Demo" description="Demo showcasing different Control3D objects with Near Interaction support."/>
 
 #### Holographic Button
 
-The `HolographicButton` class is the standard, familiar button that can be placed and pressed in a 3D environment. It is based off of the MRTK `ButtonHoloLens1`, and supports a title, image, and tooltip.
+The `HolographicButton` class is the standard, familiar button that can be placed and pressed in a 3D environment. It is based on the MRTK `ButtonHoloLens1` and supports a title, image, and tooltip.
 
 #### Touch Holographic Button
 
@@ -64,9 +64,9 @@ See it in action here:
 
 The `NearMenu` is a `HolographicMenu` with an attached `FollowBehavior` that tries to stay tethered a set distance from the user at all times.
 
-It is a menu designed for use in XR experiences, and by default stays about half an arm's length away. It also rotates to try and stay in the user's field of view.
+It is a menu designed for use in XR experiences and by default stays about half an arm's length away. It also rotates to try to stay in the user's field of view.
 
-The `NearMenu` also has a pin button, that when pressed, will freeze the menu in space. The menu can also be grabbed around the edges to move it (it comes with an attached `SixDofDragBehavior`), at which point it becomes pinned in order to maintain its new position.
+The `NearMenu` also has a pin button that, when pressed, freezes the menu in space. The menu can also be grabbed around the edges to move it (it comes with an attached `SixDofDragBehavior`), at which point it becomes pinned to maintain its new position.
 
 #### Hand Menu
 
@@ -93,7 +93,7 @@ More information on `Gizmos` can be found [here](/features/featuresDeepDive/mesh
 
 #### SixDof Drag Behavior
 
-The `SixDofDragBehavior`, also known as MRTK's `Object Manipulator` component. By creating and attaching it to an object in the scene, users are able to grab, move, and rotate the object. Interacting with a ray-cast input allows the object to be moved in 3-dimensions, while interacting with near interaction adds the ability to rotate the object in-place.
+The `SixDofDragBehavior` is also known as MRTK's `Object Manipulator` component. By creating and attaching it to an object in the scene, users can grab, move, and rotate the object. Interacting with a ray-cast input allows the object to be moved in 3 dimensions, while near interaction adds the ability to rotate the object in place.
 
 ```javascript
 const sixDofDragBehavior = new BABYLON.SixDofDragBehavior();
@@ -107,7 +107,7 @@ mesh.addBehavior(sixDofDragBehavior);
 
 #### Follow Behavior
 
-The `FollowBehavior` tries to maintain a set distance between the `TransformNode` it's attached to, and the `followedCamera` target (defaults to main camera).
+The `FollowBehavior` tries to maintain a set distance between the `TransformNode` it is attached to and the `followedCamera` target (which defaults to the main camera).
 
 There are many aspects to this behavior that can be customized. These are the core properties:
 
@@ -123,7 +123,7 @@ There are many aspects to this behavior that can be customized. These are the co
 
 The `HandConstraintBehavior` is a behavior that constrains the attached mesh to a specific location on the user's hand. The visibility of the attached mesh can be toggled based on the rotation of the hand and how centered it is in the user's field of view, by setting the `handConstraintVisibility` property.
 
-This behavior takes advantage of the `WebXREyeTracking` feature, allowing the `handConstraintVisibility` propery to check whether the user is actively looking at their hand/the mesh or not. As a fallback if no eye data is available, it uses the direction the device is facing instead.
+This behavior takes advantage of the `WebXREyeTracking` feature, allowing the `handConstraintVisibility` property to check whether the user is actively looking at their hand or the mesh. As a fallback, if no eye data is available, it uses the direction the device is facing instead.
 
 The following are the core properties that can be set to customize the behavior:
 
@@ -158,10 +158,10 @@ To provide support for Near Interaction to an arbitrary `AbstractMesh`, simply s
 
 #### Eye Tracking
 
-Disclaimer: The Eye tracking feature is only supported with BabylonNative for now.
+Disclaimer: The eye-tracking feature is only supported with BabylonNative for now.
 
 The Eye Tracking feature, `WebXREyeTracking`, is an opt-in feature for supported XR devices that captures the direction the user's eyes are facing, and passes that along for developers to use.
 
-To use, simply enable the Eye Tracking feature when setting up a project in BabylonNative.
+To use it, simply enable the Eye Tracking feature when setting up a project in BabylonNative.
 
 You then have the option to either listen to an observable, or directly query the component for the latest data. Eye tracking data is always provided as a `Ray`.

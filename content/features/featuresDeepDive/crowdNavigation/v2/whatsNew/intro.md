@@ -14,11 +14,11 @@ The Babylon.js Navigation Plugin **V2** builds on V1 with **new parameters**, **
 
 It offers finer control over navmesh generation, per-query filtering, debugging, and path post-processing while remaining backward compatible where it matters.
 
-_Note: Get familiar with NavigationPlugin V1 before starting to read about the new features of V2. Everything in the docs about V1 applies to V2 as well._
+_Note: Get familiar with NavigationPlugin V1 before you start reading about the new features in V2. Everything in the V1 docs applies to V2 as well._
 
 ## New Navigation Mesh Parameters
 
-V2 introduces additional parameters to fine-tune navmesh generation. In addition to all parameters available in V1, you can now use these added ones:
+V2 introduces additional parameters to fine-tune navmesh generation. In addition to all parameters available in V1, you can now use these additional ones:
 
 ```ts
 {
@@ -54,7 +54,7 @@ Defines custom connections between points on the mesh. These can represent **tel
 
 ## Exposed tileCache, navMeshQuery and intermediates
 
-`await navigationPlugin.createNavMeshAsync()` returns
+`await navigationPlugin.createNavMeshAsync()` returns the following type:
 
 ```ts
 /**
@@ -85,7 +85,7 @@ export type CreateNavMeshResult = Nullable<{
 }>;
 ```
 
-so you can directly access these objects. These objects are exposed via getters on the `navigationPlugin` object as well.
+so you can access these objects directly. They are also exposed via getters on the `navigationPlugin` object.
 
 ### navMeshQuery
 
@@ -129,12 +129,12 @@ You can use **Navigation Debugger** to inspect:
 You can now use `navigationPlugin.raycast(startPoint, endPoint)` to perform raycasting through a navigation mesh.
 
 Examples of usage:
-- Line-of-sight check/shooting check: is there an obstacle between the player and an enemy for example, can it see the player, can the player shoot at it, etc.
+- Line-of-sight or shooting checks: for example, is there an obstacle between the player and an enemy? Can it see the player? Can the player shoot at it?
 - Smooth steering: you can start to steer your agents even before they reach a non-navigable part of the navmesh.
 - NPCs moving randomly can avoid starting to walk into walls.
 
 ## New Utility Functions
 
-V2 adds helper utility functions to post-process paths. You can use these functions to L-shape or smooth the curves of a path.
+V2 adds helper utility functions to post-process paths. You can use these functions to create L-shaped paths or smooth the curves of a path.
 
 [Read more about the new utility functions](v2UtilFunctions)

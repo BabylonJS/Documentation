@@ -44,7 +44,7 @@ You can use two parameters with the rendering pipeline:
 * `samples`: Number of accumulated samples. The larger the value, the better the anti-aliasing, but the longer it takes to converge.
 * `factor`: The factor used to blend the history image with the current image.
 
-See below for further explanations of `samples` and `factor`, and if you’d like to know more about our implementation.
+See below for further explanations of `samples` and `factor` if you’d like to know more about our implementation.
 
 ## Temporal Anti-Aliasing general principles
 
@@ -77,7 +77,7 @@ In the real code, we’ll apply a translation `(-0.5, -0.5)` to `(dx,dy)` becaus
 
 ## Generating the offsets
 
-We could use random values for the offsets, but we can get better results by using a [low-discrepancy sequence](https://en.wikipedia.org/wiki/Low-discrepancy_sequence). I won’t go into the details; you’ll find plenty of documentation on the subject on the Internet if you’re interested. The generally accepted method for TAA is to use a [Halton sequence](https://en.wikipedia.org/wiki/Halton_sequence). The code to generate this sequence can also be easily found, and we implemented our [own version](https://doc.babylonjs.com/typedoc/classes/babylon.halton2dsequence) which you can use for your own purpose if you wish.
+We could use random values for the offsets, but we can get better results by using a [low-discrepancy sequence](https://en.wikipedia.org/wiki/Low-discrepancy_sequence). I won’t go into the details; you’ll find plenty of documentation on the subject on the Internet if you’re interested. The generally accepted method for TAA is to use a [Halton sequence](https://en.wikipedia.org/wiki/Halton_sequence). The code to generate this sequence can also be easily found, and we implemented our [own version](https://doc.babylonjs.com/typedoc/classes/babylon.halton2dsequence), which you can use for your own purposes if you wish.
 
 As an illustration, here are the locations of 8 points generated with a Halton sequence created from the starting numbers (2,3):
 
@@ -134,13 +134,13 @@ Enabling this will attempt to reproject the accumulated history based on a per-p
 
 For this to work the TAA implementation requires a texture containing the per-pixel velocity, which can be generated alongside the color output. However, this won’t work on hardware that doesn’t support multiple render targets, or for materials that don’t write to the velocity buffer.
 
-Additionally, this still produces ghosting when a pixel goes from being covered by an object one frame to uncovered the next. This occurs because the pixel is not in the previous frame, but it still tries to find its location in the previos frame regardless:
+Additionally, this still produces ghosting when a pixel goes from being covered by an object in one frame to uncovered in the next. This occurs because the pixel is not in the previous frame, but it still tries to find its location in the previous frame regardless:
 
 ![A blurry boombox where the front is slightly less blurry than the back](/img/how_to/taaRenderingPipeline/reproject_ghosting.webp)
 
 Note how the front of the model is less blurry than the background behind the model.
 
-For this reason it is recommended to combine this with `clampHistory`, which on that note...
+For this reason, it is recommended to combine this with `clampHistory`, which brings us to the next option...
 
 ### Clamp history
 
@@ -148,7 +148,7 @@ For this reason it is recommended to combine this with `clampHistory`, which on 
 taaRenderingPipeline.clampHistory = true;
 ```
 
-In theory, if a pixel is too different from it’s previous value then the previous value is likely to be incorrect (or reprojected incorrectly). In this case, the previous value is tweaked to better match what it (again, in theory) "should" be based on a neighborhood of pixels. There are mutliple ways to do this but one of the common ways is color clamping, which is what this option does.
+In theory, if a pixel is too different from its previous value, then the previous value is likely to be incorrect (or reprojected incorrectly). In this case, the previous value is tweaked to better match what it (again, in theory) "should" be based on a neighborhood of pixels. There are multiple ways to do this, but one of the common ones is color clamping, which is what this option does.
 
 Color clamping starts by getting the `min` and `max` values from the neighborhood of pixels, which we define as the 3x3 square centered on the target location:
 
@@ -157,11 +157,11 @@ Color clamping starts by getting the `min` and `max` values from the neighborhoo
 
 Color clamping then assumes that the pixel will never go outside the **[`min`, `max`]** range and anything outside that range is likely to be incorrect. These "incorrect" pixels are adjusted by clamping them to within this **[`min`, `max`]** range, hence where the name comes from.
 
-Due to its aggresive nature, this technique almost entirely gets rid of the ghosting artifacts at the cost of being slightly more expensive (each output pixel now requires querying 9 more input pixels). That being said, movement still produces artifacts with this technique, albeit a different kind that’s alot more subtle:
+Due to its aggressive nature, this technique almost entirely gets rid of ghosting artifacts at the cost of being slightly more expensive (each output pixel now requires querying 9 more input pixels). That being said, movement still produces artifacts with this technique, albeit a different kind that’s a lot more subtle:
 
 ![A zoom in of the boombox in motion, the text and edges are a bit broken and wobbly](/img/how_to/taaRenderingPipeline/clamp_artifacts.webp)
 
-Note the slighlty garbled text and edges. Sadly, an incorrect value is still an incorrect value, regardless of how much you try to "correct" it.
+Note the slightly garbled text and edges. Sadly, an incorrect value is still an incorrect value, regardless of how much you try to "correct" it.
 
 For the best results in motion it is recommended to enable both `reprojectHistory`, which will attempt to find the pixel in the previous frame, and `clampHistory`, which acts as a fallback if the reprojection does not work:
 ```javascript

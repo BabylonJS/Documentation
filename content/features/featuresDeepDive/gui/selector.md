@@ -18,26 +18,26 @@ video-content:
 
 ## The Selection Panel Helper
 
-A `SelectionPanel` contains groups of checkboxes, radio buttons and sliders. Though not as versatile as building your own interface with your own custom arrangement of controls it can be a quick way to construct a method of changing scene parameters for objects within your scene.
+A `SelectionPanel` contains groups of checkboxes, radio buttons, and sliders. Though it is not as versatile as building your own interface with a custom arrangement of controls, it can be a quick way to construct a UI for changing scene parameters.
 
 ![selection panel](/img/GUI/selectPanel1.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
 
 ## Referencing a Selection Panel
 
-As you can see in **Fig 1** a selection panel rectangle contains a vertical organization of groups numbered from the top starting at 0. Each group contains a header and a variable number of selectors. Each selector consists of a (or button) and a label. Within any one group all the selectors must be of the same type. You can refer to a selector by its group number and then the position of the selector within the group. So the checkbox labelled _High_ has reference 0, 1, ie. group 0, selector 1.
+As you can see in **Fig 1**, a selection panel rectangle contains a vertical arrangement of groups numbered from the top, starting at 0. Each group contains a header and a variable number of selectors. Each selector consists of a button and a label. Within any one group, all selectors must be of the same type. You can refer to a selector by its group number and then its position within the group. So the checkbox labelled _High_ has reference 0, 1, i.e. group 0, selector 1.
 
-**NOTE** Adding or removing groups or selectors with change the reference number. The reference number always refers to the current positioning of the group and of the selector.
+**NOTE** Adding or removing groups or selectors will change the reference number. The reference number always refers to the current position of the group and selector.
 
 ## Creating a Selection Panel
 
-As usual with GUI containers you will need to create an advanced dynamic texture to add the selection panel to. You can set the dimensions and position of the selection panel. The format to construct a blank selection panel is
+As usual with GUI containers, you need to create an advanced dynamic texture to add the selection panel to. You can set the dimensions and position of the selection panel. The format for constructing a blank selection panel is:
 
 ```javascript
 new BABYLON.GUI.SelectionPanel(name);
 ```
 
-After construction you can add groups of selectors, each newly added group is placed below any already added groups. For example
+After construction, you can add groups of selectors. Each newly added group is placed below any existing groups. For example:
 
 ```javascript
 const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
@@ -57,7 +57,7 @@ selectBox.addGroup(colorGroup);
 
 - <Playground id="#9M6M2I" title="Selection Panel with Added Groups" description="Simple example showing how to add a selection panel with added groups to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector1.webp"/>
 
-In addition if you have already constructed selector groups then you can then pass them in an array when you create the selection panel. The format for this is
+In addition, if you have already constructed selector groups, you can pass them in an array when you create the selection panel. The format for this is:
 
 ```javascript
 new BABYLON.GUI.SelectionPanel(name, [selector groups])
@@ -82,7 +82,7 @@ advancedTexture.addControl(selectBox);
 
 ## Creating Groups
 
-There are three types of groups, a checkbox group, a radio group and a slider group, which are created using the structure
+There are three types of groups—a checkbox group, a radio group, and a slider group—which are created using the structure:
 
 ```javascript
 new BABYLON.GUI.<Type>Group(header)
@@ -98,15 +98,14 @@ const rotateGroup = new BABYLON.GUI.SliderGroup("Rotation");
 
 ## Creating Selectors
 
-Naturally there are three types of selectors and each can only be added to the appropriate group. External functions for each selector refer any changes in the value to properties of scene objects.
+Naturally, there are three types of selectors, and each can only be added to the appropriate group. External functions for each selector map value changes to scene object properties.
 
-Checkbox and radio selectors are simply added to their group using two parameters, a label name and the external function reference. An optional third parameter can set the initial checked state of the selector to true (default value is false).
-
-A slider selector is added to its group with a number of parameters, the first two being as before a label name and a reference to the external function. Due to the nature of a slider the following optional parameters can be set
+Checkbox and radio selectors are added to their groups using two parameters: a label name and the external function reference. An optional third parameter can set the initial checked state of the selector to true (the default value is false).
+A slider selector is added to its group with a number of parameters, the first two being, as before, a label name and a reference to the external function. Due to the nature of a slider, the following optional parameters can be set:
 
 | Parameter     | Description                                              | Default |
 | ------------- | -------------------------------------------------------- | ------- |
-| unit          | a string describing the units used, eg degrees or metres | "Unit"  |
+| unit          | a string describing the units used, e.g. degrees or metres | "Unit"  |
 | min           | the minimum value for the slider                         | 0       |
 | max           | the maximum value for the slider                         | 100     |
 | value         | the start value for the Slider between min and max       | 0       |
@@ -131,7 +130,7 @@ rotateGroup.addSlider("Angle X", orientateX, "degs", 0, 2 * Math.PI, Math.PI, di
 
 ### Checkbox Selector
 
-One function for each selector. Each requires a Boolean parameter with actions depending whether the control is checked or not
+There is one function for each selector. Each requires a Boolean parameter, with actions depending on whether the control is checked.
 
 Examples
 
@@ -155,7 +154,7 @@ const toPlace = function (isChecked) {
 
 ### Radio Selector
 
-Within a radio group the same function is used for all selectors. The function requires a number parameter which will match the selector position with actions for each selector
+Within a radio group, the same function is used for all selectors. The function requires a number parameter that matches the selector position so actions can be defined for each selector.
 
 Examples
 
@@ -198,7 +197,7 @@ const displayValue = function (value) {
 
 ### Colors and Font
 
-For consistency of appearance you can only change the overall font and color of all headers, all labels and all selector buttons.
+For consistency of appearance, you can change only the overall font and color of all headers, labels, and selector buttons.
 
 - <Playground id="#BXMTCD#4" title="Selection Panel with Font Change" description="Simple example showing how to add a selection panel with a font change." image="/img/playgroundsAndNMEs/divingDeeperSelector2.webp"/>
 
@@ -231,13 +230,13 @@ selectBox.relabel("Theta", 2, 0);
 
 ### Groups and Selectors
 
-As stated earlier you can add groups at the bottom of the selection panel at any time. You can also remove a group by reference to its position in the list, eg
+As stated earlier, you can add groups to the bottom of the selection panel at any time. You can also remove a group by referencing its position in the list, e.g.
 
 ```javascript
 selectBox.removeGroup(2);
 ```
 
-**Note** Groups below the removed group will have new positions and so need to be referenced by their new position.
+**Note** Groups below the removed group will have new positions and therefore need to be referenced by their new position.
 
 In the same way a selector of the correct type can be added to the bottom of a group at any time using the `add<Type>` method.
 
@@ -247,7 +246,7 @@ transformGroup.addCheckbox("Across", toLeft);
 
 - <Playground id="#BXMTCD#7" title="Selector Group Add Selector" description="Simple example showing how to add a selector group and add a selector to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.webp"/>
 
-A selector can be removed from a group at any time using its position in the group, eg
+A selector can be removed from a group at any time using its position in the group, e.g.
 
 ```javascript
 transformGroup.removeSelector(1);
@@ -257,7 +256,7 @@ rotationGroup.removeSelector(0);
 
 - <Playground id="#BXMTCD#8" title="Selector Group Add Selector" description="Simple example showing how to add a selector group and remove a selector from your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.webp"/>
 
-For a selector within a group that is contained within a selection panel you can add a selector by use of the group position and correct parameters, eg
+For a selector within a group that is contained within a selection panel, you can add a selector by using the group position and the correct parameters, e.g.
 
 ```javascript
 selectBox.addToGroupSlider(2, "Angle X", orientateX, "degs", 0, 2 * Math.PI, Math.PI, displayValue);
@@ -265,7 +264,7 @@ selectBox.addToGroupSlider(2, "Angle X", orientateX, "degs", 0, 2 * Math.PI, Mat
 
 - <Playground id="#BXMTCD#9" title="Selector Panel Add Selector" description="Simple example showing how to add a selector panel and add a selector to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.webp"/>
 
-and remove a selector by using its reference position, ie. group and selector position in the group. For example
+And you can remove a selector by using its reference position, i.e. the group and selector position within the group. For example:
 
 ```javascript
 selectBox.removeFromGroupSelector(0, 0);

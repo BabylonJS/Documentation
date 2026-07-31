@@ -1,7 +1,7 @@
 ---
 title: Materials and Vertices
 image:
-description: Learn about the relationship between materials and vetices.
+description: Learn about the relationship between materials and vertices.
 keywords: diving deeper, materials, advanced
 further-reading:
   - title: Calculating UVs
@@ -16,9 +16,9 @@ video-content:
 
 ## Materials and Vertices
 
-BabylonJS allows you to create many meshes and apply material to them quite simply and in a range of ways.
+BabylonJS allows you to create many meshes and apply materials to them quite simply and in a range of ways.
 
-Sometimes it may be useful to know more on how this is achieved. Any attempt to answer the question of how colors and textures are applied to a mesh must start with looking at the construction of a mesh.
+Sometimes it may be useful to know more about how this is achieved. Any attempt to answer the question of how colors and textures are applied to a mesh must start by looking at the construction of the mesh.
 
 Below is a simple wireframe cube which has 8 vertices:
 
@@ -45,34 +45,34 @@ coordinates to each of the vertices; (0, 1) to vertex 3, (1, 1) to vertex 2, (1,
 
 These are then used to map the image across the facets.
 
-Of course with a mesh consisting of many vertices wrapping an image as texture around the mesh will mean each vertex being assigned a point on the image using fractional values as described in [custom meshes](/features/featuresDeepDive/mesh/creation/custom/custom#calculating-uvs).
+Of course, with a mesh consisting of many vertices, wrapping an image as a texture around the mesh means assigning each vertex a point on the image using fractional values, as described in [custom meshes](/features/featuresDeepDive/mesh/creation/custom/custom#calculating-uvs).
 
 ## Issues with Adjoining Faces
 
-The construction method given above will lead to problems should different colors or textures need to be applied to different faces
-since adjoining faces use the same vertex index.
+The construction method given above will lead to problems if different colors or textures need to be applied to different faces,
+since adjoining faces use the same vertex indices.
 
 For example if face `3, 2, 6, 7` should be red and face `0, 3, 7, 4` should be green, it is not possible to assign both red and green to vertices 3 and 7.
 
 Sharing vertex indices will also cause problems when wrapping an image around a mesh.
 
-For example if the image above was to be wrapped around faces `3, 2, 6, 7` and `1, 2, 6, 5` and `0, 1, 5, 4` and `0, 3, 7, 4` it is not possible for vertex 3 to be assigned (1, 0) and (1, 1) nor for vertex 7 to be assigned (0, 0) and (1,0).
+For example, if the image above were wrapped around faces `3, 2, 6, 7`, `1, 2, 6, 5`, `0, 1, 5, 4`, and `0, 3, 7, 4`, it would not be possible for vertex 3 to be assigned (1, 0) and (1, 1), nor for vertex 7 to be assigned (0, 0) and (1, 0).
 
 ## Solutions for Adjoining Faces
 
-There are two solutions both of which require additional facets:
+There are two solutions, both of which require additional facets:
 
 1. **Inbetweens**
 
-Replace a shared edges with a face. For example taking the shared edge 3, 7 and replacing with a face gives:
+Replace a shared edge with a face. For example, taking the shared edge 3, 7 and replacing it with a face gives:
 
 ![Extra Face](/img/how_to/Materials/box2.webp)
 
-Now vertices 8 and 9 can be assigned green or (1, 1) and (1, 0) and so face `3, 2, 6, 7` can be red or have the start of the image and face `0, 8, 9, 4` can be green or have the end of the image with no conflict.
+Now vertices 8 and 9 can be assigned green or (1, 1) and (1, 0), and so face `3, 2, 6, 7` can be red or have the start of the image, while face `0, 8, 9, 4` can be green or have the end of the image with no conflict.
 
-Of course facets `8, 9, 7` and `3, 7, 8` will have graduated fill or messed up images but by setting vertices 8 and 3 to have the same position and also 9 and 7 to have the same position the face `3, 7, 9, 8` disappears, the box appears to only have six faces and the adjoining faces have the color or image wanted.
+Of course, facets `8, 9, 7` and `3, 7, 8` will have graduated fills or distorted images, but by setting vertices 8 and 3 to the same position, and vertices 9 and 7 to the same position, the face `3, 7, 9, 8` disappears. The box then appears to have only six faces, and the adjoining faces have the desired color or image.
 
-Spheres, cylinders and other self joining meshes use this method.
+Spheres, cylinders, and other self-joining meshes use this method.
 
 2. **Separated Faces**
 

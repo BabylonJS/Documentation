@@ -37,7 +37,7 @@ Provides the final positions, normals, tangents, and uvs based on morph targets 
 - Outputs:
   - positionOutput: Vector3
   - normalOutput: Vector3
-  - tangentOutput: Vetor3
+  - tangentOutput: Vector3
   - uvOutput: Vector2
 
 ## Color Management
@@ -130,7 +130,7 @@ Combines up to four input floats into a vector.
 
 ### VectorSplitter
 
-Separates vectors input channels into individual floats.
+Separates vector input channels into individual floats.
 
 - Inputs:
   - xyzw: Vector4
@@ -148,7 +148,7 @@ Separates vectors input channels into individual floats.
 
 ### BiPlanar
 
-A node for reading a texture with biplanar mapping
+A node for reading a texture with biplanar mapping.
 
 - Inputs:
   - position: Vector3 / Vector4
@@ -238,7 +238,7 @@ Creates a reflection from the input texture.
 
 ### ScreenSize
 
-The size of the screen window
+The size of the screen window.
 
 - Output:
   - xy: Vector2
@@ -290,21 +290,21 @@ A node for reading a texture with triplanar mapping
 
 ### Vector2
 
-a vector composed of X and Y channels.
+A vector composed of X and Y channels.
 
 - Output:
   - output: Vector2
 
 ### Vector3
 
-a vector composed of X, Y, and Z channels.
+A vector composed of X, Y, and Z channels.
 
 - Output:
   - output: Vector3
 
 ### Vector4
 
-a vector composed of X, Y, Z, and W channels.
+A vector composed of X, Y, Z, and W channels.
 
 - Output:
   - output: Vector4
@@ -424,7 +424,7 @@ If input a is less than input b the block evaluates true, otherwise it evaluates
 
 ### NotEqual
 
-If input a not equal to input b the block evaluates true, otherwise it evaluates false.
+If input a is not equal to input b, the block evaluates true; otherwise, it evaluates false.
 
 - Inputs:
   - a: Float
@@ -446,7 +446,7 @@ If either input is a non-zero value the block evaluates true, otherwise it evalu
 
 ### Xor
 
-if input a and input b are both a value of zero the block evaluates false, otherwise it evaluates true.
+If input a and input b are both zero, the block evaluates false; otherwise, it evaluates true.
 
 - Inputs:
   - a: Float
@@ -465,7 +465,7 @@ This creates a root node that will loop through a number of iterations (that val
 
   - input: Defines the initial value of the stored data
 
-  - iterations: How many iterations for that loop (this will superseed the value defined on node.iterations)
+  - iterations: How many iterations for that loop (this will supersede the value defined on node.iterations)
 
 - Outputs
   - output: The aggregated value computed by the loop
@@ -533,7 +533,7 @@ Outputs the smallest value between the left and right inputs of the same type.
 
 ### Mod
 
-Outputs the value of the left input modulo the right input
+Outputs the value of the left input modulo the right input.
 
 - Inputs:
   - left: Float, Vector2, Vector3, Vector4, Color3, or Color4.
@@ -947,7 +947,7 @@ Provides the determinant value of an input matrix.
 
 ### MatrixSplitter
 
-A block used to split an input matrix into Vector4's. 
+A block used to split an input matrix into Vector4s. 
 
 - Inputs:
   - input: Matrix
@@ -1031,7 +1031,7 @@ Passthrough block mostly used to organize your graph.
 
 ### ShadowMap
 
-Compute a depth value suitable for shadow map generation
+Computes a depth value suitable for shadow map generation.
 
 - Input:
   - worldPosition: Vector4
@@ -1071,7 +1071,7 @@ Returns 1 if a mesh triangle faces the normal direction and 0 if it does not.
 
 ### HeightToNormal
 
-Convert a hight map into a normal map.
+Converts a height map into a normal map.
 
 - Input:
   - input: Float
@@ -1295,7 +1295,7 @@ A final node that sets the fragment depth.
 
 ### FragmentOutput
 
-A mandatory final node for outputing the color of each pixel.
+A mandatory final node for outputting the color of each pixel.
 
 - Inputs:
   - rgba: Vector4
@@ -1304,7 +1304,7 @@ A mandatory final node for outputing the color of each pixel.
 
 ### VertexOutput
 
-A mandatory final node for outputing the position of each vertex.
+A mandatory final node for outputting the position of each vertex.
 
 - Inputs:
   - vector: Vector4
@@ -1313,7 +1313,7 @@ A mandatory final node for outputing the position of each vertex.
 
 ### ParticleBlendMultiply
 
-The "blend/multiply" module of the particle shader
+The "blend/multiply" module of the particle shader.
 
 - Inputs:
   - color: Color4
@@ -1324,21 +1324,21 @@ The "blend/multiply" module of the particle shader
 
 ### ParticleColor
 
-The color of the particle
+The color of the particle.
 
 - Outputs:
   - output: Color4
 
 ### ParticlePositionWorld
 
-The world position of the particle
+The world position of the particle.
 
 - Outputs:
   - output: Vector3
 
 ### ParticleRampGradient
 
-The "ramp gradient" module of the particle shader
+The "ramp gradient" module of the particle shader.
 
 - Inputs:
   - color: Color4
@@ -1347,7 +1347,7 @@ The "ramp gradient" module of the particle shader
 
 ### ParticleTexture
 
-The texture of the particle
+The texture of the particle.
 
 - Inputs:
   - uv: Vector2
@@ -1361,14 +1361,14 @@ The texture of the particle
 
 ### ParticleTextureMask
 
-The textureMask property of the particle
+The `textureMask` property of the particle.
 
 - Outputs:
   - output: Color4
 
 ### ParticleUV
 
-the uv coordinates of the particle
+The UV coordinates of the particle.
 
 - Outputs:
   - output: Vector2
@@ -1377,7 +1377,7 @@ the uv coordinates of the particle
 
 ### Anisotropy
 
-The anisotropy module of the PBR material
+The anisotropy module of the PBR material.
 
 - Inputs:
   - intensity: Float
@@ -1389,7 +1389,7 @@ The anisotropy module of the PBR material
 
 ### ClearCoat
 
-The clear coat module of the PBR material
+The clear coat module of the PBR material.
 
 - Inputs:
   - intensity: Float
@@ -1406,7 +1406,7 @@ The clear coat module of the PBR material
 
 ### Iridescence
 
-The iridescence module of the PBR material
+The iridescence module of the PBR material.
 
 - Inputs:
   - intensity: Float
@@ -1417,7 +1417,7 @@ The iridescence module of the PBR material
 
 ### PBRMetallicRoughness
 
-The PBR material implementing the metallic/roughness model
+The PBR material implementing the metallic/roughness model.
 
 - Inputs:
   - worldPosition: Vector4
@@ -1464,7 +1464,7 @@ The PBR material implementing the metallic/roughness model
 
 ### Reflection
 
-The reflection module of the PBR material
+The reflection module of the PBR material.
 
 - Inputs:
   - position: Vector3
@@ -1475,7 +1475,7 @@ The reflection module of the PBR material
 
 ### Refraction
 
-The refraction module of the PBR material (used by the `SubSurface` block)
+The refraction module of the PBR material (used by the `SubSurface` block).
 
 - Inputs:
   - intensity: Float
@@ -1485,7 +1485,7 @@ The refraction module of the PBR material (used by the `SubSurface` block)
 
 ### Sheen
 
-The sheen module of the PBR material
+The sheen module of the PBR material.
 
 - Inputs:
   - intensity: Float
@@ -1496,7 +1496,7 @@ The sheen module of the PBR material
 
 ### SubSurface
 
-The sub surface module of the PBR material
+The sub-surface module of the PBR material.
 
 - Inputs:
   - thickness: Float
@@ -1511,7 +1511,7 @@ The sub surface module of the PBR material
 
 ### CurrentScreen
 
-The current screen (texture) used to render the post process
+The current screen (texture) used to render the post process.
 
 - Inputs:
   - uv: Vector2
@@ -1525,7 +1525,7 @@ The current screen (texture) used to render the post process
 
 ### ScreenPosition
 
-The 2D clip coordinates (values between -1 and 1 for both x and y)
+The 2D clip coordinates (values between -1 and 1 for both x and y).
 
 - Outputs:
   - output: Vector2

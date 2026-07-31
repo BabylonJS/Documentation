@@ -10,14 +10,14 @@ video-content:
 
 If you have not already installed the babylon plugin for 3DS MAX, you can find all instructions [here](/features/featuresDeepDive/Exporters/3DSMax) as well as general information about the plugin.
 
-With this plugin, you can also export your project to glTF 2.0 format (https://github.com/KhronosGroup/glTF/).
+With this plugin, you can also export your project to the glTF 2.0 format (https://github.com/KhronosGroup/glTF/).
 
 All you need to do is choose **gltf** as **Output format**.
 
 ![glTF export window](/img/exporters/3DSMax/14_gltf_export_window.webp)
 
-The plugin exports to babylon format before converting it to glTF.
-The notable exported files are the .gltf and .bin ones.
+The plugin exports to Babylon format before converting it to glTF.
+The main exported files are the .gltf and .bin files.
 
 To export to a single .glb file, choose **glb** as **Output format**.
 
@@ -25,7 +25,7 @@ To export to a single .glb file, choose **glb** as **Output format**.
 
 ## Exported features
 
-Since the plugin first exports to babylon then converts it to glTF, glTF features are a subset of the [babylon ones](/features/featuresDeepDive/Exporters/3DSMax#features).
+Since the plugin first exports to Babylon and then converts it to glTF, glTF features are a subset of the [Babylon ones](/features/featuresDeepDive/Exporters/3DSMax#features).
 
 - _Cameras_
 
@@ -92,11 +92,11 @@ Note that the conversion duration scales with images size and may have a severe 
 
 The physical materials are exported to glTF format as PBR materials.
 
-Involved parameters are highlighted bellow and described in the following sections.
+The relevant parameters are highlighted below and described in the following sections.
 
 ![3DS MAX physical material parameters](/img/exporters/3DSMax/18_3dsmax_physical_materials_parameters.webp)
 
-Remember that in 3DS MAX, when a map is assigned to a parameter, the basic parameter value is ignored. This behaviour is kept when exporting.
+Remember that in 3DS MAX, when a map is assigned to a parameter, the basic parameter value is ignored. This behavior is preserved when exporting.
 
 ## Base color and Transparency
 
@@ -110,11 +110,11 @@ The base color RGB and the alpha A are merged together into a single color RGBA:
 
 ![glTF base color and alpha maps combined](/img/exporters/3DSMax/16_gltf_baseColor_alpha_combined.webp)
 
-The 2 maps must have same sizes to be merged successfully.
+The 2 maps must have the same size to be merged successfully.
 
 Note that the duration of this process scales with images size and may have a severe impact on export duration.
 
-The basic parameter value is used as default value when binded map is not provided:
+The basic parameter value is used as the default value when a bound map is not provided:
 
 ![glTF base color map and transparency weight combined](/img/exporters/3DSMax/17_gltf_baseColor_transparencyWeight_combined.webp)
 
@@ -132,17 +132,17 @@ In 3DS MAX, metalness and roughness maps are black and white images (R=G=B).
 
 In glTF format, metalness is stored in blue channel, roughness in green.
 
-The 2 maps must have same sizes to be merged successfully.
+The 2 maps must have the same size to be merged successfully.
 
-Note that the duration of this process scales with images size and may have a severe impact on export duration.
+Note that the duration of this process scales with image size and may have a severe impact on export duration.
 
-Like for base color and transparency, the basic parameter value is used as default value when binded map is not provided.
+As with base color and transparency, the basic parameter value is used as the default value when a bound map is not provided.
 
 ## Emission
 
 The exported emission color value is computed based on all 4 parameters: emission weight, color, luminance and Kelvin.
 
-However, the exported emission color map is identical to the specified one in generic map. This mean that emisson weight, luminance and Kelvin **are not** used. The emission map is assumed to be precomputed.
+However, the exported emission color map is identical to the one specified in the generic map. This means that emission weight, luminance, and Kelvin **are not** used. The emission map is assumed to be precomputed.
 
 ## Ambient occlusion
 
@@ -150,13 +150,13 @@ The diffuse roughness map is used as ambient occlusion.
 
 ## Bump map
 
-The bump map (or normal map) and its weight are used. A tangent-space normal map can be directly connected to the Bump input. Note that glTF does not support height maps. Connecting a height map may yield to unexpected results. **Normal Bump map nodes are currently not supported**.
+The bump map (or normal map) and its weight are used. A tangent-space normal map can be directly connected to the Bump input. Note that glTF does not support height maps. Connecting a height map may yield unexpected results. **Normal Bump map nodes are currently not supported**.
 
 ## Standard Surface Arnold material
 
 The Standard Surface Arnold material is exported to glTF format as a PBR material.
 
-Involved parameters are highlighted bellow.
+The relevant parameters are highlighted below.
 
 ![3DS Max Standard Surface parameters](/img/exporters/3DSMax/standardSurfaceParameters.webp)
 
@@ -167,7 +167,7 @@ When exporting, if a map is assigned to a parameter, the basic parameter value i
 In the _Basic Parameters_ and _Transparency_ sections, the base color weight, the base color and the transparency weight values are supported.
 And you can use a map for the base color and the transparency weight (the base color weight map is not supported).
 
-If you use a map for the base color, then the base color weight is overrided to 1 for the export.
+If you use a map for the base color, then the base color weight is overridden to 1 for the export.
 Also if the base color map and the transparency map are used, they must have the same size in order to be merged successfully.
 
 _Note:_ it is recommended to always set the base color weight to 1.
@@ -189,11 +189,11 @@ If you use two different maps, then the exporter merges them in one map.
 
 ### Metalness, roughness and occlusion all in one map
 
-Alternatively, you can provide a single texture used in both _Metalness_ and _Roughness_ to set an extra attribut: the Ambient Occlusion.
+Alternatively, you can provide a single texture used in both _Metalness_ and _Roughness_ to set an extra attribute: Ambient Occlusion.
 
 The Ambient Occlusion cannot be set in the Standard Surface material. Thus you cannot take it into account when rendering with Arnold.
 
-However, such feature is exported and you can hopefully use it in an engine of your choice, provided it does take it into account (Babylon does!). Since there isn't a dedicated channel for Occlusion, the trick is to use a single file for multiple purposes called ORM texture.
+However, this feature is exported, and you can hopefully use it in an engine of your choice, provided it takes it into account (Babylon does!). Since there isn't a dedicated channel for Occlusion, the trick is to use a single file for multiple purposes, called an ORM texture.
 
 Such texture defines:
 
@@ -220,7 +220,7 @@ In the _Special Features_ section, only the normal map is supported.
 
 ## Babylon properties
 
-Most babylon properties are not used when exporting to glTF format. The only one which matter is:
+Most Babylon properties are not used when exporting to glTF format. The only one that matters is:
 
 - **Do not export**: Self-explanatory, this object/light/camera won’t be exported. False by default.
 
@@ -231,22 +231,22 @@ There is a glTF lights extension, [KHR_lights_punctual](https://github.com/Khron
 
 ## Left to right handed coordinate system
 
-As glTF export relies on conversion from babylon, the coordinate system is changing from left (babylon) to right handed (glTF).
-To do it simply, a root node named "root" is added to the scene. All nodes are set as descendants of this root node. It has specific rotation and scaling to do the trick.
+As glTF export relies on conversion from Babylon, the coordinate system changes from left-handed (Babylon) to right-handed (glTF).
+To do this simply, a root node named "root" is added to the scene. All nodes are set as descendants of this root node. It has specific rotation and scaling to handle the conversion.
 
 ## Consideration about skins
 
-In glTF, a skin is binded to a node. The skeleton (root bone) of a skin should be positioned at origin, without rotation or scaling. The node to which is applied the skin is responsible for its transformation ([translation](/typedoc/classes/babylon.transformnode#translate), rotation, scale).
+In glTF, a skin is bound to a node. The skeleton (root bone) of a skin should be positioned at the origin, without rotation or scaling. The node to which the skin is applied is responsible for its transformation ([translation](/typedoc/classes/babylon.transformnode#translate), rotation, scale).
 
 ## Textures image format
 
-glTF 2.0 only supports the following image formats: jpg and png. You are adviced to use those formats for your textures when exporting to glTF.
+glTF 2.0 only supports the following image formats: jpg and png. You are advised to use those formats for your textures when exporting to glTF.
 
 Note that the exporter also supports textures with bmp, gif, tga, tif and dds formats. But, those textures will be automatically converted to png/jpg by the exporter to follow glTF specifications.
 
 ## Texture transform
 
-glTF 2.0 supports the [KHR_texture_transform extension](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform). When enabled during export, it would be set to required, meaning that the loader is expected to support the extension. Disabling the extension checkbox from the exporter window will export textures without apply the texture transform, which may look visually incorrect when loading into a glTF importer.
+glTF 2.0 supports the [KHR_texture_transform extension](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform). When enabled during export, it is set to required, meaning that the loader is expected to support the extension. Disabling the extension checkbox from the exporter window will export textures without applying the texture transform, which may look visually incorrect when loading into a glTF importer.
 
 ## Environment texture
 
@@ -256,7 +256,7 @@ However, glTF format does not support this feature and the environment map needs
 
 ## Double sided material
 
-The handling of the double sided material is mimic from babylon format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax#double-sided-material).
+The handling of the double sided material mimics the Babylon format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax#double-sided-material).
 
 ## Babylon material attributes
 
@@ -266,12 +266,12 @@ Native materials are enhanced to have extra attributes under Babylon attributes 
 
 Most Babylon attributes are common to all materials:
 
-- **Unlit**: A material can be exported as Unlit, meaning independent of lighting. This implies that light-relative attributes or textures are not exported: ambient, specular, emissive, bump mapping and reflection texture. Additionally in gltf, the **KHR_materials_unlit** extension is added to the material. [More details on this extension here](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit). During export, enable the _KHR_materials_unlit_ checkbox.
-- **Backface Culling**: When true, the back faces are not rendered. When false, back faces are rendered using same material as front faces. **This property is native to Standard material and is called _2-Sided_.**
+- **Unlit**: A material can be exported as Unlit, meaning independent of lighting. This implies that light-relative attributes or textures are not exported: ambient, specular, emissive, bump mapping, and reflection texture. Additionally, in glTF, the **KHR_materials_unlit** extension is added to the material. [More details on this extension here](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit). During export, enable the _KHR_materials_unlit_ checkbox.
+- **Backface Culling**: When true, the back faces are not rendered. When false, back faces are rendered using the same material as the front faces. **This property is native to the Standard material and is called _2-Sided_.**
 - **Opacity/Transparency Mode**: You can select how transparency is handled for this material among 3 choices:
   - _Opaque_: The alpha color and texture are ignored during export process.
   - _Cutoff_: The alpha cutoff value is 0.5 (not exported as it is the glTF default value). Alpha values under this threshold are fully transparent. Alpha values above this threshold are fully opaque.
-  - _Blend_: This how 3ds Max handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
+  - _Blend_: This is how 3ds Max handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
 
 ## Custom attributes
 
@@ -322,8 +322,8 @@ More information on how you could use this material in conjunction with the Shel
 On the export form, the _Use Draco compression_ option enables the Draco compression. It needs [Node.js](https://nodejs.org) and [gltf-pipeline](https://github.com/AnalyticalGraphicsInc/gltf-pipeline) in order to work.
 
 To install the Node.js, go to the web site download and install it.
-Then to install gltf-pipeline, open et normal shell (cmd.exe or powershell.exe) and run the following command `npm install -g gltf-pipeline`.
-Once they are installed, check the _Use Draco compression_ option and the compression will be automatically done at the export end.
+Then, to install gltf-pipeline, open a normal shell (cmd.exe or powershell.exe) and run the following command: `npm install -g gltf-pipeline`.
+Once they are installed, check the _Use Draco compression_ option and the compression will be done automatically at the end of the export.
 
 ## How to export 3D model with animation to .babylon / .gltf format
 
@@ -351,9 +351,9 @@ You can export all animations of the objects in your scene into a single animati
 
 ## Multiple animation clips
 
-You can also export multiple animations clips and play one of them depending on the situation. For example, a character would have "Walk", "Run" and "Jump" animations, each spread along the timeline.
+You can also export multiple animation clips and play one of them depending on the situation. For example, a character might have "Walk", "Run", and "Jump" animations, each spread along the timeline.
 
-To setup the animations clips (also named animation groups) right-click on your scene, you will have a menu Babylon -> Babylon Animation Groups, which opens the Animation Groups window.
+To set up the animation clips (also called animation groups), right-click your scene and choose Babylon -> Babylon Animation Groups, which opens the Animation Groups window.
 
 ![3ds animation groups window](/img/exporters/3DSMax/animation_groups_window.webp)
 
@@ -367,7 +367,7 @@ Features are explained below:
 
 - Add / remove node selection. This acts as a layer per animation group: only added nodes will be part of the animation group. This is useful when you export a complex scene and want to animate only a small part of it.
 
-- **Export non-animated node targets** option: when checked, all added nodes will be part of the animation group. Nodes that are actually not animated (no key in the timeline) will have a fake scale animation exported. This option might be useful if you want to add an in-game behaviour to all the nodes of an animation group, like toggle visibilty.
+- **Export non-animated node targets** option: when checked, all added nodes will be part of the animation group. Nodes that are not actually animated (no key in the timeline) will have a fake scale animation exported. This option might be useful if you want to add an in-game behavior to all the nodes of an animation group, such as toggling visibility.
 
 When updating an input field or the animation nodes, changes are highlighted through a color. Press the _Confirm_ button to submit changes.
 

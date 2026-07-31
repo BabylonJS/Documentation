@@ -22,9 +22,9 @@ Wood procedural texture can be found here:
 
 A demo can be found here: <Playground id="#K41IJ#3" title="Wood Procedural Texture Demo" description="Wood Procedural Texture Demo"/>
 
-This texture has 2 parameters :
-- **woodColor** to modify the color of the wood in the texture (BABYLON.Color3/4)
-- **ampScale** to change the waves amplitude in the wood (BABYLON.Vector2)
+This texture has 2 parameters:
+- **woodColor** changes the color of the wood in the texture (BABYLON.Color3/4)
+- **ampScale** changes the wave amplitude in the wood (BABYLON.Vector2)
 
 ```javascript
 var woodMaterial = new BABYLON.StandardMaterial("woodMat", scene);

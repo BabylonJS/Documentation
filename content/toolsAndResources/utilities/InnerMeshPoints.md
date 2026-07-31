@@ -1,12 +1,12 @@
 ---
 title: Create Points Inside A Mesh
 image: 
-description: Helpful code snippet for creating points inside of a mesh in Babylon.js.
+description: Helpful code snippet for creating points inside a mesh in Babylon.js.
 keywords: babylon.js, tools, resources, utilities, mesh points, add
 further-reading:
     - title: How To Create Points on a Mesh Surface
       url: /toolsAndResources/utilities/SurfaceMeshPoints
-    - title: How To Check When Point is Inside a Mesh
+    - title: How To Check When a Point Is Inside a Mesh
       url: /toolsAndResources/utilities/IsInside
 video-overview:
 video-content:
@@ -14,9 +14,9 @@ video-content:
 
 ## How To Create Points Inside a Mesh
 
-This utility enables you to create and store Vector3 points each of which is randomly positioned inside a given mesh.
+This utility enables you to create and store Vector3 points, each of which is randomly positioned inside a given mesh.
 
-## Design Outline.
+## Design Outline
 
 1. Take a random triangular facet belonging to the mesh;
 2. Choose a random point inside this triangle;
@@ -24,17 +24,17 @@ This utility enables you to create and store Vector3 points each of which is ran
 4. Using that point as ray origin and the vector as ray direction find the hit point of the ray on the mesh;
 5. Determine a random point on the line segment joining the origin point to the hit point.
 
-## Design Method.
+## Design Method
 
-1. For the mesh get the vertex positions and indices using
+1. For the mesh, get the vertex positions and indices using
 
 ```javascript
 var positions = mesh.getVerticesData(BABYLON.VertexBuffer.PositionKind);
 var indices = mesh.getIndices();
 ```
-Select a facet, F,  at random.
+Select a facet, F, at random.
 
-2. Obtain the three facet vertex positions, vertex0, vertex1 and vertex2 using the positions array. From these construct vectors, <u>vec0</u> and <u>vec1</u>, along two sides of the triangle one following the other. For a value 0  &le; &lambda; &le; 1,&nbsp; &lambda;<u>vec0</u> and &lambda;<u>vec1</u> will form two sides of a triangle similar to the facet. So when also given a value 0  &le; &mu; &le; 1,&nbsp; &lambda;<u>vec0</u> and &lambda;&mu;<u>vec1</u> will give a point inside the facet. The range of values for &lambda; and &mu; will determine all points within the facet. Hence random values for  &lambda; and &mu; will give random points on the facet plane.
+2. Obtain the three facet vertex positions, vertex0, vertex1, and vertex2 using the positions array. From these, construct vectors, <u>vec0</u> and <u>vec1</u>, along two sides of the triangle, one following the other. For a value 0 &le; &lambda; &le; 1,&nbsp;&lambda;<u>vec0</u> and &lambda;<u>vec1</u> form two sides of a triangle similar to the facet. So, when also given a value 0 &le; &mu; &le; 1,&nbsp;&lambda;<u>vec0</u> and &lambda;&mu;<u>vec1</u> give a point inside the facet. The range of values for &lambda; and &mu; determines all points within the facet. Hence, random values for &lambda; and &mu; give random points on the facet plane.
 
 ![Find point](/img/samples/manypoints.webp)
 
@@ -44,7 +44,7 @@ mu = BABYLON.Scalar.RandomRange(0, 1);
 facetPoint = vertex0.add(vec0.scale(lambda)).add(vec1.scale(lambda * mu));
 ```
 
-3. In order to generate a vector pointing inwards get the normal vector of the facet (which points outward), reverse it to get the vector <u>n</u>, use <u>t</u> = <u>vec0</u> as one vector in the plane and, <u>b</u>, the cross product of the normal and <u>vec0</u> as the other. For an angle 0 &le; &theta; &le; 2&pi;, &nbsp;&nbsp; <u>f</u> = <u>t</u>cos(&theta;) + <u>b</u>sin(&theta;) will give a vector in the facet plane. For an angle 0 &le; &phi; &le; &pi;, &nbsp;&nbsp;  <u>f</u>cos(&phi;) + <u>n</u>sin(&phi;) will give a vector whose direction is towards the inside of the mesh. 
+3. To generate a vector pointing inward, get the normal vector of the facet, which points outward, and reverse it to get the vector <u>n</u>. Use <u>t</u> = <u>vec0</u> as one vector in the plane and <u>b</u>, the cross product of the normal and <u>vec0</u>, as the other. For an angle 0 &le; &theta; &le; 2&pi;, &nbsp;&nbsp;<u>f</u> = <u>t</u>cos(&theta;) + <u>b</u>sin(&theta;) gives a vector in the facet plane. For an angle 0 &le; &phi; &le; &pi;, &nbsp;&nbsp;<u>f</u>cos(&phi;) + <u>n</u>sin(&phi;) gives a vector whose direction is toward the inside of the mesh.
 
 ```javascript
 mesh.updateFacetData(); // needed to use getFacetNormal
@@ -58,7 +58,7 @@ angle = BABYLON.Scalar.RandomRange(0.1, Math.PI);
 direction = facetPlaneVec.scale(Math.cos(angle)).add(norm.scale(Math.sin(angle)));
 ```
 
-4. Construct a ray using the facet point, direction and a distance equal to the diameter of the mesh's bounding sphere to ensure it is long enough to hit another facet of the mesh and find the hit point.
+4. Construct a ray using the facet point, the direction, and a distance equal to the diameter of the mesh's bounding sphere. This ensures it is long enough to hit another facet of the mesh and find the hit point.
 
 ```javascript
 var boundInfo = mesh.getBoundingInfo();
@@ -68,7 +68,7 @@ var ray = new BABYLON.Ray(facetPoint, direction, diameter);
 var hitPoint = ray.intersectsMesh(mesh).pickedPoint;
 ```
 
-5. Take some random fraction, 0 *le; r &le; 1, of the distance between the hit point and facet point and use this to determine a position of a point along this line using facetPoint + r(hitPoint - facetPoint) to determine a point within the mesh.
+5. Take a random fraction, 0 &le; r &le; 1, of the distance between the hit point and the facet point, and use this to determine the position of a point along this line. Use facetPoint + r(hitPoint - facetPoint) to determine a point within the mesh.
 
 ```javascript
 var ray = new BABYLON.Ray(facetPoint, direction, diameter);
@@ -83,9 +83,9 @@ var pickInfo = ray.intersectsMesh(this);
 	}
 ```
 
-## The Whole function
+## The Whole Function
 
-Set how many inside points to generate and store and return them in an array.
+Set how many interior points to generate, then store and return them in an array.
 
 ```javascript
 BABYLON.Mesh.prototype.createInnerPoints = function(pointsNb) {

@@ -15,7 +15,7 @@ The most important things to know about the Inspector architecture are:
 1. It uses React for all the UI, and specifically uses React function components and React hooks.
 2. It uses a modular architecture, meaning it is composed of a graph of loosely coupled "services."
 
-You can add new "services" that consume other services to add new features. This allows for things like adding new panes alongside scene explorer and the properties pane, or adding new toolbar items. Each of these features are themselves a "service." This is what enables extensibility of Inspector.
+You can add new "services" that consume other services to add new features. This allows for things like adding new panes alongside Scene Explorer and the Properties pane, or adding new toolbar items. Each of these features is itself a "service." This is what enables the Inspector's extensibility.
 
 ## Service Definitions
 
@@ -41,9 +41,9 @@ ShowInspector(scene, {
 });
 ```
 
-When Inspector is shown, the service factory function is called and in the example above, a message is logged to the console.
+When Inspector is shown, the service factory function is called. In the example above, a message is logged to the console.
 
-A service factory function can return an object, and this object can optionally implement `IDisposable`. If it does, the `dispose` function will be called when the service is being removed. This would happen when the Inspector is hidden, but could also happen when a [dynamic extension](#dynamic-extensions) is uninstalled. For example:
+A service factory function can return an object, and this object can optionally implement `IDisposable`. If it does, the `dispose` function will be called when the service is removed. This would happen when the Inspector is hidden, but could also happen when a [dynamic extension](#dynamic-extensions) is uninstalled. For example:
 
 ```ts
 export const MyServiceDefinition: ServiceDefinition<[], []> = {
@@ -66,11 +66,11 @@ To do something more useful, a service will typically "consume" other services a
 
 A service that is intended to be consumed by other services uses two concepts:
 
-**Service Contracts** - these are types (typically interfaces) that some other service can consume (depend on). As an interface/type, it is a TypeScript compile time construct.
+**Service Contracts** - these are types (typically interfaces) that some other service can consume (depend on). As an interface/type, this is a TypeScript compile-time construct.
 
 **Service Identity** - these are JavaScript `Symbol`s that represent a globally unique runtime identity for a service. They are needed to resolve dependencies (consume other services) at runtime.
 
-From a typing standpoint (compile time), a Service Contract is associated with a Service Identity through the `IService` interface. For example:
+From a typing standpoint (compile-time), a Service Contract is associated with a Service Identity through the `IService` interface. For example:
 
 ```ts
 export const OtherServiceIdentity = Symbol("Other Service");
@@ -113,7 +113,7 @@ Notice the following from the example above:
 3. The "Other Service" instance was added as a parameter to the factory function.
 4. The factory function uses the `otherService` argument to call the `doSomethingAmazing` function from "Other Service."
 
-To consume multiple other services, the tuples simply have multiple entries and the factory function has multiple parameters. The orders must all match, and the `ServiceDefinition` will type check this. If there is a mistake, you will see a compile time error.
+To consume multiple other services, the tuples simply have multiple entries and the factory function has multiple parameters. The order must match across them, and the `ServiceDefinition` will type check this. If there is a mistake, you will see a compile-time error.
 
 ## Producing Services
 
@@ -156,11 +156,11 @@ Notice the following from the example above:
 2. An interface (`IMyService`) for "My Service" was added that exposes one function.
 3. `IMyService` was added to the first tuple type parameter on the first line: `export const MyServiceDefinition: ServiceDefinition<[IMyService], [IOtherService]>`
 4. A `produces` property was added with a tuple containing the runtime identity of "My Service."
-5. The factory function now returns an object that implements the `IMyService` interface, and the `ServiceDefinition` will type check this. If the returned object does not implement *all* produced service contracts, you will see a compile time error.
+5. The factory function now returns an object that implements the `IMyService` interface, and the `ServiceDefinition` will type check this. If the returned object does not implement *all* produced service contracts, you will see a compile-time error.
 
 ## Anonymous Objects vs. Classes
 
-In the example above, the service instance returned from the service factory function is an anonymous object defined inline in the factory function. If you prefer (for example, when the service logic becomes more complex), you can also use a class. This is done by using the `ConstructorFactory` helper function. For example, if we wanted to make "My Service" a class, we could do so as follows:
+In the example above, the service instance returned from the service factory function is an anonymous object defined inline in the factory function. If you prefer, for example when the service logic becomes more complex, you can also use a class. This is done by using the `ConstructorFactory` helper function. For example, if we wanted to make "My Service" a class, we could do so as follows:
 
 ```ts
 export const MyServiceIdentity = Symbol("My Service");
@@ -199,7 +199,7 @@ export const MyServiceDefinition: ServiceDefinition<[IMyService], [IOtherService
 };
 ```
 
-And again, this is all type checked. If anything is incorrect with the constructor parameters or the interfaces implemented by the class, you will see a compile time error.
+And again, this is all type checked. If anything is incorrect with the constructor parameters or the interfaces implemented by the class, you will see a compile-time error.
 
 ## Static Extensions
 
@@ -211,16 +211,16 @@ ShowInspector(scene, {
 });
 ```
 
-This `ServiceDefinition`'s factory function will immediately be called, and the service will be instantiated. If it is injecting extra UI (side panes, toolbar items, etc.), they will immediately be visible. This is called a "static extension."
+This `ServiceDefinition`'s factory function will be called immediately, and the service will be instantiated. If it injects extra UI (side panes, toolbar items, etc.), it will immediately be visible. This is called a "static extension."
 
 ## Dynamic Extensions
 
-Unlike "static extensions," "dynamic extensions" must be explicitly installed by the user from the extensions dialog before they are instantiated (and potentially visible in the UI). "Dynamic extensions" are preferred over "static extensions" when:
+Unlike "static extensions," "dynamic extensions" must be explicitly installed by the user from the extensions dialog before they are instantiated and potentially visible in the UI. "Dynamic extensions" are preferred over "static extensions" when:
 
-- The extension adds scenario specific UI that is not useful in all cases and would otherwise contribute to making the UI overwhelming.
+- The extension adds scenario-specific UI that is not useful in all cases and would otherwise contribute to making the UI overwhelming.
 - The extension is large (either directly, or in that it pulls in a lot of dependencies) and it is preferable to defer downloading it until the user opts into it.
 
-The simplest way to add dynamic extensions is to use the `BuiltInsExtensionFeed`, which allows dynamically importing extensions so they can be code split into separate chunks by your bundler and only downloaded the first time they are installed. Continuing with our previous example, we'd first move "My Service" into a separate file/module so it can by dynamically imported:
+The simplest way to add dynamic extensions is to use the `BuiltInsExtensionFeed`, which allows dynamic imports so extensions can be code-split into separate chunks by your bundler and downloaded only the first time they are installed. Continuing with our previous example, we'd first move "My Service" into a separate file/module so it can be dynamically imported:
 
 ```ts
 export const MyServiceIdentity = Symbol("My Service");
@@ -259,7 +259,7 @@ export default {
 
 Notice the new default export at the very bottom of the file/module.
 
-Now we can setup our `BuiltInsExtensionFeed` that will dynamically import this module:
+Now we can set up our `BuiltInsExtensionFeed` to dynamically import this module:
 
 ```ts
 ShowInspector(scene, {

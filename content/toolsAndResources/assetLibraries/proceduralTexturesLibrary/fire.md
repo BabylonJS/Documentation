@@ -23,10 +23,10 @@ Fire procedural texture can be found here:
 
 A demo can be found here:  <Playground id="#KM3TC" title="Fire Procedural Texture" description="Fire Procedural Texture"/>
 
-This texture has 4 parameters :
-- **time** can be set manually(float) if autoGenerateTime(boolean) is set to false. It is used inside the fire shader to animate it
+This texture has several parameters:
+- **time** can be set manually (float) if autoGenerateTime(boolean) is set to false. It is used inside the fire shader for animation
 - **speed** controls the velocity (speed and direction) of the flames (BABYLON.Vector2)
-- **fireColors** is an array of 6 (BABYLON.Color3/4) defining the different color of the fire. You can define them manually of use presets available as static properties of the class (PurpleFireColors, GreenFireColors, RedFireColors, BlueFireColors)
+- **fireColors** is an array of 6 (BABYLON.Color3/4) values defining the different colors of the fire. You can define them manually or use presets available as static properties of the class (PurpleFireColors, GreenFireColors, RedFireColors, BlueFireColors)
 
 ```javascript
 var fireMaterial = new BABYLON.StandardMaterial("fireMat", scene);

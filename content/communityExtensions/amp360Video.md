@@ -14,7 +14,7 @@ The Azure Media Player 360 Video Plugin is a handy 360 video plugin for easy int
 
 ## Introduction
 
-The [Azure media player](http://amp.azure.net/libs/amp/latest/docs/index.html) 360 Video is a plugin for AMP (aka [Azure media player](http://amp.azure.net/libs/amp/latest/docs/index.html)) using Babylon.js in order to facilitate the integration of 360 videos in your Web App.
+The [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) 360 Video plugin for AMP (aka [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)) uses Babylon.js to facilitate the integration of 360 videos into your web app.
 
 The plugin natively supports VR headsets (Windows Mixed Reality, etc.).
 
@@ -41,21 +41,21 @@ The hosting web page will automatically open (using webpack-dev-server).
 
 ## How it works
 
-The 360 video is a [videojs](https://docs.videojs.com/tutorial-plugins.html) plugin compatible with from AMP version 2.1.7 to the latest (2.2.3 at time of writing).
+The 360 video plugin is a [videojs](https://docs.videojs.com/tutorial-plugins.html) plugin compatible with AMP versions 2.1.7 through the latest supported version (2.2.3 at the time of writing).
 
 The plugin depends on Babylon.js in order to enable 3D functionalities in AMP.
 
 For more information about AMP, you can access their [documentation](http://amp.azure.net/libs/amp/latest/docs/index.html).
 
-## How use in your web site
+## How to use it on your website
 
-After deploying the bundled javascript file [`dist/amp-360video.js`](https://raw.githubusercontent.com/BabylonJS/Extensions/master/Amp360Video/dist/amp-360video.js) from the dist directory to your WebSite you can follow the steps below.
+After deploying the bundled JavaScript file [`dist/amp-360video.js`](https://raw.githubusercontent.com/BabylonJS/Extensions/master/Amp360Video/dist/amp-360video.js) from the dist directory to your website, you can follow the steps below.
 
-> Note: if you were using the plugin before, you might have needed to reference Babylon.js in your site. We have now released a bundle ensuring the smallest delivery possible so the reference to Babylon.js is not required anymore.
+> Note: If you used the plugin before, you might have needed to reference Babylon.js in your site. We now provide a bundle that keeps delivery as small as possible, so the Babylon.js reference is no longer required.
 
 ## External Resources
 
-Include the following resources in you html:
+Include the following resources in your HTML:
 
 ```html
 <!-- Link to pep.js to ensure pointer events work consistently in all browsers -->
@@ -77,7 +77,7 @@ Include the link to your previously downloaded plugin script in your HTML:
 
 ## Plugin Setup
 
-You can either embed the plugin in your HTML or initialize it by code like specified in the [AMP documentation](http://amp.azure.net/libs/amp/latest/docs/index.html#plugins).
+You can either embed the plugin in your HTML or initialize it in code, as specified in the [AMP documentation](http://amp.azure.net/libs/amp/latest/docs/index.html#plugins).
 
 ### Html Initialization
 
@@ -92,7 +92,7 @@ Add the **threeSixty plugin** to your video data-setup:
 </video>
 ```
 
-The only difference with your default AMP initialization is the presence of the 360 plugin:
+The only difference from your default AMP initialization is the presence of the 360 plugin:
 
 ```javascript
 "plugins": { "threeSixty": { } }'
@@ -102,7 +102,7 @@ One example can be found in the _index.html_ file located in the [repo](https://
 
 ### Code Initialization
 
-The following code will initialize the plugin in your amp player:
+The following code initializes the plugin in your AMP player:
 
 ```javascript
 const myPlayer = amp(
@@ -140,11 +140,11 @@ myPlayer.src([
 
 One example can be found in the indexCode.html file located in the [repo](https://github.com/BabylonJS/Extensions/blob/master/Amp360Video/indexCode.html).
 
-## Define the video 360 format (Monoscopic, Side By Side, Top Bottom)
+## Define the 360 video format (Monoscopic, Side by Side, Top Bottom)
 
-Several types of 360 video exist today. The most common being Monoscopic Panoramic, Stereoscopic Side by Side panoramic and Top bottom panoramic.
+Several types of 360 video exist today. The most common are Monoscopic Panoramic, Stereoscopic Side by Side panoramic, and Top Bottom panoramic.
 
-The first one represents a panoramic view which is dedicated to one eye. The second one contains two panoramic views dedicated to each eye whereas the last one contains both panoramic views respectively on the top and bottom of the video.
+The first represents a panoramic view dedicated to one eye. The second contains two panoramic views, one for each eye, whereas the last contains both panoramic views on the top and bottom of the video, respectively.
 
 The plugin defaults to Monoscopic panoramic mode.
 
@@ -176,7 +176,7 @@ The available types are: "monoscopicPanoramic", "stereoscopicSideBySide", "stere
 
 ## Enable/Disable the VR Button
 
-By default, the plugin is delivered with a VR mode available through a button shaped like a head-mounted display.
+By default, the plugin includes a VR mode available through a button shaped like a head-mounted display.
 
 In order to disable the button, you can specify in your options:
 
@@ -202,7 +202,7 @@ plugins: {
 
 ## Update the camera FOV
 
-By default the plugin is delivered with a camera of a 1.18 radians field of view.
+By default, the plugin uses a camera with a 1.18-radian field of view.
 
 In order to change it if needed, you can specify a different value in your options:
 
@@ -228,7 +228,7 @@ plugins: {
 
 ## Update the default camera orientation
 
-In case the camera is not looking at what you expect when the video starts, you can use both options defaultCameraOrientationX and defaultCameraOrientationY to adapt the starting point of the camera to your use case. Those properties are angles respectively around the x and y axis defined in radians.
+If the camera is not looking where you expect when the video starts, you can use the defaultCameraOrientationX and defaultCameraOrientationY options to adjust the camera's starting point for your use case. These properties are angles around the x and y axes, respectively, defined in radians.
 
 In order to change them, you can specify a different value in your options:
 
@@ -254,7 +254,7 @@ plugins: {
 
 ## Disable WebGL2
 
-The default setup enables Webgl2 to enhance the performances of the application. In case of compatibility issues with all platforms, would you wish to disable it, you can rely on the setup below:
+The default setup enables WebGL2 to enhance application performance. If you encounter compatibility issues across platforms and want to disable it, you can use the setup below:
 
 ### By HTML configuration
 
@@ -278,9 +278,9 @@ plugins: {
 
 ## Adapt to native resolution
 
-To provide the best performances, by default the plugin does not account for you [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio) setup. It renders 1 to 1 with CSS pixels. In case of HiDPI or Retina display the ratio might be pretty high meaning if you want to get the most of your pixels (using physical pixels), the plugin should for instance render 4 times more pixels than the actual CSS number of pixels.
+To provide the best performance, the plugin does not account for your [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio) setup by default. It renders 1 to 1 with CSS pixels. On a HiDPI or Retina display, the ratio might be quite high, which means that if you want to make full use of your pixels (using physical pixels), the plugin may need to render, for example, four times more pixels than the actual CSS pixel count.
 
-You can use the hardwareScalingLevel settings of the plugin to chose how many times the Physical Pixels of your device are multiplied to define the number of CSS pixels. For instance a value of 0.5 means there would be twice as many pixels on width and height than the number of CSS pixels enhancing a lot the resolution.
+You can use the plugin's hardwareScalingLevel setting to choose how many times the physical pixels of your device are multiplied to define the number of CSS pixels. For instance, a value of 0.5 means there would be twice as many pixels in width and height as the number of CSS pixels, which greatly enhances the resolution.
 
 ### By HTML configuration
 

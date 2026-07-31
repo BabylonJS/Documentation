@@ -10,35 +10,34 @@ video-content:
 
 ## Vertical Wave with Vertex Shader
 
-As with any code it is important to have a firm idea of what you want to achieve, what is possible to code and 
-a design. 
+As with any code, it is important to have a firm idea of what you want to achieve, what is possible to code, and the design. 
 
 ## Requirements
-The requirements are a row of many boxes that move vertically in a wave motion. The motion will be achieved by 
-changing the apparent positions of all vertices within a Vertex Shader. To be clear the positions of the boxes within 
+The requirements are for a row of many boxes that move vertically in a wave motion. The motion will be achieved by 
+changing the apparent positions of all vertices within a Vertex Shader. To be clear, the positions of the boxes within 
 the scene model will not be altered. What will be changed through the Vertex Shader is their projection onto the screen.
 
 ## First Stage Design
-The boxes will be generated using the Solid Particle System as this deals with a multitude of repeated boxes efficiently. 
+The boxes will be generated using the Solid Particle System, as this deals with a multitude of repeated boxes efficiently. 
 The vertical height of a box at any time will depend on the time and its position along the x axis using the sin function.
 
 ## First Challenge
-Generally coding this project in Javascript, for example, would give access to the position of a box and so
+Generally, coding this project in JavaScript, for example, would give access to the position of a box, and so
 ```Javascript
 box.position.y = Math.sin(box.position.x + time)
 ```
 could be used.
 
-However the data passed to a Vertex Shader Code is the attributes of the vertices of a mesh or is through using uniforms. Also the 
-Vertex Shader Code applies to a single vertex with no access to any other vertices. 
-Since the x coordinate of vertices on the left hand side of the box will differ by the size of the box to those on the right hand side. 
-So sin(x<sub>Left</sub> + time) with differ from sin(x<sub>Right</sub> + time) distorting the box. 
+However, the data passed to Vertex Shader code are the attributes of the vertices of a mesh or values provided through uniforms. Also, the 
+Vertex Shader code applies to a single vertex with no access to any other vertices. 
+Since the x coordinate of vertices on the left-hand side of the box will differ from those on the right-hand side by the size of the box, 
+sin(x<sub>Left</sub> + time) will differ from sin(x<sub>Right</sub> + time), distorting the box. 
 
-What is needed is a method of obtaining the same number h, from the numbers x<sub>Left</sub> and x<sub>Right</sub>. 
+What is needed is a method of obtaining the same number h from the numbers x<sub>Left</sub> and x<sub>Right</sub>. 
 
 ## Second Stage Design
 
-The boxes are cubes arranged equally spaced with the following parameters, *size* of box, *gap* between boxes and *spacing* = *size* + *gap*
+The boxes are equally spaced cubes with the following parameters: *size* of box, *gap* between boxes, and *spacing* = *size* + *gap*.
 
 ![spaced boxes](/img/how_to/Shaders/wave1.webp)
 
@@ -46,9 +45,9 @@ The number of boxes n will be odd, numbered from the left starting with 0.
 
 The box i will be at position (i - floor(n/2)) \* *spacing* + *size*/2
 
-For example when n = 5, floor(n/2) = 2 and the left hand edges of the boxes 0 to 4 will have positions
+For example, when n = 5, floor(n/2) = 2 and the left-hand edges of boxes 0 to 4 will have positions
 
--2 \* *spacing*, -1 \* *spacing*, 0, 1 \* *spacing*, 2 \* *spacing* respectively. Adding size to these gives their hand edges.
+-2 \* *spacing*, -1 \* *spacing*, 0, 1 \* *spacing*, 2 \* *spacing* respectively. Adding size to these gives their right-hand edges.
 
 ![spaced boxes positions](/img/how_to/Shaders/wave2.webp)
 
@@ -61,13 +60,13 @@ function floor to each of these numbers gives
 
 -2, -2, &nbsp;&nbsp;&nbsp;-1, -1, &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;0, 0, &nbsp;&nbsp;&nbsp;1, 1, &nbsp;&nbsp;&nbsp;2,2.
 
-Hence obtaining a number h that is the same from the numbers x<sub>Left</sub> and x<sub>Right</sub>.  
-For a box the x coordinate of any vertex will either be on a left hand or a right hand edge and so for each box *x/spacing* 
+Hence, we obtain a number h that is the same from the numbers x<sub>Left</sub> and x<sub>Right</sub>.  
+For a box, the x coordinate of any vertex will either be on a left-hand or a right-hand edge, and so for each box *x/spacing* 
 will give a unique number. 
 
 ## Third Stage Design
 
-Within the Vertex Shader Main function 
+Within the Vertex Shader main function, 
 
 ```
 vec3 p = position;

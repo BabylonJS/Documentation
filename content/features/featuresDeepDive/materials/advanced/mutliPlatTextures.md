@@ -10,19 +10,19 @@ video-content:
 
 ## Compressed Textures for GPU
 
-There are special formats of textures which are optimized for access by graphics processors. They differ from formats whose primary mission is to hold / transmit image data for use on a CPU. Examples of image formats are .JPG & .PNG. Formats catering to GPUs may not be ones you are likely to have heard of. The file extensions for some of them are also not well established.
+There are special texture formats optimized for use by graphics processors. They differ from formats whose primary purpose is to hold / transmit image data for use on a CPU. Examples of image formats are .JPG and .PNG. GPU-targeted formats may not be ones you are likely to have heard of. The file extensions for some of them are also not well established.
 
 ## Advantages of Compressed Textures
 
-Unlike image file formats, the data of compressed textures is passed to the graphics hardware in its compressed form. A .JPG can be very small on disk, but gets expanded by the CPU on its way to the GPU. Retaining its compressed form is what gives these formats their advantages. They are:
+Unlike image file formats, the data in compressed textures is passed to the graphics hardware in its compressed form. A .JPG can be very small on disk, but it gets expanded by the CPU on its way to the GPU. Retaining the compressed form is what gives these formats their advantages. They are:
 
-- They have a smaller RAM footprint. This is most helpful for mobile devices which share memory between CPU and graphics cores. Since textures are multi-dimensional, space requirements can escalate very fast for scenes with many large textures. Higher-end mobile devices have been able to support up to 4k x 4k textures for some time. These allow for scenes where the camera can approach things, like a highly detailed object without a repeating pattern, and not look blurry when very close.
-- More compressed image "blocks" can fit into the cache of the processor at any one time. Caching / data access patterns are very important for high performance computing (HPC), which graphics is a form of.
-- Finally, they could lower battery usage, especially during loading. Image formats need to be unpacked. Back when .JPG was being designed, battery computers were mostly just luggables. The problems being addressed were network speed & disk space. Who cared then how much CPU was required for re-constituting as long as it was much faster than the network? Further, mipmaps (ever smaller versions for each power of 2 less in dimensions) need to be generated for image types. Mipmaps can be built into compressed texture formats.
+- They have a smaller RAM footprint. This is most helpful for mobile devices that share memory between CPU and graphics cores. Since textures are multi-dimensional, space requirements can escalate very quickly for scenes with many large textures. Higher-end mobile devices have been able to support up to 4k x 4k textures for some time. These allow for scenes where the camera can approach things, like a highly detailed object without a repeating pattern, without looking blurry when very close.
+- More compressed image "blocks" can fit into the processor cache at any one time. Caching / data access patterns are very important for high-performance computing (HPC), and graphics is a form of it.
+- Finally, they can lower battery usage, especially during loading. Image formats need to be unpacked. Back when .JPG was designed, battery-powered computers were mostly just luggables. The problems being addressed were network speed and disk space. Who cared then how much CPU was required for reconstituting an image, as long as it was much faster than the network? Further, mipmaps (ever smaller versions for each power of 2 less in dimensions) need to be generated for image types. Mipmaps can be built into compressed texture formats.
 
 ## The Catch
 
-There is more than one format for compressed textures. Due to the low level implementation for them in hardware, support for a given format cannot be added like a software driver update. Support is manufactured right into the circuitry. This is less of a problem when building an iOS, Android, or DirectX targeted application. For a BJS scene which should ideally be able to run on any device / browser, this is a big problem. Having separate HTML pages for different devices is not really an acceptable solution.
+There is more than one format for compressed textures. Due to their low-level hardware implementation, support for a given format cannot be added like a software driver update. Support is built right into the circuitry. This is less of a problem when building an iOS-, Android-, or DirectX-targeted application. For a BJS scene that should ideally run on any device / browser, this is a big problem. Having separate HTML pages for different devices is not really an acceptable solution.
 
 ## The Solution
 
@@ -30,15 +30,15 @@ Starting with Babylon.js v3.0, the compressed texture formats supported by a bro
 
 You can also use this playground: <Playground id="#1SCH7H#5" title="Compressed Textures Example" description="Simple example of multi-platform compressed textures."/> to test which format is supported on your devices.
 
-There is no getting around the fact that you need to provide multiple versions of each texture in different formats(more on that later). The only way of doing that involves having different files for each of the variants obviously, but the naming structure must be formalized in order to programmatically substitute for the image format file described in a .babylon file. The image format file of each texture still needs to be on the server as well, in cases when it needs to be used.
+There is no getting around the fact that you need to provide multiple versions of each texture in different formats (more on that later). The only way to do that is to have different files for each variant, obviously, but the naming structure must be formalized so the image format file described in a .babylon file can be substituted programmatically. The image format file for each texture still needs to be on the server as well, in cases where it needs to be used.
 
 ### Khronos Texture Container Format, [.KTX](https://www.khronos.org/opengles/sdk/tools/KTX/) files
 
-Now would be a good time to add the aside that due to the fact that this data is not directly used by CPU's and GPU's do not actually "read" files, there may or may not be an actual native file format for a given compression format. Even for those that do have an associated file format, writing load code for each separately would be tedious and require support.
+Now would be a good time to add the aside that, because this data is not directly used by CPUs and GPUs do not actually "read" files, there may or may not be an actual native file format for a given compression format. Even for those that do have an associated file format, writing separate load code for each would be tedious and would require support.
 
-Enter compressed texture container files, which can handle multiple or even all texture types. There are also a few container file formats as well (.DDS, .PVR, & .KTX). Container files can also have all the mipmaps of a texture inside them. BJS, implements this feature using KTX container files. KTX is specifically designed for OpenGL, and forces all the arcane code to handle any format OpenGL supports onto the file encoder / generator, even future formats without us doing anything other than adding extension detection, like ASTC.
+Enter compressed texture container files, which can handle multiple or even all texture types. There are a few container file formats as well (.DDS, .PVR, and .KTX). Container files can also have all the mipmaps of a texture inside them. BJS implements this feature using KTX container files. KTX is specifically designed for OpenGL and pushes all the arcane code needed to handle any format OpenGL supports onto the file encoder / generator, even for future formats, without us doing anything other than adding extension detection, like ASTC.
 
-Here is a chart of all the current formats possible for WebGL, listed in the order chosen when hardware supports multiple formats (tie breakers):
+Here is a chart of all the formats currently possible for WebGL, listed in the order chosen when hardware supports multiple formats (tie breakers):
 
 | Format | Extension    | Description                                                                                                                         | Alpha Capable |
 | ------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------- |
@@ -73,17 +73,17 @@ If you are going to do the encoding on your own in the PVRTexTool GUI tool, ther
 
 ### DOS batch scripts for PVRTexTool
 
-There are 2 batch scripts in the [BJS repo](https://github.com/BabylonJS/Babylon.js/tree/master/Tools/CompressedTextured). They both require that PVRTexToolCLI.exe, be put on the execution path just as the ASTC drop-in was. Doing both at the same time, and locating these 2 .BAT files in the same place seems like a good thing to do.
+There are 2 batch scripts in the [BJS repo](https://github.com/BabylonJS/Babylon.js/tree/master/Tools/CompressedTextured). They both require PVRTexToolCLI.exe to be put on the execution path, just as the ASTC drop-in was. Doing both at the same time, and locating these 2 .BAT files in the same place, seems like a good idea.
 
 #### make-ktx-batch.bat
 
-This script goes through the current directory, and writes a `ktx-batch.bat` file there. When you then call `ktx-batch.bat`, it will make an ASTC, DXT, PVRTC, ETC2, and ETC1 file for each .JPG and .PNG in the directory. Note that a .PNG extension is an indicator to use an alpha capable sub-type. ETC1 does not support alpha, so the .PNG will be used as a fall back, if ETC1 ends up being chosen.
+This script goes through the current directory and writes a `ktx-batch.bat` file there. When you then call `ktx-batch.bat`, it will make an ASTC, DXT, PVRTC, ETC2, and ETC1 file for each .JPG and .PNG in the directory. Note that a .PNG extension indicates that an alpha-capable subtype should be used. ETC1 does not support alpha, so the .PNG will be used as a fallback if ETC1 ends up being chosen.
 
-There is a single argument which indicates the quality of the texture. Specify D for developer level, Q for production quality. Tip: unless you are testing if this fixes hanging issues on mobile devices, you could just delay enabling this till all your textures get finalized. Also, do not rely on the results you get from using D on a desktop. DXT does not really have variable quality.
+There is a single argument that indicates the quality of the texture. Specify D for developer-level quality, Q for production quality. Tip: unless you are testing whether this fixes hanging issues on mobile devices, you could delay enabling this until all your textures are finalized. Also, do not rely on the results you get from using D on a desktop. DXT does not really have variable quality.
 
 #### ktx-files.bat
 
-This script will create the 5 variations of an image file. It can run for a very long time for Q setting. The ASTC type will use 100% of all your cores, so your system can be pretty unusable. Good to kick it off at the end of day. Also, due to running time, it will skip any files already existing. To re-do files, delete the existing versions first.
+This script will create the 5 variations of an image file. It can run for a very long time for the Q setting. The ASTC type will use 100% of all your cores, so your system can become pretty unusable. It's a good idea to kick it off at the end of the day. Also, due to the running time, it will skip any files that already exist. To redo files, delete the existing versions first.
 
 To recap (in a command shell):
 
@@ -95,11 +95,11 @@ ktx-batch
 
 ### Node.js script for PVRTexTool
 
-This is a script that generates PVRTC, ETC1, ETC2, ASTC textures from png and jpg files. It can run on node. Also it can be configured to generate all texture types or specific ones. More information about how to install and configure the script can be found [here](https://www.npmjs.com/package/babylonjs-texture-generator).
+This is a script that generates PVRTC, ETC1, ETC2, and ASTC textures from PNG and JPG files. It can run on Node.js. It can also be configured to generate all texture types or specific ones. More information about how to install and configure the script can be found [here](https://www.npmjs.com/package/babylonjs-texture-generator).
 
 ### Basis file format
 
-Another way to store compressed image textures is through the .basis file format
+Another way to store compressed image textures is through the .basis file format.
 
 See: https://github.com/BinomialLLC/basis_universal
 

@@ -1,7 +1,7 @@
 ---
 title: OffMeshConnections aka Teleports
 image:
-description: Learn about how to use teleports
+description: Learn how to use teleports
 keywords: extensions, babylon.js, crowd, addons, navigation, offmesh, connection, teleport
 further-reading:
 video-overview:

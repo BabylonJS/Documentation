@@ -14,9 +14,9 @@ video-content:
 
 A physics engine enables a game engine to simulate how real-world objects would behave. This means objects will fall down due to gravity, collide and bounce off each other. The simulation used by Havok is sometimes called a *rigid body* simulation, which is simply a term which means objects which don't change shape due to squashing or stretching.
 
-The most basic object in the physics engine is a body (`PhysicsBody`), which can be associated with a `TransformNode` - a body represents an object in the simulation; the simulation will process all the bodies, attempt to make them behave in a physically realistic manner and then update the `TransformNode` to match the position of the simulated body. The most obvious way it does this is that the engine performs collision detection to prevent bodies from intersecting. In order for a pair of bodies to detect collisions, the bodies each need a shape; however, collision detection can require a lot of calculations, so, rather than using the visual meshes of an object, the `PhysicsBody` has a shape (`PhysicsShape`) which is usually simpler than the render meshes and enable the engine to minimize the amount of calculations necessary to simulate the world. Shapes are described in more detail in a [future chapter](/features/featuresDeepDive/physics/shapes).
+The most basic object in the physics engine is a body (`PhysicsBody`), which can be associated with a `TransformNode`. A body represents an object in the simulation. The simulation processes all bodies, attempts to make them behave in a physically realistic manner, and then updates the `TransformNode` to match the position of the simulated body. One obvious example is collision detection, which prevents bodies from intersecting. For a pair of bodies to detect collisions, each body needs a shape. However, collision detection can require a lot of calculations, so rather than using an object's visual meshes, the `PhysicsBody` uses a shape (`PhysicsShape`) that is usually simpler than the render meshes and enables the engine to minimize the amount of calculation needed to simulate the world. Shapes are described in more detail in a [future chapter](/features/featuresDeepDive/physics/shapes).
 
-Bodies and shapes have properties which approximate how they behave in the real world. Bodies have a mass distributions and velocities. The velocity is the speed the body is moving at, while the mass distribution describes how the velocity changes when two bodies interact.Shapes themselves are geometric objects which is used for detecting when bodies are colliding with each other; these shapes additionally have material properties (`PhysicsMaterial`) such as friction and restitution (which describe how a collision affects the bodies when sliding and bouncing) and a density (which can be used to calculate the mass properties).
+Bodies and shapes have properties that approximate how they behave in the real world. Bodies have mass distributions and velocities. Velocity is the speed at which a body is moving, while the mass distribution describes how that velocity changes when two bodies interact. Shapes themselves are geometric objects used to detect when bodies are colliding with each other. These shapes also have material properties (`PhysicsMaterial`) such as friction and restitution, which describe how a collision affects bodies when sliding and bouncing, as well as density, which can be used to calculate mass properties.
 
 The final important object is a constraint (`PhysicsConstraint`) which allows you to link two bodies together in some manner. Two bodies linked together by a constraint still behave like independent bodies, but their movement is restricted by the constraint. A common example of a constraint is a door hinge, which allows one of the bodies to rotate around the hinge axis. Constraints are covered in more detail in a [future chapter](/features/featuresDeepDive/physics/constraints).
 
@@ -27,7 +27,7 @@ A physics body is a virtual object that represents a physical object in a simula
 
 ### Motion type
 
-There are three kinds of motion type (`PhysicsMotionType`) a body can have.
+There are three motion types (`PhysicsMotionType`) that a body can have.
 
 Static bodies are bodies which never move. Use this motion type for your terrain or any kind of object which should not move, but should still affect other bodies in the engine.
 
@@ -37,13 +37,13 @@ The final motion type is *animated* - bodies with this motion type are similar t
 
 ### Sleep mode
 
-When creating a body, you can request that it starts in *sleep mode*. Bodies in this mode will have their physic calculations skipped until the engine needs them to collide with another body or if a force is applied to them. This can improve performance if you're loading a scene where you know the bodies are at rest. However, *sleep mode is not an absolute guarantee*. Other factors, such as a nearby not-sleeping body can cause the body to wake up from this mode, so avoid having behavior that depends on it, and use it only as an aid to performance. Even if you don't request a body to start in sleep mode, the physics engine will automatically put bodies to sleep when they have come to rest and wake those bodies up when appropriate.
+When creating a body, you can request that it starts in *sleep mode*. Bodies in this mode will have their physics calculations skipped until the engine needs them to collide with another body or until a force is applied to them. This can improve performance if you're loading a scene where you know the bodies are at rest. However, *sleep mode is not an absolute guarantee*. Other factors, such as a nearby body that is not sleeping, can cause the body to wake up from this mode, so avoid having behavior that depends on it and use it only as a performance aid. Even if you don't request that a body start in sleep mode, the physics engine will automatically put bodies to sleep when they have come to rest and wake them up when appropriate.
 
 <Playground id="#KJ0945#1" title="Sleep mode" description="Shows how sleep mode has influence on created bodies dynamics"/>
 
 ### Creating a body
 
-You can create a body using the `PhysicsBody` constructor. It takes the `TransformNode` associated with that body, a motion type (static vs dynamic vs animated), a boolean representing if the body will start in sleep mode or not, and a scene (which needs to have an active Physics Engine).
+You can create a body using the `PhysicsBody` constructor. It takes the `TransformNode` associated with that body, a motion type (static vs dynamic vs animated), a boolean indicating whether the body will start in sleep mode, and a scene (which needs to have an active Physics Engine).
 
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere");
@@ -56,11 +56,11 @@ const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, 
 
 ### Setting the mass of a body
 
-A body has a *mass properties* which affect how it responds to the physics stimuli. 
+A body has *mass properties* that affect how it responds to physical stimuli. 
 
 The mass properties are: *mass*, which determines how "heavy" an object is, *center of mass*, which determines the point that a body spins around, *inertia*, which is similar to mass, but describes how far away the mass is distributed from the center of mass, affecting rotations, and *inertia orientation* which determines the axes that a body spins around.
 
-Some physics engines, such as Havok, can automatically determine the mass properties of a body from the body's shape, so it is very common to supply only the mass parameter and allow the rest of the properties to be derived by the engine (although the engine will also compute a mass if one is not provided)
+Some physics engines, such as Havok, can automatically determine the mass properties of a body from the body's shape, so it is very common to supply only the mass parameter and allow the engine to derive the rest of the properties (although the engine will also compute a mass if one is not provided).
 
 These mass properties are very important for achieving physically-realistic behaviour. An object with an incorrect inertia or center of mass will appear to rotate in an unnatural way, while a body with an incorrect mass might appear to be unnaturally heavy (or light!)
 
@@ -86,7 +86,7 @@ body.setMassProperties({
 
 ### Instanced bodies
 
-For meshes composed of [thin instances](/features/featuresDeepDive/mesh/copies/thinInstances), the body created by the engine is composed of multiple internal body instances. This allows faster rendering along with the physics simulation. All instances must have the same shape, but they can have their own individual mass, have forces and constraints individually applied to them, etc. Methods that can be applied at instance level have an optional `instanceIndex` parameter that receives the index of the instance where the method will be applied to. If no `instanceIndex` is provided, the method will be applied to all instances. An example is here:
+For meshes composed of [thin instances](/features/featuresDeepDive/mesh/copies/thinInstances), the body created by the engine is composed of multiple internal body instances. This allows faster rendering alongside the physics simulation. All instances must have the same shape, but they can have their own individual mass and have forces and constraints applied to them individually. Methods that can be applied at the instance level have an optional `instanceIndex` parameter that receives the index of the instance to which the method will be applied. If no `instanceIndex` is provided, the method will be applied to all instances. An example is shown here:
 
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere");
@@ -105,7 +105,7 @@ body.applyForce(new BABYLON.Vector3(0, 100, 0), new BABYLON.Vector3(0, 0, 0));
 body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0); 
 ```
 
-> ⚠️ Important: When setting the instance matrix using the `thinInstanceSetBuffer` method, you have to set the last argument as `false`. This makes it so the instance buffers are not static, which allows them to be changed by physics. So, the expected setBuffer call should be:
+> ⚠️ Important: When setting the instance matrix using the `thinInstanceSetBuffer` method, you have to set the last argument to `false`. This ensures that the instance buffers are not static, which allows them to be changed by physics. So, the expected `setBuffer` call should be:
  ```
  box.thinInstanceSetBuffer("matrix", matricesData, 16, false);
  ```
@@ -116,7 +116,7 @@ body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0)
 
 #### Limitations
 
-There are a few limitations when using instanced bodies in this way. Currently, it is not supported to have different scales on each thin instance's matrix. It is also not supported to have transformations at the mesh level, i.e, the instanced mesh's position, rotation and scale values have to be the default.
+There are a few limitations when using instanced bodies in this way. Currently, it is not supported to have different scales on each thin instance's matrix. It is also not supported to have transformations at the mesh level; i.e., the instanced mesh's position, rotation, and scale values must remain at their defaults.
 
 ## Shape
 
@@ -134,7 +134,7 @@ body3.shape = shape;
 // ...
 ```
 
-The Shape types supported by the V2 Plugin are:
+The shape types supported by the V2 plugin are:
 
 | Enum | Description | Image | Havok plugin support |
 | --- | --- | --- | --- |
@@ -169,7 +169,7 @@ shape.material = material;
 
 When a Body or Shape is not needed anymore, it is good practice to dispose of it. This ensures that the Physics Engine doesn't waste time processing what it doesn't need to. You can dispose of them by calling the `dispose` method.
 
-When a node associated to a Body is disposed, the corresponding Body is also disposed. However, *the shape used by the body is not automatically disposed*, as the same shape can be used by multiple bodies.
+When a node associated with a Body is disposed, the corresponding Body is also disposed. However, *the shape used by the body is not automatically disposed*, as the same shape can be used by multiple bodies.
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeSphere(
@@ -194,6 +194,6 @@ shape.dispose();
 
 ## SetTargetTransform
 
-SetTargetTransform is a method available on the PhysicsBody that takes in a target position and orientation, and sets the velocity of the body to reach that target. It is useful when you have the information about where the body should be, and don't want to have to calculate its velocity. This method is more commonly used with animated bodies.
+SetTargetTransform is a method available on the PhysicsBody that takes a target position and orientation and sets the body's velocity so it reaches that target. It is useful when you know where the body should be and do not want to calculate its velocity yourself. This method is more commonly used with animated bodies.
 
 <Playground id="#FLCVX1#2" title="SetTargetTransform" description="Playground showing how to use the setTargetTransform method to rotate a body"/>

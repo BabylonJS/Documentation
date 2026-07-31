@@ -11,7 +11,7 @@ video-content:
 ---
 
 ## Summary
-For this game, I made all the animations myself in Blender. In the past, I've had difficulty getting the animations to work correctly in Unity while using my own character rig with mixamo animations. So, I decided to learn how to animate them myself. The meshes are exported as glTF/.glb.
+For this game, I made all the animations myself in Blender. In the past, I've had difficulty getting the animations to work correctly in Unity while using my own character rig with Mixamo animations. So, I decided to learn how to animate them myself. The meshes are exported as glTF/.glb.
 
 If you'd like to see the animations themselves, you can drag the .glb files into the [Sandbox](https://sandbox.babylonjs.com/).
 
@@ -28,7 +28,7 @@ this._land = assets.animationGroups[3];
 this._run = assets.animationGroups[4];
 this._dash = assets.animationGroups[0];
 ```
-This way we can access them through the class variables. AnimationGroups are usually sorted alphabetically, but if you're not sure of the order you can check in the inspector.
+This way, we can access them through the class variables. AnimationGroups are usually sorted alphabetically, but if you're not sure of the order, you can check in the inspector.
 
 Once we've done this, we can set up the animations in [_setUpAnimations](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L236) which is also called in the Player constructor.
 ```javascript
@@ -77,9 +77,9 @@ if (this._input.jumpKeyDown && this._jumpCount > 0) {
     this._isFalling = false;
 }
 ```
-Because the jumping and landing animations are separate, so we need to know when exactly the jump phase is and when the landing phase starts.
+Because the jumping and landing animations are separate, we need to know exactly when the jump phase is and when the landing phase starts.
 
-In the `if(this._isGrounded)` check, we want to reset our animation flags since we're no longer falling and have no longer jumped.
+In the `if(this._isGrounded)` check, we want to reset our animation flags since we're no longer falling and are no longer jumping.
 ```javascript
 //jump & falling animation flags
 this._jumped = false;
@@ -110,7 +110,7 @@ if (this._input.dashing && !this._dashPressed && this._canDash && !this._grounde
 ```
 As soon as we detect that the dash has happened, we set the current animation.
 
-At the end of **_animatePlayer**, we need to check to make sure that we're only calling the current animation once. We do this by making sure that the current and previous animations are not the same, so that the animation actually play out its duration. (This is fine because we've already set which ones are looping, so when they play once, they'll keep looping).
+At the end of **_animatePlayer**, we need to make sure that we call the current animation only once. We do this by checking that the current and previous animations are not the same, so that the animation can actually play for its full duration. (This is fine because we've already set which ones loop, so once they start, they'll keep looping).
 ```javascript
 if(this._currentAnim != null && this._prevAnim !== this._currentAnim){
     this._prevAnim.stop();
@@ -119,7 +119,7 @@ if(this._currentAnim != null && this._prevAnim !== this._currentAnim){
 }
 ```
 ### Playing Animations
-Now that we have the animations hooked up, we need to call **_setUpAnimations** in the *Constructor* and **_animatePlayer** in *_beforeRenderUpdate*
+Now that we have the animations hooked up, we need to call **_setUpAnimations** in the *Constructor* and **_animatePlayer** in *_beforeRenderUpdate*.
 
 ## Mesh
 The other meshes in my game that used animations were the lanterns.
@@ -141,7 +141,7 @@ return {
         animationGroups: animGroup
         }
 ```
-What we do is, from the imported animationGroup, we extract the animation. Then we create a new animation that sets the mesh to its targeted animation. In the video, this was useful because the cannon mesh had two animations each belonging to a different mesh. Even though we have only 1 animation and 1 mesh, it's good to have this structure in case we wanted to add another animation later on.
+From the imported animationGroup, we extract the animation. Then we create a new animation group that sets the mesh to its targeted animation. In the video, this was useful because the cannon mesh had two animations, each belonging to a different mesh. Even though we have only 1 animation and 1 mesh, it's good to have this structure in case we want to add another animation later on.
 
 ### Cloning & Setting Up
 Similar to how we [cloned our lantern meshes](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L66), we need to clone the animationGroups so that they are paired with their corresponding mesh.
@@ -151,7 +151,7 @@ let animGroupClone = new AnimationGroup("lanternAnimGroup " + i);
 animGroupClone.addTargetedAnimation(assets.animationGroups.targetedAnimations[0].animation, lanternInstance);
 let newLantern = new Lantern(this._lightmtl, lanternInstance, this._scene, assets.env.getChildTransformNodes(false).find(m => m.name === "lantern " + i).getAbsolutePosition(), animGroupClone);
 ```
-We create a new animation group for each lantern, and use the animationGroup that we got from the import, then attach it to that specific lantern instance. This animGroupClone is what we pass to the Lantern Constructor.
+We create a new animation group for each lantern and use the animationGroup that we got from the import, then attach it to that specific lantern instance. This animGroupClone is what we pass to the Lantern constructor.
 ```javascript
 assets.animationGroups.dispose();
 ```

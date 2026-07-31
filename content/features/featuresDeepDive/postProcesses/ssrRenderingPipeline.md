@@ -16,7 +16,7 @@ video-overview:
 video-content:
 ---
 
-This rendering pipeline is new in Babylon.js 5.51.0 and replaces the [Screen Space Reflections Post Process](/features/featuresDeepDive/postProcesses/screenSpaceReflectionsPostProcess). This is a more efficient and robust method for rendering screen space reflections.
+This rendering pipeline is new in Babylon.js 5.51.0 and replaces the [Screen Space Reflections Post Process](/features/featuresDeepDive/postProcesses/screenSpaceReflectionsPostProcess). It is a more efficient and robust method for rendering screen space reflections.
 
 ## Introduction
 
@@ -25,13 +25,13 @@ Rendering reflections in real time can be done using several methods. Each metho
 - **Use of a mirror texture**:
   - Advantages: renders perfect reflections on a plane.
   - Disadvantages: limited to one reflection direction and complexity increases according to the geometry of the scene.
-- **Use of SSR post-processing** :
+- **Use of SSR post-processing**:
   - Advantages: makes all reflections possible in all directions and the complexity only depends on the screen resolution (like all post-processing).
   - Disadvantages: limited to what the camera sees.
 
 Ray tracing is also used in some games to render reflections. However, it is not yet available in web technologies.
 
-Here is a comparison of the rendering with and without the activation of the SSR rendering pipeline:
+Here is a comparison of the rendering with and without the SSR rendering pipeline enabled:
 | With SSR | Without SSR |
 | --- | --- |
 | ![With SSR](/img/how_to/ssrRenderingPipeline/intro_with_ssr.webp!500) | ![Without SSR](/img/how_to/ssrRenderingPipeline/intro_without_ssr.webp!500) |
@@ -53,7 +53,7 @@ For any reflective geometry in your scene, the SSR pipeline needs to know its "r
 - For a **Standard Material**: a specular color (`material.specularColor`), and optionally a specular texture (`material.specularTexture`). These elements will be used to know how much the object reflects for each pixel. **Important**: by default, the specular color of a standard material is `(1,1,1)`, so the material is totally reflective! If you don't want your material to be reflective, set the specular color to `(0,0,0)`.
 - For a **PBR** material: the `metallic` property and optionally a `metallicTexture` for the metallic/roughness workflow, and the `reflectivityColor` property and optionally a `reflectivityTexture` for the specular/glossiness workflow. The roughness property (in the metallic/roughness workflow) or the micro-surface property (in the specular/glossiness workflow) will also be used to blur the reflection (see below for more details).
 
-In the case of PBR, the reflective color is never black, there are always reflections, which means that the SSR effect will be applied to all pixels on the screen! This can be costly in performance for zero benefit, because when the reflective color is low, you usually won't see any difference between applying or not applying the SSR effect (it also depends on the roughness property). This is why the SSR pipeline provides a `reflectivityThreshold` property, which will disable the effect for pixels whose reflective color is at or below a certain threshold. The default value is `0.04`, which is the default reflective color you get when `metallic = 0`.
+In the case of PBR, the reflective color is never black, so there are always reflections. This means that the SSR effect will be applied to all pixels on the screen. This can be costly for no real benefit, because when the reflective color is low, you usually won't see any difference between applying or not applying the SSR effect (it also depends on the roughness property). This is why the SSR pipeline provides a `reflectivityThreshold` property, which disables the effect for pixels whose reflective color is at or below a certain threshold. The default value is `0.04`, which is the default reflective color you get when `metallic = 0`.
 
 **Important**: only standard and PBR materials are supported by the SSR effect!
 
@@ -71,7 +71,7 @@ const ssr = new BABYLON.SSRRenderingPipeline(
 );
 ```
 
-You can easily enable/disable the SSR effect by setting the `isEnabled` property of the pipeline.
+You can easily enable or disable the SSR effect by setting the `isEnabled` property of the pipeline.
 
 ## How SSR works
 
@@ -130,7 +130,7 @@ You can trade red pixels for blue pixels by increasing the value of `step`, whic
 
 The SSR rendering pipeline can use either the [Geometry Buffer Renderer](https://doc.babylonjs.com/typedoc/classes/babylon.geometrybufferrenderer) or the [Pre-Pass Renderer](https://doc.babylonjs.com/typedoc/classes/babylon.prepassrenderer) to render the scene. The default is to use the pre-pass renderer, but you can force the use of the geometry buffer renderer by setting the `forceGeometryBuffer` parameter in the constructor to `true`.
 
-You don't need to worry about the internal details of these renderers, but choosing one or the other can have an impact on the final rendering.
+You don't need to worry about the internal details of these renderers, but choosing one or the other can affect the final rendering.
 
 ### Using MSAA
 
@@ -164,7 +164,7 @@ Here is the PG used in these examples: <Playground id="#PIZ1GK#1046" title="Comp
 
 ### Depth texture type
 
-Also, one thing to note about the pre-pass renderer is that you have the option to use 16-bit floating textures for the depth texture, to save memory space for example (the geometry buffer renderer always uses a 32-bit floating texture). This can lead to rendering artifacts, depending on your scene:
+Also, one thing to note about the pre-pass renderer is that you have the option to use 16-bit floating textures for the depth texture, for example to save memory space (the geometry buffer renderer always uses a 32-bit floating texture). This can lead to rendering artifacts, depending on your scene:
 
 | 32 bits float depth texture                                                                           | 16 bits float depth texture                                                                    |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -219,7 +219,7 @@ The SSR pipeline also supports a more accurate method of calculating thickness, 
 
 Here is the corresponding PG: <Playground id="#PIZ1GK#1044" title="SSR Rendering Pipeline Example (Balls)" description="Mirror and Balls scene with screen space reflections"/>
 
-You enable this mode by setting the `enableAutomaticThicknessComputation` property of the SSR rendering pipeline to `true`:
+You can enable this mode by setting the `enableAutomaticThicknessComputation` property of the SSR rendering pipeline to `true`:
 
 ```javascript
 ssr.enableAutomaticThicknessComputation = true;
@@ -227,7 +227,7 @@ ssr.enableAutomaticThicknessComputation = true;
 
 In this mode, `thickness` is always used as an additional offset, but you can typically use a much lower value, and even 0 works well in many cases.
 
-However, this is not a magic mode, it will not solve all SSR problems and only a single thickness can be calculated this way. Also, it is more demanding in terms of performance because there is additional rendering of the scene to generate the back depth buffer.
+However, this is not a magic mode. It will not solve all SSR problems, and only a single thickness can be calculated this way. It is also more demanding in terms of performance because the scene must be rendered again to generate the back depth buffer.
 Sometimes it's better to add a little blur to mask artifacts rather than enabling this mode, which will be lighter on the GPU.
 
 You can reduce the GPU requirements of this mode by setting a value greater than 0 for `backfaceDepthTextureDownsample` (1 to divide the texture size by 2, 2 to divide it by 3 and so on), which will reduce the size of the depth texture used by the depth renderer. However, this can lead to significant artifacts, so it is always a trade-off between performance and quality and how best you can try to hide the artifacts.
@@ -436,7 +436,7 @@ If we enable `attenuateIntersectionDistance` in the first case, and `attenuateIn
 | --- | --- |
 | ![Soft transition with maxDistance](/img/how_to/ssrRenderingPipeline/artifacts_softtransition_maxdistance.webp!500) | ![Soft transition with maxSteps](/img/how_to/ssrRenderingPipeline/artifacts_softtransition_maxsteps.webp!500) |
 
-This is normally the behavior you want, that's why these two parameters are enabled by default.
+This is normally the behavior you want, which is why these two parameters are enabled by default.
 
 #### Attenuate reflections for rays facing the camera
 
@@ -447,7 +447,7 @@ Reflected rays coming towards the camera should normally be ignored for intersec
 
 As you can see, when the rays facing the camera are not attenuated, we get a "backward" reflection for the gas pumps. These reflections are false because we can't reflect the back of the pumps, but it's not obvious in the screenshot and in the motion + a little blur would probably fool many people! That's why the `attenuateFacingCamera` parameter is `false` by default.
 
-Here is the PG corresponding to the screenshot on the left: <Playground id="#PIZ1GK#1052" title="SSR rays facing camera" description="SSR no attenuation for rays facing camera"/>
+Here is the PG corresponding to the screenshot on the left: <Playground id="#PIZ1GK#1052" title="SSR rays facing camera" description="SSR with no attenuation for rays facing the camera"/>
 
 #### Attenuate backface reflections
 
@@ -490,7 +490,7 @@ Here is the PG corresponding to the scene with the local cube map: <Playground i
 
 #### Managing self-intersections
 
-As explained in [How-ssr-is-working](#how-ssr-works), the starting point of the reflected ray is shifted to avoid self-intersections and false reflections. The `selfCollisionNumSkip` property controls how many iterations to skip at the start before considering an intersection legitimate. While a value of 1 works well in most cases, it is sometimes necessary to increase this value a bit:
+As explained in [How SSR works](#how-ssr-works), the starting point of the reflected ray is shifted to avoid self-intersections and false reflections. The `selfCollisionNumSkip` property controls how many iterations to skip at the start before considering an intersection legitimate. While a value of 1 works well in most cases, it is sometimes necessary to increase this value a bit:
 | `selfCollisionNumSkip = 1` | `selfCollisionNumSkip = 2` |
 | --- | --- |
 | ![selfCollisionNumSkip = 1](/img/how_to/ssrRenderingPipeline/hillvalley_skip_1.webp!500) | ![selfCollisionNumSkip = 2](/img/how_to/ssrRenderingPipeline/hillvalley_skip_2.webp!500) |

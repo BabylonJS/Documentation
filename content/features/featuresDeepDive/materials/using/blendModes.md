@@ -28,12 +28,12 @@ All the available blend modes are listed below:
 | `BABYLON.Engine.ALPHA_MAXIMIZED` | This blend mode is similar to ALPHA_ADD, but gives off a less vibrant and saturated effect. | |
 | `BABYLON.Engine.ALPHA_ONEONE` | This blend mode is very similar to ALPHA_ADD, except that it is not modulated by alpha value. Used internally for various visual effects. | Blending is **not** modulated by alpha value. |
 
-Please note that the blending operations are in fact simple mathematical operations done separately on R, G and B components of the pixel values, each one comprised between 0 and 1. As such, having a green mesh (R=0, G=1, B=0) set with ALPHA_SUBTRACT drawn over a yellow one (R=1, G=1, B=0) will give off a red value (R=1, G=0, B=0).
+Please note that the blending operations are in fact simple mathematical operations done separately on the R, G, and B components of the pixel values, each one between 0 and 1. As such, having a green mesh (R=0, G=1, B=0) set with ALPHA_SUBTRACT drawn over a yellow one (R=1, G=1, B=0) will give a red value (R=1, G=0, B=0).
 
 
 ## How to Use Blend Modes
 
-Using blend modes is done by manipulating the `alphaMode` property of materials, setting it to one of the constants listed above.
+Blend modes are used by manipulating the `alphaMode` property of materials and setting it to one of the constants listed above.
 
 **This property will only be used when the rendered mesh is alpha-blended.** This is very important, because since the `alphaMode` property will have absolutely no effect on an opaque mesh, you will need to make sure your mesh is *alpha-blended* to use it.
 
@@ -42,7 +42,7 @@ You can force an opaque mesh to be alpha-blended by making it very slightly tran
 mesh.visibility = 0.9999;
 ```
 
-Or you can assign an opacity texture to its material (even if the opacity texture have no alpha channel):
+Or you can assign an opacity texture to its material (even if the opacity texture has no alpha channel):
 ```javascript
 material.opacityTexture = material.diffuseTexture;
 ```

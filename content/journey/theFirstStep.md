@@ -10,13 +10,13 @@ video-content:
 
 ## EVERYONE's very first step
 
-Welcome to "The Very First Step." This document is designed for absolutely EVERYONE. Whether you're an expert web developer diving into 3D, an amazing artist wanting to create 3D experiences on the web, a student/tinkerer curious about programming, or an absolute beginner, this is your very first step to learning Babylon. We strongly encourage everyone new to Babylon to go through this doc before going any further through the docs.
+Welcome to "The Very First Step." This document is designed for absolutely EVERYONE. Whether you're an expert web developer diving into 3D, an amazing artist wanting to create 3D experiences on the web, a student/tinkerer curious about programming, or an absolute beginner, this is your very first step to learning Babylon. We strongly encourage everyone new to Babylon to go through this page before going any further through the docs.
 
 This doc will take you on a VERY brief journey of creating and hosting your very first Babylon.js Web Experience. You'll learn about the Babylon.js playground, scratch the surface of learning the core engine, and save your work as a ready-to-host .html file.
 
 ### The Babylon.js Playground
 
-The single most important tool available to you as you learn and develop with Babylon, is the Babylon.js Playground.
+The single most important tool available to you as you learn and develop with Babylon is the Babylon.js Playground.
 
 ![playground](/img/home/playground.webp)
 
@@ -37,7 +37,7 @@ So now that you know the playground is the single most important tool to start l
 
 ### Your First Creation
 
-Welcome to the Playground! Using the playground is as simple as modifying/creating code in the code editor on the left, and seeing updates in the live Babylon scene on the right! You'll also see a default Babylon scene that we've set up for you. Take a quick look at the comments in green font in the code editor. These comments should give you a basic idea of what's happening with each line of code that's written. Pretty simple right?
+Welcome to the Playground! Using the playground is as simple as modifying/creating code in the code editor on the left, and seeing updates in the live Babylon scene on the right! You'll also see a default Babylon scene that we've set up for you. Take a quick look at the comments in green font in the code editor. These comments should give you a basic idea of what's happening with each line of code that's written. Pretty simple, right?
 
 There's no better way to start learning than by doing, so let's make our first scene update!
 
@@ -59,7 +59,7 @@ BOOM! The sphere is gone!
 
 <Playground id="#2KRNG9" title="Playground 1" description="Goodbye Sphere!"/>
 
-Quick side note - Throughout this document we'll add links to playgrounds showing you exactly what changes were just made. You can reference these playgrounds with your own progress if you ever get stuck. The little arrow symbol will open these playgrounds in a new tab.
+Quick side note - throughout this document we'll add links to playgrounds showing you exactly what changes were just made. You can compare these playgrounds with your own progress if you ever get stuck. The little arrow symbol will open these playgrounds in a new tab.
 
 Let's make another change!
 
@@ -71,11 +71,11 @@ groundMaterial.diffuseColor = BABYLON.Color3.Red();
 ground.material = groundMaterial;
 ```
 
-Run the scene again (ALT+ENTER, or run button)
+Run the scene again (ALT+ENTER, or the run button).
 
 <Playground id="#2KRNG9#2150" title="Playground 2" description="The ground is red!"/>
 
-Congratulations! You just created a new material, assigned that new material to the ground plane, and assigned it's diffuse channel to be the color red! Pretty cool huh?! Don't worry if some of that is still a bit confusing, the takeaway here is that you're making code changes on the left and seeing updates on the right.
+Congratulations! You just created a new material, assigned that new material to the ground plane, and assigned its diffuse channel to be the color red! Pretty cool huh?! Don't worry if some of that is still a bit confusing, the takeaway here is that you're making code changes on the left and seeing updates on the right.
 
 Ok time for another change.
 
@@ -124,9 +124,9 @@ Assets.meshes.Yeti.rootUrl + Assets.meshes.Yeti.filename
 
 <Playground id="#2KRNG9#3849" title="Playground 4" description="Yeti on the dance floor!"/>
 
-Whoa! Cool! You just added an animated .gltf object into the scene! And you also scaled it down to fit on the groundplane! Well done!
+Whoa! Cool! You just added an animated .gltf object into the scene! And you also scaled it down to fit on the ground plane! Well done!
 
-Let's change one final thing. We want our scene to be interactive, after all isn't that what why you're here - to create interactive web experiences?
+Let's change one final thing. We want our scene to be interactive. After all, isn't that why you're here - to create interactive web experiences?
 
 Delete lines 5-9.
 
@@ -180,7 +180,7 @@ Locate the file that you downloaded from the Babylon.js playground and drag it o
 
 ![uploadCommit](/img/home/uploadCommit.webp)
 
-One last step and then your Babylon Experience will be hosted with a live url for anyone to see.
+One last step and then your Babylon experience will be hosted with a live URL for anyone to see.
 
 Hit the "Settings" button on the main repo page.
 
@@ -190,11 +190,11 @@ Navigate to the "Pages" menu item, set the "Branch" to "main", and hit the save 
 
 ![pages](/img/home/pages.webp)
 
-After your settings are saved you'll see the url to reach your website! You can share that url with anyone that you'd like!
+After your settings are saved, you'll see the URL for your website! You can share that URL with anyone that you'd like!
 
 ![url](/img/home/url.webp?expandable=false)
 
-Your project also needs one more file to complete the setup which defines the title and description of your website. It is a file named \_config.yml and if it is not already in your repository, you can simply create one easily. Simply use the `Add File` drop down and select `Create New File`.
+Your project also needs one more file to complete the setup, which defines the title and description of your website. It is a file named \_config.yml and if it is not already in your repository, you can simply create one easily. Simply use the `Add File` drop down and select `Create New File`.
 
 ![create text file](/img/home/addNewTextFile.webp)
 
@@ -208,7 +208,7 @@ description: Website description.
 
 ![create config file](/img/home/createTextFile.webp)
 
-Once you are done editing the config file, click the `Commit changes...` button to commit the file to the repository. This will bring up a window that asks you to create a commit message and extended description. Entering a message and description will show up in your repository's history, so it is good to be descriptive here. Once you have those entered, select the `Commit directly to the main branch` option and then `Commit changes`.
+Once you are done editing the config file, click the `Commit changes...` button to commit the file to the repository. This will bring up a window that asks you to create a commit message and extended description. The message and description will show up in your repository's history, so it is good to be descriptive here. Once you have those entered, select the `Commit directly to the main branch` option and then `Commit changes`.
 
 ![commit text file to repository](/img/home/commitTextFile.webp)
 

@@ -12,11 +12,11 @@ video-overview:
 video-content:
 ---
 
-## How To use the Node Material with Particles
+## How To Use the Node Material with Particles
 
 The Node Material Editor (aka NME) is a powerful tool that can be used to design shaders, [particles](/features/featuresDeepDive/materials/node_material/nodeMaterial#creating-particle-shaders), and [post processes](/features/featuresDeepDive/materials/node_material/nodeMaterial#creating-post-processes).
 
-This article will help you set up a simple scene that will contain only a few lines of code, because all of the work will be done using our editors.
+This article will help you set up a simple scene with only a few lines of code, because all of the work will be done using our editors.
 
 You can see the final result here:
 
@@ -42,7 +42,7 @@ If you are executing this code in the [Playground](https://playground.babylonjs.
 
 If you are running the code on your own, you can call `scene.debugLayer.show()`.
 
-Once there, you can right click on the "Particle Systems" node to create a new particle system:
+Once there, you can right-click on the "Particle Systems" node to create a new particle system:
 
 ![Create new system](/img/how_to/Particles/create_new_system.jpg)
 
@@ -62,7 +62,7 @@ You can see my setup in this playground:
 
 The beauty of the snippet server is that it gives you a central place to store and update your particle system without having to modify your code.
 
-We can use the [async/await pattern](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) in our example to load a snippet asychronously. We can flag our function as `async` and then `await` a link to our particle system using the snippet ID:
+We can use the [async/await pattern](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) in our example to load a snippet asynchronously. We can flag our function as `async` and then `await` a link to our particle system using the snippet ID:
 
 ```javascript
 const createScene = async function () {
@@ -96,9 +96,9 @@ BABYLON.ParticleHelper.CreateFromSnippetAsync("T54JV7#13", scene, false).then((s
 
 We are going to use the same approach for the node material.
 
-To setup our material, let's open the NME at [https://nme.babylonjs.com/](https://nme.babylonjs.com/)
+To set up our material, let's open the NME at [https://nme.babylonjs.com/](https://nme.babylonjs.com/)
 
-The NME can be used for materials, particles and postprocesses. We'll switch to particles mode:
+The NME can be used for materials, particles, and post processes. We'll switch to particles mode:
 
 ![Particle mode in NME](/img/how_to/Particles/nme_particle.jpg)
 
@@ -108,7 +108,7 @@ For this demo, I created a material where the particles are displayed with one t
 
 In a nutshell, I'm checking the particle position in world space and using a [smoothstep](https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/smoothstep.xhtml) to output a value between 0 and 1, which is then used with a gradient between black and white. This color is then used to mix (lerp) between two textures.
 
-Just like the particle system, you can save your creation to the snippet server and gets a snippet Id.
+Just like the particle system, you can save your creation to the snippet server and get a snippet ID.
 
 ## Applying the material
 
@@ -124,7 +124,7 @@ let nodeMaterial = await BABYLON.NodeMaterial.ParseFromSnippetAsync("#345ATT#4",
 nodeMaterial.createEffectForParticles(system);
 ```
 
-As you can see the NodeMaterial class has a handy function to apply it to a particle system.
+As you can see, the NodeMaterial class has a handy function to apply it to a particle system.
 
 And voila!
 The final code is extremely simple (thanks to async/await in particular):
@@ -155,13 +155,13 @@ const createScene = async function () {
 
 ## Automatic updates
 
-The best part is that our Playground can evolve automagically. If you open the main Playground (referenced at the beginning of this article), you can keep editing the particle system or the material, and your code will automatically update. This happens every time open the Inspector and use one of the editors. When you click "Save to Snippet Server", the system will be smart enough to work with the Playground and update the link for you:
+The best part is that our Playground can evolve automagically. If you open the main Playground (referenced at the beginning of this article), you can keep editing the particle system or the material, and your code will automatically update. This happens every time you open the Inspector and use one of the editors. When you click "Save to Snippet Server", the system will be smart enough to work with the Playground and update the link for you:
 
 ![Automatic update](/img/how_to/Particles/auto-pg.webp)
 
 You can see in the GIF that the Snippet ID for the particle system is updated to version #14 when I hit the save button.
 
-Now that we know about that automatic update,there was another option to create the initial particle. You could have called the CreateFromSnippetAsync with a "\_\_BLANK" id:
+Now that we know about that automatic update, there is another option for creating the initial particle system. You could have called `CreateFromSnippetAsync` with a "\_\_BLANK" ID:
 
 ```javascript
 BABYLON.ParticleHelper.CreateFromSnippetAsync("_BLANK", scene, false).then((system) => {
@@ -169,4 +169,4 @@ BABYLON.ParticleHelper.CreateFromSnippetAsync("_BLANK", scene, false).then((syst
 });
 ```
 
-And then from there you could have used the Inspector to edit it (The inspector can replace the \_\_BLANK with the right id later on)
+From there, you could use the Inspector to edit it (the Inspector can replace the \_\_BLANK with the right ID later on).

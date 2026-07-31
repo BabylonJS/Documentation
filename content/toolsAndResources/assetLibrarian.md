@@ -12,11 +12,11 @@ video-content:
 
 Babylon.js provides a large asset library of free models, environments, textures, materials, particles, sounds, etc. These assets are free for you to use under the [Creative Commons 0](https://creativecommons.org/share-your-work/public-domain/cc0/) license.
 
-Intrdouced in Babaylon.js 5.0, the Asset Librarian is an incredibly simply tool allowing you to access this full library of content directly in the playground with simple lines of code.
+Introduced in Babylon.js 5.0, the Asset Librarian is an incredibly simple tool that lets you access this full content library directly in the Playground with just a few lines of code.
 
-Using the "Assets" namespace, you can easily add any asset into your scene.
+Using the "Assets" namespace, you can easily add any asset to your scene.
 
-For example adding the Pirate Fort mesh into your scene is as simple as this:
+For example, adding the Pirate Fort mesh to your scene is as simple as this:
 
 ```javascript
 BABYLON.ImportMeshAsync(Assets.meshes.pirateFort.rootUrl + Assets.meshes.pirateFort.filename, scene);
@@ -24,9 +24,9 @@ BABYLON.ImportMeshAsync(Assets.meshes.pirateFort.rootUrl + Assets.meshes.pirateF
 
 <Playground id="#ABDDD6#122" title="Load a Mesh Using the Asset Librarian" description="Simple example of how to use the Asset Librarian to load mesh into the scene." isMain={true} category="Import"/>
 
-## Adding To the Asset Library
+## Adding to the Asset Library
 
-The raw files for the assets available through the Asset Librarian can be found in the [Babylon.js Assets Github Repository](https://github.com/BabylonJS/Assets).
+The raw files for the assets available through the Asset Librarian can be found in the [Babylon.js Assets GitHub Repository](https://github.com/BabylonJS/Assets).
 
 This library of assets is free, open-source, and available for anyone to use under the [Creative Commons 0](https://creativecommons.org/share-your-work/public-domain/cc0/) license.
 

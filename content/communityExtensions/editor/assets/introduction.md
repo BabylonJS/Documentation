@@ -1,7 +1,7 @@
 ---
 title: Assets introduction
 image: 
-description: Understanding how to the "Assets Browser" panel of Babylon.JS Editor
+description: Understanding how to use the "Assets Browser" panel in the Babylon.JS Editor
 keywords: editor, workspace, assets
 further-reading:
 video-overview:
@@ -10,17 +10,17 @@ video-content:
 
 ## Introduction
 
-Starting from Babylon.JS Editor v4.1.0, assets management has been improved by introducing a new panel: **"Assets Browser"**.
-All assets are now shared across projects and are now browsable like we can do in other famous 3D editors.
+Starting with Babylon.JS Editor v4.1.0, asset management has been improved by introducing a new panel: **"Assets Browser"**.
+All assets are now shared across projects and can be browsed as in other popular 3D editors.
 
-The assets browser can browse two main assets types:
-* Sources folder `/src` which contains all the project's TypeScript, Json, etc. files
-* Assets folder `/assets` which contains all the scenes assets (textures, meshes, materials, sounds, etc.).
+The Assets Browser can browse two main asset types:
+* Source folder `/src`, which contains all the project's TypeScript, JSON, and other files
+* Assets folder `/assets`, which contains all scene assets (textures, meshes, materials, sounds, etc.).
 
-To identify assets quickly, distinct colors are applied on titles:
-* `Yellow` represents meshes assets
-* `Green` represents materials assets
-* `Blue` represents particle systems assets
+To identify assets quickly, distinct colors are applied to titles:
+* `Yellow` represents mesh assets
+* `Green` represents material assets
+* `Blue` represents particle system assets
 
 ## Using Assets Browser
 
@@ -32,29 +32,29 @@ Each time a directory is selected in the tree (left pane), the right pane is upd
 
 ![SelectDirectoryTree](/img/extensions/Editor/AssetsIntroduction/select-directory-tree.webp)
 
-The right pane also contains a stack of opened folders. This stack is used to know the currently browsed path
-and can be clicked to quickly access a specified directory available in the stack.
+The right pane also contains a stack of open folders. This stack shows the currently browsed path
+and can be clicked to quickly access a directory available in the stack.
 
 ![UseStack](/img/extensions/Editor/AssetsIntroduction/use-stack.webp)
 
-## Using favorites
+## Using Favorites
 
-On top of the directory tree, 2 favorites shortcuts are available:
-* `All Materials`: shows the list of all available materials assets that have been instantiated (used) in the current scene.
-* `All Textures`: as for materials, shows the list of all available textures assets that have been instantiated (used) in the current scene.
+At the top of the directory tree, 2 favorite shortcuts are available:
+* `All Materials`: shows the list of all available material assets that have been instantiated (used) in the current scene.
+* `All Textures`: like materials, shows the list of all available texture assets that have been instantiated (used) in the current scene.
 
 ![UsingFavorites](/img/extensions/Editor/AssetsIntroduction/using-favorites.webp)
 
-## Creating A New Folder
+## Creating a New Folder
 
-New folders can be created at any time. Just right-click empty space in the panel, select `New Directory...` and
+New folders can be created at any time. Just right-click an empty space in the panel, select `New Directory...`, and
 type the name of the folder to create. Once accepted, a new folder will be created in the currently browsed folder.
 
 ![CreatingFolder](/img/extensions/Editor/AssetsIntroduction/creating-folder.webp)
 
 ## Selecting Files
 
-As any other file browser, multiple files can be selected using either:
+As in any other file browser, multiple files can be selected using either:
 - `CTRL or Command + Click` to select multiple individual files
 - `Shift + Click` to select a range of files
 
@@ -64,14 +64,14 @@ As any other file browser, multiple files can be selected using either:
 
 ## Moving Files
 
-Once file(s) have been selected, they can be drag'n'dropped in any folder. Once moved, all links to the moved files
+Once file(s) have been selected, they can be dragged and dropped into any folder. Once moved, all links to the moved files
 are updated automatically by the editor (materials, textures, sounds, etc.).
 
 Until the project is saved, the editor creates a temporary file named `links.json` located at `${workspacePath}/projects/links.json`.
-This json file stores the last moving actions for each moved file in order to, if the project has been closed before saving, retrieve the real path for linked assets (like materials textures).
+This JSON file stores the latest move actions for each moved file so that, if the project is closed before saving, the real path for linked assets (such as material textures) can still be retrieved.
 
 ![MovingFiles](/img/extensions/Editor/AssetsIntroduction/moving-files.webp)
 
-Drag'n'drop is also supported in the tree
+Drag and drop is also supported in the tree.
 
 ![MovingFiles](/img/extensions/Editor/AssetsIntroduction/moving-files-tree.webp)

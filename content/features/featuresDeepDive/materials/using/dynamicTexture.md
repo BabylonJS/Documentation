@@ -2,7 +2,7 @@
 title: Dynamic Textures
 image:
 description: Learn all about dynamic textures in Babylon.js.
-keywords: diving deeper, materials, dynamic textures, texxture
+keywords: diving deeper, materials, dynamic textures, texture
 further-reading:
 video-overview:
 video-content:
@@ -14,13 +14,13 @@ A dynamic texture works by creating a canvas onto which you can draw using all t
 
 ## Creating and Applying
 
-This is simply achieved using the `dynamicTexture` function with just three parameters,
+This is simply achieved using the `dynamicTexture` function with just three parameters:
 
 ```javascript
 const myDynamicTexture = new BABYLON.DynamicTexture(name, option, scene);
 ```
 
-though the existing default values of `minmaps`, `sampling mode` and `texture format` can be overwritten by their addition.
+though the existing default values of `mipmaps`, `sampling mode`, and `texture format` can be overridden.
 
 Whereas the name and scene parameters are obvious, the `option` parameter, which determines the width and height of the dynamic texture, can be one of three values:
 
@@ -36,7 +36,7 @@ myMaterial.diffuseTexture = myDynamicTexture;
 mesh.material = myMaterial;
 ```
 ## Attaching to a Canvas
-An existing canvas can be used to define the size of a `dynamicTexture` when passed an an `option` parameter during creation as seen above. In addition to referencing the size of the canvas, the created `dynamicTexture` will also attach itself to that referenced canvas. This means that the `dynamicTexture` will duplicate whatever is rendered to that referenced canvas when `dynamicTexture.update()` is called. 
+An existing canvas can be used to define the size of a `dynamicTexture` when passed as an `option` parameter during creation, as seen above. In addition to referencing the size of the canvas, the created `dynamicTexture` will also attach itself to that referenced canvas. This means that the `dynamicTexture` will duplicate whatever is rendered to that referenced canvas when `dynamicTexture.update()` is called. 
 
 <Playground id="#RLDCOV" title="Attach to Canvas" description="Copying contents of canvas to a dynamic texture." image="/img/playgroundsAndNMEs/dynamicTextureReferencingCanvas.webp"/>
 
@@ -54,7 +54,7 @@ Here are the parameters:
 - x: number, distance from the left-hand edge;
 - y: number, distance from the top or bottom edge, depending on invertY;
 - font: string, font definition in the form font-style, font-size, font_name;
-- invertY: boolean, true by default in which case y is the distance from the top, when false, y is distance from the bottom and the letters reversed;
+- invertY: boolean, true by default, in which case y is the distance from the top; when false, y is the distance from the bottom and the letters are reversed;
 - update: boolean, true by default, the dynamic texture will immediately be updated.
 
 <Playground id="#5ZCGRM#2" title="Drawing Text" description="Simple example of drawing text with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture1.webp"/>
@@ -67,7 +67,7 @@ You can obtain the canvas context using
 const ctx = myDynamicTexture.getContext();
 ```
 
-exposing all the possibilities of the [HTML5 canvas](https://www.w3schools.com/Tags/ref_canvas.asp) element to give you full control over drawing, transforming, compositing and other pixel manipulation to create or update your dynamic texture in real time.
+This exposes all the possibilities of the [HTML5 canvas](https://www.w3schools.com/Tags/ref_canvas.asp) element, giving you full control over drawing, transforming, compositing, and other pixel manipulation to create or update your dynamic texture in real time.
 
 ### Drawing Curves
 
@@ -85,7 +85,7 @@ ctx.quadraticCurveTo(125, 25, 75, 25);
 ctx.stroke();
 ```
 
-To apply the drawing, the dynamic texture needs updating
+To apply the drawing, the dynamic texture needs to be updated.
 
 ```javascript
 myDynamicTexture.update();
@@ -99,7 +99,7 @@ myDynamicTexture.update();
 
 Images can be added to fill part or the whole of the canvas using the `drawImage` method. Remember that you will have to wait for the image to load before assigning it to the canvas and update the dynamic texture afterwards.
 
-For whole image
+For a whole image
 
 ```javascript
 const img = new Image();
@@ -125,7 +125,7 @@ img.onload = function() {
 
 ### Transformations
 
-Anything that is drawn to a canvas can be transformed using methods like `scale`, `rotate`, or `translate`. It is helpful to `save` the context before transformation and then `restore` context after transformation to ensure the texture updates correctly.
+Anything that is drawn to a canvas can be transformed using methods like `scale`, `rotate`, or `translate`. It is helpful to `save` the context before the transformation and then `restore` the context afterward to ensure the texture updates correctly.
 
 ``` javascript
 const texSize = 512;
@@ -167,9 +167,9 @@ This playground combines all the above techniques.
 
 For a single line of text it is possible to fit the text into a specified area or to fit an area to a specified text.
 
-### Fit Text Into an Area.
+### Fit Text Into an Area
 
-You have a plane with width and height, `planeWidth` and `planeHeight`, to form the width and height of the dynamic texture multiply both the plane width and height by the same number to maintain aspect ratio. The number to multiply by defines the sharpness of the text, low numbers produce blurred text. Now you can create the dynamic texture.
+You have a plane with width and height, `planeWidth` and `planeHeight`. To form the width and height of the dynamic texture, multiply both the plane width and height by the same number to maintain the aspect ratio. The number you multiply by defines the sharpness of the text; low numbers produce blurred text. Now you can create the dynamic texture.
 
 ```javascript
 const DTWidth = planeWidth * 60;
@@ -177,7 +177,7 @@ const DTHeight = planeHeight * 60;
 const dynamicTexture = new BABYLON.DynamicTexture("DynamicTexture", { width: DTWidth, height: DTHeight }, scene);
 ```
 
-For the next stage using any size of font write and measure the width of text on the dynamic texture.
+For the next stage, use any font size to write and measure the width of the text on the dynamic texture.
 
 ```javascript
 const ctx = dynamicTexture.getContext();
@@ -186,7 +186,7 @@ ctx.font = size + "px " + font_type;
 const textWidth = ctx.measureText(text).width;
 ```
 
-The ratio of text width to size of font applied can be applied to the dynamic texture width to determine the font size that will fit the plane.
+The ratio of text width to the applied font size can then be used with the dynamic texture width to determine the font size that will fit the plane.
 
 ```javascript
 const ratio = textWidth / size;
@@ -200,7 +200,7 @@ If you wish you can apply a multiplier to the ratio, the larger the multiplier t
 const font_size = Math.floor(DTWidth / (ratio * 1.1));
 ```
 
-Now set the font and draw the text
+Now set the font and draw the text.
 
 ```javascript
 const font = font_size + "px " + font_type;
@@ -219,7 +219,7 @@ plane.material = mat;
 
 ### Fit an Area to Text
 
-Take a plane mesh of fixed height, **planeHeight** and text with a set font size you can then calculate how wide the plane must be for the text to fit in. In order to do this you need to know the width the text will take up on a dynamic texture. This is calculated using a temporary dynamic texture and measuring the text.
+Take a plane mesh of fixed height, **planeHeight**, and some text with a set font size. You can then calculate how wide the plane must be for the text to fit. To do this, you need to know the width the text will take up on a dynamic texture. This is calculated using a temporary dynamic texture and measuring the text.
 
 ```javascript
 const temp = new BABYLON.DynamicTexture("DynamicTexture", 64, scene);
@@ -228,7 +228,7 @@ tmpctx.font = font;
 const DTWidth = tmpctx.measureText(text).width;
 ```
 
-Choose a height for the dynamic texture, **DTHeight** and to maintain the aspect ratio of the plane to the dynamic texture:
+Choose a height for the dynamic texture, **DTHeight**, and then maintain the aspect ratio of the plane to the dynamic texture:
 
 1. calculate the `ratio` planeHeight:DTHeight;
 2. use the ratio to calculate the width of the `planeWidth` = DTWidth \* ratio;
@@ -269,5 +269,4 @@ This playground demonstrates serializing a dynamic texture associated with a mat
 This playground example incorporates a user-manipulated dynamic texture allowing the customization of an asset. This scene demonstrates many of the previous concepts and shows why dynamic textures are a great way to provide users with interactive scene materials.
 
 <Playground id="#XMEL56#7" title="Product Customization" description="Customize the graphics of a skateboard deck." isMain={true} category="Dynamic Texture"/>
-
 

@@ -11,13 +11,13 @@ video-content:
 ---
 
 ## Axes
-It is often useful to be able to quickly display world and local axes to see position and rotation for example. For world axes use
+It is often useful to be able to quickly display world and local axes to see position and rotation, for example. For world axes, use
 
 ```javascript
 const axes = new BABYLON.Debug.AxesViewer(scene, length_of_axes)
 ```
 
-To make any of the x, y and z axes local to a mesh (or other appropriate object) use
+To make any of the x, y, and z axes local to a mesh (or other appropriate object), use
 
 ```javascript
 axes.xAxis.parent = mesh;

@@ -1,7 +1,7 @@
 ---
 title: Raycast
 image: 
-description: How to use Physics for fast raycasting?
+description: How to use Physics for fast raycasting.
 keywords: diving deeper, phyiscs, raycast
 further-reading:
     - title: How To Use Forces
@@ -16,7 +16,7 @@ In a collision detection scenario, a raycast can be used to determine whether a 
 
 ## How to use it
 
-Here is an example of raycast:
+Here is an example of a raycast:
 
 ```javascript
 var raycastResult = new BABYLON.PhysicsRaycastResult();
@@ -28,7 +28,7 @@ if (raycastResult.hasHit) {
 }
 ```
 
-The important thing to note here is the `raycastResult` that can (and should!) be reused between calls. This is the major difference with Physics V1 raycasting.
+The important thing to note here is that `raycastResult` can (and should!) be reused between calls. This is the main difference from Physics V1 raycasting.
 
 The result object has some information about the properties of the intersection, such as the intersection point, the body that was hit, and the index of the triangle hit in case it hit a Mesh Shape. You can find all the fields in the [PhysicsRaycastResult](/api/classes/BABYLON.PhysicsRaycastResult) class.
 

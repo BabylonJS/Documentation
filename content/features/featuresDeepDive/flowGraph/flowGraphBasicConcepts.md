@@ -9,20 +9,20 @@ keywords: diving deeper, flow graph, interactive scenes, action editor, getting 
 
 Let's dive into the basic concepts of the Flow Graph system in Babylon.js.
 
-The flow graph system is being controlled by a flow graph coordinator, which in turn controls one or more graphs. The graph is a collection of blocks, which are connected to each other by edges. Each block has a type, which determines its behavior and the types of edges it can have. The starting blocks are event blocks, which are triggered by events in the scene. Each graph can have one or more execution contexts, which are used to store data and state information for the blocks in the graph.
+The flow graph system is controlled by a flow graph coordinator, which in turn controls one or more graphs. A graph is a collection of blocks connected to each other by edges. Each block has a type, which determines its behavior and the types of edges it can have. The starting blocks are event blocks, which are triggered by events in the scene. Each graph can have one or more execution contexts, which are used to store data and state information for the blocks in the graph.
 
 Here is a deeper dive into the basic concepts of the flow graph system. Some concepts might be referenced at first without explanation, but they are explained at a later point in the documentation.
 
-Note that we might use "block" and "blocks" interchangeably. The official name for the component is "block", but "block" is more common in the programming world.
+Note that we might use "block" and "node" interchangeably. The official name for the component is "block", but "node" is more common in the programming world.
 
 ![Base concepts relations](/img/flowGraph/flowGraphBaseConcepts.webp)
 
 ### Flow Graph coordinator
 
-The flow graph coordinator is the main entry point for the flow graph system. It is responsible for creating and managing graphs, as well as starting the execution of the graph.
-The coordinator is directly related to a scene, which is the main container for all of the objects on which the flow graph system operates. When a scene disposes, the flow graph coordinator (and with it the entire graphs, blocks, contexts and so on) is also disposed. A scene can have more than one coordinator, if the use case requires it.
+The flow graph coordinator is the main entry point for the flow graph system. It is responsible for creating and managing graphs, as well as starting graph execution.
+The coordinator is directly related to a scene, which is the main container for all of the objects on which the flow graph system operates. When a scene is disposed, the flow graph coordinator (and with it all graphs, blocks, contexts, and so on) is also disposed. A scene can have more than one coordinator if the use case requires it.
 
-This of a coordinator as the "global object" of all graphs in it. Using the coordinator, the graphs can "communicate" between themselves, using a simple event-based system. A custom global event triggered by one graph can be listened to by another graph, because the coordinator allows it.
+Think of a coordinator as the "global object" for all graphs within it. Using the coordinator, graphs can "communicate" with each other using a simple event-based system. A custom global event triggered by one graph can be listened to by another graph because the coordinator allows it.
 
 To create a new coordinator, simply use its constructor:
 
@@ -41,7 +41,7 @@ coordinator.start();
 ### Flow Graph
 
 A flow graph is a collection of stateless blocks, each responsible for an action or a set of actions. The blocks are connected to each other using data or flow connections.
-Think of it as a list of instructions without the list of objects to run these instructions on. In a cookbook, the graph would be the list of instructions, without listing the ingredients. The list of ingredients come from the execution context, which we will discuss in the next section.
+Think of it as a list of instructions without the list of objects those instructions run on. In a cookbook, the graph would be the list of instructions without the ingredients. The list of ingredients comes from the execution context, which we will discuss in the next section.
 
 A graph belongs to a coordinator, and is created using the `createGraph` method of the coordinator:
 
@@ -78,9 +78,9 @@ The different events that the flow graph currently supports are:
 - PointerOver
 - PointerOut
 
-It is important to note that even while an event is supported by the graph, if there is no block to catch this event, it will not be executed. For example, if the graph itself can response to a PointerMove event, but no PointerMove block is added to the graph, the event will not be executed.
+It is important to note that even if an event is supported by the graph, it will not be executed if there is no block to catch it. For example, if the graph itself can respond to a PointerMove event, but no PointerMove block is added to the graph, the event will not be executed.
 
-When an event occurs, the SceneEventCoordinator will trigger the event block, which will then execute the block(s) connected to it. Each block's action will be executed with all available execution contexts. A graph can have 1 or more execution context. If none was created, a new one will be created when the graph starts.
+When an event occurs, the SceneEventCoordinator will trigger the event block, which will then execute the block(s) connected to it. Each block's action will be executed with all available execution contexts. A graph can have one or more execution contexts. If none was created, a new one will be created when the graph starts.
 
 ### Execution Context
 
@@ -113,7 +113,7 @@ To get the value of a variable, use the getVariable method:
 const myVar = context.getVariable("myVar");
 ```
 
-However,most of the time you will only use the setVariable method. the rest will be done by the blocks.
+However, most of the time you will only use the setVariable method. The rest will be handled by the blocks.
 
 ### Blocks
 
@@ -138,7 +138,7 @@ A signal connection holds no value, but can have a payload. Think of the payload
 The value of a connection will be cached per execution. This means that, for example, if a math block has two inputs, and both are connected to the same Random block, the Random block will be executed only once, and its value will be used for both inputs. This is important for performance, as it avoids recalculating the same value multiple times. If you want to have different random values, use two different Random blocks.
 
 Execution blocks will typically have an "in" and an "out" signal connection. The "in" connection is used to trigger the execution of the block, and the "out" connection is used to signal that the block has executed.
-Asynchronous blocks will have an additional "done" signal connection, which is used to signal that the block has finished executing. In this case, the "out" can be thought of has a "passthrough" connection, which is used to pass the execution to the next block. Most blocks also have an "error" signal connection, which is used to signal that an error has occurred during execution.
+Asynchronous blocks will have an additional "done" signal connection, which is used to signal that the block has finished executing. In this case, the "out" can be thought of as a "passthrough" connection, which is used to pass execution to the next block. Most blocks also have an "error" signal connection, which is used to signal that an error has occurred during execution.
 
 ## Simple abstract example to explain the concepts
 
@@ -146,7 +146,7 @@ Asynchronous blocks will have an additional "done" signal connection, which is u
 For examples and writing your own first graph, please refer to the [Write your first flow graph](/features/featuresDeepDive/flowGraph/flowGraphExamples).
 </Alert>
 
-To understand the different types of blocks and connections, let's think of a simple "rinse, cut and fry a potato and a carrot" recipe (for developers, of course). I will be mostly using pseudocode so please don't take this example, run it in the playground and wonder why your carrots are not frying.
+To understand the different types of blocks and connections, let's think of a simple "rinse, cut, and fry a potato and a carrot" recipe (for developers, of course). I will mostly use pseudocode, so please don't take this example, run it in the playground, and wonder why your carrots are not frying.
 
 The steps are these:
 
@@ -154,7 +154,7 @@ The steps are these:
 1. Cut
 1. Fry
 
-This is a list of execution blocks - Get, Rinse, Cut, Fry. Each one of these instructions has a list of inputs and outputs:
+This is a list of execution blocks: Get, Rinse, Cut, Fry. Each of these instructions has a list of inputs and outputs:
 
 | Block | Data inputs                          | Signal inputs             | Data outputs     | Signal outputs                               |
 | ----- | ------------------------------------ | ------------------------- | ---------------- | -------------------------------------------- |
@@ -216,11 +216,11 @@ graph.addEventBlock(startCookingBlock);
 graph.start();
 ```
 
-Now the graph will be executed twice - once on a potato, once on a carrot. We are still missing a few things (which you can think yourself how to implement):
+Now the graph will be executed twice -- once for a potato and once for a carrot. We are still missing a few things (which you can think about how to implement yourself):
 
 - Error handling
 - Kids safety
 - Serving
 - Different temperatures, different knives, different types of frying
 
-Not is not the perfect example, but I hope it is simpler to understand the concepts.
+This is not the perfect example, but I hope it makes the concepts easier to understand.

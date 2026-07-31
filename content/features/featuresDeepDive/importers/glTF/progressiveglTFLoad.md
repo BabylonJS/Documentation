@@ -14,11 +14,11 @@ Downloading large assets is often slow even with a decent internet connection. P
 
 <Playground id="#ARN6TJ#5" title="Progressive Loading With LODs" description="Simple Example of progressively loading assets with levels of detail." image="/img/playgroundsAndNMEs/divingDeeperProgressivelyLoading1.webp"/>
 
-This demo playground loads a glTF binary (a.k.a. GLB) asset which is a single file store on the server. It uses HTTP range requests to partially download parts of the GLB. The glTF loader minimizes the amount of HTTP requests sent to the server for optimal efficiency. It also shows progress of each stage of the download. Console logging is enabled to show what the glTF loader is doing.
+This demo playground loads a glTF binary (a.k.a. GLB) asset, which is stored as a single file on the server. It uses HTTP range requests to partially download parts of the GLB. The glTF loader minimizes the number of HTTP requests sent to the server for optimal efficiency. It also shows the progress of each stage of the download. Console logging is enabled to show what the glTF loader is doing.
 
 ## About MSFT_lod
 
-[MSFT_lod](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod) is a Microsoft glTF extension for discrete LODs. It has support for both node and material LODs. Babylon.js currently only supports progressively loading these LODs for the purpose of reducing the time to first render. LODs that switch based on rendering distance or screen coverage is not currently supported.
+[MSFT_lod](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod) is a Microsoft glTF extension for discrete LODs. It has support for both node and material LODs. Babylon.js currently supports progressively loading these LODs only for the purpose of reducing the time to first render. LODs that switch based on rendering distance or screen coverage are not currently supported.
 
 There are not many tools that can create assets with MSFT_lod at the moment. The car asset in the first demo above is exported from [Adobe Dimension](https://www.adobe.com/products/dimension.html) for sharing on the web. There is also [glTF-Toolkit](https://github.com/Microsoft/glTF-Toolkit) for Windows Mixed Reality which unfortunately is not well suited for Babylon.js, but perhaps it can be modified to work better. Otherwise, it might be best to manually add the extension with a tool like [Visual Studio Code](https://code.visualstudio.com) with the [glTF Tools for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=cesium.gltf-vscode).
 
@@ -68,7 +68,7 @@ BABYLON.AppendSceneAsync(url, scene, {
 
 ## Key Notes
 
-- Gzipped content hosted on server often results in `lengthComputable` equaling `false` which in turn causes the `total` to be zero. When this happens, the only choices are to not show the progress or show the number of bytes downloaded instead.
+- Gzipped content hosted on a server often results in `lengthComputable` being `false`, which in turn causes the `total` to be zero. When this happens, the only choices are to not show the progress or to show the number of bytes downloaded instead.
 - When using HTTP range requests with a GLB, the first thing that is downloaded is the GLB header which downloads very quickly and is almost always 20 bytes loaded and 20 bytes total when the progress event fires. Ignore it by checking when `total` is exactly 20.
 
 ## Debugging LODs
@@ -140,4 +140,4 @@ BJS - [16:32:00]: Loaded material LOD 2
 BJS - [16:32:00]: COMPLETE
 ```
 
-Note the `deferred` message when loading primitives and images. The loader is deferring the download until it has determined what ranges of the GLB is necessary for the LODs. Once the ranges are determined, the loader loads the range for the first LOD before the state changes to `READY` which indicates the asset is ready for viewing. Then it loads the remaining LODs in sequence until all the LODs are loaded before the state changes to `COMPELTE` which indicates the asset is completely loaded.
+Note the `deferred` message when loading primitives and images. The loader defers the download until it has determined which ranges of the GLB are necessary for the LODs. Once the ranges are determined, the loader loads the range for the first LOD before the state changes to `READY`, which indicates the asset is ready for viewing. It then loads the remaining LODs in sequence until they are all loaded, at which point the state changes to `COMPLETE`, indicating that the asset is fully loaded.

@@ -17,11 +17,11 @@ To use it, you just have to reference the loader file:
 <script src="babylon.objFileLoader.js"></script>
 ```
 
-You can find it [here](https://cdn.babylonjs.com/loaders/babylon.objFileLoader.js)
+You can find it [here](https://cdn.babylonjs.com/loaders/babylon.objFileLoader.js).
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-When using the Babylon npm packages in your own build, it is preferable to register the OBJ file importer via the top level dynamic loader registration function `registerBuiltInLoaders`. See [Loading Any File Type](/features/featuresDeepDive/importers/loadingFileTypes#npm) for more information.
+When using the Babylon npm packages in your own build, it is preferable to register the OBJ file importer via the top-level dynamic loader registration function `registerBuiltInLoaders`. See [Loading Any File Type](/features/featuresDeepDive/importers/loadingFileTypes#npm) for more information.
 
 If you want to import the OBJ file importer statically (not recommended), you can do so via:
 
@@ -29,22 +29,22 @@ If you want to import the OBJ file importer statically (not recommended), you ca
 import "@babylonjs/loaders/OBJ/objFileLoader";
 ```
 
-You can read more about [NPM support](/setup/frameworkPackages/npmSupport)
+You can read more about [NPM support](/setup/frameworkPackages/npmSupport).
 
 ### Load
 
-See [how to load from any file type](/features/featuresDeepDive/importers/loadingFileTypes)
+See [how to load from any file type](/features/featuresDeepDive/importers/loadingFileTypes).
 Babylon.js will know how to load the obj file and its mtl file automatically:
 
 ## Good things to know
 
 - Your model doesn't have to be triangulated, as this loader will do it automatically.
-- A Babylon.Mesh will be created for each object/group
-- The obj model should be exported with -Z axis forward, and Y axis upward to be compatible with Babylon.js
+- A `Babylon.Mesh` will be created for each object/group.
+- The obj model should be exported with -Z axis forward and Y axis upward to be compatible with Babylon.js.
 
 ![Axis](/img/how_to/import-obj/axys.webp)
 
-- By default, due to optimization in the code for loading time, UVs problems can appear, like this :
+- By default, because the code is optimized for loading time, UV problems can appear, like this:
 
 ![Batman UVs problem](/img/how_to/import-obj/uv-issue.webp)
 
@@ -54,7 +54,7 @@ If you meet this problem, set the variable:
 BABYLON.OBJFileLoader.OPTIMIZE_WITH_UV = true;
 ```
 
-Then, you'll have a better texture, but with a longer loading.
+Then, you'll get a better texture, but with a longer loading time.
 
 ![Batman UVs ok](/img/how_to/import-obj/uv-fixed.webp)
 
@@ -64,7 +64,7 @@ Depending on the modeling program you export your OBJ files from, textures may a
 BABYLON.OBJFileLoader.UV_SCALE = new BABYLON.Vector2(xValue, yValue);
 ```
 
-Although not part of Wavefront OBJ file format, some OBJ files include vertex colors. If you are loading such a file and want vertices with colors, set the variable:
+Although not part of the Wavefront OBJ file format, some OBJ files include vertex colors. If you are loading such a file and want vertices with colors, set the variable:
 
 ```javascript
 BABYLON.OBJFileLoader.IMPORT_VERTEX_COLORS = true;

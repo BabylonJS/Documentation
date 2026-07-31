@@ -6,7 +6,7 @@ keywords: babylon.js, tools, resources, utilities, camera
 further-reading:
     - title: How To Create Points Inside a Mesh
       url: /toolsAndResources/utilities/InnerMeshPoints
-    - title: How To Check When Point is Inside a Mesh
+    - title: How To Check When a Point Is Inside a Mesh
       url: /toolsAndResources/utilities/IsInside
 video-overview:
 video-content:
@@ -14,9 +14,9 @@ video-content:
 
 ## How To Create Points on the Mesh Surface
 
-This utility enables you to create and store Vector3 points each of which is randomly positioned uniformly on the surface of a mesh.
+This utility enables you to create and store Vector3 points, each of which is positioned uniformly at random on the surface of a mesh.
 
-## Design Outline.
+## Design Outline
 
 1. Take a random triangular facet belonging to the mesh;
 2. Calculate the area of the triangle;
@@ -24,16 +24,16 @@ This utility enables you to create and store Vector3 points each of which is ran
 4. Choose random points inside this triangle;
 
 
-## Design Method.
+## Design Method
 
-For the mesh get the vertex positions and indices using
+For the mesh, get the vertex positions and indices using
 
 ```javascript
 var positions = mesh.getVerticesData(BABYLON.VertexBuffer.PositionKind);
 var indices = mesh.getIndices();
 ```
 
-For each facet, F,  in turn obtain the three facet vertex positions, vertex0, vertex1 and vertex2 using the positions array. From these construct vectors, <u>vec0</u>, <u>vec1</u> and <u>vec2</u>, along each side of the triangle. Using the lengths of the sides calculate the area of the triangle. For a value 0  &le; &lambda; &le; 1,&nbsp; &lambda;<u>vec0</u> and &lambda;<u>vec1</u> will form two sides of a triangle similar to the facet. So when also given a value 0  &le; &mu; &le; 1,&nbsp; &lambda;<u>vec0</u> and &lambda;&mu;<u>vec1</u> will give a point inside the facet. The range of values for &lambda; and &mu; will determine all points within the facet. Hence random values for  &lambda; and &mu; will give random points on the facet plane.
+For each facet, F, obtain the three facet vertex positions, vertex0, vertex1, and vertex2 using the positions array. From these, construct vectors, <u>vec0</u>, <u>vec1</u>, and <u>vec2</u> along each side of the triangle. Using the lengths of the sides, calculate the area of the triangle. For a value 0 &le; &lambda; &le; 1,&nbsp;&lambda;<u>vec0</u> and &lambda;<u>vec1</u> form two sides of a triangle similar to the facet. So, when also given a value 0 &le; &mu; &le; 1,&nbsp;&lambda;<u>vec0</u> and &lambda;&mu;<u>vec1</u> give a point inside the facet. The range of values for &lambda; and &mu; determines all points within the facet. Hence, random values for &lambda; and &mu; give random points on the facet plane.
 
 ![Find point](/img/samples/manypoints.webp)
 
@@ -43,11 +43,11 @@ mu = BABYLON.Scalar.RandomRange(0, 1);
 facetPoint = vertex0.add(vec0.scale(lambda)).add(vec1.scale(lambda * mu));
 ```
 
-Repeat for density * area random points for each facet.
+Repeat this for density * area random points on each facet.
 
-## The Whole function
+## The Whole Function
 
-Set the density for the points and generate the points and store and return them in an array.
+Set the point density, then generate, store, and return the points in an array.
 
 ```javascript
 BABYLON.Mesh.prototype.createSurfacePoints = function(pointDensity) {

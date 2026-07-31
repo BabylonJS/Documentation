@@ -8,11 +8,11 @@ video-overview:
 video-content:
 ---
 
-## Creating Particle shaders
+## Creating Particle Shaders
 
 Starting with Babylon.js v4.2, you can now create particle shaders (to be used with a particle system) with the node material editor.
 
-You need simply to change the mode to _Particle_:
+You simply need to change the mode to _Particle_:
 
 ![Particle choice](/img/how_to/Materials/particleMenu.webp)
 
@@ -20,12 +20,12 @@ Some blocks are made unavailable in this mode (they are hidden from the block li
 
 Also, in this mode, you can't create a vertex shader, only a fragment shader: the vertex shader is fixed and not updatable.
 
-Note that everything is driven by the parameters of the particle system instance. For eg, if the current particle system displayed in the preview area does not use "ramp gradients", the `ParticleRampGradient` block does nothing (it does not add ramp gradients to the shader), it's just a pass-through. Same thing for the `ParticleBlendMultiply` block. The exception is the `ParticleTexture` block, and only in the preview area of the node editor: if you provide a texture for this block it will be used as the particle texture in the preview area, else the texture defined in the current particle system will be used. In any case, when using the material in a live program, the texture will always be the one defined by the `ParticleSystem.particleTexture` property.
+Note that everything is driven by the parameters of the particle system instance. For example, if the current particle system displayed in the preview area does not use "ramp gradients", the `ParticleRampGradient` block does nothing (it does not add ramp gradients to the shader); it's just a pass-through. The same goes for the `ParticleBlendMultiply` block. The exception is the `ParticleTexture` block, and only in the preview area of the node editor: if you provide a texture for this block, it will be used as the particle texture in the preview area; otherwise, the texture defined in the current particle system will be used. In any case, when using the material in a live program, the texture will always be the one defined by the `ParticleSystem.particleTexture` property.
 
-The materials you create in the **Particle** mode can also be used for GPU particle systems, save for these restrictions:
+The materials you create in **Particle** mode can also be used for GPU particle systems, subject to these restrictions:
 
 -   GPU particle systems don't support ramp gradients, so the `RampGradientBlock` won't do anything (you can still use it in your material, it will simply do nothing)
--   GPU particle systems don't support the `textureMask` property, so you should not use the `ParticleTextureMask` block in your materials targeted for GPU particle systems, else display artifacts will appear
+-   GPU particle systems don't support the `textureMask` property, so you should not use the `ParticleTextureMask` block in materials targeted for GPU particle systems; otherwise, display artifacts will appear
 
 When you have created your particle shader in the NME, you can link the material to a particle system instance by calling the `NodeMaterial.createEffectForParticles` method:
 

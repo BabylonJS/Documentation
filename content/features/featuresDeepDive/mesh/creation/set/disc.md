@@ -10,7 +10,7 @@ video-content:
 
 
 ## Disc or Regular Polygon
-The created disc is a flat surface parallel to the xy plane with its origin at the center of the disc. Disc is a little bit of a misnomer since you can use it to create any kind of regular polygon. The number of sides is dependent on the value given to _tessellation_. The larger this value the closer to an actual disc. Using the arc option you can create a sector.
+The created disc is a flat surface parallel to the xy plane, with its origin at the center of the disc. The word disc is a bit of a misnomer, since you can use it to create any kind of regular polygon. The number of sides depends on the value given to _tessellation_. The larger this value, the closer it is to an actual disc. Using the arc option, you can create a sector.
 
 ## MeshBuilder
 Usage :
@@ -38,4 +38,3 @@ Usage :
 const disc = BABYLON.Mesh.CreateDisc("disc", radius, tessellation, scene);
 const disc = BABYLON.Mesh.CreateDisc("disc", radius, tessellation, scene, updatable, sideOrientation); //optional parameters after scene
 ```
-.

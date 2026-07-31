@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-The Raw Texture feature is incredibly simple, but unbelievably powerful! It allows you to create a texture from raw data! This type of thing is perfect for creating procedural textures on the fly. Let's take a look at how to create a simple RGB texture from scratch.
+The Raw Texture feature is incredibly simple, but unbelievably powerful! It lets you create a texture from raw data. This is perfect for creating procedural textures on the fly. Let's take a look at how to create a simple RGB texture from scratch.
 
 Creating a Raw RGB Texture can be done using the following construction method:
 
@@ -26,16 +26,16 @@ The parameters are:
 
 * scene: Your Babylon scene.
 
-Here's a small demo of it working. Check out line 29 in this playground: <Playground id="#3TM0BZ" title="Raw Texture Noise Terrain Example" description="Simple example of using noise data to generate an rgb texture, used as a height map to displace a mesh for a terrain effect." image="/img/playgroundsAndNMEs/divingDeeperRawTexture1.webp"/>
+Here's a small demo showing it in action. Check out line 29 in this playground: <Playground id="#3TM0BZ" title="Raw Texture Noise Terrain Example" description="Simple example of using noise data to generate an rgb texture, used as a height map to displace a mesh for a terrain effect." image="/img/playgroundsAndNMEs/divingDeeperRawTexture1.webp"/>
 
-In this case, random noise is being generated, converted into a Uint8Array and that is then used to create a Raw RGB Texture.
+In this case, random noise is generated, converted into a Uint8Array, and then used to create a Raw RGB Texture.
 
-Here is a video explanation, diving a little futher into how this demo uses the raw texture.
+Here is a video explanation that dives a little further into how this demo uses the raw texture.
 
 <Youtube id="YKqXcrWliww"/>
 
 ## Diving Deeper
 
-Of course, creating an RGB texture on the fly is only the tip of the iceberg. There's a LOT more you can do with Raw Texture, such as creating RGBA, Luminance, Alpha, and Luminance Alpha textures.
+Of course, creating an RGB texture on the fly is only the tip of the iceberg. There's a lot more you can do with Raw Texture, such as creating RGBA, Luminance, Alpha, and Luminance Alpha textures.
 
 For more detail, be sure to check out the full API documentation on Raw Texture [here](/typedoc/classes/babylon.rawtexture).

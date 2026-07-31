@@ -27,7 +27,7 @@ export class WebGPUCacheRenderPipelineTree {
     ...
 }
 ```
-The difference is that the ids encode the pipeline state. As there are numerous states that define a pipeline, we need several ids. Currently, the list is:
+The difference is that the IDs encode the pipeline state. Because a pipeline is defined by many states, we need several IDs. Currently, the list is:
 ```javascript
 enum StatePosition {
     StencilReadMask = 0,
@@ -48,17 +48,17 @@ enum StatePosition {
 ```
 So, the first node (`_Cache.values`) holds the stencil read mask values, the second node (`_Cache.values[stencilReadMaskValue]`) holds the stencil write mask values, the third node (`_Cache.values[stencilReadMaskValue].values[stencilWriteMaskValue]`) holds the depth bias values, and so on.
 
-To find a pipeline in the cache we simply starts from the root node, lookup the `values` property with the `stencilReadMask` current value, then lookup the `values` property of this node with the `stencilWriteMask` current value and so on, until we traverse all the states.
+To find a pipeline in the cache, we simply start from the root node, look up the `values` property with the current `stencilReadMask` value, then look up the `values` property of that node with the current `stencilWriteMask` value, and so on until we have traversed all the states.
 
 ## Optimization
-The state positions are ordered so that states that are less likely to change from one pipeline to another are listed first. That's because we maintain a pointer (`_stateDirtyLowestIndex`) that contains the lowest index of all the states that have been dirtyfied (meaning the states that have changed since the last pipeline lookup) before querying the cache and we will traverse the cache from this index and not from 0 to lookup the pipeline. So, the higher `_stateDirtyLowestIndex` is the better the performances are: we will traverse fewer nodes to find the pipeline in the cache.
+The state positions are ordered so that the states least likely to change from one pipeline to another are listed first. This is because we maintain a pointer, `_stateDirtyLowestIndex`, that contains the lowest index of all the states that have been dirtied, meaning the states that have changed since the last pipeline lookup. Before querying the cache, we traverse it from this index instead of from 0. So, the higher `_stateDirtyLowestIndex` is, the better the performance, because we traverse fewer nodes to find the pipeline in the cache.
 
-Note we tried an implementation where render pipelines where recorded in a hash map and the lookup key was a string concatenation of the state values (see the class `WebGPUCacheRenderPipelineString`) but it was dropped because the node tree implementation was faster (around 2x at the time the comparison was made - the code has changed since then so we should probably perform some new testings but I still think the node tree is faster than the hash map).
+Note that we tried an implementation where render pipelines were recorded in a hash map and the lookup key was a string concatenation of the state values, see the class `WebGPUCacheRenderPipelineString`. We dropped it because the node-tree implementation was faster, around 2x faster at the time the comparison was made. The code has changed since then, so we should probably run new tests, but I still think the node tree is faster than the hash map.
 
-Last note: the `values` property is a regular object and not a `Map` because in our testings (with Chrome) using an object was faster.
+One last note: the `values` property is a regular object, not a `Map`, because in our tests with Chrome, using an object was faster.
 
 ## Monitoring the performances
-Performance of the cache can be assessed by looking at these properties (the property should be prefixed by `BABYLON.WebGPUCacheRenderPipeline.`):
+Cache performance can be assessed by looking at these properties. Each property should be prefixed by `BABYLON.WebGPUCacheRenderPipeline.`:
 
 | property | description |
 | ---------| ----------- |

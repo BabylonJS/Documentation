@@ -10,7 +10,7 @@ video-content:
 
 ## Introduction
 
-Gizmos are objects that can be attached to a node (mesh, bone, transform) to provide interaction. The GizmoManager and BoundingBox gizmo work with mesh. Whereas Position, scale and rotation gizmos are also usable with TransformNodes and Bones.
+Gizmos are objects that can be attached to a node (mesh, bone, transform) to provide interaction. The GizmoManager and BoundingBox gizmo work with meshes, whereas position, scale, and rotation gizmos are also usable with TransformNodes and Bones.
 
 ![Babylon.js Gizmos](/img/how_to/gui/gizmos.webp)
 
@@ -61,7 +61,7 @@ gizmoManager.gizmos.positionGizmo.xGizmo.dragBehavior.onDragEndObservable.add(()
 });
 ```
 
-By default gizmo orientation is in local space so it will be rotated to match the rotation of the object that it is attached to. To change to world orientation, the updateGizmoRotationToMatchAttachedMesh property can be set to false:
+By default, gizmo orientation is in local space, so it is rotated to match the rotation of the object it is attached to. To switch to world orientation, set the `updateGizmoRotationToMatchAttachedMesh` property to `false`:
 
 ```javascript
 gizmoManager.gizmos.positionGizmo.updateGizmoRotationToMatchAttachedMesh = false;
@@ -75,20 +75,20 @@ Note: This is not supported on the scale gizmo
 
 Gizmos are displayed by a [UtilityLayerRenderer](/features/featuresDeepDive/mesh/utilityLayerRenderer) to not disrupt the existing scene state. If not specified, the default utility layer will be used.
 
-The utility layers are independent of the scene or engine. After creating a gizmo it is exposed off of gizmo.gizmoLayer. If creating a gizmo without specifying a utility layer it will use the default utility layer’s UtilityLayerRenderer.DefaultUtilityLayer (for overlay gizmos like position/scale) and UtilityLayerRenderer.DefaultKeepDepthUtilityLayer (for occluded gizmos like bounding box) It is recommended to use these layers and reuse layers for most cases as every new utility layer comes with additional overhead.
+The utility layers are independent of the scene or engine. After creating a gizmo, it is exposed through `gizmo.gizmoLayer`. If you create a gizmo without specifying a utility layer, it will use the default utility layer’s `UtilityLayerRenderer.DefaultUtilityLayer` for overlay gizmos like position and scale, and `UtilityLayerRenderer.DefaultKeepDepthUtilityLayer` for occluded gizmos like the bounding box. It is recommended to use and reuse these layers in most cases, as every new utility layer comes with additional overhead.
 
 ```javascript
 const utilLayer = new BABYLON.UtilityLayerRenderer(scene);
 const gizmo = new BABYLON.AxisDragGizmo(new BABYLON.Vector3(1, 0, 0), BABYLON.Color3.FromHexString("#00b894"), utilLayer);
 ```
 
-When created, the gizmo will not be attached to a node and will not be visible so the gizmo can be attached to a node to become active. Setting this to null will disable/hide the gizmo once again.
+When created, the gizmo is not attached to a node and is not visible, so it must be attached to a node to become active. Setting this to `null` will disable or hide the gizmo again.
 
 ```javascript
 gizmo.attachedMesh = sphere;
 ```
 
-By default, the gizmo will be updated to match the attached node's rotation and position but these can be modified with the following
+By default, the gizmo is updated to match the attached node's rotation and position, but this can be modified with the following:
 
 ```javascript
 // Keep the gizmo fixed to world rotation
@@ -100,13 +100,13 @@ gizmo.updateGizmoPositionToMatchAttachedMesh = true;
 
 ## Position, scale and rotation gizmos
 
-Default gizmos for position, rotation and scale on a single axis are supported
+Default gizmos for position, rotation, and scale on a single axis are supported.
 
 - <Playground id="#31M2AP#9" title="AxisDragGizmo Example" description="Simple example of how to use the AxisDragGizmo."/>
 - <Playground id="#31M2AP#10" title="AxisScaleGizmo Example" description="Simple example of how to use the AxisScaleGizmo."/>
 - <Playground id="#31M2AP#11" title="PlaneRotationGizmo Example" description="Simple example of how to use the PlaneRotationGizmo."/>
 
-Snapping can be enabled on any of the single axis gizmos
+Snapping can be enabled on any of the single-axis gizmos.
 
 ```javascript
 gizmo.snapDistance = 0.3;
@@ -121,7 +121,7 @@ A sensitivity factor can be customized for AxisScaleGizmo and ScaleGizmo. Defaul
 gizmoScale.sensitivity = 3;
 ```
 
-These gizmos internally use a [pointerDragBehavior](/features/featuresDeepDive/behaviors/meshBehaviors), this is exposed and can be used perform tasks before/during/after dragging a gizmo
+These gizmos internally use a [pointerDragBehavior](/features/featuresDeepDive/behaviors/meshBehaviors), which is exposed and can be used to perform tasks before, during, or after dragging a gizmo.
 
 ```javascript
 gizmo.dragBehavior.onDragObservable.add(() => {
@@ -129,13 +129,13 @@ gizmo.dragBehavior.onDragObservable.add(() => {
 });
 ```
 
-Classes for 3 axis gizmos are also provided which contain 3 of the single axis gizmos within
+Classes for three-axis gizmos are also provided, each containing three single-axis gizmos.
 
 - <Playground id="#31M2AP#6" title="PositionGizmo Example" description="Simple example of how to use the PositionGizmo."/>
 - <Playground id="#31M2AP#8" title="ScaleGizmo Example" description="Simple example of how to use the ScaleGizmo."/>
 - <Playground id="#31M2AP#7" title="RotationGizmo Example" description="Simple example of how to use the RotationGizmo."/>
 
-The single axis gizmos within these are exposed via the xGizmo, yGizmo and zGizmo properties. The scale gizmo also has a uniformScaleGizmo property which references center gizmo used to uniformly scale.
+The single-axis gizmos within these are exposed via the `xGizmo`, `yGizmo`, and `zGizmo` properties. The scale gizmo also has a `uniformScaleGizmo` property that references the center gizmo used for uniform scaling.
 
 ## Bounding box Gizmo
 
@@ -177,13 +177,13 @@ gizmo.onRotationSphereDragEndObservable.add(() => {
 ```
 
 To drag around objects contained inside a bounding box, [Mesh Behaviors](/features/featuresDeepDive/behaviors/meshBehaviors) can be attached.
-When using with models with complex geometry such as a custom GLTF file, the complex model should be set to not be pickable by pointers and wrapped in a pickable bounding box mesh to save on performance. A helper method to do this is provided.
+When using models with complex geometry, such as a custom glTF file, the complex model should be set to not be pickable by pointers and wrapped in a pickable bounding box mesh to improve performance. A helper method is provided for this.
 
 ```javascript
 const boundingBox = BABYLON.BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox(gltfMesh);
 ```
 
-Additionally, the bounding box can ignore children of the attached mesh to add additional performance gain when needed.
+Additionally, the bounding box can ignore children of the attached mesh for additional performance gains when needed.
 
 ```javascript
 gizmo.ignoreChildren = true;
@@ -199,7 +199,7 @@ gizmo.includeChildPredicate = (m) => {
 
 <Playground id="#SG9ZZB" title="Bounding Box Gizmo Example" description="Simple example of a bounding box gizmo."/>
 
-UI can be attached to the bounding box using the [AttachToBoxBehavior](/features/featuresDeepDive/behaviors/meshBehaviors)
+UI can be attached to the bounding box using the [AttachToBoxBehavior](/features/featuresDeepDive/behaviors/meshBehaviors).
 
 <Playground id="#8GY6J8#199" title="Bounding Box Gizmo .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with a .glTF file."/>
 <Playground id="#6E4LSB#15" title="Bounding Box Gizmo Animated .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with an animated .glTF file."/>
@@ -207,7 +207,7 @@ UI can be attached to the bounding box using the [AttachToBoxBehavior](/features
 
 ## Gizmo customization
 
-To customize the visual appearance of an existing gizmo, create a mesh on the same utility layer and then setCustomMesh on the gizmo. Utility layers do not contain lights by default so it is recommended use a material with an emissive texture.
+To customize the visual appearance of an existing gizmo, create a mesh on the same utility layer and then call `setCustomMesh` on the gizmo. Utility layers do not contain lights by default, so it is recommended to use a material with an emissive texture.
 
 ```javascript
 const customMesh = BABYLON.MeshBuilder.CreateBox("", { size: 0.1 }, gizmo.gizmoLayer.utilityLayerScene);

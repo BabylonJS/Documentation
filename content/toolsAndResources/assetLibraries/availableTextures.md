@@ -12,13 +12,13 @@ video-overview:
 video-content:
 ---
 
-## Textures Available To the Playground
+## Textures Available in the Playground
 
-This list of files are in the [textures folder](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/public/textures) of the Playground and can be loaded as Textures, CubeTextures, HDRCubeTextures or EXRCubeTextures.
+These files are in the [textures folder](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/public/textures) of the Playground and can be loaded as Textures, CubeTextures, HDRCubeTextures, or EXRCubeTextures.
 
 ## Diffuse / Albedo maps
 
-In the playground use
+In the Playground, use
 
 ```javascript
 new BABYLON.Texture("textures/filename", scene);
@@ -100,7 +100,7 @@ new BABYLON.Texture("textures/filename", scene);
 
 ## 360° Equirectangular maps (for PhotoDome)
 
-In the Playground use
+In the Playground, use
 
 ```javascript
 new BABYLON.PhotoDome("textureName", "textures/filename", { resolution: 32, size: 1000 }, scene);
@@ -116,9 +116,9 @@ new BABYLON.PhotoDome("textureName", "textures/filename", { resolution: 32, size
 
 ### Standard
 
-CubeTextures are in groups of six for each side of the cube, each starting with a common name.
+CubeTextures come in groups of six, one for each side of the cube, and each group starts with a common name.
 
-In the Playground use
+In the Playground, use
 
 ```javascript
 new BABYLON.CubeTexture("textures/common part of filenames", scene);
@@ -138,7 +138,7 @@ new BABYLON.CubeTexture("textures/common part of filenames", scene);
 
 ### HDR
 
-In the Playground use
+In the Playground, use
 
 ```javascript
 new BABYLON.HDRCubeTexture("textures/filename", scene);
@@ -155,7 +155,7 @@ new BABYLON.HDRCubeTexture("textures/filename", scene);
 
 ### HDR as .dds
 
-In the Playground use
+In the Playground, use
 
 ```javascript
 new BABYLON.CubeTexture.CreateFromPrefilteredData("textures/filename", scene);
@@ -173,7 +173,7 @@ new BABYLON.CubeTexture.CreateFromPrefilteredData("textures/filename", scene);
 |               ![](/img/resources/textures_thumbs/SpecularHDR.dds.webp)               | SpecularHDR.dds                             | [take a look](https://playground.babylonjs.com/#CGA05F#8)  | 16 MB    |
 | ![](/img/resources/textures_thumbs/Studio_Softbox_2Umbrellas_cube_specular.dds.webp) | Studio_Softbox_2Umbrellas_cube_specular.dds | [take a look](https://playground.babylonjs.com/#CGA05F#24) | 8 MB     |
 
-In the Playground use
+In the Playground, use
 
 ```javascript
 myMaterial.environmentBRDFTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/filename", scene, true, false);
@@ -185,7 +185,7 @@ myMaterial.environmentBRDFTexture = new BABYLON.Texture("https://assets.babylonj
 
 ### HDR as .env
 
-In the Playground use
+In the Playground, use
 
 ```javascript
 new BABYLON.CubeTexture("textures/filename", scene);
@@ -205,7 +205,7 @@ new BABYLON.CubeTexture("textures/filename", scene);
 
 ## Videos
 
-In the Playground use
+In the Playground, use
 
 ```javascript
 new BABYLON.VideoTexture("name", "textures/video.ext", scene);
@@ -221,7 +221,7 @@ new BABYLON.VideoTexture("name", "textures/video.ext", scene);
 
 ### Icons
 
-Textures are stored on `textures/icons/` folder.
+Textures are stored in the `textures/icons/` folder.
 
 |                                                                                           Overview                                                                                            | Filename            | Size    |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------- | ------- |
@@ -247,7 +247,7 @@ Textures are stored on `textures/icons/` folder.
 
 ### Misc
 
-Textures are stored on `textures/gui/` folder.
+Textures are stored in the `textures/gui/` folder.
 
 |                                                                                               Overview                                                                                                | Filename                     | Size   |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ---------------------------- | ------ |
@@ -278,7 +278,7 @@ Textures are stored on `textures/gui/` folder.
 
 ### LUT
 
-In the Playground use
+In the Playground, use
 
 ```javascript
 var LUTTexture = new BABYLON.Texture("textures/filename", scene);

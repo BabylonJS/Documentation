@@ -21,25 +21,25 @@ Morph targets are used by the GPU to create the final geometry by applying the f
 
 final mesh = original mesh + sum((morph targets - original mesh) \* morph targets influences)
 
-For instance, you can use morph targets to simulate the opening of a mouth. The initial mesh has a closed mouth. The morph target can be the same mesh but with an opened mouth. Then by changing the influence of the morph target (from 0 to 1) you can display either a closed or an opened mouth or a mix of both.
+For instance, you can use morph targets to simulate the opening of a mouth. The initial mesh has a closed mouth. The morph target can be the same mesh but with an open mouth. Then, by changing the influence of the morph target from 0 to 1, you can display a closed mouth, an open mouth, or a mix of both.
 
 You can find live examples here:
 <Playground id="#HPV2TZ#8" title="Animated Morph Targets" description="Simple example of animated morph targets."/>
 
-The following two examples are best seen in the full Playground where sliders can be used to change the influencers
+The following two examples are best seen in the full Playground, where sliders can be used to change the influences.
 <Playground id="#HPV2TZ#2" title="Animated Morph Targets with Standard Material" description="Simple example of animated morph targets with standard material."/>  
 <Playground id="#HPV2TZ#4" title="Animated Morph Targets with PBR Material" description="Simple example of animated morph targets with PBR material."/>
 
 ## How to Use Morph Targets
 
-To use morph targets, you first have to create a `MorphTargetManager` and affect it to a mesh:
+To use morph targets, you first have to create a `MorphTargetManager` and assign it to a mesh:
 
 ```javascript
 const manager = new BABYLON.MorphTargetManager();
 sphere.morphTargetManager = manager;
 ```
 
-Then you can create `MorphTarget` either with the `FromMesh` static function:
+Then you can create a `MorphTarget` either with the `FromMesh` static function:
 
 ```javascript
 const target = BABYLON.MorphTarget.FromMesh(sphereTarget, "target", 0.25);
@@ -53,7 +53,7 @@ target.setPositions(...);
 target.setNormals(...);
 ```
 
-Once done, you can specify the influence of a specific target with `target.influence = 0.25`
+Once done, you can specify the influence of a specific target with `target.influence = 0.25`.
 
 Targets with influence = 0 are disabled.
 
@@ -108,7 +108,7 @@ const target3 = BABYLON.MorphTarget.FromMesh(sphere5, "sphere5", 0.25);
 manager.addTarget(target3);
 ```
 
-At any time, you can remove a target with `manager.removeTarget(target)`
+At any time, you can remove a target with `manager.removeTarget(target)`.
 
 ## How to Access Morph Targets in a glTF File
 
@@ -118,7 +118,7 @@ You can access a morph target influence on a mesh in a glTF file through the [mo
 console.log(mesh.morphTargetManager);
 ```
 
-If you want to view or change the value of a morph target influence, it can be accessed by getting the influence from the array in the morphTargetManager by key value.
+If you want to view or change the value of a morph target influence, you can access it by getting the target from the morphTargetManager by key.
 
 ```javascript
 myInfluence = mesh.morphTargetManager.getTarget(key);
@@ -159,7 +159,7 @@ You can animate multiple morphs on the same mesh by creating a new animation for
 
 ## Use Morph Targets with Node Material
 
-The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). To use a Node Material in a mesh with Morph Targets, you need to add the Morph Target node to it so that vertex positions, normals and uvs properly respond to the effects of the morph:
+The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that lets you create shaders without writing [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). To use a Node Material on a mesh with Morph Targets, you need to add the Morph Target node to it so that vertex positions, normals, and UVs properly respond to the effects of the morph:
 
 ![Use Morph Target with Node Material](/img/how_to/morphtargetnode.webp)
 
@@ -167,13 +167,13 @@ The [Node Material](/features/featuresDeepDive/materials/node_material) is a pow
 
 ## Limitations
 
-On WebGL2+ Babylon.js will use textures to store the targets so the only limit is the GPU memory. You can find an example of pretty large numbers of targets here: - <Playground id="#1PD3Q7#2" title="Lots of Morph Targets" description="Example showing a large number of morph targets."/>
+On WebGL2+, Babylon.js uses textures to store the targets, so the only limit is GPU memory. You can find an example with a large number of targets here: - <Playground id="#1PD3Q7#2" title="Lots of Morph Targets" description="Example showing a large number of morph targets."/>
 
 On WebGL1, the system cannot store inside textures (it requires float textures) so as a fallback it will store the targets inside mesh vertices.
 
-- Please be aware that most of the browsers are limited to 16 attributes per mesh. Adding a single morph target to a mesh add up to 4 new attributes (position + normal + tangents + uvs). This could quickly go beyond the max attributes limitation.
-- All targets within a same manager must have the same vertices count
-- A mesh and its MorphTargetManager must have the same vertices count
+- Please be aware that most browsers are limited to 16 attributes per mesh. Adding a single morph target to a mesh adds up to 4 new attributes (position + normal + tangents + UVs). This could quickly exceed the maximum attributes limit.
+- All targets within the same manager must have the same vertex count.
+- A mesh and its MorphTargetManager must have the same vertex count.
 
 You can find a video explaining how morph targets work here:
 

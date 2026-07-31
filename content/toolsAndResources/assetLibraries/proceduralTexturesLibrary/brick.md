@@ -22,10 +22,10 @@ Brick procedural texture can be found here:
 
 A demo can be found here: <Playground id="#1CL0BO#18" title="Brick Procedural Texture" description="Brick Procedural Texture"/>
 
-This texture has 4 parameters :
-- **numberOfBricksHeight** controls the number of bricks in height (Int)
-- **numberOfBricksWidth** controls the number of bricks in width (Int)
-- **jointColor** changes the color for the joint between bricks (BABYLON.Color3/4)
+This texture has 4 parameters:
+- **numberOfBricksHeight** controls the number of bricks vertically (Int)
+- **numberOfBricksWidth** controls the number of bricks horizontally (Int)
+- **jointColor** changes the color of the joint between bricks (BABYLON.Color3/4)
 - **brickColor** changes the color for the brick itself (BABYLON.Color3/4)
 
 ```javascript

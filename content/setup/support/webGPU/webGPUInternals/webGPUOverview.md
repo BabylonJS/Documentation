@@ -8,9 +8,9 @@ video-overview:
 video-content:
 ---
 
-Babylon.js has an abstraction layer that helps implement new types of engines. There are currently 4 types of engines: Null, Native, WebGPU and Engine (which implements WebGL as well as additional components like audio).
+Babylon.js has an abstraction layer that helps implement new types of engines. There are currently four types of engines: Null, Native, WebGPU, and Engine, which implements WebGL as well as additional components like audio.
 
-The first 3 extends `Engine` and `Engine` extends `ThinEngine`, which is a low level (graphic only) API for engines. Note that it is one of the mid-term goal to have all the engines extends directly `ThinEngine` (or a specific "thin" version) instead of `Engine` to better encapsulate the implementations.
+The first three extend `Engine`, and `Engine` extends `ThinEngine`, which is a low-level, graphics-only API for engines. Note that one of the mid-term goals is to have all engines extend `ThinEngine`, or a specific "thin" version, directly instead of `Engine` to better encapsulate the implementations.
 
 Here's a chart with the main files/classes used to implement the **WebGPU** engine:
 
@@ -20,29 +20,29 @@ Here's a chart with the main files/classes used to implement the **WebGPU** engi
 These are the core classes used in the WebGPU implementation.
 
 ### WebGPUEngine
-This class is the main entry point for the WebGPU implementation. It extends `Engine` and implements all the API needed by the higher layers to work with WebGPU. Some parts of the implementation are dispatched in the `WebGPU/Extensions/` files in much the same way it is done for WebGL (in `Engines/Extensions/` for WebGL).
-* we currently use the same [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) shaders in **WebGPU** that we use in **WebGL**. Those shaders are converted to **SpirV** thanks to **GLSLlang** and **SpirV** is converted to **WGSL** by a port of `Tint` to **WASM** (**TintWASM**).
-* we are using 2 command encoders: *upload* and *render*. *upload* is used when we need to upload data into textures, *render* is used to render into render targets and for the main render pass (when rendering into the swap chain texture). They are pushed into the queue in this order: *upload* -> *render*. Note that if a compute shader must be executed, the current render pass of the *render* command encoder is closed, the compute shader is executed, and the render pass is reopened. The same process happens when generating the mipmaps for a render target, as this requires to create a new render pass and two render passes can't be opened at the same time on a given command encoder
-* the GPU timing (that can be seen in the *Inspector* under **Statistics / GPU Frame time**) is done using timestamp queries, but for the time being Chrome does not allow those queries by default: Chrome must be started with the `--enable-dawn-features=allow_unsafe_apis` flag to make it work
-* `_ubInvertY` and `_ubDontInvertY` are the two uniform buffers used to implement the rendering without the CSS `yScale(-1)` trick (and thus saving a copy at the end of each frame): see [this comment](https://github.com/BabylonJS/Babylon.js/pull/11616#issue-1077008145) for more information.
-* when binding a `RenderTargetWrapper` (by a call to `bindFramebuffer()`), we don't create the render pass right away (this render pass is created in `_startRenderTargetRenderPass()`). It is because we will likely process a `clear()` call a short time after: we will create the render pass at that time, using the clear values passed to `clear()` to create the render pass. Doing so avoid creating a render pass when `bindFramebuffer()` is called, then closing it and recreating a new one when `clear()` is called (because the clearing is done at the same time the render pass is created by a `beginRenderPass` API call).
+This class is the main entry point for the WebGPU implementation. It extends `Engine` and implements all the APIs needed by the higher layers to work with WebGPU. Some parts of the implementation are dispatched into the `WebGPU/Extensions/` files, in much the same way as for WebGL in `Engines/Extensions/`.
+* We currently use the same [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) shaders in **WebGPU** that we use in **WebGL**. Those shaders are converted to **SpirV** with **GLSLang**, and **SpirV** is converted to **WGSL** by a port of `Tint` to **WASM**, called **TintWASM**.
+* We use two command encoders: *upload* and *render*. *upload* is used when we need to upload data into textures, and *render* is used to render into render targets and for the main render pass, when rendering into the swap chain texture. They are pushed into the queue in this order: *upload* -> *render*. Note that if a compute shader must be executed, the current render pass of the *render* command encoder is closed, the compute shader is executed, and the render pass is reopened. The same process happens when generating mipmaps for a render target, because this requires a new render pass, and two render passes cannot be opened at the same time on a given command encoder.
+* GPU timing, which can be seen in the *Inspector* under **Statistics / GPU Frame time**, is done using timestamp queries. For the time being, Chrome does not allow those queries by default, so Chrome must be started with the `--enable-dawn-features=allow_unsafe_apis` flag to make it work.
+* `_ubInvertY` and `_ubDontInvertY` are the two uniform buffers used to implement rendering without the CSS `yScale(-1)` trick, thus saving a copy at the end of each frame. See [this comment](https://github.com/BabylonJS/Babylon.js/pull/11616#issue-1077008145) for more information.
+* When binding a `RenderTargetWrapper` through a call to `bindFramebuffer()`, we do not create the render pass right away. That render pass is created in `_startRenderTargetRenderPass()`. This is because we will likely process a `clear()` call shortly afterward, and we create the render pass at that time using the clear values passed to `clear()`. Doing so avoids creating a render pass when `bindFramebuffer()` is called, then closing it and recreating a new one when `clear()` is called, because clearing is done at the same time the render pass is created by a `beginRenderPass` API call.
 
 ### WebGPUBufferManager
 This class handles everything related to GPU buffers (creation, deletion, reading, writing).
-* reading half float data is very slow because a conversion from half float to float must be done in the js code! To speed things up, a compute shader could be used instead
-* if the row byte size is not aligned (meaning, not divisible by 256), there's an additional copying process in js to build the final buffer, making the whole process slow. A compute shader would help here too.
-* when `releaseBuffer()` is called the buffer passed in is not released right away, because the buffer(s) used during the queue processing (meaning, when calling `device.queue.submit()`) must be valid. Instead, the buffer is pushed in a list that will be cleaned by a call to `destroyDeferredBuffers()` (**WebGPUEngine** calls this method at the end of a frame, after `device.queue.submit()` has been called).
+* Reading half-float data is very slow because a conversion from half float to float must be done in JavaScript code. To speed things up, a compute shader could be used instead.
+* If the row byte size is not aligned, meaning it is not divisible by 256, there is an additional copying process in JavaScript to build the final buffer, which makes the whole process slow. A compute shader would help here too.
+* When `releaseBuffer()` is called, the passed buffer is not released right away because the buffers used during queue processing, meaning when calling `device.queue.submit()`, must remain valid. Instead, the buffer is pushed into a list that is cleaned by a call to `destroyDeferredBuffers()`. **WebGPUEngine** calls this method at the end of a frame, after `device.queue.submit()` has been called.
 
 ### WebGPUTextureHelper
 This class handles everything related to GPU textures (creation, deletion, reading, writing, generating mipmaps, etc).
-* as for the GPU buffers, we use a deferred list to release the textures and wait to release them after the queue has been submitted.
-* when creating a texture, we always set the `RenderAttachment | CopyDst` flags because we don't know in advance if `copyExternalImageToTexture()` will be used to update the texture (see the `updateTexture()` method) and this function requires that these flags be set
-* the mipmap generation is done by issuing n render passes (*6 for a cube texture). It would probably be faster to use some optimized compute shaders instead. Also, see [Lower perf when generating mipmaps compared to webgl](https://bugs.chromium.org/p/dawn/issues/detail?id=587) for some discussions about mipmap generation perf
+* As with GPU buffers, we use a deferred list to release textures and wait to release them until after the queue has been submitted.
+* When creating a texture, we always set the `RenderAttachment | CopyDst` flags because we do not know in advance whether `copyExternalImageToTexture()` will be used to update the texture, see the `updateTexture()` method, and this function requires those flags to be set.
+* Mipmap generation is done by issuing `n` render passes, `*6` for a cube texture. It would probably be faster to use optimized compute shaders instead. Also, see [Lower perf when generating mipmaps compared to webgl](https://bugs.chromium.org/p/dawn/issues/detail?id=587) for discussions about mipmap-generation performance.
 
 ### WebGPUSnapshotRendering
-This class implements the snapshot rendering optimization: see [Snapshot Rendering](/setup/support/webGPU/webGPUOptimization/webGPUSnapshotRendering) for more information about this optim.
+This class implements the snapshot rendering optimization. See [Snapshot Rendering](/setup/support/webGPU/webGPUOptimization/webGPUSnapshotRendering) for more information about this optimization.
 
-It is creating a bundle for each of the render texture (either a render target texture or the swap chain texture) at recording time and replay this bundle for all subsequent frames.
+It creates a bundle for each render texture, either a render target texture or the swap chain texture, at recording time and replays that bundle for all subsequent frames.
 
 Note that it is creating a bundle list instead of a single bundle because a number of APIs are not supported inside bundles (like `setViewport`, `setScissorRect`, etc): `WebGPUBundleList` is the class that manages a list of bundles interleaved with those API calls.
 
@@ -50,10 +50,10 @@ Note that it is creating a bundle list instead of a single bundle because a numb
 This class is a thin wrapper around the **TintWASM** bundle and is used to convert **SpirV** to **WGSL**.
 
 ### WebGPUOcclusionQuery
-This class implements occlusion queries in WebGPU. It is a straightforward implementation which is using the `WebGPUQuerySet` helper class for the actual query stuff.
+This class implements occlusion queries in WebGPU. It is a straightforward implementation that uses the `WebGPUQuerySet` helper class for the actual query handling.
 
 ### WebGPUTimestampQuery
-This class implements the GPU timing of a frame by writing a timestamp right at the beginning of the *upload* command encoder and as the last command of the *render* command encoder and by substracting the time measure of the two timestamps. 
+This class implements GPU timing for a frame by writing a timestamp at the beginning of the *upload* command encoder and another as the last command of the *render* command encoder, then subtracting the time measured by the two timestamps. 
 
 As explained above, it currently only works in Chrome if it is launched with the `--enable-dawn-features=allow_unsafe_apis` flag.
 
@@ -83,16 +83,16 @@ The hash value is computed from the sampler properties (sampling mode, compariso
 WebGPU has its own implementations for some of the low level classes used by the Babylon.js framework.
 
 ### WebGPURenderTargetWrapper
-Specialization of `RenderTargetWrapper`. In WebGPU, we simply need an additional `_defaultAttachments: number[]` property which holds the attachment list at creation time (when `WebGPUEngine.createMultipleRenderTarget` has been called). It is the list which will be used if no explicit attachment list has been provided (by a call to `WebGPUEngine.bindAttachments`) when starting a new render target pass.
+Specialization of `RenderTargetWrapper`. In WebGPU, we simply need an additional `_defaultAttachments: number[]` property that holds the attachment list at creation time, when `WebGPUEngine.createMultipleRenderTarget` has been called. This is the list that is used if no explicit attachment list has been provided, through a call to `WebGPUEngine.bindAttachments`, when starting a new render target pass.
 
 ### WebGPUHardwareTexture
 It is the specialization of `HardwareTextureWrapper` for WebGPU. This is the object held by `InternalTexture` in the `_hardwareTexture` property.
 
-Note that this class holds some caches to improve performances:
+Note that this class holds some caches to improve performance:
 * when generating mipmaps: `_mipmapGenRenderPassDescr` and `_mipmapGenBindGroup` properties
 * when calling `WebGPUTextureHelper.invertYPreMultiplyAlpha`: `_copyInvertYTempTexture`, `_copyInvertYRenderPassDescr`, `_copyInvertYBindGroup` and `_copyInvertYBindGroupWithOfst` properties
 
-Those properties hold pre-built WebGPU objects so that we don't have to recreate them each time the corresponding processing is called (mipmap generation / calls to `invertYPreMultiplyAlpha`) - we create them the first time the processing is called.
+These properties hold pre-built WebGPU objects so that we do not have to recreate them each time the corresponding processing is called, meaning mipmap generation or calls to `invertYPreMultiplyAlpha`. We create them the first time the processing is called.
 
 ### WebGPUDepthCullingState
 This is a specialization of `DepthCullingState`. This class overrides all the setter methods to call the corresponding `WebGPUCacheRenderPipeline` methods so that the depth/culling cache states are always up to date.
@@ -109,14 +109,14 @@ These are classes that deal with shaders and shader contexts. Note that **Pipeli
 
 The main task of these classes is to collect the list of buffers, uniforms, attributes, textures and samplers and create the related WebGPU objects, like the bind group layout entries and the bind group entries. Those objects are stored in a `WebGPUShaderProcessingContext` instance. The shader code is also modified so that it complies with the syntax expected by **glsllang**.
 
-These classes also create a description of a special uniform buffer called the **left over buffer** which contains all the uniform variables declared with the `uniform VarType VarName;` syntax in the shader (or `uniform VarName : VarType;` for WGSL shaders - see [Writing shaders in WGSL](/setup/support/webGPU/webGPUWGSL#special-syntax-used-in-wgsl-code)). Indeed, you can't declare uniforms outside of a uniform buffer in WebGPU, so the system creates one for you under the hood and handles it transparently.
+These classes also create a description of a special uniform buffer called the **leftover buffer**, which contains all the uniform variables declared with the `uniform VarType VarName;` syntax in the shader, or `uniform VarName : VarType;` for WGSL shaders. See [Writing shaders in WGSL](/setup/support/webGPU/webGPUWGSL#special-syntax-used-in-wgsl-code). Indeed, you cannot declare uniforms outside of a uniform buffer in WebGPU, so the system creates one for you under the hood and handles it transparently.
 
-To avoid an additional *copy texture with Y inversion* at the end of a frame, these classes inject some special code in all shaders. The parameters that are used by this code (`yFactor` and `textureOutputHeight`) are passed through a specific uniform buffer and is called **Internals** in the shader code. See [this comment](https://github.com/BabylonJS/Babylon.js/pull/11616#issue-1077008145) for more information.
+To avoid an additional *copy texture with Y inversion* at the end of a frame, these classes inject some special code into all shaders. The parameters used by this code, `yFactor` and `textureOutputHeight`, are passed through a specific uniform buffer called **Internals** in the shader code. See [this comment](https://github.com/BabylonJS/Babylon.js/pull/11616#issue-1077008145) for more information.
 
 ### WebGPUShaderProcessingContext
 This class holds all the data extracted/created when the shaders are parsed by `WebGPUShaderProcessorXXX`.
 
-Note that we are using the `_SimplifiedKnownUBOs` definition of the known UBOs and not `_KnownUBOs` to save some `GPURenderPassEncoder.setBindGroup` calls: with `_SimplifiedKnownUBOs` we only use two bind groups, so issue only two calls. There's an optimization that could be made in the future where we would not issue the call for the scene UBO (the bind group 0) if the scene UBO is the same and its content did not change since the last call. However, the expected mode to use WebGPU in is the [non compatibility mode](/setup/support/webGPU/webGPUOptimization/webGPUNonCompatibilityMode) and in this mode the number of `setBindGroup` calls is not so relevant as we do them only one time at bundle creation time.
+Note that we use the `_SimplifiedKnownUBOs` definition of the known UBOs instead of `_KnownUBOs` to save some `GPURenderPassEncoder.setBindGroup` calls. With `_SimplifiedKnownUBOs`, we use only two bind groups, so we issue only two calls. There is an optimization that could be made in the future where we would not issue the call for the scene UBO, bind group 0, if the scene UBO is the same and its content has not changed since the last call. However, the expected way to use WebGPU is in [non compatibility mode](/setup/support/webGPU/webGPUOptimization/webGPUNonCompatibilityMode), and in this mode the number of `setBindGroup` calls is less relevant because we make them only once at bundle-creation time.
 
 ### WebGPUPipelineContext
 This class is the main class used by the `Effect` class and gathers all the data related to the shaders the effect is built upon. The main properties are:
@@ -151,17 +151,17 @@ The class also holds two caches:
 * **fastBundle**. It is the bundle used in the [non compatibility mode](/setup/support/webGPU/webGPUOptimization/webGPUNonCompatibilityMode)
 * **bindGroups**. It is the cache of the bind groups. It is reused for the next draw if `WebGPUDrawContext.isDirty==false` (and `WebGPUMaterialContext.isDirty==false`). See [WebGPUCacheBindGroup](#optimization)
 
-Lastly, the class manages a GPU buffer (`WebGPUDrawContext.indirectDrawBuffer`) that stores the parameters used in a (indirect) draw call when using instances in the non compatibility mode. Indeed, when in that mode, the draw call is embedded inside the bundle and if the number of instances to draw changes from one frame to another we would need to recreate the bundle to update the instance count parameter. As creating a bundle incurs some performance penalty, instead of doing a regular draw in the bundle we issue an indirect draw call and we update the instance count in the GPU buffer.
+Lastly, the class manages a GPU buffer, `WebGPUDrawContext.indirectDrawBuffer`, that stores the parameters used in an indirect draw call when using instances in non compatibility mode. In that mode, the draw call is embedded inside the bundle, and if the number of instances to draw changes from one frame to another, we would need to recreate the bundle to update the instance-count parameter. Because creating a bundle incurs a performance penalty, we issue an indirect draw call in the bundle and update the instance count in the GPU buffer instead of doing a regular draw.
 
 #### Note on the WebGPUMaterialContext.updateId property
-Modifying a texture in a material does work for all meshes that are using this material because when you update a texture property, all submeshes using this material are flagged as "texture dirty". That means that when `Material.isReadyForSubMesh` is run we will execute the code that calls `subMesh.setEffect(effect, defines, this._materialContext)` which resets the context (see the code of `DrawWrapper.setEffect`). So the bind groups will be regenerated with the new texture.
+Modifying a texture in a material works for all meshes using that material because when you update a texture property, all submeshes using that material are flagged as "texture dirty". That means that when `Material.isReadyForSubMesh` runs, we execute the code that calls `subMesh.setEffect(effect, defines, this._materialContext)`, which resets the context. See the code of `DrawWrapper.setEffect`. The bind groups are then regenerated with the new texture.
 
-However, if we are not using a `Material` but directly updating a texture using `effect.setTexture(...)` (as the depth peeling renderer is doing to update `oitDepthSampler` and `oitFrontColorSampler` for eg), it won't work anymore as the context is not reset: nothing will trigger the recreation of the bind groups. We could call `_markAllSubMeshesAsTexturesDirty()` by hand on all submeshes but it's not performant because `Material.isReadyForSubMesh` will be called whereas we only want to bind some textures and don't need this method to be called. Also, it's a manual call so could be forgotten...
+However, if we are not using a `Material` but are directly updating a texture with `effect.setTexture(...)`, as the depth peeling renderer does to update `oitDepthSampler` and `oitFrontColorSampler`, it no longer works because the context is not reset. Nothing triggers the recreation of the bind groups. We could call `_markAllSubMeshesAsTexturesDirty()` manually on all submeshes, but that is not performant because `Material.isReadyForSubMesh` would be called even though we only want to bind some textures and do not need this method to run. Also, because it is a manual call, it could be forgotten.
 
-To fix the problem, we have added a `WebGPUMaterialContext.updateId` property which is updated each time a sampler/texture is changed in the material context. `WebGPUDrawContext` has also been updated with a `WebGPUDrawContext.materialContextUpdateId` property which corresponds to the associated `WebGPUMaterialContext.updateId` value when the bind groups have been generated (that you can find in `WebGPUMaterialContext.bindGroups`). When retrieving the bind groups from the `WebGPUMaterialContext.bindGroups` cache, if the two `updateId` values are different it means the material context has changed since the last time we generated the bind groups, so we must recreate them again.
+To fix the problem, we added a `WebGPUMaterialContext.updateId` property that is updated each time a sampler or texture changes in the material context. `WebGPUDrawContext` also has a `WebGPUDrawContext.materialContextUpdateId` property, which corresponds to the associated `WebGPUMaterialContext.updateId` value when the bind groups were generated. You can find those bind groups in `WebGPUMaterialContext.bindGroups`. When retrieving the bind groups from that cache, if the two `updateId` values are different, it means the material context has changed since the last time we generated the bind groups, so we must recreate them.
 
 ### WebGPUComputeContext
-This class is more ore less the mirror of `WebGPUDrawContext` but for compute shaders. Its task is to create the bind groups based on the resources used by the shader. The bind groups are cached until at least one resource is updated: it's the responsibility of the [ComputeShader](/typedoc/classes/babylon.computeshader) class to dirtify the bind groups when a resource changes.
+This class is more or less the mirror of `WebGPUDrawContext`, but for compute shaders. Its task is to create bind groups based on the resources used by the shader. The bind groups are cached until at least one resource is updated. It is the responsibility of the [ComputeShader](/typedoc/classes/babylon.computeshader) class to mark the bind groups as dirty when a resource changes.
 
 ## Helper classes
 There are a number of helper classes used in the WebGPU implementation. The main ones are listed below.
@@ -176,7 +176,7 @@ This class is used to manage a list of bundles. More precisely, it handles a lis
 * begin occlusion query
 * end occlusion query
 
-That's because a bundle itself can't contain a number of API calls like **setViewport**, **setScissorRect**, **setStencilReference**, etc: see the `GPURenderBundleEncoder` class in `LibDeclarations/webgpu.d.ts`.
+That is because a bundle itself cannot contain a number of API calls like **setViewport**, **setScissorRect**, and **setStencilReference**. See the `GPURenderBundleEncoder` class in `LibDeclarations/webgpu.d.ts`.
 
 To make things clearer, the APIs we must create a separate item for are the APIs that are supported by `GPURenderPassEncoder` but not by `GPURenderBundleEncoder`:
 * setViewport
@@ -186,15 +186,15 @@ To make things clearer, the APIs we must create a separate item for are the APIs
 * beginOcclusionQuery
 * endOcclusionQuery
 
-When recording the API calls during a frame (as used by the snapshot rendering for eg), we add as many bundles as possible in a *list of bundles* item, but when we must handle an API call that is not supported by the bundle encoder interface we must create a new item based on the API call we must issue and add it to the list of items. At the end of the frame, the bundles/API calls are sent to the GPU by calling `WebGPUBundleList.run()`.
+When recording API calls during a frame, as used by snapshot rendering for example, we add as many bundles as possible to a *list of bundles* item. But when we must handle an API call that is not supported by the bundle-encoder interface, we create a new item based on the API call we must issue and add it to the list of items. At the end of the frame, the bundles and API calls are sent to the GPU by calling `WebGPUBundleList.run()`.
 
 ### WebGPUClearQuad
-This class handles clearing a rectangular area in a texture. It is used when `WebGPUEngine.clear()` is called and a non fullscreen scissor rect is in effect.
+This class handles clearing a rectangular area in a texture. It is used when `WebGPUEngine.clear()` is called and a non-fullscreen scissor rect is in effect.
 
-It has its own render pipeline cache instance to avoid interfering with the main render pipeline cache. Indeed, `WebGPUClearQuad` needs to disable the depth test and set the stencil read mask to **0xFF**. If we would set those states on the main render pipeline cache instead, it would/could incur a change of these states (generally the depth test is enabled) and so force to start the cache traversal with a lower index state than if we use a separate cache instance (see how the render pipeline cache works [Cache Render Pipeline](/setup/support/webGPU/webGPUInternals/webGPUCacheRenderPipeline)). Not sure it is a big performance boost (as `WebGPUClearQuad.clear()` is called very infrequently) however, but it's done nonetheless...
+It has its own render-pipeline cache instance to avoid interfering with the main render-pipeline cache. `WebGPUClearQuad` needs to disable the depth test and set the stencil read mask to **0xFF**. If we set those states on the main render-pipeline cache instead, it could change those states, the depth test is generally enabled, and force the cache traversal to start from a lower index state than if we used a separate cache instance. See [Cache Render Pipeline](/setup/support/webGPU/webGPUInternals/webGPUCacheRenderPipeline) for how the render-pipeline cache works. It is not clear that this provides a big performance boost, because `WebGPUClearQuad.clear()` is called very infrequently, but it is done nonetheless.
 
 ### IWebGPURenderPassWrapper
-This interface is a very small wrapper around the main objects used by a GPU render pass: the render pass descriptor, the color/depth descriptors, the output textures and the depth texture format. There is one instance for the main pass and another for the render target pass and allows to factorize some methods common to main/render target passes (like `_setColorFormat` and `_setDepthTextureFormat`).
+This interface is a very small wrapper around the main objects used by a GPU render pass: the render pass descriptor, the color and depth descriptors, the output textures, and the depth texture format. There is one instance for the main pass and another for the render-target pass, which allows some methods common to both passes, such as `_setColorFormat` and `_setDepthTextureFormat`, to be factored out.
 
 ### WebGPUQuerySet
 This is the class that implements GPU query sets and is used by both `WebGPUOcclusionQuery` and `WebGPUTimestampQuery`. See [Queries](https://www.w3.org/TR/webgpu/#queries) in the WebGPU spec.

@@ -2,17 +2,17 @@
 title: Scene Manager
 image:
 description: The Unity Toolkit provides runtime life cycle management for game objects.
-keywords: babylon.js, extension, export, unity, manger, scene manager
+keywords: babylon.js, extension, export, unity, manager, scene manager
 further-reading:
 video-overview:
 video-content:
 ---
 
-The babylon scene manager extension provides runtime life cycle management for game objects. The extension supports a scene component application programming interface to enable the usage of **modern game mechanics** to ease web browser game development and provide a **native game editor style development** experience simular to native [Unity](https://www.unity3d.com/) and [Unreal Engine](https://www.unrealengine.com/) game development.
+The Babylon scene manager extension provides runtime life cycle management for game objects. The extension supports a scene component application programming interface to enable the use of **modern game mechanics**, ease web browser game development, and provide a **native game editor-style development** experience similar to native [Unity](https://www.unity3d.com/) and [Unreal Engine](https://www.unrealengine.com/) game development.
 
 ## Babylon Scene Manager
 
-The [Scene Manager](https://github.com/BabylonJS/Extensions/tree/master/SceneManager) is packaged with latest toolkit extension but is available on Github for download and customization. You can preview the latest stable [TypeScript Definitions](https://github.com/BabylonJS/UnityExporter/blob/master/Manager/babylon.manager.d.ts) file. To use a custom build you must copy your new output files to your project's **Assets > Babylon > Library** folder as:
+The [Scene Manager](https://github.com/BabylonJS/Extensions/tree/master/SceneManager) is packaged with the latest toolkit extension, but is also available on GitHub for download and customization. You can preview the latest stable [TypeScript Definitions](https://github.com/BabylonJS/UnityExporter/blob/master/Manager/babylon.manager.d.ts) file. To use a custom build, you must copy your new output files to your project's **Assets > Babylon > Library** folder as:
 
 - **babylon.manager.bjs** - Scene manager compiled javascript output file renamed to .bjs extension
 
@@ -20,7 +20,7 @@ The [Scene Manager](https://github.com/BabylonJS/Extensions/tree/master/SceneMan
 
 ## Babylon Scene Controller
 
-The scene controller script is designed to be used as the main entry point and logic controller for the specified scene. The scene controller exposes and addition lifecycle function called **Ready** that gets called during the scene loading **Execute When Ready** stage. This is the ideal place for main scene setup code that runs **before** the game render loop is started. The scene controller is a subclass of **BABYLON.MeshComponent** and should be used on a single empty game object in the scene.
+The scene controller script is designed to be used as the main entry point and logic controller for the specified scene. The scene controller exposes an additional lifecycle function called **Ready** that gets called during the scene loading **Execute When Ready** stage. This is the ideal place for main scene setup code that runs **before** the game render loop starts. The scene controller is a subclass of **BABYLON.MeshComponent** and should be used on a single empty game object in the scene.
 
 Example scene controller script file:
 
@@ -56,7 +56,7 @@ Example scene controller script file:
 
 ## Babylon Scene Components
 
-Managed scene components provide modern game mechanic helper functions to ease web game development. Some notable toolkit managed scene component examples:
+Managed scene components provide modern game-mechanic helper functions to ease web game development. Some notable toolkit-managed scene component examples:
 
 **GetProperty** - Gets a property from the attached editor script component.
 
@@ -72,7 +72,7 @@ Managed scene components provide modern game mechanic helper functions to ease w
     }
 ```
 
-**GetComponent** - Get a reference to another component attached to the owner object.
+**GetComponent** - Gets a reference to another component attached to the owner object.
 
 ```javascript
     module PROJECT {
@@ -86,7 +86,7 @@ Managed scene components provide modern game mechanic helper functions to ease w
     }
 ```
 
-**GetUserInput** - Get the **local multiplayer** user input from the scene manager for the specified input axis.
+**GetUserInput** - Gets the **local multiplayer** user input from the scene manager for the specified input axis.
 
 ```javascript
     module PROJECT {
@@ -103,7 +103,7 @@ Managed scene components provide modern game mechanic helper functions to ease w
 
 ## Mesh Script Components
 
-The mesh component script is to be used by **All Non Light And Camera** game objects. The component provides access to the owner mesh via its **BABYLON.AbstractMesh** property:
+The mesh component script should be used by **All Non Light And Camera** game objects. The component provides access to the owner mesh via its **BABYLON.AbstractMesh** property:
 
 ```javascript
     module PROJECT {
@@ -148,7 +148,7 @@ The camera component script is to be used on **Camera** game objects **Only**. T
 
 ## Babylon Global Script Files
 
-Global scripts enable inline global function for all scenes in the project. The global application script can also be used to capture window load and scene execute when ready events for the entire project.
+Global scripts enable inline global functions for all scenes in the project. The global application script can also be used to capture window load and scene execute-when-ready events for the entire project.
 
 Example global startup script:
 

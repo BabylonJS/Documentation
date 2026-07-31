@@ -10,12 +10,12 @@ video-content:
 
 ## Using the Texture Inspector
 
-The Texture Inspector is designed to enable you to debug your textures inside of Babylon. Users often load in textures and find that they do not appear as expected. Unexpected results can be related to transparency, UVs, or unique texture types such as cubemaps. The Texture Inspector allows you to investigate issues and even fix them in-engine.
+The Texture Inspector is designed to help you debug your textures in Babylon.js. Users often load textures and find that they do not appear as expected. Unexpected results can be related to transparency, UVs, or unique texture types such as cubemaps. The Texture Inspector allows you to investigate issues and even fix them in-engine.
 
 ## How to Access
 
 ![Accessing the Inspector](/img/features/debuglayer/texture/access.webp)
-The Texture Inspector can be accessed from the main inspector panel. Simply select a texture from the list, and click the "edit"  button underneath the texture preview.
+The Texture Inspector can be accessed from the main inspector panel. Simply select a texture from the list and click the "edit" button underneath the texture preview.
 
 ## Properties
 
@@ -35,7 +35,7 @@ Adjust the MIP level you are viewing. Some textures do not have mipmaps. Clickin
 
 ### Reset, Upload, Download
 
-The reset button restores the texture to its original state before it was opened in the inspector. The upload button allows you to upload a local file (.png, .jpeg, .dds, and .env are currently supported.) The download button will save the texture to your local machine using the name displayed in the bottom left.
+The reset button restores the texture to its original state before it was opened in the inspector. The upload button allows you to upload a local file (.png, .jpeg, .dds, and .env are currently supported). The download button saves the texture to your local machine using the name displayed in the bottom left.
 
 ### Faces (Cubemaps only)
 
@@ -47,7 +47,7 @@ When inspecting a cubemap, you can click through the 6 buttons to view the faces
 
 ### Rectangle Select
 
-Selects a region of the texture. When you have a reigon selected, edits will only be applied to that region. Press Escape to clear the selection.
+Selects a region of the texture. When you have a region selected, edits will only be applied to that region. Press Escape to clear the selection.
 
 ### Paintbrush
 

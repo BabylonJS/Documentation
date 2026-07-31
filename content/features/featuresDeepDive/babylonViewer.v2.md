@@ -51,11 +51,11 @@ To get started, here is a very basic usage example:
 
 ## Viewer Layers
 
-The Babylon Viewer is constructed through three layers to enable cross platform and cross framework usage.
+The Babylon Viewer is constructed in three layers to enable cross-platform and cross-framework usage.
 
 **`HTML3DElement` (`<babylon-viewer>`)** - this layer leverages [HTML Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements), is intended for use directly in HTML, and provides default UI for things like animation controls. The documentation primarily focuses on this layer.
 
-**`CreateViewerForCanvas`** - this layer binds Viewer functionality to an html `canvas`. It is used by `HTML3DElement`, and could be used for other web framework bindings (such as [React](https://react.dev/)).
+**`CreateViewerForCanvas`** - this layer binds Viewer functionality to an HTML `canvas`. It is used by `HTML3DElement`, and could be used for other web framework bindings (such as [React](https://react.dev/)).
 
 **`Viewer`** - this layer has the bulk of the core Viewer functionality. It is used by `CreateViewerForCanvas`, and could be used in other Babylon scenarios, such as with Babylon Native.
 
@@ -79,7 +79,7 @@ For Babylon Native, a `NativeEngine` instance can be passed into the `Viewer` co
 
 ## Power & Resource Optimizations
 
-When a `HTML3DElement` (`<babylon-viewer>`) is not within the browser's viewport (e.g. scrolled out of view), rendering is suspended. Additionally, within the lower `Viewer` layer, when nothing is changing frame to frame (e.g. no user interactions, no animations playing, etc.), rendering is also suspended. Suspending rendering is especially helpful on power or resource constrained devices (e.g. mobile), or when many Viewer instances are used on a page.
+When a `HTML3DElement` (`<babylon-viewer>`) is not within the browser's viewport (e.g. scrolled out of view), rendering is suspended. Additionally, within the lower `Viewer` layer, when nothing is changing from frame to frame (e.g. no user interactions, no animations playing, etc.), rendering is also suspended. Suspending rendering is especially helpful on power- or resource-constrained devices (e.g. mobile), or when many Viewer instances are used on a page.
 
 By default, `Viewer` will try to render at the native device resolution (maximum quality). When the `Viewer` is not able to render at the target framerate, the render resolution will progressively be reduced until the target frame rate is achieved, or the minimum resolution is reached.
 

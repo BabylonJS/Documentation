@@ -12,11 +12,11 @@ video-content:
 
 ## Introduction
 
-Starting with v3.2, we introduced (without breaking backward compatibility of course) a new pattern: the promises.
-To learn more about promises, please read this great [MDN web documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+Starting with v3.2, we introduced (without breaking backward compatibility, of course) a new pattern: promises.
+To learn more about promises, please read this great [MDN web documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-In a nutshell, the basic idea is to rely on promises instead of having to deal with pyramids of callbacks intricated in a non easy to maintain way.
-Regarding portability, Babylon.js provides a custom polyfill for browsers where promises are not supported so you can blindly use them.
+In a nutshell, the basic idea is to rely on promises instead of dealing with pyramids of callbacks that are intricate and hard to maintain.
+For portability, Babylon.js provides a custom polyfill for browsers where promises are not supported, so you can use them without worrying about support.
 
 ## Examples
 
@@ -46,7 +46,7 @@ xrPromise
 
 ### Using async/await with promises
 
-Note: This is not supported in all browsers
+Note: This is not supported in all browsers.
 
 ```javascript
 const main = async function () {
@@ -79,4 +79,3 @@ Promise.all([
 ```
 
 <Playground id="#U2KKMK#308" title="Load 2 Asset At Once" description="Simple example of loading 2 assets at once inside of a promise." image="/img/playgroundsAndNMEs/divingDeeperPromises2.webp"/>
-

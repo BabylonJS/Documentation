@@ -16,7 +16,7 @@ video-content:
 
 ## Why Animation Blocks Matter
 
-Animation blocks connect authored graph logic to time-based scene change.
+Animation blocks connect authored graph logic to time-based scene changes.
 
 They are useful when the graph should start, pause, stop, or interpolate values over time instead of reacting only as discrete steps.
 

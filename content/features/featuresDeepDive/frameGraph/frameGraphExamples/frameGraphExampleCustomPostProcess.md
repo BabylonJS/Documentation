@@ -7,11 +7,11 @@ keywords: diving deeper, frame graph, post-process, examples,
 
 ## Introduction
 
-You have two options if you want to create a custom post-processes task for use in a frame graph:
+You have two options if you want to create a custom post-process task for use in a frame graph:
 * Implement a frame graph task from scratch
 * Use the wrapper class [FrameGraphCustomPostProcessTask](/typedoc/classes/babylon.framegraphcustompostprocesstask) around your post-process
 <br/>
-If you want to go the first route, you can draw inspiration from the many existing post-processing tasks (located in https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/FrameGraph/Tasks/PostProcesses).
+If you want to go the first route, you can draw inspiration from the many existing post-processing tasks (located at https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/FrameGraph/Tasks/PostProcesses).
 
 However, in most cases, using `FrameGraphCustomPostProcessTask` should meet your needs, and we will see how to use it in the next section.
 
@@ -52,7 +52,7 @@ const task = new BABYLON.FrameGraphCustomPostProcessTask("edgeDetection", frameG
 });
 ```
 
-Here is a simple PG that illustrates the two code paths (update line 21 to use the standard or frame graph path):
+Here is a simple PG that illustrates the two code paths (update line 21 to use either the standard or frame graph path):
 
 <Playground id="#F494TC" image="/img/playgroundsAndNMEs/pg-ZC3Y12-2.webp" title="Custom post-process in frame graph" description="Using a custom post-process in frame graph with FrameGraphCustomPostProcessTask" isMain={true} category="Frame Graph"/>
 
@@ -87,7 +87,7 @@ Note: **EdgeDetectionFragment** is the shader code of the post-process.
 
 This is the same code as above, but it allows you to easily modify the **escale** and **threshold** properties.
 
-As for the implementation of the node graph rendering block `NodeRenderGraphEdgePostProcessBlock`, it is quite simple thanks to the use of `NodeRenderGraphBaseWithPropertiesPostProcessBlock`:
+As for the implementation of the node render graph block `NodeRenderGraphEdgePostProcessBlock`, it is quite simple thanks to the use of `NodeRenderGraphBaseWithPropertiesPostProcessBlock`:
 * First, we declare a private variable to contain the wrapper class and initialize it in the constructor:
 ```typescript
 export class NodeRenderGraphEdgePostProcessBlock extends BABYLON.NodeRenderGraphBaseWithPropertiesPostProcessBlock {
@@ -156,7 +156,7 @@ public override _deserialize(serializationObject: any) {
 ```
 Note: Implementing `serialize` and `_deserialize` is mandatory for the block to work in NRGE (unlike `_dumpPropertiesCode` - but if you don't implement this method, the "Generate Code" button won't work as expected)!
 
-Once again, the code is very simple, just serialize/parse the properties used by the post-process.
+Once again, the code is very simple: just serialize and parse the properties used by the post-process.
 
 You must register this class in Babylon's class system:
 ```typescript
@@ -204,7 +204,7 @@ await nrg.buildAsync();
 
 This means that this URL will not work: https://nrge.babylonjs.com/#XQF0ML. The edge detection block cannot be created by NRGE because it does not know it.
 
-This is because the implementation of the block node for the edge detection post-process is not available in the standalone version of NRGE. You must edit the graph by first opening the playground where the class is defined and access it through the inspector.
+This is because the implementation of the node block for the edge detection post-process is not available in the standalone version of NRGE. You must edit the graph by first opening the playground where the class is defined and then accessing it through the inspector.
 
 Note that you can also open NRGE using this code:
 ```typescript
@@ -213,5 +213,4 @@ const nrg = await BABYLON.NodeRenderGraph.ParseFromSnippetAsync("XQF0ML", scene)
 await nrg.buildAsync();
 nrg.edit();
 ```
-
 

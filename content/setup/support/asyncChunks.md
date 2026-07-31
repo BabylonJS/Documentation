@@ -4,29 +4,29 @@ description: Learn how to control code splitting in Babylon.js, when using bundl
 keywords: babylon.js, bundlers, chunks, async, loading, code splitting, webpack, rollup
 ---
 
-This document is for you if you are using a bundler like webpack or rollup to build your Babylon.js project. It will help you understand how to control async-loading of packages and chunks in Babylon.js.
+This document is for you if you are using a bundler like webpack or rollup to build your Babylon.js project. It will help you understand how to control async loading of packages and chunks in Babylon.js.
 
-If you don't mind how your app is built and simply trust that your bundler will provide you the required files to deploy your Babylon experience, no need to read further. If you found too many different files in your dist folder and it triggers your curiosity, continue reading!
+If you do not mind how your app is built and simply trust that your bundler will provide the required files to deploy your Babylon experience, there is no need to read further. If you found too many different files in your `dist` folder and that sparked your curiosity, continue reading!
 
 ## Introduction
 
-Babylon.js has recently introduced async-loading to the framework. The main goal of this new architecture is to allow you, the developer provide your consumer the smallest package possible. This is achieved by splitting the framework into multiple load-able assets, and only loading them when needed.
+Babylon.js recently introduced async loading to the framework. The main goal of this new architecture is to help you, the developer, provide your users with the smallest package possible. This is achieved by splitting the framework into multiple loadable assets and loading them only when needed.
 
-The most split-feature we currently have in the framework si the separation of the different shader code between WebGL and WebGPU. When deciding what engine you are using, the framework will also "Decide" for you what files are loaded - from the shader processors to the different shaders, you will only load what you need.
+The most heavily split feature we currently have in the framework is the separation of shader code between WebGL and WebGPU. When the framework determines which engine you are using, it also decides which files to load. From the shader processors to the shaders themselves, you only load what you need.
 
 Async-loading is a standard JavaScript feature, defined in the ECMAScript standard ([Import Calls](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-import-calls)), and is supported by all modern browsers. It allows you to load JavaScript files asynchronously, without blocking the main thread.
 
-When using it in the browser, the files will simply be loaded when needed. But when you are using a bundler like webpack you will notice that the final dist folder will contain files that you might not have expected to see. This is because the bundler will try to optimize the loading of the files, and will split the files into chunks.
+When using it in the browser, the files are simply loaded when needed. But when you use a bundler like webpack, you will notice that the final `dist` folder contains files you might not have expected to see. This is because the bundler tries to optimize file loading and splits the files into chunks.
 
-This article will explain how to control the generated chunks, how to configure your bundler to work according to your needs, and how to optimize your build to get the best package size and loading time, while still enjoying fully from babylon's features.
+This article explains how to control the generated chunks, how to configure your bundler to match your needs, and how to optimize your build for the best package size and loading time while still taking full advantage of Babylon's features.
 
 Note that this feature is only available in Babylon 7.15 and up, and only if you use the ES6 packages. Our UMD package will always be a single file without chunks.
 
 ## Example output
 
-I will be using webpack here, but this is valid for any other bundler.
+I will use webpack here, but the same ideas apply to other bundlers.
 
-Let's say we are building a simple babylon project, using the default template found here - [babylonjs-webpack-es6](https://github.com/RaananW/babylonjs-webpack-es6).
+Let's say we are building a simple Babylon project using the default template found here: [babylonjs-webpack-es6](https://github.com/RaananW/babylonjs-webpack-es6).
 
 If we simply build the project, we will notice the following files in the dist folder:
 
@@ -70,15 +70,15 @@ Notice the `import()` calls in the `extraInitializationsAsync` function. Each of
 
 The rest of the files are many other parts of the framework, each split into its own file.
 
-But you might not want all of them. The example we have above will generate 4 chunks - two for the vertex and fragment shaders, in both webgl and webgpu. If you want to control the number of files generated, you will need to configure your bundler accordingly.
+But you might not want all of them. The example above generates four chunks: two for the vertex and fragment shaders, for both WebGL and WebGPU. If you want to control the number of generated files, you need to configure your bundler accordingly.
 
 ## Configuring different bundlers
 
 ### Webpack
 
-Webpack allows you to fully configure your chunks. You can control the files added to a single chunk, the amount of chunks in your project, and even the name of the files. The full documentation for the feature can be found in the [SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/) available per default in webpack 5.
+Webpack lets you fully configure your chunks. You can control which files are added to a single chunk, how many chunks your project has, and even the names of the files. Full documentation for this feature is available in the [SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/), which is included by default in webpack 5.
 
-Let's get a simple webpack configuration that takes all WebGL shaders and packs them all together in a single file. First, let's change slightly the output configuration:
+Let's start with a simple webpack configuration that takes all WebGL shaders and packs them into a single file. First, let's slightly change the output configuration:
 
 ```javascript
 output: {
@@ -87,7 +87,7 @@ output: {
     },
 ```
 
-So now we just need to define the name of each chunk, and what files go into it. We can do that by using the `optimization.splitChunks.cacheGroups` configuration:
+Now we just need to define the name of each chunk and which files go into it. We can do that with the `optimization.splitChunks.cacheGroups` configuration:
 
 ```javascript
 {
@@ -135,7 +135,7 @@ Now we have the following files generated:
 
 ![Webpack list of files after optimization](/img/webpackChunksConfiguration.png.png)
 
-We have webgpu shaders, webgl shaders, webgpu extensions and our babylon bundle. The "main.js" file is the actual project code.
+We now have WebGPU shaders, WebGL shaders, WebGPU extensions, and our Babylon bundle. The `main.js` file contains the actual project code.
 
 #### Ignoring certain files
 
@@ -153,7 +153,7 @@ Now the webgpu-shaders bundle will not be generated.
 
 #### Preventing chunks altogether
 
-If you want to prevent the generation of chunks altogether, you can use the included webpack [limit chunks plugin](https://webpack.js.org/plugins/limit-chunk-count-plugin/). This plugin will allow you to limit the number of chunks generated. If you set it to 1, you will have a single file generated:
+If you want to prevent chunk generation altogether, you can use the included webpack [LimitChunkCountPlugin](https://webpack.js.org/plugins/limit-chunk-count-plugin/). This plugin lets you limit the number of generated chunks. If you set it to 1, only a single file is generated:
 
 ```javascript
 {
@@ -168,9 +168,9 @@ If you want to prevent the generation of chunks altogether, you can use the incl
 
 ### Rollup
 
-Note - this is also valid for vite, as it is using rollup under the hood
+Note: this also applies to Vite, as it uses Rollup under the hood.
 
-Rollup is a bit different than webpack, but it also allows you to control the chunks generated.
+Rollup is a bit different from webpack, but it also allows you to control the generated chunks.
 The equivalent of the webpack configuration above would be:
 
 ```javascript
@@ -197,7 +197,7 @@ This will generate the same 5 chunks as the webpack configuration above.
 
 #### Preventing chunks altogether in rollup
 
-To do that simply set the manual chunks of `@babylonjs/core` to a single file:
+To do that, simply set the manual chunks for `@babylonjs/core` to a single file:
 
 ```javascript
 export default {

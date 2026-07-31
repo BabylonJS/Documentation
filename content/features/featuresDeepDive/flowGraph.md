@@ -13,6 +13,6 @@ The Flow Graph system is particularly useful for creating interactive experience
 
 A flow graph becomes much easier to author when it has a corresponding visual editor. Babylon.js now includes a dedicated [Flow Graph Editor](/toolsAndResources/flowGraphEditor) that lets you create, test, validate, and debug graphs visually.
 
-Under the hood, the flow graph is being used when glTF with interactivity is loaded. The glTF interactivity graph is converted to a Babylon flow graph, which is then executed when the user interacts with the scene.
+Under the hood, the flow graph is used when glTF with interactivity is loaded. The glTF interactivity graph is converted to a Babylon flow graph, which is then executed when the user interacts with the scene.
 
 If you want to understand the runtime model, continue with the sections below. If you want to build graphs through a visual tool, start with the [Flow Graph Editor documentation](/toolsAndResources/flowGraphEditor).

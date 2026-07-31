@@ -10,7 +10,7 @@ video-content:
 
 Starting with a polygon as the footprint, a house is built by giving the footprint thickness (ply), extruding and adding door and window spaces at given positions.
 
-**Please note that some functions used in this project uses Earcut, so, in non playground projects, you will have to add a reference to their [cdn](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download their [npm package](https://github.com/mapbox/earcut#install)**
+**Please note that some functions used in this project use Earcut, so in non-playground projects, you will have to add a reference to the [cdn](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download the [npm package](https://github.com/mapbox/earcut#install)**
 
 ## Data Structure
 
@@ -30,7 +30,7 @@ If the number of walls is nbWalls the new corners are numbered by adding nbWalls
 ![Base of Walls](/img/samples/house2.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 2
 
-The top of wall is formed by adding the **height** of the walls to the base corners to form the top corners, having the form of a Vector3 (x, height, z). The new corners are numbered by adding 2 \_ nbWalls to the corresponding base corners. The top of wall w will consist of corners numbered , w + 2 \_ nbWalls, (w + 1) % nbWalls + 2 \_ nbWalls, w + nbWalls + 2 \_ nbWalls, (w + 1) % nbWalls + nbWalls + 2 \* nbWalls. See Fig 3.
+The top of the wall is formed by adding the **height** of the walls to the base corners to form the top corners, each with the form Vector3 (x, height, z). The new corners are numbered by adding 2 \_ nbWalls to the corresponding base corners. The top of wall w will consist of corners numbered , w + 2 \_ nbWalls, (w + 1) % nbWalls + 2 \_ nbWalls, w + nbWalls + 2 \_ nbWalls, (w + 1) % nbWalls + nbWalls + 2 \* nbWalls. See Fig 3.
 
 ![Top of Walls](/img/samples/house3.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 3
@@ -84,7 +84,7 @@ outer facets : w + 1 + 3nbWalls, w + 3nbWalls, w + nbWalls, w + 1 + nbWalls, w +
 
 PG: <Playground id="#4GBWI5" title="Blank House Walls" description="Walls with no doors or windows"/>
 
-So far fairly straight forward, now to add door and window spaces.
+So far, this is fairly straightforward. Now we add door and window spaces.
 
 ## Door and Window Spaces.
 
@@ -117,11 +117,11 @@ Whereas the top surface between the inner and outer walls will not be changed th
 
 Since for polygonMeshBuilder corners have to be in counter-clockwise consecutive order, all doorspaces for each wall will have to be sorted in increasing order of their left value.
 
-At this stage code was written to add in the doors using existing positions. However as you can see in the following playground sharing vertices and normals made the triangular facets stand out.
+At this stage, code was written to add the doors using the existing positions. However as you can see in the following playground sharing vertices and normals made the triangular facets stand out.
 
 PG: <Playground id="#4GBWI5#266" title="Using Shared Vertices" description="Show lighting effect on walls with shared vertices"/>
 
-To stop this effect a flat shaded mesh is necessary and rather than just converting the existing mesh to a flat shaded one it was decided to re-code for a flat shaded mesh from the start. This simplified the procedures for adding in the edges to doors and windows. Also because the interior and exterior walls were now separate it gave the possibility of applying different materials and colors to these walls.
+To stop this effect a flat shaded mesh is necessary and rather than just converting the existing mesh to a flat shaded one it was decided to re-code for a flat shaded mesh from the start. This simplified the procedures for adding in the edges to doors and windows. Also, because the interior and exterior walls were now separate, it made it possible to apply different materials and colors to these walls.
 
 It was decided that edges to doors and windows would be exterior.
 
@@ -181,13 +181,13 @@ position of top outer left wall corner,
 4 window outer positions * number of windows
 ]
 
-The these can be pushed to the house positions array. Since the wall indices array for these still apply but the order must be reversed, so that any normals formed will be in the correct direction, and appropriate increments added. Add appropriate values to the uv array.
+These can then be pushed to the house positions array. Since the wall indices array for these still applies, the order must be reversed so that any normals formed will be in the correct direction, and appropriate increments must be added. Add appropriate values to the uv array.
 
 ## Top, Base and Edge Side for Walls, Doors and Windows.
 
-All that is left now is to consider each base sections between doors, the side and top edges for the doors and base, top and side edges for the windows for wall w.
+All that is left now is to consider each base section between doors, the side and top edges for the doors, and the base, top, and side edges for the windows for wall w.
 
-Since the data for all corners for each of these has now been saved it is fairly straight forward to form the correct triangular facets and uv values for each
+Since the data for all corners for each of these has now been saved, it is fairly straightforward to form the correct triangular facets and uv values for each.
 
 Once all positions are in the house positions array and knowing that the first block only relates to the interior wall it is easy to link the remaining vertices to the exterior color.
 
@@ -213,13 +213,13 @@ buildFromPlan(walls, 1, 10, { interiorColor: new BABYLON.Color4(1, 0, 0, 1), ext
 buildFromPlan(walls, 0.87, 6.21, { interiorUV: new BABYLON.Vector4(0, 0, 0.5, 1), exteriorUV: new BABYLON.Color4(0.5, 1, 1, 1) }, scene);
 ```
 
-Each wall object has one two or three parameters
+Each wall object has one, two, or three parameters
 
 _corners_: an array of corner objects - required
 _doorSpaces_ : an array of doorSpace objects - optional
 _windowSpaces_ an array of windowSpace objects - optional
 
-Each corner object has two parameters giving its position in 2D , example new corner(-3, 2)
+Each corner object has two parameters giving its position in 2D, for example new corner(-3, 2).
 
 Each doorSpace object has two parameters
 _door_ : door object
@@ -238,7 +238,7 @@ Each window object has two parameters, example new window(1, 2)
 _width_ : width of window
 _height_ : height of window
 
-Using the plan in fig 7 we can construct a house.
+Using the plan in Fig 7, we can construct a house.
 
 ![House floorplan](/img/samples/house7.webp)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 7
@@ -261,6 +261,6 @@ door width 1 height 1.8
 
 wall 6 - doorSpace door, left 1
 
-Applying the plan leads to
+Applying the plan leads to:
 
 PG: <Playground id="#4GBWI5#2144" title="House Built from a FloorPlan" description="A basic house built from a floorplan."/>

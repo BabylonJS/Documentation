@@ -13,19 +13,19 @@ video-content:
 ---
 
 ## How to use Thin Instances
-Starting with Babylon.js v4.2, thin instances are a new feature of meshes.
+Starting with Babylon.js v4.2, thin instances are a feature of meshes.
 
 PG: <Playground id="#V1JE4Z#1" title="Thin Instances Example" description="Simple example of using thin instances."/>
 
-As explained in [How To Use Instances](/features/featuresDeepDive/mesh/copies/instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes.
+As explained in [How To Use Instances](/features/featuresDeepDive/mesh/copies/instances), instances are an excellent way to use hardware-accelerated rendering to draw a huge number of identical meshes.
 
-However, regular instances still have a performance penalty on the javascript side because each instance is its own object (`InstancedMesh`): if you have 10000 instances in your scene, the engine must loop over all those objects to make a number of processing (visibility check, etc).
+However, regular instances still have a performance penalty on the JavaScript side because each instance is its own object (`InstancedMesh`): if you have 10000 instances in your scene, the engine must loop over all those objects to perform a number of operations (visibility checks, etc.).
 
-Thin instances don't create new objects so you don't incur any penalty on the javascript side by having thousands of them. This performance increase does come with a cost:
-* all thin instances are always all drawn (if the mesh is deemed visible) or none. It's all or nothing.
+Thin instances don't create new objects, so you don't incur any penalty on the JavaScript side by having thousands of them. This performance increase does come with a cost:
+* either all thin instances are drawn (if the mesh is deemed visible) or none are. It's all or nothing.
 * adding / removing a thin instance is more costly than with `InstancedMesh`
 
-Thin instances should be used when you need a lot of static instances that you know won't change often / at all. Think of the seats of a stadium, for eg.
+Thin instances should be used when you need a lot of static instances that you know won't change often, if at all. Think of the seats in a stadium, for example.
 
 So, regular instances may still be the way to go, depending on your scene: if you have a lot of objects scattered and only a few are visible in a frame, or if you must add/remove instances continuously, it may be better to use instances than thin instances.
 
@@ -57,7 +57,7 @@ sphere.thinInstanceSetMatrixAt(idx2, matrix2);
 
 Example: <Playground id="#217750" title="Creating Thin Instances" description="Simple example of creating thin instances."/>
 
-Those 3 methods take an additional `refresh` parameter (`true` by default) that allows you to block the buffer refresh mechanism to save performances: if you must use those methods multiple times, pass `false` for all calls except for the last one.
+Those three methods take an additional `refresh` parameter (`true` by default) that allows you to block the buffer refresh mechanism to improve performance: if you must use those methods multiple times, pass `false` for all calls except the last one.
 
 The bounding info of the mesh is recomputed each time you call these methods to encompass all the thin instances (except if you set `doNotSyncBoundingInfo` to `true`). You can also refresh explicitly the bounding info by calling `thinInstanceRefreshBoundingInfo`.
 
@@ -88,7 +88,7 @@ Note that you can't set a number that is higher than what the underlying buffer 
 Set the number to 0 to bypass the thin instance rendering and render the mesh as usual.
 
 ## Faster thin instances
-To get the most of the thin instance support, you can directly pass the pre-built buffer of matrices / custom attributes:
+To get the most out of thin instance support, you can directly pass the pre-built buffer of matrices / custom attributes:
 ```typescript
 var matrix1 = BABYLON.Matrix.Translation(-2, 2, 0);
 var matrix2 = BABYLON.Matrix.IdentityReadOnly;
@@ -110,7 +110,7 @@ sphere.thinInstanceSetBuffer("color", bufferColors, 4);
 
 Example: <Playground id="#217750#2" title="Thin Instances Example" description="Simple example showing how to use thin instances."/>
 
-If you have a lot of thin instances to create, it could be a lot faster than calling `thinInstanceAdd` / `thinInstanceSetAttributeAt`. Also, you can allocate a bigger buffer than what you really need at start and play with the `thinInstanceCount` property to adjust the number of instances to display during the course of your program.
+If you have a lot of thin instances to create, this can be much faster than calling `thinInstanceAdd` / `thinInstanceSetAttributeAt`. You can also allocate a bigger buffer than what you really need at the start and use the `thinInstanceCount` property to adjust the number of instances to display during the course of your program.
 
 Note that you don't need to call `thinInstanceRegisterAttribute` if you set a custom attribute buffer by calling `thinInstanceSetBuffer`.
 
@@ -133,7 +133,7 @@ Here's an example of thin instances picking: <Playground id="#RC2IAH#115" title=
 
 * Thin instances with mixed positive and negative determinant matrices won't be rendered correctly. If you need thin instances with both positive and negative determinants, create two meshes and add the thin instances to one or the other (don't forget to set the `sideOrientation` property properly for both mesh materials!).
 
-For eg: <Playground id="#217750#3" title="Thin Instances Wrong Rendering" description="Simple example of thin instances with wrong rendering."/>
+For example: <Playground id="#217750#3" title="Thin Instances Wrong Rendering" description="Simple example of thin instances with wrong rendering."/>
 
 ![Wrong rendering](/img/how_to/Mesh/thinInstancesWrongSideOrientation.webp)
 

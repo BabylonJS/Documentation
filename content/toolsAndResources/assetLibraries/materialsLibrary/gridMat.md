@@ -18,17 +18,17 @@ A full playground example can be found here: PG: <Playground id="#1UFGZH#12" tit
 
 ## Using the Grid material
 
-As the grid material is a babylonJS extension, it is not included in the main _babylon.js_ file. In order to use the material, please download and reference the extension from the cdn using [babylon.gridMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.gridMaterial.js) or its minified version [babylon.gridMaterial.min.js](https://cdn.babylonjs.com/materialsLibrary/babylon.gridMaterial.min.js).
+Because the grid material is a Babylon.js extension, it is not included in the main _babylon.js_ file. To use the material, download and reference the extension from the CDN using [babylon.gridMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.gridMaterial.js) or its minified version [babylon.gridMaterial.min.js](https://cdn.babylonjs.com/materialsLibrary/babylon.gridMaterial.min.js).
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-The default grid behaviour does not require any setup and displays a black and white grid on your meshes:
+The default grid behavior does not require any setup and displays a black-and-white grid on your meshes:
 
 ![gridDefault](/img/extensions/materials/gridDefault.webp)
 
 You can access the live example in this PG: <Playground id="#2KKVBH" title="Grid Material" description="Example of grid material"/>
 
-The grid is using the local position to outline any of the axis fitting with one unit in black. Only one on ten lines will be fully black, the other lines will be in lighter grey. You can imagine it as a ruler with bigger marks for centimeters and smaller for millimeters.
+The grid uses the local position to outline each axis, with one unit shown in black. Only one in ten lines will be fully black; the other lines will be lighter gray. You can think of it as a ruler with bigger marks for centimeters and smaller ones for millimeters.
 
 ```javascript
 var ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("ground", "textures/heightMap.png", { width: 100, height: 100, subdivisions: 100, minHeight: 0, maxHeight: 10 }, scene);
@@ -37,28 +37,28 @@ ground.material = new BABYLON.GridMaterial("groundMaterial", scene);
 
 ## Customize the grid material
 
-In order to help you making the grid fit in your scenes, a few controls are available:
+To help you make the grid fit your scenes, a few controls are available:
 
-- `mainColor`: the main color pilots the color of the empty area
-- `lineColor`: the line color drives the line color... What an amazing surprise !!!
+- `mainColor`: the main color controls the color of the empty area
+- `lineColor`: the line color controls the line color
 - `opacity`: the opacity helps changing the lines opacity. In transparent mode (opacity < 1.0), the empty area will always be at an opacity level of `0.08`
 - `gridRatio`: subdivide the object size in order to fit with it
 - `majorUnitFrequency`: frequency of strong lines
 - `minorUnitVisibility`: level of minor lines compared to the major ones
 - `gridOffset`: the offset vector3 will shift the cells of the grid by a set amount
 
-### Few clarifications
+### A few clarifications
 
 #### gridRatio
 
 The grid will be projected on objects according to their size. If an object has a size of 1, you'll only see one line on it.
-For instance a 1 size cube will by default only have one line:
+For instance, a cube with a size of 1 will, by default, only have one line:
 
 ![Grid Ratio 1](/img/extensions/materials/gridRatio1.webp)
 
 PG: <Playground id="#5S6MD" title="Grid Material" description="Grid ratio of 1"/>
 
-Using a gridRatio of 0.1, will then make appear ten lines on it:
+Using a gridRatio of 0.1 will make ten lines appear on it:
 
 ![Grid Ratio 2](/img/extensions/materials/gridRatio2.webp)
 
@@ -66,9 +66,9 @@ PG: <Playground id="#5S6MD#1" title="Grid Material" description="Grid ratio of 2
 
 #### majorUnitFrequency
 
-You have now noticed on the gridRatio examples above that only one on ten lines is stronger. This is control by the parameter named `majorUnitFrequency` which gets its default value to 10.
+You may have noticed in the gridRatio examples above that only one in ten lines is stronger. This is controlled by the parameter named `majorUnitFrequency`, which has a default value of 10.
 
-Setting it to 2, will make appear one strong line each 2 lines. This is only a scary parameter name for something simple:
+Setting it to 2 will make one strong line appear every 2 lines. This is only a scary parameter name for something simple:
 
 ![Grid MUF](/img/extensions/materials/gridMUF.webp)
 
@@ -76,7 +76,7 @@ PG: <Playground id="#5S6MD#2" title="Grid Material" description="Example of usin
 
 #### minorUnitVisibility
 
-After sorting out the frequency of stronger lines, you could wonder how to control the strength of the minor ones. The parameter `minorUnitVisibility` will help you to control this. This value should be smaller than 1 which is the value applied to the main lines. The default value is 0.33 which corresponds to 33% of the `lineColor`.
+After setting the frequency of the stronger lines, you might wonder how to control the strength of the minor ones. The parameter `minorUnitVisibility` helps you control this. This value should be smaller than 1, which is the value applied to the main lines. The default value is 0.33, which corresponds to 33% of the `lineColor`.
 
 Setting it to 0.1 will then reinforce the effect of the main lines (by dropping the value of the minor ones):
 
@@ -86,7 +86,7 @@ PG: <Playground id="#5S6MD#3" title="Grid Material" description="Example of usin
 
 #### gridOffset
 
-Note that the shift for each axis allows a loop: using a `gridOffset` of `(0, 0, 0)` will give you the same visual result than `(1, 0, 0)`.
+Note that the shift for each axis loops: using a `gridOffset` of `(0, 0, 0)` will give you the same visual result as `(1, 0, 0)`.
 
 PG: <Playground id="#URSDPL#1" title="Grid Material" description="Example of using grid offset"/>
 

@@ -25,15 +25,15 @@ box.edgesWidth = 4.0;
 box.edgesColor = new BABYLON.Color4(0, 0, 1, 1);
 ```
 
-The `enableEdgesRendering` can be called with a custom epsilon (default value is 0.95).
+`enableEdgesRendering` can be called with a custom epsilon (the default value is 0.95).
 
 ```javascript
 box.enableEdgesRendering(0.9999);
 ```
 
-Dot product is the cosine of the angle between the vectors, so for default epsilon 0.95 the angle is acos(.95) ~= 18 degrees - so if the angle between two faces is less than that no line gets drawn.
+The dot product is the cosine of the angle between the vectors, so for the default epsilon of 0.95 the angle is acos(.95) ~= 18 degrees. If the angle between two faces is less than that, no line is drawn.
 
-If you need to turn-off edges rendering:
+If you need to turn off edges rendering:
 
 ```javascript
 box.disableEdgesRendering();
@@ -53,13 +53,13 @@ PG: <Playground id="#7BY3TM" title="Edge Rendering Example 2" description="Simpl
 
 ## EdgesRenderer and Transparent meshes
 
-The EdgesRenderer is the last component of a [rendering group](/features/featuresDeepDive/materials/advanced/transparent_rendering#rendering-groups) to be rendered, which can effect rendering when there are transparent meshes other than the one using the renderer. See this scene for an example:
+The EdgesRenderer is the last component of a [rendering group](/features/featuresDeepDive/materials/advanced/transparent_rendering#rendering-groups) to be rendered, which can affect rendering when there are transparent meshes other than the one using the renderer. See this scene for an example:
 
 ![Edges rendering over transparent object](/img/features/edgesRenderer/edgesRenderer1.webp)
 
 <Playground id="#TYAHX#282" title="Edge renderer and Transparent Meshes" description="Shows the interaction between an edge renderer in an object and another, transparent, object."/>
 
-You may notice that both the back box and the ground's edges renderers are rendering on top of the front, partially transparent mesh. That happens because the edges rendering happen after all other steps in the scene, even after the transparent (alpha blended) meshes are rendered. For more information on the rendering order of meshes, check the [Transparent Rendering](features/featuresDeepDive/materials/advanced/transparent_rendering#rendering-order) page. There are two possible solutions to this. One is to set the transparent objects' rendering group id to a higher value than the meshes with the edges renderer:
+You may notice that both the back box and the ground's edge renderers are rendering on top of the front, partially transparent mesh. That happens because edge rendering occurs after all other steps in the scene, even after transparent (alpha-blended) meshes are rendered. For more information on the rendering order of meshes, check the [Transparent Rendering](features/featuresDeepDive/materials/advanced/transparent_rendering#rendering-order) page. There are two possible solutions to this. One is to set the transparent object's rendering group id to a higher value than the meshes with the edge renderer:
 
 ![Solution 1](/img/features/edgesRenderer/edgesRenderer2.webp)
 

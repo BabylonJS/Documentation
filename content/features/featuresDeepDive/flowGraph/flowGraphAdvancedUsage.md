@@ -9,7 +9,7 @@ keywords: diving deeper, flow graph, interactive scenes, action editor, getting 
 
 ## Logging and debugging
 
-You can enable a very verbose logger on your context. Each context has a way to log each action it does. Note that this is very verbose, as each connection value is also logged.
+You can enable a very verbose logger on your context. Each context can log every action it performs. Note that this is very verbose, as each connection value is also logged.
 
 To enable logging, set the `enableLogging` variable to true:
 
@@ -24,7 +24,7 @@ The logger will then be available on the context:
 ctx.logger !== undefined;
 ```
 
-The logger is adding its logs to an array of actions in the logger object. It is also logging to the console per default, but this can be disabled by setting the `logToConsole` variable to false.
+The logger adds its logs to an array of actions in the logger object. It also logs to the console by default, but this can be disabled by setting the `logToConsole` variable to false.
 
 ```javascript
 ctx.logger.logToConsole = false;
@@ -35,7 +35,7 @@ console.log(ctx.logger.log);
 
 ## Create your own block
 
-When creating your first block you first need to decide whether it is a data block or an execution block. Most blocks are probably data block (i.e. - providing passive data), unless the block needs to react to an event or a signal input.
+When creating your first block, you first need to decide whether it is a data block or an execution block. Most blocks are probably data blocks (i.e., they provide passive data), unless the block needs to react to an event or a signal input.
 
 <Alert type='info'>
     If you want your block to work as part of serialization and deserialization, you will also need to add the block to the block creation factory. This section comes later in this document.
@@ -43,7 +43,7 @@ When creating your first block you first need to decide whether it is a data blo
 
 ### Data block
 
-To create a data block you just need to extend the `FlowGraphBlock` class and implement the `_updateOutputs` method. The `_updateOutputs` method is called when one of the block's outputs is requested by another block.
+To create a data block, you just need to extend the `FlowGraphBlock` class and implement the `_updateOutputs` method. The `_updateOutputs` method is called when one of the block's outputs is requested by another block.
 
 Let's take a look at a very simple block as an example - the ArrayIndexBlock (removing the imports for readability):
 
@@ -126,7 +126,7 @@ this.index = this.registerDataInput("index", RichTypeFlowGraphInteger, new FlowG
 this.value = this.registerDataOutput("value", RichTypeAny);
 ```
 
-Notice how each is defined whether as input or output, and has a type. The type is important if we want to have proper default values. For example, the default value of a number is 0, a boolean is true, and so on. This information can be found in `flowGraphRichTypes.ts`.
+Notice how each one is defined as either an input or an output, and has a type. The type is important if we want proper default values. For example, the default value of a number is 0, a boolean is true, and so on. This information can be found in `flowGraphRichTypes.ts`.
 
 Now we have the data inputs and the data outputs, and we need to write the logic to update them, when requested by another block. This is done in the `_updateOutputs` method:
 
@@ -147,11 +147,11 @@ public override _updateOutputs(context: FlowGraphContext): void {
 }
 ```
 
-This call is cached - this function will be executed only once per execution ID, which updated on each frame. There is no need to worry about performance reduction due to consecutive calls.
+This call is cached -- the function will be executed only once per execution ID, which is updated on each frame. There is no need to worry about reduced performance from consecutive calls.
 
 ### Execution block
 
-An execution block is a bit more complex than a data block. There are a few decisions that needs to be made when implementing one:
+An execution block is a bit more complex than a data block. There are a few decisions that need to be made when implementing one:
 
 1. Is the block asynchronous or synchronous?
 2. What are my input signals? is `in` enough?
@@ -164,7 +164,7 @@ The basic class that needs to be extended is `FlowGraphExecutionBlock`. This cla
 However, there are several other classes you can extend, depending on your needs:
 
 - FlowGraphExecutionBlockWithOutSignal - adds an `out` output signal
-- FlowGraphAsyncExecutionBlock - adds `done` to the `FlowGraphExecutionBlockWithOutSignal` class, and allows preparing an canceling an async task
+- FlowGraphAsyncExecutionBlock - adds `done` to the `FlowGraphExecutionBlockWithOutSignal` class, and allows preparing and canceling an async task
 - FlowGraphEventBlock - a special extension of `FlowGraphAsyncExecutionBlock` that can react to scene-based events (which we will discuss in the next section)
 
 ### FlowGraphExecutionBlock
@@ -225,7 +225,7 @@ public readonly onTrue: FlowGraphSignalConnection;
 public readonly onFalse: FlowGraphSignalConnection;
 ```
 
-The first, the condition, is a data input. The other two are signal outputs, which are used to trigger the next block in the graph.
+The first, `condition`, is a data input. The other two are signal outputs, which are used to trigger the next block in the graph.
 
 The constructor is similar to the data block:
 
@@ -251,7 +251,7 @@ public _execute(context: FlowGraphContext), _callingSignal?: FlowGraphSignalConn
 }
 ```
 
-The second variable of this function is an optional trigger - this is the input signal that has triggered this execution. We can use it this way (but this is not needed in this case):
+The second variable of this function is an optional trigger -- it is the input signal that triggered this execution. We can use it this way (but this is not needed in this case):
 
 ```javascript
 public _execute(context: FlowGraphContext, callingSignal?: FlowGraphSignalConnection): void {
@@ -261,11 +261,11 @@ public _execute(context: FlowGraphContext, callingSignal?: FlowGraphSignalConnec
 }
 ```
 
-This is helpful we have have more than one input signals (for example - a reset signal).
+This is helpful when we have more than one input signal (for example, a reset signal).
 
 #### FlowGraphAsyncExecutionBlock
 
-An async block needs a bit more functions implemented to get it to work correctly. Let's look at the SetDelay block (removing any unrelated code for readability):
+An async block needs a few more functions to work correctly. Let's look at the SetDelay block (removing any unrelated code for readability):
 
 ```javascript
 /**
@@ -364,7 +364,7 @@ export class FlowGraphSetDelayBlock extends FlowGraphAsyncExecutionBlock {
 }
 ```
 
-Let's ive into the code. I will skip the first stake (defining the inputs and outputs) and go straight to the `_execute` method:
+Let's dive into the code. I will skip the first stage (defining the inputs and outputs) and go straight to the `_execute` method:
 
 ```javascript
 public _execute(context: FlowGraphContext, callingSignal: FlowGraphSignalConnection): void {
@@ -379,7 +379,7 @@ public _execute(context: FlowGraphContext, callingSignal: FlowGraphSignalConnect
 }
 ```
 
-We can see that the execute function is still important in async execution as well. What we are doing is calling the `_preparePendingTasks` method, which is where we define the logic of the block. Any async execution should allow canceling it, and this is done by checking if the `cancel` signal was triggered. If it was, we call the `_cancelPendingTasks` method.
+We can see that the execute function is still important for async execution as well. Here, we call the `_preparePendingTasks` method, which is where we define the logic of the block. Any async execution should allow cancellation, and this is done by checking whether the `cancel` signal was triggered. If it was, we call the `_cancelPendingTasks` method.
 
 Let's look at the `_preparePendingTasks` method and code-doc it thoroughly:
 
@@ -446,7 +446,7 @@ public _cancelPendingTasks(context: FlowGraphContext): void {
 }
 ```
 
-This method will cancel all timers that were created by this block. This is important because we don't want to have any pending timers when the block is disposed.
+This method cancels all timers that were created by this block. This is important because we don't want to have any pending timers when the block is disposed.
 
 And finally, the function that will be triggered when the timer ends:
 
@@ -469,7 +469,7 @@ private _onEnded(timer: AdvancedTimer, context: FlowGraphContext) {
 }
 ```
 
-This method will remove the timer from the list of timers and trigger the `done` signal. this is the most important step - we need to trigger the `done` signal so that the next block in the graph can be executed.
+This method removes the timer from the list of timers and triggers the `done` signal. This is the most important step -- we need to trigger the `done` signal so that the next block in the graph can execute.
 
 Overriding the `_executeOnTick` method is optional. This method is called on each frame, and can be used to update the block's logic. For example, if you want to update the block's logic based on the current frame, you can do it here.
 

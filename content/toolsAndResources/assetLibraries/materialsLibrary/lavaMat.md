@@ -12,14 +12,14 @@ video-content:
 
 PG: <Playground id="#1BLVWO#25" title="Lava Material" description="An example of lava material"/>
 
-Lava material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.lavaMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.lavaMaterial.js)
+The Lava material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.lavaMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.lavaMaterial.js)
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
 ## Using the lava material
 
 The lava material needs at least a noise texture and a diffuse texture to render properly.
-Just create a new reference of the material and assign it two textures:
+Just create a new instance of the material and assign the two textures:
 
 ```
 var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 512, height: 512, subdivisions: 32 }, scene);
@@ -31,12 +31,12 @@ lavaMaterial.diffuseTexture = new BABYLON.Texture("lavatile.jpg", scene); // Set
 ground.material = lavaMaterial;
 ```
 
-The diffuse texture will be the color of your lava, the noise texture will represent the lava deformation.
-Notice that this material will update each vertex position of your object. If there are not enough vertices, 
-some artefacts may appear.
+The diffuse texture provides the color of your lava, while the noise texture represents the lava deformation.
+Notice that this material updates the position of each vertex on your object. If there are not enough vertices,
+some artifacts may appear.
 
 ## Lights
-By default, the material is subject to lights. If you wish, you can cancel this by relying on the unlit property.
+By default, the material is affected by lights. If you wish, you can disable this by using the unlit property.
 ```
 material.unlit = true;
 ```
@@ -51,4 +51,3 @@ You can customize two properties of the material:
 lavaMaterial.speed = 2.0; // Default 1. Represents speed of perturbations of the lava
 lavaMaterial.fogColor = new BABYLON.Color3(1, 0, 0); // Default to (0,0,0) black. Represents the color of the fog displayed on the lava ground.
 ```
-

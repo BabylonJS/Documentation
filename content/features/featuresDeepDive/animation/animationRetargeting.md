@@ -1,7 +1,7 @@
 ---
 title: Animation Retargeting
 image:
-description: A description of the retargeting system implemented in Babylon.js
+description: A description of the retargeting system implemented in Babylon.js.
 keywords: animation, retarget, character
 further-reading:
 video-overview:
@@ -14,7 +14,7 @@ video-content:
 
 Animation retargeting is the process of applying an animation created for one character (the source) to a different character (the target) that may have a different skeleton structure, bone proportions, or naming conventions. In 3D game development and animation pipelines, it is common to reuse motion capture data or authored animations across multiple characters rather than creating unique animations for each one. Without retargeting, an animation designed for a tall humanoid would look incorrect on a shorter or differently proportioned character: limbs would clip through geometry, feet would float above the ground, or the character would slide unnaturally. Retargeting solves this by mathematically remapping each animated bone transform from the source skeleton to the corresponding bone in the target skeleton, compensating for differences in reference pose, bone length, and hierarchy. This makes it possible to share a library of locomotion, combat, or facial animations across many characters while preserving the intent of the original motion.
 
-## How it works?
+## How does it work?
 
 In Babylon.js, the retargeting process operates in several sequential steps.
 
@@ -265,5 +265,4 @@ The optional **restPoseUpdate** array contains a list of bone (or transform node
 [Animation Retargeting in the Wicked Engine](https://wickedengine.net/2022/09/animation-retargeting/)<br/>
 [Animation Retargeting Algorithm](https://github.com/upf-gti/retargeting-threejs/blob/main/docs/Algorithm.md)<br/>
 [WebGL2 : 132 : Animation Retargeting](https://www.youtube.com/watch?v=c9qBhFsAIIg)
-
 

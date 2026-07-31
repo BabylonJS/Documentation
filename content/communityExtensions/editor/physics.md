@@ -1,11 +1,11 @@
 ---
-title: Attaching scripts in Babylon.JS Editor
+title: Using physics in Babylon.JS Editor
 image: 
-description: Descriptions of how to create, edit and attach scripts on nodes in scene using the Babylon.js Editor.
-keywords: editor, scripting
+description: Learn how to create and edit physics on meshes in a scene using the Babylon.js Editor.
+keywords: editor, physics
 further-reading:
 video-overview:
 video-content:
 ---
 
-Descriptions of how to create, edit and attach scripts on nodes in scene using the Babylon.js Editor.
+Learn how to create and edit physics on meshes in a scene using the Babylon.js Editor.

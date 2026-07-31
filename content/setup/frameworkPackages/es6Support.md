@@ -16,17 +16,17 @@ video-content:
 
 ## Introduction
 
-The NPM package manager is one of the best ways to define and organize your project's dependencies. Parallel to traditional javascript development (including a script in a 'script' HTML Tag), using npm packages allows you to use tools like Webpack or Browserify to pack your project and (continuously) deliver it.
+The NPM package manager is one of the best ways to define and organize your project's dependencies. Compared to traditional JavaScript development (including a script in a 'script' HTML Tag), using npm packages allows you to use tools like Webpack or Browserify to pack your project and (continuously) deliver it.
 
-We now officially support our npm ES6 packages and will continue updating the npm's repository with new versions as they are being developed.
+We now officially support our npm ES6 packages and will continue updating the npm repository with new versions as they are developed.
 
 Please note that by using ES6 packages, you will need to rely on extra tooling to bundle and test your library but on the bright side you will be able to tree shake your application and reduce its final size.
 
-All the babylon ES6 packages are available within the npm scope @babylonjs.
+All the Babylon.js ES6 packages are available within the npm scope @babylonjs.
 
 ## Available packages
 
-We offer babylon.js' core and its modules as npm packages. The following are available:
+We offer Babylon.js core and its modules as npm packages. The following are available:
 
 - [@babylonjs/core](https://www.npmjs.com/package/@babylonjs/core) - Babylon's core.
 - [@babylonjs/materials](https://www.npmjs.com/package/@babylonjs/materials) - A collection of Babylon-supported advanced materials.
@@ -45,7 +45,7 @@ A boilerplate project with a few examples on how to use the ES6 modules can be f
 
 ## Basic usage
 
-As the ES6 version is composed of many separated files the usual way to consume such packages is through Webpack or other bundlers. The following examples will be done with Webpack but you could rely on any of the tools you are familiar with.
+As the ES6 version is composed of many separate files the usual way to consume such packages is through Webpack or other bundlers. The following examples will be done with Webpack but you could rely on any of the tools you are familiar with.
 
 ### Application Creation Summary
 
@@ -66,21 +66,21 @@ Read all the following sections for full description.
 
 First create a new folder where you will develop your app: `mkdir MyAwesomeApp` .
 
-Then navigate to the folder `cd MyAwesomeApp` and initializes npm with the command `npm init` . Simply fill out the requested question or leave default if you prefer.
+Then navigate to the folder `cd MyAwesomeApp` and initialize npm with the command `npm init`. Simply fill out the requested questions or leave the defaults if you prefer.
 
-You can then install Webpack like this: `` `npm install webpack webpack-cli webpack-dev-server --save-dev` ``. This will also install a local dev server pretty handy to develop locally.
+You can then install Webpack like this: `` `npm install webpack webpack-cli webpack-dev-server --save-dev` ``. This will also install a local dev server, which is pretty handy for local development.
 
 Following the default Webpack convention, you do not even need a configuration file.
 
 ### Installing Babylon.js
 
-To install the latest babylon ES6 version use:
+To install the latest Babylon.js ES6 version, use:
 
 ```bash
 npm install @babylonjs/core
 ```
 
-This will install babylonjs' javascript files and will also include a TypeScript declaration file.
+This will install Babylon.js's JavaScript files and will also include a TypeScript declaration file.
 
 To include the whole of Babylon in a javascript or typescript file, use:
 
@@ -88,7 +88,7 @@ To include the whole of Babylon in a javascript or typescript file, use:
 import * as BABYLON from "@babylonjs/core/Legacy/legacy.js";
 ```
 
-This will work exactly like the none ES6 version and the entire library will be included as a dependency.
+This will work exactly like the non-ES6 version and the entire library will be included as a dependency.
 
 You can also load specific classes to help with your code:
 
@@ -96,7 +96,7 @@ You can also load specific classes to help with your code:
 import { Engine, Scene } from "@babylonjs/core";
 ```
 
-**NOTE:** Some of the modules working through side effects you might need to `` `import "@babylonjs/core/Meshes/meshBuilder.js"` `` for side effects only in order to rely on any of the Mesh creation static methods like `` `MeshBuilder.CreateBox` `` for instance. This was the best way to deliver our ES6 version without breaking backward compatibility of the bundled version.
+**NOTE:** Some of the modules work through side effects, so you might need to `` `import "@babylonjs/core/Meshes/meshBuilder.js"` `` for side effects only in order to rely on any of the Mesh creation static methods like `` `MeshBuilder.CreateBox` `` for instance. This was the best way to deliver our ES6 version without breaking backward compatibility of the bundled version.
 
 ### Installing other Babylon modules
 
@@ -106,7 +106,7 @@ After including `` `@babylonjs/core` `` you can add Babylon's extra modules usin
 npm install --save-dev @babylonjs/materials [other packages]
 ```
 
-Same as the babylonjs, this will install the javascript files and a declaration file.
+As with Babylon.js, this will install the JavaScript files and a declaration file.
 
 To import the dependencies, you simply need to import the library (without giving it a namespace):
 
@@ -118,7 +118,7 @@ import {
 let gridMaterial = new GridMaterial(.....)
 ```
 
-### Creating our first js APP
+### Creating our first JS App
 
 Now we have all the dependencies created, create an _index.html_ file in the public folder and fill it with the following code:
 
@@ -220,19 +220,19 @@ engine.runRenderLoop(() => {
 });
 ```
 
-Finally you can run the local dev environment through the command `npx webpack serve` .
+Finally, you can run the local dev environment with the command `npx webpack serve`.
 
-Open the browser and navigate to the url `http://localhost:8080/` . You should see a sphere and a plane using the Grid Material.
+Open the browser and navigate to the URL `http://localhost:8080/`. You should see a sphere and a plane using the Grid Material.
 
 To create the distribution folder `dist` use the command `npx webpack`
 
 You may have noticed that we did our imports from files instead of the base modules. This is to ensure we get the full benefit of Tree Shaking. For more information, see the **Side Effects** section below.
 
-## Typescript
+## TypeScript
 
-Switching the project to typescript is pretty straight forward. First in the previous example `MyAwesomeApp` folder we need to install typescript and one of the module allowing the use of typescript in Webpack: `npm install typescript ts-loader --save-dev`
+Switching the project to TypeScript is pretty straightforward. First, in the `MyAwesomeApp` folder from the previous example, we need to install TypeScript and one of the modules that allows its use in Webpack: `npm install typescript ts-loader --save-dev`
 
-Once done we can replace our previous index.js by its typescript equivalent index.ts:
+Once that is done, we can replace our previous index.js with its TypeScript equivalent, index.ts:
 
 ```javascript
 import { FreeCamera } from "@babylonjs/core/Cameras/freeCamera.js";
@@ -293,9 +293,9 @@ engine.runRenderLoop(() => {
 });
 ```
 
-The only change being the addition of `as HTMLCanvasElement` on the canvas element.
+The only change is the addition of `as HTMLCanvasElement` on the canvas element.
 
-With that done we need to configure Webpack to allow the use of Typescript. Add a `webpack.config.js` at the root of your project containing the following:
+With that done, we need to configure Webpack to allow the use of TypeScript. Add a `webpack.config.js` at the root of your project containing the following:
 
 ```javascript
 module.exports = {
@@ -313,7 +313,7 @@ module.exports = {
 };
 ```
 
-We also need to configure typescript in the application folder. The simplest is to add a tsconfig.json file at the root of the project containing:
+We also need to configure TypeScript in the application folder. The simplest is to add a tsconfig.json file at the root of the project containing:
 
 ```javascript
 {
@@ -325,17 +325,17 @@ We also need to configure typescript in the application folder. The simplest is 
 }
 ```
 
-This will ensure our babylonjs module can be loaded and used in your application.
+This will ensure our Babylon.js module can be loaded and used in your application.
 
-It is time to run again with the command `npx webpack serve` and open your browser on `http://localhost:8080/` . You should see a sphere and a plane using the Grid Material exactly like in javascript. You are now fully ready to use the Babylon.js ES6 packages in Typescript.
+It is time to run again with the command `npx webpack serve` and open your browser at `http://localhost:8080/`. You should see a sphere and a plane using the Grid Material exactly as in JavaScript. You are now fully ready to use the Babylon.js ES6 packages in TypeScript.
 
 As in the **Creating our first js APP** section above, we did our imports from files instead of the base modules. This is to ensure we get the full benefit of Tree Shaking. For more information, see the **Side Effects** section below.
 
 ## Tree Shaking
 
-From the beginning you could wonder why using these ES6 packages vs the default bundled ones. Beside being more "modern" which is not a valuable enough argument to make the switch, you can now fully benefit from [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+From the beginning you could wonder why using these ES6 packages vs the default bundled ones. Besides being more "modern," which is not a valuable enough argument on its own to make the switch, you can now fully benefit from [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
-This means the previous example is now requiring about 700Kb vs 2.3Mb before.
+This means the previous example now requires about 700Kb versus 2.3Mb before.
 
 **Please note we are continuing to improve our min package size by decoupling a bit more our packages so if you spot any unnecessary dependency, please, do not hesitate to create an issue on [GitHub](https://github.com/BabylonJS/Babylon.js).**
 
@@ -351,7 +351,7 @@ Easy call, we could move those functions elsewhere and we did exactly this by cr
 
 As a result, it is impossible for Webpack and the other bundlers to determine if imports are safe to be removed when not used so if you import directly from index, all the imports will be followed and included in your packages.
 
-The treatment even if a bit annoying is simple: you need to import manually only from the modules you need. This will force you to target your imports on the dedicated modules (vs index ones) if you want to fully benefit from tree shaking. The folder structure should be natural enough and in case you are finding some modules in not intuitive locations, do not hesitate to file an issue on [GitHub](https://github.com/BabylonJS/Babylon.js) and we will be more than happy to document it here.
+The solution, even if a bit annoying, is simple: you need to import manually only from the modules you need. This will force you to target your imports on the dedicated modules (vs index ones) if you want to fully benefit from tree shaking. The folder structure should be natural enough and in case you are finding some modules in not intuitive locations, do not hesitate to file an issue on [GitHub](https://github.com/BabylonJS/Babylon.js) and we will be more than happy to document it here.
 
 ### FAQ
 
@@ -368,7 +368,7 @@ When you deserialize a Babylon.js object like a Material or Light, it is impossi
 
 _How do I know if I am importing a folder or a file?_
 
-By convention and to simplify the discovery, all folders starts with an upper case character where the files start with a lower case one.
+By convention and to simplify the discovery, all folders start with an upper-case character, whereas files start with a lower-case one.
 
 _How to find what module contains the entity I am trying to import?_
 
@@ -411,11 +411,11 @@ Some methods are added via module augmentation. While some IDEs cannot detect th
 
 _Why do I have an error in the console inviting me to import some other modules?_
 
-This might happen on some modules where we are heavily relying on side effects and where we can automatically detect the none presence of the dependency.
+This might happen on some modules where we are heavily relying on side effects and where we can automatically detect the absence of the dependency.
 
 ## Almighty Inspector
 
-Due to the modules name changing and other ES6 modules differences, the UMD and CDN inspector version is not compatible with ES6. Nevertheless, you can install the ES6 version of the inspector and import it for side effect only in your code. Then the debug layer would work as usual.
+Due to the module names changing and other ES6 module differences, the UMD and CDN inspector version is not compatible with ES6. Nevertheless, you can install the ES6 version of the inspector and import it for side effect only in your code. Then the debug layer would work as usual.
 
 First install the inspector package:
 
@@ -427,16 +427,16 @@ And then in your code:
 
 ```javascript
 import "@babylonjs/core/Debug/debugLayer.js"; // Augments the scene with the debug methods
-import "@babylonjs/inspector"; // Injects a local ES6 version of the inspector to prevent automatically relying on the none compatible version
+import "@babylonjs/inspector"; // Injects a local ES6 version of the inspector to prevent automatically relying on the non-compatible version
 ...
 scene.debugLayer.show();
 ```
 
 ## Earcut/Oimo/Canon
 
-As we do not want to force by default our user to include any dependencies, we have extended the way users could rely on external dependencies for ES6.
+As we do not want to force our users to include any dependencies by default, we have extended the way users could rely on external dependencies for ES6.
 
-For each of the external dependencies Babylon.js is relying upon, if you are planning on relying on them, you can provide them as global variables in you bundler. For instance if you are willing to use the `PolygonMeshBuilder` class in your app you can add earcut in Webpack like this:
+For each of the external dependencies Babylon.js is relying upon, if you are planning on relying on them, you can provide them as global variables in your bundler. For instance if you are willing to use the `PolygonMeshBuilder` class in your app you can add earcut in Webpack like this:
 
 ```javascript
 module.exports = {
@@ -458,7 +458,7 @@ import * as MyEarcut from "earcut";
 new PolygonMeshBuilder("polytri", corners, scene, MyEarcut);
 ```
 
-It would be the same for physics plugin where you can either provide the underlying engine as a var or inject it in the constructor of the Babylon.js respective plugin.
+It would be the same for the physics plugin, where you can either provide the underlying engine as a variable or inject it in the constructor of the Babylon.js respective plugin.
 
 ## Havok Physics
 
@@ -515,7 +515,7 @@ jsMSCTranscoder.JSModule = mscTranscoderJsModule;
 workerFunction(KTX2Decoder);
 ```
 
-Then in your main file, you will need to do few things:
+Then in your main file, you will need to do a few things:
 
 1. import the wasm as an arraybuffer
 2. Create a worker pool
@@ -708,7 +708,7 @@ For the newer pure-barrel registration model, see [Tree-Shaking with Pure Import
 
 - File to import: "core/Animations/animatable.core" (instead of "core/Animations/animatable" which has side-effects)
 - Function to import and execute to initialize the module: `AddAnimationExtensions(sceneClass, boneClass)`
-- Calling `AddAnimationExtensions` will populate the following prootype functions:
+- Calling `AddAnimationExtensions` will populate the following prototype functions:
   - Bone.prototype.copyAnimationRange
   - Scene.prototype.beginAnimation
   - Scene.prototype.beginDirectAnimation
@@ -724,7 +724,7 @@ For the newer pure-barrel registration model, see [Tree-Shaking with Pure Import
 
 - File to import: "core/Culling/ray.core" (instead of "core/Culling/ray" which has side-effects)
 - Function to import and execute to initialize the module: `AddRayExtensions(sceneClass, cameraClass)`
-- Calling `AddRayExtensions` will populate the following prootype functions:
+- Calling `AddRayExtensions` will populate the following prototype functions:
   - Camera.prototype.getForwardRay
   - Camera.prototype.getForwardRayToRef
   - Scene.prototype.createPickingRay

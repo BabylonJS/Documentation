@@ -10,15 +10,15 @@ video-content:
 
 ## Introduction
 
-As of v5.0 Babylon includes a Material Plugin system, which allows customization of an existing material with custom shader code. This adds a lot of flexibility, since one can easily modify the behavior of existing materials with special effects without having to rewrite the entire shader code, in a simple and reusable way.
+As of v5.0, Babylon includes a Material Plugin system, which allows customization of an existing material with custom shader code. This adds a lot of flexibility, since you can easily modify the behavior of existing materials with special effects without having to rewrite the entire shader code, in a simple and reusable way.
 
-This is incredibly useful and powerful, since materials can be changed at runtime and have effects that were previously only possible with complex multi-pass renderings or postprocessing.
+This is incredibly useful and powerful, since materials can be changed at runtime and can have effects that were previously only possible with complex multi-pass rendering or postprocessing.
 
 **Important note: this only works for Standard and PBR materials (and for materials that would subclass them)!**
 
 ## Basic example
 
-Let's start with an example: suppose you want an object to be rendered in black and white. All you want is to change the end of its shader, converting the final fragment color to grayscale. To do that you create a material plugin modifying that part of the shader code.
+Let's start with an example: suppose you want an object to be rendered in black and white. All you want is to change the end of its shader, converting the final fragment color to grayscale. To do that, you create a material plugin that modifies that part of the shader code.
 
 ```javascript
 /**
@@ -81,7 +81,7 @@ class BlackAndWhitePluginMaterial extends BABYLON.MaterialPluginBase {
 }
 ```
 
-To actually use this plugin, you need to register it with a factory function. This factory can also associate the plugin instance to the material, so we can easily access it later.
+To actually use this plugin, you need to register it with a factory function. This factory can also associate the plugin instance with the material, so we can easily access it later.
 
 ```js
 BABYLON.RegisterMaterialPlugin("BlackAndWhite", (material) => {
@@ -90,11 +90,11 @@ BABYLON.RegisterMaterialPlugin("BlackAndWhite", (material) => {
 });
 ```
 
-You can see the final code in action in the PlayGround: <Playground id="#GC63G5#90" engine="webgpu" title="Basic example" description="Basic material plugin example"/>
+You can see the final code in action in the Playground: <Playground id="#GC63G5#90" engine="webgpu" title="Basic example" description="Basic material plugin example"/>
 
 ## More complex plugins
 
-Sometimes, your material extension will need to get uniforms. This is also possible with the plugins, which can register defines, uniforms, samplers (textures) and attributes.
+Sometimes, your material extension will need uniforms. This is also possible with plugins, which can register defines, uniforms, samplers (textures), and attributes.
 
 Let's take a look at a more involved example, which is not enabled by default but has proper enable/disable controls as well.
 
@@ -220,7 +220,7 @@ And another one using a custom attribute this time: <Playground id="#HBWKYN#87" 
 
 ## Applying a plugin to a single material
 
-Even though your plugins can be enabled/disabled as shown above, sometimes you need to apply a plugin to a single material. In this case, instead of calling `RegisterMaterialPlugin`, you can instantiate the plugin directly with the material that will be modified:
+Even though your plugins can be enabled or disabled as shown above, sometimes you need to apply a plugin to a single material. In this case, instead of calling `RegisterMaterialPlugin`, you can instantiate the plugin directly with the material that will be modified:
 
 ```js
 const myPlugin = new BlackAndWhitePluginMaterial(material);
@@ -230,7 +230,7 @@ This is also useful for dynamic loading of plugins.
 
 <Playground id="#22HT5Z#112" engine="webgpu" title="Single material" description="Material plugin applied to a single material"/>
 
-## Implementing a complete and well designed plugin
+## Implementing a complete and well-designed plugin
 
 The examples given above should be appropriate 90% of the time, but if you want to fully integrate into the framework or have additional requirements, you may need to do additional work.
 
@@ -348,10 +348,10 @@ getCustomCode(shaderType, shaderLanguage) {
 
 ## Caveats
 
-- The code insertion point names are standard over all materials, but not all of them have all insertion points. In general you can expect to have
+- The code insertion point names are standard across all materials, but not all of them have all insertion points. In general, you can expect to have
   `CUSTOM_VERTEX_DEFINITIONS`, `CUSTOM_VERTEX_MAIN_BEGIN` and `CUSTOM_VERTEX_MAIN_END` in vertex shaders, and `CUSTOM_FRAGMENT_DEFINITIONS`, `CUSTOM_FRAGMENT_MAIN_BEGIN` and `CUSTOM_FRAGMENT_MAIN_END` in fragment shaders. But other `#defines` might not be present.
 - **There's no guarantee that using the shader point names / the regular expressions to update code / the variable names with a material plugin will work across Babylon.js versions**. We reserve the possibility to update our shader code in a way that would break backward compatibility with those features if we have to. In particular, the color variable name for `standard.fragment.fx` is `color`, while for `pbrMaterial.fragment.fx` it's `finalColor`. If you are writing a plugin targeting multiple materials take care in your code to use different variable names according to the plugin and keep track of Babylon potentially changing (and breaking!) things.
-- `RegisterMaterialPlugin` only adds the plugin to material instantiated AFTER the registration. So it must be run before you add any meshes or create your materials or they won't have the plugin.
+- `RegisterMaterialPlugin` only adds the plugin to materials instantiated after the registration. So it must be run before you add any meshes or create your materials, or they won't have the plugin.
 - You can register multiple plugins to the same material (or the entire scene). The `priority` field controls the order the plugins will be executed if they are all enabled.
 
 ## Material Plugin Examples

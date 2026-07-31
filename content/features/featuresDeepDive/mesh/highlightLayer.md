@@ -14,7 +14,7 @@ video-content:
 
 ## How To Highlight a Mesh
 
-How often did you search to highlight some of your meshes in a scene? Sounds easy at first but quickly becomes an issue dealing with edges, blur and antialiasing.
+How often have you wanted to highlight some of your meshes in a scene? It sounds easy at first, but it quickly becomes an issue when dealing with edges, blur, and antialiasing.
 
 If you ever needed it, this tutorial is made for you.
 
@@ -22,7 +22,7 @@ If you ever needed it, this tutorial is made for you.
 
 ## How to use?
 
-Before anything else, you must ensure that your engine was created with stencil on:
+Before anything else, you must ensure that your engine was created with the stencil buffer enabled:
 
 ```javascript
 const engine = new BABYLON.Engine(canvas, true, { stencil: true });
@@ -32,7 +32,7 @@ The HighlightLayer relies on stencil to determine which part of the image it nee
 
 ### Default Use Case
 
-In the most basic shape, you only need to instantiate one highlight layer in your scene and add the meshes you want to highlight in it.
+In the most basic case, you only need to instantiate one highlight layer in your scene and add the meshes you want to highlight to it.
 
 ```javascript
 // Add the highlight layer.
@@ -46,7 +46,7 @@ The highlight color is driven by the second parameter of the `addMesh` method:
 
 ### Stop highlighting a Mesh
 
-In case one highlighted mesh do not require highlights anymore, you can simply remove it from the layer:
+If one highlighted mesh no longer needs highlighting, you can simply remove it from the layer:
 
 ```javascript
 // Add the highlight layer.
@@ -59,7 +59,7 @@ hl.removeMesh(sphere);
 
 ### Emissive Input
 
-If you wish, you could also use the emissive texture as a source for the highlight color. Simply pass true as the third parameter of the add mesh method.
+If you wish, you can also use the emissive texture as a source for the highlight color. Simply pass `true` as the third parameter of the `addMesh` method.
 
 ```javascript
 hl1.addMesh(sphere, BABYLON.Color3.Black(), true);
@@ -67,13 +67,13 @@ hl1.addMesh(sphere, BABYLON.Color3.Black(), true);
 
 <Playground id="#1KUJ0A#57" title="Mesh Highlighting Emissive Input" description="Simple example of using the emissive input with mesh hilighting."/>
 
-You can notice here that one side of the sphere is glowing in yellow whereas the other one is grey. The color is not uniform.
+You can notice here that one side of the sphere is glowing in yellow, whereas the other is gray. The color is not uniform.
 
 ## Going further
 
 ### Overlapping Highlights
 
-The first thing you will probably notice is the fact that overlapping highlighted meshes are not showing highlights in common areas.
+The first thing you will probably notice is that overlapping highlighted meshes do not show highlights in shared areas.
 
 ```javascript
 // Add the highlight layer.
@@ -84,7 +84,7 @@ hl.addMesh(ground, BABYLON.Color3.Red());
 
 <Playground id="#1KUJ0A#1" title="Broken Overlapping Mesh Highlights" description="Simple example of broken overlapping mesh highlights."/>
 
-This is the default behavior optimized for performance. If you are running your scenes on a fast enough machine, you can create several highlight layers to work around the issue:
+This is the default behavior, optimized for performance. If you are running your scenes on a fast enough machine, you can create several highlight layers to work around the issue:
 
 ```javascript
 // Add the highlight layer.
@@ -98,7 +98,7 @@ hl2.addMesh(ground, BABYLON.Color3.Red());
 
 ### Blur Size
 
-The second question you will probably have is the ability to animate the blur size of the highlight. You can dynamically change it at run time through the blur size property of the layer:
+The next question you will probably have is whether you can animate the blur size of the highlight. You can dynamically change it at runtime through the blur size properties of the layer:
 
 ```javascript
 // Add the highlight layer.
@@ -133,7 +133,7 @@ hl2.innerGlow = false;
 
 <Playground id="#1KUJ0A#3" title="Inner vs Outer Glow" description="Simple example of mesh highlighting with inner vs outer glow."/>
 
-You can notice on the previous scene the white glowing only inside of the sphere and the red only outside of the plane.
+In the previous scene, you can notice the white glow only inside the sphere and the red glow only outside the plane.
 
 ### Exclude mesh
 
@@ -151,7 +151,7 @@ hl.addExcludedMesh(skybox1);
 
 ### Multi Camera
 
-By default, the highlight layer will apply on all active cameras but it creates extra processing on the camera where it is not needed.
+By default, the highlight layer applies to all active cameras, but this creates extra processing on cameras where it is not needed.
 
 You can easily specify what camera your highlights are related to in the options:
 
@@ -164,7 +164,7 @@ hl1.addMesh(sphere, BABYLON.Color3.Green());
 
 ### Rendering Groups
 
-If you rely on rendering groups in your application, be mindful that the highlights requires stencil and depth info of your scene to work accurately.
+If you rely on rendering groups in your application, be mindful that highlights require stencil and depth information from your scene to work accurately.
 
 So you could disable the clear between rendering groups with the command: `scene.setRenderingAutoClearDepthStencil(1, false, false)` where the first parameter is the rendering group id, the second to prevent automatically clearing depth between groups and the last to prevent automatically clearing stencil information between groups.
 
@@ -172,9 +172,9 @@ So you could disable the clear between rendering groups with the command: `scene
 
 The available members of the option object are:
 
-- mainTextureRatio?: number - Multiplication factor apply to the canvas size to compute the render target size used to generate the glowing objects (the smaller the faster).
+- mainTextureRatio?: number - Multiplication factor applied to the canvas size to compute the render target size used to generate the glowing objects (the smaller, the faster).
 - mainTextureFixedSize?: number - Enforces a fixed size texture to ensure resize independent blur.
-- blurTextureSizeRatio?: number - Multiplication factor apply to the main texture size in the first step of the blur to reduce the size of the picture to blur (the smaller the faster).
+- blurTextureSizeRatio?: number - Multiplication factor applied to the main texture size in the first step of the blur to reduce the size of the picture to blur (the smaller, the faster).
 - blurVerticalSize?: number - How big in texel of the blur texture is the vertical blur.
 - blurHorizontalSize?: number - How big in texel of the blur texture is the horizontal blur.
 - alphaBlendingMode?: number - Alpha blending mode used to apply the blur. Default is combine.

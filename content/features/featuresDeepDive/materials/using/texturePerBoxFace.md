@@ -10,17 +10,17 @@ video-content:
 
 This method is only available when creating a mesh using the _MeshBuilder_ method.
 
-The following meshes have identifiable faces: box; cylinder; extruded polygon and polyhedron have identifiable faces and have the _faceUV_ and _faceColors_ parameters in the options using the _MeshBuilder_ method to create them. This means that each of their faces can have a different texture or color. For colors a particular color is mapped to a particular face. For textures part of the image file is mapped to a particular face. This can be done with any image and it is often useful to use a texture atlas containing a number of images combined into one image file.
+The following meshes have identifiable faces when created with the _MeshBuilder_ method: box, cylinder, extruded polygon, and polyhedron. They have the _faceUV_ and _faceColors_ parameters in their options. This means that each face can have a different texture or color. For colors, a particular color is mapped to a particular face. For textures, part of the image file is mapped to a particular face. This can be done with any image, and it is often useful to use a texture atlas containing a number of images combined into one file.
 
-When you are concerned about the orientation of the images on the faces then it can be necessary to have different orientations of the separate images in the image file.
+If you are concerned about the orientation of the images on the faces, it may be necessary to use different orientations for the separate images in the source file.
 
-Using these methods on the above meshes there is no need for submaterials or submeshes.
+Using these methods on the meshes above means there is no need for submaterials or submeshes.
 
 As a prerequisite, you may want to learn more about UV mapping on [Wikipedia](https://en.wikipedia.org/wiki/UV_mapping).
 
 ## Face Numbers
 
-The playground below shows that face numbering using `MeshBuilder.CreateBox` is that
+The playground below shows that face numbering for `MeshBuilder.CreateBox` is as follows:
 
 - side 0 faces the positive z direction
 - side 1 faces the negative z direction
@@ -33,17 +33,17 @@ The playground below shows that face numbering using `MeshBuilder.CreateBox` is 
 
 ## Texture Atlas
 
-A texture atlas also known as a _sprite sheet_ or _sprite atlas_ contains a range of images as in the example below.
+A texture atlas, also known as a _sprite sheet_ or _sprite atlas_, contains a range of images, as in the example below.
 
-![Sprite Altlas](/img/how_to/apply-material-to-faces/spriteAtlas.webp)
+![Sprite Atlas](/img/how_to/apply-material-to-faces/spriteAtlas.webp)
 
 In this atlas there are 24 different images in 4 rows of 6. Each sprite image is mapped onto a face using uv coordinates. The u coordinate goes horizontally left to right from 0 to 1 and the v coordinate goes vertically bottom to top from 0 to 1.
 
-To map part of the image the bottom left coordinates and top right coordinates are used. Using (0, 0) and (1, 1) will use the whole of the texture atlas. In this case there are six sprites in a row and four in a column divide the image into a grid and mark the axes as below
+To map part of the image, the bottom-left coordinates and top-right coordinates are used. Using (0, 0) and (1, 1) uses the whole texture atlas. In this case, there are six sprites in a row and four in a column, so divide the image into a grid and mark the axes as below.
 
 ![Sprite Atlas with Grid](/img/how_to/Materials/spritesheet1.webp)
 
-Consider the sprite in the grid space marked with a *. Counting the columns as `0, 1, 2, 3, 4, 5` and the rows as `0, 1, 2, 3` it is in column 2 and row 1 and so bottom left is `(2 * 1/6, 1 * 1/4) = (2/6, 1/4)`and top right is`((2 + 1) * 1/6, (1 + 1) * 1/4) = (3/6, 2/4)`.
+Consider the sprite in the grid space marked with a *. Counting the columns as `0, 1, 2, 3, 4, 5` and the rows as `0, 1, 2, 3`, it is in column 2 and row 1, so the bottom left is `(2 * 1/6, 1 * 1/4) = (2/6, 1/4)` and the top right is `((2 + 1) * 1/6, (1 + 1) * 1/4) = (3/6, 2/4)`.
 
 In general for this texture atlas a sprite in column `c` and row `r` will have coordinates bottom left `(c * 1/6, r * 1/4)` and top right `((c + 1) * 1/6, (r + 1) * 1/4)`. With faces of the mesh numbered from 0 when you want to map face f to the sprite at grid (c, r) take an array faceUV and put
 
@@ -63,7 +63,7 @@ mesh.material = mat;
 
 ## Colors
 
-To apply a color to a face f just use an array faceColors and assign a color.
+To apply a color to a face `f`, just use a `faceColors` array and assign a color.
 
 ```javascript
 faceColors[f] = new BABYLON.Color4(r, g, b, a);
@@ -84,7 +84,7 @@ faceColors[f] = new BABYLON.Color4(r, g, b, a);
 
 ## Examples of Per Face Material
 
-The box example demonstrates the full scope of this feature. At least one example is provided for each of the other types of mesh that can use _faceUV_ and _facecolors_
+The box example demonstrates the full scope of this feature. At least one example is provided for each of the other mesh types that can use _faceUV_ and _faceColors_.
 
 ## Box - faceUV
 
@@ -123,7 +123,7 @@ box.material = mat;
 
 <Playground id="#ICZEXW#812" title="FaceUVs Example" description="Simple example of using FaceUVs to create a box." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials2.webp"/>
 
-You do not have to map all the faces. When you just want one face with an image then just map that one face.
+You do not have to map all the faces. If you want just one face with an image, map only that face.
 
 Take the alien sprite on row 0 and column 3 and just map this sprite to face 1.
 
@@ -157,9 +157,9 @@ faceUV[1] = new BABYLON.Vector4(3 / columns, 0, (3 + 1) / columns, 1 / rows);
 
 <Playground id="#ICZEXW#814" title="Sprite On Face With Other Blank Faces" description="Simple Example of applying a sprite to the side of a box with the other box faces blank." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials4.webp"/>
 
-Of course you can do this with one, two, three, four, or five the box faces.
+Of course, you can do this with one, two, three, four, or five box faces.
 
-Want add some all over color to the box then just add in a _diffuseColor_ to your material.
+If you want to add some all-over color to the box, just add a _diffuseColor_ to your material.
 
 <Playground id="#ICZEXW#815" title="Sprite on Box Face With Material Color" description="Simple Example of applying a sprite to the side of a box with applied material color." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials5.webp"/>
 
@@ -167,7 +167,7 @@ You can also use one texture atlas to apply two different images from the same s
 
 <Playground id="#ICZEXW#816" title="Sprites Sheet On Faces of 2 Meshes" description="Simple Example of applying a sprite sheet to the faces of different meshes." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials6.webp"/>
 
-Looking closer at the face images around the sides you will see some images are at 90 degrees to others. Unfortunately should you want to have all images around the side to have the same orientation this is not possible by only adjusting UV coordinates. What can be done by swapping coordinates is considered next, followed by a method using an adjustment to the texture atlas to orientate images on the sides.
+Looking more closely at the face images around the sides, you will see that some images are rotated by 90 degrees relative to others. Unfortunately, if you want all images around the sides to have the same orientation, this is not possible by adjusting only the UV coordinates. What can be done by swapping coordinates is covered next, followed by a method that adjusts the texture atlas to orient the images on the sides.
 
 ### How To Orientate a Sprite on a Face with faceUV
 
@@ -195,7 +195,7 @@ To reflect in a horizontal line swap the vertical, V, coordinates.
 faceUV[1] = new BABYLON.Vector4(Ubottom_left, Vtop_right, Utop_right, Vbottom_left);
 ```
 
-To reflect in both horizontal and vertical lanes swap the U coordinates and also swap the V coordinates.
+To reflect in both horizontal and vertical lines, swap the U coordinates and also swap the V coordinates.
 
 ```javascript
 faceUV = new BABYLON.Vector4(Utop_right, Vtop_right, Ubottom_left, Vbottom_left);
@@ -205,7 +205,7 @@ You can use the images on the other faces in the following playground to check t
 
 <Playground id="#ICZEXW#817" title="Understanding Face Orientation With Sprites" description="Simple Example of applying sprites to face mesh reflection." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials7.webp"/>
 
-Since a Vector4 has the properties x, y, z, w, (in that order) setting
+Since a Vector4 has the properties x, y, z, w (in that order), setting
 
 ```javascript
 faceUV[1] = new BABYLON.Vector4(Ubottom_left, Vbottom_left, Utop_right, Vtop_right);
@@ -220,7 +220,7 @@ faceUV[1].z = Utop_right;
 faceUV[1].w = Vtop_right;
 ```
 
-which gives another way to swap coordinates. For example to reflect in a vertical line do
+which gives another way to swap coordinates. For example, to reflect in a vertical line, do
 
 ```javascript
 const temp = faceUV[1].x;
@@ -230,17 +230,17 @@ faceUV[f].z = temp;
 
 ### How To Orientate a Sprite on a Face with the Texture Atlas From Version 4.0
 
-Three new optional parameters were added to `CreateBox` in the V4.0 update, these are
+Three new optional parameters were added to `CreateBox` in the V4.0 update:
 
-- wrap - boolean (default = false), when true all vertical sides (0, 1, 2, 3) will apply image textures in the correct, upright, direction and the two horizontal sides (4, 5) will apply image textures so that when the box is when rotated around the x axis so that these sides are vertical the applied image textures will be applied in their original orientations;
-- topBaseAt - integer, 0, 1, 2, 3, (default = 1), the bottom (base) of the image for the top of the box is next the side with the number given;
-- bottomBaseAt- integer, 0, 1, 2, 3, (default = 0), the bottom (base) of the image for the bottom of the box is next the side with the number given.
+- wrap - boolean (default = false), when true all vertical sides (0, 1, 2, 3) will apply image textures in the correct upright direction, and the two horizontal sides (4, 5) will apply image textures so that when the box is rotated around the x axis and these sides become vertical, the applied image textures will keep their original orientations;
+- topBaseAt - integer, 0, 1, 2, 3, (default = 1), the bottom (base) of the image for the top of the box is next to the side with the number given;
+- bottomBaseAt - integer, 0, 1, 2, 3, (default = 0), the bottom (base) of the image for the bottom of the box is next to the side with the number given.
 
-In the following playground the two boxes at the top do not use the wrap parameter and the result is backwards compatible with earlier versions of Babylon.js. The lower boxes are with wrap set to true.
+In the following playground, the two boxes at the top do not use the wrap parameter, and the results are backward compatible with earlier versions of Babylon.js. The lower boxes have wrap set to true.
 
 <Playground id="#ICZEXW#4" title="Wrap Sprite Orientation" description="Simple Example of a wrap to orient a sprite on a mesh face." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials8.webp"/>
 
-The next playground shows the use of non-default values for topBaseAt and bottomBaseAt
+The next playground shows the use of non-default values for topBaseAt and bottomBaseAt.
 
 <Playground id="#ICLXQ8#4" title="Wrap Top and Bottom Rotate" description="Simple Example of a wrap with top and bottom sprites rotated." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials9.webp"/>
 <Playground id="#ICLXQ8" title="Wrap Cartoon Head" description="Simple Example of a wrap to produce a box with a cartoon head." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials10.webp"/>
@@ -274,9 +274,9 @@ resulting in the following playground
 
 ## Box - faceColors
 
-For this no material is needed.
+For this, no material is needed.
 
-Define a 6 element array _faceColors_ (6 box faces) and just set the color of the faces we want with `Colors4`.
+Define a 6-element array _faceColors_ (one entry for each box face) and set the color of the faces you want.
 
 ```javascript
 const faceColors = new Array(6);
@@ -306,13 +306,13 @@ These colors are BJS Color4-class values. The Color4 alpha values become active 
 
 ## Box - Mix Face Textures and Colors
 
-Finally you can also mix per-face colors with per-face textures, and/or mix either with the material's standard colors.
+Finally, you can also mix per-face colors with per-face textures, and/or mix either with the material's standard colors.
 
 <Playground id="#ICZEXW#818" title="Mixed Textures and Colors Per Face" description="Simple Example of applying different textures and colors per face." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials15.webp"/>
 
 ## Cylinder
 
-A cylinder has three surfaces, the top, the bottom and the tube joining them. For the face options face 0 is the bottom, face 1 is the tube and face 2 the top.
+A cylinder has three surfaces: the top, the bottom, and the tube joining them. For the face options, face 0 is the bottom, face 1 is the tube, and face 2 is the top.
 
 The following texture image is split into two parts, an approximation to a top and the label. The bottom will be colored just using faceColors and so the bottom face uv coordinates will be 0, 0, 0, 0.
 
@@ -320,34 +320,34 @@ The following texture image is split into two parts, an approximation to a top a
 
 The label part has width 866 pixels and height 319 pixels.
 
-So you need to tube surface to have the same height to width ratio.
+So you need the tube surface to have the same height-to-width ratio.
 
-When you create a cylinder with default diameter of 1 then the rectangle wrapping around the tube surface will have a width of &pi;.
+When you create a cylinder with a default diameter of 1, the rectangle wrapping around the tube surface will have a width of &pi;.
 
 Letting h be the height of the cylinder then to not distort the aspect ratio of the image wrapped around the cylinder keep the ratios h/&pi; and 319/866 the same.
 
 So make h = &pi; \* 319/866 = 1.16 to 2 decimal places.
 
-Also note that because of how a cylinder's mesh is constructed the horizontal coordinates (U) are swapped in faceUV[1] for the wrapped around image to correct the reflection of the image.
+Also note that because of how a cylinder's mesh is constructed, the horizontal coordinates (U) are swapped in faceUV[1] for the wrapped image to correct the reflection of the image.
 
 <Playground id="#VA2AC#3" title="Different Texture on Cylinder and Its Top" description="Simple Example of applying different textures to a cylinder's side and top." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials16.webp"/>
 
 ## Extruded Polygon
 
-An extruded polygon has three surfaces top, bottom and extruded sides, face 0 is the top, face 1 the extruded sides and face 2 the bottom.
+An extruded polygon has three surfaces: top, bottom, and extruded sides. Face 0 is the top, face 1 is the extruded sides, and face 2 is the bottom.
 
 <Playground id="#RNCYVM#1352" title="Extruded Polygon with Different Textures on Sides and Top" description="Simple Example of applying different textures to an extruded polygon's sides and top." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials17.webp"/>
 
 ## Polyhedra
 
-You can use a texture atlas with all the polyhedra however without very careful consideration of the nature of the texture atlas the results can be a little random looking.
+You can use a texture atlas with all polyhedra; however, without very careful consideration of the nature of the texture atlas, the results can look a little random.
 
 <Playground id="#21QRSK#16" title="Polyhedra with Different Characters Per Face" description="Simple Example of applying different characters to faces of a Polyhedra." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials18.webp"/>
 
-Having each sprite as a texture rather than a picture makes more sense.
+Using each sprite as a texture rather than as part of a picture makes more sense.
 
 <Playground id="#21QRSK#18" title="Polyhedra with Different Textures Per Face" description="Simple Example of applying different textures to faces of a Polyhedra." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials19.webp"/>
 
-Just colors works well.
+Just colors work well.
 
 <Playground id="#21QRSK#17" title="Polyhedra with Different Colors Per Face" description="Simple Example of applying different colors to faces of a Polyhedra." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials20.webp"/>

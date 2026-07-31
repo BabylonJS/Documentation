@@ -31,7 +31,7 @@ if (this.inputMap[" "]) {
 }
 ```
 
-_this.dashing_ and _this.jumpKeyDown_ will be used to control the actions based off of conditions being met in characterController.ts.
+_this.dashing_ and _this.jumpKeyDown_ will be used to control the actions based on conditions being met in characterController.ts.
 
 ## Jumping
 
@@ -47,7 +47,7 @@ if (this._input.jumpKeyDown && this._jumpCount > 0) {
 }
 ```
 
-Here we're checking whether our jumpKeyDown is true and the jumpCount is > 0. If these are true, then we add to our gravity a jump force (which is defined as a negative number) to propel a force upwards so that the character jumps.
+Here we're checking whether our jumpKeyDown is true and the jumpCount is > 0. If these are true, then we apply a jump force to our gravity so that the character jumps upward.
 
 ### Grounded Check
 
@@ -65,7 +65,7 @@ We want to reset the jumpCount back to 1. This is where you could potentially al
 
 ## Slopes
 
-I specifically added the implementation for detecting slopes because I wanted there to be stairs in the game. This served to be a challenge because meshes use their actual geometry, so in order to accomplish a smooth walking movement along stairs, I needed to create invisible colliders. These were just box meshes that were rotated to have the flat side along where the stairs would be (essentially a slope).
+I specifically added the implementation for detecting slopes because I wanted there to be stairs in the game. This was challenging because meshes use their actual geometry, so in order to accomplish smooth walking movement along stairs, I needed to create invisible colliders. These were just box meshes that were rotated to have the flat side along where the stairs would be (essentially a slope).
 
 ![collision](/img/how_to/create-a-game/slopecollision.webp) ![stairs](/img/how_to/create-a-game/stairs.webp)
 
@@ -101,13 +101,13 @@ The [\_checkSlope](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb
       return angle > 0.70 && angle < 1.6;
       ```
 
-    - However, because there were some other meshes whose normals matched that range, it messed with the character animations in some areas as it detected them as slopes. So, I instead just checked to see if the pickedMesh's name had "stair" in it.
+    - However, because some other meshes had normals in that range, it interfered with the character animations in some areas by detecting them as slopes. So, I instead just checked to see if the pickedMesh's name had "stair" in it.
 
       ```javascript
        if (pick.pickedMesh.name.includes("stair")) { return true; }
       ```
 
-      This range may be hardcoded and based specifically on the meshes used, so there's definitely a better way to do this. One potential way is to use tags to signify the specific meshes that are stairs and check for whether the raycasts are hitting those.
+      This range may be hardcoded and specific to the meshes used, so there's definitely a better way to do this. One potential way is to use tags to signify the specific meshes that are stairs and check whether the raycasts are hitting those.
 
 Now, we want to update our "if not grounded" check to take into account slopes:
 
@@ -127,13 +127,13 @@ if (!this._isGrounded()) {
 }
 ```
 
-We are checking for slopes here because as the character walks along the slope, they're actually considered not grounded based off of the single center raycast that we're doing in the \_isGrounded function. Thus, the player has gravity continuously acting on them, pushing them down the slope.
+We are checking for slopes here because, as the character walks along the slope, they're actually considered not grounded based on the single center raycast that we're doing in the \_isGrounded function. Thus, the player has gravity continuously acting on them, pushing them down the slope.
 
-This is why we check for whether we're on a slope, and then remove gravity, and fake being grounded. We also only check if our gravity tells us that we're walking up the stairs and not down, so essentially as our character "walks" down the stairs, gravity is acting on them (kind of like in real life!)
+This is why we check whether we're on a slope, then remove gravity and fake being grounded. We also check only when our gravity indicates that we're walking up the stairs, not down them, so as our character "walks" down the stairs, gravity is acting on them (kind of like in real life!)
 
 ## Dashing
 
-Dashing was another mechanic that I thought would be useful for a platformer. Since this game is based on time, I wanted to add a limitation on the dash mechanic so that it wouldn't become the main mode of transportation. Thus, the dash move became an air-dash that's limited to being used once until you touch a ground again.
+Dashing was another mechanic that I thought would be useful for a platformer. Since this game is based on time, I wanted to add a limitation on the dash mechanic so that it wouldn't become the main mode of transportation. Thus, the dash move became an air dash that's limited to being used once until you touch the ground again.
 
 For the dashing implementation, we return to [\_updateFromControls](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L170).
 
@@ -146,7 +146,7 @@ if (this._input.dashing && !this._dashPressed && this._canDash && !this._grounde
 }
 ```
 
-This seems like a lot of conditions, and that's because we're limiting the dash to a single instance if we're in the air.
+This seems like a lot of conditions because we're limiting the dash to a single use while we're in the air.
 
 ### Duration
 
@@ -189,7 +189,7 @@ this._moveDirection = new Vector3(move.normalize().x * dashFactor, 0, move.norma
 
 Previously we were just normalizing our move vector. Now we also want to multiply by the dashFactor to give it that extra bit of movement in the direction we're currently moving.
 
-Now, if we run the game, we should be able to move, jump, and dash! You will notice that we still have that issue of falling into the ground. I am not sure why this is happening, but it doesn't happen once you import the final mesh. However, early on in the development I had fixed this issue before re-writing the gravity & jumping code. You can take a look at what I did [here](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/oldUpdateGround.txt). Essentially, we have to re-adjust to account for how much we would fall through. In addition, having more raycasts that are longer will help in detecting the ground earlier.
+Now, if we run the game, we should be able to move, jump, and dash! You will notice that we still have that issue of falling into the ground. I am not sure why this is happening, but it doesn't happen once you import the final mesh. However, early in development I had fixed this issue before rewriting the gravity & jumping code. You can take a look at what I did [here](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/oldUpdateGround.txt). Essentially, we have to readjust to account for how far we would fall through. In addition, having more, longer raycasts will help detect the ground earlier.
 
 ## Resources
 

@@ -4,7 +4,7 @@ image:
 description: Dive into some deeper game creation methods and techniques.
 keywords: guided learning, create a game, game, project creation, install, webpack, scene
 further-reading:
-    - title: Github Game Repository
+    - title: GitHub Game Repository
       url: https://github.com/BabylonJS/SummerFestival
 video-overview:
 video-content:
@@ -12,9 +12,9 @@ video-content:
 
 ## Introduction
 
-The game will be developed using Typescript and requires some setting up using NPM. The setup of the project will probably be the hardest part! For a simpler introduction to the features of Babylon.js and a basic HTML and JavaScript template read the [Getting Started](/features/introductionToFeatures) section first. 
+The game will be developed using TypeScript and requires some setup using npm. The setup of the project will probably be the hardest part! For a simpler introduction to the features of Babylon.js and a basic HTML and JavaScript template, read the [Getting Started](/features/introductionToFeatures) section first. 
 
-The setup process for this game example is based off of the [NPM-support](/setup/frameworkPackages/npmSupport) documentation for getting started with Babylon.js and the [babylonjs webpack](https://github.com/RaananW/babylonjs-webpack-es6) sample project, but with a few additions and modifications. 
+The setup process for this game example is based on the [NPM-support](/setup/frameworkPackages/npmSupport) documentation for getting started with Babylon.js and the [babylonjs webpack](https://github.com/RaananW/babylonjs-webpack-es6) sample project, but with a few additions and modifications. 
 
 ## First Steps
 
@@ -23,7 +23,7 @@ The setup process for this game example is based off of the [NPM-support](/setup
 First you'll need to set up where you want the project to be located.
 
 1. Using the text editor of your choice, open up your project folder. I will be using Visual Studio Code for this series.
-2. Create a folder where you'll be storing your project files
+2. Create a folder where you'll be storing your project files.
 3. Set up the file folder structure to be something like this:
     - dist
     - public
@@ -54,7 +54,9 @@ Notice that we currently don't have anything within the body of our html file. W
 npm init
 ```
 
-You can fill these out now or just keep pressing _Enter_ and fill these out in your package.json later. 2. Open up the terminal (in VSCode you can do this by going to the top bar > Terminal > New Terminal).
+You can fill these out now or just keep pressing _Enter_ and fill these out in your package.json later.
+
+2. Open up the terminal (in VSCode you can do this by going to the top bar > Terminal > New Terminal).
 
 3. Install Babylon.js
 
@@ -63,9 +65,9 @@ npm install --save-dev @babylonjs/core
 npm install --save-dev @babylonjs/inspector
 ```
 
-This will install all of the dependencies for babylon that you'll need.
+This will install all of the Babylon.js dependencies that you'll need.
 
-4. Typescript Support
+4. TypeScript Support
 
 ```shell
 tsc --init
@@ -102,7 +104,7 @@ Now that we have our package.json generated, we need to install the dev dependen
 npm install --save-dev typescript webpack ts-loader webpack-cli
 ```
 
-**NOTE** if this line doesn't work the first time, try one more time
+**NOTE** If this line doesn't work the first time, try one more time.
 
 **Configure Webpack**
 
@@ -190,7 +192,7 @@ module.exports = {
 };
 ```
 
-Now when we build and run our project, if we make any updates, the browser will refresh so that we can see our changes. In addition, the HTML Webpack plugin is taking the javascript bundle file that is compiled and injects it into our _index.html_ file. This .js bundle will show up inside the dist folder.
+Now when we build and run our project, if we make any updates, the browser will refresh so that we can see our changes. In addition, the HTML Webpack plugin takes the compiled JavaScript bundle file and injects it into our _index.html_ file. This .js bundle will show up inside the dist folder.
 
 ### Creating A Scene
 
@@ -240,7 +242,7 @@ class App {
 new App();
 ```
 
-At this point, you should be seeing a lot of errors. This is because we haven't imported the babylonjs dependencies. Add to the top of your file:
+At this point, you should be seeing a lot of errors. This is because we haven't imported the Babylon.js dependencies. Add this to the top of your file:
 
 ```typescript
 import "@babylonjs/core/Debug/debugLayer";
@@ -251,7 +253,7 @@ import { Engine, Scene, ArcRotateCamera, Vector3, HemisphericLight, Mesh, MeshBu
 
 ### Bundling the Project and Running Locally
 
-Now that we have our project set up, how do we run it locally? We need to set up tasks in our package.json. In your package.json replace your "scripts" with this:
+Now that we have our project set up, how do we run it locally? We need to set up tasks in our package.json. In your package.json, replace your "scripts" with this:
 
 ```json
     "scripts": {
@@ -267,13 +269,13 @@ npm run build
 npm run start
 ```
 
-Then when you visit localhost:8080 in our browser, you should see a sphere!
+Then when you visit localhost:8080 in your browser, you should see a sphere!
 
 **NOTE** Additionally, you can press `SHIFT` + `CTRL` + `ALT` + `I` to show/hide the inspector.
 
-### (Optional) Github for Version Control
+### (Optional) GitHub for Version Control
 
-If you're working with a large project, you'll most likely want to keep it in a safe place in case your computer breaks, you lose your files, etc. Github is also very useful for keeping track of changes that you make and can make things a lot easier in case you need to bring back a previous version of your project. You can follow this to learn how to [add a project](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-an-existing-project-to-github-using-github-desktop) using Github Desktop.
+If you're working with a large project, you'll most likely want to keep it in a safe place in case your computer breaks, you lose your files, etc. GitHub is also very useful for keeping track of the changes that you make and can make things a lot easier if you need to bring back a previous version of your project. You can follow this to learn how to [add a project](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-an-existing-project-to-github-using-github-desktop) using GitHub Desktop.
 
 ## Resources
 

@@ -12,7 +12,7 @@ video-content:
 
 Actions are a simple way to add interactions in your scenes. An action is launched when its trigger is fired. For instance, you can specify that when the user clicks (or touches) a mesh, an action is executed.
 
-To use actions, you have to attach an `BABYLON.ActionManager` to a mesh or to your scene:
+To use actions, you have to attach a `BABYLON.ActionManager` to a mesh or to your scene:
 
 ```javascript
 mesh.actionManager = new BABYLON.ActionManager(scene);
@@ -24,7 +24,7 @@ Once the ActionManager is created, you can start registering actions:
 mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPickTrigger, light, "diffuse", BABYLON.Color3.Black(), 1000));
 ```
 
-For instance this action will animate the `light.diffuse` property to black in 1000ms when the user picks the mesh.
+For instance, this action will animate the `light.diffuse` property to black in 1000ms when the user picks the mesh.
 
 You can also chain actions:
 
@@ -32,8 +32,8 @@ You can also chain actions:
 mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPickTrigger, light, "diffuse", BABYLON.Color3.Black(), 1000)).then(new BABYLON.SetValueAction(BABYLON.ActionManager.NothingTrigger, mesh.material, "wireframe", false));
 ```
 
-In this case, the first click will animate the `light.diffuse` property, the second click will set `mesh.material` to false.
-The third one will start again and will animate the `light.diffuse` property and so on...
+In this case, the first click will animate the `light.diffuse` property, and the second click will set `mesh.material.wireframe` to false.
+The third click will start again and animate the `light.diffuse` property, and so on...
 
 Finally, you can add a condition to your actions. In this case, actions are launched when the trigger is fired if the condition is true:
 
@@ -60,23 +60,23 @@ Currently, there are 14 different triggers available for meshes, and three for s
 
 The triggers available for meshes are:
 
-- `BABYLON.ActionManager.NothingTrigger`: Never raised. Used for sub-actions with `action.then` function.
+- `BABYLON.ActionManager.NothingTrigger`: Never raised. Used for sub-actions with the `action.then` function.
 - `BABYLON.ActionManager.OnPickTrigger`: Raised when the user touches/clicks on a mesh.
 - `BABYLON.ActionManager.OnDoublePickTrigger`: Raised when the user double touches/clicks on a mesh.
-- `BABYLON.ActionManager.OnPickDownTrigger`: Raised when the user touches/clicks down on a mesh
+- `BABYLON.ActionManager.OnPickDownTrigger`: Raised when the user touches/clicks down on a mesh.
 - `BABYLON.ActionManager.OnPickUpTrigger`: Raised when the user touches/clicks up on a mesh.
-- `BABYLON.ActionManager.OnPickOutTrigger`: Raised when the user touches/clicks down on a mesh and then move off-of the mesh.
-- `BABYLON.ActionManager.OnLeftPickTrigger`: Raised when the user touches/clicks on a mesh with left button.
-- `BABYLON.ActionManager.OnRightPickTrigger`: Raised when the user touches/clicks on a mesh with right button.
-- `BABYLON.ActionManager.OnCenterPickTrigger`: Raised when the user touches/clicks on a mesh with center button.
+- `BABYLON.ActionManager.OnPickOutTrigger`: Raised when the user touches/clicks down on a mesh and then moves off the mesh.
+- `BABYLON.ActionManager.OnLeftPickTrigger`: Raised when the user touches/clicks on a mesh with the left button.
+- `BABYLON.ActionManager.OnRightPickTrigger`: Raised when the user touches/clicks on a mesh with the right button.
+- `BABYLON.ActionManager.OnCenterPickTrigger`: Raised when the user touches/clicks on a mesh with the center button.
 - `BABYLON.ActionManager.OnLongPressTrigger`: Raised when the user touches/clicks up on a mesh for a long period of time in milliseconds (defined by BABYLON.Scene.LongPressDelay).
 - `BABYLON.ActionManager.OnPointerOverTrigger`: Raised when the pointer is over a mesh. Raised just once.
   - **Warning**: if you set `AbstractMesh.pointerOverDisableMeshTesting` to `true`, this trigger will be triggered every time you move the mouse and you are still over the mesh!
-- `BABYLON.ActionManager.OnPointerOutTrigger`: Raised when the pointer is no more over a mesh. Raised just once.
-- `BABYLON.ActionManager.OnIntersectionEnterTrigger`: Raised when the mesh is in intersection with a specific mesh. Raised just once.
-- `BABYLON.ActionManager.OnIntersectionExitTrigger`: Raised when the mesh is no more in intersection with a specific mesh. Raised just once.
+- `BABYLON.ActionManager.OnPointerOutTrigger`: Raised when the pointer is no longer over a mesh. Raised just once.
+- `BABYLON.ActionManager.OnIntersectionEnterTrigger`: Raised when the mesh intersects with a specific mesh. Raised just once.
+- `BABYLON.ActionManager.OnIntersectionExitTrigger`: Raised when the mesh no longer intersects with a specific mesh. Raised just once.
 
-Note that the two intersection triggers require you specify a specific mesh, which can be done like so:
+Note that the two intersection triggers require you to specify a specific mesh, which can be done like so:
 
 ```javascript
 mesh.actionManager.registerAction(
@@ -134,7 +134,7 @@ scene.actionManager.registerAction(
 );
 ```
 
-For more advanced use cases, you can pass a callback function as a parameter value (Available from 5.47.0):
+For more advanced use cases, you can pass a callback function as a parameter value (available since 5.47.0):
 
 ```javascript
 scene.actionManager.registerAction(
@@ -154,15 +154,15 @@ scene.actionManager.registerAction(
 
 ## Available Actions
 
-Most of the actions have a `propertyPath` property. This string defines the path to the property to affect with the action.
-You can use direct values like `position` or `diffuse`. But you can also provide complex paths like `position.x`
+Most actions have a `propertyPath` property. This string defines the path to the property affected by the action.
+You can use direct values like `position` or `diffuse`, but you can also provide complex paths like `position.x`.
 
 - `BABYLON.SwitchBooleanAction(trigger, target, propertyPath, condition)`: Switches a boolean property.
 - `BABYLON.SetValueAction(trigger, target, propertyPath, value, condition)`: Sets a direct value for a property.
 - `BABYLON.IncrementValueAction(trigger, target, propertyPath, value, condition)`: Adds a number to a number property.
 - `BABYLON.PlayAnimationAction(trigger, target, from, to, loop, condition)`: Plays an animation on a target.
 - `BABYLON.StopAnimationAction(trigger, target, condition)`: Stops any animation being played by the target.
-- `BABYLON.DoNothingAction(trigger, condition)`: Do nothing :)
+- `BABYLON.DoNothingAction(trigger, condition)`: Does nothing :)
 - `BABYLON.CombineAction(trigger, children[], condition)`: Executes multiple actions simultaneously. The children property must be an array of actions.
 - `BABYLON.ExecuteCodeAction(trigger, func, condition)`: Executes code.
 - `BABYLON.SetParentAction(trigger, target, parent, condition)`: Sets the parent of the target.
@@ -205,21 +205,21 @@ mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.Act
 
 And you're done! Easy, right?
 
-If after fading out the mesh, you wished it to fade back in, you'd do so by chaining an action
-to restore the `mesh.visibility` property to default value:
+If, after fading out the mesh, you want it to fade back in, you can do so by chaining an action
+to restore the `mesh.visibility` property to its default value:
 
 ```javascript
 mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPickTrigger, mesh, "visibility", 0.2, 1000)).then(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPickTrigger, mesh, "visibility", 1.0, 1000));
 ```
 
-In this case, the first click will hide the button, the following click will restore it, and so on...
+In this case, the first click will hide the mesh, the following click will restore it, and so on...
 
 ## Sprites
 
 Starting with Babylon.js 2.3, sprites can have an action manager: <Playground id="#9RUHH#5" title="Sprite Action Manager" description="Simple example of a sprite with an attached action manager."/>
 
-Please note that the SpriteManager must turn picking support on by using `spriteManager.isPickable = true`
-Sprites can also control picking with `sprite.isPickable = false / true` (False by default)
+Please note that the SpriteManager must enable picking support by using `spriteManager.isPickable = true`.
+Sprites can also control picking with `sprite.isPickable = false / true` (false by default).
 
 ## Playground
 

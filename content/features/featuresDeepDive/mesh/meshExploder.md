@@ -10,7 +10,7 @@ video-content:
 
 ## How To Use MeshExploder
 
-`MeshExploder` takes an array of meshes and increases/decreases distance to a center `Mesh`.
+`MeshExploder` takes an array of meshes and increases or decreases their distance from a center `Mesh`.
 
 ```javascript
 const newExplosion = new BABYLON.MeshExploder(meshes, centerMesh);
@@ -21,9 +21,9 @@ newExplosion.explode(); //Explodes meshes away from center. Default 1.0.
 | variable              | description                                                                               |
 | --------------------- | ----------------------------------------------------------------------------------------- |
 | meshes                | The array of meshes to explode/implode.                                                   |
-| centerMesh (optional) | The mesh to be the center of explosion. Defaults to mesh closest to center of all meshes. |
+| centerMesh (optional) | The mesh to be the center of the explosion. Defaults to the mesh closest to the center of all meshes. |
 
-`MeshExploder` explode function takes a number parameter to multiply the distance of explosion. Negative numbers implode. Zero resets meshes to original positions.
+The `MeshExploder.explode()` function takes a numeric parameter to multiply the explosion distance. Negative numbers implode. Zero resets the meshes to their original positions.
 
 ```javascript
 newExplosion.explode(-2); //Implodes

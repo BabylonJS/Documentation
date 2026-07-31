@@ -2,7 +2,7 @@
 title: Advanced Physics Features
 image: 
 description: Unlock the full potential of physics with advanced physics features in Babylon.js.
-keywords: diving deeper, phyiscs, advanced physics
+keywords: diving deeper, physics, advanced physics
 further-reading:
     - title: How To Use The Physics Engines
       url: /legacy/physics/usingPhysicsEngine
@@ -24,7 +24,7 @@ video-content:
 
 ## The Heightmap
 
-One of the best way of interacting with a ground object is the Heightmap impostor (supported currently only with the CannonJS plugin).
+One of the best ways to interact with a ground object is the Heightmap impostor (currently supported only with the CannonJS plugin).
 
 A heightmap is not a mesh impostor. It is possible that objects coming from the side will not collide with it. The heightmap impostor takes the height Y value at a certain point in a mesh and sets a collision point. To understand what a heightmap impostor is, think of a regular house with a triangle roof. If we set the heightmap impostor to the house, the only part that will have collision detection is the roof. Anything below the roof will be ignored, including the walls.
 
@@ -65,7 +65,7 @@ var mesh = BABYLON.MeshBuilder.CreateRibbon("ribbon", { pathArray: arrayOfPaths,
 mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.HeightmapImpostor, { mass: 0, friction:1, restitution: 0.5 });
 ```
 
-A demo for both of these examples can be found here - 
+A demo for both of these examples can be found here:
 <Playground id="#D3LQD#7" title="Creating Ground From An Image-Based Ground Mesh" description="Simple example of creating ground from an image based ground mesh."/>
 <Playground id="#EXL6K#9" title="Creating A Heightmap From A Square Ribbon" description="Simple example of creating a heightmap from a square ribbon."/>
 
@@ -77,7 +77,7 @@ A mesh impostor is only available with cannon.js, and only collides against sphe
 
 Regarding performance - you will notice that the mesh impostor doesn't influence performance too much, until an object collides against it. Then the calculations are rather complex and can lower your FPS significantly, depending on the mesh's complexity.
 
-A simple example of the mesh impostor can be found here - <Playground id="#3B3135#1" title="Mesh Imposter Example" description="Simple example of a mesh imposter."/>
+A simple example of the mesh impostor can be found here - <Playground id="#3B3135#1" title="Mesh Impostor Example" description="Simple example of a mesh impostor."/>
 
 To generate a mesh impostor, simply set the MeshImpostor type when creating the physics impostor of the mesh:
 
@@ -91,11 +91,11 @@ A wonderful example of the abilities of the mesh impostor can be found here - ht
 
 ## Motors
 
-Certain joint types like the wheel (hinge) joint have the ability to run a motor that will move the impostor connecting to the joint in the direction set by the user.
+Certain joint types, like the wheel (hinge) joint, can run a motor that moves the impostor connected to the joint in the direction set by the user.
 
-Motors can be used to move a wheel of a car, to simulate an elevator or create a gear system. The motor is responsible to enable the circular movement of those simulations.
+Motors can be used to move a car wheel, simulate an elevator, or create a gear system. The motor is responsible for enabling the circular movement in those simulations.
 
-A simple example can be seen here - <Playground id="#5W5B6W#1" title="Simple Motor Example" description="Simple example of a motor joint."/>
+A simple example can be seen here: <Playground id="#5W5B6W#1" title="Simple Motor Example" description="Simple example of a motor joint."/>
 
 Motor.enabled joints are using the `IMotorEnabledJoint` :
 
@@ -123,9 +123,9 @@ joint1.setMotor(3, 20); // start turning!
 
 ## Compounds and Babylon's parenting system
 
-Babylon.js supports creating physics compounds. A compound is a collection of physics bodies that are connected together to create a single physics body with the joint geometry of all of the meshes connected.
+Babylon.js supports creating physics compounds. A compound is a collection of physics bodies connected together to create a single physics body with the combined geometry of all the connected meshes.
 
-To create a compound, use babylon's parenting system. A single object should be the parent of the rest of the compound shapes:
+To create a compound, use Babylon's parenting system. A single object should be the parent of the rest of the compound shapes:
 
 ```javascript
 // Create a 2-sphere compound
@@ -145,15 +145,15 @@ sphere2.physicsImpostor = new BABYLON.PhysicsImpostor(sphere2, BABYLON.PhysicsIm
 sphere.physicsImpostor = new BABYLON.PhysicsImpostor(sphere, BABYLON.PhysicsImpostor.SphereImpostor, {mass: 2, restitution: 0.8});
 ```
 
-The mass will be accumulated. So this single physics body's mass will be 4. `sphere2`'s physics impostor will be "disabled" and will be joined to `sphere`'s impostor, which is the main impostor. To apply impulses, set the liner velocity etc', use `sphere.physicsImpostor`.
+The mass will be accumulated. So this single physics body's mass will be 4. `sphere2`'s physics impostor will be "disabled" and joined to `sphere`'s impostor, which is the main impostor. To apply impulses, set the linear velocity, etc., use `sphere.physicsImpostor`.
 
 <Playground id="#PRHF00#6" title="Advanced Physics Compounds Example 1" description="Advanced example of physics compounds."/>
 
-An advanced example of compounds can be seen here - <Playground id="#5W5B6W#3" title="Advanced Physics Compounds Example 2" description="Advanced example of physics compounds."/>. The boxes connected to the disc are connected using Babylon's parenting system.
+An advanced example of compounds can be seen here: <Playground id="#5W5B6W#3" title="Advanced Physics Compounds Example 2" description="Advanced example of physics compounds."/>. The boxes connected to the disc use Babylon's parenting system.
 
 ### ignoreParent
 
-You can disable the compound behavior of babylon by setting the ignoreParent flag when creating the impostor.
+You can disable Babylon's compound behavior by setting the `ignoreParent` flag when creating the impostor.
 It is important to note that this will only work if your parent has no impostor attached to it. Otherwise the results can vary from weird physics calculations to missing collisions.
 
 To create an impostor for a child mesh using the ignoreParent flag:
@@ -166,11 +166,11 @@ A simple example can be found here - <Playground id="#PRHF00#4" title="Ignore Pa
 
 ## Substeps
 
-It's possible to run the physics ticks at a different frequency than the framerate while keeping consistent display.
-This means it's possible to display at 60 frames per seconds while updating the physics 1000 times a second.
+It is possible to run the physics ticks at a different frequency than the frame rate while keeping the display consistent.
+This means you can display at 60 frames per second while updating the physics 1000 times a second.
 With substeps, the physics will look like it's running at 60 frames per second but will perform smaller steps.
 This is useful when the physics update needs more precision. For example, simulating a bullet against a wall or more accurate physics for a car.
-The substeps can also be used to reduce the physics update. For example, doing an update every 2 frames.
+Substeps can also be used to reduce the physics update frequency, for example by doing an update every 2 frames.
 In the following example, the physics is computed 10 times a second instead of 60. 
 
 ```javascript

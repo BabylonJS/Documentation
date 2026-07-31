@@ -1,7 +1,7 @@
 ---
 title: Using Havok and the Havok Plugin
 image:
-description: Learn how to use the havok plugin offered by Babylon.js
+description: Learn how to use the Havok plugin offered by Babylon.js.
 keywords: diving deeper, physics, havok, plugin
 further-reading:
 video-overview:
@@ -18,21 +18,21 @@ The second is the Babylon Havok plugin, which is responsible for the integration
 
 ## The Havok physics engine
 
-_To read about the babylon plugin directly, [skip to the next section](#the-babylon-havok-plugin)._
+_To read about the Babylon plugin directly, [skip to the next section](#the-babylon-havok-plugin)._
 
-Havok is now available for the web, using a WebAssembly version of the engine. It is available, free to use, under the MIT license.
-The engine is available on both [the npm package](https://www.npmjs.com/package/@babylonjs/havok) `@babylonjs/havok` and on our CDN under the URL `https://cdn.babylonjs.com/havok/HavokPhysics_umd.js` or `https://cdn.babylonjs.com/havok/HavokPhysics_es.js` when using the `module` script.
-Please note it requires Webassembly SIMD which is not supported on iOS < 16.4.
+Havok is now available for the web, using a WebAssembly version of the engine. It is available free to use under the MIT license.
+The engine is available both as [the npm package](https://www.npmjs.com/package/@babylonjs/havok) `@babylonjs/havok` and on our CDN under the URLs `https://cdn.babylonjs.com/havok/HavokPhysics_umd.js` or `https://cdn.babylonjs.com/havok/HavokPhysics_es.js` when using the `module` script.
+Please note that it requires WebAssembly SIMD, which is not supported on iOS < 16.4.
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-The NPM package contains the same two flavors as the CDN: an es-modules version and a UMD version for common.js and AMD projects. Your bundler will select the right file for you.
+The NPM package contains the same two flavors as the CDN: an ES modules version and a UMD version for CommonJS and AMD projects. Your bundler will select the right file for you.
 
-The engine requires initialization in order to be used in Babylon.js. This is done by calling the function returned by the package or the online version.This function initializes the wasm file and returns an object which can be used to initialize the Babylon's Havok plugin.
+The engine requires initialization before it can be used in Babylon.js. This is done by calling the function returned by the package or the online version. This function initializes the wasm file and returns an object that can be used to initialize Babylon's Havok plugin.
 
 ### Using the npm package
 
-To use the npm package, install the havok package to your project:
+To use the npm package, install the Havok package in your project:
 
 ```bash
 npm install @babylonjs/havok
@@ -97,7 +97,7 @@ A way to use the CDN without polluting the global scope is to use the `module` s
 
 ## The Babylon Havok plugin
 
-When the havok instance is generated and available you can use it to initialize the Babylon Havok plugin.
+When the Havok instance is created and available, you can use it to initialize the Babylon Havok plugin.
 
 An example of initializing the plugin:
 
@@ -126,12 +126,12 @@ globalThis.HK = await HavokPhysics();
 ```
 
 This is the way we are using Havok in our playgrounds.
-However, **the recommended way** for a project you fully control is not to pollute the global namespace and to **pass the havok instance to the plugin**.
+However, **the recommended way** for a project you fully control is not to pollute the global namespace and to **pass the Havok instance to the plugin**.
 
 ### Example using npm
 
-A working example using NPM and ES modules can be found in the [Babylon.js template repository](https://github.com/RaananW/babylonjs-webpack-es6/blob/master/src/scenes/physicsWithHavok.ts)
-Note that the engine initialization is happening in a different file (https://github.com/RaananW/babylonjs-webpack-es6/blob/master/src/externals/havok.ts), but it is, nonetheless, the same architecture.
+A working example using NPM and ES modules can be found in the [Babylon.js template repository](https://github.com/RaananW/babylonjs-webpack-es6/blob/master/src/scenes/physicsWithHavok.ts).
+Note that engine initialization happens in a different file (https://github.com/RaananW/babylonjs-webpack-es6/blob/master/src/externals/havok.ts), but it is nonetheless the same architecture.
 
 ### Full in-browser example using the UMD version
 

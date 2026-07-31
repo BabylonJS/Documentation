@@ -14,18 +14,18 @@ video-content:
 
 FacetData is a feature that can be enabled on a mesh.  
 As it requires some extra memory, it's not enabled by default.  
-This feature provides some methods and properties to access each facet of a mesh, like the facet positions, normals or the ability to retrieve all of a mesh facets in a given zone of the world space.
+This feature provides methods and properties to access each facet of a mesh, such as facet positions, normals, or the ability to retrieve all of a mesh's facets in a given area of world space.
 
 ## What is a mesh facet ?
 
-We use here the term "facet" in order to be not confused with the term "face".  
+We use the term "facet" here to avoid confusing it with the term "face".  
 A mesh can have some planar faces. For example, a box has 6 sides, so 6 planar squared faces. Each of its faces are drawn at the WebGL level with 2 triangles.  
 We call "facets" these elementary triangles.
 
 ## How to enable the facet data ?
 
-The feature `facetData` can work for any mesh whatever it is created from BJS provided shapes (box, sphere, cylinder, tube, parametric shapes, etc), cloned ones or instances, merged ones or imported ones from an external source (Blender, etc).  
-To enable this feature, just call once `updateFacetData()`.  
+The `facetData` feature can work with any mesh, whether it is created from Babylon.js-provided shapes (box, sphere, cylinder, tube, parametric shapes, etc.), cloned meshes or instances, merged meshes, or imported meshes from an external source such as Blender.  
+To enable this feature, just call `updateFacetData()` once.  
 If the mesh belongs to some parent-child relationship, the feature is then not enabled for its parents or children.
 
 ```javascript
@@ -34,9 +34,9 @@ mesh.updateFacetData();
 console.log(mesh.facetNb);
 ```
 
-As soon as the feature is enabled, you can get the mesh total number of facets with the read-only property `.facetNb`.
+As soon as the feature is enabled, you can get the mesh's total number of facets with the read-only property `.facetNb`.
 
-The method `updateFacetData()` creates two permanent arrays : the mesh facet positions and facet normals.  
+The method `updateFacetData()` creates two permanent arrays: the mesh facet positions and facet normals.  
 Moreover, it logically divides the mesh according to some partitioning and stores all the facets in this partitioning.  
 Unless the mesh is updated or morphed afterwards, you don't need to call this method anymore once it has been done.  
 If you don't need this feature any longer, you can disable it to release the memory with `mesh.disableFacetData()`.
@@ -104,7 +104,7 @@ const localPos = localNormals[50]; // Vector3 : the 50th facet local position
 #### Note
 
 All the methods dealing with the world coordinates use the mesh world matrix. As you may know, this matrix is automatically computed on the render call.  
-If you've just moved, scaled or rotated your mesh before calling the facetData methods using the world values and you're not sure about this, you can ever force the world matrix computation.
+If you've just moved, scaled, or rotated your mesh before calling the facetData methods that use world values, and you're not sure about this, you can always force the world matrix computation.
 
 ```javascript
 mesh.rotate.y += 0.2; // the mesh will be rotated on the next render call, but I need a rotated normal
@@ -125,12 +125,12 @@ Just click and the ball is positioned at the clicked facet position, not the cli
 
 ### Mesh partitioning
 
-The feature `facetData` provides also another tool called the mesh partitioning.  
-The mesh is logically divided in 3D blocks aligned with the X, Y and Z axis in its local space.  
+The `facetData` feature also provides another tool called mesh partitioning.  
+The mesh is logically divided into 3D blocks aligned with the X, Y, and Z axes in its local space.  
 Here's an illustration about how this logical partitioning looks like (please wait until the skull is downloaded): <Playground id="#UZGNA#5" title="Mesh Partitioning" description="Simple example of mesh partitioning."/>
-In order to improve the visibility, the planes along the axis Z weren't displayed.  
+To improve visibility, the planes along the Z axis were not displayed.  
 As you can see, there are by default 10 subdivisions on each axis.  
-When you call `updateFacetData()`, the indexes of the all the facets are sorted in the partioning array according to the facet belonging to each block.
+When you call `updateFacetData()`, the indexes of all the facets are sorted in the partitioning array according to the block to which each facet belongs.
 
 Thus you can get all the facet indexes from some local coordinates _(x, y, z)_ with `getFacetsAtLocalCoordinates(x, y, z)`.
 
@@ -141,13 +141,13 @@ if (indexes != null) {
 }
 ```
 
-This method returns an array containing the indexes of the facet belonging to the block containing the point at the coordinates _(x, y, z)_.  
+This method returns an array containing the indexes of the facets belonging to the block that contains the point at coordinates _(x, y, z)_.  
 If _(x, y, z)_ aren't in any block or if there's no facet in the block containing _(x, y, z)_, it returns `null`.  
-So you can retrieve this way all the facets near some position and do your own treatment.  
-This method can be called as many times you need, even in the render loop. It doesn't allocate any object in memory.
+So you can retrieve all the facets near a given position this way and do your own processing.  
+This method can be called as many times as you need, even in the render loop. It doesn't allocate any objects in memory.
 
-Sometimes you don't need all the facets from a given block but only the closest facet to some world, but not local, coordinates.  
-You can then use the method `getClosestFacetAtCoordinates(x, y, z)` what returns the index of the closest facet to the World coordinates _(x, y, z)_.
+Sometimes you don't need all the facets from a given block, but only the closest facet to some world-space coordinates.  
+You can then use the method `getClosestFacetAtCoordinates(x, y, z)`, which returns the index of the closest facet to the world coordinates _(x, y, z)_.
 
 ```javascript
 const index = mesh.getClosestFacetAtCoordinates(x, y, z); // returns the index of the closest facet to (x, y, z)
@@ -162,7 +162,7 @@ If these local coordinates aren't in any block or if there's no facet in this bl
 This method can be called as many times you need, even in the render loop.
 
 This method can also compute for you the coordinates of the projection of _(x, y, z)_ on the closest facet plane. You can imagine this projection point as the contact point of _(x, y, z)_ on the facet, or the nearest point from _(x, y, z)_ on the facet.  
-Just pass it a`Vector3` as a reference :
+Just pass it a `Vector3` as a reference:
 
 ```javascript
 const projected = BABYLON.Vector3.Zero();
@@ -174,7 +174,7 @@ if (index != null) {
 ```
 
 You can even filter the returned facet index.  
-Imagine that you want only the facet "facing" the coordinates _(x, y, z)_, it is to say the facet of which the dot product normal \* facetPosition*to*(x, y, z) is positive.
+Imagine that you want only the facet "facing" the coordinates _(x, y, z)_; that is, the facet for which the dot product normal \* facetPosition*to*(x, y, z) is positive.
 
 So just set the fifth parameter `checkFace` to `true` (default `false`) and the sixth parameter `facing?` to `true` (default `true`).
 
@@ -187,7 +187,7 @@ if (index != null) {
 }
 ```
 
-On the contrary, if you just want the closest facet "turning its back" to _(x, y, z)_, set `checkFace` to `true` and `facing?` to `false`.
+On the contrary, if you just want the closest facet facing away from _(x, y, z)_, set `checkFace` to `true` and `facing?` to `false`.
 
 ```javascript
 const projected = BABYLON.Vector3.Zero();
@@ -228,16 +228,16 @@ A rotating torus knot with facet data enabled and a Solid Particle System (SPS) 
 ### Tweaking the partitioning
 
 By default, the partitioning is set to 10 subdivisions per axis. These subdivisions are applied to the mesh bounding box.  
-Actually, it's a bit smarter. It divides the biggest bounding box dimension by 10 and adjust the other ones to their ratio to this biggest.  
-Example : if the mesh is sized 200 on X, 100 on Z and 3 on Y, it will subdive X in 10 subdivisions, Z in 5 subdivisions and Y in only 1.  
+Actually, it's a bit smarter. It divides the largest bounding box dimension by 10 and adjusts the others according to their ratio to the largest one.  
+Example: if the mesh is sized 200 on X, 100 on Z, and 3 on Y, it will subdivide X into 10 subdivisions, Z into 5 subdivisions, and Y into only 1.  
 10 subdivisions is an arbitrary default value. You can change it according to your mesh geometry.  
-Just keep in mind these two principles :
+Just keep these two principles in mind:
 
 - the subdivisions (blocks) must be bigger than the facets to get accurate results,
 - the more subdivisions, the fastest the method `getClosestFacetAtCoordinates()`.
 
 So if you deal with a huge mesh with plenty of very small facets like the BJS skull, you can easily set the subdivision number to 50, but if you deal with your own ribbon built with only one hundred big facets, you should probably reduce this number to 4.  
-To set the number of subdivisions, just use the property `.partitioningSubdivisions`. It will be taken in account at the next call to `updateFacetData()` and can be changed at will.
+To set the number of subdivisions, just use the property `.partitioningSubdivisions`. It will be taken into account at the next call to `updateFacetData()` and can be changed at will.
 
 ```javascript
 mesh.partitioningSubdivisions = 50; // set a bigger value than the default one (integer)
@@ -245,8 +245,8 @@ mesh.updateFacetData(); // now the internal partitioning has 50 blocks per axis
 ```
 
 You can also enlarge a bit the space used by the blocks to have a bigger "detection zone" (remember that if _(x, y, z)_ is outside the block zone, the methods return `null`).  
-By default, the block area is 1% bigger than the mesh bounding box in order to keep a little space between the peripheric blocks and their contained facets.  
-You can set your own value with the property `.partitioningBBoxRatio` (default = 1.01). It will be taken in account at the next call to `updateFacetData()` and can be changed at will.
+By default, the block area is 1% bigger than the mesh bounding box in order to keep a little space between the peripheral blocks and their contained facets.  
+You can set your own value with the property `.partitioningBBoxRatio` (default = 1.01). It will be taken into account at the next call to `updateFacetData()` and can be changed at will.
 
 ```javascript
 mesh.partitioningBBoxRatio = 1.05; // 5% bigger than the bounding box instead of 1% bigger
@@ -256,13 +256,13 @@ mesh.updateFacetData(); // now the internal block area if 5% bigger than the bou
 In order to understand, here are two examples :  
 ratio = 1.20 (20% bigger) <Playground id="#UZGNA#6" title="Partitioning With a Larger Ratio" description="Simple example of partitioning with a larger ratio."/>  
 ratio = 0.80 (20% smaller) <Playground id="#UZGNA#7" title="Partitioning With a Smaller Ratio" description="Simple example of partitioning with a smaller ratio."/>  
-Those examples aren't pertinent, because the values are too big or too small : the block area is too far from the mesh or inside the mesh.  
-Right values should keep between 1.0 and 1.10.
+Those examples aren't very useful, because the values are too big or too small: the block area is either too far from the mesh or inside the mesh.  
+Good values should stay between 1.0 and 1.10.
 
 ### Updating Facet Data
 
-As said in the first part, you need to call once `updateFacetData()` to enable the feature.  
-This is enough if the mesh geometry keep unchanged afterwards.
+As said in the first part, you need to call `updateFacetData()` once to enable the feature.  
+This is enough if the mesh geometry stays unchanged afterward.
 
 Nonetheless, if you update or morph your mesh afterwards, you need to call `updateFacetData()` again to force the partitioning recomputation.
 
@@ -276,15 +276,15 @@ if (condition) {
 }
 ```
 
-`updateFacetData()` can be called on demand, even in the render loop. However this method as a CPU cost, actually exactly the same as the static method `ComputeNormals()`.  
-So if your mesh has a very huge amount of facets like the BJS skul, this can take some times.
+`updateFacetData()` can be called on demand, even in the render loop. However, this method has a CPU cost, exactly the same as the static method `ComputeNormals()`.  
+So if your mesh has a very large number of facets, like the BJS skull, this can take some time.
 
 Some of the provided BJS mesh types are updatable/morphable by their dedicated methods : the parametric shapes and the SPS.
 
 - the parametric shapes are updatable by calling again the method `CreateXXX()` with the parameter `instance`,
 - the SPS is updated each call to `setParticles()`.
 
-For these specific types of updatable meshes, you don't need to call `updateFacetData()` by your own, if the feature is already enabled.
+For these specific types of updatable meshes, you don't need to call `updateFacetData()` yourself if the feature is already enabled.
 It will be done automatically, generally in an optimized way, inside the process loop of the mesh geometry update.
 
 ```javascript
@@ -319,7 +319,7 @@ As you may know, for performance reasons, the facets of a given mesh are always 
 
 <Playground id="#FWKUY0" title="Facet Depth Sort 1" description="Simple example of using facet depth sort."/>
 
-This new feature solves the self transparency issue by sorting the mesh facets from some location (the camera position by default) just before drawing them.  
+This feature solves the self-transparency issue by sorting the mesh facets from some location, the camera position by default, just before drawing them.  
 The mesh is **required** to be `updatable`.  
 The depth sort is done on each call to `updateFacetData()`. It can be disabled at any time to save CPU cycles if the mesh and the camera don't move anymore.  
 Usage :
@@ -334,15 +334,15 @@ scene.registerBeforeRender(function() {
 mesh.updateFacetData();     // sort the facets each frame
 ```
 
-Exampl: <Playground id="#FWKUY0#1" title="Facet Depth Sort 2" description="Simple example of using facet depth sort."/>
+Example: <Playground id="#FWKUY0#1" title="Facet Depth Sort 2" description="Simple example of using facet depth sort."/>
 
 Depth sorted on the left, standard on the right.
 
 If you don't need the depth sort once enabled, you can simply stop to call `updateFacetData()`.  
-If, for some reason, you still need to call `updateFacetData()` but you don't need the depth sort any longer, just disabled it with `mesh.mustDepthSortFacets = false`.  
-In both cases, the facet will keep the last given order.
+If, for some reason, you still need to call `updateFacetData()` but no longer need depth sorting, just disable it with `mesh.mustDepthSortFacets = false`.  
+In both cases, the facets will keep the last assigned order.
 
-Note that if your mesh is an SPS (Solid Particle System), it's better to not enable the facet depth sort in the same time as the particle depth sort, simply because the underlying sort is done twice, so more CPU used and no gain.  
-In this case, just choose what kind of sorting is better for you : at particle level (faster) or at facet level (more accurate).
+Note that if your mesh is an SPS (Solid Particle System), it's better not to enable facet depth sort at the same time as particle depth sort, simply because the underlying sort is done twice, so more CPU is used for no gain.  
+In this case, just choose which kind of sorting is better for you: at the particle level (faster) or at the facet level (more accurate).
 
 As the facet depth sort reorganizes the mesh indices, it **can't work** with the MultiMaterials.

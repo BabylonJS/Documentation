@@ -8,15 +8,15 @@ video-overview:
 video-content:
 ---
 
-Starting with Babylon.js v3.1, we introduced the NullEngine which is a version of the main Babylon.js engine but with no need for a WebGL capable device.
+Starting with Babylon.js v3.1, we introduced the NullEngine, which is a version of the main Babylon.js engine that does not require a WebGL-capable device.
 
-The NullEngine will not produce any rendering and thus can be used in a Node.js / server side environment.
+The NullEngine does not produce any rendering and can therefore be used in a Node.js or server-side environment.
 
 It can be used to:
 
 - Run tests
-- Run a server side version of your application / game
-- Use specific Babylon.js services (like glTF loaders for instance)
+- Run a server-side version of your application or game
+- Use specific Babylon.js services, such as glTF loaders
 
 ## General
 
@@ -27,7 +27,7 @@ var engine = new BABYLON.NullEngine();
 var scene = new BABYLON.Scene(engine);
 ```
 
-If you want to use it in a Node.js environment, you may need to add some additional resources (like support for xhr):
+If you want to use it in a Node.js environment, you may need to add some additional resources, such as support for XHR:
 
 First install babylonjs and babylonjs-loaders: `npm install babylonjs babylonjs-loaders`
 
@@ -69,7 +69,7 @@ BABYLON.ImportMeshAsync("https://playground.babylonjs.com/scenes/skull.babylon",
 
 ## Configuration
 
-You can specifiy some options in the `NullEngine` constructor:
+You can specify some options in the `NullEngine` constructor:
 
 ```javascript
 const engine = new BABYLON.NullEngine({
@@ -79,14 +79,14 @@ const engine = new BABYLON.NullEngine({
 });
 ```
 
-With `renderWidth` and `renderHeight` you can define the size of the virtual canvas used to simulate the render surface.
-With `textureSize`, you can define the size of all textures (which will be all black) used by the NullEngine.
+With `renderWidth` and `renderHeight`, you can define the size of the virtual canvas used to simulate the render surface.
+With `textureSize`, you can define the size of all textures, which will all be black, used by the NullEngine.
 
 ## Troubleshooting
 
-While the goal of the NullEngine is to completely replace the Engine class, some features cannot be used server side:
+While the goal of the NullEngine is to completely replace the `Engine` class, some features cannot be used server-side:
 
 - `camera.attachControl` cannot be used as it requires an HTML element
 - `DynamicTexture` cannot be used as it relies on HTML canvas
 
-Furthermore as we already mentioned earlier, you need to provide an implementation of the `XMLHttpRequest` class.
+Furthermore, as mentioned earlier, you need to provide an implementation of the `XMLHttpRequest` class.

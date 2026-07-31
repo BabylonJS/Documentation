@@ -12,7 +12,7 @@ video-content:
 
 ## A Lathe Turned Fountain
 
-Time to introduce another of the many ways to create a mesh, the *CreateLathe* method. We start with a profile for the fountain.
+Time to introduce another of the many ways to create a mesh: the *CreateLathe* method. We start with a profile for the fountain.
 
 ![profile](/img/getstarted/profile.webp)
 
@@ -31,18 +31,18 @@ const fountainProfile = [
 ];
 ```
 
-The array is used in shape property of the options parameter in the *CreateLathe* method.
+The array is used in the shape property of the options parameter in the *CreateLathe* method.
 
 ```javascript
 const fountain = BABYLON.MeshBuilder.CreateLathe("fountain", {shape: fountainProfile, sideOrientation: BABYLON.Mesh.DOUBLESIDE}, scene);
 ```
 
-As before the scene parameter is optional. In this case the mesh is set to double sided because the inside is visible because of the slope at the top and the hollow middle.
+As before, the scene parameter is optional. In this case, the mesh is set to double-sided because the inside is visible due to the slope at the top and the hollow middle.
 
 <Playground id="#TC31NV#3" title="Basic Lathe Fountain" description="Use the createLathe method to create a fountain." image="/img/playgroundsAndNMEs/gettingStartedLathe1.webp"/>
 
-With appropriate change of scale and positioning this is added to the village.
+With appropriate scaling and positioning, this is added to the village.
 
 <Playground id="#KBS9I5#91" title="Add the Fountain" description="Add the fountain into the village." image="/img/playgroundsAndNMEs/gettingStartedLathe2.webp"/>
 
-A fountain without a spray of water is a little boring so we simulate the spray with particles.
+A fountain without a spray of water is a little boring, so we simulate the spray with particles.

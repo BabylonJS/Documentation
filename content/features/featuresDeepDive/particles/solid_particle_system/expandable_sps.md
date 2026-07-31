@@ -12,8 +12,8 @@ video-content:
 
 ## Create an expandable SPS
 
-Until now, the SPS that you've created has a fixed number of particles once for all because it's the most performant way to use it.  
-In some cases, it may be useful to add or to remove some particles from the SPS after its creation, because they are newly needed or not needed any longer for the rest of the time.  
+Until now, the SPS you created has had a fixed number of particles once and for all because that is the most performant way to use it.  
+In some cases, it may be useful to add or remove particles from the SPS after it is created, because they are newly needed or no longer needed.  
 In this case, you can create an expandable SPS with the optional parameter `expandable: true` (default `false`).
 
 ```javascript
@@ -22,7 +22,7 @@ var sps = new BABYLON.SolidParticleSystem("sps", scene, { expandable: true });
 
 ### Adding particles
 
-If you want to add some more particles to the existing ones, then just use again the method `addShape()` as many times as necessary. Then call `buildMesh()` to rebuild the SPS geometry with these newly added particles.
+If you want to add more particles to the existing ones, just use the `addShape()` method again as many times as necessary. Then call `buildMesh()` to rebuild the SPS geometry with the newly added particles.
 
 ```javascript
 var sps = new BABYLON.SolidParticleSystem("sps", scene, { expandable: true });
@@ -32,7 +32,7 @@ sps.buildMesh();
 // ... further in the code, when needed
 sps.addShape(model2, 100); // adds 100 new particles from model2
 sps.addShape(model3, 200); // and 200 particles from model3
-sps.buildMesh(); // updates the SPS mesh geometry from the last particle additions
+sps.buildMesh(); // update the SPS mesh geometry from the last particle additions
 sps.setParticles();
 ```
 
@@ -41,7 +41,7 @@ Each mouse click adds 20 new depth sorted particles.
 
 ### Removing particles
 
-If you want to remove some particles from the SPS, then use the method `removeParticles(start, end)` where `start` and `end` are the starting and ending indexes of the particles.  
+If you want to remove particles from the SPS, use the method `removeParticles(start, end)`, where `start` and `end` are the starting and ending indexes of the particles.  
 This method returns an array populated with the removed particles.
 
 ```javascript
@@ -52,18 +52,18 @@ sps.buildMesh();
 // ... further in the code, when needed
 var removed1 = sps.removeParticles(700, 999); // removes the last 300 particles
 var removed2 = sps.removeParticles(0, 9); // removes the first 10
-sps.buildMesh(); // update the SPS mesh geometry from the last particle additions
+sps.buildMesh(); // updates the SPS mesh geometry from the last particle additions
 sps.setParticles();
 ```
 
 Example: <Playground id="#0MXVDK" title="Removing Particles From A Solid Particle System" description="Simple example of removing particles from a solid particle system"/>
-Each click removes the 2 first and last 100 particles.  
-**Important note :** the SPS must contain at least one particle to work, so never empty it completely !
+Each click removes the first 2 particles and the last 100 particles.  
+**Important note:** The SPS must contain at least one particle to work, so never empty it completely!
 
 ### Storable particles
 
-You may want to create new particles and not to insert them in the SPS on its creation but later. You may also want to keep aside removed particles to put them back in the system later.  
-So when creating new particles, you can specify to store them aside from the SPS with the optional parameter `storage: []` of the method `addShape()`.
+You may want to create new particles without inserting them into the SPS at creation time, but later. You may also want to keep removed particles aside so you can put them back in the system later.  
+So when creating new particles, you can specify that they should be stored aside from the SPS with the optional parameter `storage: []` of the method `addShape()`.
 
 ```javascript
 var stock = []; // the array to store the particles
@@ -95,21 +95,21 @@ sps.buildMesh();
 sps.setParticles();
 ```
 
-Each time that you call `insertParticlesFromArray()`, the stored particle objects aren't just referenced in the SPS, they are cloned and the clones are reindexed and given a new identifier.  
-This means that you can modify or get rid of the storage array or their contained particle objects with no effect and no risk for the SPS working.  
+Each time you call `insertParticlesFromArray()`, the stored particle objects are not just referenced in the SPS; they are cloned, and the clones are reindexed and given a new identifier.  
+This means that you can modify or get rid of the storage array or its contained particle objects with no effect on the SPS.  
 Example: <Playground id="#HL9PPA" title="Storable Particles Example" description="Simple example of making particles storable."/>
-Each click removes 100 particles of a given shape and restore 100 particles of another shape in turn.  
+Each click removes 100 particles of a given shape and restores 100 particles of another shape in turn.  
 100 particles are stored aside at the SPS creation.
 
-### Notes :
+### Notes:
 
 - When you remove particles, the remaining ones are reindexed, meaning that their `particle.idx` value can change. The particle identifier `particle.id` keeps unchanged. If a particle is given a parent and if this parent is removed, then the particle `parent` property value is set to `null`.
-- Adding or removing particles will create a new VertexData object, so a new VBO buffer, each time `buildMesh()` is called.  
-  This can trigger the Garbage Collector activity at some unwanted moment, so it's not a good idea to add or remove particles each frame.  
-  Moreover, using an expandable SPS uses more memory than a fixed one because all the dynamic extensible arrays are saved under the hood along the SPS life.
+- Adding or removing particles will create a new VertexData object, and therefore a new VBO buffer, each time `buildMesh()` is called.  
+  This can trigger Garbage Collector activity at an unwanted moment, so it is not a good idea to add or remove particles on each frame.  
+  Moreover, an expandable SPS uses more memory than a fixed one because all the dynamic extensible arrays are kept under the hood throughout the SPS lifecycle.
 
   In a standard SPS, the particle index `particle.idx` and the particle identifier `particle.id` have the same value.  
-In an expandable SPS (see below), when particles are removed only the particle identifier `particle.id` keeps unchanged whereas the particle index may change.  
+In an expandable SPS (see below), when particles are removed, only the particle identifier `particle.id` remains unchanged, whereas the particle index may change.  
 So, when using an expandable SPS, make sure to set a particle parent with the parent identifier and make sure that this parent still exists.
 
 ```javascript

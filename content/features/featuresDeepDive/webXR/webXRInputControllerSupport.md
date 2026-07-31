@@ -8,19 +8,19 @@ video-overview:
 video-content:
 ---
 
-One of the major differences between WebVR and WebXR was the support for different types of controllers. While WebVR supported the non-standard extended gamepad API and a few selected controllers, WebXR already supports a lot of different types of inputs, including touch screens, motion controllers, and hands.
+One of the major differences between WebVR and WebXR is support for different types of controllers. While WebVR supported the non-standard extended gamepad API and a few selected controllers, WebXR already supports many different input types, including touch screens, motion controllers, and hands.
 
 ## Some terms and classes to clear things up
 
-An XR controller comprises a lot of components that we at Babylon.js sometimes name differently. It is also important to know the terms themselves to be able to use what you actually need. I would recommend reading the [XR Input section](https://www.w3.org/TR/webxr/#input) of the WebXR proposal draft.
+An XR controller comprises many components that we at Babylon.js sometimes name differently. It is also important to know the terms themselves so you can use what you actually need. I recommend reading the [XR Input section](https://www.w3.org/TR/webxr/#input) of the WebXR proposal draft.
 
 An XR Session controls the input source of the current session. Every new input source connected to this session will be registered in the `inputSources` array of the native XR Session and will also trigger the `inputsourceschange` event with the new input source.
 
-An Input source has one of three target Ray modes - `tracked-pointer` for gamepad-like controllers, `screen` for touch-screen oriented inputs, and `gaze` for gaze-based inputs (input sources like google cardboard that has no proper way for user input).
+An input source has one of three target ray modes - `tracked-pointer` for gamepad-like controllers, `screen` for touchscreen-oriented inputs, and `gaze` for gaze-based inputs (input sources like Google Cardboard that have no proper way for user input).
 
-The Babylon's [WebXRInput](/typedoc/classes/babylon.webxrinput) class is responsible for coordinating the addition and removal of input sources. It creates **WebXR Input Sources** classes and disposes of them automatically for you.
+Babylon's [WebXRInput](/typedoc/classes/babylon.webxrinput) class is responsible for coordinating the addition and removal of input sources. It creates **WebXR Input Sources** classes and disposes of them automatically for you.
 
-The Babylon's [WebXRInputSource](/typedoc/classes/babylon.webxrinputsource) class is the container for all user input related objects. It is created automatically by the WebXRInput class for every controller. It is in charge of attaching the motion controller which, in turn, is in charge of attaching the components and load the model.
+Babylon's [WebXRInputSource](/typedoc/classes/babylon.webxrinputsource) class is the container for all user-input-related objects. It is created automatically by the WebXRInput class for every controller. It is in charge of attaching the motion controller, which, in turn, is responsible for attaching the components and loading the model.
 
 An input source has two important [reference spaces](https://www.w3.org/TR/webxr/#xrspace):
 
@@ -29,17 +29,17 @@ An input source has two important [reference spaces](https://www.w3.org/TR/webxr
 
 Although sometimes the same, the grip and target ray spaces can have different transformations.
 
-A controller has an attached **motion controller** if the input source is a gamepad-like device (the Oculus Touch or the windows motion controllers are a good example for that). In turn, each controller has different **components** (buttons, triggers, thumbpads, touchpads), which have their state updated on each frame.
+A controller has an attached **motion controller** if the input source is a gamepad-like device (the Oculus Touch or Windows motion controllers are good examples). In turn, each controller has different **components** (buttons, triggers, thumbpads, touchpads), which have their state updated on each frame.
 
 Note that input sources with [`targetRayMode`](https://www.w3.org/TR/webxr/#dom-xrinputsource-targetraymode) of [`"screen"`](https://www.w3.org/TR/webxr/#dom-xrtargetraymode-screen) are constantly created and removed when touch starts and ends. This is called [transient input](https://www.w3.org/TR/webxr/#transient-input).
 
 ## WebXRInput
 
-Class [WebXRInput](/typedoc/classes/babylon.webxrinput) has little to no public members, you won't typically interact with it. An instance of that is usually created by the WebXRDefaultExperience. It has two observables that can be helpful:
+The [WebXRInput](/typedoc/classes/babylon.webxrinput) class has little to no public members, so you typically won't interact with it. An instance is usually created by the WebXRDefaultExperience. It has two observables that can be helpful:
 
 ### onControllerAddedObservable
 
-This observable will be triggered when a new input source was detected and its corresponding [WebXRInputSource](/typedoc/classes/babylon.webxrinputsource) was created.
+This observable will be triggered when a new input source is detected and its corresponding [WebXRInputSource](/typedoc/classes/babylon.webxrinputsource) is created.
 
 ### onControllerRemovedObservable
 
@@ -51,14 +51,14 @@ This one will be triggered when a controller leaves the experience, right before
 
 ## Mixing hands and controllers
 
-Starting Babylon 6.42.0 it is possible to mix different types of controllers, as long as the underlying system supports it. For example, you could support both a hand and a controller at the same time.
-To try that just enter any XR demo with your controllers and put one of them down, or enter with both hands and pick up one controller.
+Starting with Babylon 6.42.0, it is possible to mix different types of controllers, as long as the underlying system supports it. For example, you could support both a hand and a controller at the same time.
+To try that, just enter any XR demo with your controllers and put one of them down, or enter with both hands and pick up one controller.
 
 ### Public methods
 
 #### getWorldPointerRayToRef
 
-As mentioned before, an input source has two reference spaces: `grip` and `target` (which we call `pointer`). Each of those spaces is represented by a mesh, positioned in the orientation and position that is provided by the XRFrame (and the XRSession). If you want to query current transformation of the user's hand or the direction the user is pointing at, you can use the `getWorldPointerRayToRef` method:
+As mentioned before, an input source has two reference spaces: `grip` and `target` (which we call `pointer`). Each of those spaces is represented by a mesh, positioned using the orientation and position provided by the XRFrame (and the XRSession). If you want to query the current transform of the user's hand or the direction the user is pointing, you can use the `getWorldPointerRayToRef` method:
 
 ```javascript
 // Get the pointer direction ray.
@@ -77,11 +77,11 @@ In most scenarios, you will need the pointer (not the grip) direction ray.
 
 #### onMotionControllerInitObservable
 
-This will be triggered when a motion controller, if available, was initialized and its profile loaded.
+This will be triggered when a motion controller, if available, is initialized and its profile is loaded.
 
 #### onMeshLoadedObservable
 
-This is a helper observable, it is the same as `xrController.motionController.onModelLoadedObservable`. Because `motionController` is created asynchronously, using this one may require less code:
+This is a helper observable. It is the same as `xrController.motionController.onModelLoadedObservable`. Because `motionController` is created asynchronously, using this one may require less code:
 
 ```javascript
 // async, async, async
@@ -103,11 +103,11 @@ Will be triggered right at the end of the `dispose()` function of the input sour
 
 ## Motion controllers
 
-In most cases when starting a VR session, the user will have handheld devices, called here motion controllers. A motion controller will be automatically loaded, if available. A motion controller has a profile, containing its different components and their positions in the buttons and axes array, but Babylon.js takes care of this for you so you don't have to know this to interact with the motion controller. You can see the different profiles in the [WebXR Input Profiles repository](https://github.com/immersive-web/webxr-input-profiles)
+In most cases, when starting a VR session, the user will have handheld devices, called motion controllers here. A motion controller will be automatically loaded if available. A motion controller has a profile containing its different components and their positions in the buttons and axes array, but Babylon.js takes care of this for you, so you don't have to know this to interact with the motion controller. You can see the different profiles in the [WebXR Input Profiles repository](https://github.com/immersive-web/webxr-input-profiles).
 
 ### Controller components
 
-Each motion controller has different components, those are described in its profile. Available component types:
+Each motion controller has different components, which are described in its profile. Available component types:
 
 - Button
 - Trigger
@@ -115,11 +115,11 @@ Each motion controller has different components, those are described in its prof
 - Thumbstick
 - Touchpad
 
-It also has a **unique** component id, which correlates to the actual component. For example, the **A button** on the Oculus Touch has the **type** `button`, and the **id** `a-button` .
+It also has a **unique** component ID, which corresponds to the actual component. For example, the **A button** on the Oculus Touch has the **type** `button` and the **ID** `a-button`.
 
 #### Getting available components
 
-To get a list of the components available, use the `getComponentIds` function. This will return an array of strings containing the IDs of the different components in this motion controller:
+To get a list of the available components, use the `getComponentIds` function. This will return an array of strings containing the IDs of the different components in this motion controller:
 
 ```javascript
 const ids = motionController.getComponentIds();
@@ -130,7 +130,7 @@ You can also get all of the available components using the `components` public m
 
 #### Get components
 
-To get a component you need to either know its ID or type. When more than one of that type exists, the id would be better. The IDs can be found in the profile.
+To get a component, you need to know either its ID or its type. When more than one component of that type exists, the ID is better. The IDs can be found in the profile.
 
 To get a component according to its ID:
 
@@ -150,7 +150,7 @@ const squeezeComponent = motionController.getComponentOfType("squeeze");
 const buttonComponent = motionController.getComponentOfType("button");
 ```
 
-to get all components of a specific type:
+To get all components of a specific type:
 
 ```javascript
 // get all button components
@@ -212,7 +212,7 @@ if (axes.x > 0.8) {
 }
 ```
 
-The component can also return the changes compared to the last frame. Changes are only populated when they exist, otherwise the changes map will be empty:
+The component can also return changes compared to the last frame. The changes object is populated only when changes exist; otherwise, the map will be empty:
 
 ```javascript
 // maybe nothing happened between this and last frame
@@ -243,8 +243,8 @@ component.onAxisValueChangedObservable.add((values) => {
 });
 ```
 
-Here is a simple example of controllers input.  
-By using Oculus Quest 2 controllers, component ids and controller buttons are mapped as follows.
+Here is a simple example of controller input.  
+When using Oculus Quest 2 controllers, component IDs and controller buttons are mapped as follows.
 
 On Oculus Quest 2 controllers:
 
@@ -254,7 +254,7 @@ On the Playground sample:
 
 ![ids mappings](/img/how_to/xr/xr-quest2-ids-mapping-playground.webp)
 
-The simple example, changes the scaling of each 3DCG object when each button is pressed.
+The simple example changes the scaling of each 3D object when each button is pressed.
 
 ```javascript
 const xr_ids = motionController.getComponentIds();
@@ -274,17 +274,17 @@ Playground for a simple VR controllers input: <Playground id="#28EKWI#37" title=
 
 #### The input-profile online repository
 
-As part of the (successful!) attempt at forcing standards to WebXR, the > at the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) GitHub repository created an online repository that holds models and definition of visual reference definitions for most (if not all) motion controllers available today.
+As part of the (successful!) effort to standardize WebXR, the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) GitHub repository provides an online repository that holds models and visual reference definitions for most, if not all, motion controllers available today.
 
 The repository provides a useful tool as [WebXR Input Profile Viewer](https://immersive-web.github.io/webxr-input-profiles/packages/viewer/dist/index.html). You can easily check each id, state, button, and axis of XR controllers.
 
 Babylon.js natively supports this repository and currently uses it as the default model delivery method for XR controllers.
 
-There is little to no action required on your end - this is automated when not changing the configuration.
+There is little to no action required on your end—this is automated as long as you do not change the configuration.
 
 #### Babylon local controller definitions
 
-Before the input-profile repository was published, Babylon had support for different types of controllers - Oculus Touch (1 and 2), Vive, Windows Motion Controllers and more. Since we still wanted to offer local support for those devices, we have decided to not only relay on the online profile repository, but to also deliver babylon-based controller classes for those that are already developed.
+Before the input-profile repository was published, Babylon supported different types of controllers - Oculus Touch (1 and 2), Vive, Windows Motion Controllers, and more. Since we still wanted to offer local support for those devices, we decided not only to rely on the online profile repository, but also to deliver Babylon-based controller classes for those that were already developed.
 
 Babylon offers local definitions for the following:
 
@@ -293,7 +293,7 @@ Babylon offers local definitions for the following:
 - Vive
 - Generic-Button controller
 
-To use them, import them to your project, while not forgetting to prioritize them or disable the online repository:
+To use them, import them into your project, while remembering to prioritize them or disable the online repository:
 
 ```javascript
 // import the ones you want to use

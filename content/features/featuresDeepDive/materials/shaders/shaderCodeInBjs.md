@@ -26,13 +26,13 @@ Methods 1, 2 and 3 use [BABYLON.ShaderMaterial](/features/featuresDeepDive/mater
 ## Babylon.js CYOS Download
 
 This site allows you to write code for a Vertex Shader and a Fragment Shader and see the results on a variety of meshes.
-Downloading a zip file produces a folder containing and _index.html_ file and some image files for texture.
+Downloading a zip file produces a folder containing an _index.html_ file and some image files for texture.
 
 ![CYOS Screen](/img/how_to/Shaders/cyos1.webp)
 
 The _index.html_ file contains the shader code in the correct format to apply as a material.
 
-Within the HTML page the shader code becomes (in Javascript)
+Within the HTML page, the shader code becomes this (in JavaScript):
 
 ```javascript
 BABYLON.Effect.ShadersStore["customVertexShader"] =
@@ -53,7 +53,7 @@ BABYLON.Effect.ShadersStore["customVertexShader"] =
 BABYLON.Effect.ShadersStore["customFragmentShader"] = "\r\n" + "precision highp float;\r\n" + "varying vec2 vUV;\r\n" + "uniform sampler2D textureSampler;\r\n" + "void main(void) {\r\n" + "    gl_FragColor = texture2D(textureSampler, vUV);\r\n" + "}\r\n";
 ```
 
-The Javascript code to use the shader as a material is
+The JavaScript code to use the shader as a material is
 
 ```javascript
 const shaderMaterial = new BABYLON.ShaderMaterial(
@@ -70,7 +70,7 @@ const shaderMaterial = new BABYLON.ShaderMaterial(
 );
 ```
 
-and the Javascript code to set a texture to the material is
+and the JavaScript code to set a texture on the material is
 
 ```javascript
 const mainTexture = new BABYLON.Texture("amiga.jpg", scene);
@@ -93,7 +93,7 @@ This method can easily be used in the Playground.
 
 ## Shader Code in &lt;script&gt; Tags
 
-In the _index.html_ file the Javascript code for the shaders is
+In the _index.html_ file, the JavaScript code for the shaders is
 
 ```javascript
 <script type="application/vertexShader" id="vertexShaderCode">
@@ -133,7 +133,7 @@ In the _index.html_ file the Javascript code for the shaders is
 </script>
 ```
 
-The Javascript code to use the shader as a material becomes
+The JavaScript code to use the shader as a material becomes
 
 ```javascript
 const shaderMaterial = new BABYLON.ShaderMaterial(
@@ -162,7 +162,7 @@ COMMON_NAME.vertex.fx
 
 COMMON_NAME.fragment.fx
 
-The Javascript code to use the shader as material becomes
+The JavaScript code to use the shader as a material becomes
 
 ```javascript
 const shaderMaterial = new BABYLON.ShaderMaterial("shader", scene, "./COMMON_NAME", {
@@ -173,32 +173,32 @@ const shaderMaterial = new BABYLON.ShaderMaterial("shader", scene, "./COMMON_NAM
 
 **Note**: `./` is necessary before the `COMMON_NAME`
 
-It is also possible to access the fx files from a URL by giving the full address of the URL,
-provide CORS is enabled for them.
+It is also possible to access the fx files from a URL by giving the full URL,
+provided CORS is enabled for them.
 
 [Guide Example From Import](https://babylonjsguide.github.io/examples/importcode.html)
 
 ## Shader Includes
 
-When building shaders sometimes you have parts of your code that will be reused between multiple shaders. These are usually things like reused uniforms, functions, structs etc. A powerful method that users have at their disposal is to accomplish this task is the
+When building shaders, you sometimes have parts of your code that will be reused between multiple shaders. These are usually things like reused uniforms, functions, structs, and so on. A powerful way to handle this is:
 
 ```javascript
 BABYLON.Effect.IncludesShadersStore["includeName"] = "...";
 ```
 
-Already loaded in the includes are all the common shader elements for babylons StandardMaterial, PBR Materials, ProceduralTextures and more. See the Github [https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude) for a complete list of shader includes packaged with BJS.
+The includes already contain common shader elements for Babylon's StandardMaterial, PBR materials, ProceduralTextures, and more. See the Github [https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude) for a complete list of shader includes packaged with BJS.
 
-Additionally, you can add anything you want to the IncludesShadersStore pre- or post-compilation of the scene. To access these includes simply call:
+Additionally, you can add anything you want to the `IncludesShadersStore` before or after scene compilation. To access these includes, simply call:
 
 ```glsl
 #include<includeName>
 ```
 
-In the appropriate section of your shader code to have them injected into your shader when it is compiled [see example](https://www.babylonjs-playground.com/#0MAYNY).
+Add this in the appropriate section of your shader code to have it injected into your shader when it is compiled [see example](https://www.babylonjs-playground.com/#0MAYNY).
 
 ## Shader Builder
 
-This is an extension to Babylon.js. Copy and save the [source code](https://github.com/BabylonJS/Extensions/blob/master/ShaderBuilder/Babylonx.ShaderBuilder.js) for the extension and add as
+This is an extension to Babylon.js. Copy and save the [source code](https://github.com/BabylonJS/Extensions/blob/master/ShaderBuilder/Babylonx.ShaderBuilder.js) for the extension and add it as
 
 ```javascript
 <script src="Babylonx.ShaderBuilder.js"></script>
@@ -210,8 +210,8 @@ The Shader Builder engine needs to be initialised
 BABYLONX.ShaderBuilder.InitializeEngine();
 ```
 
-The format for writing a ShaderBuilder is **fluent coding** and it deals with attributes andBabylon.js uniforms automatically.  
-An example for the shader code used in 1 to 3 above would be
+The format for writing a ShaderBuilder is **fluent coding**, and it deals with attributes and Babylon.js uniforms automatically.  
+An example equivalent to the shader code used in methods 1 to 3 above would be
 
 ```javascript
 mesh.material = new BABYLONX.ShaderBuilder().Map({ path: "textures/amiga.jpg" }).BuildMaterial(scene);
@@ -219,7 +219,7 @@ mesh.material = new BABYLONX.ShaderBuilder().Map({ path: "textures/amiga.jpg" })
 
 [Guide Example using ShaderBuilder](https://babylonjsguide.github.io/examples/basiccodeSB.html)
 
-This method can be used in the Playground. However, it does require the loading of the ShaderBuilder Javascript file and an `onLoad`
+This method can be used in the Playground. However, it does require loading the ShaderBuilder JavaScript file and an `onLoad`
 function before it can be called.
 
 <Playground id="#NCY1Q#36" title="Playground Example Using ShaderBuilder" description="Playground example using shaderbuilder."/>

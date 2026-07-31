@@ -18,7 +18,7 @@ First create a GamepadManager:
 const gamepadManager = new BABYLON.GamepadManager();
 ```
 
-Listen to the manager's onGamepad Connected/Disconnected events:
+Listen to the manager's gamepad connection and disconnection events:
 
 ```javascript
 gamepadManager.onGamepadConnectedObservable.add((gamepad, state) => {});
@@ -27,7 +27,7 @@ gamepadManager.onGamepadDisconnectedObservable.add((gamepad, state) => {});
 
 ## Gamepad events
 
-Once a gamepad is available, event listeners can be added to handle the gamepad's inputs
+Once a gamepad is available, event listeners can be added to handle the gamepad's inputs.
 
 ```javascript
 gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
@@ -65,7 +65,7 @@ gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
 
 ## Check a gamepad's current state
 
-At any time, a gamepad's current state can be checked with the gamepads properties:
+At any time, a gamepad's current state can be checked with the gamepad's properties:
 
 ```javascript
 scene.registerBeforeRender(function () {

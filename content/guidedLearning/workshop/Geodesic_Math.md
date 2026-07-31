@@ -16,7 +16,7 @@ video-content:
 
 ## Overview
 
-In this design we restrict both polyhedra to ones built from an icosahedron base. A Geodesic polyhedron is built from a number of equilateral triangles. A Goldberg polyhedron is the dual of a Geodesic one and vice versa. A dual of a polyhedron swaps faces for vertices and vertices for faces.
+In this design, we restrict both polyhedra to ones built from an icosahedron base. A Geodesic polyhedron is built from a number of equilateral triangles. A Goldberg polyhedron is the dual of a Geodesic one, and vice versa. A dual of a polyhedron swaps faces for vertices and vertices for faces.
 
 ![Dual](/img/snippets/geo1.webp)  
 Fig 1 Icosahedron and its Dual
@@ -35,7 +35,7 @@ More complex classes are formed by rotating, with restrictions, the isometric gr
 
 A regular icosahedron is formed from 20 primary equilateral triangles. Rather than rotating the underlying grid we demonstrate the classes by rotating a primary triangle on a fixed isometric grid.
 
-Rotations are formed by applying two positive integers m and n. From a fixed point O (0, 0) on the isometric grid form a point A (m, n) which is m horizontal units from O and n units along the positive gradient line. The primary triangle is formed with a point B such that OAB is an equilateral triangle. The Geodesic polyhedron so formed will be noted as GD(m, n) and its dual the Goldberg polyhedron as GP(m, n);
+Rotations are formed by applying two positive integers m and n. From a fixed point O (0, 0) on the isometric grid form a point A (m, n) which is m horizontal units from O and n units along the positive gradient line. The primary triangle is formed with a point B such that OAB is an equilateral triangle. The Geodesic polyhedron so formed will be noted as GD(m, n) and its dual, the Goldberg polyhedron, as GP(m, n).
 
 ![primary 1](/img/snippets/geo5.webp)  
 Fig 4 Creating a GD(5, 2) on Isometric Grid
@@ -43,7 +43,7 @@ Fig 4 Creating a GD(5, 2) on Isometric Grid
 ![primary 2](/img/snippets/geo6.webp)  
 Fig 5 Primary Triangle Grid Rotation 5, 2
 
-There are three classes of these types of polyhedra
+There are three classes of these polyhedra:
 
 * Class I GD(m, 0)  
 * Class II GD(m, m)  
@@ -56,12 +56,12 @@ For Class III GD(m, n) and GD(n, m) are reflections of each other as are GP(m, n
 ![net 1](/img/snippets/geo4.webp)  
 Fig 6 Net of Icosahedron for GD(5, 2)
 
-From the net we can see that while some of the triangular faces that will make up the Geodesic mesh lie in the plane of a primary triangle others will lie across adjacent primary triangles
+From the net we can see that while some of the triangular faces that will make up the Geodesic mesh lie in the plane of a primary triangle, others will lie across adjacent primary triangles.
 
 ![net 2](/img/snippets/geo7.webp)  
 Fig 7 Vertices of some triangular faces lie across adjacent primary triangles.
 
-When the icosahedron is formed from the net these faces will not lie on any the plane of any primary triangle.
+When the icosahedron is formed from the net, these faces will not lie in the plane of any primary triangle.
 
 ## Building the Geodesic Polyhedron
 
@@ -70,18 +70,18 @@ There are two main steps to this:
 1. Grouping the vertices into three to form each face of the Geodesic polyhedron
 2. Positioning the vertices in 3D space
 
-In order to achieve both of these we need to understand transformations on an isomorphic grid and how to match three facet vertices across the edges of a primary triangle. Using Fig 7 as a basis, we can then label each GD(m, n) vertex in a primary triangle using an isomorphic coordinate system and then use rotations of 60<sup>o</sup> of a primary triangle to match up vertices to form the triangular facets of an adjacent primary triangle.
+In order to achieve both of these, we need to understand transformations on an isometric grid and how to match three facet vertices across the edges of a primary triangle. Using Fig 7 as a basis, we can then label each GD(m, n) vertex in a primary triangle using an isometric coordinate system and then use 60<sup>o</sup> rotations of a primary triangle to match up vertices to form the triangular facets of an adjacent primary triangle.
 
 ### Transformations on an Isomorphic Grid
 
-In terms of the net all the GD(m, n) vertices lie on an isometric grid and we will need to rotate them 60<sup>o</sup> about given points. To understand how this is achieved we consider isometric vectors and their transformations.
+In terms of the net, all the GD(m, n) vertices lie on an isometric grid, and we will need to rotate them 60<sup>o</sup> about given points. To understand how this is achieved, we consider isometric vectors and their transformations.
 
 The *x* axis is horizontal and the angle between the *x* axis and the *y* axis is 60<sup>o</sup> 
 
 ![axis](/img/snippets/geo11.webp)  
 Fig 8 Isometric Axis
 
-The unit vector along the *x* axis is *i*&#8407; and along the *y* axis is *j*&#8407;, the unit vector k&#8407; = -*i*&#8407; + *j*&#8407;which lies along the third line of an isometric grid is also useful.
+The unit vector along the *x* axis is *i*&#8407; and along the *y* axis is *j*&#8407;; the unit vector k&#8407; = -*i*&#8407; + *j*&#8407;, which lies along the third line of an isometric grid, is also useful.
 
 ![unit vectors](/img/snippets/geo12.webp)  
 Fig 9 Unit Vectors
@@ -95,7 +95,7 @@ Fig 10 Unit Vectors
 
 Vector additions still hold *xi*&#8407; + *yj*&#8407; + *ai*&#8407; + *bj*&#8407; = (*x* + *a*)*i*&#8407; + (*y* + *b*)*j*&#8407;
 
-Luckily all our application needs only integer values for the vectors and rotations only multiples of 60<sup>o</sup>
+Luckily, our application needs only integer values for the vectors and only rotations by multiples of 60<sup>o</sup>.
 
 Consider the rotation of the position vector *xi*&#8407; + *yj*&#8407; 60<sup>o</sup> about the origin O, where x and y are integers. The rotation about the origin can be R<sup>+</sup> (counter-clockwise purple to red) or R<sup>-</sup> (clockwise purple to blue) as in Fig 11
 
@@ -108,7 +108,7 @@ R<sup>+</sup>(*xi*&#8407; + *yj*&#8407;) = *yk*&#8407; + *xj*&#8407; = *y*(-*i*&
 R<sup>-</sup>(*xi*&#8407; + *yj*&#8407;) = *yi*&#8407; - *xk*&#8407; = *yi*&#8407; - *x*(-*i*&#8407; + *j*&#8407;);  
 = (*x* + *y*)*&#8407; - *xj*&#8407;
 
-Where S<sup>+</sup> and S<sup>-</sup> are respectively counter clockwise and clockwise rotations of *xi*&#8407; + *yj*&#8407;  60<sup>o</sup> about a point *ai*&#8407; + *bj*&#8407; 
+Where S<sup>+</sup> and S<sup>-</sup> are respectively counter-clockwise and clockwise rotations of *xi*&#8407; + *yj*&#8407; 60<sup>o</sup> about a point *ai*&#8407; + *bj*&#8407;
 
 S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)  
 = R<sup>+</sup>((*xi*&#8407; + *yj*&#8407;) - (*ai*&#8407; + *bj*&#8407;)) + *ai*&#8407; + *bj*&#8407;  
@@ -144,7 +144,7 @@ R<sup>C-</sup>(*xi*&#8407; + *yj*&#8407;) = (*y* - n)*i*&#8407; + (m + n - *x* -
 
 ### Match Vertices Across Edges of a Primary Face
 
-We can label the face and vertices for each primary triangle as shown in the net for Fig 13. Taking OA as the base, OB as the left edge and AB as the right edge of each face; every face has a face on its left, F<sub>L</sub>, right, F<sub>R</sub>, and base F<sub>B</sub>
+We can label the face and vertices for each primary triangle as shown in the net for Fig 13. Taking OA as the base, OB as the left edge, and AB as the right edge of each face, every face has a face on its left, F<sub>L</sub>, right, F<sub>R</sub>, and base, F<sub>B</sub>.
 
 ![net 2](/img/snippets/geo9.webp)  
 Fig 13 Labelled Net
@@ -179,7 +179,7 @@ Table 1
 &nbsp  
 &nbsp;  
 
-We can see that a rotation about B aligns edge AB and OB, about O aligns edge OB and OA and about A aligns OA and BA. 
+We can see that a rotation about B aligns edge AB and OB, a rotation about O aligns edge OB and OA, and a rotation about A aligns OA and BA. 
 
 We now consider obtaining the three vertices for the edge overlapping facets in more detail. We start with a rotation about B
 
@@ -194,7 +194,7 @@ We can also see that rows contain either one or two rotated minimums.
 ![overlaps](/img/snippets/geo16.webp)  
 Fig 16 Facet Overlap Vertices
 
-In Fig 16 we can see that there are three types of rotated minimum vertices 0, 1, 2 that produce facets that overlap the edge. Each of these points can be associated with two facet triangle, one that is up (light grey) and one down (dark grey).
+In Fig 16 we can see that there are three types of rotated minimum vertices, 0, 1, and 2, that produce facets that overlap the edge. Each of these points can be associated with two facet triangles, one that is up (light grey) and one down (dark grey).
 
 For all facet vertices *xi*&#8407; + *yj*&#8407; of a primary triangle OAB of GD(m, n) let M<sup>max</sup>(*y*) be the point with maximum x value and M<sup>min</sup>(*y*) the point with minimum x value for row *y*.
 
@@ -216,7 +216,7 @@ When *P* is of type 2 the facet (dark grey) has vertices *P*, M<sup>max</sup>(*y
 
 This range of vertex triples forms all the overlapping facets.
 
-Considering Fig 15 these position vectors are all relative to the origin O of primary triangle F. However for facet vertices in F<sub>R</sub> we need the position vectors of these vertices to be relative to the origin O of F<sub>R</sub>. Rotating F<sub>R</sub> 60<sup>o</sup> clockwise will return F<sub>R</sub> to the primary triangles position as in Fig 4
+Considering Fig 15, these position vectors are all relative to the origin O of primary triangle F. However, for facet vertices in F<sub>R</sub>, we need the position vectors of these vertices to be relative to the origin O of F<sub>R</sub>. Rotating F<sub>R</sub> 60<sup>o</sup> clockwise will return F<sub>R</sub> to the primary triangle's position as in Fig 4.
 
 For each vertex in the triples based on *P* we just need to apply S<sup>-</sup>.  Since S<sup>-</sup>(S<sup>+</sup>) is the identity S<sup>-</sup>(*P*, B) = *xi*&#8407; + *yj*&#8407;
 
@@ -239,7 +239,7 @@ Otherwise *P* is of type 0.
 = S<sup>+</sup>((*x* - 1)i*&#8407; + (*y* + 1)j*&#8407;, B);
 
 
-If follows that the overlapping facet vertex triples are given by
+It follows that the overlapping facet vertex triples are given by
 
 | *P* Type | Triangle | Vertex Triple |
 | ---- | ---- | ---- |
@@ -254,33 +254,33 @@ Table 2
 &nbsp;  
 
   
-A rotation about O is as in Fig 17
+A rotation about O is as in Fig 17.
 
 ![rotation O](/img/snippets/geo17.webp)  
 Fig 17 Rotation OAB 60<sup>o</sup> about O
 
-This can also be achieved by rotating the diagrams in Fig 15 120<sup>o</sup> counter-clockwise as in Fig 18
+This can also be achieved by rotating the diagrams in Fig 15 120<sup>o</sup> counter-clockwise as in Fig 18.
 
 ![rotation A](/img/snippets/geo18.webp)  
 Fig 18 Rotation Fig 15 120<sup>o</sup> about O
 
-Hence applying a rotation of 120<sup>o</sup> to the values in Table 2 will produce the correct vertex isometric positions for the overlapping facets of edges OA and OB
+Hence, applying a rotation of 120<sup>o</sup> to the values in Table 2 will produce the correct vertex isometric positions for the overlapping facets of edges OA and OB.
 
 A rotation about A is as in Fig 19
 
 ![rotation O](/img/snippets/geo19.webp)  
 Fig 19 Rotation OAB 60<sup>o</sup> about A and translation
 
-This can also be achieved by rotating the diagrams in Fig 15 -120<sup>o</sup> counter-clockwise and translating -m*i*&#8407 - n*j*&#8407 as in Fig 20
+This can also be achieved by rotating the diagrams in Fig 15 -120<sup>o</sup> counter-clockwise and translating -m*i*&#8407 - n*j*&#8407; as in Fig 20.
 
 ![rotation A](/img/snippets/geo20.webp)  
 Fig 20 Rotation Fig 15 -120<sup>o</sup> about A and translation
 
-Hence applying a rotation of -120<sup>o</sup> about A to the values in Table 2 followed by a translation of -m*i*&#8407 - n*j*&#8407 will produce the correct vertex isometric positions for the overlapping facets of edges OA and AB.
+Hence, applying a rotation of -120<sup>o</sup> about A to the values in Table 2, followed by a translation of -m*i*&#8407 - n*j*&#8407;, will produce the correct vertex isometric positions for the overlapping facets of edges OA and AB.
 
 ### Facet Isometric Coordinates
 
-For each facet vertex that lies on within the primary triangle we determine the isometric coordinates (x, y). When constructing the primary triangle for GD(m, n) O is (0, 0), A is (m, n) and B is (-n, m + n) these are the white vertices in Fig 21
+For each facet vertex that lies within the primary triangle, we determine the isometric coordinates (x, y). When constructing the primary triangle for GD(m, n), O is (0, 0), A is (m, n), and B is (-n, m + n); these are the white vertices in Fig 21.
 
 ![facet vertices](/img/snippets/geo21.webp)  
 Fig 21 Internal Facet Vertices
@@ -295,7 +295,7 @@ Therefore by rotational symmetry
 D = R<sup>C+</sup>(0, n) = (m - n, n) and   
 E = R<sup>C-</sup>(0, n) = (0, m)
 
-Now consider the green vertices, they all lie on triangles similar to OCA as in Fig 23 and note that OA = n and CA = m
+Now consider the green vertices. They all lie on triangles similar to OCA, as in Fig 23, and note that OA = n and CA = m.
 
 ![Green Vertices](/img/snippets/geo23.webp)  
 Fig 23 Green Vertices
@@ -316,7 +316,7 @@ and so
 FH = y * (m / n)  and since x &le; FH  
 x &le; y * (m / n);
 
-The green vertices all lie on the iso-grid and so are all points (x, y) with integer values for x and y where
+The green vertices all lie on the iso-grid and so are all points (x, y) with integer values for x and y, where
 
 0 &lt; y &lt n and 0 &le; x &le; y * (m / n);
 Using rotation symmetry and rotating about the center of OAB 120<sup>o</sup> and -120<sup>o</sup> gives the yellow and blue vertices.
@@ -350,9 +350,9 @@ has cartesian coordinates (*x* + 0.5*y*, 0.5&radic;3y)
 ![Primary Map](/img/snippets/geo28.webp)  
 Fig 27 Primary Triangle Mapping to Icosahedron Face
 
-Let OAB be an equilateral triangle with a Cartesian frame of reference with units vectors *u*&#8407 and *v*&#8407 along the *X* and *Y* axes respectively and *i*&#8407; and *j*&#8407; the usual iso-vectors. O<sub>1</sub>A<sub>1</sub>B<sub>1</sub> and the frame of reference *X<sub>1</sub>Y<sub>1</sub>* are formed by a rotation and scaling of OAB and *XY* in 3D space with *u<sub>1</sub>*&#8407 and *v<sub>1</sub>*&#8407 and *i<sub>1</sub>*&#8407; and *j<sub>1</sub>*&#8407; the corresponding Cartesian and iso Vectors.
+Let OAB be an equilateral triangle with a Cartesian frame of reference with unit vectors *u*&#8407 and *v*&#8407 along the *X* and *Y* axes respectively, and *i*&#8407; and *j*&#8407; the usual iso-vectors. O<sub>1</sub>A<sub>1</sub>B<sub>1</sub> and the frame of reference *X<sub>1</sub>Y<sub>1</sub>* are formed by a rotation and scaling of OAB and *XY* in 3D space, with *u<sub>1</sub>*&#8407 and *v<sub>1</sub>*&#8407, and *i<sub>1</sub>*&#8407; and *j<sub>1</sub>*&#8407;, as the corresponding Cartesian and iso vectors.
 
-Let P be any point with cartesian position vector *xu*&#8407; + *yv*&#8407;.  Let *d* be the scaling of O<sub>1</sub>A<sub>1</sub>B<sub>1</sub> to OAB. The corresponding point P<sub>1</sub> to P with have position vector *xdu&#8407;<sub>1</sub>* + *ydv*&#8407;<sub>1</sub>. 
+Let P be any point with cartesian position vector *xu*&#8407; + *yv*&#8407;. Let *d* be the scaling of O<sub>1</sub>A<sub>1</sub>B<sub>1</sub> to OAB. The corresponding point P<sub>1</sub> to P will have position vector *xdu&#8407;<sub>1</sub>* + *ydv*&#8407;<sub>1</sub>. 
 
 In iso_vectors OA = m*i*&#8407; + n*j*&#8407; and OB = -n*i*&#8407; + (m + n)*j*&#8407; and so in Cartesian vectors
 
@@ -398,7 +398,6 @@ Doing the calculations for *v<sub>1</sub>*&#8407; and for *u<sub>1</sub>*&#8407;
 Since *xu*&#8407; + *yv*&#8407; in OAB maps to  *xdu&#8407;<sub>1</sub>* + *ydv*&#8407;<sub>1</sub> in O<sub>1</sub>A<sub>1</sub>O<sub>1</sub>B<sub>1</sub> and d / dl<sup>2</sup> = 1 / l<sup>2</sup> when it comes to coding we can calculate constant coefficients just once and rather than calculating *u*&#8407; and *v*&#8407; as unit vectors calculate them as vectors scaled by d, for example
 
 *v*&#8407; = ((2m + n)O<sub>1</sub>B<sub>1</sub> - (m - n)O<sub>1</sub>A<sub>1</sub>) / l<sup>2</sup>&radic;3
-
 
 
 

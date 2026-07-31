@@ -1,7 +1,7 @@
 ---
-title: GreasedLineRibbon - a non camera facing version of GreasedLine 
+title: GreasedLineRibbon - a non-camera-facing version of GreasedLine 
 image:
-description: GreasedLineRibbon - a non camera facing version on GreasedLine 
+description: GreasedLineRibbon - a non-camera-facing version of GreasedLine 
 keywords: diving deeper, meshes, parametric shapes, greasedline, greased line
 further-reading:
 video-overview:
@@ -10,11 +10,11 @@ video-content:
 
 ## GreasedLineRibbon
 
-You can use all the features of `GreasedLine` except `sizeAttenuation` which doesn't make sense to use in non camera facing mode. `GreasedLineRibbon` creates ribbon like geometry for the lines. If you want to create a `GreasedLineRibbon` just add the `ribbonOptions` property to the `GreasedLineMeshBuilderOptions` when using the `CreateGreasedLine` builder function or to `GreasedLineMeshOptions` when creating the `GreasedLineRibbon` manually.
+You can use all the features of `GreasedLine` except `sizeAttenuation`, which does not make sense in non-camera-facing mode. `GreasedLineRibbon` creates ribbon-like geometry for the lines. To create a `GreasedLineRibbon`, add the `ribbonOptions` property to `GreasedLineMeshBuilderOptions` when using the `CreateGreasedLine` builder function, or to `GreasedLineMeshOptions` when creating the `GreasedLineRibbon` manually.
 
 ## Create a GreasedLineRibbon
 
-The easiest, preferred and recommended way to create a `GreasedLineRibbon` is to use the `CreateGreasedLine` function:
+The easiest and recommended way to create a `GreasedLineRibbon` is to use the `CreateGreasedLine` function:
 
 ```javascript
 function CreateGreasedLine(name: string, options: GreasedLineMeshBuilderOptions, materialOptions?: Nullable<GreasedLineMaterialBuilderOptions>, scene?: Nullable<Scene>)
@@ -30,7 +30,7 @@ const line = BABYLON.CreateGreasedLine("name", { points, ribbonOptions: { } })
 
 ### GreasedLineMeshBuilderOptions.ribbonOptions
 
-If there is a `ribbonOptions` present a non camera facing ribbon like mesh will be created. It's an instance of the `GreasedLineRibbon` class. If you don't want to change the default values it's enough to pass an empty object as shown previously.
+If `ribbonOptions` is present, a non-camera-facing ribbon-like mesh will be created. It is an instance of the `GreasedLineRibbon` class. If you do not want to change the default values, it is enough to pass an empty object as shown previously.
 
 ```javascript
 pointsMode: GreasedLineRibbonPointsMode;
@@ -54,7 +54,7 @@ closePath = false;
 smoothShading = false;
 ```
 
-*If you are creating the `GreasedLineRibbonMesh` manually you have to take care of setting all the values yourself. In addition you have to set the `cameraFacing` option to `false` in `GreasedLineMaterialOptions` when creating the material manually.*
+*If you are creating the `GreasedLineRibbonMesh` manually, you must set all the values yourself. In addition, you have to set the `cameraFacing` option to `false` in `GreasedLineMaterialOptions` when creating the material manually.*
 
 #### **pointsMode**
 
@@ -77,11 +77,11 @@ The gray mesh is the line ribbon itself and the white lines are the paths which 
 
 <Playground id="#SS1UUI#31" title="Point mode POINTS_MODE_PATHS" description="Shows how POINTS_MODE_PATHS works." />
 
-A simple space track created using `POINTS_MODE_PATHS`. The red debug lines shows the paths. Track colors are created using a manually created texture. The red lines shows the paths which defines the edges of the ribbon.
+A simple space track created using `POINTS_MODE_PATHS`. The red debug lines show the paths. Track colors are created using a manually created texture. The red lines show the paths that define the edges of the ribbon.
 
 <Playground id="#TN7XWX#35" title="Path mode" description="A simple space track - uses texture." />
 
-The same space track colorizeds by the `colors` property of the `GreasedLineMaterial`:
+The same space track colored by the `colors` property of the `GreasedLineMaterial`:
 
 <Playground id="#TN7XWX#34" title="Path mode" description="A simple space track - uses colors." />
 
@@ -91,23 +91,23 @@ You can have more than two paths to build line ribbons of custom shapes:
 
 #### **direction** and **width**
 
-This property is a normalized direction vector of the slope of the line in `POINTS_MODE_POINTS`. The line ribbon will be expanded to `+direction` and `-direction` from the center line defined by `points` by a value of `width / 2`.
+This property is a normalized direction vector for the slope of the line in `POINTS_MODE_POINTS`. The line ribbon will be expanded to `+direction` and `-direction` from the center line defined by `points` by a value of `width / 2`.
 
-You can change the default width by modifying the value of `GreasedLineRibbonMesh.DEFAULT_WIDTH` static property. This will not affect the existing line ribbons.
+You can change the default width by modifying the value of the static property `GreasedLineRibbonMesh.DEFAULT_WIDTH`. This will not affect existing line ribbons.
 
 The `widths` option on `GreasedLineMaterialBuilderOptions` is not supported in `POINTS_MODE_PATHS` because in this mode you define the edges of the ribbon and not the center line.
 
 #### **directionsAutoMode**
 
-`AUTO_DIRECTIONS_FROM_FIRST_SEGMENT` sets the direction (slope) of the ribbon from the direction of the first line segment. Recommended when all the lines are on the same plane.
+`AUTO_DIRECTIONS_FROM_FIRST_SEGMENT` sets the direction (slope) of the ribbon from the direction of the first line segment. It is recommended when all the lines are on the same plane.
 
-`AUTO_DIRECTIONS_FROM_ALL_SEGMENTS` in this mode the direction (slope) will be calculated for each line segment according to the direction vector between each point of the line segments. Slow method.
+`AUTO_DIRECTIONS_FROM_ALL_SEGMENTS` calculates the direction (slope) for each line segment according to the direction vector between each point of the line segments. This is a slow method.
 
-`AUTO_DIRECTIONS_ENHANCED` in this mode the direction (slope) will be calculated for each line segment according to the direction vector between each point of the line segments using a more sophisticated algorithm. Slowest method.
+`AUTO_DIRECTIONS_ENHANCED` calculates the direction (slope) for each line segment according to the direction vector between each point of the line segments using a more sophisticated algorithm. This is the slowest method.
 
-`AUTO_DIRECTIONS_FACE_TO` in this mode the direction (slope) will be calculated for each line segment according to the direction vector between each point of the line segments and a direction (face-to) vector specified in direction. The resulting line will face to the direction of this face-to vector.
+`AUTO_DIRECTIONS_FACE_TO` calculates the direction (slope) for each line segment according to the direction vector between each point of the line segments and a direction (face-to) vector specified in `direction`. The resulting line will face the direction of this face-to vector.
 
-`AUTO_DIRECTIONS_NONE` you have to set the direction (slope) manually. Recommended when you want full control.
+`AUTO_DIRECTIONS_NONE` requires you to set the direction (slope) manually. It is recommended when you want full control.
 
 <Playground id="#H1LRZ3#522" title="Shows different direction modes" description="Demonstrates all available direction modes." />
 
@@ -120,9 +120,9 @@ FACES_MODE_DOUBLE_SIDED = 2
 ```
 
 Controls how the faces are created:
-In `GreasedLineRibbonFacesMode.FACES_MODE_SINGLE_SIDED` single sided with back face culling. Default value.
-In `GreasedLineRibbonFacesMode.FACES_MODE_SINGLE_SIDED_NO_BACKFACE_CULLING` single sided without back face culling. Sets `backFaceCulling = false` on the material so it affects all line ribbons added to the line ribbon instance.
-In `GreasedLineRibbonFacesMode.FACES_MODE_DOUBLE_SIDED` extra back faces are created. This doubles the amount of faces of the mesh.
+In `GreasedLineRibbonFacesMode.FACES_MODE_SINGLE_SIDED`, faces are single-sided with back-face culling. This is the default value.
+In `GreasedLineRibbonFacesMode.FACES_MODE_SINGLE_SIDED_NO_BACKFACE_CULLING`, faces are single-sided without back-face culling. This sets `backFaceCulling = false` on the material, so it affects all line ribbons added to the line ribbon instance.
+In `GreasedLineRibbonFacesMode.FACES_MODE_DOUBLE_SIDED`, extra back faces are created. This doubles the number of faces in the mesh.
 
 <Playground id="#SS1UUI#82" title="Shows different face modes" description="Shows different face modes." />
 
@@ -135,7 +135,7 @@ If true, the line will be closed. Works in both `pathMode`s.
 
 #### **smoothShading**
 
-If true, normals will be computed when creating the vertex buffers. This results to smooth shading of the mesh. Doesn't work when `closePath = true`. `colorMode` mustn't be `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_SET` and a lightsource must be present of course.
+If true, normals will be computed when creating the vertex buffers. This results in smooth shading of the mesh. It does not work when `closePath = true`. `colorMode` must not be `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_SET`, and a light source must be present, of course.
 
 <Playground id="#SS1UUI#35" title="Without smooth shading" description="Without smooth shading." />
 <Playground id="#SS1UUI#36" title="With smooth shading" description="With smooth shading." />
@@ -146,9 +146,7 @@ If true, normals will be computed when creating the vertex buffers. This results
 <Playground id="#SS1UUI#51" title="Tie drone" description="Shows how to use different options to build a small Imperial Tie drone." />
 <Playground id="#SS1UUI#50" title="Tie drones army" description="Flying tie drones from the previous example" />
 <Playground id="#H1LRZ3#407" title="Lazy mode" description="Lazy mode line ribbons." />
-<Playground id="#H1LRZ3#415" title="Recycle logo" description="Recycle logo comparison. One created using a GreasedLineMesh and the second using GreasedLineRibbonMesh (non camera facing version vs camwea facing versions)." />
-
-
+<Playground id="#H1LRZ3#415" title="Recycle logo" description="Recycle logo comparison. One created using a GreasedLineMesh and the second using GreasedLineRibbonMesh (non-camera-facing version vs camera-facing versions)." />
 
 
 

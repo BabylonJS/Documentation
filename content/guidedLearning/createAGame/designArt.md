@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Summary
-This is just a little bonus content if you're curious as to how I went about designing the game assets and what resources I used!
+This is just a little bonus content if you're curious about how I went about designing the game assets and what resources I used!
 
 ## References
 Before I began any of the art asset creation, I used Pinterest to collect all of the resources I'd need. I had a bunch of different boards and made sure to save anything I thought could give me inspiration.
@@ -19,11 +19,11 @@ I made some really rough sketches of how I wanted the character and environment 
 ![characterDesigns](/img/how_to/create-a-game/characterDesigns.webp)
 ![characterRef](/img/how_to/create-a-game/characterref.webp)
 
-This is also where I started thinking about what color palette I wanted to use. Similar to the pixel-art games I usually make, I wanted to use a limited color palette to keep it consistent and bring everything together. Colors aren't usually my strength, so I just try to keep a set of colors I think work well together and go from there. This is where looking for color palettes on pinterest is really helpful.
+This is also where I started thinking about what color palette I wanted to use. Similar to the pixel-art games I usually make, I wanted to use a limited color palette to keep it consistent and bring everything together. Colors aren't usually my strength, so I just try to keep a set of colors that I think work well together and go from there. This is where looking for color palettes on Pinterest is really helpful.
 
 ## 3D Modeling with Blender
 ## Character
-This area was the most new to me, so I spent a lot of time learning through studying youtube tutorial and speed modeling videos. The most challening part of this would have been the character modeling + rigging process. I modeled and rigged it several times until I was satisfied with the final outcome.
+This area was the newest to me, so I spent a lot of time learning by studying YouTube tutorials and speed-modeling videos. The most challenging part was the character modeling and rigging process. I modeled and rigged it several times until I was satisfied with the final outcome.
 
 The first time was to get a player model done for animation and movement testing. The main problem I had was with clipping.
 - When animated, the mesh had a lot of clipping since I made the body and clothes separately. The weight painting was a difficult process to try and minimize clipping as much as possible.
@@ -31,7 +31,7 @@ The first time was to get a player model done for animation and movement testing
 
 ![firstModel](/img/how_to/create-a-game/firstModel.webp)
 
-The second one, I had troubles with the animations after rigging, so I decided to restart the whole process since my model must have been messed up somewhere. I referenced a ton of different rigging videos. Here are some of the videos were particularly helpful:
+With the second one, I had trouble with the animations after rigging, so I decided to restart the whole process since my model must have been messed up somewhere. I referenced a ton of different rigging videos. Here are some of the videos that were particularly helpful:
 - [Royal Skies LLC Blender 2.8 Speed Tutorials](https://www.youtube.com/watch?v=f6vgICNCVxQ&list=PLZpDYt0cyiuu-sxJKbuYh8OjtgmXNacCV)
 
 The third one is the one that's in the game right now! In order to fix the clipping problem I had with the other models, I joined all of the separate meshes. This made coloring the model really difficult, and I had to go back and clean up the areas where they were joined to make sure there weren't too many extra vertices. The weight painting process took a while, but at this point I was starting to get familiar with the process.
@@ -44,7 +44,7 @@ These are some of the tutorials I watched for the animation process:
 
 ## Environment
 
-Here are some of the youtubers I watched for inspiration on 3D Modeling environments!
+Here are some of the YouTubers I watched for inspiration on 3D modeling environments!
 - [Grant Abbitt](https://www.youtube.com/user/mediagabbitt)
 - [Polygon Runway](https://www.youtube.com/channel/UCGSJevmBuDyxjLLOBNaYMGA)
 - [MortMort's Gradient Texturing](https://www.youtube.com/watch?v=uOyiZaioX1U&list=PLR3Ra9cf8aV23C2oBB3aFLla6ABAPYiDk&index=5)
@@ -52,13 +52,13 @@ Here are some of the youtubers I watched for inspiration on 3D Modeling environm
 ## 2D Art
 I initially started out planning on using pixel art for all of the 2D assets, but I recently got this app called Procreate, so I wanted to try and see what I could do with it.
 
-For the pixelart ui elements in the game, I used Aseprite with my wacom intuos drawing tablet, and for all of the other 2D art I used Procreate on my ipad air.
+For the pixel art UI elements in the game, I used Aseprite with my Wacom Intuos drawing tablet, and for all the other 2D art I used Procreate on my iPad Air.
 
-Both of these programs are amazing and have a bunch of different features that are really helpful. Both of these support animation, but aseprite can export your animation as a spritesheet, which was really helpful when bringing into babylon. Procreate can't create spritesheets so I had to bring them into piskelapp as a gif and then export as a spritesheet.
+Both of these programs are amazing and have a bunch of different features that are really helpful. Both of them support animation, but Aseprite can export your animation as a spritesheet, which was really helpful when bringing it into Babylon. Procreate can't create spritesheets, so I had to bring them into PiskelApp as a GIF and then export them as a spritesheet.
 
 Procreate is really awesome to use, but I found that I had a lot of limitations when making the animations since I was limited to 25 layers which means I can only have a maximum of 25 frames if all of the lineart + coloring for each frame was done on one layer. Ultimately, I could only get to a max of about 12 frames for 1 animation. I use a lot of layers to keep things separate in case I need to change or move them later, especially since I had a few different elements that were going to be animated.
 
-Both of these are paid programs, however there are free alteratives for each that I have used before:
+Both of these are paid programs; however, there are free alternatives for each that I have used before:
 - Pixel art
     - [Piskelapp](https://www.piskelapp.com/)
 - Digital art
@@ -89,4 +89,3 @@ If you're curious as to what songs and sound effects I used in the game:
     - [200 SFX](https://kronbits.itch.io/freesfx)
     - [Sound Pack](https://opengameart.org/content/level-up-power-up-coin-get-13-sounds)
     - [Selection](https://opengameart.org/content/8bit-menu-select)
-

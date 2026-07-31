@@ -67,13 +67,13 @@ void main() {
 
 ## Fragment shader
 
-For the fragment you also need to import the fog functions:
+For the fragment shader, you also need to import the fog functions:
 
 ```
 #include<fogFragmentDeclaration>
 ```
 
-Then used them:
+Then use them:
 
 ```
 #include<fogFragment>(color,gl_FragColor)
@@ -106,7 +106,7 @@ void main() {
 
 ## Javascript
 
-You then have to add the following code for the onBind callback of your ShaderMaterial:
+You then have to add the following code in the `onBind` callback of your ShaderMaterial:
 
 ```javascript
 shaderMaterial.onBind = function () {
@@ -116,6 +116,6 @@ shaderMaterial.onBind = function () {
 };
 ```
 
-And, you are done :)
+And you're done :)
 
 Please find an example here: <Playground id="#11GAIH#17" title="Fog And Shader Material" description="Example of supporting fog with the shader material."/>

@@ -8,21 +8,21 @@ video-overview:
 video-content:
 ---
 
-It's really easy to use BabylonJS with Vue. This page will help you to setup a minimalistic BabylonJS scene with Vue. We will cover both Vue 3 and Vue 2 using javascript.
+It's really easy to use BabylonJS with Vue. This page will help you set up a minimal BabylonJS scene with Vue. We will cover both Vue 3 and Vue 2 using JavaScript.
 
 ## Prerequisites
 
-If you haven't created your Vue project yet, visit the official Vue documentation on how to setup a Vue project.
+If you haven't created your Vue project yet, visit the official Vue documentation to learn how to set up a Vue project.
 
 https://vuejs.org/guide/quick-start.html for Vue 3
 
 https://v2.vuejs.org/v2/guide/installation for Vue 2
 
-Please make sure, that your Vue app was correctly installed and it can be run without errors. If you've created the Vue app using the Vue CLI, you can start your app by running a `npm run serve` in your Vue app directory.
+Please make sure that your Vue app was installed correctly and can run without errors. If you've created the Vue app using the Vue CLI, you can start your app by running `npm run serve` in your Vue app directory.
 
-The goal of this tutorial is to show how to connect the two frameworks together and not how to use these frameworks alone. You need to be familiar with both frameworks at basic level to get started.
+The goal of this tutorial is to show how to connect the two frameworks together, not how to use these frameworks on their own. You need to be familiar with both frameworks at a basic level to get started.
 
-After installing and testing your Vue app you should end up with a very similar directory structure for Vue 3 and Vue 2 also:
+After installing and testing your Vue app, you should end up with a very similar directory structure for both Vue 3 and Vue 2:
 ![New Vue project directory structure](/img/resources/vue/bjs-vue-doc-1.webp)
 
 ## Installing BabylonJS
@@ -51,7 +51,7 @@ You can find more on installing BabylonJS [here](/setup/frameworkPackages/es6Sup
 
 ## The Vue component
 
-We are going to build a reusable Vue component which can be used to display a BabylonJS scene.
+We are going to build a reusable Vue component that can be used to display a BabylonJS scene.
 
 Create a file called `BabylonScene.vue` in `src/components` and add this:
 
@@ -110,9 +110,9 @@ export default {
 </script>
 ```
 
-You can access the canvas by the `this.$refs` object in the `mounted()` callback. Vue 2 explained below.
+You can access the canvas through the `this.$refs` object in the `mounted()` callback. This is explained below for Vue 2.
 
-In Vue 2 the `template` must have only one root, so it is a good idea to wrap our `canvas` into a `div` element, so we can add new elements into our `template` without breaking the original root element.
+In Vue 2, the `template` must have only one root element, so it is a good idea to wrap our `canvas` in a `div` element. This lets us add new elements to our `template` without breaking the original root element.
 
 Create a directory called `scenes` in `src`. Create a file called `MyFirstScene.js` in `src/scenes` and copy the following code into the newly created file:
 
@@ -141,9 +141,9 @@ const createScene = (canvas) => {
 export { createScene };
 ```
 
-We put the BabylonJS code to a separate file, so we can use it anywhere.
+We put the BabylonJS code in a separate file so we can use it anywhere.
 
-Open `src/App.vue` and get completely rid of the `HelloWorld.vue` component and add the `BabylonScene.vue` component or just replace the content of the file with the following code and rename it:
+Open `src/App.vue`, remove the `HelloWorld.vue` component completely, and add the `BabylonScene.vue` component. Or just replace the content of the file with the following code and rename it:
 
 ```jsx
 <template>
@@ -181,11 +181,11 @@ The DOM is accessible only after the Vue component has been mounted. This is why
 
 Now you can get rid of the example component and delete the file located at `src/components/HelloWorld.vue`.
 
-The application is ready to be tested. Run your app using `npm run serve` and you should see a blue cube on a 500x500px canvas in the left uppper corner.
+The application is ready to be tested. Run your app using `npm run serve`, and you should see a blue cube on a 500x500px canvas in the upper-left corner.
 
 ## Async scene
 
-Sooner or later you will need to create a scene which will use asynchronous functionality. It is very easy to setup such a scene with Vue. Just make the callback functions `async` and use any awaitable logic inside.
+Sooner or later, you will need to create a scene that uses asynchronous functionality. It is very easy to set up such a scene with Vue. Just make the callback functions `async` and use any awaitable logic inside.
 
 ### Vue 3
 
@@ -234,15 +234,15 @@ If you plan to use an HTML GUI overlay over the BabylonJS canvas, pay attention 
 
 ## Vue reactivity, friend or foe?
 
-If you want to expose scene information to Vue, keep in mind, that exposing the 'wrong' objects may put Vue and BabylonJS in a recursive redraw loop and it will dramatically degrade performance. As a thumb of rule never make the BabylonJS `Engine` or `Scene` object reactive. If you suspect such behaviour, test your scene without Vue.
+If you want to expose scene information to Vue, keep in mind that exposing the "wrong" objects may put Vue and BabylonJS in a recursive redraw loop, which will dramatically degrade performance. As a rule of thumb, never make the BabylonJS `Engine` or `Scene` object reactive. If you suspect such behavior, test your scene without Vue.
 
 ## Conclusion
 
-It is easy to setup a very basic BabylonJS scene in Vue. Keep in mind, that the golden rule applies here too. Building, changing and testing smaller blocks of your application at once will help you avoid many problems when using these two awesome frameworks together.
+It is easy to set up a very basic BabylonJS scene in Vue. Keep in mind that the golden rule applies here too. Building, changing, and testing smaller blocks of your application at a time will help you avoid many problems when using these two awesome frameworks together.
 
 ## Where to go next?
 
-If you don't want to pass data from Vue to BabylonJS and vice versa, you can stop here and for example visit our great [Getting started](/features/introductionToFeatures "Getting started") page otherwise jump to [part two of this tutorial](/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "BabylonJS and Vue - data passing").
+If you don't want to pass data from Vue to BabylonJS and vice versa, you can stop here and, for example, visit our great [Getting started](/features/introductionToFeatures "Getting started") page. Otherwise, jump to [part two of this tutorial](/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "BabylonJS and Vue - data passing").
 
 ## Links
 
@@ -262,6 +262,6 @@ A bit different approach with a window resize listener:
 
 https://github.com/RolandCsibrei/babylonjs-vue3-javascript
 
-If you landed on this page, because you are looking for how to use BabylonJS with Quasar on top of Vue, we ha a starter repo for you as well:
+If you landed on this page because you are looking for how to use BabylonJS with Quasar on top of Vue, we have a starter repo for you as well:
 
 https://github.com/RolandCsibrei/babylonjs-quasar-vue2-composition-api-typescript

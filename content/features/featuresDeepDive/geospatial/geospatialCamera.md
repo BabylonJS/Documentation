@@ -30,7 +30,7 @@ camera.attachControl(canvas);
 This creates a camera orbiting a sphere of the given radius. By default:
 
 - The camera starts at a distance of `4 × planetRadius` looking down at the surface.
-- Mouse, mouse wheel, and keyboard inputs are automatically attached, as well a default 'flight behavior' which allows for 'flying to' a given point along an arc.
+- Mouse, mouse wheel, and keyboard inputs are automatically attached, as well as a default 'flight behavior' that allows 'flying to' a given point along an arc.
 
 ## Core Concepts
 
@@ -40,7 +40,7 @@ The geospatial camera describes its orientation using four properties:
 
 | Property | Type      | Description                                                                                                                                                                                    |
 | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `center` | `Vector3` | The point on the globe the camera is anchored to (in ECEF world coordinates). This will be a point along the lookat vector that is pickable using the provided 'pick predicate' (or any mesh if no pickpredicate is provided) |
+| `center` | `Vector3` | The point on the globe the camera is anchored to (in ECEF world coordinates). This is a point along the look-at vector that is pickable using the provided 'pick predicate' (or any mesh if no pick predicate is provided). |
 | `radius` | `number`  | The distance from the camera to the center point.                                                                                                                                              |
 | `yaw`    | `number`  | Rotation around the geocentric normal (radians). 0 = north, π/2 = east.                                                                                                                       |
 | `pitch`  | `number`  | Angle from looking straight at planet center. 0 = looking down, π/2 = looking at horizon.                                                                                                     |

@@ -8,11 +8,11 @@ video-overview:
 video-content:
 ---
 
-[Cheetah 3D](http://www.cheetah3d.com/) exporter for [Babylon.JS](https://babylonjs.com/) .babylon scene files. Currently supports the following:
+[Cheetah 3D](http://www.cheetah3d.com/) exports [Babylon.JS](https://babylonjs.com/) .babylon scene files. It currently supports the following:
 
-- mesh export with functional transform, naming and parenting
-- multicamera export (only perspective, no support for orthogonal right now)
-- light export with all babylon type managed :
+- mesh export with functional transforms, naming, and parenting
+- multi-camera export (perspective only; orthogonal is not currently supported)
+- light export with all Babylon types handled:
 
   - Cheetah3D spot light is a babylon spot
   - Cheetah3D distant light is a babylon directional light
@@ -23,16 +23,16 @@ video-content:
 
 - materials export:
   - supports diffuse, emissive and specular color (plus specular power as "shininess")
-  - supports only diffuse textures, Cheetah3D api is really sparse on that
+  - supports only diffuse textures; the Cheetah3D API is very limited there
 
 More info on [my blog](http://cubeslam.net/).
 
 ### Install
 
-Put js script in this folder :
+Put the JS script in this folder:
 
 /Users/YOUR_USER/Library/Application Support/Cheetah3D/Scripts/Macro/
 
 ### Usage
 
-Just load your scene and go to Tools/Scripts/Macro/Babylon file export. Choose a destination, and load your scene inside Babylon.JS!
+Load your scene and go to Tools/Scripts/Macro/Babylon file export. Choose a destination, then load your scene in Babylon.js!

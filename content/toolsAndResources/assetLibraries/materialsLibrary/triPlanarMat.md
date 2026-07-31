@@ -14,29 +14,29 @@ video-content:
 
 PG: <Playground id="#E6OZX#9" title="Tri-Panar Material" description="Example of tri-planar material"/>
 
-Press "1" to activate the Tri-Planar material (by default)
-Press "2" to activate the default material
+Press "1" to activate the Tri-Planar material (by default).
+Press "2" to activate the default material.
 
-# What are you talking about??
-In the case of very large scenes, you are likely to use terrains generated using procedural methods.
-In this case, you'll have to compute the vertices positions, normals and UVs (and so on).
-One of the most tricky tasks should be to generate the UV coordinates properly without taking care of the possible abrupt changes of the terrains.
+# What is tri-planar mapping?
+In the case of very large scenes, you are likely to use terrain generated with procedural methods.
+In this case, you'll have to compute the vertex positions, normals, UVs, and so on.
+One of the trickiest tasks is generating the UV coordinates properly while accounting for possible abrupt changes in the terrain.
 
-For example, an abrupt change can cause this kind of glitches:
+For example, an abrupt change can cause this kind of glitch:
 
 ![Tri-Planar Mapping Material Problem](/img/extensions/materials/triPlanarProblem.webp)
 
-That should look like:
+It should look like this:
 
 ![Tri-Planar Mapping Material Resolved](/img/extensions/materials/triPlanarResolved.webp)
 
-The tri-planar mapping material tends to resolve this kind of problem, but above all, allows to completely eliminate the UV calculations: no UV needed.
+The tri-planar mapping material helps resolve this kind of problem and, above all, completely eliminates UV calculations: no UVs needed.
 
 # Using the tri-planar mapping material
 
-The tri-planar material works with at least 3 textures: each texture represents how it is applied on each axis (X, Y and Z).
+The tri-planar material works with at least 3 textures: each texture represents how it is applied along each axis (X, Y, and Z).
 
-Of course, each axis can share the same texture. Example:
+Of course, each axis can share the same texture. For example:
 
 ```javascript
 var triPlanarMaterial = new BABYLON.TriPlanarMaterial("triplanar", scene);
@@ -66,4 +66,4 @@ triPlanarMaterial.normalTextureZ = triPlanarMaterial.normalTextureX;
 ```
 
 
-To go further in the theory, you can read this [great article](http://gamedevelopment.tutsplus.com/articles/use-tri-planar-texture-mapping-for-better-terrain--gamedev-13821) about tri-planar mapping.
+To dive deeper into the theory, you can read this [great article](http://gamedevelopment.tutsplus.com/articles/use-tri-planar-texture-mapping-for-better-terrain--gamedev-13821) about tri-planar mapping.

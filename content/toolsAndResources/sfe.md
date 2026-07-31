@@ -1,7 +1,7 @@
 ---
 title: Smart Filter Editor
 image:
-description: Learn how use the Smart Filter
+description: Learn how to use the Smart Filter Editor
 keywords: smart filter, smart, filter, sfe, non destructive, node, graph
 further-reading:
 video-overview:
@@ -12,7 +12,7 @@ video-content:
 
 The Smart Filter Editor (SFE) is a visual tool, much like the Node Material Editor, designed to make it easy to rapidly build and preview Smart Filters.
 
-It is available at https://sfe.babylonjs.com and your can run it locally if you clone the [BabylonJS/Babylon.js](https://github.com/BabylonJS/Babylon.js) repo then:
+It is available at https://sfe.babylonjs.com, and you can run it locally if you clone the [BabylonJS/Babylon.js](https://github.com/BabylonJS/Babylon.js) repo, then:
 
 - Run `npm install`
 - Choose one of these approaches to build the Smart Filter Editor:
@@ -24,7 +24,7 @@ It includes the blocks from the @babylonjs/smart-filters-blocks package (also in
 You can save the Smart Filters you create with SFE as local JSON files or as custom URLs you can share with others.
 
 <Alert severity="Info">
-Note that if you share a Smart Filter that uses custom assets or blocks, the person you are sharing with will with need to load those custom assets and blocks before loading your Smart Filter.
+Note that if you share a Smart Filter that uses custom assets or blocks, the person you are sharing it with will need to load those custom assets and blocks before loading your Smart Filter.
 </Alert>
 
 ## Navigating SFE
@@ -148,7 +148,7 @@ SFE contains some special input blocks for testing your Smart Filters:
 
 1. WebCamBlock
    - This is really a texture InputBlock which SFE automatically connects to your webcam as an easy way to preview live video in your Smart Filter
-   - Note that when integrating a Smart Filter that uses a WebCamBlock into an application, that application will need to supply a texture for that InputBlock, which could come a webcam, or any other source
+   - Note that when integrating a Smart Filter that uses a WebCamBlock into an application, that application will need to supply a texture for that InputBlock, which could come from a webcam or any other source
 1. TimeBlock
    - This is really a float InputBlock which SFE automatically increments as a simple animation
    - Like with the WebCamBlock, when integrated into an application, this will behave as a regular InputBlock (this one of type float) whose value could be animated by the hosting application

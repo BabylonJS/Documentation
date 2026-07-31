@@ -10,7 +10,7 @@ video-content:
 
 ## Ground From a Height Map
 
-When the ground is created using _groundFromHeightMap_ the surface of the ground can be perturbed by a grayscale image file called a height map. Lighter areas are displayed higher than darker areas. This is a way of creating hills and valleys on your ground.
+When the ground is created using _groundFromHeightMap_, the surface of the ground can be perturbed by a grayscale image file called a height map. Lighter areas are displayed higher than darker areas. This is a way to create hills and valleys on your ground.
 
 ## MeshBuilder
 
@@ -27,12 +27,12 @@ const ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("gdhm", url_to_heig
 | subdivisions | _(number)_ number of map subdivisions                                             | 1                      |
 | minHeight    | _(number)_ minimum altitude                                                       | 0                      |
 | maxHeight    | _(number)_ maximum altitude                                                       | 1                      |
-| onReady      | _(function)_ a callback js function that is called and passed the just built mesh | (mesh) =\> \{return;\} |
+| onReady      | _(function)_ a JavaScript callback function that is called and passed the newly built mesh | (mesh) =\> \{return;\} |
 | updatable    | _(boolean)_ true if the mesh is updatable                                         | false                  |
 
 ### Examples
 
-The following image is used for the height map in the first examples
+The following image is used for the height map in the first examples.
 
 ![height map](/img/how_to/HeightMap/heightMap.webp)  
 Low subdivisions: <Playground id="#LQ4LI1" title="Create Ground From A HeightMap - Low Subdivisions" description="Simple example of creating ground from a heightmap with low subdivision."/>

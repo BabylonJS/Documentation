@@ -14,7 +14,7 @@ The meshes for the environment and player will be linked below. We'll make a new
 
 ## Environment Mesh
 
-Previously, we created an [Environment class](/guidedLearning/createAGame/simpleGameState#environment). In order to import our meshes, we'll neeed to add a [\_loadAsset](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L100) function.
+Previously, we created an [Environment class](/guidedLearning/createAGame/simpleGameState#environment). In order to import our meshes, we'll need to add a [\_loadAsset](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L100) function.
 
 ### \_loadAsset
 
@@ -34,7 +34,7 @@ return {
 };
 ```
 
-Then, we return these objects to complete our environment set up.
+Then, we return these objects to complete our environment setup.
 
 ### load
 
@@ -49,7 +49,7 @@ assets.allMeshes.forEach((m) => {
 });
 ```
 
-We loop through all of the meshes and do have to manually set the flag to check for collisions as well as whether they can receive shadows. The only mesh in this game that actually casts a shadow is the player (for performance reasons). At this point this is all we really need to do with our assets.
+We loop through all of the meshes and manually set the flags for collision checking and shadow reception. The only mesh in this game that actually casts a shadow is the player (for performance reasons). At this point, this is all we really need to do with our assets.
 
 If we go back to [\_setUpGame](/guidedLearning/createAGame/simpleGameState#environment), this is where we loaded our environment assets.
 
@@ -63,7 +63,7 @@ Notice how we are using _await_ here. This is because we want to wait for the en
 
 ## Character Mesh
 
-Loading the character assets should also begin inside of \_setUpGame. We want to make sure that we start loading our meshes before we actually go to the game state.
+Loading the character assets should also begin inside \_setUpGame. We want to make sure that we start loading our meshes before we actually go to the game state.
 
 Recall, we loaded our character assets in [\_setUpGame](/guidedLearning/createAGame/simpleGameState#character-controller).
 
@@ -72,12 +72,12 @@ Recall, we loaded our character assets in [\_setUpGame](/guidedLearning/createAG
 await this._loadCharacterAssets(scene);
 ```
 
-Again, here we are awaiting in order to ensure that the asset is fully imported and set up. This is **SUPER** important because our player constructor actually depends on some of the environment assets being loaded.
+Again, we await here to ensure that the asset is fully imported and set up. This is **SUPER** important because our player constructor actually depends on some of the environment assets being loaded.
 
 Previously in [\_loadCharacterAssets](/guidedLearning/createAGame/simpleGameState#loading-assets), we set up the character mesh system.
 The function's purpose is to call loadCharacter(), store our assets, and then return the results to signify that it's complete.
 
-In order to load our assets, we just need to modify the body portion of our character assets. Instead of having primitives for our body, we'll be using the imported mesh.
+In order to load our assets, we just need to modify the body portion of our character asset setup. Instead of having primitives for our body, we'll be using the imported mesh.
 
 ```javascript
 return ImportMeshAsync("./models/player.glb", scene).then((result) =>{
@@ -96,7 +96,7 @@ return ImportMeshAsync("./models/player.glb", scene).then((result) =>{
 });
 ```
 
-Here is where we actually bring in the character mesh, and the result of this import is what gets returned (the box collider parented to the character mesh). The reason why we loop through the meshes here is because if a glTF has multiple materials used, it will treat them as separate meshes.
+This is where we actually bring in the character mesh, and the result of this import is what gets returned (the box collider parented to the character mesh). The reason we loop through the meshes here is that if a glTF uses multiple materials, it will treat them as separate meshes.
 
 Now that we've got our character mesh imported, we can place our player's light at the right spot!
 
@@ -104,7 +104,7 @@ Now that we've got our character mesh imported, we can place our player's light 
 this.scene.getLightByName("sparklight").parent = this.scene.getTransformNodeByName("Empty");
 ```
 
-In the Player Constructor, we just need to set its parent to the TransformNode that was placed in the character's blender file.
+In the Player constructor, we just need to set its parent to the TransformNode that was placed in the character's Blender file.
 
 Lastly, since we've brought in our new environment and character mesh, we need to reposition the player. I've created a special TransformNode for this inside of the player mesh itself. So, where we were setting the character position previously, we just need to change it to use this TransformNode:
 

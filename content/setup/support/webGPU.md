@@ -9,12 +9,12 @@ video-content:
 ---
 
 ## Introduction
-Since the Babylon.js 5.0 release in May 2022, WebGPU support is available and backward compatible with the WebGL implementation of the engine. It was a huge milestone after many iterations on the specification from the [GPU for the Web Working Group](https://github.com/gpuweb/gpuweb) and with a tight collaboration with the amazing teams implementing WebGPU into the browsers. In 2024, we also rewrote all core engine shaders in native WSGL, to avoid the use of TintWASM in full WGLS applications.
+Since the Babylon.js 5.0 release in May 2022, WebGPU support has been available and backward compatible with the WebGL implementation of the engine. It was a huge milestone after many iterations on the specification from the [GPU for the Web Working Group](https://github.com/gpuweb/gpuweb), along with close collaboration with the teams implementing WebGPU in browsers. In 2024, we also rewrote all core engine shaders in native WGSL to avoid the use of TintWASM in full WGSL applications.
 
 ![Inspector](/img/extensions/WebGPU.webp)
 
 ### Benefits of WebGPU
-The promise behind [WebGPU](https://developer.chrome.com/en/docs/web-platform/webgpu/#what) is a faster API provided through lower level control to system graphics resources from JavaScript and also new capabilities. We hope to bring these improvements to developers in order to create even higher quality 3D web games and experiences through a tool they are already familiar with: Babylon.js.
+The promise behind [WebGPU](https://developer.chrome.com/en/docs/web-platform/webgpu/#what) is a faster API, provided through lower-level control over system graphics resources from JavaScript, along with new capabilities. We hope to bring these improvements to developers so they can create even higher-quality 3D web games and experiences through a tool they are already familiar with: Babylon.js.
 
 Some features WebGPU brings to the table are:
 * Compute shaders
@@ -31,21 +31,21 @@ The current implementation of WebGPU is merged in the main branch of the Babylon
 WebGPU is also supported by [Node Material and can be defined in the editor](/features/featuresDeepDive/materials/node_material/nodeMaterial#using-node-material-with-webgl-and-webgpu).
 
 ## Migration of Existing Games and Apps
-As backwards compatibility is one of our pillars, the only difference we have is with the engine initialization which needs to be asynchronous:
+Because backward compatibility is one of our pillars, the only difference is that engine initialization must be asynchronous:
 
 ```javascript
 const engine = new BABYLON.WebGPUEngine(canvas);
 await engine.initAsync();
 ```
 
-## Is WebGL still be supported?
+## Is WebGL still supported?
 Yes! Support for WebGL and WebGPU is maintained side by side for the foreseeable future.
 
 ## Testing WebGPU
 You can refer to [this page](https://github.com/gpuweb/gpuweb/wiki/Implementation-Status) for detailed information on browser support.
 
-Assuming you're using a browser that supports WebGPU, you can try it out yourself in the [Playground](https://playground.babylonjs.com/) 
+Assuming you are using a browser that supports WebGPU, you can try it out yourself in the [Playground](https://playground.babylonjs.com/).
 
 ![WebGPU](/img/extensions/webGPUPlayground.webp)
 
-All demo code is available on [Github](https://github.com/BabylonJS/Website/tree/master/build/Demos/WebGPU), so you can compare both the WebGL and WebGPU versions and take notice that there are currently no differences beside initialization. We will try to keep it this way. :-)
+All demo code is available on [GitHub](https://github.com/BabylonJS/Website/tree/master/build/Demos/WebGPU), so you can compare the WebGL and WebGPU versions and note that there are currently no differences besides initialization. We will try to keep it this way. :-)

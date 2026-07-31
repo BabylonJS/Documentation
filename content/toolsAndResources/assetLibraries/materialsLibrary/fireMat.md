@@ -21,7 +21,7 @@ A demo can be found here: PG: <Playground id="#NES8QN" title="Fire Material" des
 The fire material works with 3 textures:
 
 - The diffuse texture (fire texture)
-- The distortion texture (to create perturbations on diffuse texture)
+- The distortion texture (to create perturbations in the diffuse texture)
 - The opacity texture (black and white)
 
 **Note:** _The fire material doesn't work with lighting. So, shadow maps are also disabled._
@@ -36,7 +36,7 @@ var plane = BABYLON.MeshBuilder.CreatePlane("fireplane", { size: 1.0 }, scene);
 plane.material = fireMaterial;
 ```
 
-The speed of fire flames can be customized like:
+The speed of the flames can be customized like this:
 
 ```javascript
 fireMaterial.speed = 5.0; // Default is 1.0

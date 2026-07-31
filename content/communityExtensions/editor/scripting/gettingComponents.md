@@ -1,7 +1,7 @@
 ---
 title: Getting components
 image: 
-description: Understanding how to use the Babylon.JS Editor api to expose properties in Inspector.
+description: Understanding how to use the Babylon.JS Editor API to get component references.
 keywords: editor, scripting, inspector
 further-reading:
 video-overview:
@@ -10,15 +10,15 @@ video-content:
 
 ## Introduction
 
-Getting references to components in scene can be done directly by decorating properties. The api provided by the editor
-resolves the references automatically. This allows to get components references directly when declaring properties
-and avoids to use functions such as `scene.getMeshByName(...)` etc.
+Getting references to components in a scene can be done directly by decorating properties. The API provided by the editor
+resolves the references automatically. This allows you to get component references directly when declaring properties
+and avoids using functions such as `scene.getMeshByName(...)`, etc.
 
 ## Available decorators
 
 ### From Children
 
-To get the reference to a child of the current node having the script attached, properties in a script class can
+To get a reference to a child of the current node that has the script attached, properties in a script class can
 be decorated using the `@fromChildren` decorator. The parameter of the decorator is the name of the child to get.
 
 ```typescript
@@ -35,8 +35,8 @@ private _light: PointLight; // the name of the child must be named "_light" in t
 
 ### From Scene
 
-Compared to `@fromChildren`, components references can be retrieved by traversing the overall scene using the
-`@fromScene` decorator. This decorator works like the `@fromChildren` one where the parameter is the name of the
+Compared to `@fromChildren`, component references can be retrieved by traversing the entire scene using the
+`@fromScene` decorator. This decorator works like `@fromChildren`, where the parameter is the name of the
 node to retrieve. The parameter is also optional.
 
 ```typescript
@@ -55,12 +55,12 @@ export default class MyMeshComponent extends Mesh {
 }
 ```
 
-### From Particles Systems
+### From Particle Systems
 
-In Babylon.JS, particle systems are not nodes. To retrieve particle systems, neither `@fromChildren` and `@fromScene`
+In Babylon.JS, particle systems are not nodes. To retrieve particle systems, neither `@fromChildren` nor `@fromScene`
 decorators can be used. To retrieve particle systems, there is a specialized decorator named `@fromParticleSystems`.
 
-As for other `@from{X}` decorators, the parameter of this decorator is the name of the particle system. If not provided,
+As with other `@from{X}` decorators, the parameter of this decorator is the name of the particle system. If not provided,
 the name of the property is used.
 
 ```typescript
@@ -81,8 +81,8 @@ export default class MyMeshComponent extends Mesh {
 
 ### From Animation Groups
 
-As for particle systems, animation groups are not nodes. To retrieve a reference to an animation group, simply decorate
-the property using the `@fromAnimationGroups` decorator.
+As with particle systems, animation groups are not nodes. To retrieve a reference to an animation group, simply decorate
+the property with the `@fromAnimationGroups` decorator.
 
 The parameter of this decorator is the name of the animation group. If not provided, the name of the property is used.
 
@@ -107,17 +107,17 @@ export default class MyMeshComponent extends Mesh {
 As for animation groups, sounds are not nodes. To retrieve a reference to a sound, simply decorate the property using
 the `@fromSounds` decorator.
 
-In order to retrieve the reference, the sound must be loaded in the project either attached to a node (spatialized)
-or loaded as 2D sound.
+To retrieve the reference, the sound must be loaded in the project, either attached to a node (spatialized)
+or loaded as a 2D sound.
 
 ![GetSoundPath](/img/extensions/Editor/GettingComponents/load-sound.webp)
 
-The parameter of this decorator is the name of the sound. In Babylon.JS, the name of a sound is its path provided
-when the sound is being loaded. For example `assets/sounds/mySound.mp3`.
+The parameter of this decorator is the name of the sound. In Babylon.JS, the name of a sound is the path provided
+when the sound is loaded. For example `assets/sounds/mySound.mp3`.
 
-To get the name of a sound, the `Assets Browser` panel provides a helper by `right-clicking` the sound file. Simply
-click on `Copy Path` in the context menu so the name of the sound is added to the clipboard and just paste it
-in code editor on the parameter.
+To get the name of a sound, the `Assets Browser` panel provides a helper when `right-clicking` the sound file. Simply
+click `Copy Path` in the context menu so the name of the sound is added to the clipboard, then paste it
+into the code editor as the parameter.
 
 ![GetSoundPath](/img/extensions/Editor/GettingComponents/sound-path.webp)
 

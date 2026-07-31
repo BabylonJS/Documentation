@@ -1,7 +1,7 @@
 ---
 title: Technical Implementation Details
 image: 
-description: Learn how the fluid renderer component has been implemented in Babylon.js
+description: Learn how the fluid renderer component has been implemented in Babylon.js.
 keywords: diving deeper, particles, fluid rendering, technical, implementation
 further-reading:
 video-overview:
@@ -16,13 +16,13 @@ Note: in the images above and below, the particle positions are from a [pre-comp
 
 ## Overview
 
-As the title implies, this is a screen space technique, which in Babylon.js is a number of 2D post-processing applied after rendering the 3D scene into a 2D texture.
+As the title implies, this is a screen-space technique, which in Babylon.js consists of a number of 2D post-processing passes applied after rendering the 3D scene into a 2D texture.
 
-The inputs are simply a list of 3D coordinates representing particles. These particles can be generated from any source: a regular particle system (`ParticleSystem` / `ParticleSystemGPU`), a real fluid simulation or even custom user code. As long as you are able to produce a list of 3D coordinates, you can use the fluid renderer to display them as a fluid.
+The inputs are simply a list of 3D coordinates representing particles. These particles can be generated from any source: a regular particle system (`ParticleSystem` / `ParticleSystemGPU`), a real fluid simulation, or even custom user code. As long as you can produce a list of 3D coordinates, you can use the fluid renderer to display them as a fluid.
 
 ### Depth rendering
 
-The first step is to treat each particle as a sphere and project them as circles to generate their depths in a texture. Strictly speaking, a 3D sphere can be projected into an ellipse in a 2D perspective projection, but in practice sticking to circles works well and is more lightweight/computationally easy.
+The first step is to treat each particle as a sphere and project it as a circle to generate its depth in a texture. Strictly speaking, a 3D sphere can be projected into an ellipse in a 2D perspective projection, but in practice sticking to circles works well and is lighter and computationally simpler.
 
 ![image](/img/features/fluidrenderer/impl_depth.webp)
 
@@ -32,11 +32,11 @@ Here is a diffuse rendering to better see the particles:
 
 The depth must be a linear depth for the blur post-processing to work as intended (see next step)! Thus, the depth texture is created by recording the z-coordinate of the view space of each projected point of the sphere. The shaders used to generate this texture are [particleDepth.vertex.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingParticleDepth.vertex.fx) / [particleDepth.fragment.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingParticleDepth.fragment.fx).
 
-The normals used for the diffuse (and final) rendering are computed thanks to the depth and the uv coordinates. The depth of the view space as well as the uv coordinates are converted to NDC (Normalized Device Coordinate) space and these coordinates are transformed to view space by multiplying them by the inverse projection matrix. We will describe the calculation that converts Z from view space to NDC space a little later in the text as this is a question that comes up often in the Babylon.js forums.
+The normals used for the diffuse (and final) rendering are computed from the depth and the uv coordinates. The view-space depth, as well as the uv coordinates, are converted to NDC (Normalized Device Coordinate) space, and these coordinates are transformed to view space by multiplying them by the inverse projection matrix. We will describe the calculation that converts Z from view space to NDC space a little later in the text, as this question comes up often in the Babylon.js forums.
 
 ### Depth blurring
 
-Depth blurring is the important step of the technique, this is how you get the "fluid" look in the final render:
+Depth blurring is the important step in the technique; it is how you get the "fluid" look in the final render:
 
 |Without blurring|With blurring|
 |----------------|-------------|
@@ -45,7 +45,7 @@ Depth blurring is the important step of the technique, this is how you get the "
 
 As explained in [1](#ref1) slides 20-31, a standard 2D Gaussian blur will not be appropriate, as you may end up blurring particles that are very far away in the z-dimension if you stick only to the 2D dimension of the texture. A [bilateral filtering](https://en.wikipedia.org/wiki/Bilateral_filter#:~:text=A%20bilateral%20filter%20is%20a,based%20on%20a%20Gaussian%20distribution.) takes into account the Z-depth of each texel to be blurred and will apply more blur for small Z-differences and less/no blur when Z-differences are too large. Moreover, the filtering must make sure that we blur the same amount depending on the distance to the camera: if the particles take up a large part of the screen (say 200x200 pixels) because they are close to the camera, the size of the filter kernel must be larger than if they are far away (say 4x4 pixels): the size of the filter kernel must fit the depth of the texel we are blurring. We will describe the calculation later in this document.
 
-Note that for performance reasons, the bilateral filtering is performed by first applying a filter in the X dimension and then another one in the Y dimension. This is not mathematically correct because bilateral filtering is not separable. Doing two passes produces some artifacts but they are normally not visible/acceptable and it would be too GPU performance consuming to do otherwise anyway, so it's a tradeoff we pay for better performance at the expense of quality.
+Note that for performance reasons, the bilateral filtering is performed by first applying a filter in the X dimension and then another one in the Y dimension. This is not mathematically correct because bilateral filtering is not separable. Doing two passes produces some artifacts, but they are normally not visible or are acceptable, and doing otherwise would be too costly in GPU performance anyway. So it is a tradeoff made for better performance at the expense of quality.
 
 The shader used to implement bilateral filtering is [bilateralBlur.fragment.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingBilateralBlur.fragment.fx).
 
@@ -61,7 +61,7 @@ Here are the normals computed for the example scene:
 
 ![image](/img/features/fluidrenderer/impl_normals.webp)
 
-For fluid surfaces, it is important to implement the **Fresnel** effect, which is responsible for higher reflections at grazing angles (again, see [1](#ref1) - slide 39). Furthermore, for a more accurate rendering, we use Beer's law to calculate the refractive color, which states that the light intensity in a volume decreases exponentially as the light passes through it: `I=exp(-kd)` with `d` being the distance traveled by the light and `k` the absorption factor (which depends on the color of the volume). For a basic rendering, we can use a fixed value for `d` (the thickness of the volume) for the whole volume. You get something like :
+For fluid surfaces, it is important to implement the **Fresnel** effect, which is responsible for higher reflections at grazing angles (again, see [1](#ref1) - slide 39). Furthermore, for a more accurate rendering, we use Beer's law to calculate the refractive color, which states that the light intensity in a volume decreases exponentially as the light passes through it: `I=exp(-kd)`, with `d` being the distance traveled by the light and `k` the absorption factor (which depends on the color of the volume). For a basic rendering, we can use a fixed value for `d` (the thickness of the volume) for the whole volume. You get something like:
 
 ![image](/img/features/fluidrenderer/impl_basic_rendering.webp)
 
@@ -77,7 +77,7 @@ Thickness texture:
 
 ![image](/img/features/fluidrenderer/impl_thickness.webp)
 
-As you can see, the resolution is low (the thickness texture is 256x256 in this screenshot). It's ok because the thickness is a low frequency signal, the values are smooth and do not vary much from point to point. In any case, you should try to use as small a texture as possible for the thickness texture as it is quite fill rate intensive. Also, as with the depth texture, we apply a blur to this texture. This time, however, a standard 2D Gaussian blur is sufficient, we do not need a bilateral filtering.
+As you can see, the resolution is low (the thickness texture is 256x256 in this screenshot). That is OK because the thickness is a low-frequency signal: the values are smooth and do not vary much from point to point. In any case, you should try to use as small a texture as possible for the thickness texture, as it is quite fill-rate intensive. Also, as with the depth texture, we apply a blur to this texture. This time, however, a standard 2D Gaussian blur is sufficient; we do not need bilateral filtering.
 
 Blurred thickness texture:
 
@@ -101,7 +101,7 @@ For example, here are two renderings of the "Dude" model as a fluid, with and wi
 |---------------------------|------------------------|
 |![image](/img/features/fluidrenderer/impl_wo_diffuse.webp!488)|![image](/img/features/fluidrenderer/impl_w_diffuse.webp!488)|
 
-The generated diffuse texture :
+The generated diffuse texture:
 
 ![image](/img/features/fluidrenderer/impl_diffuse_generated.webp)
 
@@ -109,7 +109,7 @@ The list of 3D coordinates for the dude was generated using the [PointsCloudSyst
 
 The shaders used to generate this texture are [particleDiffuse.vertex.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingParticleDiffuse.vertex.fx) / [particleDiffuse.fragment.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingParticleDiffuse.fragment.fx).
 
-The following section will go into more detail on some of the steps described and others that I ignored (such as including the fluid in an existing scene).
+The following section goes into more detail on some of the steps described above and others that were only briefly mentioned, such as including the fluid in an existing scene.
 
 ## Implementation details
 
@@ -169,7 +169,7 @@ https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shader
 
 ### Integrating the fluid into an existing scene
 
-The problem we want to address here is that the fluid needs to take into account existing objects in the scene and be obstructed when objects are in front of it.
+The problem we want to address here is that the fluid needs to take existing objects in the scene into account and be occluded when objects are in front of it.
 
 So, in fact, we need to take into account the depth buffer of the scene when generating the depth and thickness textures of the fluid. However, we only need to add this support when not generating the thickness texture, because when the fluid is occluded, the value of this texture will be 0, which is tested in the fluid rendering shader:
 

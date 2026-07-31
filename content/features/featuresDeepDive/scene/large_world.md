@@ -22,14 +22,14 @@ Babylon.js provides a **floating origin** system that eliminates precision issue
 
 The system has two complementary parts:
 
-1. **`useLargeWorldRendering`** — an engine option that sets both `useHighPrecisionMatrices` on the engine and enables `floatingOriginMode` on all scenes
+1. **`useLargeWorldRendering`** — an engine option that sets both `useHighPrecisionMatrices` on the engine and enables `floatingOriginMode` on all scenes.
     - `useHighPrecisionMatrices` forces **high precision (64-bit) matrix computations** on the CPU, so intermediate math remains accurate.
-    - `floatingOriginMode` **Offsets all matrix uniforms**(`world`, `view`, `viewProjection`, `worldViewProjection`, etc.) to treat camera at world origin and **offsets position-related values** (`eye position`, `clip planes`, etc.) by camera's actual position, all performed at the last mile before passing the values to the shader.
-2. **`useFloatingOrigin`** — a scene option that enables `floatingOriginMode`, in the case where not all scenes are large worlds. If only some scenes useFloatingOrigin, you must also instantiate the engine with `useHighPrecisionMatrices` to get full large-world rendering capabilities.
+    - `floatingOriginMode` **offsets all matrix uniforms** (`world`, `view`, `viewProjection`, `worldViewProjection`, etc.) so the camera is treated as being at the world origin, and **offsets position-related values** (`eye position`, `clip planes`, etc.) by the camera's actual position. This is all performed at the last stage before passing the values to the shader.
+2. **`useFloatingOrigin`** — a scene option that enables `floatingOriginMode` when not all scenes are large worlds. If only some scenes use `useFloatingOrigin`, you must also instantiate the engine with `useHighPrecisionMatrices` to get full large-world rendering capabilities.
 
 
 
-From the perspective of your application code, nothing changes — meshes are still positioned at their world coordinates, the camera moves normally, and all existing APIs work as before. The offsetting happens at the rendering layer, not detectable by the user.
+From the perspective of your application code, nothing changes — meshes are still positioned at their world coordinates, the camera moves normally, and all existing APIs work as before. The offsetting happens at the rendering layer and is not detectable by the user.
 
 ## Examples
 
