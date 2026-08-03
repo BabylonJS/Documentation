@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Babylon Lite documentation integration > escapes HTML outside of code blocks and inline code, and doesn't escape the Markdown blockquote indicator 1`] = `
+"# Begin
+
+\`\`\`javascript
+const someJS = new BABYLON.Engine(canvas, true);
+const index = 3;
+if (index < 5 || index > 2) { }
+<div>some HTML as well</div>
+<script src="this_is_fine.js"></script>
+\`\`\`
+
+\`\`\`
+interface SomeTS {
+    name: string;
+}
+\`\`\`
+
+Some \`inline code\` to test the \`parsing\` of such code.
+\`And starting\` a line.
+Also \`containing <script src="this_is_also_fine.js"></script> HTML\` which
+shouldn't be a problem.
+
+&lt;div&gt;This HTML block should be escaped.
+It really should.&lt;/div&gt;
+
+&lt;script src="please_escape_this.js"&gt;&lt;/script&gt;
+
+> Also, don't escape the blockquote indicator.
+ > Really.
+"
+`;

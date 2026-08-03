@@ -112,7 +112,12 @@ const escapeMdxJsxOutsideCodeBlocks = (content: string) => {
             if (inFence) {
                 return line;
             }
-            return line.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+            // Avoid escaping inlined code examples.
+            const escapedLine = line.split("`").map((text, index) => index % 2 ? text : text.replace(/</g, "&lt;").replace(/>/g, "&gt;")).join("`");
+
+            // Unescape blockquotes.
+            return escapedLine.replace(/^(\s*)&gt;/, "$1>");
         })
         .join("\n");
 };
@@ -486,10 +491,10 @@ const createBabylonLiteContentGraphFromDocsRoot = (docsRoot: string): ContentGra
         const fullPath = join(docsRoot, relativeFile);
         const rawMarkdown = readFileSync(fullPath, "utf-8");
         const { content: parsedContent, frontmatter } = parseMarkdownFrontmatter(rawMarkdown);
-        const content = rewriteBabylonLiteRelativeLinks(parsedContent, relativeFile, landingRelativeFile);
+        const normalizedContent = rewriteBabylonLiteRelativeLinks(parsedContent, relativeFile, landingRelativeFile);
         const effectiveIds = idsFromRelativeFile(relativeFile);
         const id = routeIdFromRelativeFile(relativeFile, landingRelativeFile);
-        const title = getTitleFromContent(content, titleFromSlug(basename(relativeFile, ".md")));
+        const title = getTitleFromContent(normalizedContent, titleFromSlug(basename(relativeFile, ".md")));
         const metadata = buildDefaultMetadata(title);
         applyFrontmatter(metadata, frontmatter);
 
@@ -499,7 +504,7 @@ const createBabylonLiteContentGraphFromDocsRoot = (docsRoot: string): ContentGra
             docItem: { friendlyName: metadata.title, content: relativeFile.replace(/\.md$/, "") },
             contentPath: relativeFile.replace(/\.md$/, ""),
             sourcePath: fullPath,
-            rawContent: content,
+            rawContent: escapeMdxJsxOutsideCodeBlocks(normalizedContent),
             frontmatter,
             metadata,
             breadcrumbs: [
@@ -513,8 +518,8 @@ const createBabylonLiteContentGraphFromDocsRoot = (docsRoot: string): ContentGra
             previousId: index > 0 ? routeIdFromRelativeFile(files[index - 1], landingRelativeFile) : undefined,
             nextId: index < files.length - 1 ? routeIdFromRelativeFile(files[index + 1], landingRelativeFile) : undefined,
             furtherReading: metadata.furtherReading,
-            internalLinks: extractInternalLinks(content),
-            examples: extractExampleReferences(content),
+            internalLinks: extractInternalLinks(normalizedContent),
+            examples: extractExampleReferences(normalizedContent),
             lastModified: statSync(fullPath).mtime,
             gitHubUrl: `${docsFlavors.lite.githubUrl}/blob/master/docs/lite/${relativeFile}`,
         };

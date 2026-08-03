@@ -67,6 +67,49 @@ See the render loop.
         ]);
     });
 
+    it("escapes HTML outside of code blocks and inline code, and doesn't escape the Markdown blockquote indicator", async () => {
+        writeFixture(
+            "00-escaping-html.md",
+            `---
+title: Escaping HTML
+description: Exclude code and blockquote indicator
+---
+# Begin
+
+\`\`\`javascript
+const someJS = new BABYLON.Engine(canvas, true);
+const index = 3;
+if (index < 5 || index > 2) { }
+<div>some HTML as well</div>
+<script src="this_is_fine.js"></script>
+\`\`\`
+
+\`\`\`
+interface SomeTS {
+    name: string;
+}
+\`\`\`
+
+Some \`inline code\` to test the \`parsing\` of such code.
+\`And starting\` a line.
+Also \`containing <script src="this_is_also_fine.js"></script> HTML\` which
+shouldn't be a problem.
+
+<div>This HTML block should be escaped.
+It really should.</div>
+
+<script src="please_escape_this.js"></script>
+
+> Also, don't escape the blockquote indicator.
+ > Really.
+`
+        );
+
+        const graph = buildBabylonLiteContentGraphFromDocsRoot(fixtureRoot);
+        const documentationItems = createDocumentationSearchIndex(graph, "lite");
+        expect(documentationItems?.[0]?.content).toMatchSnapshot();
+    });
+
     it("keeps top-level menu items in folder and file name order", () => {
         const menuItems = buildBabylonLiteMenuItemsFromRelativeFiles([
             "00-welcome.md",
