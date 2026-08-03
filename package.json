@@ -34,7 +34,7 @@
         "eslint-config-next": "^16.1.7",
         "next": "^16.2.10",
         "next-mdx-remote": "^6.0.0",
-        "node-html-parser": "^8.0.4",
+        "node-html-parser": "^9.0.0",
         "prism-react-renderer": "^2.4.1",
         "prop-types": "^15.8.1",
         "react": "^19.2.7",
@@ -78,7 +78,8 @@
         "@types/react": "^19.2.17"
     },
     "overrides": {
-        "postcss": "^8.5.10"
+        "postcss": "^8.5.10",
+        "sharp": "^0.35.3"
     },
     "engines": {
         "npm": ">=11.10.0"
