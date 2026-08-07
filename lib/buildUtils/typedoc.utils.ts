@@ -19,6 +19,8 @@ export const assertTypeDocArtifacts = (baseLocation: string = "typedoc") => {
     }
 };
 
+export const getApiLabel = (baseLocation: string) => (baseLocation === "lite/typedoc" ? "Babylon Lite API" : baseLocation === "typedoc" ? "Babylon.js API" : "Babylon Viewer API");
+
 export const generateBreadcrumbs = (html: HTMLElement, id: string[], baseLocation: string) => {
     const breadcrumbs = html.querySelectorAll(".tsd-breadcrumb li a").map((element) => {
         const href = element.getAttribute("href");
@@ -87,7 +89,7 @@ export const getAPIPageData = async (id: string[], baseLocation: string = "typed
     const root = parse(html);
     const head = root.querySelector("head");
     const cssArray: string[] = [];
-    const apiLabel = baseLocation === "lite/typedoc" ? "Babylon Lite API" : baseLocation === "typedoc" ? "Babylon.js API" : "Babylon Viewer API";
+    const apiLabel = getApiLabel(baseLocation);
     const metadata: MarkdownMetadata = {
         title: apiLabel,
         description: `[${apiLabel}]`,

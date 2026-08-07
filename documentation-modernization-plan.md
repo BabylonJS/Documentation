@@ -402,6 +402,7 @@ Phase 7 verification:
 - Added `__tests__/typedoc-artifacts.test.ts` for deterministic API search artifact and legacy redirect generation.
 - `npm run build:typedoc`, `npm test`, and `npm run build` passed.
 - Code review pass completed after implementation.
+- Follow-up fix: API pages were no longer added to the Azure Search `documents` index after search indexing moved out of `getAPIPageData`. `npm run build:typedoc` (and `npm run build:search`) now emit `.temp/content/api-search-index.json` through `lib/buildUtils/typedocSearchIndex.utils.ts`, and `npm run upload:search` uploads those `isApi: true` records in batches. Every `--clear` operation is guarded so an index is only cleared for a flavor when freshly generated records exist to restore it, and a failed TypeDoc generation now fails the build instead of silently producing a partial API. Covered by `__tests__/typedoc-search-index.test.ts`.
 
 ## Phase 8: Evaluate Static App Router Migration
 

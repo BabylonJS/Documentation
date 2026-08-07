@@ -1,7 +1,8 @@
 import { existsSync, readFileSync } from "fs";
 import { join } from "path";
 
-import { addPlaygroundItem, addSearchItem, clearIndex, clearPlaygroundIndex, IPlaygroundSearchItem, ISearchIndexItem } from "../lib/buildUtils/search.utils";
+import { addPlaygroundItems, addSearchItems, clearIndex, clearPlaygroundIndex, IPlaygroundSearchItem, ISearchIndexItem } from "../lib/buildUtils/search.utils";
+import { apiSearchIndexPath, isFlavorFullyIndexed, readApiSearchIndex } from "../lib/buildUtils/typedocSearchIndex.utils";
 import { contentArtifactsDirectory } from "../lib/contentGraph/staticArtifacts";
 import { docsFlavors, type DocsFlavorId } from "../lib/docsFlavors";
 
@@ -29,6 +30,11 @@ const main = async () => {
     const documentationItems = readJson<ISearchIndexItem[]>(documentationSearchIndexPath)
         .map((item) => ({ ...item, flavor: item.flavor ?? flavorArg ?? docsFlavors.babylon.id }))
         .filter(matchesRequestedFlavor);
+    // The API index is produced by `build:typedoc`, which is not part of every build.
+    const apiSearchIndex = readApiSearchIndex(apiSearchIndexPath);
+    const apiItems = apiSearchIndex.items
+        .map((item) => ({ ...item, isApi: true, flavor: item.flavor ?? flavorArg ?? docsFlavors.babylon.id }))
+        .filter(matchesRequestedFlavor);
     const playgroundItems = readJson<IPlaygroundSearchItem[]>(playgroundSearchIndexPath)
         .map((item) => {
             const flavor = item.flavor ?? flavorArg ?? docsFlavors.babylon.id;
@@ -39,25 +45,53 @@ const main = async () => {
             };
         })
         .filter(matchesRequestedFlavor);
-    const flavorsToUpload = Array.from(new Set([...documentationItems, ...playgroundItems].map((item) => item.flavor)));
+
+    if (!apiItems.length) {
+        console.warn(`No API search items found at ${apiSearchIndexPath}. Run npm run build:typedoc to index the API.`);
+    }
+
+    const flavorsToUpload = Array.from(new Set([...documentationItems, ...apiItems, ...playgroundItems].map((item) => item.flavor)));
     const flavorsToClear = flavorArg ? [flavorArg] : flavorsToUpload;
 
+    const getPaths = (items: ISearchIndexItem[], flavor: DocsFlavorId) =>
+        items
+            .filter((item) => item.flavor === flavor)
+            .map((item) => item.path)
+            .filter((path): path is string => !!path);
+
     if (process.argv.includes("--clear")) {
+        // Each index is only cleared for a flavor when there are freshly generated records to
+        // restore it with. Clearing against an empty or partial set would delete live documents
+        // that nothing is going to re-upload.
         for (const flavor of flavorsToClear) {
-            await clearIndex(false, documentationItems.filter((item) => item.flavor === flavor).map((item) => item.path).filter((path): path is string => !!path), flavor);
-            await clearPlaygroundIndex(flavor);
+            const documentationPaths = getPaths(documentationItems, flavor);
+            if (documentationPaths.length) {
+                await clearIndex(false, documentationPaths, flavor);
+            } else {
+                console.log(`Skipping documentation index clear for ${flavor}: no documentation items were generated.`);
+            }
+
+            const apiPaths = getPaths(apiItems, flavor);
+            if (apiPaths.length && isFlavorFullyIndexed(apiSearchIndex, flavor)) {
+                await clearIndex(true, apiPaths, flavor);
+            } else {
+                console.log(`Skipping API index clear for ${flavor}: the generated API index does not fully cover this flavor.`);
+            }
+
+            if (playgroundItems.some((item) => item.flavor === flavor)) {
+                await clearPlaygroundIndex(flavor);
+            } else {
+                console.log(`Skipping playground index clear for ${flavor}: no playground items were generated.`);
+            }
         }
     }
 
-    for (const item of documentationItems) {
-        await addSearchItem(item);
-    }
+    await addSearchItems([...documentationItems, ...apiItems]);
+    await addPlaygroundItems(playgroundItems);
 
-    for (const item of playgroundItems) {
-        await addPlaygroundItem(item);
-    }
-
-    console.log(`Uploaded ${documentationItems.length} documentation search item(s) and ${playgroundItems.length} playground search item(s) for ${flavorsToUpload.join(", ")}.`);
+    console.log(
+        `Uploaded ${documentationItems.length} documentation search item(s), ${apiItems.length} API search item(s) and ${playgroundItems.length} playground search item(s) for ${flavorsToUpload.join(", ")}.`,
+    );
 };
 
 void main();

@@ -140,12 +140,18 @@ const buildTypeDocArtifactsFromRepoDir = async (repoDir: string, title: string, 
 
             console.log("API starting", "post convert");
 
-            if (project) {
-                const outputDir = path.join(basePathResolved, "files");
-                await app.generateDocs(project, outputDir);
+            if (!project) {
+                throw new Error(`TypeDoc could not convert the project for '${baseLocation}'.`);
             }
+
+            await app.generateDocs(project, path.join(basePathResolved, "files"));
         } catch (error) {
+            // A partially generated set of API pages must fail the build. Downstream steps treat the
+            // generated files as the complete API, and the search index upload deletes API documents
+            // that are missing from it. The partial output is removed so it is not reused as a cache.
+            rmSync(path.join(basePathResolved, "files"), { recursive: true, force: true });
             console.error(error);
+            throw new Error(`Failed to generate TypeDoc artifacts for '${baseLocation}'.`, { cause: error });
         }
     }
 
