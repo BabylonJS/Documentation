@@ -41,61 +41,63 @@ const getUrl = (type: string, indexName: string = 'documents') => {
 };
 
 export const addSearchItem = async (searchItem: ISearchIndexItem) => {
+    return addSearchItems([searchItem]);
+};
+
+/**
+ * Uploads documents in batches. The API index contains thousands of pages, so uploading
+ * one document per request is prohibitively slow.
+ */
+export const addSearchItems = async (searchItems: ISearchIndexItem[], batchSize: number = 100) => {
     if (!process.env.SEARCH_API_KEY) {
         return;
     }
-    const result = await fetch(getUrl("index"), {
-        // Adding method type
-        method: "POST",
-
-        // Adding body or contents to send
-        body: JSON.stringify({
-            value: [
-                {
+    for (let index = 0; index < searchItems.length; index += batchSize) {
+        const batch = searchItems.slice(index, index + batchSize);
+        const result = await fetch(getUrl("index"), {
+            method: "POST",
+            body: JSON.stringify({
+                value: batch.map((searchItem) => ({
                     "@search.action": "mergeOrUpload",
                     ...searchItem,
-                },
-            ],
-        }),
+                })),
+            }),
+            headers,
+        });
 
-        // Adding headers to the request
-        headers,
-    });
-
-    if (!result.ok) {
-        console.log(await result.json());
-        throw new Error("error indexing document");
+        if (!result.ok) {
+            console.log(await result.json());
+            throw new Error("error indexing document");
+        }
     }
-    return result;
 };
 
 export const addPlaygroundItem = async (item: IPlaygroundSearchItem) => {
+    return addPlaygroundItems([item]);
+};
+
+export const addPlaygroundItems = async (items: IPlaygroundSearchItem[], batchSize: number = 100) => {
     if (!process.env.SEARCH_API_KEY) {
         return;
     }
-    const result = await fetch(getUrl("index", "playgrounds"), {
-        // Adding method type
-        method: "POST",
-
-        // Adding body or contents to send
-        body: JSON.stringify({
-            value: [
-                {
+    for (let index = 0; index < items.length; index += batchSize) {
+        const batch = items.slice(index, index + batchSize);
+        const result = await fetch(getUrl("index", "playgrounds"), {
+            method: "POST",
+            body: JSON.stringify({
+                value: batch.map((item) => ({
                     "@search.action": "mergeOrUpload",
                     ...item,
-                },
-            ],
-        }),
+                })),
+            }),
+            headers,
+        });
 
-        // Adding headers to the request
-        headers,
-    });
-
-    if (!result.ok) {
-        console.log(await result.json());
-        throw new Error("error indexing playground");
+        if (!result.ok) {
+            console.log(await result.json());
+            throw new Error("error indexing playground");
+        }
     }
-    return result;
 }
 
 export const clearPlaygroundIndex = async (flavorId: DocsFlavorId = "babylon") => {
@@ -186,13 +188,18 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
     }
     console.log("clearing search index. isApi:", isApi);
 
+    // Documents indexed before the `flavor` field existed have no flavor value, so a plain
+    // `flavor eq 'babylon'` filter never matches them. Include those when clearing the
+    // default babylon flavor, otherwise stale documents are never removed.
+    const filter = flavorId === "babylon" ? `isApi eq ${isApi} and (flavor eq '${flavorId}' or flavor eq null)` : `isApi eq ${isApi} and flavor eq '${flavorId}'`;
+
     const getResults = async (params?: { top?: number, skip?: number }) => {
         return await fetch(getUrl("search"), {
             // Adding method type
             method: "POST",
 
             body: JSON.stringify({
-                filter: `isApi eq ${isApi} and flavor eq '${flavorId}'`,
+                filter,
                 top: 10000,
                 ...params
             }),

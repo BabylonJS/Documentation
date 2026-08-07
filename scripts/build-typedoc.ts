@@ -1,6 +1,7 @@
 import typedocConfig, { babylonLiteConfig, viewerConfig } from "../configuration/typedoc.config";
 import { clearBabylonLiteTypeDocArtifacts, getBabylonLiteRepositoryPath } from "../lib/babylonLiteDocs";
 import { buildTypeDocArtifacts, buildTypeDocArtifactsFromRepository } from "../lib/buildUtils/typedocBuild.utils";
+import { buildApiSearchIndex } from "../lib/buildUtils/typedocSearchIndex.utils";
 
 const force = process.argv.includes("--force");
 
@@ -20,12 +21,15 @@ async function main() {
     if (!babylonLiteRepositoryPath) {
         clearBabylonLiteTypeDocArtifacts();
         console.log("Skipping Babylon Lite TypeDoc artifacts because BabylonJS/Babylon-Lite is not public.");
+        buildApiSearchIndex();
         return;
     }
 
     console.log(`Building TypeDoc artifacts for lite/typedoc${force ? " with force rebuild" : ""}...`);
     const paths = await buildTypeDocArtifactsFromRepository(babylonLiteRepositoryPath, babylonLiteConfig.title, "lite/typedoc", babylonLiteConfig, { force, buildLegacyRedirects: false });
     console.log(`Built ${paths.length} TypeDoc route(s) for lite/typedoc.`);
+
+    buildApiSearchIndex();
 }
 
 main().catch((error) => {
