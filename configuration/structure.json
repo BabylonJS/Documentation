@@ -2048,6 +2048,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/postProcesses/taaRenderingPipeline"
                                 },
+                                "FSR1RenderingPipeline": {
+                                    "friendlyName": "FidelityFX Super Resolution (FSR 1) rendering pipeline",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/postProcesses/fsr1RenderingPipeline"
+                                },
                                 "renderTargetTextureMultiPass": {
                                     "friendlyName": "Using RenderTargetTexture and Multiple Passes",
                                     "children": {},
