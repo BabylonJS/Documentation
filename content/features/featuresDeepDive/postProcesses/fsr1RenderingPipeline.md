@@ -32,14 +32,8 @@ fsr.scaleFactor = BABYLON.FSR1RenderingPipeline.SCALE_QUALITY;
 fsr.sharpnessStops = 0.2;
 ```
 
-{/* TODO(demo): replace with the published playground once FSR 1 ships to the CDN.
-    Snippet #GB98SV#0 is written and working: it cycles FSR 1, a naive bilinear upscale of the
-    same half-resolution source, and a native full-resolution render, on an orbit camera so the
-    reconstruction can be inspected at the texel level. It cannot be linked yet because the
-    playground runs the released build, which does not contain FSR1RenderingPipeline.
+<Playground id="#GB98SV#0" title="FSR 1 Rendering Pipeline Example" description="Compare FSR 1 against a naive upscale of the same reduced-resolution render." isMain={true} category="Post-processing"/>
 
-    <Playground id="#GB98SV#0" title="FSR 1 Rendering Pipeline Example" description="Compare FSR 1 against a naive upscale of the same reduced-resolution render." isMain={true} category="Post-processing"/>
-*/}
 ### Judging the result
 
 Compare FSR 1 against **a naive upscale of the same reduced-resolution render**, not against a full-resolution one. The pipeline's whole purpose is to render fewer pixels, so switching it off renders at full resolution and will always look sharper. That comparison measures the resolution you chose to give up, not the quality of the reconstruction.
