@@ -76,12 +76,16 @@ _Parameter names and values are case-insensitive if possible._
 - `asset` - The asset URL to load automatically.
 - `autoRotate` - Set to `true` to turn on auto rotation of the active camera. Auto rotation is off by default.
 - `camera` - The active camera index to use from the loaded scene.
+- `cameraLowerRadiusLimit` - The minimum orbit radius in scene units. The value must be a non-negative finite number and applies only when the final active camera is an `ArcRotateCamera`.
+- `cameraMinZ` - The near clipping plane distance in scene units. The value must be a positive finite number and applies to the final active camera, including a camera embedded in the asset.
 - `cameraPosition` - The comma-separated `x,y,z` position of the active camera.
 - `clearColor` - The clear color for the loaded scene in hex form (e.g., `FFFFFF` for pure white).
 - `environment` - The environment URL to load for glTF assets. This parameter is ignored for other asset formats.
 - `kiosk` - Set to `true` to hide the toolbar. The toolbar is visible by default.
 - `skybox` - Set to `false` to not create a skybox for glTF assets. Skyboxes are created by default for glTF assets. This parameter is ignored for other asset formats.
 - `toneMapping` - The tone mapping (`Standard`, `ACES`, `KHR_PBR_Neutral`) to use for the loaded scene.
+
+A browser-local camera preset is a camera configuration saved in this browser from the Inspector. Valid `cameraMinZ` or `cameraLowerRadiusLimit` URL values suppress an active preset for the first model load without deleting the stored preset. Explicit `camera` and `cameraPosition` settings also suppress the active preset according to their existing behavior. The `cameraMinZ` and `cameraLowerRadiusLimit` values remain effective for later model reloads or model loads while the page stays open, even if the preset applies again.
 
 #### Examples
 - Load a specific URL  
@@ -92,3 +96,5 @@ _Parameter names and values are case-insensitive if possible._
   https://sandbox.babylonjs.com/?asset=https://assets.babylonjs.com/meshes/boombox.glb&environment=https://assets.babylonjs.com/environments/studio.env
 - Use the Khronos PBR Neutral tone mapping and set the camera to a specific position  
   https://sandbox.babylonjs.com/?asset=https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/DragonDispersion/glTF/DragonDispersion.gltf&toneMapping=khr_pbr_neutral&cameraPosition=-0.13,1.64,3.4
+- Inspect a model close up with a smaller near clipping plane and no minimum orbit radius  
+  https://sandbox.babylonjs.com/?asset=https://assets.babylonjs.com/meshes/boombox.glb&cameraMinZ=0.01&cameraLowerRadiusLimit=0
