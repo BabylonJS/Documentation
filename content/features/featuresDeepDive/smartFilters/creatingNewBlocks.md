@@ -240,6 +240,7 @@ import { uniforms, shaderProgram } from "./compositionBlock.fragment.js";
    - Disableable means that it will have a disabled input connection point, and will automatically pass the main input texture through to the output if the block is disabled
    - This is helpful in applications that may allow the user to turn many effects on and off, since this allows effects to be disabled instantly without the need to build a new Smart Filter runtime
    - There are different disable strategies you can choose to get the best shader performance, based on the details of your block (see `BlockDisableStrategy` in [disableableShaderBlock.ts](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/smartFilters/src/blockFoundation/disableableShaderBlock.ts))
+   - Do not use the `AutoSample` strategy if your shader modifies `vUV` before sampling the main input texture. `AutoSample` samples the texture with the original `vUV`; use the `Manual` strategy instead
    - You must specify a main input when creating a disableable shader block
      - In your fragment shader, you must put `// main` on the line that declares the uniform to be treated as the main input texture
    - If you choose the manual strategy, your fragment shader must check a uniform named `disabled`, which the system will add for you, and if it is true, return texture2D(your_main_input_texture, vUV)
