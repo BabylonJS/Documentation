@@ -59,7 +59,7 @@ const engine = new BABYLON.WebGPUEngine(canvas, { xrCompatible: true });
 await engine.initAsync();
 ```
 
-WebGPU-XR additionally requires the experimental `XRGPUBinding` projection path and the WebXR Layers feature. Babylon does not replace an existing WebGPU engine or scene with WebGL if XR entry fails. Applications that offer a fallback must select WebGL before scene and resource creation, or fully dispose and rebuild/reload the application with WebGL. See [WebGPU in WebXR](/features/featuresDeepDive/webXR/webGPUXR).
+WebGPU-XR additionally requires the experimental `XRGPUBinding` projection path, `XRGPUSubImage.prototype.getViewDescriptor`, and the WebXR Layers feature. Babylon does not replace an existing WebGPU engine or scene with WebGL if XR entry fails. Applications that offer a fallback must select WebGL before scene and resource creation, or fully dispose and rebuild/reload the application with WebGL. See [WebGPU in WebXR](/features/featuresDeepDive/webXR/webGPUXR).
 
 ## Shader code differences
 

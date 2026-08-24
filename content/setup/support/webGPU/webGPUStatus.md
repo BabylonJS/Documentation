@@ -16,7 +16,7 @@ The implementation in WebGPU is complete and, besides a few exceptions, all feat
 * [Point Cloud System](/typedoc/classes/babylon.pointscloudsystem)
   * WebGPU does not support a point size different from 1, so setting the point size to a value other than 1 will not be taken into account
 * [WebGPU in WebXR](/features/featuresDeepDive/webXR/webGPUXR)
-  * WebGPU-XR is experimental and requires browser support for `XRGPUBinding` projection layers
+  * WebGPU-XR is experimental and requires browser support for `XRGPUBinding` projection layers and `XRGPUSubImage.prototype.getViewDescriptor`
   * WebGPU-XR multiview, Raw Camera Access, Space Warp, and GPU-optimized Depth Sensing are not currently supported
   * Quad layers require the runtime to expose the optional `XRGPUBinding.createQuadLayer` and `XRGPUBinding.getSubImage` methods
 

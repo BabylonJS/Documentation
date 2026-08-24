@@ -56,10 +56,11 @@ WebGPU-XR applications should distinguish three independent checks:
 ```javascript
 const webGPUSupported = await BABYLON.WebGPUEngine.IsSupportedAsync;
 const immersiveXRSupported = await BABYLON.WebXRSessionManager.IsSessionSupportedAsync("immersive-vr");
+// Includes XRGPUBinding projection APIs and XRGPUSubImage.getViewDescriptor.
 const webGPUXRSupported = BABYLON.WebXRSessionManager.IsWebGPUXRSupported;
 ```
 
-`IsWebGPUXRSupported` is an experimental static boolean getter. It checks whether the runtime exposes the `XRGPUBinding` projection-layer API used by Babylon, but it is advisory: session negotiation can still fail for the active device, permissions, or adapter.
+`IsWebGPUXRSupported` is an experimental static boolean getter. It checks whether the runtime exposes the `XRGPUBinding` projection-layer API, the `XRGPUSubImage` interface, and `XRGPUSubImage.prototype.getViewDescriptor` used by Babylon. It is advisory: session negotiation can still fail for the active device, permissions, or adapter.
 
 A WebGPU engine used here must be created with `{ xrCompatible: true }`, and the WebXR Layers feature must be enabled before session entry. When a WebGPU session request rejects with `NotSupportedError`, Babylon rejects with guidance to choose WebGL before creating the scene. See [WebGPU in WebXR](/features/featuresDeepDive/webXR/webGPUXR).
 

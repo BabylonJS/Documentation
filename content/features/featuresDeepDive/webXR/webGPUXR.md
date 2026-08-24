@@ -28,9 +28,9 @@ WebGPU, immersive WebXR, and WebGPU-XR are separate capabilities:
 
 - `WebGPUEngine.IsSupportedAsync` checks whether Babylon can create a WebGPU engine.
 - `WebXRSessionManager.IsSessionSupportedAsync("immersive-vr")` checks whether the browser reports support for that immersive WebXR session mode.
-- `WebXRSessionManager.IsWebGPUXRSupported` checks whether the runtime exposes the `XRGPUBinding` projection-layer methods required by Babylon.
+- `WebXRSessionManager.IsWebGPUXRSupported` checks whether the runtime exposes the `XRGPUBinding` projection-layer methods and the `XRGPUSubImage.getViewDescriptor` method required by Babylon.
 
-`IsWebGPUXRSupported` is an experimental, static boolean getter. It is an advisory API-shape check, not a guarantee that the active device, GPU adapter, permissions, and session will work together. The actual session request can still reject.
+`IsWebGPUXRSupported` is an experimental, static boolean getter. It requires the `XRGPUSubImage` interface and `XRGPUSubImage.prototype.getViewDescriptor` because Babylon uses that method to create texture views for each projection sub-image. This remains an advisory API-shape check, not a guarantee that the active device, GPU adapter, permissions, and session will work together. The actual session request can still reject.
 
 ## Select the engine before creating the scene
 
@@ -47,6 +47,7 @@ WebGPU has no equivalent to making an existing context XR-compatible later. If y
 async function createEngineForImmersiveXR(canvas) {
   const webGPUSupported = await BABYLON.WebGPUEngine.IsSupportedAsync;
   const immersiveXRSupported = await BABYLON.WebXRSessionManager.IsSessionSupportedAsync("immersive-vr");
+  // Includes XRGPUBinding projection APIs and XRGPUSubImage.getViewDescriptor.
   const webGPUXRSupported = BABYLON.WebXRSessionManager.IsWebGPUXRSupported;
 
   if (webGPUSupported && immersiveXRSupported && webGPUXRSupported) {
@@ -89,11 +90,11 @@ When using ES modules with tree shaking, import the Layers feature so it is regi
 import "@babylonjs/core/XR/features/WebXRLayers.js";
 ```
 
-Babylon rejects WebGPU XR entry with actionable guidance when the required `XRGPUBinding` projection path is missing or when Layers was not enabled. If the browser rejects the WebGPU session request with `NotSupportedError`, Babylon preserves the original error as the cause and reports that the application must recreate the scene with WebGL to fall back.
+Babylon rejects WebGPU XR entry with actionable guidance when the required `XRGPUBinding` projection path or `XRGPUSubImage.getViewDescriptor` support is missing, or when Layers was not enabled. If the browser rejects the WebGPU session request with `NotSupportedError`, Babylon preserves the original error as the cause and reports that the application must recreate the scene with WebGL to fall back.
 
 ## Current feature caveats
 
-- **Projection layers are required.** The WebGL `XRWebGLLayer` rendering path is not available to a WebGPU engine.
+- **Projection layers and sub-image view descriptors are required.** The runtime must expose `XRGPUSubImage.prototype.getViewDescriptor`; the WebGL `XRWebGLLayer` rendering path is not available to a WebGPU engine.
 - **Multiview is not available with WebGPU-XR yet.** `preferMultiviewOnInit` does not enable it on this path.
 - **Raw Camera Access is unavailable.** The browser exposes camera images through `XRWebGLBinding`, not `XRGPUBinding`.
 - **Space Warp is unavailable.** Its current implementation depends on WebGL-specific binding functionality.
