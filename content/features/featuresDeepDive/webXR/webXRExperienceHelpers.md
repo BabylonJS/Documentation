@@ -67,6 +67,21 @@ After initializing the XR helper, it is possible to enter an XR session, for exa
 const sessionManager = await xrHelper.enterXRAsync("immersive-vr", "local-floor" /*, optionalRenderTarget */ );
 ```
 
+When the scene uses a WebGPU engine, enable [WebXR Layers](/features/featuresDeepDive/webXR/WebXRSelectedFeatures/WebXRLayers) before calling `enterXRAsync`:
+
+```javascript
+xrHelper.featuresManager.enableFeature(BABYLON.WebXRFeatureName.LAYERS, "stable");
+
+try {
+  await xrHelper.enterXRAsync("immersive-vr", "local-floor");
+} catch (error) {
+  // Display the actionable error and offer a reload or full rebuild with WebGL.
+  console.error("Could not enter XR:", error);
+}
+```
+
+The WebGPU engine must already have been created with `{ xrCompatible: true }`. Babylon cannot change an existing WebGPU engine or scene to WebGL after entry fails. See [WebGPU in WebXR](/features/featuresDeepDive/webXR/webGPUXR) for engine selection and fallback guidance.
+
 To read more about session modes ( `immersive-vr` in this example), and reference type modes ( `local-floor` ), please read the [WebXR specs](https://immersive-web.github.io/webxr/). The most common scenario is VR in local floor mode, which is the one we are showing here.
 
 If there is an error while creating the experience helper, the console will show it.

@@ -31,6 +31,16 @@ const featuresManager = xr.baseExperience.featuresManager; // or any other way t
 featuresManager.enableFeature(WebXRFeatureName.LAYERS, "stable" /* or latest */, {});
 ```
 
+### WebGPU-XR
+
+WebXR Layers is optional for WebGL-backed XR but required for WebGPU-XR. Enable the feature before calling `enterXRAsync`; it creates the `XRGPUBinding` projection layer used to render the session.
+
+<Alert severity="warning" title="Experimental WebGPU-XR support">
+WebGPU-XR currently requires projection layers and does not support multiview. The WebGPU engine must be created with `{ xrCompatible: true }`. See [WebGPU in WebXR](/features/featuresDeepDive/webXR/webGPUXR) for complete setup and fallback guidance.
+</Alert>
+
+WebGPU quad layers require the browser's `XRGPUBinding` to expose both `createQuadLayer` and `getSubImage`. Babylon logs a warning and returns `null` from the quad-layer creation path if either method is unavailable, so check the returned layer before using it.
+
 ### Enabling multiview
 
 WebXR layers can be used to enable multiview rendering of your scene. Multiview allows your scene to be rendered using a single render call, instead of rendering two cameras one after the other. This can, under certain conditions, improve your scene rendering time.
@@ -49,6 +59,8 @@ featuresManager.enableFeature(WebXRFeatureName.LAYERS, "stable" /* or latest */,
 ```
 
 If your browser supports multiview, it will be enabled. Otherwise, it will silently fall back to non-multiview rendering.
+
+Multiview is not currently supported on the WebGPU-XR path. Setting `preferMultiviewOnInit` when using a WebGPU engine still uses non-multiview rendering.
 
 ## Use cases for layers
 

@@ -41,6 +41,12 @@ await engine.initAsync();
 ## Is WebGL still supported?
 Yes! Support for WebGL and WebGPU is maintained side by side for the foreseeable future.
 
+## WebXR support
+
+Babylon.js supports experimental WebGPU-backed WebXR through `XRGPUBinding`. WebGPU support alone does not imply WebGPU-XR support: check the target immersive session mode and `WebXRSessionManager.IsWebGPUXRSupported` separately. The WebGPU-XR getter verifies both the projection binding APIs and `XRGPUSubImage.prototype.getViewDescriptor`, which Babylon requires when creating projection texture views.
+
+A WebGPU engine intended for XR must be created with `new WebGPUEngine(canvas, { xrCompatible: true })`, and the WebXR Layers feature must be enabled before entering XR. Because Babylon cannot swap an existing WebGPU scene to WebGL, choose the engine before creating the scene and its resources. See [WebGPU in WebXR](/features/featuresDeepDive/webXR/webGPUXR) for setup, fallback guidance, and current limitations.
+
 ## Testing WebGPU
 You can refer to [this page](https://github.com/gpuweb/gpuweb/wiki/Implementation-Status) for detailed information on browser support.
 

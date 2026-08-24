@@ -2303,6 +2303,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/webXR/introToWebXR"
                                 },
+                                "webGPUXR": {
+                                    "friendlyName": "WebGPU in WebXR",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/webXR/webGPUXR"
+                                },
                                 "WebXRSelectedFeatures": {
                                     "friendlyName": "WebXR Features",
                                     "children": {

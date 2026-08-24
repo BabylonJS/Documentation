@@ -34,6 +34,14 @@ As the API continuously changes, it is difficult to keep up with feature updates
 
 Note that most of the time when we say WebXR, we actually mean WebXR **in VR immersive mode**. This is currently the most used mode of WebXR.
 
+### WebGPU rendering
+
+Babylon.js can render WebXR sessions with WebGPU through the browser's experimental `XRGPUBinding` support. This is distinct from general WebGPU support and from support for an immersive WebXR session.
+
+<Alert severity="warning" title="Experimental WebGPU-XR support">
+Before creating a scene, check each capability and create the WebGPU engine with `{ xrCompatible: true }`. WebGPU-XR also requires enabling the WebXR Layers feature before entering XR. See [WebGPU in WebXR](/features/featuresDeepDive/webXR/webGPUXR) for the complete setup, limitations, and WebGL fallback strategy.
+</Alert>
+
 ## Device and browser support
 
 ### PC
