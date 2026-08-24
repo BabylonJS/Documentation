@@ -9,6 +9,56 @@ video-content:
 toc-levels: 2
 ---
 
+## 9.15.0
+
+### Migration to TC39 (Stage 3) decorators
+
+Babylon.js has moved from TypeScript's legacy `experimentalDecorators` to standard TC39 Stage 3 decorators. This only affects you if your own code applies Babylon.js decorators (such as `@serialize`, `@serializeAsVector3`, `@expandToProperty`, `@addAccessorsForMaterialProperty`, or `@editableInPropertyPage`) to classes you author — for example when you subclass a Babylon.js type and add your own serializable or editable properties. Code that merely _uses_ Babylon.js classes is unaffected.
+
+If you do apply these decorators yourself, update your project as follows.
+
+**1. Compile with TC39 decorators.** Babylon.js' decorators now expect the Stage 3 calling convention, so your project must no longer use the legacy flag. In your `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "experimentalDecorators": false
+  }
+}
+```
+
+`experimentalDecorators: false` is the default in modern TypeScript, so in most cases you can simply remove the flag. Leaving it `true` will cause Babylon.js' decorators to receive the wrong arguments at runtime and silently fail (properties will not be serialized or shown in editors).
+
+**2. Add the `accessor` keyword where required.** `@expandToProperty` and `@addAccessorsForMaterialProperty` are auto-accessor decorators and must be applied to fields declared with the `accessor` keyword:
+
+```typescript
+// Before
+@expandToProperty("_reorderLightsInScene")
+public renderPriority: number = 0;
+
+// After
+@expandToProperty("_reorderLightsInScene")
+public accessor renderPriority: number = 0;
+```
+
+Decorators applied to plain fields — such as `@serialize()` and `@editableInPropertyPage(...)` — continue to work as field decorators and do **not** require the `accessor` keyword. Only the auto-accessor decorators above do.
+
+**3. Target ES2015 or later.** The `accessor` keyword requires a compilation target of `ES2015` (ES6) or newer. If your `tsconfig.json` still targets `ES5`, raise it:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2015"
+  }
+}
+```
+
+**4. Reading Node Material / Node Geometry editable properties.** If you previously read the internal `_propStore` array from a class to enumerate `@editableInPropertyPage` properties, use the exported `GetEditableProperties(target)` helper instead — the metadata is now stored on the class' `Symbol.metadata` rather than on a `_propStore` field.
+
+**UMD bundle target.** The published UMD bundles (`babylon.max.js` and the companion `babylonjs.*.js` bundles for gui, loaders, materials, serializers, etc.) are now emitted at **ES2015** instead of ES5. All currently supported browsers run ES2015 natively, so no change is needed for normal web usage, including the Playground. Only environments that require ES5 script (such as Babylon Native's Chakra engine) need a down-level step; the Babylon.js CI already performs this for Native.
+
+See PRs [#18631](https://github.com/BabylonJS/Babylon.js/pull/18631), [#18630](https://github.com/BabylonJS/Babylon.js/pull/18630), and [#18647](https://github.com/BabylonJS/Babylon.js/pull/18647) for more information.
+
 ## 8.10.1
 
 ### Fix target camera orientation issues when using right-handed scenes

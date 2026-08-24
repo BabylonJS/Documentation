@@ -33,7 +33,7 @@ radial distance from target plus height offset;
 camera.radius = 1;
 ```
 
-rotation, in radians, center of target in x y plane;
+rotation, in degrees, center of target in x y plane;
 ```javascript
 camera.rotationOffset = 0;
 ```

@@ -38,6 +38,18 @@ By default, the drag plane will update on every frame. To disable this, set `upd
 pointerDragBehavior.updateDragPlane = false;
 ```
 
+Before the attached mesh moves, `validateDrag` receives its proposed absolute position and determines whether to apply it. Override it to reject invalid positions or no-op updates. For example, the following prevents repeated world matrix updates once the proposed movement is within a tolerance appropriate for the scene:
+
+```javascript
+const dragEpsilon = 0.001;
+
+pointerDragBehavior.validateDrag = (targetPosition) => {
+  return !mesh.absolutePosition.equalsWithEpsilon(targetPosition, dragEpsilon);
+};
+```
+
+A larger tolerance stops the mesh farther from the exact target, so choose a value that matches the scale of the scene.
+
 To listen to drag events, you can use the following:
 
 ```javascript
