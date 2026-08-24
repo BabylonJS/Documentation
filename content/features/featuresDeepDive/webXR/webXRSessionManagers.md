@@ -49,13 +49,27 @@ sessionManager.initializeSessionAsync("immersive-vr" /*, xrSessionInit */);
 
 This function will initialize the native session. Without calling this function, no session is available and the XR experience will not work.
 
+### WebGPU-XR capability checks
+
+WebGPU-XR applications should distinguish three independent checks:
+
+```javascript
+const webGPUSupported = await BABYLON.WebGPUEngine.IsSupportedAsync;
+const immersiveXRSupported = await BABYLON.WebXRSessionManager.IsSessionSupportedAsync("immersive-vr");
+const webGPUXRSupported = BABYLON.WebXRSessionManager.IsWebGPUXRSupported;
+```
+
+`IsWebGPUXRSupported` is an experimental static boolean getter. It checks whether the runtime exposes the `XRGPUBinding` projection-layer API used by Babylon, but it is advisory: session negotiation can still fail for the active device, permissions, or adapter.
+
+A WebGPU engine used here must be created with `{ xrCompatible: true }`, and the WebXR Layers feature must be enabled before session entry. When a WebGPU session request rejects with `NotSupportedError`, Babylon rejects with guidance to choose WebGL before creating the scene. See [WebGPU in WebXR](/features/featuresDeepDive/webXR/webGPUXR).
+
 Right after that, you will need to initialize the reference space of this session, which will define the coordinate system that the XR experience will use:
 
 ```javascript
 const referenceSpace = sessionManager.setReferenceSpaceTypeAsync(/*referenceSpaceType = 'local-floor'*/);
 ```
 
-The only thing left now is to prepare the render target and the [XR WebGL Layer](https://developer.mozilla.org/en-US/docs/Web/API/XRWebGLLayer):
+The only thing left now is to prepare the render target and layer. WebGL engines use an [XR WebGL Layer](https://developer.mozilla.org/en-US/docs/Web/API/XRWebGLLayer), while WebGPU engines require the WebXR Layers feature and an `XRProjectionLayer`:
 
 ```javascript
 const renderTarget = sessionManager.getWebXRRenderTarget(/*outputCanvasOptions: WebXRManagedOutputCanvasOptions*/);

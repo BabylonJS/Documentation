@@ -50,6 +50,17 @@ async function createEngine() {
 }
 ```
 
+### WebGPU engines intended for WebXR
+
+WebGPU has no post-creation operation that makes an adapter XR-compatible. If the engine may enter WebXR, pass `xrCompatible: true` when constructing it:
+
+```javascript
+const engine = new BABYLON.WebGPUEngine(canvas, { xrCompatible: true });
+await engine.initAsync();
+```
+
+WebGPU-XR additionally requires the experimental `XRGPUBinding` projection path and the WebXR Layers feature. Babylon does not replace an existing WebGPU engine or scene with WebGL if XR entry fails. Applications that offer a fallback must select WebGL before scene and resource creation, or fully dispose and rebuild/reload the application with WebGL. See [WebGPU in WebXR](/features/featuresDeepDive/webXR/webGPUXR).
+
 ## Shader code differences
 
 ### Array of textures
