@@ -2252,6 +2252,11 @@
                         "babylonViewer": {
                             "friendlyName": "Viewer",
                             "children": {
+                                "viewerLite": {
+                                    "friendlyName": "Viewer Lite",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/babylonViewer/v2/viewerLite"
+                                },
                                 "cameraControls": {
                                     "friendlyName": "Viewer Camera Controls",
                                     "children": {},

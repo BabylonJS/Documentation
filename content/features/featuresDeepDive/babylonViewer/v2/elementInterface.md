@@ -14,6 +14,10 @@ video-content:
 
 The `HTML3DElement` (`<babylon-viewer>`) custom element has a number of attributes and events that are not captured in the API documentation but are summarized below.
 
+<Alert severity="info">
+This page describes the full Viewer interface. Viewer Lite supports many of the same attributes and events, with the exceptions listed in the [Viewer Lite limitations](/features/featuresDeepDive/babylonViewer/viewerLite#current-limitations).
+</Alert>
+
 ## Attributes
 
 <Alert severity="info">
