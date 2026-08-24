@@ -28,6 +28,7 @@ At the same time, the Babylon Viewer does ***not*** abstract away the Babylon.js
 
 <Alert severity="info">
 - For instructions on **integrating the Babylon Viewer** into your project, see the [NPM page](https://www.npmjs.com/package/@babylonjs/viewer).
+- For a smaller, WebGPU-only version of the Viewer, see [Viewer Lite](/features/featuresDeepDive/babylonViewer/viewerLite).
 - For **details on the API**, see the [API docs](https://doc.babylonjs.com/packages/viewer/index).
 - For background on the **goals and design principles** of the Babylon Viewer, see the introduction [blog post](https://www.linkedin.com/pulse/babylon-viewer-v2-babylon-js-lkstc/?trackingId=8xWb1OZKqf5Rulor%2BbhCZQ%3D%3D).
 - If you have any **feedback or feature requests**, see the [announcement forum thread](https://forum.babylonjs.com/t/babylon-viewer-v2/54317).
@@ -76,6 +77,8 @@ Loaders are dynamically imported, so the user does not pay the download cost unt
 When WebGPU is used, [snapshot rendering](/setup/support/webGPU/webGPUOptimization/webGPUSnapshotRendering) is automatically enabled and managed. This can significantly improve performance for complex models.
 
 For Babylon Native, a `NativeEngine` instance can be passed into the `Viewer` constructor.
+
+The [Viewer Lite](/features/featuresDeepDive/babylonViewer/viewerLite) variant is WebGPU-only and does not provide a WebGL fallback.
 
 ## Power & Resource Optimizations
 
