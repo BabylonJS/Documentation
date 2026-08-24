@@ -52,8 +52,13 @@ async function createEngineForImmersiveXR(canvas) {
 
   if (webGPUSupported && immersiveXRSupported && webGPUXRSupported) {
     const engine = new BABYLON.WebGPUEngine(canvas, { xrCompatible: true });
-    await engine.initAsync();
-    return engine;
+    try {
+      await engine.initAsync();
+      return engine;
+    } catch (error) {
+      engine.dispose();
+      console.warn("Could not initialize an XR-compatible WebGPU engine; using WebGL instead.", error);
+    }
   }
 
   return new BABYLON.Engine(canvas, true);

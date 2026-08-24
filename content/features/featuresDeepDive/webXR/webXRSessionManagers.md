@@ -44,7 +44,7 @@ if (supported) {
 After making sure that XR is available and that the session is supported, you can initialize the session and prepare it for rendering:
 
 ```javascript
-sessionManager.initializeSessionAsync("immersive-vr" /*, xrSessionInit */);
+await sessionManager.initializeSessionAsync("immersive-vr" /*, xrSessionInit */);
 ```
 
 This function will initialize the native session. Without calling this function, no session is available and the XR experience will not work.
@@ -67,14 +67,14 @@ A WebGPU engine used here must be created with `{ xrCompatible: true }`, and the
 Right after that, you will need to initialize the reference space of this session, which will define the coordinate system that the XR experience will use:
 
 ```javascript
-const referenceSpace = sessionManager.setReferenceSpaceTypeAsync(/*referenceSpaceType = 'local-floor'*/);
+const referenceSpace = await sessionManager.setReferenceSpaceTypeAsync(/*referenceSpaceType = 'local-floor'*/);
 ```
 
 The only thing left now is to prepare the render target and layer. WebGL engines use an [XR WebGL Layer](https://developer.mozilla.org/en-US/docs/Web/API/XRWebGLLayer), while WebGPU engines require the WebXR Layers feature and an `XRProjectionLayer`:
 
 ```javascript
 const renderTarget = sessionManager.getWebXRRenderTarget(/*outputCanvasOptions: WebXRManagedOutputCanvasOptions*/);
-const xrWebGLLayer = renderTarget.initializeXRLayerAsync(this.sessionManager.session);
+const xrLayer = await renderTarget.initializeXRLayerAsync(sessionManager.session);
 ```
 
 The session manager is now ready to render the scene using the XR session.
