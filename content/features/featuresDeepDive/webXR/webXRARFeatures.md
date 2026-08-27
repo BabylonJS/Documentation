@@ -548,7 +548,11 @@ This will update both the light data itself and the environment cube map every s
 
 ### Depth Sensing
 
-Depth Sensing can be used to obtain depth information from cameras. If your device has capabilities such as depth estimation, you can access the depth buffer through this feature. For more information, please check the [explainer for WebXR Depth Sensing Module](https://github.com/immersive-web/depth-sensing/blob/main/explainer.md).
+Depth Sensing can be used to obtain depth information from cameras. If your device has capabilities such as depth estimation, you can access the depth buffer through this feature. For more information, see the [WebXR Depth Sensing Module specification](https://immersive-web.github.io/depth-sensing/).
+
+<Alert severity="warning" title="Experimental browser support">
+WebXR depth sensing and its lifecycle controls are experimental. Known support includes Chromium 139+ and Meta Quest Browser 33.3+, but availability still depends on compatible XR hardware and the runtime. Treat the feature as optional and handle unsupported operations.
+</Alert>
 
 Enable Depth Sensing:
 
@@ -572,6 +576,14 @@ const depthSensing = featureManager.enableFeature(BABYLON.WebXRFeatureName.DEPTH
 
 When you enable the depth sensing feature, you must pass options.
 The options are typed as `IWebXRDepthSensingOptions`.
+
+When using ES modules, import the feature module before enabling it so that it is registered with the features manager:
+
+```typescript
+import "@babylonjs/core/XR/features/WebXRDepthSensing.js";
+```
+
+The Babylon feature name is `"xr-depth-sensing"` (`WebXRFeatureName.DEPTH_SENSING`). It requests the native WebXR session feature descriptor `"depth-sensing"`; these two names are not interchangeable.
 
 ```typescript
 export type WebXRDepthUsage = "cpu" | "gpu";
@@ -620,6 +632,41 @@ As with depth usage, you can specify it when you initialize the feature.
 
 Enabling this feature will automatically enable all added materials to be hidden behind real-world objects. If you want to disable this feature, you can set `disableDepthSensingOnMaterials` to `true`.
 
+#### Pausing and resuming depth sensing
+
+`WebXRDepthSensing` exposes lifecycle controls for the native depth-sensing process:
+
+```typescript
+readonly isDepthSensingActive: boolean;
+pauseDepthSensingAsync(): Promise<void>;
+resumeDepthSensingAsync(): Promise<void>;
+```
+
+`isDepthSensingActive` reads the current session's native `XRSession.depthActive` value directly. It is `false` when Babylon is not in an XR session, when the browser does not expose the property, or when the native value is not `true`.
+
+Pause and resume require an active XR session and the corresponding native `XRSession.pauseDepthSensing` or `XRSession.resumeDepthSensing` method. Babylon awaits the native result, so native promise resolution and rejection propagate to the caller; synchronous native exceptions also reject the Babylon async method. Missing support produces an explicit error, so handle each operation:
+
+- Without an active session, the methods reject with `Pausing WebXR depth sensing requires an active XR session.` or `Resuming WebXR depth sensing requires an active XR session.`
+- Without the matching native method, they reject with `XRSession.pauseDepthSensing is not supported by this XR runtime.` or `XRSession.resumeDepthSensing is not supported by this XR runtime.`
+
+```typescript
+async function setDepthSensingPaused(paused: boolean): Promise<void> {
+  try {
+    if (paused) {
+      await depthSensing.pauseDepthSensingAsync();
+    } else {
+      await depthSensing.resumeDepthSensingAsync();
+    }
+
+    console.log(`Depth sensing active: ${depthSensing.isDepthSensingActive}`);
+  } catch (error) {
+    console.warn("Depth-sensing lifecycle control is unavailable:", error);
+  }
+}
+```
+
+These methods control native depth sensing only. They do not replace the depth texture, buffer, `getDepthInMeters`, or material-occlusion APIs described below, and pausing does not clear Babylon's cached depth data.
+
 With this feature, you can access information like this:
 
 ```typescript
@@ -653,6 +700,8 @@ depthSensing.onGetDepthInMetersAvailable.add((getDepthInMeters) => {
 ```
 
 <Playground id="#KDWCZY#601" title="Placing A Mesh In Space with depth sensing" description="See how depth sensing works when adding models to the real world" image="/img/playgroundsAndNMEs/vrglasses.webp"/>
+
+<Playground id="#SU7NUW#0" title="WebXR depth-sensing lifecycle controls" description="Pause and resume depth sensing while reporting the native active state."/>
 
 ## Demos
 

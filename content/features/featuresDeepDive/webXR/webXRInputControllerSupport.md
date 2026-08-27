@@ -2,7 +2,7 @@
 title: WebXR Controllers Support
 image:
 description: Learn about the robust library of WebXR controllers and input supported in Babylon.js.
-keywords: babylon.js, diving deeper, WebXR, VR, AR, input, controller
+keywords: babylon.js, diving deeper, WebXR, VR, AR, input, controller, tracked sources, haptics
 further-reading:
 video-overview:
 video-content:
@@ -101,9 +101,125 @@ xrInput.onControllerAddedObservable.add((inputSource) => {
 
 Will be triggered right at the end of the `dispose()` function of the input source.
 
+## Tracked sources
+
+The experimental tracked-sources feature exposes hands and controllers that the XR runtime continues to track even when they are not active input sources. The native `XRSession.inputSources` collection contains sources currently participating in input, while `XRSession.trackedSources` can retain pose-capable sources that are not currently active. See the [WebXR specification](https://immersive-web.github.io/webxr/) for the native API.
+
+<Alert severity="warning" title="Experimental browser support">
+Tracked sources are currently known to be supported primarily in Meta Quest Browser 34.1+ and require compatible XR hardware. Enable the feature as optional and check whether it attached before relying on it.
+</Alert>
+
+Babylon's `WebXRFeatureName.TRACKED_SOURCES` has the value `"xr-tracked-sources"`. This is a Babylon feature-manager name; the feature requests the distinct native WebXR session feature descriptor `"tracked-sources"`.
+
+For ES modules, import the feature module so it registers with the features manager:
+
+```typescript
+import "@babylonjs/core/XR/features/WebXRTrackedSources.js";
+```
+
+Then enable the latest feature version. There are no feature-specific options; the final `false` requests `"tracked-sources"` as an optional rather than required native session feature:
+
+```typescript
+const trackedSourcesFeature = xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.TRACKED_SOURCES, "latest", undefined, true, false);
+
+xr.baseExperience.onStateChangedObservable.add((state) => {
+  if (state === BABYLON.WebXRState.IN_XR && !trackedSourcesFeature.attached) {
+    console.warn("Tracked sources are unavailable in this XR runtime.");
+  }
+});
+```
+
+Applications using the side-effect-free `.pure` module must instead call the exported, idempotent `RegisterWebXRTrackedSources()` function before enabling the feature.
+
+The feature provides:
+
+```typescript
+readonly trackedSources: ReadonlyArray<XRInputSource>;
+readonly onTrackedSourceAddedObservable: Observable<XRInputSource>;
+readonly onTrackedSourceRemovedObservable: Observable<XRInputSource>;
+```
+
+Each `trackedSources` access returns a copied, read-only view of the current native collection. The array is a snapshot, but each entry is the original native `XRInputSource`; add and remove notifications preserve that same object identity.
+
+Enabling this feature does not add tracked-only sources to `XRSession.inputSources`, `WebXRInput.controllers`, or Babylon's normal controller/model pipeline. Use the observables when you need to manage tracked-only state yourself:
+
+```typescript
+trackedSourcesFeature.onTrackedSourceAddedObservable.add((source) => {
+  console.log("Tracked source added:", source);
+});
+
+trackedSourcesFeature.onTrackedSourceRemovedObservable.add((source) => {
+  console.log("Tracked source removed:", source);
+});
+```
+
+On attachment, existing native tracked sources are reported as additions. Babylon reconciles later changes by native object identity. Detaching the feature, ending or changing the XR session, and disposing the feature remove listeners and clear the current collection; removals are reported for retained sources during cleanup.
+
+<Playground id="#JRBQVL#0" title="WebXR tracked sources" description="Compare active XR input sources with sources still tracked by the runtime."/>
+
 ## Motion controllers
 
 In most cases, when starting a VR session, the user will have handheld devices, called motion controllers here. A motion controller will be automatically loaded if available. A motion controller has a profile containing its different components and their positions in the buttons and axes array, but Babylon.js takes care of this for you, so you don't have to know this to interact with the motion controller. You can see the different profiles in the [WebXR Input Profiles repository](https://github.com/immersive-web/webxr-input-profiles).
+
+### Controller haptics
+
+The [WebXR Gamepads Module](https://www.w3.org/TR/webxr-gamepads-module-1/) exposes a gamepad for an XR input source. Babylon WebXR motion controllers use it to support both the standard advanced [Gamepad haptics API](https://w3c.github.io/gamepad/) and the legacy `pulse()` API. This Babylon API belongs to WebXR motion-controller classes; it does not extend Babylon's general gamepad system and requires no WebXR feature-manager registration.
+
+<Alert severity="warning" title="Experimental browser and hardware support">
+Advanced controller haptics are experimental. Available actuators and effects vary by browser, XR runtime, controller firmware, and streaming layer. Query every actuator's advertised effects and handle operation errors instead of relying on a browser or controller model alone.
+</Alert>
+
+The actuator shape and motion-controller methods are:
+
+```typescript
+export interface IWebXRControllerHapticActuator {
+  readonly effects?: ReadonlyArray<GamepadHapticEffectType>;
+  playEffect?: GamepadHapticActuator["playEffect"];
+  reset?: GamepadHapticActuator["reset"];
+}
+
+getHapticEffects(hapticActuatorIndex: number = 0): ReadonlyArray<GamepadHapticEffectType>;
+
+playHapticEffectAsync(
+  effectType: GamepadHapticEffectType,
+  parameters?: GamepadEffectParameters,
+  hapticActuatorIndex: number = 0,
+): Promise<GamepadHapticsResult>;
+
+resetHapticActuatorAsync(hapticActuatorIndex: number = 0): Promise<GamepadHapticsResult>;
+
+pulse(value: number, duration: number, hapticActuatorIndex: number = 0): Promise<boolean>;
+```
+
+Advanced haptics primarily use the standard `gamepad.vibrationActuator` at index `0`. If it is absent, Babylon falls back to `gamepad.hapticActuators[0]`; higher indices use the corresponding legacy array entry. If a `vibrationActuator` exists but lacks an advanced capability, Babylon reports that error rather than switching to the legacy actuator. Babylon retains `hapticActuators` for backward-compatible `pulse()` behavior, and `pulse()` continues to use that legacy array directly. It resolves `false` if the indexed legacy actuator is unavailable, while a native `pulse()` rejection still propagates.
+
+Always query an actuator's advertised effects before playback. An empty array means effect discovery is unavailable or no effects were advertised; do not assume that every actuator supports every effect:
+
+```typescript
+const effects = motionController.getHapticEffects();
+
+try {
+  if (effects.includes("dual-rumble")) {
+    await motionController.playHapticEffectAsync("dual-rumble", {
+      duration: 200,
+      strongMagnitude: 0.7,
+      weakMagnitude: 0.4,
+    });
+  }
+} catch (error) {
+  console.warn("Controller haptics are unavailable:", error);
+}
+```
+
+The standard `GamepadEffectParameters` type supports `duration` and `startDelay` in milliseconds. A `"dual-rumble"` effect uses `strongMagnitude` and `weakMagnitude`; a `"trigger-rumble"` effect uses `leftTrigger` and `rightTrigger`. Magnitudes range from `0` to `1`. Babylon forwards these typed parameters to the native actuator without adding defaults or range validation.
+
+Advanced methods fail deterministically for negative, fractional, or unavailable actuator indices. Playback also rejects when effect discovery, the requested effect, or `playEffect` is unsupported; reset rejects when the actuator has no `reset` method. Native `"complete"` or `"preempted"` results and native promise rejections propagate to the caller.
+
+The corresponding errors identify the actuator and failure: an invalid index throws `RangeError: Haptic actuator index <index> is out of range.`; unsupported playback reports missing effect discovery, an unsupported effect, or missing advanced playback; unsupported reset reports `Haptic actuator <index> does not support reset.`
+
+Keep haptic effects short and initiate them in response to an intentional interaction rather than vibrating automatically or for a prolonged period.
+
+<Playground id="#ULVR1X#0" title="WebXR advanced controller haptics" description="Query supported effects, play short controller haptics, and reset an actuator."/>
 
 ### Controller components
 
