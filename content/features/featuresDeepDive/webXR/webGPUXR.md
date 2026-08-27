@@ -103,7 +103,7 @@ Babylon rejects WebGPU XR entry with actionable guidance when the required `XRGP
 - **Multiview is not available with WebGPU-XR yet.** `preferMultiviewOnInit` does not enable it on this path.
 - **Raw Camera Access is unavailable.** The browser exposes camera images through `XRWebGLBinding`, not `XRGPUBinding`.
 - **Space Warp is unavailable.** Its current implementation depends on WebGL-specific binding functionality.
-- **Quad layers are method-gated.** They are available only when the runtime's `XRGPUBinding` implements both `createQuadLayer` and `getSubImage`. Babylon warns and returns `null` when either method is missing.
+- **Additional graphics layers are method-gated.** Quad, cylinder, equirectangular, and cube layers require the matching `XRGPUBinding.create*Layer` factory and `getSubImage`. Babylon warns and returns `null` when either requirement is missing, unless an enabled mesh fallback was requested.
 - **Depth Sensing requires CPU-optimized depth.** Request CPU usage with `usagePreference: ["cpu"]`; GPU-optimized environment depth has no `XRGPUBinding` equivalent.
 
 These limitations are specific to the experimental WebGPU-XR path. A feature may still be available in a WebGL-backed WebXR session.
