@@ -87,6 +87,8 @@ const xr = await scene.createDefaultXRExperienceAsync({
 });
 ```
 
+The strings in `optionalFeatures`, such as `"anchors"`, `"plane-detection"`, and `"mesh-detection"`, are native WebXR session feature descriptors. They are different from Babylon feature names such as `WebXRFeatureName.ANCHOR_SYSTEM`, `WebXRFeatureName.PLANE_DETECTION`, and `WebXRFeatureName.MESH_DETECTION`, which are used with Babylon's features manager.
+
 ### Hit Test
 
 Hit Test is used to send a ray into the real world and receive information about intersections in space. You can read about it in the [Hit Test w3c draft](https://immersive-web.github.io/hit-test/). Think of it as a ray broadcast from your phone's screen toward the object you are looking for. If the device's AR capabilities allow it, it will tell you the position and orientation of the point relative to you.
@@ -171,14 +173,14 @@ Enable the Anchors system using:
 
 ```javascript
 // featuresManager from the base webxr experience helper
-const anchorSystem = featuresManager.enableFeature(BABYLON.WebXRAnchorSystem, "latest");
+const anchorSystem = featuresManager.enableFeature(BABYLON.WebXRAnchorSystem.Name, "latest");
 ```
 
 or for TypeScript:
 
 ```typescript
 // featuresManager from the base webxr experience helper
-const anchorSystem = featuresManager.enableFeature(BABYLON.WebXRAnchorSystem, "latest") as BABYLON.WebXRAnchorSystem;
+const anchorSystem = featuresManager.enableFeature(BABYLON.WebXRAnchorSystem.Name, "latest");
 ```
 
 Some options can be passed to the anchor system:
@@ -198,12 +200,12 @@ export interface IWebXRAnchorSystemOptions {
 }
 ```
 
-Anchors are removed when exiting the XR session (note that the anchors get removed, not the meshes that are attached to them), which is the recommended behavior, as anchors cannot be referenced between sessions.
+Anchors are session-scoped by default and are removed when exiting the XR session (the anchors are removed, not the meshes attached to them). The `doNotRemoveAnchorsOnSessionEnded` option only keeps Babylon's references; it does not make the native anchors usable in a later session. Supporting runtimes can persist anchors by handle as described below.
 
 If you want to prevent that from happening, use the `doNotRemoveAnchorsOnSessionEnded` option when initializing the anchor system:
 
 ```javascript
-const anchorSystem = featuresManager.enableFeature(BABYLON.WebXRAnchorSystem, "latest", { doNotRemoveAnchorsOnSessionEnded: true });
+const anchorSystem = featuresManager.enableFeature(BABYLON.WebXRAnchorSystem.Name, "latest", { doNotRemoveAnchorsOnSessionEnded: true });
 ```
 
 The Anchor system works perfectly with the Hit Test feature if you want to add an anchor at a hit-test position. To do that, use the `addAnchorPointUsingHitTestResultAsync` function:
@@ -220,7 +222,7 @@ const { position, rotationQuaternion } = anyRandomMesh;
 const anchorPromise = anchorSystem.addAnchorAtPositionAndRotationAsync(position, rotationQuaternion);
 ```
 
-Note that `anchorPromise` will return a _native XRAnchor_ when fulfilled. This will provide you with what the browser returns. To work with anchors **in the Babylon way**, we use the observables defined in the anchor module:
+`anchorPromise` resolves with an `IWebXRAnchor`, which contains the native `XRAnchor` in its `xrAnchor` property. The same Babylon anchor is also delivered through the anchor module's observables:
 
 ```javascript
 anchorSystem.onAnchorAddedObservable.add((anchor) => {
@@ -254,6 +256,11 @@ export interface IWebXRAnchor {
   xrAnchor: XRAnchor;
 
   /**
+   * The persistent handle assigned by the XR runtime, when one was requested or restored
+   */
+  persistentHandle?: string;
+
+  /**
    * if defined, this object will be constantly updated by the anchor's position and rotation
    */
   attachedNode?: TransformNode;
@@ -273,15 +280,92 @@ The mesh will now be tracked by the system and will be located at the requested 
 
 You might ask why use the anchor system with hit-test results, since hit-test results are returned by the system with a position defined by the device. Setting the mesh at the hit-test location will work just fine. The difference is that the system might later update the information it has about this position—maybe it found out the plane has a different transformation, or maybe it updated its position in space. Using the anchor system keeps the transformation updated as the system updates its understanding of the space.
 
+#### Persistent anchors (experimental)
+
+A session-scoped anchor is valid only in the XR session that created it. A persistent anchor has an origin-scoped string handle that a supporting runtime can use to restore the anchor in a later session. The [WebXR Anchors Module](https://immersive-web.github.io/anchors/) marks persistence as experimental, and support is currently found primarily in Meta Quest Browser. Applications must not assume that handles are retained indefinitely: user agents can limit or evict stored anchors, and clearing site data can remove them.
+
+`WebXRAnchorSystem` exposes the following persistence APIs:
+
+| API                                                           | Purpose                                                                                                                                       |
+| ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `IWebXRAnchor.persistentHandle?: string`                      | Contains the handle after Babylon requests or restores it.                                                                                    |
+| `isPersistentAnchorSupported: boolean`                        | Reports whether the current session exposes enumeration, restoration, and deletion. It does not test handle creation on an individual anchor. |
+| `persistentAnchors: ReadonlyArray<string>`                    | Enumerates the origin's handles known to the current session. The getter throws if enumeration is unavailable.                                |
+| `requestPersistentHandleAsync(anchor: IWebXRAnchor): Promise<string>` | Requests a handle for a live anchor and assigns it to `anchor.persistentHandle`.                                                              |
+| `restorePersistentAnchorAsync(handle: string): Promise<IWebXRAnchor>` | Restores one handle.                                                                                                                          |
+| `restorePersistentAnchorsAsync(): Promise<IWebXRAnchor[]>`           | Restores every handle currently returned by `persistentAnchors`.                                                                              |
+| `deletePersistentAnchorAsync(handle: string): Promise<void>`         | Deletes the handle from native persistent storage.                                                                                            |
+
+Each native operation is feature-detected independently. In particular, check `anchor.xrAnchor.requestPersistentHandle` before requesting a new handle; `isPersistentAnchorSupported` does not cover that per-anchor method. Babylon rejects unsupported requests, restores, and deletions. It also rejects restoration while the feature is detached or if tracking is interrupted. Native failures, including invalid-state errors, are passed through, so every operation should handle errors.
+
+The following abbreviated lifecycle creates and persists an anchor in one session, then restores and deletes it in a later session. The anchor system must be attached to an active XR session before these functions run.
+
+```typescript
+const anchorSystem = featuresManager.enableFeature(BABYLON.WebXRAnchorSystem.Name, "latest");
+const handleStorageKey = "saved-xr-anchor";
+declare const contentToRestore: BABYLON.TransformNode; // Created during scene setup.
+
+async function createPersistentAnchor(position: BABYLON.Vector3, rotation: BABYLON.Quaternion) {
+  try {
+    const anchor = await anchorSystem.addAnchorAtPositionAndRotationAsync(position, rotation);
+
+    if (typeof anchor.xrAnchor.requestPersistentHandle !== "function") {
+      throw new Error("This runtime cannot create persistent anchor handles.");
+    }
+
+    const handle = await anchorSystem.requestPersistentHandleAsync(anchor);
+    localStorage.setItem(handleStorageKey, handle);
+  } catch (error) {
+    console.error("Unable to persist the anchor:", error);
+  }
+}
+
+async function restoreSavedAnchor() {
+  const handle = localStorage.getItem(handleStorageKey);
+  if (!handle) {
+    return;
+  }
+
+  try {
+    const knownHandles = anchorSystem.persistentAnchors;
+    if (!knownHandles.includes(handle)) {
+      localStorage.removeItem(handleStorageKey);
+      return;
+    }
+
+    const restoredAnchor = await anchorSystem.restorePersistentAnchorAsync(handle);
+    restoredAnchor.attachedNode = contentToRestore;
+  } catch (error) {
+    console.error("Unable to restore the anchor:", error);
+  }
+}
+
+async function deleteSavedAnchor() {
+  const handle = localStorage.getItem(handleStorageKey);
+  if (!handle) {
+    return;
+  }
+
+  try {
+    await anchorSystem.deletePersistentAnchorAsync(handle);
+    localStorage.removeItem(handleStorageKey);
+  } catch (error) {
+    console.error("Unable to delete the persistent anchor:", error);
+  }
+}
+```
+
+Use `restorePersistentAnchorsAsync()` instead when every handle returned by the runtime should be restored. Restored anchors are added to `anchorSystem.anchors` and participate in `onAnchorAddedObservable`, `onAnchorUpdatedObservable`, and `onAnchorRemovedObservable` like newly created anchors. A restore promise resolves after the restored native anchor begins tracking and the added observable has run. Deleting persistence resolves when native storage deletion completes; removal from the live anchor collection and the removed observable occur on a following XR frame.
+
 ### Plane detection
 
-Your device is (usually) capable of detecting plane geometries in the real world. To read more about plane detection go to the [Plane detection explainer](https://github.com/immersive-web/real-world-geometry/blob/master/plane-detection-explainer.md).
+Your device may be capable of detecting plane geometries in the real world. See the [WebXR Plane Detection Module](https://immersive-web.github.io/plane-detection/) for the native API.
 
 Babylon has an experimental plane detection module that works with the underlying system. To enable it:
 
 ```javascript
 // featuresManager from the base webxr experience helper
-const planeDetector = featuresManager.enableFeature(BABYLON.WebXRPlaneDetector, "latest");
+const planeDetector = featuresManager.enableFeature(BABYLON.WebXRPlaneDetector.Name, "latest");
 ```
 
 Just like any other module, you can configure it using the options object, which has this type:
@@ -340,6 +424,10 @@ export interface IWebXRPlane {
    * the native xr-plane object
    */
   xrPlane: XRPlane;
+  /**
+   * The semantic classification supplied by the XR runtime
+   */
+  semanticLabel?: string | null;
 }
 ```
 
@@ -360,6 +448,98 @@ var polygon = polygon_triangulation.build(false, 0.01);
 ```
 
 A simple use case for planes is showing them in your scene using polygons. An example for that can be found at the WebXR Plane Detection demo: <Playground id="#98TM63" title="WebXR Plane Detection Demo" description="WebXR Plane Detection Demo" image="/img/playgroundsAndNMEs/vrglasses.webp"/>
+
+#### Semantic labels for planes and meshes (experimental)
+
+Supporting runtimes can classify real-world geometry with semantic labels. Babylon copies `XRPlane.semanticLabel` to `IWebXRPlane.semanticLabel` and `XRMesh.semanticLabel` to `IWebXRVertexData.semanticLabel`:
+
+```typescript
+interface IWebXRPlane {
+  // Other plane data...
+  semanticLabel?: string | null;
+}
+
+interface IWebXRVertexData {
+  // Other mesh data...
+  semanticLabel?: string | null;
+}
+```
+
+The property is `undefined` when the runtime does not expose semantic labels and can be `null` or an empty string when no classification is known. Values come from the runtime. The [semantic labels registry](https://github.com/immersive-web/semantic-labels) defines common labels, but applications must not treat it as a closed TypeScript enumeration or assume that every detected object has a label.
+
+Babylon reads the label when a plane or mesh is added and refreshes it through the detector's normal update path when the runtime reports that geometry as changed. Consume both the added and updated observables:
+
+```typescript
+const planeDetector = featuresManager.enableFeature(BABYLON.WebXRPlaneDetector.Name, "latest");
+
+function consumePlaneLabel(plane: BABYLON.IWebXRPlane) {
+  const supportsLabels = "semanticLabel" in plane.xrPlane;
+  const label = plane.semanticLabel;
+
+  if (supportsLabels && typeof label === "string" && label.length > 0) {
+    console.log(`Plane ${plane.id}: ${label}`);
+  } else {
+    console.log(`Plane ${plane.id}: unclassified`);
+  }
+}
+
+planeDetector.onPlaneAddedObservable.add(consumePlaneLabel);
+planeDetector.onPlaneUpdatedObservable.add(consumePlaneLabel);
+```
+
+Mesh labels are available directly on the `IWebXRVertexData` delivered by the mesh detector; they are not added to a generated Babylon mesh's metadata.
+
+```typescript
+const meshDetector = featuresManager.enableFeature(BABYLON.WebXRMeshDetector.Name, "latest");
+
+function consumeMeshLabel(vertexData: BABYLON.IWebXRVertexData) {
+  const supportsLabels = "semanticLabel" in vertexData.xrMesh;
+  const label = vertexData.semanticLabel;
+
+  if (supportsLabels && typeof label === "string" && label.length > 0) {
+    console.log(`Mesh ${vertexData.id}: ${label}`);
+  } else {
+    console.log(`Mesh ${vertexData.id}: unclassified`);
+  }
+}
+
+meshDetector.onMeshAddedObservable.add(consumeMeshLabel);
+meshDetector.onMeshUpdatedObservable.add(consumeMeshLabel);
+```
+
+Semantic labels and real-world mesh detection are not broadly supported across browsers. Negotiate the native `"plane-detection"` or `"mesh-detection"` session feature as appropriate, then feature-detect `semanticLabel` on the native `XRPlane` or `XRMesh` as shown above. See the [Plane Detection Module](https://immersive-web.github.io/plane-detection/#dom-xrplane-semanticlabel) and [Real-World Meshing Module](https://immersive-web.github.io/real-world-meshing/#dom-xrmesh-semanticlabel) for the native properties.
+
+#### Room capture (experimental)
+
+`WebXRPlaneDetector.initiateRoomCapture(): Promise<void>` asks a supporting runtime to capture or refresh the room layout used by plane detection. Room capture is part of the plane detector, not a separate Babylon WebXR feature, and requires an active XR session with native `XRSession.initiateRoomCapture()` support. Current support is limited and depends on the browser, device, enabled `"plane-detection"` session feature, and user permissions.
+
+The promise follows the native operation and propagates its rejection. Babylon also rejects when there is no active session or the runtime does not expose the method. Feature-detect the native method when working directly with `XRSession`, or call the Babylon method inside error handling as shown here:
+
+```typescript
+const planeDetector = featuresManager.enableFeature(BABYLON.WebXRPlaneDetector.Name, "latest");
+const detectedPlanes = new Map<number, BABYLON.IWebXRPlane>();
+
+planeDetector.onPlaneAddedObservable.add((plane) => {
+  detectedPlanes.set(plane.id, plane);
+});
+planeDetector.onPlaneUpdatedObservable.add((plane) => {
+  detectedPlanes.set(plane.id, plane);
+});
+planeDetector.onPlaneRemovedObservable.add((plane) => {
+  detectedPlanes.delete(plane.id);
+});
+
+// Run this handler while an immersive XR session is active.
+document.getElementById("capture-room")?.addEventListener("click", async () => {
+  try {
+    await planeDetector.initiateRoomCapture();
+  } catch (error) {
+    console.error("Room capture is unavailable or failed:", error);
+  }
+});
+```
+
+The promise does not return planes. Captured results arrive on later XR frames through the existing plane detector observables. The runtime decides whether a new capture replaces or augments previously detected planes. See the native [`initiateRoomCapture()` specification](https://immersive-web.github.io/plane-detection/#dom-xrsession-initiateroomcapture).
 
 ### Background remover
 
