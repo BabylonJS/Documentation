@@ -45,6 +45,20 @@ The [`CreateAudioEngineAsync`](/typedoc/functions/BABYLON.CreateAudioEngineAsync
 
 Note that the example code snippet creates an async function and calls it immediately, and that it uses `await` to wait for the audio engine to be "unlocked" since browsers prevent audio from playing until a user interaction occurs. See [Browser autoplay considerations](#browser-autoplay-considerations) for more information.
 
+### iOS and iPadOS ringer switch behavior
+
+By default, the audio engine uses a silent HTML audio element while Babylon.js sounds are active. This workaround allows Web Audio to remain audible on iOS and iPadOS when the device's ringer switch is off. On some affected devices, keeping the iOS media playback session active can reduce rendering performance.
+
+Applications that prioritize rendering performance can disable the workaround by setting [`disableIOSRingerSwitchWorkaround`](/typedoc/interfaces/BABYLON.IWebAudioEngineOptions#disableiosringerswitchworkaround) to `true` when creating the audio engine:
+
+```javascript
+const audioEngine = await BABYLON.CreateAudioEngineAsync({
+    disableIOSRingerSwitchWorkaround: true,
+});
+```
+
+Disabling the workaround prevents the silent HTML audio element from being created, but Web Audio may be muted while the device's ringer switch is off. The option defaults to `false`, so existing applications continue to use the workaround unless they explicitly disable it.
+
 ## Playing a sound
 
 The simplest way to play a sound is to create it with the [`CreateSoundAsync`](/typedoc/functions/BABYLON.CreateSoundAsync) function, and call the sound's [`play()`](/typedoc/classes/BABYLON.AbstractSound#play) function after the audio engine is unlocked:
