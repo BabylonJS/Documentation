@@ -136,7 +136,7 @@ The motion follows the pose the runtime evaluated, not a clock of its own, so ev
 
 | Option | Default | What it does |
 | --- | --- | --- |
-| `rootNode` | the position-animated node with the most animated descendants | The node whose own travel is tried first. A bone is resolved to its linked transform node. |
+| `rootNode` | the position-animated node with the most animated descendants | The node whose own travel is tried first. A bone is resolved to its linked transform node. A node the group does not animate is accepted as the base of the hierarchy: the travel then comes from the contact nodes under it. |
 | `characterNode` | the topmost ancestor of the root | The node that receives the motion and whose local space the motion is measured in. |
 | `contactNodes` | the leaf nodes closest to the ground | The nodes that touch the ground, used when the root does not travel. |
 | `source` | root first, then feet | Forces `RootMotionSource.Root` or `RootMotionSource.FootContact`. |
