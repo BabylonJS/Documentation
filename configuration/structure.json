@@ -315,6 +315,11 @@
                                     "friendlyName": "Animation Retargeting",
                                     "children": {},
                                     "content": "features/featuresDeepDive/animation/animationRetargeting"
+                                },
+                                "rootMotion": {
+                                    "friendlyName": "Root Motion",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/animation/rootMotion"
                                 }
                             },
                             "content": "features/featuresDeepDive/animation"
