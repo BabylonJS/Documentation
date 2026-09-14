@@ -867,6 +867,11 @@
                                     },
                                     "content": "features/featuresDeepDive/importers/glTF"
                                 },
+                                "usd": {
+                                    "friendlyName": "OpenUSD File Loader Plugin",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/importers/usd"
+                                },
                                 "stl": {
                                     "friendlyName": ".stl File Loader Plugin",
                                     "children": {},

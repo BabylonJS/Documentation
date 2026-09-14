@@ -8,6 +8,8 @@ further-reading:
     url: /setup/frameworkPackages/frameworkVers
   - title: Use the glTF File Loader Plugin
     url: /features/featuresDeepDive/importers/glTF
+  - title: Use the OpenUSD File Loader Plugin
+    url: /features/featuresDeepDive/importers/usd
   - title: Use the OBJ File Loader Plugin
     url: /features/featuresDeepDive/importers/oBJ
   - title: Use the STL File Loader Plugin
@@ -33,6 +35,7 @@ To load a file of a given type, Babylon must first have a reference to the plugi
 Plugins are currently available for:
 
 - [.gltf](/features/featuresDeepDive/importers/glTF) (also used for binary version .glb)
+- [.usd, .usda, .usdc, .usdz](/features/featuresDeepDive/importers/usd)
 - [.obj](/features/featuresDeepDive/importers/oBJ)
 - [.stl](/features/featuresDeepDive/importers/stl)
 - [.ply, .compressed.ply, .splat, .spz](/features/featuresDeepDive/importers/gaussianSplatting)
