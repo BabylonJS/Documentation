@@ -50,6 +50,8 @@ You can also drag and drop scene files directly into the Scene Preview pane. Thi
 
 Supported scene-loading workflows currently include Babylon scene files and glTF or GLB assets. For glTF scenes with external resources, drop the referenced files together.
 
+When a glTF asset contains `KHR_interactivity`, the editor imports every behavior graph into a separate tab. It selects the asset's default graph when that graph can run, keeps invalid graphs available for inspection, and reports source-path diagnostics in the log. Imported `KHR_interactivity` graphs cannot currently be saved or reloaded as Flow Graph JSON because they depend on runtime services owned by the source asset. See [Loading KHR_interactivity Assets](/features/featuresDeepDive/importers/glTF/khrInteractivity) for the full runtime and editor behavior.
+
 ## Scene Context And Execution Contexts
 
 The editor now supports more than one execution context for the same graph.

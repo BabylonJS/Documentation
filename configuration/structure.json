@@ -854,6 +854,11 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/importers/glTF/progressiveglTFLoad"
                                         },
+                                        "khrInteractivity": {
+                                            "friendlyName": "KHR_interactivity",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/importers/glTF/khrInteractivity"
+                                        },
                                         "createExtensions": {
                                             "friendlyName": "Create Your Own glTF Extensions",
                                             "children": {},
