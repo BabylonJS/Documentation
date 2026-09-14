@@ -34,7 +34,7 @@ An unknown core operation makes its graph invalid. An operation supplied by an u
 
 ## Loading And Inspecting An Interactive Asset
 
-Load the asset through the normal scene loader, then use [`GetKHRInteractivityImportResult`](/typedoc/functions/BABYLON.GetKHRInteractivityImportResult) to inspect the most recently appended interactive asset:
+Load the asset through the normal scene loader, then use [`GetKHRInteractivityImportResult`](/typedoc/functions/BABYLON.GLTF2.Loader.Extensions.GetKHRInteractivityImportResult) to inspect the most recently appended interactive asset:
 
 ```typescript
 import { AppendSceneAsync } from "@babylonjs/core/Loading/sceneLoader";
@@ -62,14 +62,19 @@ const allResults = GetKHRInteractivityImportResults(scene);
 
 The import result contains:
 
-- `document`: the canonical source document, its selected graph, and root diagnostics.
-- `graphs`: one result per source graph, in source order.
-- `serializedFlowGraph`: the converted graph when conversion succeeded.
-- `flowGraph` and `coordinator`: the runtime objects when runtime construction was enabled.
-- `diagnostics`: errors and warnings with JSON pointer paths back to the source.
+- `document`: the canonical source document, its selected graph, and root-level diagnostics in `document.diagnostics`.
+- `graphs`: one graph result per source graph, in source order.
+- `pathConverter`, `glTF`, and `hostResolver`: the import-scoped services used by the executable graphs.
 - `assetIndex`: a stable, zero-based identity when several interactive assets are appended to one scene.
 
-[`GetKHRInteractivityImportResults`](/typedoc/functions/BABYLON.GetKHRInteractivityImportResults) returns every result for the scene in load order. The singular getter remains convenient, but it returns only the latest result.
+Each entry in `result.graphs` contains:
+
+- `graph`: the canonical source graph, including its validity and graph-level validation diagnostics.
+- `serializedFlowGraph`: the converted graph when conversion succeeded.
+- `flowGraph` and `coordinator`: the runtime objects when runtime construction was enabled.
+- `diagnostics`: graph-level validation, conversion, and runtime errors or warnings, with JSON pointer paths back to the source.
+
+[`GetKHRInteractivityImportResults`](/typedoc/functions/BABYLON.GLTF2.Loader.Extensions.GetKHRInteractivityImportResults) returns every result for the scene in load order. The singular getter remains convenient, but it returns only the latest result.
 
 The coordinators belong to the loaded scene and are disposed when that scene is disposed.
 
