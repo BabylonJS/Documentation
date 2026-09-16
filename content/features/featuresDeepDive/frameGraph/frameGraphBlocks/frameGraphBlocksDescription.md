@@ -86,6 +86,25 @@ You should refer to the post-process class in the Babylon framework if you need 
 
 In the rest of this section, we will focus on post-processes that have special features and will skip post-processes that should be self-explanatory (those for which you just need to connect the right inputs and define the right values for their parameters!).
 
+<H3Image title="Mesh Blending" image="/img/how_to/meshBlending/nrge-setup.png" alt="Mesh Blending block connected to GeometryRenderer and Render blocks"/>
+
+This block softens validated contacts between meshes by blending SceneColor in screen space.
+
+In addition to the standard **source**, **target**, and **output** connections, it uses:
+* **camera**. The camera used to project world radii and reconstruct positions.
+* **geomDepth**. A view-depth or screen-depth texture.
+* **geomMeshBlendTag**. The packed integer tag texture that identifies logical groups and radius classes.
+* **geomAlbedo** (optional). Linear albedo used to attenuate shadow transfer. Leave it disconnected to compile all shadow-estimation work out.
+<br/>
+
+Generate the geometry inputs with a `GeometryRenderer` block configured with one sample. Connect either **geomViewDepth** or **geomScreenDepth** to **geomDepth**; the block selects the matching depth representation during graph build.
+
+![Node Render Graph setup for mesh blending](/img/how_to/meshBlending/nrge-setup.png)
+
+The property panel exposes quality, all four radius definitions, slope factor, and debug mode. Refer to the [mesh blending documentation](/features/featuresDeepDive/postProcesses/meshBlending) for the complete settings reference, performance guidance, and transparency limitations.
+
+<Playground id="#BJBKKU#14" image="/img/how_to/meshBlending/coastal-after.png" title="Coastal cliff mesh blending in a node render graph" description="A coastal cliff scene loading its mesh blending Node Render Graph with ParseFromSnippetAsync" isMain={true} category="Frame Graph"/>
+
 <H3Image title="Motion Blur" image="/img/frameGraph/motionblur.webp" alt="Motion Blur node"/>
 
 This block allows you to apply a Motion Blur post-process to a given texture.
@@ -164,6 +183,7 @@ This block is primarily used to generate geometry textures, i.e. textures contai
 * **geomReflectivity**: reflectivity color. This is the reflectivity color of the vertex (used by SSR, for example).
 * **geomVelocity**: velocity vector in screen space. See [Motion blur by object](https://john-chapman-graphics.blogspot.com/2013/01/per-object-motion-blur.html) for more details on what a velocity texture is. **geomVelocity** is a texture constructed with the optimization described in the “Format and precision” section to improve accuracy when using an unsigned byte texture type.
 * **geomLinearVelocity**: linear velocity vector in screen space. It is identical to the one above, but without the optimization, so without the `pow()` call. The coordinates are multiplied by 0.5, so that they are between [-0.5, 0.5] instead of [-1, 1].
+* **geomMeshBlendTag**: packed `R8UI` mesh-blending group and radius-class tags. This output is used by the `Mesh Blending` block.
 <br/>
 
 To make these textures stand out, the corresponding outputs are all preceded by the prefix **geom**. The same goes for the blocks that are expecting one (or more) of these geometry textures as input. For example:
