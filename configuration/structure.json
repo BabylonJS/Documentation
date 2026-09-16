@@ -2477,6 +2477,11 @@
                             "children": {},
                             "content": "setup/frameworkPackages/CDN"
                         },
+                        "nativeBrowserESM": {
+                            "friendlyName": "Native ES Modules in the Browser",
+                            "children": {},
+                            "content": "setup/frameworkPackages/nativeBrowserESM"
+                        },
                         "npmSupport": {
                             "friendlyName": "UMD/NPM Support",
                             "children": {},
