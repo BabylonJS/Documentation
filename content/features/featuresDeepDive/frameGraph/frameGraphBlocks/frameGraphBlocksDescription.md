@@ -99,8 +99,6 @@ In addition to the standard **source**, **target**, and **output** connections, 
 
 Generate the geometry inputs with a `GeometryRenderer` block configured with one sample. Connect either **geomViewDepth** or **geomScreenDepth** to **geomDepth**; the block selects the matching depth representation during graph build.
 
-![Node Render Graph setup for mesh blending](/img/how_to/meshBlending/nrge-setup.png)
-
 The property panel exposes quality, all four radius definitions, slope factor, and debug mode. Refer to the [mesh blending documentation](/features/featuresDeepDive/postProcesses/meshBlending) for the complete settings reference, performance guidance, and transparency limitations.
 
 <Playground id="#BJBKKU#14" image="/img/how_to/meshBlending/coastal-after.png" title="Coastal cliff mesh blending in a node render graph" description="A coastal cliff scene loading its mesh blending Node Render Graph with ParseFromSnippetAsync" isMain={true} category="Frame Graph"/>

@@ -56,8 +56,8 @@ The following restrictions apply:
 - WebGL 1 is not supported.
 - Native is not supported because it cannot currently create the required `R8UI` mesh-tag render target.
 - SceneColor, mesh tags, depth, and optional albedo must have identical physical dimensions and sample counts.
-- The mesh-tag and geometry inputs must be single-sampled.
-- The mesh-tag texture must use nearest sampling and no mipmaps.
+- The mesh-tag, depth, and optional albedo inputs must be single-sampled and must not use mipmaps.
+- The mesh-tag texture must use nearest sampling.
 - A normal texture is **not** required.
 
 ## Assigning mesh-blending tags
@@ -195,6 +195,7 @@ The classic path consumes caller-owned textures. It does not enable, reconfigure
 const geometryBufferRenderer = scene.enableGeometryBufferRenderer();
 
 geometryBufferRenderer.samples = 1;
+geometryBufferRenderer.renderTransparentMeshes = false;
 geometryBufferRenderer.enableMeshBlendingTag = true;
 geometryBufferRenderer.enableScreenspaceDepth = true;
 
@@ -422,7 +423,8 @@ Connect a linear base-color/albedo texture and inspect `ShadowAttenuation`. Veri
 
 - Confirm that all input textures have matching physical dimensions.
 - Confirm that all inputs are single-sampled and have matching sample counts.
-- Use nearest sampling and no mipmaps for the mesh-tag texture.
+- Disable mipmaps for the mesh-tag, depth, and optional albedo textures.
+- Use nearest sampling for the mesh-tag texture.
 - Confirm that `depthType` matches the connected depth texture.
 - Check whether overlapping transparent content is making SceneColor disagree with the single-layer geometry inputs.
 
