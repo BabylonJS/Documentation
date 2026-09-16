@@ -2043,6 +2043,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/postProcesses/motionBlurPostProcess"
                                 },
+                                "meshBlending": {
+                                    "friendlyName": "Mesh Blending",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/postProcesses/meshBlending"
+                                },
                                 "SSRRenderingPipeline": {
                                     "friendlyName": "Using the Screen Space Reflections (SSR) Rendering Pipeline",
                                     "children": {},

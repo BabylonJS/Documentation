@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-labelledby="title desc">
+  <title id="title">Mesh blending tag group behavior</title>
+  <desc id="desc">Three examples show group zero disabling blending, equal nonzero groups acting as one object, and different nonzero groups blending across a validated contact.</desc>
+  <defs>
+    <linearGradient id="blend" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2d9cdb"/>
+      <stop offset=".45" stop-color="#56ccf2"/>
+      <stop offset=".55" stop-color="#f2c94c"/>
+      <stop offset="1" stop-color="#f2994a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#1a202c" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="470" rx="24" fill="#f7f8fc"/>
+  <text x="600" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#20253a">Packed tags define participation and logical groups</text>
+
+  <g font-family="Arial, sans-serif" filter="url(#shadow)">
+    <g transform="translate(45 85)">
+      <rect width="340" height="330" rx="20" fill="#fff"/>
+      <text x="170" y="40" text-anchor="middle" font-size="23" font-weight="700" fill="#20253a">Group 0</text>
+      <text x="170" y="68" text-anchor="middle" font-size="17" fill="#6b7280">Mesh blending disabled</text>
+      <path d="M48 245 Q120 135 190 245 Z" fill="#2d9cdb"/>
+      <path d="M150 245 Q222 125 294 245 Z" fill="#f2994a"/>
+      <line x1="165" y1="153" x2="165" y2="250" stroke="#eb5757" stroke-width="7"/>
+      <text x="170" y="294" text-anchor="middle" font-size="16" fill="#eb5757">hard seam remains</text>
+    </g>
+
+    <g transform="translate(430 85)">
+      <rect width="340" height="330" rx="20" fill="#fff"/>
+      <text x="170" y="40" text-anchor="middle" font-size="23" font-weight="700" fill="#20253a">Same nonzero group</text>
+      <text x="170" y="68" text-anchor="middle" font-size="17" fill="#6b7280">One logical object</text>
+      <path d="M48 245 Q120 135 190 245 Z" fill="#2d9cdb"/>
+      <path d="M150 245 Q222 125 294 245 Z" fill="#2d9cdb"/>
+      <line x1="165" y1="153" x2="165" y2="250" stroke="#4a5568" stroke-width="4" stroke-dasharray="8 7"/>
+      <text x="170" y="294" text-anchor="middle" font-size="16" fill="#4a5568">internal boundary ignored</text>
+    </g>
+
+    <g transform="translate(815 85)">
+      <rect width="340" height="330" rx="20" fill="#fff"/>
+      <text x="170" y="40" text-anchor="middle" font-size="23" font-weight="700" fill="#20253a">Different nonzero groups</text>
+      <text x="170" y="68" text-anchor="middle" font-size="17" fill="#6b7280">Validated contact can blend</text>
+      <clipPath id="contactClip">
+        <rect x="48" y="105" width="246" height="140" rx="16"/>
+      </clipPath>
+      <g clip-path="url(#contactClip)">
+        <rect x="48" y="105" width="246" height="140" fill="url(#blend)"/>
+        <path d="M48 245 Q120 135 190 245 Z" fill="#2d9cdb" opacity=".78"/>
+        <path d="M150 245 Q222 125 294 245 Z" fill="#f2994a" opacity=".78"/>
+      </g>
+      <path d="M140 233 Q167 193 194 233" fill="none" stroke="#6c4bf4" stroke-width="13" stroke-linecap="round" opacity=".75"/>
+      <text x="170" y="294" text-anchor="middle" font-size="16" fill="#6c4bf4">softened contact seam</text>
+    </g>
+  </g>
+
+  <text x="600" y="447" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#4a5568">The radius class is stored in the same byte; at a contact, the smaller class from the two surfaces wins.</text>
+</svg>
