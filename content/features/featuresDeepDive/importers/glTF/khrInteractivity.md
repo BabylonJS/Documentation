@@ -1,7 +1,7 @@
 ---
 title: KHR_interactivity
 image:
-description: Learn how Babylon.js loads, validates, runs, and inspects ratified KHR_interactivity graphs.
+description: Learn how Babylon.js loads, validates, runs, inspects, and exports ratified KHR_interactivity graphs.
 keywords: babylon.js, gltf, KHR_interactivity, flow graph, interactive assets
 further-reading:
     - title: Flow Graph Overview
@@ -14,9 +14,9 @@ video-content:
 
 ## Overview
 
-Babylon.js supports Phase 1 of the ratified [`KHR_interactivity`](https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_interactivity) glTF extension. The glTF loader validates each behavior graph, converts valid graphs to Babylon.js Flow Graphs, and runs the graph selected by the extension.
+Babylon.js supports loading and lossless re-export of the ratified [`KHR_interactivity`](https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_interactivity) glTF extension. The glTF loader validates each behavior graph, converts valid graphs to Babylon.js Flow Graphs, and runs the graph selected by the extension.
 
-The import keeps a canonical copy of the source document alongside the executable graphs. This copy preserves graph names, declarations, types, variables, events, configurations, dynamic sockets, references, `extras`, and additional extension data. Applications and tools can inspect this data even when a graph cannot run.
+The import keeps a canonical copy of the source document alongside the executable graphs. This copy preserves graph names, declarations, types, variables, events, configurations, dynamic sockets, references, `extras`, and additional extension data. Applications and tools can inspect this data even when a graph cannot run. The same canonical data also lets Babylon.js prove that an edited graph can be exported without changing its meaning.
 
 ## Default Runtime Behavior
 
@@ -124,10 +124,91 @@ The editor:
 - Preserves imported composites, source paths, dynamic sockets, and unsupported additional-extension operations for inspection.
 - Uses explicit compatibility import so pre-ratification assets can still be examined.
 
-The editor does not currently save or reload imported `KHR_interactivity` graphs as Flow Graph JSON. These graphs depend on runtime services owned by the imported asset. Standards-compliant `KHR_interactivity` export is planned for a later phase.
+Imported `KHR_interactivity` graphs still cannot be saved or reloaded as Flow Graph JSON because they depend on runtime services owned by the imported asset. Use one of the dedicated export actions instead:
+
+- **Export KHR glTF** downloads the preview scene and all imported graphs as standards-compliant `.gltf` files.
+- **Export KHR GLB** downloads the same content as one `.glb` file.
+- **Export BABYLON_flow_graph GLB** remains a separate Babylon-specific format for ordinary Flow Graph JSON. It does not emit `KHR_interactivity` and is disabled for imported `KHR_interactivity` graphs.
+
+The editor checks the complete graph set before export. If an edit cannot be represented exactly, no file is produced. The log identifies the affected graph, node, block, or socket.
+
+## Lossless Export Rules
+
+`KHR_interactivity` export is a round-trip workflow for graphs imported from a canonical `KHR_interactivity` glTF or GLB file. It does not convert an arbitrary Babylon.js Flow Graph to the Khronos format.
+
+Babylon.js preserves supported edits to values, variables, events, configurations, sockets, and scene references. It also preserves unknown operations supplied by additional glTF extensions as typed no-op blocks. These blocks remain non-executable in Babylon.js.
+
+Export is rejected when Babylon.js cannot preserve the original meaning. Common reasons include:
+
+- Adding a block that has no `KHR_interactivity` inverse mapping.
+- Breaking the internal wiring of an imported operation that expands to several Flow Graph blocks.
+- Changing a type, default value, dynamic socket, or configuration to a shape the specification cannot represent.
+- Removing or excluding a referenced scene object from the glTF export.
+- Creating value and flow dependencies that cannot satisfy `KHR_interactivity` node ordering.
+- Replacing the preview scene that owns the imported graph and its references.
+
+The export does not mutate the live Flow Graph. Fix the reported edit or return to the imported structure, then export again.
+
+## Exporting In Code
+
+Create an export plan from the imported graphs and canonical document. Call `analyze()` before starting the glTF serializer when you want to show diagnostics in your own tool:
+
+```typescript
+import { GLTF2Export } from "@babylonjs/serializers";
+import {
+    CreateKHRInteractivityExportPlan,
+    GetKHRInteractivityImportResult,
+} from "@babylonjs/loaders/glTF/2.0/Extensions/KHR_interactivity";
+
+const result = GetKHRInteractivityImportResult(scene);
+if (!result) {
+    throw new Error("The scene has no imported KHR_interactivity asset.");
+}
+
+const flowGraphs = [];
+for (const graphResult of result.graphs) {
+    if (!graphResult.flowGraph) {
+        throw new Error("Every source graph must have an executable Flow Graph before export.");
+    }
+    flowGraphs.push(graphResult.flowGraph);
+}
+
+const plan = CreateKHRInteractivityExportPlan(flowGraphs, {
+    document: result.document,
+    sourceGLTF: result.glTF,
+    defaultGraphIndex: result.document.defaultGraphIndex,
+    required: result.glTF.extensionsRequired?.includes("KHR_interactivity") ?? false,
+});
+
+const analysis = plan.analyze();
+if (!analysis.representable) {
+    console.table(analysis.diagnostics);
+    throw new Error("The edited graph cannot be exported without changing its meaning.");
+}
+
+const data = await GLTF2Export.GLBAsync(scene, "interactive", {
+    khrInteractivity: plan,
+});
+data.downloadFiles();
+```
+
+[`CreateKHRInteractivityExportPlan`](/typedoc/functions/BABYLON.GLTF2.Loader.Extensions.CreateKHRInteractivityExportPlan) reads the graphs without changing them. Its options include:
+
+| Option | Default | Behavior |
+| --- | --- | --- |
+| `document` | None | Supplies the canonical import document. It is required for lossless export. |
+| `sourceGLTF` | None | Resolves references from the source asset to their final exported glTF indices. |
+| `defaultGraphIndex` | The canonical document selection, then `0` | Selects the root graph in the exported extension. |
+| `targetFps` | `60` | Sets the animation frame rate used when imported animation operations are reconstructed. |
+| `required` | `true` | Adds `KHR_interactivity` to `extensionsRequired`. Preserve the source setting when re-exporting an asset. |
+| `additionalExtensionsRequired` | Empty | Marks additional operation or companion extensions as required. |
+
+Pass the plan to the `khrInteractivity` option of [`GLTF2Export.GLTFAsync`](/typedoc/classes/BABYLON.GLTF2Export#GLTFAsync) or [`GLTF2Export.GLBAsync`](/typedoc/classes/BABYLON.GLTF2Export#GLBAsync). The serializer waits until final glTF indices are known, remaps graph references, emits companion node extensions, and updates `extensionsUsed` and `extensionsRequired`. No `KHR_interactivity` extension is emitted when no provider is supplied.
+
+When `khrInteractivity` is supplied, the serializer also preserves no-op root nodes that the behavior graph may reference, even though `removeNoopRootNodes` normally defaults to `true`.
 
 ## Current Scope
 
-Phase 1 covers standards-compliant loading, execution, inspection, and editor import. It does not add `KHR_interactivity` authoring or glTF export. Keep the original glTF or GLB file as the source of truth when inspecting an imported graph in the editor.
+Babylon.js supports standards-compliant loading, execution, inspection, editor import, and lossless export of representable edits. Free-form authoring of new `KHR_interactivity` graphs is not supported. Keep the original glTF or GLB file because its canonical document and source references are required for the round-trip export path.
 
-This behavior was introduced by BabylonJS/Babylon.js#18903.
+Import support was introduced by BabylonJS/Babylon.js#18903. Export support was introduced by BabylonJS/Babylon.js#18914.
