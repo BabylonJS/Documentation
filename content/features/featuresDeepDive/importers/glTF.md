@@ -76,6 +76,14 @@ See [Load from any file type](/features/featuresDeepDive/importers/loadingFileTy
 
 See an example here: <Playground id="#WGZLGJ#11018" title="Load a glTF Asset" description="Simple example showing how load a .glTF asset into your scene." image="/img/playgroundsAndNMEs/divingDeeperglTF1.webp" isMain={true} category="Import"/>
 
+### Content Security Policy for Embedded Images
+
+A GLB file can store image bytes inside the binary file. When Babylon.js uses `ImageBitmap` decoding, including with WebGPU, it passes these in-memory bytes directly to the browser decoder. It does not create or fetch a `blob:` URL. You do not need to add `blob:` to `connect-src` only to load images embedded in a GLB file.
+
+This behavior applies when the loader already has an `ArrayBuffer`, an `ArrayBufferView`, or a `Blob`. A URL string, including an application-created `blob:` URL, still uses the normal URL loading path and must be allowed by your Content Security Policy. The initial GLB request and external buffers or images must also be allowed by the CSP directive that covers their loading path.
+
+WebGL can decode in-memory images through an HTML image element. If your application also supports WebGL, keep `blob:` in `img-src` when that path is used.
+
 ## Extensions
 
 See the built-in [extensions](/typedoc/modules/babylon.gltf2.loader.extensions) in the API documentation.
