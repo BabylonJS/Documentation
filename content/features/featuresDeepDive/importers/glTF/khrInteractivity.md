@@ -173,12 +173,26 @@ for (const graphResult of result.graphs) {
     flowGraphs.push(graphResult.flowGraph);
 }
 
-const plan = CreateKHRInteractivityExportPlan(flowGraphs, {
+const options = {
     document: result.document,
     sourceGLTF: result.glTF,
     defaultGraphIndex: result.document.defaultGraphIndex,
     required: result.glTF.extensionsRequired?.includes("KHR_interactivity") ?? false,
-});
+};
+
+let plan = CreateKHRInteractivityExportPlan(flowGraphs, options);
+const additionalExtensionsRequired = (result.glTF.extensionsRequired ?? []).filter(
+    (extensionName) =>
+        extensionName !== "KHR_interactivity" &&
+        plan.additionalExtensionsUsed.includes(extensionName),
+);
+
+if (additionalExtensionsRequired.length > 0) {
+    plan = CreateKHRInteractivityExportPlan(flowGraphs, {
+        ...options,
+        additionalExtensionsRequired,
+    });
+}
 
 const analysis = plan.analyze();
 if (!analysis.representable) {
