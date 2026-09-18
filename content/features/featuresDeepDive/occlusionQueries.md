@@ -45,6 +45,20 @@ If your object is behind an opaque object by default, you can set the `isOcclude
 sphere.isOccluded = true;
 ```
 
+## Reading a Query Result
+
+When you manage an occlusion query directly, wait until the result is available before reading it. Use [`isOcclusionQueryVisible`](/typedoc/classes/babylon.abstractengine#isocclusionqueryvisible) when you only need to know whether any samples passed:
+
+```javascript
+if (engine.isQueryResultAvailable(query)) {
+    const isVisible = engine.isOcclusionQueryVisible(query);
+}
+```
+
+This method returns `true` for any positive result and `false` for zero. It provides the same visibility check for WebGL and WebGPU.
+
+Use `getQueryResult(query)` only when you need the raw backend value. The size of a positive raw value is backend-specific and may be greater than `1`, so do not compare it with a fixed positive value. `isOcclusionQueryVisible(query)` does not change the raw result.
+
 ## Advanced
 
 As described earlier, the Occlusion Queries result is asynchronous, and it may take some time to get the result. Because of this, the object may take several frames to appear while waiting for the query result. In this case, you can use the `occlusionRetryCount` property to set the number of waiting frames before the query is interrupted. Once that happens, you will need to decide whether to draw the object or maintain its state. The `occlusionType` property is used for this purpose, and you have 2 options:
