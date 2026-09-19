@@ -3623,6 +3623,11 @@
                     },
                     "content": "communityExtensions/babylonCMSIntegration"
                 },
+                "box3dPhysics": {
+                    "friendlyName": "Box3D Physics",
+                    "children": {},
+                    "content": "communityExtensions/box3dPhysics"
+                },
                 "bufferedInterpolation": {
                     "friendlyName": "Buffered Interpolation",
                     "children": {},
