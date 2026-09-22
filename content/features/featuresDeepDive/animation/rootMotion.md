@@ -118,7 +118,8 @@ The motion follows the pose the runtime evaluated, not a clock of its own, so ev
 - Every loop mode. The relative modes cycle, the constant mode holds the pose at the end of its first cycle and the character stops with it, and yoyo walks the character back and forth.
 - Negative speed ratios walk the character backwards. Changing the speed ratio while playing needs no reset.
 - Playing a range with `from` and `to`, and a root keyed over a shorter range than the group, loop by the range the runtime actually evaluates.
-- A group synchronized with `syncAllAnimationsWith` follows its master, at the master's speed and through the master's loops.
+- A group synchronized with `syncAllAnimationsWith` follows its master, at the master's speed and through the master's loops, in either direction and down a chain of followers. A master keyed over a shorter range than its follower wraps without that wrap being read as travel, and a follower that does not loop ends at the master's frame.
+- A group started with `startWithVirtualTimeline` is carried over the whole of that timeline: the character travels as far as the range covers the clip, wrapping back onto it as many times as it takes, and stops where the range ends. Build the controller before or after starting the playback; both give the same motion.
 - A playback that does not loop lands exactly on the clip's full travel when it ends. Calling `stop()` applies nothing more.
 
 ## Requirements and limits
