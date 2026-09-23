@@ -39,7 +39,7 @@ walk.animationGroup.start(true); // play the in-place copy, not the source
 
 That is all there is to it. `walk.animationGroup` is a copy of the walk with the travel left out of it, `walk.characterNode` is the node the travel is applied to (the topmost ancestor of the animated hierarchy, the `__root__` node of a glTF asset), and the controller moves that node every frame by as much as the pose advanced.
 
-<Playground id="#ZE8Y5A#0" title="Root Motion" description="Xbot walks and runs on planted feet. Turn root motion off to compare with the raw clip." isMain={true} category="Animation"/>
+<Playground id="#ZE8Y5A#1" title="Root Motion" description="Xbot walks and runs on planted feet. Turn root motion off to compare with the raw clip." isMain={true} category="Animation"/>
 
 ## How a clip finds the travel
 
