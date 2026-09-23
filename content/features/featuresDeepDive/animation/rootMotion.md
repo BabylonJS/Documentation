@@ -109,7 +109,9 @@ controller.onRootMotionObservable.add(() => {
 
 ### Jumps and resets
 
-The motion follows the playback, so starting, stopping, pausing and changing the speed ratio need nothing from you. A jump is different: after `goToFrame`, or after teleporting the character back to the origin, call `controller.reset()` so the jump is not read as motion.
+The motion follows the playback, so starting, stopping, pausing and changing the speed ratio need nothing from you. A jump in the playback is different: after `goToFrame`, or after resetting the group, call `controller.reset()` so the jump is not read as motion.
+
+Moving the character yourself needs no reset. A teleport, a respawn, anything that sets the node's position or rotation: the controller tracks how far the playback advanced, not where the character is, and the next step carries on from wherever you put it. Resetting anyway costs you a step of travel, because the first evaluation after a reset only establishes where the playback resumes and contributes nothing, which is exactly the slip root motion is there to avoid.
 
 ## Playback
 
