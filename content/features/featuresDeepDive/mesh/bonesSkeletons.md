@@ -169,18 +169,67 @@ Please note that there is a limit to be aware of: the GPU will be faster only if
 
 ## Attaching a mesh to a specific bone
 
-Starting with Babylon.js v2.2, you can now attach a mesh to a bone (like a sword in the hand of your character, for instance). To do so, just specify which bone with the following code:
+You can attach a rigid mesh, such as a sword, helmet, or shield, to a bone so that it follows the bone's animation:
 
 ```javascript
-sword.attachToBone(skeleton.bones[34], character);
+sword.attachToBone(handBone, characterMesh);
 ```
 
-Please note that you also need to specify on which mesh the bone is currently applied.
-You can find a sample here: <Playground id="#11BH6Z#18" title="Attaching a Mesh To a Bone" description="Simple example of attaching a mesh to a specific bone."/>
+The second argument supplies the world transform for the skeleton. It should be a skinned mesh that uses the skeleton containing the selected bone, not an import root or another parent node.
 
-When you attach a mesh to a bone in a skeleton, the mesh will be scaled by the same scaling factor as the parent mesh of the skeleton. This may not always be what you want. You may want to preserve the size of the mesh before and after attaching it to a bone. To achieve this, scale the mesh appropriately before attaching it to the bone so that the net effect keeps the size of the mesh intact before and after attachment. For example, if the parent mesh of the skeleton has a scaling factor of (2, 2, 3), you have to scale the attached mesh by a factor of (1/2, 1/2, 1/3), or (0.5, 0.5, 0.333).
+### Selecting the transform-reference mesh
 
-The current position of the mesh in world coordinates determines how far away the mesh will appear from the bone. If the mesh is far from the world origin, then it will appear far from the bone as well, which again may not be what you want. So before attaching a mesh to a bone, set its position to (0, 0, 0) or to a position close to the world origin so that the mesh appears close to the bone and appears attached. In this case, the position of the mesh simply acts as its offset from the bone.
+Imported characters frequently contain a transform root plus several skinned meshes for the body, clothing, or accessories. Do not assume that `result.meshes[0]` is skinned. Instead, find the meshes that reference the selected skeleton:
+
+```javascript
+const skeleton = result.skeletons[0];
+const skinnedMeshes = result.meshes.filter((mesh) => mesh.skeleton === skeleton);
+
+if (skinnedMeshes.length === 0) {
+  throw new Error("The imported skeleton is not assigned to any mesh.");
+}
+```
+
+If the candidates have the same world matrix, any of them can provide the transform required by `attachToBone`. If their world matrices differ, they are not interchangeable: choose the mesh whose transform space should control the attachment. This requires knowledge of how the asset was authored. See [Sharing Skeletons Between Skinned Meshes](#sharing-skeletons-between-skinned-meshes) for more information.
+
+The following worked example uses the Dude asset. Its import root, `"him"`, has no skeleton, while five child meshes share `Skeleton0` and have matching transforms. The example chooses the largest skinned part as a stable transform reference:
+
+```javascript
+const characterMesh = skinnedMeshes.reduce((largest, mesh) => {
+  return mesh.getTotalVertices() > largest.getTotalVertices() ? mesh : largest;
+});
+
+const handBone = skeleton.bones.find((bone) => bone.name === "bone34");
+
+if (!handBone) {
+  throw new Error("The expected hand bone was not found.");
+}
+
+attachment.attachToBone(handBone, characterMesh);
+```
+
+Use a semantic bone name such as `"RightHand"` when the asset provides one. A fixed index or generic name such as `"bone34"` is specific to the Dude asset and may change when a model is re-exported.
+
+### Applying attachment offsets
+
+After `attachToBone` is called, the attachment's position, rotation, and scaling are local to the bone's transform chain. Set them after attaching to make that relationship explicit:
+
+```javascript
+attachment.attachToBone(handBone, characterMesh);
+
+attachment.position.set(8, 0, 0);
+attachment.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll(0, 0, Math.PI / 2);
+```
+
+A position of `(0, 0, 0)` places the attachment's origin at the bone origin. Nonzero values offset it in the bone's local space. Rotation is usually necessary when the attachment's modeling axes or pivot do not match the bone. When possible, author the accessory's pivot and orientation for the target bone in your modeling tool.
+
+`attachToBone` does not preserve the attachment's previous world transform. Existing local transform values are reused in the new bone-relative transform chain, so reset or replace them as needed.
+
+The attachment also inherits the scaling of the transform-reference mesh. To preserve its apparent size, compensate with reciprocal scaling. For example, if the reference mesh has scaling `(2, 2, 3)`, use `(0.5, 0.5, 0.333)` on the attachment.
+
+<Playground id="#0H961C" title="Attaching a Mesh to a Bone on a Multi-Skinned Model" description="Select a skinned mesh by skeleton identity, attach a rigid object to a hand bone, and apply bone-local offsets."/>
+
+Use `attachToBone` for rigid objects that follow one bone. Clothing or armor that must deform across several joints should instead be skinned and weighted to the character's skeleton.
 
 ## Rotating, Positioning, and Scaling bones
 
