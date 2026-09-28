@@ -175,11 +175,11 @@ You can attach a rigid mesh, such as a sword, helmet, or shield, to a bone so th
 sword.attachToBone(handBone, characterMesh);
 ```
 
-The second argument supplies the world transform for the skeleton. It should be a skinned mesh that uses the skeleton containing the selected bone, not an import root or another parent node.
+The second argument can be any `TransformNode` whose world matrix represents the intended reference transform for the attachment. A mesh that uses the skeleton containing the selected bone is a reliable default. An import root or another parent node is also valid when its world matrix provides the intended transform.
 
 ### Selecting the transform-reference mesh
 
-Imported characters frequently contain a transform root plus several skinned meshes for the body, clothing, or accessories. Do not assume that `result.meshes[0]` is skinned. Instead, find the meshes that reference the selected skeleton:
+Imported characters frequently contain a transform root plus several skinned meshes for the body, clothing, or accessories. When you do not already know which node provides the intended reference transform, find the meshes that reference the selected skeleton:
 
 ```javascript
 const skeleton = result.skeletons[0];
