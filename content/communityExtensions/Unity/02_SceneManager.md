@@ -12,11 +12,7 @@ The Babylon scene manager extension provides runtime life cycle management for g
 
 ## Babylon Scene Manager
 
-The [Scene Manager](https://github.com/BabylonJS/Extensions/tree/master/SceneManager) is packaged with the latest toolkit extension, but is also available on GitHub for download and customization. You can preview the latest stable [TypeScript Definitions](https://github.com/BabylonJS/UnityExporter/blob/master/Manager/babylon.manager.d.ts) file. To use a custom build, you must copy your new output files to your project's **Assets > Babylon > Library** folder as:
-
-- **babylon.manager.bjs** - Scene manager compiled javascript output file renamed to .bjs extension
-
-- **babylon.manager.d.ts** - Scene manager application programming interface script definition file
+The Scene Manager is part of the maintained [Babylon Toolkit runtime](https://github.com/BabylonJS/BabylonToolkit/tree/master/Runtime). The current [TypeScript definitions](https://github.com/BabylonJS/BabylonToolkit/blob/master/Runtime/babylon.toolkit.d.ts) document its public API.
 
 ## Babylon Scene Controller
 
