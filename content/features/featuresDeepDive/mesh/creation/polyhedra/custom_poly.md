@@ -11,6 +11,20 @@ video-content:
 ## Custom Polyhedra
 This is another range of polyhedra that you can create, although they require a few more steps. This is the reason for the *custom* option. All the other options, other than *type*, can be used with custom polyhedra.
 
+### From faces to triangles
+
+In custom polyhedron data, `vertex` contains positions, and each entry in `face` lists indices into `vertex` around the perimeter of one face. List the corners in order, not as an unordered set: Babylon.js turns each face into triangles by using its first index as a shared corner. For a face with five corners:
+
+```javascript
+face: [[0, 1, 2, 3, 4]]
+```
+
+Babylon.js creates three triangles, with indices `(0, 2, 1)`, `(0, 3, 2)`, and `(0, 4, 3)`. In general, a face `[f0, f1, ..., fn]` becomes `(f0, f2, f1)`, `(f0, f3, f2)`, and so on through `(f0, fn, fn-1)`. The reversed order of the last two corners in each triangle is intentional.
+
+The first corner also determines *which* diagonals are drawn. For example, `[1, 2, 3, 4, 0]` follows the same perimeter but produces `(1, 3, 2)`, `(1, 4, 3)`, and `(1, 0, 4)` instead. Both orders cover the same area if the face is flat and convex, but they produce different triangles; if its vertices are not coplanar, the resulting surface can look different. Reversing the perimeter order changes the triangle winding, which changes which side is the front and the direction of the computed normals. Keep the winding consistent across faces so their normals point outward. See [custom mesh normals and direction](/features/featuresDeepDive/mesh/creation/custom/custom#direction) for an illustrated explanation.
+
+This first-corner triangle fan does not correctly triangulate every concave face. For a concave shape, split it into triangular `face` entries yourself rather than relying on the fan.
+
 
 1.  Visit <Playground id="#WL3U6F" title="Custom Polyhedra" description="Simple example of custom polyhedra in Babylon.js."/> and minimize the code editor by unchecking the box labeled Editor under the Gear icon &#9881; (Options), then note the polyhedron names under the mouse pointer.  
 ![Select a Polyhedron](/img/how_to/Mesh/polyhedra1.webp);
