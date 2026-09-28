@@ -18,7 +18,7 @@ Since Blender 2.8, the glTF add-on is enabled in Blender by default. You can upd
 
 It should be compatible with Blender 2.79b, but you may also note that the old exporter is [still available](https://github.com/KhronosGroup/glTF-Blender-Exporter) ([old documentation](https://github.com/KhronosGroup/glTF-Blender-Exporter/blob/master/docs/user.md)).
 
-Axis conventions are not the same between Blender, Babylon.js (left-handed), and glTF (right-handed), so the conversion table below can help with coordinates.
+Axis conventions are not the same between Blender, Babylon.js (left-handed by default), and glTF (right-handed), so the conversion table below can help with coordinates. See [Coordinate Systems and Handedness](/features/featuresDeepDive/mesh/transforms/coordinateSystems) before adding any manual axis correction; the exporter and loader already perform the format conversions.
 
 To help with transforms, note that the Babylon.js loader will automatically set glTF assets as children of an object:
 

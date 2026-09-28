@@ -119,13 +119,15 @@ LoadAssetContainerAsync("asset.glb", scene, {
 
 ### The \_\_root\_\_ node
 
-A \_root\_ node is added to hold all **glTF** and **glb** models, and model parts are stored as sub-meshes. This ensures that applications that save models using a right-handed system are loaded correctly into Babylon.js when you add the following to your `createScene` function:
+A `__root__` node is added to hold every **glTF** and **GLB** model. glTF uses a right-handed coordinate system. In Babylon.js's default left-handed scenes, the loader applies the coordinate conversion to this root; in a right-handed scene, no handedness conversion is needed.
 
 ```javascript
 scene.useRightHandedSystem = true;
 ```
 
-This also means that _loadedMeshes[0]_ will point to the added \_root\_ node and _loadedMeshes[1]_ will point to your first loaded mesh.
+Set the scene mode before loading. Do not mirror the imported meshes a second time. `loadedMeshes[0]` points to the added `__root__` node and `loadedMeshes[1]` points to the first loaded mesh.
+
+See [Coordinate Systems and Handedness](/features/featuresDeepDive/mesh/transforms/coordinateSystems) for axis conventions, loader behavior, and DCC interoperability guidance.
 
 ### Skinning
 
