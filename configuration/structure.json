@@ -251,6 +251,17 @@
                                 }
                             },
                             "content": "features/introductionToFeatures/chap8"
+                        },
+                        "chap9": {
+                            "friendlyName": "Add Physics",
+                            "children": {
+                                "physics": {
+                                    "friendlyName": "Your First Physics Scene",
+                                    "children": {},
+                                    "content": "features/introductionToFeatures/chap9/physics"
+                                }
+                            },
+                            "content": "features/introductionToFeatures/chap9"
                         }
                     },
                     "content": "features/introductionToFeatures"
