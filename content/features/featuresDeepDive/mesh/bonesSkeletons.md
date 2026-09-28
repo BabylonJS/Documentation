@@ -58,7 +58,7 @@ new BABYLON.Bone(name, skeleton, parentBone, localMatrix, restMatrix, bindMatrix
 
 For most manually created skeletons, pass the first four arguments and allow the rest and bind matrices to default to the local matrix. See [Bone Class Internals](/features/featuresDeepDive/mesh/bonesSkeletons/boneInternals) for details about local, rest, bind, and final matrices.
 
-<Playground id="#IF31BI#12" title="Basic Skeleton Created in Code" description="Create a skeleton and bones, assign vertex influences, and animate the bones."/>
+<Playground id="#IF31BI#15" title="Basic Skeleton Created in Code" description="Create a skeleton and bones, assign vertex influences, and animate the bones."/>
 
 ## Preparing a mesh for skinning
 
@@ -70,6 +70,8 @@ Skinning binds **vertices**, not faces, to bones. Each vertex needs matching bon
 - `MatricesWeightsKind` contains the corresponding four weights per vertex.
 
 The entries at the same offset form a pair. For example, indices `[0, 1, 0, 0]` and weights `[0.25, 0.75, 0, 0]` make one vertex receive 25% of bone 0's transformation and 75% of bone 1's transformation. Active weights should add up to 1; set unused indices and weights to 0.
+
+Legacy `.babylon` files can store the four indices for each vertex as one packed integer while storing four separate weights. The integer uses one byte per index, starting with the least significant byte. For example, `1027` is hexadecimal `0x00000403`, so it represents indices `[3, 4, 0, 0]`. The loader expands these values into the four-index runtime format described above. Files with `matricesIndicesExpanded: true` already contain four separate indices per vertex and are not unpacked.
 
 This example assigns every vertex of a box to exactly one of the two bones created above:
 
