@@ -59,14 +59,14 @@ Compiler locations depend on how Node.js was installed. Use the paths reported b
 
 ## Configure UnityGLTF Shaders
 
-For player builds that use UnityGLTF imports, add the four GLTFUtility shaders to Unity's **Always Included Shaders** list:
+For player builds that use UnityGLTF imports, preload the shader variant collection for the project's render pipeline:
 
 1. Open **Edit > Project Settings > Graphics**.
-2. Expand **Always Included Shaders** and add four entries.
-3. In the Project window, open **BabylonToolkit/Importer/Materials/Built-in**.
-4. Drag each of the four `.shader` files into the new entries.
+2. Expand **Preloaded Shaders** and add an entry.
+3. In the Project window, open the UnityGLTF package's **Runtime/Shaders/VariantCollections** folder.
+4. Add **UnityGLTFShaderVariantCollection**. For the Built-In Render Pipeline, add **UnityGLTFShaderVariantCollection-BiRP** instead.
 
-This configuration is required by the current toolkit package so Unity includes these shaders in player builds.
+Without the appropriate collection, UnityGLTF shaders may be missing from the player build. See UnityGLTF's current [shader setup instructions](https://github.com/babylontoolkit/unitygltf#ensure-shaders-are-available-in-your-build) for render-pipeline and shader-stripping details.
 
 ## Save Export Settings
 
