@@ -758,6 +758,7 @@ Methods:
 <br/>
 
 Outputs:
+* **geometryIrradianceTexture**. The irradiance output texture. Will point to a valid texture only if that texture has been requested in textureDescriptions!
 * **geometryViewDepthTexture**. The depth (in view space) output texture. Will point to a valid texture only if that texture has been requested in textureDescriptions!
 * **geometryNormViewDepthTexture**. The normalized depth (in view space) output texture. Will point to a valid texture only if that texture has been requested in textureDescriptions! The normalization is `(d - near) / (far - near)`, where **d** is the depth value in view space and **near** and **far** are the near and far planes of the camera.
 * **geometryScreenDepthTexture**. The depth (in screen space) output texture. Will point to a valid texture only if that texture has been requested in textureDescriptions!
@@ -771,22 +772,64 @@ Outputs:
 * **geometryLinearVelocityTexture**. The linear velocity output texture. Will point to a valid texture only if that texture has been requested in textureDescriptions!
 <br/>
 
-This task is primarily used to generate geometry textures, i.e. textures containing special data such as depths in view/screen space, normals in view/world space, reflectivity, etc. Here is a list of all outputs that this task can generate:
-* **geometryViewDepthTexture**: depth in camera view space. This is the Z component of the vertex coordinate in the camera's view space and is a value between **near** and **far**, the camera's near and far clipping planes.
-* **geometryNormViewDepthTexture**: normalized depth in camera view space. Identical to the value above, but with values between 0 and 1, calculated using the formula `normViewDepth = (viewDepth - near) / (far - near)`.
-* **geometryScreenDepthTexture**: depth in screen space. This is the depth written to the depth buffer (`gl_FragCoord.z`) and is a value between 0 and 1.
-* **geometryViewNormalTexture**: normal in camera view space. This is the normal to the vertex in camera view space. The vector is normalized before being written to the texture.
-* **geometryWorldNormalTexture**: normal in world space. This is the normal at the vertex in world space. The vector is normalized before being written to the texture. It is also scaled and offset by 0.5 to generate components between 0 and 1.
-* **geometryLocalPositionTexture**: position in local space. This is the position of the vertex in the object model space, i.e., before any camera or world transformations.
-* **geometryWorldPositionTexture**: position in world space. This is the position of the vertex in world space.
-* **geometryAlbedoTexture**: albedo color. This is the albedo/diffuse color of the vertex.
-* **geometryReflectivityTexture**: reflectivity color. This is the reflectivity color of the vertex (used by SSR, for example).
-* **geometryVelocityTexture**: velocity vector in screen space. See [Motion blur by object](https://john-chapman-graphics.blogspot.com/2013/01/per-object-motion-blur.html) for more details on what a velocity texture is. **geometryVelocityTexture** is a texture constructed with the optimization described in the “Format and precision” section to improve accuracy when using an unsigned byte texture type.
-* **geometryLinearVelocityTexture**: linear velocity vector in screen space. It is identical to the one above, but without the optimization, so without the `pow()` call. The coordinates are multiplied by 0.5, so that they are between [-0.5, 0.5] instead of [-1, 1].
+This task is primarily used to generate geometry textures, i.e. textures containing special data such as depths in view/screen space, normals in view/world space, reflectivity, etc. Here is a list of all outputs that this task can generate. The clear values below apply to the color components present in each texture's format, before any objects are drawn:
+* **geometryIrradianceTexture**: irradiance color, normally written by the material's geometry rendering shader. Cleared to zero.
+* **geometryViewDepthTexture**: depth in camera view space. This is the Z component of the vertex coordinate in the camera's view space and is a value between **near** and **far**, the camera's near and far clipping planes. Cleared to zero.
+* **geometryNormViewDepthTexture**: normalized depth in camera view space. Identical to the value above, but with values between 0 and 1, calculated using the formula `normViewDepth = (viewDepth - near) / (far - near)`. Cleared to one.
+* **geometryScreenDepthTexture**: depth in screen space. This is the depth written to the depth buffer (`gl_FragCoord.z`) and is a value between 0 and 1. Cleared to one, or to zero when reverse depth buffering is enabled.
+* **geometryViewNormalTexture**: normal in camera view space. This is the normal to the vertex in camera view space. The vector is normalized before being written to the texture. Cleared to zero.
+* **geometryWorldNormalTexture**: normal in world space. This is the normal at the vertex in world space. The vector is normalized before being written to the texture. It is also scaled and offset by 0.5 to generate components between 0 and 1. Cleared to zero.
+* **geometryLocalPositionTexture**: position in local space. This is the position of the vertex in the object model space, i.e., before any camera or world transformations. Cleared to zero.
+* **geometryWorldPositionTexture**: position in world space. This is the position of the vertex in world space. Cleared to zero.
+* **geometryAlbedoTexture**: albedo color. This is the albedo/diffuse color of the vertex. Cleared to zero.
+* **geometryReflectivityTexture**: reflectivity color. This is the reflectivity color of the vertex (used by SSR, for example). Cleared to zero.
+* **geometryVelocityTexture**: velocity vector in screen space. See [Motion blur by object](https://john-chapman-graphics.blogspot.com/2013/01/per-object-motion-blur.html) for more details on what a velocity texture is. **geometryVelocityTexture** is a texture constructed with the optimization described in the “Format and precision” section to improve accuracy when using an unsigned byte texture type. Cleared to zero.
+* **geometryLinearVelocityTexture**: linear velocity vector in screen space. It is identical to the one above, but without the optimization, so without the `pow()` call. The coordinates are multiplied by 0.5, so that they are between [-0.5, 0.5] instead of [-1, 1]. Cleared to zero.
 <br/>
 
+**Using an existing channel for custom geometry data**: If your graph does not need one of the supported `PREPASS_*` outputs for its original purpose, you can use its attachment to carry application-defined per-object data. For example, request the irradiance channel with a format and type appropriate for your data:
+
+```javascript
+const geomRendererTask = new BABYLON.FrameGraphGeometryRendererTask("customGeometry", frameGraph, scene);
+geomRendererTask.objectList = { meshes: [mesh], particleSystems: [] };
+geomRendererTask.camera = camera;
+geomRendererTask.textureDescriptions.push({
+    type: BABYLON.Constants.PREPASS_IRRADIANCE_TEXTURE_TYPE,
+    textureFormat: BABYLON.Constants.TEXTUREFORMAT_RGBA,
+    textureType: BABYLON.Constants.TEXTURETYPE_HALF_FLOAT,
+});
+
+frameGraph.addTask(geomRendererTask);
+// Connect this handle to a downstream task's texture input.
+const customGeometryTexture = geomRendererTask.geometryIrradianceTexture;
+```
+
+Here `frameGraph`, `scene`, `camera`, and `mesh` are from your existing graph setup; provide **depthTexture** if your pass needs one. The handle becomes a usable texture when the graph is built; requesting or consuming the output **does not** write your data into it. Every material/shader contributing objects to that texture must explicitly write the custom value at the matching `PREPASS_IRRADIANCE_INDEX`, **after** any built-in irradiance write. For example, in the fragment shader of a material whose prepass/MRT declarations provide `WRITE_GEOMETRY_FRAGMENT_OUTPUT`, place this write after the material's default geometry output code:
+
+```glsl
+#ifdef PREPASS_IRRADIANCE
+    WRITE_GEOMETRY_FRAGMENT_OUTPUT(PREPASS_IRRADIANCE_INDEX, vec4(customData.rgb, 1.0));
+#endif
+```
+
+Here `customData` is an application-provided value, not a built-in shader variable. For WGSL, use `vec4f` rather than `vec4` and write to `fragData[PREPASS_IRRADIANCE_INDEX]` **before** the material copies that array into `fragmentOutputs`; if you inject code after that copy, you must instead update the corresponding `fragmentOutputs.fragDataN` output (`N` is the attachment index). The GLSL macro is not WGSL syntax. If you prefer a domain-specific guard in your own shader, you can replace the guard above with this optional alias:
+
+```glsl
+#ifdef PREPASS_IRRADIANCE
+    #define CUSTOM_GEOMETRY_NAME
+#endif
+
+// After the material's default geometry output code:
+#ifdef CUSTOM_GEOMETRY_NAME
+    WRITE_GEOMETRY_FRAGMENT_OUTPUT(PREPASS_IRRADIANCE_INDEX, vec4(customData.rgb, 1.0));
+#endif
+```
+
+`CUSTOM_GEOMETRY_NAME` is **not** generated by the engine, and a define alone does not replace the stock shader write.
+
+Choose an attachment format/type that preserves the values and precision you need, and account for its default clear value and color/alpha conventions (the example writes alpha 1 for covered opaque pixels; untouched pixels retain the clear value). MRT outputs share the pass's attachment count, formats, dimensions, and sample settings; you cannot add arbitrary extra shader outputs just by inventing another `PREPASS_*` type. Do not repurpose the special object-ID or integer mesh-blend-tag channels. Other materials and built-in rendering paths may still write their usual irradiance values, so use this texture only when you control all contributing writes, or account for mixed content.
+
 However, this task can also render a scene, similar to how `FrameGraphObjectRendererTask` does. There are some limitations when geometry textures and the normal texture scene (**outputTexture** property) are generated by `FrameGraphGeometryRendererTask`:
-* Sprites, particles, bounding boxes, and outline rendering are not supported by geometry textures, so you must disable these features. If you need to enable one or more of these features for the normal texture scene, you must use a separate `FrameGraphObjectRendererTask` instance to generate the texture instead of using a `FrameGraphGeometryRendererTask` instance to generate everything at once.
 * You must set **disableDepthPrePass** to *false* if any of your materials use **needDepthPrePass**, in order to avoid artifacts/errors with geometry textures, but this means you may get artifacts in the normal texture scene. Again, if you need this to work, use a separate `FrameGraphObjectRendererTask` to generate the normal scene texture.
 * You must use the same number of MSAA samples for all textures (**targetTexture**, **depthTexture**, and **FrameGraphObjectRendererTask.samples**). Using MSAA textures is more demanding in terms of performance. If you don't need MSAA for geometry textures, you can use the geometry renderer only for geometry textures and use a `FrameGraphObjectRendererTask` instance to generate the normal texture scene.
 <br/>
