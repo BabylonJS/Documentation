@@ -31,6 +31,8 @@ These URLs and the supported Unity version are maintained in the upstream [Unity
 
 To install a specific editor release, download its `.tgz` file from the [Babylon Toolkit Editor releases](https://github.com/babylontoolkit/ProfessionalEdition/releases). In Package Manager, select **+ > Add package from tarball**, then select the downloaded file.
 
+The Editor tarball does not include UnityGLTF. After installing it, select **+ > Add package from git URL** and add `https://github.com/babylontoolkit/unitygltf.git`.
+
 ## Set Compiler Options
 
 ![Node Runtime Compilers](/img/exporters/unity/compilers.webp)
