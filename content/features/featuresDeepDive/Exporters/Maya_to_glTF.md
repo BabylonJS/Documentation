@@ -14,6 +14,8 @@ If you have not already installed the Babylon plugin for Maya, you can find all 
 
 With this plugin, you can also export your project to glTF 2.0 format (https://github.com/KhronosGroup/glTF/).
 
+The exporter converts Maya scene data to glTF's coordinate conventions, and the Babylon.js loader converts glTF to the scene's selected handedness. See [Coordinate Systems and Handedness](/features/featuresDeepDive/mesh/transforms/coordinateSystems) before adding a manual axis flip.
+
 All you need to do is choose **gltf** as **Output format**.
 
 ![glTF export window](/img/exporters/Maya_to_glTF/1_gltf_export_window.webp)

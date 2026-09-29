@@ -8,14 +8,30 @@ video-overview:
 video-content:
 ---
 
-Download the [Babylon Editor Toolkit](https://github.com/BabylonJS/UnityExporter/tree/master/Redist) and use **Import Package** to install it into the current project. Once installed, Unity will detect the plugin, compile it, and add the toolkit [Export Inspector](Exporter) window to your project.
+The Babylon Toolkit Editor is distributed as a Unity Package Manager package. The actively maintained source of installation requirements and release files is the [Babylon Toolkit Unity Exporter](https://github.com/BabylonJS/BabylonToolkit/tree/master/Editors/Unity).
 
+The current package requires Unity **2022.3.33f1 or later**. On macOS, use an Intel version of the Unity Editor; the toolkit's image libraries do not support Apple silicon.
 
 ## Create New Project
 
 ![New Unity Project](/img/exporters/unity/newproject.webp)
 
-Create a new Unity game project, then add the **Babylon Editor Toolkit** to your project. You can download and import the toolkit Unity package [distribution](https://github.com/BabylonJS/UnityExporter/tree/master/Redist) file.
+Create a Unity project with a supported editor version, then install the packages through **Window > Package Manager**.
+
+### Install From Git
+
+In Package Manager, select **+ > Add package from git URL**, then add:
+
+* Babylon Toolkit Editor: `https://github.com/babylontoolkit/professionaledition.git`
+* Khronos UnityGLTF: `https://github.com/babylontoolkit/unitygltf.git`
+
+These URLs and the supported Unity version are maintained in the upstream [Unity Exporter installation guide](https://github.com/BabylonJS/BabylonToolkit/tree/master/Editors/Unity).
+
+### Install a Release Tarball
+
+To install a specific editor release, download its `.tgz` file from the [Babylon Toolkit Editor releases](https://github.com/babylontoolkit/ProfessionalEdition/releases). In Package Manager, select **+ > Add package from tarball**, then select the downloaded file.
+
+The Editor tarball does not include UnityGLTF. After installing it, select **+ > Add package from git URL** and add `https://github.com/babylontoolkit/unitygltf.git`.
 
 ## Set Compiler Options
 
@@ -40,6 +56,19 @@ Configure the optional **Runtime Script Compiler** locations. You can download, 
     Mac OSX: /usr/local/bin/node
 
     Windows: C:\Program Files\nodejs\node.exe
+
+Compiler locations depend on how Node.js was installed. Use the paths reported by `which node` and `which tsc` on macOS, or `where node` and `where tsc` on Windows, rather than assuming the example paths above.
+
+## Configure UnityGLTF Shaders
+
+For player builds that use UnityGLTF imports, preload the shader variant collection for the project's render pipeline:
+
+1. Open **Edit > Project Settings > Graphics**.
+2. Expand **Preloaded Shaders** and add an entry.
+3. In the Project window, open the UnityGLTF package's **Runtime/Shaders/VariantCollections** folder.
+4. Add **UnityGLTFShaderVariantCollection**. For the Built-In Render Pipeline, add **UnityGLTFShaderVariantCollection-BiRP** instead.
+
+Without the appropriate collection, UnityGLTF shaders may be missing from the player build. See UnityGLTF's current [shader setup instructions](https://github.com/babylontoolkit/unitygltf#ensure-shaders-are-available-in-your-build) for render-pipeline and shader-stripping details.
 
 ## Save Export Settings
 
@@ -71,4 +100,4 @@ To build and preview the current scene, press the **Play** button or the **Build
 
 ## How To Get Started
 
-Check out the [Getting Started Video](http://www.babylontoolkit.com/videos/GettingStarted.mp4) to get started with **Babylon Toolkit** style game development.
+Watch the current [Getting Started video](https://www.youtube.com/watch?v=d1spQKztIZI) for a walkthrough of the Unity Exporter.

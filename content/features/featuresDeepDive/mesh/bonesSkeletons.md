@@ -14,37 +14,98 @@ Babylon.js supports bone animations for your meshes.
 
 ![Bones](/img/how_to/bones-skeletons/bones.webp)
 
-Basically a skeleton (`BABYLON.Skeleton`) contains a hierarchy of bones (`BABYLON.Bone`). A bone is defined by a name, a parent (can be null) and a transformation matrix.
+A [skeleton](/typedoc/classes/babylon.skeleton) contains an ordered hierarchy of [bones](/typedoc/classes/babylon.bone). Each bone stores a transformation relative to its parent. The root bone has no parent.
 
-Here are the constructors:
+## Creating a basic skeleton
 
-- `BABYLON.Skeleton` = function (name, id, scene)
-- `BABYLON.Bone` = function (name, skeleton, parentBone, matrix)
-
-Inside a skeleton, bones can be found inside the `skeleton.bones` array.
-
-A bone can contain animations to animate its `matrix` property.
-
-A bone must have its inverted absolute transform matrix set. If you are importing a skeleton, this might already be computed. But if you are creating your own skeleton programmatically, you need to do this in your code.
-
-The easiest way to do it is:
+Create the skeleton first, then create its bones from parent to child:
 
 ```javascript
-skeleton.returnToRest();
+const skeleton = new BABYLON.Skeleton("skeleton", "skeleton", scene);
+
+const rootBone = new BABYLON.Bone(
+  "root",
+  skeleton,
+  null,
+  BABYLON.Matrix.Identity(),
+);
+
+const upperBone = new BABYLON.Bone(
+  "upper",
+  skeleton,
+  rootBone,
+  BABYLON.Matrix.Translation(0, 1, 0),
+);
 ```
 
-## Preparing mesh
+The translation places `upperBone` one unit above its parent in the bind pose. A bone's local matrix is relative to its parent, not the mesh or the world. Bones are appended to `skeleton.bones` when they are constructed, so create parents before their children. If bones are created out of order, call `skeleton.sortBones()` before using the skeleton.
+
+The full constructor is:
+
+```javascript
+new BABYLON.Bone(name, skeleton, parentBone, localMatrix, restMatrix, bindMatrix, index);
+```
+
+| Argument | Meaning |
+| --- | --- |
+| `name` | The bone's name. |
+| `skeleton` | The skeleton that owns the bone. The constructor adds the bone to `skeleton.bones`. |
+| `parentBone` | The parent bone, or `null` for a root bone. |
+| `localMatrix` | The bone's initial transformation relative to its parent. It defaults to the identity matrix. |
+| `restMatrix` | The local transformation restored by `bone.returnToRest()`. It defaults to a copy of `localMatrix`. |
+| `bindMatrix` | The bone's local transformation in the bind pose. It defaults to a copy of `localMatrix`. |
+| `index` | An optional explicit index for skinning data. It normally should be omitted, in which case `bone.getIndex()` returns the bone's position in `skeleton.bones`. |
+
+For most manually created skeletons, pass the first four arguments and allow the rest and bind matrices to default to the local matrix. See [Bone Class Internals](/features/featuresDeepDive/mesh/bonesSkeletons/boneInternals) for details about local, rest, bind, and final matrices.
+
+<Playground id="#IF31BI#15" title="Basic Skeleton Created in Code" description="Create a skeleton and bones, assign vertex influences, and animate the bones."/>
+
+## Preparing a mesh for skinning
 
 A skeleton can be applied to a mesh through the `mesh.skeleton` property.
 
-You should note that Babylon.js supports up to **4 bone influences per vertex**.
+Skinning binds **vertices**, not faces, to bones. Each vertex needs matching bone-index and bone-weight data. Babylon.js supports up to **4 bone influences per vertex** by default:
 
-The mesh must also have additional vertex data:
+- `MatricesIndicesKind` contains four bone indices per vertex.
+- `MatricesWeightsKind` contains the corresponding four weights per vertex.
 
-- _Matrices weights_: 4 floats to weight bones matrices  
-  (`mesh.setVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind, matricesWeights, false)`)
-- _Matrices indices_: 4 floats to index bones matrices  
-  (`mesh.setVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind, floatIndices, false)`)
+The entries at the same offset form a pair. For example, indices `[0, 1, 0, 0]` and weights `[0.25, 0.75, 0, 0]` make one vertex receive 25% of bone 0's transformation and 75% of bone 1's transformation. Active weights should add up to 1; set unused indices and weights to 0.
+
+Legacy `.babylon` files can store the four indices for each vertex as one packed integer while storing four separate weights. The integer uses one byte per index, starting with the least significant byte. For example, `1027` is hexadecimal `0x00000403`, so it represents indices `[3, 4, 0, 0]`. The loader expands these values into the four-index runtime format described above. Files with `matricesIndicesExpanded: true` already contain four separate indices per vertex and are not unpacked.
+
+This example assigns every vertex of a box to exactly one of the two bones created above:
+
+```javascript
+const mesh = BABYLON.MeshBuilder.CreateBox("skinnedBox", { height: 2 }, scene);
+const positions = mesh.getVerticesData(BABYLON.VertexBuffer.PositionKind);
+const matricesIndices = [];
+const matricesWeights = [];
+
+for (let vertexIndex = 0; vertexIndex < mesh.getTotalVertices(); vertexIndex++) {
+  const y = positions[vertexIndex * 3 + 1];
+  const boneIndex = y > 0 ? upperBone.getIndex() : rootBone.getIndex();
+
+  // Four entries are stored for every vertex. This example uses only the first.
+  matricesIndices.push(boneIndex, 0, 0, 0);
+  matricesWeights.push(1, 0, 0, 0);
+}
+
+mesh.setVerticesData(
+  BABYLON.VertexBuffer.MatricesIndicesKind,
+  matricesIndices,
+);
+mesh.setVerticesData(
+  BABYLON.VertexBuffer.MatricesWeightsKind,
+  matricesWeights,
+);
+mesh.numBoneInfluencers = 1;
+mesh.skeleton = skeleton;
+
+// The bind pose is unchanged. Rotating the child now deforms its vertices.
+upperBone.rotate(BABYLON.Axis.Z, Math.PI / 8, BABYLON.Space.LOCAL);
+```
+
+Mesh builders can create separate vertices that share the same position, for example where two faces need different normals or UVs. Assign influences to every entry in the position buffer rather than assuming that each visible corner is represented by one vertex.
 
 The final matrix applied to each vertex is computed as follows:
 
@@ -169,18 +230,67 @@ Please note that there is a limit to be aware of: the GPU will be faster only if
 
 ## Attaching a mesh to a specific bone
 
-Starting with Babylon.js v2.2, you can now attach a mesh to a bone (like a sword in the hand of your character, for instance). To do so, just specify which bone with the following code:
+You can attach a rigid mesh, such as a sword, helmet, or shield, to a bone so that it follows the bone's animation:
 
 ```javascript
-sword.attachToBone(skeleton.bones[34], character);
+sword.attachToBone(handBone, characterMesh);
 ```
 
-Please note that you also need to specify on which mesh the bone is currently applied.
-You can find a sample here: <Playground id="#11BH6Z#18" title="Attaching a Mesh To a Bone" description="Simple example of attaching a mesh to a specific bone."/>
+The second argument can be any `TransformNode` whose world matrix represents the intended reference transform for the attachment. A mesh that uses the skeleton containing the selected bone is a reliable default. An import root or another parent node is also valid when its world matrix provides the intended transform.
 
-When you attach a mesh to a bone in a skeleton, the mesh will be scaled by the same scaling factor as the parent mesh of the skeleton. This may not always be what you want. You may want to preserve the size of the mesh before and after attaching it to a bone. To achieve this, scale the mesh appropriately before attaching it to the bone so that the net effect keeps the size of the mesh intact before and after attachment. For example, if the parent mesh of the skeleton has a scaling factor of (2, 2, 3), you have to scale the attached mesh by a factor of (1/2, 1/2, 1/3), or (0.5, 0.5, 0.333).
+### Selecting the transform-reference mesh
 
-The current position of the mesh in world coordinates determines how far away the mesh will appear from the bone. If the mesh is far from the world origin, then it will appear far from the bone as well, which again may not be what you want. So before attaching a mesh to a bone, set its position to (0, 0, 0) or to a position close to the world origin so that the mesh appears close to the bone and appears attached. In this case, the position of the mesh simply acts as its offset from the bone.
+Imported characters frequently contain a transform root plus several skinned meshes for the body, clothing, or accessories. When you do not already know which node provides the intended reference transform, find the meshes that reference the selected skeleton:
+
+```javascript
+const skeleton = result.skeletons[0];
+const skinnedMeshes = result.meshes.filter((mesh) => mesh.skeleton === skeleton);
+
+if (skinnedMeshes.length === 0) {
+  throw new Error("The imported skeleton is not assigned to any mesh.");
+}
+```
+
+If the candidates have the same world matrix, any of them can provide the transform required by `attachToBone`. If their world matrices differ, they are not interchangeable: choose the mesh whose transform space should control the attachment. This requires knowledge of how the asset was authored. See [Sharing Skeletons Between Skinned Meshes](#sharing-skeletons-between-skinned-meshes) for more information.
+
+The following worked example uses the Dude asset. Its import root, `"him"`, has no skeleton, while five child meshes share `Skeleton0` and have matching transforms. The example chooses the largest skinned part as a stable transform reference:
+
+```javascript
+const characterMesh = skinnedMeshes.reduce((largest, mesh) => {
+  return mesh.getTotalVertices() > largest.getTotalVertices() ? mesh : largest;
+});
+
+const handBone = skeleton.bones.find((bone) => bone.name === "bone34");
+
+if (!handBone) {
+  throw new Error("The expected hand bone was not found.");
+}
+
+attachment.attachToBone(handBone, characterMesh);
+```
+
+Use a semantic bone name such as `"RightHand"` when the asset provides one. A fixed index or generic name such as `"bone34"` is specific to the Dude asset and may change when a model is re-exported.
+
+### Applying attachment offsets
+
+After `attachToBone` is called, the attachment's position, rotation, and scaling are local to the bone's transform chain. Set them after attaching to make that relationship explicit:
+
+```javascript
+attachment.attachToBone(handBone, characterMesh);
+
+attachment.position.set(8, 0, 0);
+attachment.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll(0, 0, Math.PI / 2);
+```
+
+A position of `(0, 0, 0)` places the attachment's origin at the bone origin. Nonzero values offset it in the bone's local space. Rotation is usually necessary when the attachment's modeling axes or pivot do not match the bone. When possible, author the accessory's pivot and orientation for the target bone in your modeling tool.
+
+`attachToBone` does not preserve the attachment's previous world transform. Existing local transform values are reused in the new bone-relative transform chain, so reset or replace them as needed.
+
+The attachment also inherits the scaling of the transform-reference mesh. To preserve its apparent size, compensate with reciprocal scaling. For example, if the reference mesh has scaling `(2, 2, 3)`, use `(0.5, 0.5, 0.333)` on the attachment.
+
+<Playground id="#0H961C" title="Attaching a Mesh to a Bone on a Multi-Skinned Model" description="Select a skinned mesh by skeleton identity, attach a rigid object to a hand bone, and apply bone-local offsets."/>
+
+Use `attachToBone` for rigid objects that follow one bone. Clothing or armor that must deform across several joints should instead be skinned and weighted to the character's skeleton.
 
 ## Rotating, Positioning, and Scaling bones
 

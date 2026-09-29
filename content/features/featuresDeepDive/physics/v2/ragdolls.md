@@ -80,7 +80,7 @@ boxAggregate2.body.disableSync = true;
 
 ## Limitations
 
-Imported .GLTF/.GLB files only work as ragdolls in right-handed scenes. In left-handed scenes, an intermediate Transform Node is added at the root to emulate the LH/RH coordinate switch.
+Imported glTF/GLB files only work as ragdolls in right-handed scenes. In left-handed scenes, an intermediate transform node is added at the root to perform the handedness conversion described in [Coordinate Systems and Handedness](/features/featuresDeepDive/mesh/transforms/coordinateSystems#loading-gltf-in-babylonjs).
 This intermediate transform is not supported by the ragdoll physics-to-bone conversion.
 
 <Playground id="#V6FLZP#1" title="Bunny ragdoll" description="Ragdoll sample using a bunny plush" isMain={true} category="Physics"/>

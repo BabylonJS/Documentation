@@ -1454,6 +1454,11 @@
                                 "transforms": {
                                     "friendlyName": "Mesh Transformations",
                                     "children": {
+                                        "coordinateSystems": {
+                                            "friendlyName": "Coordinate Systems and Handedness",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/mesh/transforms/coordinateSystems"
+                                        },
                                         "center_origin": {
                                             "friendlyName": "Centered on Created Origin",
                                             "children": {
