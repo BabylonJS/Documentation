@@ -11,6 +11,8 @@ video-content:
 ## General Concepts
 Babylon.js supports the glTF specification for digital assets and can load the format into any scene. The digital asset can contain any combination of meshes, materials, textures, skeletons, animation data, or morph targets at a minimum. The question at this point is what the best method is for exporting the digital asset created in a Digital Content Creation (DCC) tool to a .glTF file. Each DCC tool that supports the glTF format will have their own procedures for exporting - and possibly importing – .glTF files so the path varies from one package to the next. This section will detail some of the main concepts to keep in mind for the exporting to the glTF format from the tools we see used most in the community.
 
+glTF defines a right-handed, Y-up coordinate system. Exporters are responsible for converting a DCC tool's conventions to glTF, and the Babylon.js loader converts glTF to the scene's selected handedness. Do not add another axis flip by default. See [Coordinate Systems and Handedness](/features/featuresDeepDive/mesh/transforms/coordinateSystems) for a practical Blender, Maya, Unity, and Babylon.js workflow.
+
 The first concept that applies to almost all of the export paths is that you may have a choice between exporting a .glb file and a .glTF file. Put simply, the difference between the two formats is how the files needed to render the asset are stored on disk. 
 
 Exporting as a .glb file will write a single compressed file that contains the .glTF json file, the mesh binary file, and all textures. This format is very useful for organizing and sharing your assets since everything is contained in a single file.

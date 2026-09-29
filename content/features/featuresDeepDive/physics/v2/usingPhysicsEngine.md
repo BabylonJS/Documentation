@@ -102,7 +102,7 @@ var createScene = function () {
 
 ## Physicalize GLTF
 
-An extra step is needed to physicalize meshes imported from glTF. Insert an extra transform node just before the `__root__` so conversions between right- and left-handedness are transparent to the physics engine.
+An extra step is needed to physicalize meshes imported from glTF in a left-handed scene. Insert an extra transform node just before the `__root__` so the loader's right-to-left-handed conversion is transparent to the physics engine. See [Coordinate Systems and Handedness](/features/featuresDeepDive/mesh/transforms/coordinateSystems#loading-gltf-in-babylonjs) for an explanation of the imported root.
 
 ```javascript
 const trParent = new BABYLON.TransformNode("tr", scene);
