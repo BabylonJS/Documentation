@@ -8,7 +8,9 @@ video-overview:
 video-content:
 ---
 
-**Note:** The scene exporter panel is the primary toolkit interface. It must be opened or docked to enable the toolkit features during project development.
+**Version note:** The exporter interface and available options can change between toolkit releases. The sections below provide an overview of the exporter panel; use the [maintained Unity Exporter guide](https://github.com/BabylonJS/BabylonToolkit/tree/master/Editors/Unity) for current editor requirements and installation instructions, and the [Babylon Toolkit Editor releases](https://github.com/babylontoolkit/ProfessionalEdition/releases) for versioned packages.
+
+The scene exporter panel is the primary toolkit interface. Open or dock it while configuring and exporting a project.
 
 ![Scene Exporter](/img/exporters/unity/exporter.webp)
 

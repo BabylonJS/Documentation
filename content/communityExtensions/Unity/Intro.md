@@ -33,7 +33,7 @@ The preferred **Color Space** for realistic rendering is **Linear**. A significa
 
 ## Getting Started
 
-The [Project Setup](Projects) section outlines basic project setup, scene configuration, and runtime script compiler options. You can auto-detect the platform script compiler locations in the **Project Compiler Options** section on the main export panel. Check out the [Getting Started Video](http://www.babylontoolkit.com/videos/GettingStarted.mp4) to get started with **Babylon Toolkit** style game development.
+The [Project Setup](Projects) section covers the current Unity Package Manager installation, required UnityGLTF shader configuration, scene configuration, and runtime script compiler options. The actively maintained [Unity Exporter guide](https://github.com/BabylonJS/BabylonToolkit/tree/master/Editors/Unity) lists the supported Unity version and package sources. Watch the current [Getting Started video](https://www.youtube.com/watch?v=d1spQKztIZI) for an exporter walkthrough.
 
 
 ## Toolkit Features

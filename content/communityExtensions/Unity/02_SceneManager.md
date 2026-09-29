@@ -8,156 +8,51 @@ video-overview:
 video-content:
 ---
 
-The Babylon scene manager extension provides runtime life cycle management for game objects. The extension supports a scene component application programming interface to enable the use of **modern game mechanics**, ease web browser game development, and provide a **native game editor-style development** experience similar to native [Unity](https://www.unity3d.com/) and [Unreal Engine](https://www.unrealengine.com/) game development.
+The Babylon Toolkit Scene Manager provides runtime lifecycle management for game objects. Its script component API supports Unity-style component development for Babylon.js scenes.
 
 ## Babylon Scene Manager
 
-The [Scene Manager](https://github.com/BabylonJS/Extensions/tree/master/SceneManager) is packaged with the latest toolkit extension, but is also available on GitHub for download and customization. You can preview the latest stable [TypeScript Definitions](https://github.com/BabylonJS/UnityExporter/blob/master/Manager/babylon.manager.d.ts) file. To use a custom build, you must copy your new output files to your project's **Assets > Babylon > Library** folder as:
+The Scene Manager is part of the maintained [Babylon Toolkit runtime](https://github.com/BabylonJS/BabylonToolkit/tree/master/Runtime). Use the current [TypeScript definitions](https://github.com/BabylonJS/BabylonToolkit/blob/master/Runtime/babylon.toolkit.d.ts) and [ScriptComponent API reference](https://github.com/BabylonJS/BabylonToolkit/blob/master/Reference/api/core/ScriptComponent.md) for its public API.
 
-- **babylon.manager.bjs** - Scene manager compiled javascript output file renamed to .bjs extension
+Initialize the Scene Manager before using toolkit components:
 
-- **babylon.manager.d.ts** - Scene manager application programming interface script definition file
-
-## Babylon Scene Controller
-
-The scene controller script is designed to be used as the main entry point and logic controller for the specified scene. The scene controller exposes an additional lifecycle function called **Ready** that gets called during the scene loading **Execute When Ready** stage. This is the ideal place for main scene setup code that runs **before** the game render loop starts. The scene controller is a subclass of **BABYLON.MeshComponent** and should be used on a single empty game object in the scene.
-
-Example scene controller script file:
-
-```javascript
-    module PROJECT {
-        export class NewSceneController extends BABYLON.MeshComponent {
-            public constructor(owner: BABYLON.AbstractMesh, scene: BABYLON.Scene, tick: boolean = true, propertyBag: any = {}) {
-                super(owner, scene, tick, propertyBag);
-            }
-
-            protected ready() :void {
-                // Scene execute when ready
-            }
-
-            protected start() :void {
-                // Start component function
-            }
-
-            protected update() :void {
-                // Update render loop function
-            }
-
-            protected after() :void {
-                // After render loop function
-            }
-
-            protected destroy() :void {
-                // Destroy component function
-            }
-        }
-    }
+```typescript
+await TOOLKIT.SceneManager.InitializeRuntime(engine);
 ```
 
 ## Babylon Scene Components
 
-Managed scene components provide modern game-mechanic helper functions to ease web game development. Some notable toolkit-managed scene component examples:
+Create components by extending `TOOLKIT.ScriptComponent`. The constructor receives the attached transform node, scene, optional exported properties, and a class alias. Override only the lifecycle methods the component needs:
 
-**GetProperty** - Gets a property from the attached editor script component.
+```typescript
+namespace PROJECT {
+    export class SampleScript extends TOOLKIT.ScriptComponent {
+        constructor(
+            transform: BABYLON.TransformNode,
+            scene: BABYLON.Scene,
+            properties: any = {},
+            alias: string = "PROJECT.SampleScript",
+        ) {
+            super(transform, scene, properties, alias);
+        }
 
-```javascript
-    module PROJECT {
-        export class TestMeshComponent extends BABYLON.MeshComponent {
+        protected awake(): void {
+            // Initialize the component.
+        }
 
-            protected start() :void {
-                const hello:string = this.getProperty("hello", "Default Value");
-                console.log("Echo Hello: " + hello);
-            }
+        protected start(): void {
+            // Initialize state that depends on other components.
+        }
+
+        protected update(): void {
+            // Run frame-by-frame logic.
+        }
+
+        protected destroy(): void {
+            // Release resources.
         }
     }
+}
 ```
 
-**GetComponent** - Gets a reference to another component attached to the owner object.
-
-```javascript
-    module PROJECT {
-        export class TestMeshComponent extends BABYLON.MeshComponent {
-
-            protected start() :void {
-                const animator:BABYLON.AnimationState = this.getComponent("BABYLON.AnimationState");
-                if (animator) console.log("Echo Owner: " + animator.owned.name);
-            }
-        }
-    }
-```
-
-**GetUserInput** - Gets the **local multiplayer** user input from the scene manager for the specified input axis.
-
-```javascript
-    module PROJECT {
-        export class TestMeshComponent extends BABYLON.MeshComponent {
-
-            protected update() :void {
-                const vertical:number = this.manager.getUserInput(BABYLON.UserInputAxis.Vertical, BABYLON.PlayerNumber.One);
-                const horizontal:number = this.manager.getUserInput(BABYLON.UserInputAxis.Horizontal, BABYLON.PlayerNumber.One);
-                console.log("Echo Input: " + vertical.toString() + " x " + horizontal.toString());
-            }
-        }
-    }
-```
-
-## Mesh Script Components
-
-The mesh component script should be used by **All Non Light And Camera** game objects. The component provides access to the owner mesh via its **BABYLON.AbstractMesh** property:
-
-```javascript
-    module PROJECT {
-        export class NewMeshComponent extends BABYLON.MeshComponent {
-
-            protected start() :void {
-                console.log("Starting mesh component for owner: " + this.mesh.name);
-            }
-        }
-    }
-```
-
-## Light Script Components
-
-The light component script is to be used on **Light** game objects **Only**. The component provides runtime access to the owner light via its **BABYLON.Light** property.
-
-```javascript
-    module PROJECT {
-        export class NewLightComponent extends BABYLON.LightComponent {
-
-            protected start() :void {
-                console.log("Starting light component for owner: " + this.light.name);
-            }
-        }
-    }
-```
-
-## Camera Script Components
-
-The camera component script is to be used on **Camera** game objects **Only**. The component provides runtime access to the owner camera via its **BABYLON.Camera** property.
-
-```javascript
-    module PROJECT {
-        export class NewCameraComponent extends BABYLON.CameraComponent {
-
-            protected start() :void {
-                console.log("Starting camera component for owner: " + this.camera.name);
-            }
-        }
-    }
-```
-
-## Babylon Global Script Files
-
-Global scripts enable inline global functions for all scenes in the project. The global application script can also be used to capture window load and scene execute-when-ready events for the entire project.
-
-Example global startup script:
-
-```javascript
-BABYLON.SceneManager.OnWindowLoad(() => {
-  // Global Page Loaded Handler
-});
-
-BABYLON.SceneManager.ExecuteWhenReady((scene: BABYLON.Scene, manager: BABYLON.SceneManager) => {
-  // Global Scene Ready Handler
-});
-```
+The current runtime also provides `ready`, `late`, `step`, `fixed`, `after`, and `reset` lifecycle methods. See the maintained [Babylon Toolkit examples](https://github.com/BabylonJS/BabylonToolkit#entity-component-system) for namespace and ES module patterns.
