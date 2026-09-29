@@ -22,7 +22,7 @@ The [Babylon Navigation Mesh](https://github.com/wanadev/babylon-navigation-mesh
 
 The toolkit scene manager provides easy-to-use helper functions for client-side navigation:
 
-```javascript
+```javascript no-code-variants
     declare module BABYLON {
         class SceneManager {
 
@@ -73,7 +73,7 @@ The toolkit scene manager provides easy-to-use helper functions for client-side 
 
 Example **Navigation Mesh** script component:
 
-```javascript
+```javascript no-code-variants
     module PROJECT {
         export class NavMeshComponent extends BABYLON.MeshComponent {
             private navmesh:BABYLON.AbstractMesh = null;

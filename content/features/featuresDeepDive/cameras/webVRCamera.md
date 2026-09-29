@@ -40,7 +40,7 @@ The WebVR controllers are available in browsers that support the WebVR gamepad e
 
 The `WebVRFreeCamera` is initialized the same as a standard free camera:
 
-```javascript
+```javascript no-code-variants
 const camera = new BABYLON.WebVRFreeCamera("camera1", new BABYLON.Vector3(0, 0, 0), scene);
 ```
 
@@ -292,7 +292,7 @@ The controllers can also be initialized without using a WebVR camera, which mean
 
 To do that, simply initialize the Gamepads Class:
 
-```javascript
+```javascript no-code-variants
 new BABYLON.Gamepads((gp) => {
   if (gp.type === BABYLON.Gamepad.POSE_ENABLED) {
     // Do something with the controller!

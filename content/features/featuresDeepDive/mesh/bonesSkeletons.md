@@ -442,7 +442,7 @@ const scale = bone.getScale();
 ```
 
 ```javascript
-const scale = BABYLON.Vector.Zero();
+const scale = BABYLON.Vector3.Zero();
 bone.getScaleToRef(scale);
 ```
 

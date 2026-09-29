@@ -84,7 +84,7 @@ advancedTexture.addControl(selectBox);
 
 There are three types of groups—a checkbox group, a radio group, and a slider group—which are created using the structure:
 
-```javascript
+```javascript no-code-variants
 new BABYLON.GUI.<Type>Group(header)
 ```
 

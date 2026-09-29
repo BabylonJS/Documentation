@@ -33,7 +33,7 @@ The hills have a different height depending on their positions on the map.
 
 Let's then create a dynamic terrain from this map:
 
-```javascript
+```javascript no-code-variants
 // terrain creation
 const terrainSub = 50;
 const params = {

@@ -29,6 +29,8 @@ Wait... what is the Babylon.js Engine, you ask? Excellent question. The `engine`
 
 You can read more about the [engine class here](/typedoc/classes/babylon.engine).
 
+Use the tabs to view this example with standard ES6 imports, side-effect-free pure ES6 imports, or the global UMD package.
+
 ```javascript
 const scene = new BABYLON.Scene(engine);
 
@@ -40,7 +42,7 @@ const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0)
 const box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
 ```
 
-Like most meshes created with MeshBuilder, the box is created with its center positioned at the origin and needs three parameters. These are a name, *a string*; options, *a JavaScript object*; and a scene. By leaving the options as an empty object *{}* with no properties, the box defaults to unit size for its width, height, and depth.
+Like most meshes created with Babylon.js's mesh creation helpers, the box is created with its center positioned at the origin and needs three parameters. These are a name, *a string*; options, *a JavaScript object*; and a scene. By leaving the options as an empty object *{}* with no properties, the box defaults to unit size for its width, height, and depth.
 
 To make this usable in a Playground, we need to place these within a function called **createScene** that returns a scene. The Playground app takes care of the rest.
 

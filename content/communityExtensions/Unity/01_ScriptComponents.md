@@ -56,7 +56,7 @@ When you double-click a script Asset in Unity, it will be opened in a text edito
 
 The contents of an example mesh component file will look something like this:
 
-```javascript
+```javascript no-code-variants
     module PROJECT {
         export class NewMeshComponent extends BABYLON.MeshComponent {
             public constructor(owner: BABYLON.AbstractMesh, scene: BABYLON.Scene, tick: boolean = true, propertyBag: any = {}) {
@@ -97,7 +97,7 @@ the native backing class:
 
 Example runtime backing class script file:
 
-```javascript
+```javascript no-code-variants
     module PROJECT {
         export class TestMeshComponent extends BABYLON.MeshComponent {
 

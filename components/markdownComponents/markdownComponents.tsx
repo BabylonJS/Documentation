@@ -6,9 +6,12 @@ import { AlertMarkdownComponent, SyntaxHighlighting } from "./syntaxHighlight.co
 import { H1MarkdownComponent, H2MarkdownComponent, H3MarkdownComponent, H4MarkdownComponent } from "./tableOfContentItem.component";
 import { CodePenComponent } from "./codepen.component";
 import { CodeSandboxComponent } from "./codesandbox.component";
+import { CodeVariant, CodeVariants } from "./codeVariants.component";
 
 export const markdownComponents = {
     Alert: AlertMarkdownComponent,
+    CodeVariant,
+    CodeVariants,
     Youtube: YoutubeComponent,
     Media: MediaFileComponent,
     Playground: PlaygroundMarkdownComponent,

@@ -66,7 +66,7 @@ The toolkit scene manager provides easy-to-use helper functions for client-side 
 
 Example **Runtime Prefab** script component:
 
-```javascript
+```javascript no-code-variants
     module PROJECT {
         export class TestMeshComponent extends BABYLON.MeshComponent {
             public constructor(owner: BABYLON.AbstractMesh, scene: BABYLON.Scene, tick: boolean = true, propertyBag: any = {}) {

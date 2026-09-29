@@ -165,6 +165,35 @@ describe("Code Blocks", () => {
         expect(result.compiledSource).toContain("shell");
         expect(result.compiledSource).toContain("glsl");
     });
+
+    it("should generate package variants for Babylon namespace code in expression and type positions", async () => {
+        const raw = loadFixture("code-blocks.md");
+        const result = await serializeMarkdown(raw);
+        expect(result.compiledSource).toContain('label: "ES6 pure"');
+        expect(result.compiledSource).toContain('import { MeshBuilder } from \\"@babylonjs/core/pure\\";');
+        expect(result.compiledSource).toContain('import type { Mesh, Vector3 } from \\"@babylonjs/core/pure\\";');
+        expect(result.compiledSource).toContain("position: Vector3;");
+        expect(result.compiledSource).toContain("const createMesh = (options: MeshOptions): Mesh =>");
+    });
+
+    it("should omit only the pure variant when the package has no pure entry point", async () => {
+        const result = await serializeMarkdown(`\`\`\`javascript
+const texture = new BABYLON.WoodProceduralTexture("wood", 256, scene);
+\`\`\``);
+
+        expect(result.compiledSource).toContain('label: "ES6"');
+        expect(result.compiledSource).not.toContain('label: "ES6 pure"');
+        expect(result.compiledSource).toContain('label: "UMD"');
+    });
+
+    it("should preserve explicitly excluded code blocks without package tabs", async () => {
+        const result = await serializeMarkdown(`\`\`\`javascript no-code-variants
+const terrain = new BABYLON.DynamicTerrain("terrain", options, scene);
+\`\`\``);
+
+        expect(result.compiledSource).not.toContain("CodeVariants");
+        expect(result.compiledSource).toContain("BABYLON.DynamicTerrain");
+    });
 });
 
 // ─── Custom MDX Components ──────────────────────────────────────────────
@@ -213,6 +242,15 @@ describe("Custom MDX Components", () => {
         const raw = loadFixture("custom-components.md");
         const result = await serializeMarkdown(raw);
         expect(result.compiledSource).toContain("CodeSandbox");
+    });
+
+    it("should contain both package code variants", async () => {
+        const raw = loadFixture("custom-components.md");
+        const result = await serializeMarkdown(raw);
+        expect(result.compiledSource).toContain("CodeVariants");
+        expect(result.compiledSource).toContain('variant: "es6"');
+        expect(result.compiledSource).toContain('variant: "pure-es6"');
+        expect(result.compiledSource).toContain('variant: "umd"');
     });
 });
 

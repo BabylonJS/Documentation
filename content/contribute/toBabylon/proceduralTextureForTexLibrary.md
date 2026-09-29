@@ -133,7 +133,7 @@ To test your texture, open the /proceduralTextureLibrary/index.html page. Refere
 
 Then add the procedural texture at line 192:
 
-```javascript
+```javascript no-code-variants
 const cloudBis = new BABYLON.CloudBisProceduralTexture("cloudPTBis", 256, scene);
 ```
 

@@ -20,7 +20,7 @@ Please refer to the [Unity Animation Controller](https://docs.unity3d.com/Manual
 
 Example **Animation State** script component:
 
-```javascript
+```javascript no-code-variants
     module PROJECT {
         export class TestPlayerController extends BABYLON.MeshComponent {
             private animator:BABYLON.AnimationState = null;

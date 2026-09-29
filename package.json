@@ -19,7 +19,8 @@
         "test": "vitest run",
         "test:watch": "vitest",
         "test:update": "vitest run --update",
-        "validate:content": "tsx scripts/validate-content.ts",
+        "validate:code-variants": "tsx scripts/audit-code-variants.ts --strict",
+        "validate:content": "tsx scripts/validate-content.ts && npm run validate:code-variants",
         "upload:search": "tsx scripts/upload-search-index.ts"
     },
     "dependencies": {

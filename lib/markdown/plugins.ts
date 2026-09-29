@@ -1,3 +1,5 @@
+import { remarkBabylonCodeVariants } from "./remarkBabylonCodeVariants";
+
 export const getMarkdownPlugins = async () => {
     const rehypeSlug = (await import("rehype-slug")).default;
     const remarkGfm = (await import("remark-gfm")).default;
@@ -5,7 +7,7 @@ export const getMarkdownPlugins = async () => {
     const rehypeKatex = (await import("rehype-katex")).default;
 
     return {
-        remarkPlugins: [remarkGfm, remarkMath],
+        remarkPlugins: [remarkGfm, remarkMath, remarkBabylonCodeVariants],
         rehypePlugins: [rehypeSlug, rehypeKatex],
     };
 };

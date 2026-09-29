@@ -95,7 +95,7 @@ If we create fewer particle types than the declared object types in the map, the
 Now that we have built an SPS and a SPMap, we can pass them to the DynamicTerrain constructor along with the usual data map.  
 We use the parameter `SPmapData` and `sps` :
 
-```javascript
+```javascript no-code-variants
 const terrainSub = 100; // 100 terrain subdivisions
 const params = {
   mapData: mapData, // data map declaration : what data to use ?
@@ -167,7 +167,7 @@ SPUV[0] = [
 We then pass the object colors and UVs to the DynamicTerrain constructor along with the object map and the sps.  
 We use the parameter `SPcolorData` and `SPuvData`.
 
-```javascript
+```javascript no-code-variants
 const terrainSub = 100; // terrain subdivisions
 const terrainOptions = {
   terrainSub: terrainSub,

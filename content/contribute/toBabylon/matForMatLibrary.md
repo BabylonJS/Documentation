@@ -121,7 +121,7 @@ For completeness, you will also have to complete the _serialize_ and _Parse_ fun
 Please note that the _serialize_ function needs to output the complete material name to the serializationObject, as shown here:
 
 ```javascript
-serializationObject.customType = "BABYLON.SimplelMaterial";
+serializationObject.customType = "BABYLON.DiffuseEmissiveMaterial";
 ```
 
 And you're done with the material! Now it is time to test it.
@@ -132,7 +132,7 @@ To test your material, open the /materialsLibrary/index.html page. References ar
 
 Then add the material at line 120:
 
-```javascript
+```javascript no-code-variants
 const diffuseEmissive = new BABYLON.DiffuseEmissiveMaterial("diffuseEmissive", scene);
 diffuseEmissive.diffuseTexture = new BABYLON.Texture("textures/amiga.jpg", scene);
 diffuseEmissive.diffuseTexture.uScale = 5;

@@ -24,7 +24,7 @@ Please refer to the [Unity Collision](https://docs.unity3d.com/Manual/CollidersO
 
 Example **Collision Event** script component:
 
-```javascript
+```javascript no-code-variants
     module PROJECT {
         export class ShotController extends BABYLON.MeshComponent {
             protected start() :void {
