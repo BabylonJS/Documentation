@@ -77,6 +77,9 @@ export const CodeVariants: FunctionComponent<PropsWithChildren<{ defaultVariant?
                 value={selectedVariant}
                 onChange={handleChange}
                 textColor="inherit"
+                variant="scrollable"
+                scrollButtons="auto"
+                allowScrollButtonsMobile
                 sx={{
                     minHeight: 40,
                     backgroundColor: theme.customPalette.header,

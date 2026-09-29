@@ -609,20 +609,20 @@ let mapShader = BABYLON.Debug.SkeletonViewer.CreateSkeletonMapShader(options, sc
 
 Inside the options, you must pass a skeleton key and value. A secondary optional argument for generating the color gradient for the bones is called colorMap.
 
-```javascript
-let options = {
-   skeleton : BABYLON.Skeleton,
-   colorMap? : any[]
-};
+```typescript
+interface SkeletonMapShaderOptions {
+   skeleton: BABYLON.Skeleton;
+   colorMap?: SkeletonMapColor[];
+}
 ```
 
 In order to leverage the color map you will need to pass in an array of objects with this format:
 
-```javascript
-let colorMapItem = {
-  color: BABYLON.Color3, //The Color to use
-  location: number, // Where on the gradient it is. Between 0-1
-};
+```typescript
+interface SkeletonMapColor {
+  color: BABYLON.Color3; // The color to use
+  location: number; // Where on the gradient it is. Between 0-1
+}
 ```
 
 This array is expected to have the items arranged with their location value in ascending order.
@@ -638,16 +638,16 @@ let boneWeightShader = BABYLON.Debug.SkeletonViewer.CreateBoneWeightShader(optio
 
 Inside the options, you must pass a skeleton key and value. Optional arguments control color and the starting selected bone.
 
-```javascript
-let options = {
-   skeleton : BABYLON.Skeleton,
-   colorBase? : BABYLON.Color3, //The color when a bone has 0 influence. Default = Black
-   colorZero? : BABYLON.Color3, //The color when a bone has > 0 influence < 0.25. Default = Blue
-   colorQuarter? : BABYLON.Color3, //The color when a bone has >= 0.25 influence < 0.5. Default = Green
-   colorHalf? : BABYLON.Color3, //The color when a bone has >= 0.5 influence < 0.75. Default = Yellow
-   colorFull? : BABYLON.Color3, //The color when a bone has >= 0.75 influence <= 1. Default = Red
-   targetBoneIndex?: number //The bone._index value that you wish to display. Default = 0
-};
+```typescript
+interface BoneWeightShaderOptions {
+   skeleton: BABYLON.Skeleton;
+   colorBase?: BABYLON.Color3; // The color when a bone has 0 influence. Default = Black
+   colorZero?: BABYLON.Color3; // The color when a bone has > 0 influence < 0.25. Default = Blue
+   colorQuarter?: BABYLON.Color3; // The color when a bone has >= 0.25 influence < 0.5. Default = Green
+   colorHalf?: BABYLON.Color3; // The color when a bone has >= 0.5 influence < 0.75. Default = Yellow
+   colorFull?: BABYLON.Color3; // The color when a bone has >= 0.75 influence <= 1. Default = Red
+   targetBoneIndex?: number; // The bone._index value that you wish to display. Default = 0
+}
 ```
 
 The bone that is to be displayed is controlled by setting a uniform on the shader.

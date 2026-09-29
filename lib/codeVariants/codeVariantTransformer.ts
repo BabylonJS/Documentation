@@ -12,6 +12,7 @@ export type CodeVariantDiagnosticCode =
     | "unsupported-pure-symbol"
     | "unsupported-pure-member"
     | "unsupported-lexical-context"
+    | "local-namespace-binding"
     | "unconverted-namespace-reference";
 
 export interface CodeVariantSourcePosition {
@@ -784,9 +785,13 @@ function lexicalBabylonChains(tokens: readonly ScannerToken[]): LexicalBabylonCh
     return chains;
 }
 
+export function hasBabylonNamespaceReference(source: string): boolean {
+    return lexicalBabylonChains(scanSource(source).tokens).some((chain) => Boolean(chain.parsed));
+}
+
 function fallbackDiagnostic(
     sourceFile: ts.SourceFile,
-    variant: CodeVariantKind,
+    variant: CodeVariantDiagnostic["variant"],
     code: CodeVariantDiagnosticCode,
     message: string,
     start: number,
@@ -967,6 +972,7 @@ function transformFallbackVariant(
     source: string,
     scan: ScannerResult,
     kind: CodeVariantKind,
+    supportsTypeSyntax: boolean,
 ): { output: CodeVariantOutput; diagnostics: CodeVariantDiagnostic[] } {
     const diagnostics: CodeVariantDiagnostic[] = [];
     if (scan.errors.length > 0) {
@@ -1022,7 +1028,7 @@ function transformFallbackVariant(
         }
 
         const { reference, trailingNames } = chain.parsed;
-        const typePosition = isLexicalTypePosition(scan.tokens, chain);
+        const typePosition = supportsTypeSyntax && isLexicalTypePosition(scan.tokens, chain);
         const resolved = resolveFallbackEntry(sourceFile, kind, chain, scan.tokens, typePosition, diagnostics);
         if (!resolved) {
             continue;
@@ -1381,19 +1387,38 @@ export function transformBabylonCodeVariants(
     options: CodeVariantTransformOptions = {},
 ): CodeVariantTransformResult {
     const fileName = options.fileName ?? "snippet.ts";
+    const scriptKind = scriptKindForFileName(fileName);
     const sourceFile = ts.createSourceFile(
         fileName,
         source,
         ts.ScriptTarget.Latest,
         true,
-        scriptKindForFileName(fileName),
+        scriptKind,
     );
+    if (collectLocalBindings(sourceFile).has("BABYLON")) {
+        const start = Math.max(0, source.indexOf("BABYLON"));
+        return {
+            standardEs6: { kind: "standard-es6", success: false },
+            es6Pure: { kind: "es6-pure", success: false },
+            diagnostics: [
+                fallbackDiagnostic(
+                    sourceFile,
+                    "source",
+                    "local-namespace-binding",
+                    "This snippet binds BABYLON locally and must retain its original package initialization.",
+                    start,
+                    start + "BABYLON".length,
+                ),
+            ],
+        };
+    }
     const parseDiagnostics =
         (sourceFile as ts.SourceFile & { parseDiagnostics?: readonly ts.DiagnosticWithLocation[] }).parseDiagnostics ?? [];
     if (parseDiagnostics.length > 0) {
         const scan = scanSource(source);
-        const standard = transformFallbackVariant(sourceFile, source, scan, "standard-es6");
-        const pure = transformFallbackVariant(sourceFile, source, scan, "es6-pure");
+        const supportsTypeSyntax = scriptKind === ts.ScriptKind.TS || scriptKind === ts.ScriptKind.TSX;
+        const standard = transformFallbackVariant(sourceFile, source, scan, "standard-es6", supportsTypeSyntax);
+        const pure = transformFallbackVariant(sourceFile, source, scan, "es6-pure", supportsTypeSyntax);
         return {
             standardEs6: standard.output,
             es6Pure: pure.output,

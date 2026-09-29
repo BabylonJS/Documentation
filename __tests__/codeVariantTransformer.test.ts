@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { transformBabylonCodeVariants } from "../lib/codeVariants/codeVariantTransformer";
+import {
+    hasBabylonNamespaceReference,
+    transformBabylonCodeVariants,
+} from "../lib/codeVariants/codeVariantTransformer";
 
 describe("transformBabylonCodeVariants", () => {
     it("converts classes and free functions to standard deep imports and pure imports", () => {
@@ -99,6 +102,49 @@ const origin = BABYLON.Vector3.Zero();
         expect(result.es6Pure.code).toContain(
             'import { Vector3 as Vector3Babylon } from "@babylonjs/core/pure";',
         );
+    });
+
+    it("declines snippets that initialize a local Babylon namespace", () => {
+        const result = transformBabylonCodeVariants(
+            'const BABYLON = require("babylonjs");\nconst engine = new BABYLON.NullEngine();',
+            { fileName: "snippet.js" },
+        );
+
+        expect(result.standardEs6).toEqual({ kind: "standard-es6", success: false });
+        expect(result.es6Pure).toEqual({ kind: "es6-pure", success: false });
+        expect(result.diagnostics).toEqual([
+            expect.objectContaining({
+                code: "local-namespace-binding",
+                variant: "source",
+            }),
+        ]);
+    });
+
+    it("does not classify JavaScript object values as type positions in fallback mode", () => {
+        const result = transformBabylonCodeVariants(
+            `const options = {
+    skeleton: BABYLON.Skeleton,
+    colorBase?: BABYLON.Color3,
+};`,
+            { fileName: "snippet.js" },
+        );
+
+        expect(result.standardEs6.code).toContain(
+            'import { Color3 } from "@babylonjs/core/Maths/math.color";',
+        );
+        expect(result.standardEs6.code).toContain(
+            'import { Skeleton } from "@babylonjs/core/Bones/skeleton";',
+        );
+        expect(result.standardEs6.code).not.toContain("import type");
+        expect(result.es6Pure.code).toContain(
+            'import { Color3, Skeleton } from "@babylonjs/core/pure";',
+        );
+        expect(result.es6Pure.code).not.toContain("import type");
+    });
+
+    it("detects namespace references outside literals and comments", () => {
+        expect(hasBabylonNamespaceReference('const type = "BABYLON.Mesh"; // BABYLON.Scene')).toBe(false);
+        expect(hasBabylonNamespaceReference("const mesh = new BABYLON.Mesh();")).toBe(true);
     });
 
     it("converts Babylon references in interface properties and return types", () => {

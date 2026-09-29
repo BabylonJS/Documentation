@@ -2,7 +2,11 @@ import { mkdirSync, readFileSync, writeFileSync } from "fs";
 import { dirname, relative, resolve } from "path";
 import { globSync } from "glob";
 
-import { transformBabylonCodeVariants, type CodeVariantDiagnostic } from "../lib/codeVariants/codeVariantTransformer";
+import {
+    hasBabylonNamespaceReference,
+    transformBabylonCodeVariants,
+    type CodeVariantDiagnostic,
+} from "../lib/codeVariants/codeVariantTransformer";
 
 type AuditResult = {
     file: string;
@@ -31,7 +35,7 @@ for (const absoluteFile of globSync("content/**/*.md", { absolute: true })) {
         const info = match[1].trim().split(/\s+/).filter(Boolean);
         const language = info[0]?.toLowerCase() ?? "";
         const code = match[2];
-        if (!code.includes("BABYLON.") || !supportedLanguages.has(language)) {
+        if (!hasBabylonNamespaceReference(code) || !supportedLanguages.has(language)) {
             continue;
         }
         if (info.includes("no-code-variants")) {
@@ -43,6 +47,11 @@ for (const absoluteFile of globSync("content/**/*.md", { absolute: true })) {
         const result = transformBabylonCodeVariants(code, {
             fileName: `snippet.${language === "typescript" || language === "ts" ? "ts" : "js"}`,
         });
+        if (result.diagnostics.some(({ code }) => code === "local-namespace-binding")) {
+            eligibleBlocks--;
+            excludedBlocks++;
+            continue;
+        }
 
         if (result.standardEs6.success && result.es6Pure.success) {
             fullVariantBlocks++;

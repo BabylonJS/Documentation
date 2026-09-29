@@ -194,6 +194,26 @@ const terrain = new BABYLON.DynamicTerrain("terrain", options, scene);
         expect(result.compiledSource).not.toContain("CodeVariants");
         expect(result.compiledSource).toContain("BABYLON.DynamicTerrain");
     });
+
+    it("should preserve CommonJS Babylon initialization without package tabs", async () => {
+        const result = await serializeMarkdown(`\`\`\`javascript
+const BABYLON = require("babylonjs");
+const engine = new BABYLON.NullEngine();
+\`\`\``);
+
+        expect(result.compiledSource).not.toContain("CodeVariants");
+        expect(result.compiledSource).toContain('require(\\"babylonjs\\")');
+    });
+
+    it("should not add package tabs for namespace names inside literals or comments", async () => {
+        const result = await serializeMarkdown(`\`\`\`javascript
+serializationObject.customType = "BABYLON.DiffuseEmissiveMaterial";
+// BABYLON.Mesh is intentionally mentioned as documentation.
+\`\`\``);
+
+        expect(result.compiledSource).not.toContain("CodeVariants");
+        expect(result.compiledSource).toContain("BABYLON.DiffuseEmissiveMaterial");
+    });
 });
 
 // ─── Custom MDX Components ──────────────────────────────────────────────

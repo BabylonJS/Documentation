@@ -1,7 +1,11 @@
 import { SKIP, visit } from "unist-util-visit";
 import type { Plugin } from "unified";
 
-import { transformBabylonCodeVariants, type CodeVariantDiagnostic } from "../codeVariants/codeVariantTransformer";
+import {
+    hasBabylonNamespaceReference,
+    transformBabylonCodeVariants,
+    type CodeVariantDiagnostic,
+} from "../codeVariants/codeVariantTransformer";
 
 type CodeNode = {
     type: "code";
@@ -68,7 +72,7 @@ const createVariant = (variant: string, label: string, code: string, language: s
 export const remarkBabylonCodeVariants: Plugin = () => {
     return (tree: unknown, file: MarkdownFile) => {
         visit(tree as Parameters<typeof visit>[0], "code", (node: CodeNode, index, parent: ParentNode | undefined) => {
-            if (index === undefined || !parent || !node.value.includes("BABYLON.")) {
+            if (index === undefined || !parent || !hasBabylonNamespaceReference(node.value)) {
                 return;
             }
             if (parent.type === "mdxJsxFlowElement" && parent.name === "CodeVariant") {
