@@ -175,7 +175,7 @@ You can create a custom shader controller script from the **Create** menu at the
 
 Example library **Water Material** shader controller with life cycle:
 
-```javascript
+```javascript no-code-variants
 module BABYLON {
     export class WaterMaterialController extends BABYLON.WaterMaterial {
         constructor(name: string, scene: Scene, public renderTargetSize: Vector2 = new Vector2(512, 512)) {

@@ -150,7 +150,7 @@ The retry also **rewrites the registry**, so subsequent reloads use the resolved
 
 You don't have to build the file-picker UI yourself. Inspector V2 ships a ready-made missing-asset prompt — assign `inspectorAssetNotFoundHandler` (or call `installInspectorAssetNotFoundHandler(sam)`, both public `@babylonjs/inspector-v2` exports) and a failed load shows a *"Locate the file or click Skip"* dialog with a native file picker; the chosen file is returned to SAM as the replacement. This is exactly how the Inspector's [Project Authoring](/toolsAndResources/inspectorv2/projectFile) pane wires `onAssetNotFound`, and any app that opens Inspector V2 can reuse it:
 
-```javascript
+```javascript no-code-variants
 // Requires Inspector V2 to be open (it hosts the prompt).
 sam.onAssetNotFound = BABYLON.INSPECTOR.inspectorAssetNotFoundHandler;
 ```

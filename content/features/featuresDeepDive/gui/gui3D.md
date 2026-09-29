@@ -336,7 +336,7 @@ const manager = new BABYLON.GUI.GUI3DManager(scene);
 // Let's add a slate
 const slate = new BABYLON.GUI.HolographicSlate("down");
 slate.title = "Checkers";
-slate.minDimensions = new BABYLON.Vector(5, 5);
+slate.minDimensions = new BABYLON.Vector2(5, 5);
 slate.dimensions = new BABYLON.Vector2(10, 10);
 slate.titleBarHeight = 1.5;
 manager.addControl(slate);

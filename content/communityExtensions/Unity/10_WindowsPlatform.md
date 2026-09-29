@@ -34,7 +34,7 @@ The toolkit's [Xbox Live Plugin](https://www.nuget.org/packages/BabylonToolkit.X
 
 The toolkit scene manager provides easy-to-use helper functions for Xbox Live context management:
 
-```javascript
+```javascript no-code-variants
 declare module BABYLON {
     class SceneManager {
 
@@ -94,7 +94,7 @@ declare module BABYLON {
 
 Example **Xbox Live Authentication** script component:
 
-```javascript
+```javascript no-code-variants
 module PROJECT {
     export class TestSceneController extends BABYLON.MeshComponent {
         public constructor(owner: BABYLON.AbstractMesh, scene: BABYLON.Scene, tick: boolean = true, propertyBag: any = {}) {

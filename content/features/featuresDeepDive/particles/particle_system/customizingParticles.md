@@ -148,7 +148,7 @@ Any particle with a start position inside the red region is emitted in the direc
 
 The `createSprayEmitter` method sets the radius and height of the cylinder and creates a new `SprayParticleEmitter` object, which is assigned to the `particleEmitterType` property.
 
-```javascript
+```javascript no-code-variants
 BABYLON.ParticleSystem.prototype.createSprayEmitter = function (radius, height) {
   if (radius === void 0) {
     radius = 0.5;
@@ -164,7 +164,7 @@ BABYLON.ParticleSystem.prototype.createSprayEmitter = function (radius, height) 
 
 The `SprayParticleEmitter` class implements two methods — `startDirectionFunction` and `startPositionFunction` — and Babylon.js takes care of the rest.
 
-```javascript
+```javascript no-code-variants
 var SprayParticleEmitter = (function () {
   function SprayParticleEmitter(radius, height, directionRandomizer) {
     if (radius === void 0) {

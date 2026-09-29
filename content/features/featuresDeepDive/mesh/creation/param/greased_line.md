@@ -547,7 +547,7 @@ const line = BABYLON.CreateGreasedLine("line", { points }, { useColors: true, co
 ```javascript
 const points = [-1, 0, 0, -0.5, 0, 0, 0, 0, 0, 0.5, 0, 0, 1, 0, 0];
 const widths = [1, 1, 2, 2, 3, 3, 2, 2];
-const line = BABYLON.CreateGreaseLine("line", { points }, [widths]);
+const line = BABYLON.CreateGreasedLine("line", { points, widths });
 ```
 
 #### Instance mode

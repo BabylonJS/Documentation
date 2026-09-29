@@ -12,7 +12,9 @@ function _createMdxContent(props) {
     pre: "pre",
     ..._provideComponents(),
     ...props.components
-  };
+  }, {CodeVariant, CodeVariants} = _components;
+  if (!CodeVariant) _missingMdxReference("CodeVariant", true, "4:1-8:4");
+  if (!CodeVariants) _missingMdxReference("CodeVariants", true, "4:1-8:4");
   return _jsxDEV(_Fragment, {
     children: [_jsxDEV(_components.h2, {
       id: "javascript",
@@ -21,16 +23,72 @@ function _createMdxContent(props) {
       fileName: "<source.js>",
       lineNumber: 2,
       columnNumber: 1
-    }, this), "\\n", _jsxDEV(_components.pre, {
-      children: _jsxDEV(_components.code, {
-        className: "language-javascript",
-        children: "const engine = new BABYLON.Engine(canvas, true);\\nconst scene = new BABYLON.Scene(engine);\\nconst camera = new BABYLON.FreeCamera(\\"camera\\", new BABYLON.Vector3(0, 5, -10), scene);\\n"
+    }, this), "\\n", _jsxDEV(CodeVariants, {
+      children: [_jsxDEV(CodeVariant, {
+        variant: "es6",
+        label: "ES6",
+        children: _jsxDEV(_components.pre, {
+          children: _jsxDEV(_components.code, {
+            className: "language-javascript",
+            children: "import { FreeCamera } from \\"@babylonjs/core/Cameras/freeCamera\\";\\nimport { Engine } from \\"@babylonjs/core/Engines/engine\\";\\nimport { Vector3 } from \\"@babylonjs/core/Maths/math.vector\\";\\nimport { Scene } from \\"@babylonjs/core/scene\\";\\nconst engine = new Engine(canvas, true);\\nconst scene = new Scene(engine);\\nconst camera = new FreeCamera(\\"camera\\", new Vector3(0, 5, -10), scene);\\n\\n"
+          }, undefined, false, {
+            fileName: "<source.js>",
+            lineNumber: 4,
+            columnNumber: 1
+          }, this)
+        }, undefined, false, {
+          fileName: "<source.js>",
+          lineNumber: 4,
+          columnNumber: 1
+        }, this)
       }, undefined, false, {
         fileName: "<source.js>",
         lineNumber: 4,
         columnNumber: 1
-      }, this)
-    }, undefined, false, {
+      }, this), _jsxDEV(CodeVariant, {
+        variant: "pure-es6",
+        label: "ES6 pure",
+        children: _jsxDEV(_components.pre, {
+          children: _jsxDEV(_components.code, {
+            className: "language-javascript",
+            children: "import { Engine, FreeCamera, Scene, Vector3 } from \\"@babylonjs/core/pure\\";\\nconst engine = new Engine(canvas, true);\\nconst scene = new Scene(engine);\\nconst camera = new FreeCamera(\\"camera\\", new Vector3(0, 5, -10), scene);\\n\\n"
+          }, undefined, false, {
+            fileName: "<source.js>",
+            lineNumber: 4,
+            columnNumber: 1
+          }, this)
+        }, undefined, false, {
+          fileName: "<source.js>",
+          lineNumber: 4,
+          columnNumber: 1
+        }, this)
+      }, undefined, false, {
+        fileName: "<source.js>",
+        lineNumber: 4,
+        columnNumber: 1
+      }, this), _jsxDEV(CodeVariant, {
+        variant: "umd",
+        label: "UMD",
+        children: _jsxDEV(_components.pre, {
+          children: _jsxDEV(_components.code, {
+            className: "language-javascript",
+            children: "const engine = new BABYLON.Engine(canvas, true);\\nconst scene = new BABYLON.Scene(engine);\\nconst camera = new BABYLON.FreeCamera(\\"camera\\", new BABYLON.Vector3(0, 5, -10), scene);\\n"
+          }, undefined, false, {
+            fileName: "<source.js>",
+            lineNumber: 4,
+            columnNumber: 1
+          }, this)
+        }, undefined, false, {
+          fileName: "<source.js>",
+          lineNumber: 4,
+          columnNumber: 1
+        }, this)
+      }, undefined, false, {
+        fileName: "<source.js>",
+        lineNumber: 4,
+        columnNumber: 1
+      }, this)]
+    }, undefined, true, {
       fileName: "<source.js>",
       lineNumber: 4,
       columnNumber: 1
@@ -41,16 +99,72 @@ function _createMdxContent(props) {
       fileName: "<source.js>",
       lineNumber: 10,
       columnNumber: 1
-    }, this), "\\n", _jsxDEV(_components.pre, {
-      children: _jsxDEV(_components.code, {
-        className: "language-typescript",
-        children: "interface MeshOptions {\\n    name: string;\\n    position: BABYLON.Vector3;\\n    rotation?: BABYLON.Vector3;\\n}\\n\\nconst createMesh = (options: MeshOptions): BABYLON.Mesh => {\\n    const mesh = BABYLON.MeshBuilder.CreateBox(options.name, {}, scene);\\n    mesh.position = options.position;\\n    return mesh;\\n};\\n"
+    }, this), "\\n", _jsxDEV(CodeVariants, {
+      children: [_jsxDEV(CodeVariant, {
+        variant: "es6",
+        label: "ES6",
+        children: _jsxDEV(_components.pre, {
+          children: _jsxDEV(_components.code, {
+            className: "language-typescript",
+            children: "import { MeshBuilder } from \\"@babylonjs/core/Meshes/meshBuilder\\";\\nimport type { Vector3 } from \\"@babylonjs/core/Maths/math.vector\\";\\nimport type { Mesh } from \\"@babylonjs/core/Meshes/mesh\\";\\ninterface MeshOptions {\\n    name: string;\\n    position: Vector3;\\n    rotation?: Vector3;\\n}\\nconst createMesh = (options: MeshOptions): Mesh => {\\n    const mesh = MeshBuilder.CreateBox(options.name, {}, scene);\\n    mesh.position = options.position;\\n    return mesh;\\n};\\n\\n"
+          }, undefined, false, {
+            fileName: "<source.js>",
+            lineNumber: 12,
+            columnNumber: 1
+          }, this)
+        }, undefined, false, {
+          fileName: "<source.js>",
+          lineNumber: 12,
+          columnNumber: 1
+        }, this)
       }, undefined, false, {
         fileName: "<source.js>",
         lineNumber: 12,
         columnNumber: 1
-      }, this)
-    }, undefined, false, {
+      }, this), _jsxDEV(CodeVariant, {
+        variant: "pure-es6",
+        label: "ES6 pure",
+        children: _jsxDEV(_components.pre, {
+          children: _jsxDEV(_components.code, {
+            className: "language-typescript",
+            children: "import { MeshBuilder } from \\"@babylonjs/core/pure\\";\\nimport type { Mesh, Vector3 } from \\"@babylonjs/core/pure\\";\\ninterface MeshOptions {\\n    name: string;\\n    position: Vector3;\\n    rotation?: Vector3;\\n}\\nconst createMesh = (options: MeshOptions): Mesh => {\\n    const mesh = MeshBuilder.CreateBox(options.name, {}, scene);\\n    mesh.position = options.position;\\n    return mesh;\\n};\\n\\n"
+          }, undefined, false, {
+            fileName: "<source.js>",
+            lineNumber: 12,
+            columnNumber: 1
+          }, this)
+        }, undefined, false, {
+          fileName: "<source.js>",
+          lineNumber: 12,
+          columnNumber: 1
+        }, this)
+      }, undefined, false, {
+        fileName: "<source.js>",
+        lineNumber: 12,
+        columnNumber: 1
+      }, this), _jsxDEV(CodeVariant, {
+        variant: "umd",
+        label: "UMD",
+        children: _jsxDEV(_components.pre, {
+          children: _jsxDEV(_components.code, {
+            className: "language-typescript",
+            children: "interface MeshOptions {\\n    name: string;\\n    position: BABYLON.Vector3;\\n    rotation?: BABYLON.Vector3;\\n}\\n\\nconst createMesh = (options: MeshOptions): BABYLON.Mesh => {\\n    const mesh = BABYLON.MeshBuilder.CreateBox(options.name, {}, scene);\\n    mesh.position = options.position;\\n    return mesh;\\n};\\n"
+          }, undefined, false, {
+            fileName: "<source.js>",
+            lineNumber: 12,
+            columnNumber: 1
+          }, this)
+        }, undefined, false, {
+          fileName: "<source.js>",
+          lineNumber: 12,
+          columnNumber: 1
+        }, this)
+      }, undefined, false, {
+        fileName: "<source.js>",
+        lineNumber: 12,
+        columnNumber: 1
+      }, this)]
+    }, undefined, true, {
       fileName: "<source.js>",
       lineNumber: 12,
       columnNumber: 1
@@ -145,6 +259,9 @@ function MDXContent(props = {}) {
 return {
   default: MDXContent
 };
+function _missingMdxReference(id, component, place) {
+  throw new Error("Expected " + (component ? "component" : "object") + " \`" + id + "\` to be defined: you likely forgot to import, pass, or provide it." + (place ? "\\nIt’s referenced in your code at \`" + place + "\`" : ""));
+}
 "
 `;
 
@@ -728,15 +845,19 @@ const {Fragment: _Fragment, jsxDEV: _jsxDEV} = arguments[0];
 const {useMDXComponents: _provideComponents} = arguments[0];
 function _createMdxContent(props) {
   const _components = {
+    code: "code",
     h2: "h2",
     p: "p",
+    pre: "pre",
     strong: "strong",
     ..._provideComponents(),
     ...props.components
-  }, {Alert, CodePen, CodeSandbox, NGE, NME, Playground, Youtube} = _components;
+  }, {Alert, CodePen, CodeSandbox, CodeVariant, CodeVariants, NGE, NME, Playground, Youtube} = _components;
   if (!Alert) _missingMdxReference("Alert", true, "28:1-28:113");
   if (!CodePen) _missingMdxReference("CodePen", true, "37:1-37:69");
   if (!CodeSandbox) _missingMdxReference("CodeSandbox", true, "41:1-41:63");
+  if (!CodeVariant) _missingMdxReference("CodeVariant", true, "46:1-53:15");
+  if (!CodeVariants) _missingMdxReference("CodeVariants", true, "45:1-69:16");
   if (!NGE) _missingMdxReference("NGE", true, "18:1-18:87");
   if (!NME) _missingMdxReference("NME", true, "12:1-12:156");
   if (!Playground) _missingMdxReference("Playground", true, "4:1-4:82");
@@ -898,6 +1019,82 @@ function _createMdxContent(props) {
     }, undefined, false, {
       fileName: "<source.js>",
       lineNumber: 41,
+      columnNumber: 1
+    }, this), "\\n", _jsxDEV(_components.h2, {
+      id: "code-variants",
+      children: "Code Variants"
+    }, undefined, false, {
+      fileName: "<source.js>",
+      lineNumber: 43,
+      columnNumber: 1
+    }, this), "\\n", _jsxDEV(CodeVariants, {
+      children: [_jsxDEV(CodeVariant, {
+        variant: "es6",
+        label: "ES6",
+        children: _jsxDEV(_components.pre, {
+          children: _jsxDEV(_components.code, {
+            className: "language-javascript",
+            children: "import { Scene } from \\"@babylonjs/core/scene\\";\\nconst scene = new Scene(engine);\\n"
+          }, undefined, false, {
+            fileName: "<source.js>",
+            lineNumber: 48,
+            columnNumber: 1
+          }, this)
+        }, undefined, false, {
+          fileName: "<source.js>",
+          lineNumber: 48,
+          columnNumber: 1
+        }, this)
+      }, undefined, false, {
+        fileName: "<source.js>",
+        lineNumber: 46,
+        columnNumber: 1
+      }, this), _jsxDEV(CodeVariant, {
+        variant: "pure-es6",
+        label: "ES6 pure",
+        children: _jsxDEV(_components.pre, {
+          children: _jsxDEV(_components.code, {
+            className: "language-javascript",
+            children: "import { Scene } from \\"@babylonjs/core/pure\\";\\nconst scene = new Scene(engine);\\n"
+          }, undefined, false, {
+            fileName: "<source.js>",
+            lineNumber: 56,
+            columnNumber: 1
+          }, this)
+        }, undefined, false, {
+          fileName: "<source.js>",
+          lineNumber: 56,
+          columnNumber: 1
+        }, this)
+      }, undefined, false, {
+        fileName: "<source.js>",
+        lineNumber: 54,
+        columnNumber: 1
+      }, this), _jsxDEV(CodeVariant, {
+        variant: "umd",
+        label: "UMD",
+        children: _jsxDEV(_components.pre, {
+          children: _jsxDEV(_components.code, {
+            className: "language-javascript",
+            children: "const scene = new BABYLON.Scene(engine);\\n"
+          }, undefined, false, {
+            fileName: "<source.js>",
+            lineNumber: 64,
+            columnNumber: 1
+          }, this)
+        }, undefined, false, {
+          fileName: "<source.js>",
+          lineNumber: 64,
+          columnNumber: 1
+        }, this)
+      }, undefined, false, {
+        fileName: "<source.js>",
+        lineNumber: 62,
+        columnNumber: 1
+      }, this)]
+    }, undefined, true, {
+      fileName: "<source.js>",
+      lineNumber: 45,
       columnNumber: 1
     }, this)]
   }, undefined, true, {

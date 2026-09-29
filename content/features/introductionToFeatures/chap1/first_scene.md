@@ -29,6 +29,59 @@ Wait... what is the Babylon.js Engine, you ask? Excellent question. The `engine`
 
 You can read more about the [engine class here](/typedoc/classes/babylon.engine).
 
+Use the tabs to view this example with standard ES6 imports, side-effect-free pure ES6 imports, or the global UMD package.
+
+<CodeVariants>
+<CodeVariant variant="es6" label="ES6">
+
+```javascript
+import { ArcRotateCamera } from "@babylonjs/core/Cameras/arcRotateCamera";
+import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
+import "@babylonjs/core/Materials/standardMaterial";
+import { Vector3 } from "@babylonjs/core/Maths/math.vector";
+import { CreateBox } from "@babylonjs/core/Meshes/Builders/boxBuilder";
+import { Scene } from "@babylonjs/core/scene";
+
+const scene = new Scene(engine);
+
+const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new Vector3(0, 0, 0), scene);
+camera.attachControl(canvas, true);
+
+const light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
+
+const box = CreateBox("box", {}, scene);
+```
+
+</CodeVariant>
+<CodeVariant variant="pure-es6" label="ES6 pure">
+
+```javascript
+import {
+    ArcRotateCamera,
+    CreateBox,
+    HemisphericLight,
+    RegisterStandardEngineExtensions,
+    RegisterStandardMaterial,
+    Scene,
+    Vector3,
+} from "@babylonjs/core/pure";
+
+RegisterStandardEngineExtensions();
+RegisterStandardMaterial();
+
+const scene = new Scene(engine);
+
+const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new Vector3(0, 0, 0), scene);
+camera.attachControl(canvas, true);
+
+const light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
+
+const box = CreateBox("box", {}, scene);
+```
+
+</CodeVariant>
+<CodeVariant variant="umd" label="UMD">
+
 ```javascript
 const scene = new BABYLON.Scene(engine);
 
@@ -40,9 +93,71 @@ const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0)
 const box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
 ```
 
-Like most meshes created with MeshBuilder, the box is created with its center positioned at the origin and needs three parameters. These are a name, *a string*; options, *a JavaScript object*; and a scene. By leaving the options as an empty object *{}* with no properties, the box defaults to unit size for its width, height, and depth.
+</CodeVariant>
+</CodeVariants>
+
+Like most meshes created with Babylon.js's mesh creation helpers, the box is created with its center positioned at the origin and needs three parameters. These are a name, *a string*; options, *a JavaScript object*; and a scene. By leaving the options as an empty object *{}* with no properties, the box defaults to unit size for its width, height, and depth.
 
 To make this usable in a Playground, we need to place these within a function called **createScene** that returns a scene. The Playground app takes care of the rest.
+
+<CodeVariants>
+<CodeVariant variant="es6" label="ES6">
+
+```javascript
+import { ArcRotateCamera } from "@babylonjs/core/Cameras/arcRotateCamera";
+import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
+import "@babylonjs/core/Materials/standardMaterial";
+import { Vector3 } from "@babylonjs/core/Maths/math.vector";
+import { CreateBox } from "@babylonjs/core/Meshes/Builders/boxBuilder";
+import { Scene } from "@babylonjs/core/scene";
+
+const createScene = () => {
+    const scene = new Scene(engine);
+
+    const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new Vector3(0, 0, 0));
+    camera.attachControl(canvas, true);
+
+    const light = new HemisphericLight("light", new Vector3(0, 1, 0));
+
+    const box = CreateBox("box", {});
+
+    return scene;
+}
+```
+
+</CodeVariant>
+<CodeVariant variant="pure-es6" label="ES6 pure">
+
+```javascript
+import {
+    ArcRotateCamera,
+    CreateBox,
+    HemisphericLight,
+    RegisterStandardEngineExtensions,
+    RegisterStandardMaterial,
+    Scene,
+    Vector3,
+} from "@babylonjs/core/pure";
+
+RegisterStandardEngineExtensions();
+RegisterStandardMaterial();
+
+const createScene = () => {
+    const scene = new Scene(engine);
+
+    const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new Vector3(0, 0, 0));
+    camera.attachControl(canvas, true);
+
+    const light = new HemisphericLight("light", new Vector3(0, 1, 0));
+
+    const box = CreateBox("box", {});
+
+    return scene;
+}
+```
+
+</CodeVariant>
+<CodeVariant variant="umd" label="UMD">
 
 ```javascript
 const createScene = () => {
@@ -58,6 +173,9 @@ const createScene = () => {
     return scene;
 }
 ```
+
+</CodeVariant>
+</CodeVariants>
 
 Since there is only one scene at this point, you may notice that this parameter can be dropped from the camera, light, and box, as they default to being placed in the current scene.
 

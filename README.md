@@ -65,6 +65,16 @@ npm run build:example-images -- --dry-run --strict
 
 Generated snapshot images are normal static assets and should be reviewed and committed when intentional.
 
+## Code package variants
+
+JavaScript and TypeScript code fences that use the `BABYLON` namespace are converted at build time into ES6, ES6-pure (when supported), and UMD tabs. The Markdown remains the canonical UMD source. Run the strict audit after changing the transformer, symbol map, or code examples:
+
+```bash
+npm run validate:code-variants
+```
+
+Use the `no-code-variants` fence metadata only for community extensions, removed APIs, or illustrative placeholders that have no ES module equivalent.
+
 ## Custom markdown components
 
 Markdowns can now be augmented with special components. For example, adding:

@@ -254,6 +254,15 @@ Congratulations again, you're now a documentation master!
 
 - when showing a block of JavaScript or TypeScript, include the language name after the opening code block backticks to ensure syntax highlighting:
   ![markdown code](/img/contribute/documentation/markdown-code.webp)
+- JavaScript and TypeScript fences that use the `BABYLON` namespace are automatically displayed with **ES6**, **ES6 pure** (when supported), and **UMD** tabs. Keep only the UMD form in the Markdown so the variants cannot drift apart.
+- Pure imports do not register engine extensions, loaders, serializers, or prototype augmentations automatically. Examples can assume application-level setup, but pages that teach setup should show the relevant explicit registration.
+- Add `no-code-variants` after the fence language only when the snippet uses a community extension, removed API, or illustrative placeholder that has no ES module equivalent:
+
+  ````markdown
+  ```javascript no-code-variants
+  const terrain = new BABYLON.DynamicTerrain(...);
+  ```
+  ````
 - when quoting a property in a sentence, you can use single _\`_ char (<kbd>Alt</kbd> + numpad <kbd>96</kbd>)
   - example: You can set the `roughness` of a PBR material to 1.
 

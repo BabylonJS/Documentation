@@ -27,7 +27,7 @@ Babylon.js does this with two classes:
 
 ## Quick start
 
-```javascript
+```javascript no-code-variants
 const container = await BABYLON.LoadAssetContainerAsync("https://assets.babylonjs.com/meshes/Xbot.glb", scene);
 container.addAllToScene();
 const walkGroup = container.animationGroups.find((group) => group.name === "walk");
@@ -77,7 +77,7 @@ Once constructed, a clip tells you what it found:
 
 A `RootMotionController` belongs to one character node. Give it every clip that plays on that character, in the constructor or with `addClip`, and it moves the node after the animations every frame. The motion is applied in the node's own local space, so a scaled or rotated character node works as you would expect.
 
-```javascript
+```javascript no-code-variants
 const controller = new BABYLON.RootMotionController(walk.characterNode, [walk, run]);
 ```
 

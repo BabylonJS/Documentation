@@ -12,7 +12,7 @@ Generate letters as BABYLON meshes.
 
 ## Basic-Usage
 
-```javascript
+```javascript no-code-variants
 Writer = BABYLON.MeshWriter(scene, { scale: scale });
 text1 = new Writer("ABC", {
   anchor: "center",
@@ -123,7 +123,7 @@ If you wish to do extensive things with position, rotation or animation, retriev
 Example:
 PG: <Playground id="#PL752W#151" title="Mesh Writer Example 2" description=""/>
 
-```javascript
+```javascript no-code-variants
 const SCALE = 0.25;
 const TEXT_SIZE = 35;
 const TEXT_THICKNESS = 10;

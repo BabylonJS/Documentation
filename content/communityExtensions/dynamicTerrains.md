@@ -31,7 +31,7 @@ The dynamic terrain is a mesh that morphs on a logical data map. This map is a s
 
 The map must be passed to the dynamic terrain constructor as well as the number of subdivisions on the map width and depth.
 
-```javascript
+```javascript no-code-variants
 const mapCoords = [some_big_flat_array_of_coordinates];
 const mapWidthPointNb = 2000; // 2000 points in the map width
 const mapDepthPointNb = 1000; // 1000 points in the map depth
@@ -106,7 +106,7 @@ In order to better understand how this map is generated, we used a ribbon geomet
 
 Once we've got the data map, we can create the dynamic terrain.
 
-```javascript
+```javascript no-code-variants
 const terrainSub = 100; // 100 terrain subdivisions
 const params = {
   mapData: mapData, // data map declaration: what data to use?
@@ -507,7 +507,7 @@ for (const l = 0; l < mapSubZ; l++) {
 
 And let's pass this color array to the terrain at construction time with the optional parameter property `.mapColors`:
 
-```javascript
+```javascript no-code-variants
 const terrainSub = 100; // 100 terrain subdivisions
 const params = {
   mapData: mapData, // data map declaration: what data to use?
@@ -539,7 +539,7 @@ PG: <Playground id="#FJNR5#185" title="Dynamic Terrain" description="Example Def
 As with colors, we could have a set of UVs relative to the map as a flat array of successive floats between 0 and 1, representing the u and v values for each map point.  
 This array must be sized _mapSubX x mapSubZ x 2_ (because two floats per map point: u and v) and must be passed to the terrain at construction time with the optional parameter property `.mapUVs`
 
-```javascript
+```javascript no-code-variants
 const terrainSub = 100; // 100 terrain subdivisions
 const params = {
   mapData: mapData, // data map declaration: what data to use?
@@ -574,7 +574,7 @@ for (const l = 0; l < mapSubZ; l++) {
 
 Then we pass the populated array `mapUVs` to the Dynamic Terrain constructor with the optional parameter property `mapUVs`:
 
-```javascript
+```javascript no-code-variants
 const params = {
   mapData: mapData, // data map declaration: what data to use?
   mapSubX: mapSubX, // how are these data stored by rows and columns
@@ -593,7 +593,7 @@ As we can notice now, the texture is no longer bound to the terrain itself but t
 In this previous example, we stretched the image across the whole map.  
 For this very specific need, we can also use the method `.createUVMap()`, which does the same thing (computation and assignment to the terrain) in a single call.
 
-```javascript
+```javascript no-code-variants
 const params = {
   mapData: mapData, // data map declaration: what data to use?
   mapSubX: mapSubX, // how are these data stored by rows and columns
@@ -617,7 +617,7 @@ Computing all the map normals is a heavy process, but it's done only once.
 This lets us skip terrain mesh normal recomputation each time the terrain is morphed, that is, on each update. Thus, terrain normal recomputation is disabled by default.  
 This computation charge would be directly related to the terrain number of vertices (10K for a 100x100 terrain).
 
-```javascript
+```javascript no-code-variants
 const terrainSub = 100; // 100 terrain subdivisions
 const params = {
   mapData: mapData, // data map declaration: what data to use?
@@ -642,7 +642,7 @@ There is still a way to use a custom normal array if needed.
 This flat array of successive floats, used as normal vector coordinates _(x, y, z)_ for each map point, can then be passed to the terrain. It simply must be exactly the same size as the map data array.  
 This array is passed with the optional parameter property `.mapNormals`.
 
-```javascript
+```javascript no-code-variants
 const normalArray = [n1.x, n1.y, n1.z, n2.x, n2.y, n2.z, ...];
 const terrainSub = 100;               // 100 terrain subdivisions
 const params = {
@@ -668,7 +668,7 @@ Check the FPS difference when rotating the camera to feel the gain.
 
 If we have several data sets that we intend to use as data maps, we can precompute all of these data sets' normals with the static method `ComputeNormalsFromMapToRef(map, subX, subY, array)`.
 
-```javascript
+```javascript no-code-variants
 const map1 = someFloat32Array;
 const map2 = someOtherFloat32Array;
 const map3 = someOtherFloat32Array;
@@ -690,7 +690,7 @@ Like the BJS `MeshBuilder` class provides a method to create a mesh from a heigh
 
 Here's the way to use it:
 
-```javascript
+```javascript no-code-variants
 // Declare a callback function that will be executed once the heightmap file is downloaded
 // This function is passed the generated data and the number of points on the map depth and width
 const terrain;
@@ -732,7 +732,7 @@ BABYLON.DynamicTerrain.CreateMapFromHeightMapToRef(hmURL, hmOptions, mapData, sc
 
 Let's note that, if we need to create the terrain in the callback function, we do not need to use this kind of function to precompute some data sets from different images in advance for later use:
 
-```javascript
+```javascript no-code-variants
 const url1 = someURL;
 const url2 = someOtherURL;
 const url3 = someOtherURL;
@@ -787,7 +787,7 @@ terrain.mapData = map2; // the normal map is automatically computed on the hood
 
 - or, as explained in the previous section, we precompute the new data map normals ourselves beforehand and assign both the data map and the normal map to the terrain at once.
 
-```javascript
+```javascript no-code-variants
 const map2 = someOtherFloat32Array;
 const normal2 = new Float32Array(map2.length);
 BABYLON.DynamicTerrain.ComputeNormalsFromMapToRef(map2, subX2, subY2, normal2);
@@ -805,7 +805,7 @@ However, the Dynamic Terrain is ... _dynamic_.
 This means that it can be used for purposes other than just rendering a 3D map.  
 For instance, it can be generated without any data map:
 
-```javascript
+```javascript no-code-variants
 const terrainSub = 140; // terrain subdivisions
 const terrainOptions = { terrainSub: terrainSub };
 const terrain = new BABYLON.DynamicTerrain("dt", terrainOptions, scene);

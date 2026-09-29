@@ -47,3 +47,31 @@ It supports multiple lines.
 ## CodeSandbox
 
 <CodeSandbox id="msdvk8" title="Inspector V2" height="600px"/>
+
+## Code Variants
+
+<CodeVariants>
+<CodeVariant variant="es6" label="ES6">
+
+```javascript
+import { Scene } from "@babylonjs/core/scene";
+const scene = new Scene(engine);
+```
+
+</CodeVariant>
+<CodeVariant variant="pure-es6" label="ES6 pure">
+
+```javascript
+import { Scene } from "@babylonjs/core/pure";
+const scene = new Scene(engine);
+```
+
+</CodeVariant>
+<CodeVariant variant="umd" label="UMD">
+
+```javascript
+const scene = new BABYLON.Scene(engine);
+```
+
+</CodeVariant>
+</CodeVariants>

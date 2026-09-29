@@ -46,7 +46,7 @@ gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
 
 Depending on the type of controller, handle any of its unique properties:
 
-```javascript
+```javascript no-code-variants
 gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
     if (gamepad instanceof BABYLON.Xbox360Pad) {
         gamepad.onButtonDownObservable.add((button, state)=>{

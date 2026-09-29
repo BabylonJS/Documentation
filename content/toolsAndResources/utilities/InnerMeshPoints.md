@@ -133,7 +133,7 @@ BABYLON.Mesh.prototype.createInnerPoints = function(pointsNb) {
 
 	var gap = 0;
 	var distance = 0;
-	var ray = new BABYLON.Ray(BABYLON.Vector3.Zero(), BABYLON.AxisX);
+	var ray = new BABYLON.Ray(BABYLON.Vector3.Zero(), BABYLON.Axis.X);
 	var pickInfo;
 	var facetPoint = BABYLON.Vector3.Zero();
 	var direction = BABYLON.Vector3.Zero();

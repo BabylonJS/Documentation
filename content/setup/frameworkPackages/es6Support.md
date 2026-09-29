@@ -641,7 +641,7 @@ DracoDecoder.DefaultConfiguration.jsModule = globalThis.DracoDecoderModule;
 
 To use the draco decoder in nodejs to decode your own file:
 
-```javascript
+```javascript no-code-variants
 const BABYLON = require("babylonjs");
 const fs = require("fs");
 const xhr = require("xhr2");
