@@ -14,37 +14,98 @@ Babylon.js supports bone animations for your meshes.
 
 ![Bones](/img/how_to/bones-skeletons/bones.webp)
 
-Basically a skeleton (`BABYLON.Skeleton`) contains a hierarchy of bones (`BABYLON.Bone`). A bone is defined by a name, a parent (can be null) and a transformation matrix.
+A [skeleton](/typedoc/classes/babylon.skeleton) contains an ordered hierarchy of [bones](/typedoc/classes/babylon.bone). Each bone stores a transformation relative to its parent. The root bone has no parent.
 
-Here are the constructors:
+## Creating a basic skeleton
 
-- `BABYLON.Skeleton` = function (name, id, scene)
-- `BABYLON.Bone` = function (name, skeleton, parentBone, matrix)
-
-Inside a skeleton, bones can be found inside the `skeleton.bones` array.
-
-A bone can contain animations to animate its `matrix` property.
-
-A bone must have its inverted absolute transform matrix set. If you are importing a skeleton, this might already be computed. But if you are creating your own skeleton programmatically, you need to do this in your code.
-
-The easiest way to do it is:
+Create the skeleton first, then create its bones from parent to child:
 
 ```javascript
-skeleton.returnToRest();
+const skeleton = new BABYLON.Skeleton("skeleton", "skeleton", scene);
+
+const rootBone = new BABYLON.Bone(
+  "root",
+  skeleton,
+  null,
+  BABYLON.Matrix.Identity(),
+);
+
+const upperBone = new BABYLON.Bone(
+  "upper",
+  skeleton,
+  rootBone,
+  BABYLON.Matrix.Translation(0, 1, 0),
+);
 ```
 
-## Preparing mesh
+The translation places `upperBone` one unit above its parent in the bind pose. A bone's local matrix is relative to its parent, not the mesh or the world. Bones are appended to `skeleton.bones` when they are constructed, so create parents before their children. If bones are created out of order, call `skeleton.sortBones()` before using the skeleton.
+
+The full constructor is:
+
+```javascript
+new BABYLON.Bone(name, skeleton, parentBone, localMatrix, restMatrix, bindMatrix, index);
+```
+
+| Argument | Meaning |
+| --- | --- |
+| `name` | The bone's name. |
+| `skeleton` | The skeleton that owns the bone. The constructor adds the bone to `skeleton.bones`. |
+| `parentBone` | The parent bone, or `null` for a root bone. |
+| `localMatrix` | The bone's initial transformation relative to its parent. It defaults to the identity matrix. |
+| `restMatrix` | The local transformation restored by `bone.returnToRest()`. It defaults to a copy of `localMatrix`. |
+| `bindMatrix` | The bone's local transformation in the bind pose. It defaults to a copy of `localMatrix`. |
+| `index` | An optional explicit index for skinning data. It normally should be omitted, in which case `bone.getIndex()` returns the bone's position in `skeleton.bones`. |
+
+For most manually created skeletons, pass the first four arguments and allow the rest and bind matrices to default to the local matrix. See [Bone Class Internals](/features/featuresDeepDive/mesh/bonesSkeletons/boneInternals) for details about local, rest, bind, and final matrices.
+
+<Playground id="#IF31BI#15" title="Basic Skeleton Created in Code" description="Create a skeleton and bones, assign vertex influences, and animate the bones."/>
+
+## Preparing a mesh for skinning
 
 A skeleton can be applied to a mesh through the `mesh.skeleton` property.
 
-You should note that Babylon.js supports up to **4 bone influences per vertex**.
+Skinning binds **vertices**, not faces, to bones. Each vertex needs matching bone-index and bone-weight data. Babylon.js supports up to **4 bone influences per vertex** by default:
 
-The mesh must also have additional vertex data:
+- `MatricesIndicesKind` contains four bone indices per vertex.
+- `MatricesWeightsKind` contains the corresponding four weights per vertex.
 
-- _Matrices weights_: 4 floats to weight bones matrices  
-  (`mesh.setVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind, matricesWeights, false)`)
-- _Matrices indices_: 4 floats to index bones matrices  
-  (`mesh.setVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind, floatIndices, false)`)
+The entries at the same offset form a pair. For example, indices `[0, 1, 0, 0]` and weights `[0.25, 0.75, 0, 0]` make one vertex receive 25% of bone 0's transformation and 75% of bone 1's transformation. Active weights should add up to 1; set unused indices and weights to 0.
+
+Legacy `.babylon` files can store the four indices for each vertex as one packed integer while storing four separate weights. The integer uses one byte per index, starting with the least significant byte. For example, `1027` is hexadecimal `0x00000403`, so it represents indices `[3, 4, 0, 0]`. The loader expands these values into the four-index runtime format described above. Files with `matricesIndicesExpanded: true` already contain four separate indices per vertex and are not unpacked.
+
+This example assigns every vertex of a box to exactly one of the two bones created above:
+
+```javascript
+const mesh = BABYLON.MeshBuilder.CreateBox("skinnedBox", { height: 2 }, scene);
+const positions = mesh.getVerticesData(BABYLON.VertexBuffer.PositionKind);
+const matricesIndices = [];
+const matricesWeights = [];
+
+for (let vertexIndex = 0; vertexIndex < mesh.getTotalVertices(); vertexIndex++) {
+  const y = positions[vertexIndex * 3 + 1];
+  const boneIndex = y > 0 ? upperBone.getIndex() : rootBone.getIndex();
+
+  // Four entries are stored for every vertex. This example uses only the first.
+  matricesIndices.push(boneIndex, 0, 0, 0);
+  matricesWeights.push(1, 0, 0, 0);
+}
+
+mesh.setVerticesData(
+  BABYLON.VertexBuffer.MatricesIndicesKind,
+  matricesIndices,
+);
+mesh.setVerticesData(
+  BABYLON.VertexBuffer.MatricesWeightsKind,
+  matricesWeights,
+);
+mesh.numBoneInfluencers = 1;
+mesh.skeleton = skeleton;
+
+// The bind pose is unchanged. Rotating the child now deforms its vertices.
+upperBone.rotate(BABYLON.Axis.Z, Math.PI / 8, BABYLON.Space.LOCAL);
+```
+
+Mesh builders can create separate vertices that share the same position, for example where two faces need different normals or UVs. Assign influences to every entry in the position buffer rather than assuming that each visible corner is represented by one vertex.
 
 The final matrix applied to each vertex is computed as follows:
 
