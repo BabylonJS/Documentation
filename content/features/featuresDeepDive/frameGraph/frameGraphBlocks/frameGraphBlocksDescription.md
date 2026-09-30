@@ -257,6 +257,14 @@ In a frame graph, mipmaps are not generated automatically; you must use a `Gener
 
 Once again, the inputs and outputs are self-explanatory: **target** is the texture for which the mipmaps are to be generated, and **output** is the same as **target**.
 
+### MinMaxReducer
+
+The `MinMaxReducer` block in the **Textures** palette reduces the red channel of **source** to its minimum and maximum values. Connect a general-purpose color texture or the **geomViewDepth**, **geomNormViewDepth**, or **geomScreenDepth** color output of a `GeometryRenderer` block. A geometry depth/stencil attachment is not a valid input. When using a geometry depth output, enable **Depth reduction** (`depthRedux`) and select the matching **Depth texture type** (`depthTextureType`: view, normalized view, or screen depth); the normalized view-depth type is the default.
+
+The **output** is a 1x1 RG color texture (minimum in red, maximum in green), which can be connected to a downstream texture input. If the result is needed only through the block's `task.onAfterReductionPerformed` observable, connect **output** to a downstream block's **dependencies** input to include the reducer in the graph; otherwise it may not execute. The reducer's own **dependencies** input is optional. The block has no scalar min/max output ports. CPU readback takes place only when an observer subscribes to the task's observable; without observers, the result stays on the GPU.
+
+The property panel exposes **Depth reduction**, **Depth texture type**, **Texture type** (half float by default), and **Wait for readback** (`waitForReadback`); these settings are serialized with the graph. **Wait for readback** defaults to `false`. On WebGPU, enabling it notifies observers asynchronously **after** GPU readback completes, without blocking frame execution; a notification is not synchronous with the current frame. With the default setting, WebGPU observers may receive previous values. WebGL readback remains synchronous. See [FrameGraphMinMaxReducerTask](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList#framegraphminmaxreducertask) for the equivalent frame graph task and an example using geometry depth.
+
 ## Misc blocks
 
 <H3Image title="ComputeShader" image="/img/frameGraph/block_computeshader.webp" alt="ComputeShader node"/>
