@@ -57,7 +57,7 @@ The flag is static and is read when the effects of a fluid object are created, s
 The size of a particle comes from:
 
 * `ParticleSystem`: the size of the particle, with its scale (`minSize`/`maxSize`, size gradients, `minScaleX`/`maxScaleX`, `minScaleY`/`maxScaleY`).
-* `GPUParticleSystem`: same as `ParticleSystem`, since Babylon.js v9.26.2.
+* `GPUParticleSystem`: same as `ParticleSystem`, since Babylon.js v9.26.1.
 * Custom particles: a **size** buffer with two floats (width and height) per particle:
 
 ```javascript
