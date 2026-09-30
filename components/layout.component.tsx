@@ -139,13 +139,13 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 <Toolbar
                     sx={{
                         backgroundColor: `${theme.customPalette.header}`,
-                        [theme.breakpoints.up("md")]: {
+                        [theme.breakpoints.up("lg")]: {
                             backgroundImage: "url(/img/babylonidentity.svg)",
                             backgroundRepeat: "no-repeat",
                         },
                     }}
                 >
-                    <Box sx={{ display: { xs: "block", md: "none" } }}>
+                    <Box sx={{ display: { xs: "block", lg: "none" } }}>
                         <IconButton edge="start" onClick={handleDrawerToggle} color="inherit" aria-label="open drawer">
                             <MenuIcon />
                         </IconButton>
@@ -154,7 +154,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         sx={{
                             flexGrow: 1,
                             display: "none",
-                            [theme.breakpoints.up("md")]: {
+                            [theme.breakpoints.up("lg")]: {
                                 display: "block",
                             },
                             "& span": {
@@ -254,7 +254,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         fontSize: 14,
                         flexWrap: "nowrap",
                         alignItems: "center",
-                        [theme.breakpoints.up("md")]: {
+                        [theme.breakpoints.up("lg")]: {
                             paddingLeft: sidebarCollapsed ? "0px" : "300px",
                             transition: "padding-left 0.2s ease",
                         },
@@ -384,7 +384,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         backgroundColor: theme.customPalette.sideMenu.backgroundColor,
                         display: "block",
                         // paddingBottom: "40px",
-                        [theme.breakpoints.up("md")]: {
+                        [theme.breakpoints.up("lg")]: {
                             width: sidebarCollapsed ? "0px" : "300px",
                             flexShrink: 0,
                             transition: "width 0.2s ease",
@@ -397,7 +397,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                     aria-label="mailbox folders"
                 >
                     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                    <Box sx={{ display: { xs: "block", md: "none" } }}>
+                    <Box sx={{ display: { xs: "block", lg: "none" } }}>
                         <Drawer
                             // container={window.document.body}
                             variant="temporary"
