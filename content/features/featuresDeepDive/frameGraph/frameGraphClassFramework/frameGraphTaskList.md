@@ -199,7 +199,7 @@ This task is typically used in conjunction with [FrameGraphVolumetricLightingTas
 
 <H3Image title="FrameGraphMinMaxReducerTask" image="/img/frameGraph/task_minmaxreducer.webp" alt="Min/max reducer task"/>
 
-Reduces the red channel of an existing frame graph color texture to its minimum and maximum values.
+Reduces the red channel of a frame graph color texture, or the depth aspect of a WebGPU depth/stencil attachment, to its minimum and maximum values.
 
 [Link to the class](/typedoc/classes/babylon.framegraphminmaxreducertask)
 
@@ -207,19 +207,21 @@ Reduces the red channel of an existing frame graph color texture to its minimum 
 <Playground id="#ILJO1V#2" image="/img/frameGraph/task_minmaxreducer.webp" title="Min/max reducer task (NRG)" description="Use the MinMaxReducer block in a node render graph to reduce geometry view depth" isMain={false}/>
 
 Inputs:
-* **sourceTexture**. A `FrameGraphTextureHandle` for a non-integer color texture produced by an earlier task. A depth/stencil attachment is not a valid source.
+* **sourceTexture**. A `FrameGraphTextureHandle` for a non-integer color texture or a supported WebGPU depth/stencil attachment produced by an earlier task.
 <br/>
 
+Depth/stencil sources must be single-sampled off-screen 2D attachments on WebGPU; the initial reduction samples only the depth aspect with `texture_depth_2d`, not stencil. Backbuffer depth/stencil, stencil-only or unsupported depth formats, multisampled attachments, and 2D-array, cube, or 3D textures are rejected. No depth/stencil attachment is supported as a source on WebGL.
+
 Properties:
-* **depthRedux**. Ignores the depth clear value when reducing depth data (default: `false`).
-* **depthTextureType**. The encoding of the depth values when **depthRedux** is enabled: `DepthTextureType.NormalizedViewDepth` (default), `DepthTextureType.ViewDepth`, or `DepthTextureType.ScreenDepth`.
-* **textureType**. Type of the intermediate and output textures (default: half float).
+* **depthRedux**. Ignores the depth clear value when reducing depth-as-color data (default: `false`). Automatically enabled for depth/stencil attachments.
+* **depthTextureType**. The depth-as-color encoding when **depthRedux** is enabled: `DepthTextureType.NormalizedViewDepth` (default), `DepthTextureType.ViewDepth`, or `DepthTextureType.ScreenDepth`. Depth/stencil attachments automatically use screen depth, with the clear value handled for both forward (1) and reverse (0) depth.
+* **textureType**. Type of the intermediate and output textures: `TEXTURETYPE_HALF_FLOAT` (default), `TEXTURETYPE_FLOAT`, or `TEXTURETYPE_UNSIGNED_BYTE`.
 * **waitForReadback**. Whether to wait for WebGPU readback before notifying observers (default: `false`). When `true`, the notification is asynchronous after readback; it does not block frame execution. WebGL readback remains synchronous.
 <br/>
 
 Outputs:
 * **outputTexture**. A 1x1 RG color texture handle, with the minimum in red and maximum in green, for downstream graph tasks.
-* **onAfterReductionPerformed**. Observable receiving `{ min, max }` when subscribed. Without observers, the task does not perform CPU readback; use **outputTexture** if only GPU-side results are needed.
+* **onAfterReductionPerformed**. Observable receiving `{ min, max }` when subscribed. With depth reduction enabled, equal-valued depth falls back to `[0, 1]`. Without observers, the task does not perform CPU readback; use **outputTexture** if only GPU-side results are needed.
 <br/>
 
 For example, after configuring a `FrameGraphGeometryRendererTask` to request its normalized view-depth channel and adding it to `frameGraph`:
@@ -234,7 +236,7 @@ reducerTask.onAfterReductionPerformed.add(({ min, max }) => {
 frameGraph.addTask(reducerTask);
 ```
 
-The geometry renderer task must be added **before** the reducer, and `geometryNormViewDepthTexture` is available only when that geometry channel was requested. This reuses the geometry depth-as-color output without rendering another depth map. For other depth encodings, use `geometryViewDepthTexture` or `geometryScreenDepthTexture` and set **depthTextureType** to match. Set **depthRedux** to `true` for depth values so the depth clear value is ignored; leave it `false` for ordinary color data. With the default **waitForReadback**, a WebGPU notification may contain previous values; setting it to `true` notifies only after the asynchronous GPU readback, not synchronously with the current frame.
+The geometry renderer task must be added **before** the reducer, and `geometryNormViewDepthTexture` is available only when that geometry channel was requested. This reuses the geometry depth-as-color output without rendering another depth map. For other depth-as-color encodings, use `geometryViewDepthTexture` or `geometryScreenDepthTexture` and set **depthTextureType** to match. Set **depthRedux** to `true` for depth-as-color values so the depth clear value is ignored; leave it `false` for ordinary color data. For WebGPU depth/stencil attachments, neither setting needs to be changed: the task enables depth reduction and infers screen depth automatically. With the default **waitForReadback**, a WebGPU notification may contain previous values; setting it to `true` notifies only after the asynchronous GPU readback, not synchronously with the current frame.
 
 Unlike this frame graph task, the legacy `MinMaxReducer.setSourceTexture` accepts a `RenderTargetTexture`, not a frame graph texture handle. The legacy reducer also has **waitForReadback** with the same default and WebGPU notification behavior.
 
