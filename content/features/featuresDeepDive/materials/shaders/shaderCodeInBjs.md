@@ -23,6 +23,12 @@ Here are four ways of putting shader code into your scene:
 
 Methods 1, 2 and 3 use [BABYLON.ShaderMaterial](/features/featuresDeepDive/materials/shaders/shaderMaterial) to pass data to the shaders.
 
+## Shader preprocessing limitation
+
+Babylon.js preprocesses vertex and fragment shader source before compilation and splits source lines at semicolons. Empty clauses can therefore be lost during preprocessing. For example, the valid GLSL and WGSL loop header `for (;;)` can be transformed into invalid shader code.
+
+This is a limitation of Babylon.js shader processing, not of GLSL or WGSL themselves. Shader generators that emit empty semicolon clauses can be affected. Slang v2026.18.3 and earlier may emit `for (;;)` for unconditional WGSL loops; versions newer than v2026.18.3 emit WGSL's native `loop` construct instead and avoid this specific case.
+
 ## Babylon.js CYOS Download
 
 This site allows you to write code for a Vertex Shader and a Fragment Shader and see the results on a variety of meshes.
