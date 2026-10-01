@@ -257,6 +257,18 @@ In a frame graph, mipmaps are not generated automatically; you must use a `Gener
 
 Once again, the inputs and outputs are self-explanatory: **target** is the texture for which the mipmaps are to be generated, and **output** is the same as **target**.
 
+<H3Image title="MinMaxReducer" image="/img/frameGraph/block_minmaxreducer.webp" alt="Min/max reducer block"/>
+
+The `MinMaxReducer` block in the **Textures** palette reduces the red channel of a color **source**, or the depth aspect of a WebGPU depth/stencil attachment, to its minimum and maximum values. Connect a general-purpose color texture, the **geomViewDepth**, **geomNormViewDepth**, or **geomScreenDepth** depth-as-color output of a `GeometryRenderer` block, or a `TextureDepthStencilAttachment` source on WebGPU. For depth-as-color outputs, enable **Depth-as-color reduction** (`depthRedux`) and select the matching **Depth-as-color type** (`depthTextureType`: view, normalized view, or screen depth); the normalized view-depth type is the default. For an attachment, the block automatically uses screen depth and ignores the depth clear value (1 for forward depth, 0 for reverse depth); stencil is not reduced.
+
+Depth/stencil sources must be single-sampled off-screen 2D attachments on WebGPU. Backbuffer depth/stencil, stencil-only or unsupported depth formats, multisampled attachments, and 2D-array, cube, or 3D textures are not supported. WebGL does not support depth/stencil sources for this block.
+
+The **output** is a 1x1 RG color texture (minimum in red, maximum in green), which can be connected to a downstream texture input. If the result is needed only through the block's `task.onAfterReductionPerformed` observable, connect **output** to a downstream block's **dependencies** input to include the reducer in the graph; otherwise it may not execute. The reducer's own **dependencies** input is optional. The block has no scalar min/max output ports. CPU readback takes place only when an observer subscribes to the task's observable; without observers, the result stays on the GPU.
+
+The property panel exposes **Depth-as-color reduction**, **Depth-as-color type**, **Texture type** (half float by default; also supports float and unsigned byte), and **Wait for readback** (`waitForReadback`); these settings are serialized with the graph. For attachment sources, depth reduction and screen depth are inferred regardless of the depth-as-color settings. With depth reduction enabled, observers receive `[0, 1]` for equal-valued depth. **Wait for readback** defaults to `false`. On WebGPU, enabling it notifies observers asynchronously **after** GPU readback completes, without blocking frame execution; a notification is not synchronous with the current frame. With the default setting, WebGPU observers may receive previous values. WebGL readback remains synchronous. See [FrameGraphMinMaxReducerTask](/features/featuresDeepDive/frameGraph/frameGraphClassFramework/frameGraphTaskList#framegraphminmaxreducertask) for the equivalent frame graph task and an example using geometry depth.
+
+<NRGE id="#LRBF1H#2" title="Reducing geometry view depth with MinMaxReducer" description="MinMaxReducer connected to a geometry normalized view-depth texture and the output block's dependencies input" isMain={false} category="NodeRenderGraph"/>
+
 ## Misc blocks
 
 <H3Image title="ComputeShader" image="/img/frameGraph/block_computeshader.webp" alt="ComputeShader node"/>
