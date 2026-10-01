@@ -38,6 +38,30 @@ const engine = new BABYLON.WebGPUEngine(canvas);
 await engine.initAsync();
 ```
 
+## Canvas tone mapping and output color space
+
+The [`WebGPUEngineOptions`](/typedoc/interfaces/BABYLON.WebGPUEngineOptions) interface can pass tone-mapping and color-space settings to the browser's WebGPU canvas:
+
+- `canvasToneMapping` accepts `{ mode: "standard" }` or `{ mode: "extended" }`. If you omit it, the browser uses standard tone mapping.
+- `canvasColorSpace` accepts `"srgb"` or `"display-p3"`. If you omit it, the browser uses sRGB.
+
+The following example requests extended tone mapping and Display P3 output:
+
+```javascript
+const engine = new BABYLON.WebGPUEngine(canvas, {
+    swapChainFormat: "rgba16float",
+    canvasToneMapping: { mode: "extended" },
+    canvasColorSpace: "display-p3",
+});
+await engine.initAsync();
+```
+
+Extended tone mapping can present HDR output, but the canvas setting alone does not create an HDR image. It requires the `"rgba16float"` swap-chain format, support from the browser and display, and a rendering pipeline that keeps color values above 1. It does not replace tone mapping in materials or post-processes.
+
+Display P3 changes how the browser interprets output color values. It does not convert the scene's colors to Display P3. The rendering pipeline must produce the correct values for that color space.
+
+Babylon.js uses these settings again whenever it configures the canvas context. Existing applications that omit them keep the browser's standard tone-mapping and sRGB defaults.
+
 ## Is WebGL still supported?
 Yes! Support for WebGL and WebGPU is maintained side by side for the foreseeable future.
 
