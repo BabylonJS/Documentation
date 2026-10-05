@@ -2,7 +2,8 @@
 
 ## Requirements
 
-- Node 16 and up
+- Node.js 24.x (used by CI and supported by the build and test tools)
+- npm 11.10.0 or newer (required to enforce the seven-day release-age policy)
 
 ## Getting Started
 
