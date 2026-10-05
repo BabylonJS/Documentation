@@ -76,7 +76,7 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
     return (
         <Box
             sx={{
-                background: theme.customPalette.tableOfContent.background,
+                background: theme.vars.customPalette.tableOfContent.background,
                 zIndex: 100,
                 width: "unset !important",
                 "& h2": {

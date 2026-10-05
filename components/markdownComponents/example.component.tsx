@@ -46,7 +46,7 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
             <Box
                 sx={{
                     cursor: "pointer",
-                    backgroundColor: theme.customPalette.linkText,
+                    backgroundColor: theme.vars.customPalette.linkText,
                     display: "inline-flex",
                     marginRight: theme.spacing(0.5),
                     marginTop: theme.spacing(0.5),

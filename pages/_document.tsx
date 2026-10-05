@@ -1,5 +1,8 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
+import GlobalStyles from "@mui/material/GlobalStyles";
+import { documentationTheme, themeAttribute, themePreferenceKey } from "../styles/theme";
 
 export class MyDocument extends Document {
     render() {
@@ -9,6 +12,7 @@ export class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
+                    <GlobalStyles styles={documentationTheme.generateStyleSheets()} />
                     <meta name="theme-color" content={"#201936"} />
                     <link rel="apple-touch-icon" sizes="57x57" href={withBaseUrl("/apple-icon-57x57.png")} />
                     <link rel="apple-touch-icon" sizes="60x60" href={withBaseUrl("/apple-icon-60x60.png")} />
@@ -29,6 +33,7 @@ export class MyDocument extends Document {
                     <meta name="msapplication-TileImage" content={withBaseUrl("/ms-icon-144x144.png")} />
                 </Head>
                 <body>
+                    <InitColorSchemeScript attribute={themeAttribute} modeStorageKey={themePreferenceKey} defaultMode="system" />
                     <Main />
                     <NextScript />
                 </body>

@@ -1,42 +1,28 @@
-import { CssBaseline, useMediaQuery, createTheme, PaletteMode, ThemeProvider } from "@mui/material";
-import { useState, useEffect, useMemo, FunctionComponent, PropsWithChildren } from "react";
-import { getDesignTokens } from "../styles/theme";
+import { CssBaseline, ThemeProvider, useColorScheme } from "@mui/material";
+import { FunctionComponent, PropsWithChildren } from "react";
+import { documentationTheme, themePreferenceKey } from "../styles/theme";
 import { ColorModeContext } from "./_app";
 
-const THEME_PREFERENCE = "theme";
-export const ToggleColorMode: FunctionComponent<PropsWithChildren<{}>> = ({ children }) => {
-    const prefersLightMode = useMediaQuery("(prefers-color-scheme: light)");
-    // The static HTML and first client render must use the same theme.
-    const [mode, setMode] = useState<PaletteMode>("dark");
+const ColorModeProvider: FunctionComponent<PropsWithChildren> = ({ children }) => {
+    const { mode, systemMode, setMode } = useColorScheme();
     const colorMode = {
-        // The dark mode switch would invoke this method
         toggleColorMode: () => {
-            setMode((prevMode: PaletteMode) => {
-                const newMode = prevMode === "light" ? "dark" : "light";
-                localStorage.setItem(THEME_PREFERENCE, newMode);
-                return newMode;
-            });
+            const resolvedMode = mode === "system" ? systemMode : mode;
+            setMode(resolvedMode === "dark" ? "light" : "dark");
         },
     };
 
-    useEffect(() => {
-        const savedUserPreference = localStorage.getItem(THEME_PREFERENCE);
-        setMode(savedUserPreference === "light" || savedUserPreference === "dark" ? savedUserPreference : prefersLightMode ? "light" : "dark");
-    }, [prefersLightMode]);
+    return <ColorModeContext.Provider value={colorMode}>{children}</ColorModeContext.Provider>;
+};
 
-    useEffect(() => {
-        document.documentElement.setAttribute("data-theme", mode);
-    }, [mode]);
-
-    const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+export const ToggleColorMode: FunctionComponent<PropsWithChildren<{}>> = ({ children }) => {
     return (
-        <ColorModeContext.Provider value={colorMode}>
-            <ThemeProvider theme={theme}>
-                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <ThemeProvider theme={documentationTheme} defaultMode="system" modeStorageKey={themePreferenceKey} disableTransitionOnChange disableStyleSheetGeneration>
+            <ColorModeProvider>
                 <CssBaseline enableColorScheme />
                 {children}
-            </ThemeProvider>
-        </ColorModeContext.Provider>
+            </ColorModeProvider>
+        </ThemeProvider>
     );
 };
 

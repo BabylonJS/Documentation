@@ -72,8 +72,13 @@ Documentation content must be present in the exported HTML, not only in
 `__NEXT_DATA__` or added after JavaScript runs. This lets non-JavaScript readers,
 including search crawlers and AI agents, read the same articles as browsers.
 Keep the app-wide theme provider server-rendered; limit client-only rendering
-to interactive widgets, never a wrapper around page content. Theme preferences
-are applied after hydration so the initial client render matches the static HTML.
+to interactive widgets, never a wrapper around page content. MUI's initialization
+script runs before the page content is painted and sets `data-theme` using the
+existing `theme` storage key or the system preference. Both color schemes are
+exported in the document head as CSS variables, including custom documentation
+colors, so readers see the correct colors without waiting for React hydration.
+Use `theme.vars` for color tokens and `useColorScheme` for the toggle state;
+do not branch rendered styles on `theme.palette.mode`.
 
 The server-rendering regression tests cover the app wrapper and compiled article
 content. After deployment, fetch an article without executing JavaScript and

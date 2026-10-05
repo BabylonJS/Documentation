@@ -166,7 +166,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
                         {pgResults.length !== 0 && (
                             <Box
                                 sx={{
-                                    backgroundColor: theme.customPalette.examples.backgroundColor,
+                                    backgroundColor: theme.vars.customPalette.examples.backgroundColor,
                                 }}
                                 className={[styles["examples-container"]].join(" ")}
                             >

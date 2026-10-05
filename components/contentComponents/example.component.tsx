@@ -38,7 +38,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
         >
             <Box
                 sx={{
-                    backgroundColor: theme.customPalette.linkText,
+                    backgroundColor: theme.vars.customPalette.linkText,
                     color: "white",
                     minHeight: "36px",
                     display: "flex",
@@ -102,7 +102,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
             </Box>
             <Box
                 sx={{
-                    backgroundColor: theme.customPalette.linkText,
+                    backgroundColor: theme.vars.customPalette.linkText,
                     color: "white",
                     minHeight: "36px",
                     padding: theme.spacing(0.5),
@@ -133,7 +133,7 @@ export const ExamplesComponent: FunctionComponent<{ examples: IExampleLink[]; on
         <>
             <Toolbar
                 sx={{
-                    backgroundColor: theme.customPalette.header,
+                    backgroundColor: theme.vars.customPalette.header,
                     width: "100%",
                     color: "white",
                     minHeight: 48,

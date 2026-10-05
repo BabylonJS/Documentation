@@ -1,4 +1,4 @@
-import { PaletteMode } from "@mui/material"
+import { createTheme, PaletteMode } from "@mui/material"
 
 declare module '@mui/material/styles' {
     interface Theme {
@@ -7,6 +7,15 @@ declare module '@mui/material/styles' {
     // allow configuration using `createTheme`
     interface ThemeOptions {
         customPalette?: CustomPaletteOptions
+    }
+    interface ColorSystemOptions {
+        customPalette?: CustomPaletteOptions
+    }
+    interface ThemeVars {
+        customPalette: CustomPaletteOptions
+    }
+    interface CssThemeVariables {
+        enabled: true
     }
 }
 type CustomPaletteOptions = StaticCustomPaletteOptions & ModeCustomPaletteOptions
@@ -19,7 +28,6 @@ type StaticCustomPaletteOptions = {
     linkText: string
     linkHover: string
     buttonHover: string
-    text: string
     primary: {
         main: string
     },
@@ -35,7 +43,6 @@ const unchangedModePalette: StaticCustomPaletteOptions = {
     linkText: "#9379E6",
     linkHover: "#BFABFF",
     buttonHover: "#BB464B",
-    text: "#D5D2CA",
     primary: {
         main: "#E0684B"
     },
@@ -124,6 +131,18 @@ export const getDesignTokens = (mode: PaletteMode) => {
                 ...unchangedModePalette.sideMenu,
                 ...modePalette.sideMenu,
             }
-        } as CustomPaletteOptions
+        }
     }
 }
+
+export const themePreferenceKey = "theme";
+export const themeAttribute = "data-theme";
+
+export const documentationTheme = createTheme({
+    cssVariables: { colorSchemeSelector: `[${themeAttribute}="%s"]` },
+    defaultColorScheme: "dark",
+    colorSchemes: {
+        light: getDesignTokens("light"),
+        dark: getDesignTokens("dark"),
+    },
+});
