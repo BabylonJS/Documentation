@@ -5,8 +5,9 @@ import { ColorModeContext } from "./_app";
 
 const THEME_PREFERENCE = "theme";
 export const ToggleColorMode: FunctionComponent<PropsWithChildren<{}>> = ({ children }) => {
-    const prefersLightMode = typeof localStorage !== "undefined" ? localStorage.getItem(THEME_PREFERENCE) === "light" : useMediaQuery("(prefers-color-scheme: light)");
-    const [mode, setMode] = useState<PaletteMode>(prefersLightMode ? "light" : "dark");
+    const prefersLightMode = useMediaQuery("(prefers-color-scheme: light)");
+    // The static HTML and first client render must use the same theme.
+    const [mode, setMode] = useState<PaletteMode>("dark");
     const colorMode = {
         // The dark mode switch would invoke this method
         toggleColorMode: () => {
@@ -18,12 +19,10 @@ export const ToggleColorMode: FunctionComponent<PropsWithChildren<{}>> = ({ chil
         },
     };
 
-    // Determine what the first render should be based off localStorage or user preference
     useEffect(() => {
         const savedUserPreference = localStorage.getItem(THEME_PREFERENCE);
-        if (savedUserPreference === "light") setMode("light");
-        else if (savedUserPreference === "dark") setMode("dark");
-    }, []);
+        setMode(savedUserPreference === "light" || savedUserPreference === "dark" ? savedUserPreference : prefersLightMode ? "light" : "dark");
+    }, [prefersLightMode]);
 
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", mode);

@@ -235,7 +235,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             >
                 {getImage()}
                 {queryParams.expandable && (
-                    <Box sx={{ display: { xs: "none", md: "block" } }}>
+                    <Box component="span" sx={{ display: { xs: "none", md: "block" } }}>
                         <Box
                             component="span"
                             sx={{

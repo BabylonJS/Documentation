@@ -42,63 +42,57 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
     const hrefOut = getExampleLink(props, false);
 
     return (
-        <DocumentationContext.Consumer>
-            {(context) => (
-                <Tooltip title={`Open ${props.type} ${props.title}`}>
-                    <>
-                        <Box
-                            sx={{
-                                cursor: "pointer",
-                                backgroundColor: theme.customPalette.linkText,
-                                display: "inline-flex",
-                                marginRight: theme.spacing(0.5),
-                                marginTop: theme.spacing(0.5),
-                                marginBottom: theme.spacing(0.5),
-                                justifyContent: "space-between",
-                                alignItems: "center",
-                                width: "auto",
-                                color: "white",
-                                "& span": {
-                                    marginRight: theme.spacing(1),
-                                },
-                                "& span:first-of-type": {
-                                    marginLeft: theme.spacing(1),
-                                },
-                                "& svg": {
-                                    marginTop: theme.spacing(0.5),
-                                },
-                                "& a": {
-                                    color: "white !important",
-                                },
-                            }}
-                            component="span"
-                            id={`example-${props.type}-${props.id!.replace(/#/g, "-")}`}
-                        >
-                            <span onClick={onExamplePressed.bind(this)}>
-                                <Tooltip title={`Preview ${props.type} ${props.title}`}>
-                                    <LinkIcon></LinkIcon>
-                                </Tooltip>
-                            </span>
-                            <Tooltip title={`Preview ${props.type} ${props.title}`}>
-                                <span style={{ minWidth: 120 }} onClick={onExamplePressed.bind(this)}>
-                                    {example.title}
-                                </span>
-                            </Tooltip>
-                            <span style={{ minWidth: 20 }}>
-                                <a title={`Open ${props.type} ${props.title} in a new tab}`} href={hrefOut} rel="noopener" target="_blank">
-                                    <Tooltip title={`Open ${props.type} ${props.title} in a new tab`}>
-                                        <ExternalLinkIcon></ExternalLinkIcon>
-                                    </Tooltip>
-                                </a>
-                            </span>
-                        </Box>
-                        <Box sx={{ display: { xs: "block", sm: "none" } }}>
-                            <Snackbar message={`${example.type} opened at the top`} onClose={handleClose as any} open={open} autoHideDuration={3000}></Snackbar>
-                        </Box>
-                    </>
+        <>
+            <Box
+                sx={{
+                    cursor: "pointer",
+                    backgroundColor: theme.customPalette.linkText,
+                    display: "inline-flex",
+                    marginRight: theme.spacing(0.5),
+                    marginTop: theme.spacing(0.5),
+                    marginBottom: theme.spacing(0.5),
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    width: "auto",
+                    color: "white",
+                    "& span": {
+                        marginRight: theme.spacing(1),
+                    },
+                    "& span:first-of-type": {
+                        marginLeft: theme.spacing(1),
+                    },
+                    "& svg": {
+                        marginTop: theme.spacing(0.5),
+                    },
+                    "& a": {
+                        color: "white !important",
+                    },
+                }}
+                component="span"
+                id={`example-${props.type}-${props.id!.replace(/#/g, "-")}`}
+            >
+                <span onClick={onExamplePressed.bind(this)}>
+                    <Tooltip title={`Preview ${props.type} ${props.title}`}>
+                        <LinkIcon></LinkIcon>
+                    </Tooltip>
+                </span>
+                <Tooltip title={`Preview ${props.type} ${props.title}`}>
+                    <span style={{ minWidth: 120 }} onClick={onExamplePressed.bind(this)}>
+                        {example.title}
+                    </span>
                 </Tooltip>
-            )}
-        </DocumentationContext.Consumer>
+                <span style={{ minWidth: 20 }}>
+                    <a title={`Open ${props.type} ${props.title} in a new tab}`} href={hrefOut} rel="noopener" target="_blank">
+                        <Tooltip title={`Open ${props.type} ${props.title} in a new tab`}>
+                            <ExternalLinkIcon></ExternalLinkIcon>
+                        </Tooltip>
+                    </a>
+                </span>
+            </Box>
+            <Box component="span" sx={{ display: { xs: "block", sm: "none" } }}>
+                <Snackbar message={`${example.type} opened at the top`} onClose={handleClose as any} open={open} autoHideDuration={3000}></Snackbar>
+            </Box>
+        </>
     );
 };
 
