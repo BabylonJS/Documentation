@@ -79,6 +79,8 @@ exported in the document head as CSS variables, including custom documentation
 colors, so readers see the correct colors without waiting for React hydration.
 Use `theme.vars` for color tokens and `useColorScheme` for the toggle state;
 do not branch rendered styles on `theme.palette.mode`.
+The exported document sets `data-theme="dark"` as its no-JavaScript fallback,
+keeping API stylesheet colors in sync with MUI under either system preference.
 
 The server-rendering regression tests cover the app wrapper and compiled article
 content. After deployment, fetch an article without executing JavaScript and

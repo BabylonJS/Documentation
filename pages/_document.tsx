@@ -10,7 +10,7 @@ export class MyDocument extends Document {
         const withBaseUrl = (path: string) => `${baseUrl}${path}`;
 
         return (
-            <Html lang="en">
+            <Html lang="en" data-theme="dark">
                 <Head>
                     <GlobalStyles styles={documentationTheme.generateStyleSheets()} />
                     <meta name="theme-color" content={"#201936"} />

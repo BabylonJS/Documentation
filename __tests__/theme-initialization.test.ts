@@ -20,6 +20,7 @@ vi.mock("next/document", async (importOriginal) => ({
 describe("pre-paint documentation theme", () => {
     it("puts color variables in the head and initializes the scheme before article content", () => {
         const document = parse(renderToStaticMarkup(createElement(MyDocument, {} as DocumentProps)));
+        expect(document.querySelector("html")!.getAttribute(themeAttribute)).toBe(documentationTheme.defaultColorScheme);
         const head = document.querySelector("head")!;
         expect(head.querySelector("style")!.textContent).toContain("--mui-palette-background-default");
         expect(head.querySelector("style")!.textContent).toContain("--mui-customPalette-sideMenu-backgroundColor");
