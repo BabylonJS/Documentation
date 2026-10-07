@@ -9,9 +9,9 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { AppBar, Drawer, alpha, IconButton, InputBase, Toolbar, Tooltip, Typography } from "@mui/material";
+import { AppBar, Drawer, IconButton, InputBase, Toolbar, Tooltip, Typography } from "@mui/material";
 import Box from "@mui/system/Box";
-import { useTheme } from "@mui/material/styles";
+import { useColorScheme, useTheme } from "@mui/material/styles";
 import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useCallback, useEffect, useRef, useState } from "react";
 import { generateMenuStructure } from "../lib/buildUtils/content.utils";
 import { getImageUrl } from "../lib/frontendUtils/frontendTools";
@@ -97,6 +97,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
     const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : indexOfQuery !== -1 ? router.asPath.substring(0, indexOfQuery) : router.asPath);
     const setCanonical = id.indexOf("search") === -1 && id.indexOf("playground") === -1 && indexOfQuery !== -1;
     const theme = useTheme();
+    const { mode, systemMode } = useColorScheme();
+    const resolvedMode = (mode === "system" ? systemMode : mode) ?? "dark";
     const colorMode = useContext(ColorModeContext);
     const defaultRobots = "index, follow";
     return (
@@ -127,7 +129,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
             <AppBar
                 sx={{
                     zIndex: theme.zIndex.drawer + 1,
-                    backgroundColor: `${theme.customPalette.header}`,
+                    backgroundColor: `${theme.vars.customPalette.header}`,
                     flex: "0 1",
                     position: "fixed",
                     display: "block",
@@ -138,7 +140,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
             >
                 <Toolbar
                     sx={{
-                        backgroundColor: `${theme.customPalette.header}`,
+                        backgroundColor: `${theme.vars.customPalette.header}`,
                         [theme.breakpoints.up("lg")]: {
                             backgroundImage: "url(/img/babylonidentity.svg)",
                             backgroundRepeat: "no-repeat",
@@ -174,9 +176,9 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         sx={{
                             position: "relative",
                             borderRadius: theme.shape.borderRadius,
-                            backgroundColor: alpha(theme.palette.common.white, 0.15),
+                            backgroundColor: theme.alpha(theme.vars.palette.common.white, 0.15),
                             "&:hover": {
-                                backgroundColor: alpha(theme.palette.common.white, 0.25),
+                                backgroundColor: theme.alpha(theme.vars.palette.common.white, 0.25),
                             },
                             marginLeft: 0,
                             width: "100%",
@@ -242,8 +244,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             <GithubIcon />
                         </IconButton>
                     </Link>
-                    <IconButton aria-label={"Toggle " + (theme.palette.mode === "dark" ? "light" : "dark") + " mode"} size="medium" color="inherit" onClick={colorMode.toggleColorMode}>
-                        {theme.palette.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+                    <IconButton aria-label={"Toggle " + (resolvedMode === "dark" ? "light" : "dark") + " mode"} size="medium" color="inherit" onClick={colorMode.toggleColorMode}>
+                        {resolvedMode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
                     </IconButton>
                 </Toolbar>
                 <Box
@@ -381,7 +383,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 <Box
                     component="nav"
                     sx={{
-                        backgroundColor: theme.customPalette.sideMenu.backgroundColor,
+                        backgroundColor: theme.vars.customPalette.sideMenu.backgroundColor,
                         display: "block",
                         // paddingBottom: "40px",
                         [theme.breakpoints.up("lg")]: {
@@ -423,7 +425,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                 sx={{
                                     overflow: "auto",
                                     height: "100%",
-                                    backgroundColor: theme.customPalette.sideMenu.backgroundColor,
+                                    backgroundColor: theme.vars.customPalette.sideMenu.backgroundColor,
                                     zIndex: 1500,
                                 }}
                                 onClick={handleDrawerToggle}
@@ -441,7 +443,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             sx={{
                                 overflow: "auto",
                                 height: "100%",
-                                backgroundColor: theme.customPalette.sideMenu.backgroundColor,
+                                backgroundColor: theme.vars.customPalette.sideMenu.backgroundColor,
                                 zIndex: 1500,
                                 minWidth: "300px",
                             }}
@@ -458,16 +460,16 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             left: sidebarCollapsed ? "0px" : "288px",
                             transition: "left 0.2s ease",
                             zIndex: 1501,
-                            backgroundColor: theme.customPalette.sideMenu.backgroundColor,
+                            backgroundColor: theme.vars.customPalette.sideMenu.backgroundColor,
                             borderRadius: "0 4px 4px 0",
-                            border: `1px solid ${theme.palette.divider}`,
+                            border: `1px solid ${theme.vars.palette.divider}`,
                             borderLeft: "none",
                             cursor: "pointer",
                             display: "flex",
                             alignItems: "center",
                             padding: "4px 0",
                             "&:hover": {
-                                backgroundColor: theme.palette.action.hover,
+                                backgroundColor: theme.vars.palette.action.hover,
                             },
                         }}
                         onClick={() => setSidebarCollapsed(!sidebarCollapsed)}

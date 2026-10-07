@@ -180,7 +180,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                 <Typography
                     sx={{
                         fontSize: theme.typography.pxToRem(15),
-                        color: theme.palette.text.secondary,
+                        color: theme.vars.palette.text.secondary,
                         flex: 1,
                         display: "flex",
                         flexDirection: "column",

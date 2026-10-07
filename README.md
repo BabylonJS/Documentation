@@ -66,6 +66,27 @@ npm run build:example-images -- --dry-run --strict
 
 Generated snapshot images are normal static assets and should be reviewed and committed when intentional.
 
+## Readable HTML
+
+Documentation content must be present in the exported HTML, not only in
+`__NEXT_DATA__` or added after JavaScript runs. This lets non-JavaScript readers,
+including search crawlers and AI agents, read the same articles as browsers.
+Keep the app-wide theme provider server-rendered; limit client-only rendering
+to interactive widgets, never a wrapper around page content. MUI's initialization
+script runs before the page content is painted and sets `data-theme` using the
+existing `theme` storage key or the system preference. Both color schemes are
+exported in the document head as CSS variables, including custom documentation
+colors, so readers see the correct colors without waiting for React hydration.
+Use `theme.vars` for color tokens and `useColorScheme` for the toggle state;
+do not branch rendered styles on `theme.palette.mode`.
+The exported document sets `data-theme="dark"` as its no-JavaScript fallback,
+keeping API stylesheet colors in sync with MUI under either system preference.
+
+The server-rendering regression tests cover the app wrapper and compiled article
+content. After deployment, fetch an article without executing JavaScript and
+check that its headings, prose, code, tables, and links appear in the HTML body.
+`robots.txt` and `llms.txt` aid discovery but do not replace readable page HTML.
+
 ## Code package variants
 
 JavaScript and TypeScript code fences that use the `BABYLON` namespace are converted at build time into ES6, ES6-pure (when supported), and UMD tabs. The Markdown remains the canonical UMD source. Run the strict audit after changing the transformer, symbol map, or code examples:

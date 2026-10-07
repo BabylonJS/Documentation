@@ -25,13 +25,13 @@ export const DocsExamplesPanel: FunctionComponent<{ exampleLinks: IExampleLink[]
                     transition: "right 0.2s ease",
                     alignItems: "center",
                     cursor: "pointer",
-                    backgroundColor: theme.customPalette.examples.backgroundColor,
+                    backgroundColor: theme.vars.customPalette.examples.backgroundColor,
                     borderRadius: "4px 0 0 4px",
-                    border: `1px solid ${theme.palette.divider}`,
+                    border: `1px solid ${theme.vars.palette.divider}`,
                     borderRight: "none",
                     padding: "4px 0",
                     "&:hover": {
-                        backgroundColor: theme.palette.action.hover,
+                        backgroundColor: theme.vars.palette.action.hover,
                     },
                     zIndex: 2,
                 }}
@@ -42,7 +42,7 @@ export const DocsExamplesPanel: FunctionComponent<{ exampleLinks: IExampleLink[]
             </Box>
             <Box
                 sx={{
-                    backgroundColor: theme.customPalette.examples.backgroundColor,
+                    backgroundColor: theme.vars.customPalette.examples.backgroundColor,
                     transition: "width 0.2s ease, min-width 0.2s ease",
                     ...(examplesCollapsed && {
                         width: "0px !important",

@@ -3,7 +3,7 @@ import Script from "next/script";
 import Head from "next/head";
 import { useEffect, FunctionComponent, createContext, PropsWithChildren } from "react";
 
-import dynamic from "next/dynamic";
+import ThemeToggle from "./toggleColor";
 import "../styles/globals.scss";
 import "./typedoc/apiPage.global.scss";
 
@@ -14,10 +14,6 @@ export const BaseUrlContext = createContext<string>("");
 export const BaseUrlProvider: FunctionComponent<PropsWithChildren<{ baseUrl: string }>> = ({ baseUrl, children }) => {
     return <BaseUrlContext.Provider value={baseUrl}>{children}</BaseUrlContext.Provider>;
 };
-
-const ThemeToggle = dynamic(() => import("./toggleColor"), {
-    ssr: false,
-});
 
 export const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
     useEffect(() => {

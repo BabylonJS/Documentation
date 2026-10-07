@@ -2,7 +2,7 @@ import { FunctionComponent, useState, useRef, useEffect, useCallback, useMemo, u
 import { useRouter } from "next/router";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/system/Box";
-import { InputBase, Paper, Typography, IconButton, alpha } from "@mui/material";
+import { InputBase, Paper, Typography, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import { BaseUrlContext } from "../pages/_app";
@@ -285,12 +285,12 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
                         size="small"
                         aria-label="Search API"
                         sx={{
-                            backgroundColor: alpha(theme.palette.background.paper, 0.9),
-                            border: `1px solid ${alpha(theme.palette.divider, 0.3)}`,
+                            backgroundColor: theme.alpha(theme.vars.palette.background.paper, 0.9),
+                            border: `1px solid ${theme.alpha(theme.vars.palette.divider, 0.3)}`,
                             backdropFilter: "blur(8px)",
                             boxShadow: theme.shadows[2],
                             "&:hover": {
-                                backgroundColor: theme.palette.background.paper,
+                                backgroundColor: theme.vars.palette.background.paper,
                             },
                         }}
                     >
@@ -306,15 +306,15 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
                                 display: "flex",
                                 alignItems: "center",
                                 borderRadius: 1,
-                                backgroundColor: alpha(theme.palette.background.paper, 0.95),
+                                backgroundColor: theme.alpha(theme.vars.palette.background.paper, 0.95),
                                 backdropFilter: "blur(8px)",
-                                border: `1px solid ${theme.palette.primary.main}`,
+                                border: `1px solid ${theme.vars.palette.primary.main}`,
                                 boxShadow: theme.shadows[4],
                                 px: 1.5,
                                 py: 0.25,
                             }}
                         >
-                            <SearchIcon sx={{ color: alpha(theme.palette.text.primary, 0.5), mr: 1, fontSize: 20 }} />
+                            <SearchIcon sx={{ color: theme.alpha(theme.vars.palette.text.primary, 0.5), mr: 1, fontSize: 20 }} />
                             <InputBase
                                 inputRef={inputRef}
                                 placeholder={placeholder}
@@ -366,7 +366,7 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
                                     maxHeight: 400,
                                     overflow: "auto",
                                     mt: 0.5,
-                                    backgroundColor: theme.palette.background.paper,
+                                    backgroundColor: theme.vars.palette.background.paper,
                                 }}
                             >
                                 {results.length === 0 ? (
@@ -401,7 +401,7 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
                                                     gap: 8,
                                                     backgroundColor:
                                                         idx === activeIdx
-                                                            ? alpha(theme.palette.primary.main, 0.12)
+                                                            ? theme.alpha(theme.vars.palette.primary.main, 0.12)
                                                             : "transparent",
                                                 }}
                                             >
@@ -410,7 +410,7 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
                                                         fontSize: 10,
                                                         fontWeight: 700,
                                                         textTransform: "uppercase",
-                                                        color: KIND_COLORS[entry.kind] || theme.palette.text.secondary,
+                                                        color: KIND_COLORS[entry.kind] || theme.vars.palette.text.secondary,
                                                         minWidth: 60,
                                                         flexShrink: 0,
                                                     }}
@@ -422,7 +422,7 @@ export const TypeDocSearch: FunctionComponent<TypeDocSearchProps> = ({ baseLocat
                                                     style={{
                                                         marginLeft: "auto",
                                                         fontSize: 12,
-                                                        color: theme.palette.text.secondary,
+                                                        color: theme.vars.palette.text.secondary,
                                                         flexShrink: 0,
                                                     }}
                                                 >

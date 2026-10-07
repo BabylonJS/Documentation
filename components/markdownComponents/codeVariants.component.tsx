@@ -82,7 +82,7 @@ export const CodeVariants: FunctionComponent<PropsWithChildren<{ defaultVariant?
                 allowScrollButtonsMobile
                 sx={{
                     minHeight: 40,
-                    backgroundColor: theme.customPalette.header,
+                    backgroundColor: theme.vars.customPalette.header,
                     color: "white",
                     "& .MuiTab-root": {
                         minHeight: 40,

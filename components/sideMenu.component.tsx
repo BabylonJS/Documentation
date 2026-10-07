@@ -85,16 +85,16 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected, c
                             sx={
                                 isSelected
                                     ? {
-                                          color: theme.customPalette.sideMenu.selectedMenuItemLinkColor,
+                                          color: theme.vars.customPalette.sideMenu.selectedMenuItemLinkColor,
                                           fontWeight: 800,
                                           "&:hover": {
-                                              color: theme.customPalette.sideMenu.menuItemHoverColor,
+                                              color: theme.vars.customPalette.sideMenu.menuItemHoverColor,
                                           },
                                       }
                                     : {
-                                          color: theme.customPalette.sideMenu.textColor,
+                                          color: theme.vars.customPalette.sideMenu.textColor,
                                           "&:hover": {
-                                              color: theme.customPalette.sideMenu.menuItemHoverColor,
+                                              color: theme.vars.customPalette.sideMenu.menuItemHoverColor,
                                           },
                                       }
                             }
@@ -157,12 +157,12 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected, c
             <Box
                 sx={{
                     display: "flex",
-                    border: `1px solid ${theme.palette.divider}`,
+                    border: `1px solid ${theme.vars.palette.divider}`,
                     borderRadius: 1,
                     overflow: "hidden",
                     marginRight: "34px",
                     marginBottom: 2,
-                    backgroundColor: theme.palette.background.paper,
+                    backgroundColor: theme.vars.palette.background.paper,
                     "& a": {
                         flex: 1,
                         textDecoration: "none",
@@ -181,12 +181,12 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected, c
                                     padding: theme.spacing(0.75, 1),
                                     textAlign: "center",
                                     fontWeight: selectedFlavor ? 800 : 500,
-                                    color: selectedFlavor ? theme.palette.primary.contrastText : theme.customPalette.sideMenu.textColor,
-                                    backgroundColor: selectedFlavor ? theme.palette.primary.main : "transparent",
+                                    color: selectedFlavor ? theme.vars.palette.primary.contrastText : theme.vars.customPalette.sideMenu.textColor,
+                                    backgroundColor: selectedFlavor ? theme.vars.palette.primary.main : "transparent",
                                     whiteSpace: "nowrap",
                                     fontSize: 14,
                                     "&:hover": {
-                                        backgroundColor: selectedFlavor ? theme.palette.primary.dark : theme.palette.action.hover,
+                                        backgroundColor: selectedFlavor ? theme.vars.palette.primary.dark : theme.vars.palette.action.hover,
                                     },
                                 }}
                             >
