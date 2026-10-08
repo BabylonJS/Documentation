@@ -308,7 +308,7 @@ Both `sizeScale` and `intensity` must be positive, finite numbers. Disabling ove
 
 ### Inspector V2
 
-In [Inspector V2](/toolsAndResources/inspectorv2), select a Gaussian splatting mesh and open **Gaussian Splatting → Debug Rendering**. Choose **Normal**, **Projected size**, or **Overdraw**, then adjust **Size Scale (pixels)** or **Overdraw Intensity** in the same section. The Inspector uses a temporary material rather than modifying your original one. **Normal** and closing the Inspector restore the exact original material; switching the selection away and back retains the chosen debug mode. If your original material already has app-attached debug plugins, **Normal** restores that material as-is rather than disabling those plugins.
+In [Inspector V2](/toolsAndResources/inspectorv2), select a Gaussian splatting mesh and open **Gaussian Splatting → Debug Rendering**. Choose **Normal**, **Projected size**, or **Overdraw**, then adjust **Size Scale (pixels)** or **Overdraw Intensity** in the same section. The Inspector uses a temporary material for debug rendering. **Min Pixel Size** edits in the Inspector also update the original material, so they persist when you return to **Normal**. **Normal** and closing the Inspector restore the original material if it is still available; if it was disposed while debug rendering was active, the mesh is left without a material rather than receiving a replacement. Switching the selection away and back retains the chosen debug mode. If your original material already has app-attached debug plugins, **Normal** restores that material as-is rather than disabling those plugins.
 
 ## Streaming large scenes with LOD (Experimental)
 
