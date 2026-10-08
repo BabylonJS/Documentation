@@ -260,6 +260,56 @@ Vertex preprocessors are:
 
 <Playground id="#CQH0FN#9" title="Gaussian Splatting Material Plugin" description="Demonstrates a working material plugin on a GaussianSplattingMaterial and how custom uniforms differ from standard materials."/>
 
+## Debug rendering
+
+Two material plugins help diagnose the on-screen footprint and overlap of Gaussian splats. Both work with `GaussianSplattingMaterial` on WebGL (GLSL) and WebGPU (WGSL); they are visualizations, not changes to the underlying splat data.
+
+Both plugins start enabled when constructed. Create each once on the mesh's material, then enable only the visualization you want:
+
+```javascript no-code-variants
+const result = await BABYLON.ImportMeshAsync("https://assets.babylonjs.com/splats/hornedlizard.spz", scene);
+const mesh = result.meshes.find((candidate) => candidate instanceof BABYLON.GaussianSplattingMesh);
+if (!mesh || !(mesh.material instanceof BABYLON.GaussianSplattingMaterial)) {
+    throw new Error("Expected a Gaussian splatting mesh with a Gaussian splatting material");
+}
+
+const material = mesh.material;
+const size = new BABYLON.GaussianSplattingSizeMaterialPlugin(material);
+size.isEnabled = false;
+const overdraw = new BABYLON.GaussianSplattingOverdrawMaterialPlugin(material);
+overdraw.isEnabled = false;
+
+// Projected size
+size.sizeScale = 16;
+size.isEnabled = true;
+
+// Switch to overdraw
+size.isEnabled = false;
+overdraw.intensity = 1 / 256;
+overdraw.isEnabled = true;
+
+// Restore normal rendering
+overdraw.isEnabled = false;
+```
+
+### Projected splat size
+
+`GaussianSplattingSizeMaterialPlugin` visualizes the longest diameter of each projected splat ellipse in **render-target pixels** (the same units as `minPixelSize`), not world-space size or ellipse area. Smaller splats appear whiter. `sizeScale` defaults to `16` pixels: a splat with a 16-pixel projected diameter is half-brightness. Increase `sizeScale` to brighten splats at a given size. Use it to spot splats whose screen-space footprint is too small or too large at the current camera distance and render resolution. This mode keeps the usual Gaussian alpha and blending; it is not a count of splats covering a pixel.
+
+<Playground id="#8FOB3C#0" title="Gaussian splat projected size" description="Visualizes the projected sizes of splats in a horned lizard SPZ scene."/>
+
+### Splat overdraw
+
+`GaussianSplattingOverdrawMaterialPlugin` visualizes how many splats cover each pixel. Every surviving fragment inside the Gaussian footprint adds the same `intensity` to RGB, independent of its positive opacity, Gaussian falloff, or source color. Fully transparent or hidden splats do not contribute. `intensity` defaults to `1 / 256`, so on a black normalized render target about 256 overlapping fragments reach white; lower it for denser scenes to avoid saturation. This mode uses additive blending without depth writes (the depth test still applies). It is a coverage diagnostic, not a measure of final opacity.
+
+Both `sizeScale` and `intensity` must be positive, finite numbers. Disabling overdraw restores the material's previous blending and depth-write settings.
+
+<Playground id="#D4U720#1" title="Gaussian splat overdraw" description="Visualizes splat coverage in a horned lizard SPZ scene with a low per-fragment contribution."/>
+
+### Inspector V2
+
+In [Inspector V2](/toolsAndResources/inspectorv2), select a Gaussian splatting mesh and open **Gaussian Splatting → Debug Rendering**. Choose **Normal**, **Projected size**, or **Overdraw**, then adjust **Size Scale (pixels)** or **Overdraw Intensity** in the same section. The Inspector uses a temporary material rather than modifying your original one. **Normal** and closing the Inspector restore the exact original material; switching the selection away and back retains the chosen debug mode. If your original material already has app-attached debug plugins, **Normal** restores that material as-is rather than disabling those plugins.
+
 ## Streaming large scenes with LOD (Experimental)
 
 <Alert severity="warning">
