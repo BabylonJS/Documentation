@@ -20858,6 +20858,30 @@
             }
           }
         },
+        "GaussianSplattingOverdrawMaterialPlugin": {
+          "status": "resolved",
+          "resolution": {
+            "package": "@babylonjs/core",
+            "importPath": "@babylonjs/core/Materials/GaussianSplatting/gaussianSplattingOverdrawMaterialPlugin",
+            "typeOnly": false,
+            "pure": {
+              "available": true,
+              "importPath": "@babylonjs/core/pure"
+            }
+          }
+        },
+        "GaussianSplattingSizeMaterialPlugin": {
+          "status": "resolved",
+          "resolution": {
+            "package": "@babylonjs/core",
+            "importPath": "@babylonjs/core/Materials/GaussianSplatting/gaussianSplattingSizeMaterialPlugin",
+            "typeOnly": false,
+            "pure": {
+              "available": true,
+              "importPath": "@babylonjs/core/pure"
+            }
+          }
+        },
         "GaussianSplattingSolidColorMaterialPlugin": {
           "status": "resolved",
           "resolution": {
