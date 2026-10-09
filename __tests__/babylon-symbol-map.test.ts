@@ -67,6 +67,20 @@ describe("Babylon symbol map", () => {
         });
     });
 
+    it("maps Gaussian splat debug plugins to their package and pure exports", () => {
+        for (const [symbol, module] of [
+            ["GaussianSplattingSizeMaterialPlugin", "gaussianSplattingSizeMaterialPlugin"],
+            ["GaussianSplattingOverdrawMaterialPlugin", "gaussianSplattingOverdrawMaterialPlugin"],
+        ]) {
+            expect(resolved("BABYLON", symbol)).toEqual({
+                package: "@babylonjs/core",
+                importPath: `@babylonjs/core/Materials/GaussianSplatting/${module}`,
+                typeOnly: false,
+                pure: { available: true, importPath: "@babylonjs/core/pure" },
+            });
+        }
+    });
+
     it("records pure public members and free-function rewrites", () => {
         expect(symbolMap.schemaVersion).toBe(3);
         const pureCore = symbolMap.namespaces.BABYLON.purePackages["@babylonjs/core"];

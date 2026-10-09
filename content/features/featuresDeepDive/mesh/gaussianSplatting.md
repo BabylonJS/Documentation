@@ -266,7 +266,7 @@ Two material plugins help diagnose the on-screen footprint and overlap of Gaussi
 
 Both plugins start enabled when constructed. Create each once on the mesh's material, then enable only the visualization you want:
 
-```javascript no-code-variants
+```javascript
 const result = await BABYLON.ImportMeshAsync("https://assets.babylonjs.com/splats/hornedlizard.spz", scene);
 const mesh = result.meshes.find((candidate) => candidate instanceof BABYLON.GaussianSplattingMesh);
 if (!mesh || !(mesh.material instanceof BABYLON.GaussianSplattingMaterial)) {
