@@ -92,9 +92,9 @@ We currently support these out of the box:
 | [Active Bones](/features/featuresDeepDive/mesh/bonesSkeletons) | ActiveBonesStrategy |
 | [Active Particles](/features/featuresDeepDive/particles) | ActiveParticlesStrategy |
 | Draw Calls | DrawCallsStrategy |
-| [Total Lights](https://doc.babylonjs.com/divingDeeper/lights) | TotalLightsStrategy |
+| [Total Lights](/features/featuresDeepDive/lights) | TotalLightsStrategy |
 | Total Vertices | TotalVerticesStrategy |
-| [Total Materials](https://doc.babylonjs.com/divingDeeper/materials) | TotalMaterialsStrategy |
+| [Total Materials](/features/featuresDeepDive/materials) | TotalMaterialsStrategy |
 | Total Textures | TotalTexturesStrategy |
 | Absolute FPS | AbsoluteFpsStrategy |
 | [Meshes Selection](/features/featuresDeepDive/scene/optimizeOctrees#optimizing-meshes-selection-for-rendering) | MeshesSelectionStrategy |

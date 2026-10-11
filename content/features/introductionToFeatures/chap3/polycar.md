@@ -37,7 +37,7 @@ These, together with the depth to extrude along Y, give the shape for the car.
 const car = BABYLON.MeshBuilder.ExtrudePolygon("car", {shape: outline, depth: 0.2});
 ```
 
-> Note: The *extrudePolygon* and [PolygonMeshBuilder](https://doc.babylonjs.com/divingDeeper/mesh/creation/param/polyMeshBuilder) both use a *earcut* slicing algorithm.  
+> Note: The *extrudePolygon* and [PolygonMeshBuilder](/features/featuresDeepDive/mesh/creation/param/polyMeshBuilder) both use a *earcut* slicing algorithm.  
 > The playground has earcut defined, but if you are following this tutorial on your own file system, you will need to download the earcut algorithm via [CDN](https://unpkg.com/earcut@latest/dist/earcut.min.js) or [NPM](https://github.com/mapbox/earcut#install).  
 > If you are using TypeScript then you can inject the earcut algorithm as the *earcutInjection* parameter on the [extrudePolygon function](https://doc.babylonjs.com/typedoc/classes/babylon.meshbuilder#extrudepolygon).
 

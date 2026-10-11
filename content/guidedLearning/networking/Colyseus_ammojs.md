@@ -22,7 +22,7 @@ We use ammojs as the physics engine for this demonstration, and you can replace 
 
 #### Prior Knowledge Expected
 
-- ([Using A Physics Engine](https://doc.babylonjs.com/divingDeeper/physics/usingPhysicsEngine))
+- ([Using A Physics Engine](/legacy/physics/usingPhysicsEngine))
 - ([Real-time Multiplayer with Colyseus](https://doc.babylonjs.com/guidedLearning/multiplayer/Colyseus))
 
 ## Quick demo
