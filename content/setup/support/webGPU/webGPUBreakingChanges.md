@@ -98,6 +98,23 @@ If you use a custom attribute in a [ShaderMaterial](/typedoc/classes/babylon.sha
 
 In WebGL, you could list the same attribute several times when creating a [ShaderMaterial](/typedoc/classes/babylon.shadermaterial), and it would work as if you had provided the attribute only once. In WebGPU, this fails.
 
+## Depth precision and z-fighting
+
+WebGPU uses a [0, 1] depth range in clip space, whereas WebGL uses [-1, 1]. With the default depth setup, nearly coplanar surfaces can therefore z-fight more in WebGPU than in the same scene in WebGL, especially when the camera covers a large range (a small `camera.minZ` and a large `camera.maxZ`).
+
+If you see more z-fighting in WebGPU than in WebGL, enable the reverse depth buffer, which maps the near plane to 1 and the far plane to 0 and gives distant objects much more depth precision:
+
+```javascript
+const engine = new BABYLON.WebGPUEngine(canvas);
+await engine.initAsync();
+engine.useReverseDepthBuffer = true;
+```
+
+When doing so:
+
+- Keep `camera.minZ` as large as your scene allows. The near plane still has the biggest impact on depth precision.
+- Check custom shaders that write depth (`gl_FragDepth` or `fragmentOutputs.fragDepth`) or read the depth buffer directly, as well as materials that set their own `depthFunction`: they must account for the reversed range. Babylon.js defines `USE_REVERSE_DEPTHBUFFER` in shaders when the reverse depth buffer is enabled.
+
 ## Miscellaneous
 
 Unlike WebGL, the viewport cannot extend outside the framebuffer or texture. So, if you call something like:
