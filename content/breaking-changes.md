@@ -9,6 +9,28 @@ video-content:
 toc-levels: 2
 ---
 
+## Upcoming
+
+### LookDirection orientation convention
+
+The correction in [BabylonJS/Babylon.js#18932](https://github.com/BabylonJS/Babylon.js/pull/18932) is a **breaking change** for callers that rely on the previous orientation of `Matrix.LookDirectionLH`, `Matrix.LookDirectionRH`, `Quaternion.FromLookDirectionLH`, `Quaternion.FromLookDirectionRH`, or their `ToRef` variants.
+
+The LH helpers now rotate local **+Z** toward the supplied world-space `forward` direction. The RH helpers rotate local **-Z** toward it. Both rotate local **+Y** toward `up`. This is the helpers' orientation convention, not a guarantee that every model's visible front uses that local axis. The input vectors must remain normalized and mutually orthogonal.
+
+To preserve the orientation produced by the previous implementation, **negate the forward input** while keeping the same up vector and the same LH/RH helper:
+
+```typescript
+// Previously: Quaternion.FromLookDirectionLH(forward, up)
+// Preserve that previous orientation after the correction:
+const rotation = Quaternion.FromLookDirectionLH(forward.negate(), up);
+```
+
+Apply the same input negation to RH and matrix callers that need the previous orientation. For allocation-free code, negate into a caller-owned temporary vector; do not mutate a shared or read-only input. Callers that want the new local-axis alignment should continue passing their desired world direction unchanged.
+
+These helpers produce **orientation matrices**, not world-to-camera view matrices. For an orthonormal frame at the origin, the orientation is the inverse (transpose) of the corresponding `LookAtLH` or `LookAtRH` matrix. Use `LookAt` for a view matrix rather than changing handedness to compensate.
+
+Built-in consumers (`FollowBehavior`, `SixDofDragBehavior`, `HandConstraintBehavior`, and `HolographicSlate`) were migrated in the same change to preserve their previous facing. Do not apply an additional compensation to those implementations.
+
 ## 9.15.0
 
 ### Migration to TC39 (Stage 3) decorators

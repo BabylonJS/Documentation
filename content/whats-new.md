@@ -4,6 +4,12 @@ toc-levels: 0
 
 # What's new
 
+## Upcoming
+
+### Breaking changes
+
+- `LookDirection` / `FromLookDirection` now align local +Z (LH) or -Z (RH) with the supplied direction. Existing callers that need their previous orientation must negate their forward input. See the [migration guide](/breaking-changes#lookdirection-orientation-convention) and [BabylonJS/Babylon.js#18932](https://github.com/BabylonJS/Babylon.js/pull/18932).
+
 ## 9.0.0
 
 - Clustered Lighting [Doc](https://aka.ms/babylon9CLDoc)
