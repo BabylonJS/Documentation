@@ -113,6 +113,7 @@ engine.useReverseDepthBuffer = true;
 When doing so:
 
 - Keep `camera.minZ` as large as your scene allows. The near plane still has the biggest impact on depth precision.
+- For the best precision, also use a floating-point depth buffer. Reversed depth gets most of its benefit from floating-point depth values, and the default `depth24plus-stencil8` format can be a 24-bit fixed-point format on some platforms. If your scene does not need a stencil buffer, create the engine with `stencil: false` to get a `depth32float` depth buffer: `new BABYLON.WebGPUEngine(canvas, { stencil: false })`.
 - Check custom shaders that write depth (`gl_FragDepth` or `fragmentOutputs.fragDepth`) or read the depth buffer directly, as well as materials that set their own `depthFunction`: they must account for the reversed range. Babylon.js defines `USE_REVERSE_DEPTHBUFFER` in shaders when the reverse depth buffer is enabled.
 
 ## Miscellaneous
