@@ -61,7 +61,7 @@ Choose `usage: "color"` for color textures, which uses ETC1S with sRGB metadata.
 
 ### Encode pixels
 
-The standalone `@babylonjs/ktx2encoder` package does not require the Babylon.js engine. In Node.js, configure the packaged Basis factory and WASM before constructing the encoder:
+The standalone `@babylonjs/ktx2encoder` package does not require the Babylon.js engine. In browsers, `new KTX2Encoder()` uses the default CDN assets on the first `encode()` call. To use custom assets, set `JSModule`, `WasmBinary`, `JSModuleURL`, or `WasmModuleURL` before constructing the encoder. In Node.js, configure the packaged Basis factory and WASM:
 
 ```javascript
 import { readFile } from "node:fs/promises";
@@ -76,7 +76,7 @@ const rgba = new Uint8Array(4 * 4 * 4).fill(255); // A white 4 x 4 image.
 const ktx2 = await encoder.encode(rgba, 4, 4, { usage: "color" });
 ```
 
-The constructor captures the static settings; the first `encode()` call initializes the encoder. Await `encode()` to get a `Uint8Array` containing the KTX2 file. Supply top-down RGBA8 pixels with exactly `width * height * 4` bytes.
+The constructor captures the static settings, and the first `encode()` call initializes the encoder. Injected resources take precedence over URLs. Await `encode()` to get a `Uint8Array` containing the KTX2 file. Supply top-down RGBA8 pixels with exactly `width * height * 4` bytes. Each call releases its native encoder; the standalone instance has no `dispose()` method.
 
 ### Encode a Babylon.js texture
 
