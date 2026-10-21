@@ -152,6 +152,7 @@ BABYLON.KhronosTextureContainer2.URLConfig = {
     wasmZSTDDecoder: baseUrl + "/zstddec.wasm",
 };
 
+// Set this before accessing KhronosTextureContainer2Encoder.Default.
 BABYLON.KhronosTextureContainer2Encoder.DefaultConfiguration = {
     jsEncoderModuleUrl: baseUrl + "/babylon.ktx2Encoder.js",
     basisJsUrl: baseUrl + "/basisEncoder/v2_50/basis_encoder.js",
@@ -198,4 +199,3 @@ const options = {
 const engine = new BABYLON.WebGPUEngine(window.canvas, options);
 await engine.initAsync(glslangOptions, twgslOptions);
 ```
-
