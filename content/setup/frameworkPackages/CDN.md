@@ -199,3 +199,4 @@ const options = {
 const engine = new BABYLON.WebGPUEngine(window.canvas, options);
 await engine.initAsync(glslangOptions, twgslOptions);
 ```
+
