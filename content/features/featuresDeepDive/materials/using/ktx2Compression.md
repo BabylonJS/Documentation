@@ -55,7 +55,7 @@ _Note_ : you may have already encountered or heard of **.basis** files. Those fi
 
 ## Encode textures as KTX2
 
-The experimental KTX2 encoder converts RGBA8 pixels or Babylon.js textures into `.ktx2` files. It is not yet published; these examples require builds from the [KTX2 encoder pull request](https://github.com/alexchuber/Babylon.js/pull/96).
+The experimental KTX2 encoder converts RGBA8 pixels or Babylon.js textures into `.ktx2` files. See the [KTX2 encoder pull request](https://github.com/alexchuber/Babylon.js/pull/96) for implementation details.
 
 Choose `usage: "color"` for color textures, which uses ETC1S with sRGB metadata. Choose `"data"` for metallic/roughness maps or `"normal"` for normal maps; both use linear UASTC with Zstandard compression.
 
