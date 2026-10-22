@@ -126,8 +126,8 @@ const createScene = async function () {
       script.onerror = () => reject(new Error("could not load " + src));
       document.head.appendChild(script);
     });
-  await load("https://unpkg.com/babylon-box3d@0.4/lib/umd/box3d.umd.js");
-  await load("https://unpkg.com/babylon-box3d@0.4/umd/babylon.box3d.min.js");
+  await load("https://unpkg.com/babylon-box3d/lib/umd/box3d.umd.js");
+  await load("https://unpkg.com/babylon-box3d/umd/babylon.box3d.min.js");
 
   // Box3D's Large Pyramid benchmark, the pyramid in the performance tables below: a 2D pyramid of unit boxes, rows
   // boxes wide at the base. 20 rows is the 210 box scene, 50 rows the 1275 box one.
