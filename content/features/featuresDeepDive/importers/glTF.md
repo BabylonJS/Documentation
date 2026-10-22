@@ -132,8 +132,8 @@ The added `__root__` is a common parent, not an authored glTF node. With the def
 If your application needs a quaternion on this root, initialize it only when absent, preserving any existing quaternion or Euler rotation:
 
 ```javascript
-const hero = result.meshes[0]; // The loader-created __root__, not an authored node.
-hero.rotationQuaternion ??= BABYLON.Quaternion.FromEulerVector(hero.rotation);
+const rootMesh = result.meshes[0]; // The loader-created __root__, not an authored node.
+rootMesh.rotationQuaternion ??= BABYLON.Quaternion.FromEulerVector(rootMesh.rotation);
 ```
 
 See [Coordinate Systems and Handedness](/features/featuresDeepDive/mesh/transforms/coordinateSystems) for axis conventions, loader behavior, and DCC interoperability guidance.
