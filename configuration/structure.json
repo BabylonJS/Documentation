@@ -3621,6 +3621,11 @@
                     "friendlyName": "MSDF Text",
                     "children": {},
                     "content": "addons/msdfText"
+                },
+                "multiTexture": {
+                    "friendlyName": "Multi Texture",
+                    "children": {},
+                    "content": "addons/multiTexture"
                 }
             },
             "content": "addons"
