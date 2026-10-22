@@ -53,6 +53,58 @@ The KTX2 implementation of Babylon.js is developed as an external package (the [
 
 _Note_ : you may have already encountered or heard of **.basis** files. Those files use the same compression scheme as `.ktx2` files, but this format is not backed by any standards committee, unlike the KTX2 format. So, you should prefer the latter, as it will become the de-facto standard.
 
+## Encode textures as KTX2
+
+The experimental KTX2 encoder converts RGBA8 pixels or Babylon.js textures into `.ktx2` files. See the [KTX2 encoder pull request](https://github.com/alexchuber/Babylon.js/pull/96) for implementation details.
+
+Choose `usage: "color"` for color textures, which uses ETC1S with sRGB metadata. Choose `"data"` for metallic/roughness maps or `"normal"` for normal maps; both use linear UASTC with Zstandard compression.
+
+### Encode pixels
+
+The standalone `@babylonjs/ktx2encoder` package does not require the Babylon.js engine. In browsers, `new KTX2Encoder()` uses the default CDN assets on the first `encode()` call. To use custom assets, set `JSModule`, `WasmBinary`, `JSModuleURL`, or `WasmModuleURL` before constructing the encoder. In Node.js, configure the packaged Basis factory and WASM:
+
+```javascript
+import { readFile } from "node:fs/promises";
+import { KTX2Encoder } from "@babylonjs/ktx2encoder";
+import BASIS from "@babylonjs/ktx2encoder/wasm/basis_encoder.js";
+
+const wasm = await readFile(new URL(import.meta.resolve("@babylonjs/ktx2encoder/wasm/basis_encoder.wasm")));
+KTX2Encoder.JSModule = BASIS;
+KTX2Encoder.WasmBinary = new Uint8Array(wasm).buffer;
+const encoder = new KTX2Encoder();
+const rgba = new Uint8Array(4 * 4 * 4).fill(255); // A white 4 x 4 image.
+const ktx2 = await encoder.encode(rgba, 4, 4, { usage: "color" });
+```
+
+The constructor captures the static settings, and the first `encode()` call initializes the encoder. Injected resources take precedence over URLs. Await `encode()` to get a `Uint8Array` containing the KTX2 file. Supply top-down RGBA8 pixels with exactly `width * height * 4` bytes. Each call releases its native encoder; the standalone instance has no `dispose()` method.
+
+### Encode a Babylon.js texture
+
+Use `EncodeTextureToKTX2Async` from `@babylonjs/core` to read back and encode an existing texture. Until the encoder assets are deployed to the Babylon.js CDN, self-host the built encoder UMD bundle and Basis v2_50 files:
+
+```javascript
+import { EncodeTextureToKTX2Async, KhronosTextureContainer2Encoder } from "@babylonjs/core/Misc/khronosTextureContainer2Encoder.js";
+
+const encoder = new KhronosTextureContainer2Encoder({
+  jsEncoderModuleUrl: "/babylon.ktx2Encoder.js",
+  basisJsUrl: "/basisEncoder/v2_50/basis_encoder.js",
+  basisWasmUrl: "/basisEncoder/v2_50/basis_encoder.wasm",
+});
+try {
+  const ktx2 = await EncodeTextureToKTX2Async(texture, { usage: "normal" }, encoder);
+} finally {
+  encoder.dispose();
+}
+```
+
+Replace these URLs with your hosted asset paths.
+
+### Limits
+
+Both dimensions must be multiples of four from 4 through 16,384, with at most 12,582,912 pixels. The encoder does not resize images. The texture adapter accepts unsigned-byte 2D textures without premultiplied alpha; compressed textures require a scene. Encoding does not integrate with glTF export.
+
+Each worker starts with about 128 MiB of WASM memory, and each pending texture call holds a full RGBA buffer. Main-thread compression is synchronous. The official Basis v2_50 factory requires CSP `'unsafe-eval'`, even when you supply the factory directly.
+
 ## Tools
 
 <img src="/img/resources/gpu_compressed_textures/tools.webp" title="Tools" caption="Photo courtesy of pixels.com"/>

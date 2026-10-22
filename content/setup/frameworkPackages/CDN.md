@@ -152,8 +152,25 @@ BABYLON.KhronosTextureContainer2.URLConfig = {
     wasmZSTDDecoder: baseUrl + "/zstddec.wasm",
 };
 
+// Set this before accessing KhronosTextureContainer2Encoder.Default.
+BABYLON.KhronosTextureContainer2Encoder.DefaultConfiguration = {
+    jsEncoderModuleUrl: baseUrl + "/babylon.ktx2Encoder.js",
+    basisJsUrl: baseUrl + "/basisEncoder/v2_50/basis_encoder.js",
+    basisWasmUrl: baseUrl + "/basisEncoder/v2_50/basis_encoder.wasm",
+    numWorkers: 1,
+};
+
 BABYLON.BasisToolsOptions.JSModuleURL = baseUrl + "/basisTranscoder/1/basis_transcoder.js";
 BABYLON.BasisToolsOptions.WasmModuleURL = baseUrl + "/basisTranscoder/1/basis_transcoder.wasm";
+```
+
+For the standalone `@babylonjs/ktx2encoder` package, use the preceding `baseUrl` and set its Basis URLs before creating an encoder:
+
+```javascript
+import { KTX2Encoder } from "@babylonjs/ktx2encoder";
+
+KTX2Encoder.JSModuleURL = baseUrl + "/basisEncoder/v2_50/basis_encoder.js";
+KTX2Encoder.WasmModuleURL = baseUrl + "/basisEncoder/v2_50/basis_encoder.wasm";
 ```
 
 ## Special cases
