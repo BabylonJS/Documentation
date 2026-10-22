@@ -127,6 +127,15 @@ scene.useRightHandedSystem = true;
 
 Set the scene mode before loading. Do not mirror the imported meshes a second time. `loadedMeshes[0]` points to the added `__root__` node and `loadedMeshes[1]` points to the first loaded mesh.
 
+The added `__root__` is a common parent, not an authored glTF node. With the default `AUTO` coordinate-system mode, its `rotationQuaternion` is `[0, 1, 0, 0]` and its `scaling` is `[1, 1, -1]` in a left-handed scene. In a right-handed scene, no conversion is needed: `rotationQuaternion` remains `null` and the Euler `rotation` is zero. A `null` quaternion means the node uses Euler rotation; it does not mean imported rotations were lost.
+
+If your application needs a quaternion on this root, initialize it only when absent, preserving any existing quaternion or Euler rotation:
+
+```javascript
+const hero = result.meshes[0]; // The loader-created __root__, not an authored node.
+hero.rotationQuaternion ??= BABYLON.Quaternion.FromEulerVector(hero.rotation);
+```
+
 See [Coordinate Systems and Handedness](/features/featuresDeepDive/mesh/transforms/coordinateSystems) for axis conventions, loader behavior, and DCC interoperability guidance.
 
 ### Skinning
