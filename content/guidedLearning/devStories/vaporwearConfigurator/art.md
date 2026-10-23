@@ -181,11 +181,11 @@ noteworthy "tricks."
 1.  **Instancing**: The four "studs" were identical, and this provided an
     opportunity for Carlos to give a little boost to the eventual rendering
     performance of the asset.
-    [Instancing](https://doc.babylonjs.com/divingDeeper/mesh/copies/instances)
+    [Instancing](/features/featuresDeepDive/mesh/copies/instances)
     is a technique that allows renderers to render multiple copies of
     identical meshes very efficiently, and from Blender it's easy to
     specify instancing by simply
-    [creating a linked object](https://doc.babylonjs.com/divingDeeper/mesh/copies/instances#blender),
+    [creating a linked object](/features/featuresDeepDive/mesh/copies/instances#blender),
     so Carlos did that with the studs in order to help them render more
     efficiently.
 

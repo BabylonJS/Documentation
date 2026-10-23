@@ -66,7 +66,7 @@ If successful, the output should look like this on your command line:
 
 ### Including the Colyseus JavaScript SDK
 
-For simplicity, the examples in this guide use the [Babylon.js Playground](https://doc.babylonjs.com/toolsAndResources/tools/playground), although the full source code available for download uses [NPM + Webpack](https://doc.babylonjs.com/divingDeeper/developWithBjs/npmSupport).
+For simplicity, the examples in this guide use the [Babylon.js Playground](https://doc.babylonjs.com/toolsAndResources/tools/playground), although the full source code available for download uses [NPM + Webpack](/setup/frameworkPackages/npmSupport).
 
 In the Playground, we inject the Colyseus JavaScript SDK manually through a `<script>` tag created via code, as described in [_"Using External Assets In The Playground"_ → _"Javascript files"_](https://doc.babylonjs.com/toolsAndResources/tools/playground/externalPGAssets#javascript-files).
 

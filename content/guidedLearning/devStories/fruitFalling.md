@@ -330,7 +330,7 @@ work the way I wanted it.
     disposing one kind of scene and creating a new instance of the other,
     thus keeping the logic and resources clean and separated.
 1.  I wrote a fixed framerate observable to simplify having
-    [coroutine](https://doc.babylonjs.com/divingDeeper/events/coroutines)-driven
+    [coroutine](/features/featuresDeepDive/events/coroutines)-driven
     animation and game logic without being vulnerable
     to framerate changes.
 
@@ -406,7 +406,7 @@ curious, here are the various tools I used to make *Fruit Fallin'*.
     Audacity.
 1.  **Other:** The few remaining elements such as text are all
     generated using
-    [Babylon's built-in GUI](https://doc.babylonjs.com/divingDeeper/gui/gui).
+    [Babylon's built-in GUI](/features/featuresDeepDive/gui/gui).
     The only exception to this is the colors of the animated buttons, which
     are done using Babylon-generated plane geometry and an unlit PBR
     material.

@@ -47,7 +47,7 @@ This coroutine will cause the logic of spawning the three meshes to be spread ac
 ## How It Works
 
 Babylon.js coroutines combine
-[JavaScript generators](https://javascript.info/generators) with [`Observable`s](https://doc.babylonjs.com/divingDeeper/events/observables) to make it as easy as possible to spread logic across multiple frames.
+[JavaScript generators](https://javascript.info/generators) with [`Observable`s](/features/featuresDeepDive/events/observables) to make it as easy as possible to spread logic across multiple frames.
 At a high level, generator functions (an ES6 feature characterized by the `function*` syntax) don't return a simple return value object like traditional functions do. Instead, they return an intermediate object which allows the code inside the function to be run in "chunks," with the different chunks separated using the keyword `yield`. This intermediate object can then be invoked repeatedly, and each time it's invoked the generator function will "resume" from the last place it "paused" and keep going until it either gets to the next `yield` or reaches the end of the function.
 
 This intermediate, repeatedly-invokable object is what `Observable.runCoroutineAsync` takes as an argument. The observable on which the coroutine is running will then invoke the generator -- causing another "chunk" of the coroutine's code to run -- every time that `Observable` itself is notified. This makes it very easy to write logic that "advances" every time a certain event monitored by an `Observable` occurs.
