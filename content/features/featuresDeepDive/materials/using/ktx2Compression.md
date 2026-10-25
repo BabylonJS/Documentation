@@ -90,7 +90,11 @@ The supported fields are `etc1sQualityLevel`, `etc1sCompressionLevel`, `uastcQua
 
 ### Babylon.js textures
 
-There is no public API for encoding a Babylon.js texture in this release. The upcoming glTF exporter will be the public entry point. The configuration of `KhronosTextureContainer2Encoder` in `@babylonjs/core` is groundwork for that exporter. Like the decoder, it must be configured before the first encoder is created: `URLConfig`, `DefaultNumWorkers`, and the injected dependencies all take effect at first initialization. This release also has no public worker bootstrap, so a custom `workerPool` cannot be prepared outside Babylon.js.
+There is no public API for encoding a Babylon.js texture in this release. The upcoming glTF exporter will be the public entry point. The configuration of `KhronosTextureContainer2Encoder` in `@babylonjs/core` is groundwork for that exporter. Like the decoder, it must be configured before the first encoder is created: `URLConfig`, `DefaultNumWorkers`, and the injected dependencies all take effect at first initialization.
+
+This release has no public worker bootstrap. Injected workers must already be initialized for the internal encoder protocol; the caller owns their dependencies and lifecycle.
+
+Internal texture encoding rejects an aborted call promptly and skips queued work. An active shared-worker encode finishes without cancellation terminating its worker. Cancellation cannot interrupt synchronous main-thread encoding.
 
 ### Limits
 
