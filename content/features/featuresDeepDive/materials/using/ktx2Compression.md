@@ -55,7 +55,7 @@ _Note_ : you may have already encountered or heard of **.basis** files. Those fi
 
 ## Encode textures as KTX2
 
-The experimental KTX2 encoder converts RGBA8 pixels or Babylon.js textures into `.ktx2` files. See the [KTX2 encoder pull request](https://github.com/alexchuber/Babylon.js/pull/96) for implementation details.
+The experimental `@babylonjs/ktx2encoder` package converts RGBA8 pixels into `.ktx2` files. See the [KTX2 encoder pull request](https://github.com/BabylonJS/Babylon.js/pull/19011) for implementation details.
 
 Choose `usage: "color"` for color textures, which uses ETC1S with sRGB metadata. Choose `"data"` for metallic/roughness maps or `"normal"` for normal maps; both use linear UASTC with Zstandard compression.
 
@@ -76,34 +76,27 @@ const rgba = new Uint8Array(4 * 4 * 4).fill(255); // A white 4 x 4 image.
 const ktx2 = await encoder.encode(rgba, 4, 4, { usage: "color" });
 ```
 
-The constructor captures the static settings, and the first `encode()` call initializes the encoder. Injected resources take precedence over URLs. Await `encode()` to get a `Uint8Array` containing the KTX2 file. Supply top-down RGBA8 pixels with exactly `width * height * 4` bytes. Each call releases its native encoder; the standalone instance has no `dispose()` method.
+The constructor captures the static settings, and the first `encode()` call initializes the encoder. Injected resources take precedence over URLs. Await `encode()` to get a `Uint8Array` containing the KTX2 file. Supply top-down RGBA8 pixels with exactly `width * height * 4` bytes. Pass `flipY: true` for bottom-up pixels (default `false`), and `generateMipmaps: false` to skip mipmap generation (default `true`). Each call releases its native encoder; the standalone instance has no `dispose()` method. Once `encode()` starts, it cannot be cancelled.
 
-### Encode a Babylon.js texture
+### Default options
 
-Use `EncodeTextureToKTX2Async` from `@babylonjs/core` to read back and encode an existing texture. Until the encoder assets are deployed to the Babylon.js CDN, self-host the built encoder UMD bundle and Basis v2_50 files:
+Set `KTX2Encoder.DefaultEncoderOptions` to force codec settings for every later `encode()` call. As with the KTX2 decoder's default options, a defined default overrides the value passed to `encode()`:
 
 ```javascript
-import { EncodeTextureToKTX2Async, KhronosTextureContainer2Encoder } from "@babylonjs/core/Misc/khronosTextureContainer2Encoder.js";
-
-const encoder = new KhronosTextureContainer2Encoder({
-  jsEncoderModuleUrl: "/babylon.ktx2Encoder.js",
-  basisJsUrl: "/basisEncoder/v2_50/basis_encoder.js",
-  basisWasmUrl: "/basisEncoder/v2_50/basis_encoder.wasm",
-});
-try {
-  const ktx2 = await EncodeTextureToKTX2Async(texture, { usage: "normal" }, encoder);
-} finally {
-  encoder.dispose();
-}
+KTX2Encoder.DefaultEncoderOptions = { etc1sQualityLevel: 200, zstandard: false };
 ```
 
-Replace these URLs with your hosted asset paths.
+The supported fields are `etc1sQualityLevel`, `etc1sCompressionLevel`, `uastcQualityLevel`, and `zstandard`. A default applies only where it is relevant: the ETC1S settings to `"color"`, and the UASTC settings to `"data"` and `"normal"`. Set a field to `undefined` to clear it. `usage`, `flipY`, and `generateMipmaps` cannot be defaults.
+
+### Babylon.js textures
+
+There is no public API for encoding a Babylon.js texture in this release. The upcoming glTF exporter will be the public entry point. The configuration of `KhronosTextureContainer2Encoder` in `@babylonjs/core` is groundwork for that exporter. Like the decoder, it must be configured before the first encoder is created: `URLConfig`, `DefaultNumWorkers`, and the injected dependencies all take effect at first initialization. This release also has no public worker bootstrap, so a custom `workerPool` cannot be prepared outside Babylon.js.
 
 ### Limits
 
-Both dimensions must be multiples of four from 4 through 16,384, with at most 12,582,912 pixels. The encoder does not resize images. The texture adapter accepts unsigned-byte 2D textures without premultiplied alpha; compressed textures require a scene. Encoding does not integrate with glTF export.
+Both dimensions must be multiples of four from 4 through 16,384, with at most 12,582,912 pixels. This cap comes from the Basis v2_50 wasm32 build, so 4096 x 4096 images are not supported. The encoder does not resize images.
 
-Each worker starts with about 128 MiB of WASM memory, and each pending texture call holds a full RGBA buffer. Main-thread compression is synchronous. The official Basis v2_50 factory requires CSP `'unsafe-eval'`, even when you supply the factory directly.
+Each worker starts with about 128 MiB of WASM memory. Main-thread compression is synchronous. The official Basis v2_50 factory requires CSP `'unsafe-eval'`, even when you supply the factory directly (see [basis_universal#464](https://github.com/BinomialLLC/basis_universal/issues/464) and [#474](https://github.com/BinomialLLC/basis_universal/issues/474)).
 
 ## Tools
 
