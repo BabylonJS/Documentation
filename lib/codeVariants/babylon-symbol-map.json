@@ -3506,6 +3506,12 @@
               "URLConfig",
               "WorkerPool"
             ],
+            "KhronosTextureContainer2Encoder": [
+              "DefaultEncoderOptions",
+              "DefaultNumWorkers",
+              "URLConfig",
+              "WorkerPool"
+            ],
             "LatheBuilder": [
               "CreateLathe"
             ],
@@ -31059,6 +31065,18 @@
           "resolution": {
             "package": "@babylonjs/core",
             "importPath": "@babylonjs/core/Misc/khronosTextureContainer2",
+            "typeOnly": false,
+            "pure": {
+              "available": true,
+              "importPath": "@babylonjs/core/pure"
+            }
+          }
+        },
+        "KhronosTextureContainer2Encoder": {
+          "status": "resolved",
+          "resolution": {
+            "package": "@babylonjs/core",
+            "importPath": "@babylonjs/core/Misc/khronosTextureContainer2Encoder",
             "typeOnly": false,
             "pure": {
               "available": true,

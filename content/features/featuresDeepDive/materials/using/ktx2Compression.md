@@ -58,11 +58,36 @@ The KTX2 format is also used in the **glTF** world by means of the [KHR_texture_
 
 The KTX2 implementation of Babylon.js is developed as an external package (the [KTX2 decoder](https://github.com/BabylonJS/Babylon.js/tree/master/ktx2Decoder)) designed to be small (the minified .js file is less than 22kb) and efficient. Depending on the universal representation of the data in the .ktx2 file and the compressed formats supported by the target device, the right module is used for the transcoding. Whenever possible, the [Universal Texture Transcoders](https://github.com/KhronosGroup/Universal-Texture-Transcoders) (UTT) are used, as they are both very fast and small. For transcoding formats not supported by the UTTs (yet), the [MSC Basis Transcoder](https://github.com/KhronosGroup/KTX-Software/releases) module is used instead.
 
-// TODO: segway into how we wrap this using KhronosTextureContainer2 and then make that the subject below...
+Babylon.js wraps this package with `KhronosTextureContainer2`, which loads the required transcoders, manages workers, and selects an output format supported by the engine. The texture loader uses this wrapper automatically:
 
-// TODO: show decoder usage
+```javascript
+const texture = new BABYLON.Texture("textures/texture.ktx2", scene);
+```
 
-// TODO: add options section
+Configure `KhronosTextureContainer2.URLConfig` and `DefaultNumWorkers` before loading your first KTX2 texture. See [self-hosting the decoder files](/setup/frameworkPackages/CDN) and [providing your own modules and workers](/setup/frameworkPackages/es6Support#ktx2-decoder-packages).
+
+#### Options
+
+Pass decoder options through `loaderOptions` when creating a texture:
+
+```javascript
+const texture = new BABYLON.Texture("textures/texture.ktx2", scene, {
+    loaderOptions: {
+        forceRGBA: true,
+    },
+});
+```
+
+- Use `forceRGBA: true` to decode to uncompressed RGBA instead of a GPU-compressed format.
+- For UASTC textures, use `forceR8: true` or `forceRG8: true` to keep just the red channel or the red and green channels.
+- Use `useRGBAIfASTCBC7NotAvailableWhenUASTC: true` to decode UASTC to RGBA when neither ASTC nor BC7 is supported.
+- Use `bypassTranscoders` to exclude specific transcoders by name.
+
+Set properties on `KhronosTextureContainer2.DefaultDecoderOptions` to override per-texture options. By default, `useRGBAIfOnlyBC1BC3AvailableWhenUASTC` is `true`: the decoder favors faster RGBA decoding over slower UASTC-to-BC1/BC3 transcoding. To favor compressed textures on those devices instead:
+
+```javascript
+BABYLON.KhronosTextureContainer2.DefaultDecoderOptions.useRGBAIfOnlyBC1BC3AvailableWhenUASTC = false;
+```
 
 ### Encoder package
 
@@ -85,11 +110,14 @@ const ktx2 = await encoder.encode(rgba, 4, 4, { usage: "color" }); // Returns Ui
 
 Set `KTX2Encoder.DefaultEncoderOptions` to force codec settings for every later `encode()` call. As with the KTX2 decoder's default options, a defined default overrides the value passed to `encode()`.
 
+`DefaultEncoderOptions` starts empty. These are the built-in codec values, shown as explicit overrides:
+
 ```javascript
-KTX2Encoder.DefaultEncoderOptions = { 
-    etc1sQualityLevel: 200, 
-    zstandard: false,
-    // TODO: fill in with rest, ensuring the values reflect the default values
+KTX2Encoder.DefaultEncoderOptions = {
+    etc1sQualityLevel: 128,
+    etc1sCompressionLevel: 2,
+    uastcQualityLevel: 2,
+    zstandard: true,
 };
 ```
 
@@ -101,7 +129,7 @@ Note that a default applies only where it is relevant: the ETC1S settings to `"c
 
 Now that you know why you should use `.ktx2` files, you will need to actually generate them!
 
-// TODO: insert note about encoder usage but note that its still experimental and to see below for other solutions in the meantime
+The [encoder package](#encoder-package) above can generate KTX2 files from pixel data, but it is still experimental. For other ways to create them in the meantime, see the tools below.
 
 Khronos provides [command line tools](https://github.com/KhronosGroup/KTX-Software/releases) that you can use to generate, check, and dump `.ktx2` files:
 
