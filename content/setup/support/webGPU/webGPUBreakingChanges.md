@@ -98,6 +98,24 @@ If you use a custom attribute in a [ShaderMaterial](/typedoc/classes/babylon.sha
 
 In WebGL, you could list the same attribute several times when creating a [ShaderMaterial](/typedoc/classes/babylon.shadermaterial), and it would work as if you had provided the attribute only once. In WebGPU, this fails.
 
+## Depth precision and z-fighting
+
+With the default depth setup, distant geometry ends up with depth values close to 1, where little precision is left. Nearly coplanar surfaces can then z-fight when the camera covers a large range (a small `camera.minZ` and a large `camera.maxZ`). How much depends on the GPU, the driver and the browser: the same scene can z-fight more in WebGPU than in WebGL on one machine, and less on another.
+
+In WebGPU, the reverse depth buffer removes most of this z-fighting. It maps the near plane to 1 and the far plane to 0, so distant geometry gets the much finer floating-point spacing near 0 (see NVIDIA's [Depth Precision Visualized](https://developer.nvidia.com/content/depth-precision-visualized)). If you see z-fighting with a large depth range, enable it:
+
+```javascript
+const engine = new BABYLON.WebGPUEngine(canvas);
+await engine.initAsync();
+engine.useReverseDepthBuffer = true;
+```
+
+When doing so:
+
+- Keep `camera.minZ` as large as your scene allows. The near plane still has the biggest impact on depth precision.
+- For the best precision, also use a floating-point depth buffer. Reversed depth gets most of its benefit from floating-point depth values, and the default `depth24plus-stencil8` format can be a 24-bit fixed-point format on some platforms. If your scene does not need a stencil buffer, create the engine with `stencil: false` to get a `depth32float` depth buffer: `new BABYLON.WebGPUEngine(canvas, { stencil: false })`.
+- Check custom shaders that write depth (`gl_FragDepth` or `fragmentOutputs.fragDepth`) or read the depth buffer directly, as well as materials that set their own `depthFunction`: they must account for the reversed range. Babylon.js defines `USE_REVERSE_DEPTHBUFFER` in shaders when the reverse depth buffer is enabled.
+
 ## Miscellaneous
 
 Unlike WebGL, the viewport cannot extend outside the framebuffer or texture. So, if you call something like:
