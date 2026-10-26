@@ -38,7 +38,7 @@ We offer Babylon.js core and its modules as npm packages. The following are avai
 - [@babylonjs/viewer](https://www.npmjs.com/package/@babylonjs/viewer) - The stand-alone Babylon.js Viewer.
 - [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The Babylon.js Inspector for visual debugging.
 - [@babylonjs/ktx2decoder](https://www.npmjs.com/package/@babylonjs/ktx2decoder) - Babylon's KTX2 Decoder module.
-- [@babylonjs/ktx2encoder](https://www.npmjs.com/package/@babylonjs/ktx2encoder) - Experimental KTX2 encoder. See [KTX2 texture compression](/features/featuresDeepDive/materials/using/ktx2Compression) for usage.
+- [@babylonjs/ktx2encoder](https://www.npmjs.com/package/@babylonjs/ktx2encoder) - Babylon's KTX2 Encoder module.
 
 ## Basic Example
 
@@ -667,6 +667,9 @@ BABYLON.ImportMeshAsync("https://awesomeserver.mine.com/my.glb", scene).then(() 
   }
 );
 ```
+
+// TODO: add dracoencoder and khronostexturecontainer2encoder
+// make a quick note of the unsafe-eval thing for the encoder
 
 ### Basis Decoder
 
