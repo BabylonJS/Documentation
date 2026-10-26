@@ -274,23 +274,23 @@ Here is a list of supported GUI controls available in the GUI Editor:
 
 | Icon                                                             | Control Name     | Further Information                                                                              |
 | ---------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------ |
-| ![rectangle](/img/tools/guiEditor/rectangleIcon.webp)             | Rectangle        | [Rectangle Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#rectangle)              |
-| ![ellipse](/img/tools/guiEditor/ellipseIcon.webp)                 | Ellipse          | [Ellipse Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#ellipse)                  |
-| ![stackpanel](/img/tools/guiEditor/stackPanelIcon.webp)           | Stack Panel      | [Stack Panel Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#stackpanel)           |
-| ![grid](/img/tools/guiEditor/gridIcon.webp)                       | Grid             | [Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#grid)                        |
-| ![scrollviewer](/img/tools/guiEditor/scrollViewerIcon.webp)       | Scroll Viewer    | [Scroll Viewer Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#scrollviewer)       |
-| ![line](/img/tools/guiEditor/lineIcon.webp)                       | Line             | [Line Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#line)                        |
-| ![textblock](/img/tools/guiEditor/textIcon.webp)                  | Text Block       | [Text Block Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#textblock)             |
-| ![inputText](/img/tools/guiEditor/inputTextIcon.webp)             | Input Text       | [Input Text Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputtext)             |
-| ![inputPassword](/img/tools/guiEditor/inputPasswordIcon.webp)     | Input Password   | [Input Password Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputpassword)     |
-| ![image](/img/tools/guiEditor/imageIcon.webp)                     | Image            | [Image Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#image)                      |
-| ![displayGrid](/img/tools/guiEditor/displayGridIcon.webp)         | Display Grid     | [Display Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#displaygrid)         |
-| ![textButton](/img/tools/guiEditor/textButtonIcon.webp)           | Text Button      | [A Button with a Text Block as a Child] (https://doc.babylonjs.com/divingDeeper/gui/gui#button)  |
-| ![checkbox](/img/tools/guiEditor/checkBoxIcon.webp)               | Checkbox         | [Checkbox Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#checkbox)                |
-| ![radioButton](/img/tools/guiEditor/radioIcon.webp)               | Radio Button     | [Radio Button Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#radiobutton)         |
-| ![slider](/img/tools/guiEditor/sliderIcon.webp)                   | Slider           | [Slider Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#slider)                    |
-| ![virtualkeyboard](/img/tools/guiEditor/virtualKeyboardIcon.webp) | Virtual Keyboard | [Virtual Keyboard Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#virtualkeyboard) |
-| ![colorpicker](/img/tools/guiEditor/colorPickerIcon.webp)         | Color Picker     | [Color Picker](https://doc.babylonjs.com/divingDeeper/gui/gui#colorpicker)                       |
+| ![rectangle](/img/tools/guiEditor/rectangleIcon.webp)             | Rectangle        | [Rectangle Documentation](/features/featuresDeepDive/gui/gui#rectangle)              |
+| ![ellipse](/img/tools/guiEditor/ellipseIcon.webp)                 | Ellipse          | [Ellipse Documentation](/features/featuresDeepDive/gui/gui#ellipse)                  |
+| ![stackpanel](/img/tools/guiEditor/stackPanelIcon.webp)           | Stack Panel      | [Stack Panel Documentation](/features/featuresDeepDive/gui/gui#stackpanel)           |
+| ![grid](/img/tools/guiEditor/gridIcon.webp)                       | Grid             | [Grid Documentation](/features/featuresDeepDive/gui/gui#grid)                        |
+| ![scrollviewer](/img/tools/guiEditor/scrollViewerIcon.webp)       | Scroll Viewer    | [Scroll Viewer Documentation](/features/featuresDeepDive/gui/gui#scrollviewer)       |
+| ![line](/img/tools/guiEditor/lineIcon.webp)                       | Line             | [Line Documentation](/features/featuresDeepDive/gui/gui#line)                        |
+| ![textblock](/img/tools/guiEditor/textIcon.webp)                  | Text Block       | [Text Block Documentation](/features/featuresDeepDive/gui/gui#textblock)             |
+| ![inputText](/img/tools/guiEditor/inputTextIcon.webp)             | Input Text       | [Input Text Documentation](/features/featuresDeepDive/gui/gui#inputtext)             |
+| ![inputPassword](/img/tools/guiEditor/inputPasswordIcon.webp)     | Input Password   | [Input Password Documentation](/features/featuresDeepDive/gui/gui#inputpassword)     |
+| ![image](/img/tools/guiEditor/imageIcon.webp)                     | Image            | [Image Documentation](/features/featuresDeepDive/gui/gui#image)                      |
+| ![displayGrid](/img/tools/guiEditor/displayGridIcon.webp)         | Display Grid     | [Display Grid Documentation](/features/featuresDeepDive/gui/gui#displaygrid)         |
+| ![textButton](/img/tools/guiEditor/textButtonIcon.webp)           | Text Button      | [A Button with a Text Block as a Child](/features/featuresDeepDive/gui/gui#button)  |
+| ![checkbox](/img/tools/guiEditor/checkBoxIcon.webp)               | Checkbox         | [Checkbox Documentation](/features/featuresDeepDive/gui/gui#checkbox)                |
+| ![radioButton](/img/tools/guiEditor/radioIcon.webp)               | Radio Button     | [Radio Button Documentation](/features/featuresDeepDive/gui/gui#radiobutton)         |
+| ![slider](/img/tools/guiEditor/sliderIcon.webp)                   | Slider           | [Slider Documentation](/features/featuresDeepDive/gui/gui#slider)                    |
+| ![virtualkeyboard](/img/tools/guiEditor/virtualKeyboardIcon.webp) | Virtual Keyboard | [Virtual Keyboard Documentation](/features/featuresDeepDive/gui/gui#virtualkeyboard) |
+| ![colorpicker](/img/tools/guiEditor/colorPickerIcon.webp)         | Color Picker     | [Color Picker](/features/featuresDeepDive/gui/gui#colorpicker)                       |
 
 ### Demos
 
