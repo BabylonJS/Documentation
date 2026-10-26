@@ -49,7 +49,7 @@ This will generate a `<div id="accessibility-host">` HTML element right after th
 
 ### Interaction
 
-Some content in your scene might be interactive (for example, clickable). For Node-type objects, if you use Babylon.js's [ActionManager](https://doc.babylonjs.com/divingDeeper/events/actions) to define the interaction, the Accessibility package can automatically detect it and apply it to the generated HTML twin elements. This lets the user use the keyboard to trigger events such as click or right-click on the HTML twin elements, which in turn triggers the corresponding action on the Babylon.js objects. Only ACTION_OnPickTrigger, ACTION_OnLeftPickTrigger, and ACTION_OnRightPickTrigger are supported. For Control-type objects, if you define an observer for onPointerClickObservable, the Accessibility package can also automatically detect it and apply it to the generated HTML twin element.
+Some content in your scene might be interactive (for example, clickable). For Node-type objects, if you use Babylon.js's [ActionManager](/features/featuresDeepDive/events/actions) to define the interaction, the Accessibility package can automatically detect it and apply it to the generated HTML twin elements. This lets the user use the keyboard to trigger events such as click or right-click on the HTML twin elements, which in turn triggers the corresponding action on the Babylon.js objects. Only ACTION_OnPickTrigger, ACTION_OnLeftPickTrigger, and ACTION_OnRightPickTrigger are supported. For Control-type objects, if you define an observer for onPointerClickObservable, the Accessibility package can also automatically detect it and apply it to the generated HTML twin element.
 
 If you want to customize the interaction, use the eventHandler field of IAccessibilityTag:
 
