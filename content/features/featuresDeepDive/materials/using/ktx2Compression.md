@@ -88,6 +88,8 @@ KTX2Encoder.DefaultEncoderOptions = { etc1sQualityLevel: 200, zstandard: false }
 
 The supported fields are `etc1sQualityLevel`, `etc1sCompressionLevel`, `uastcQualityLevel`, and `zstandard`. A default applies only where it is relevant: the ETC1S settings to `"color"`, and the UASTC settings to `"data"` and `"normal"`. Set a field to `undefined` to clear it. `usage`, `flipY`, and `generateMipmaps` cannot be defaults.
 
+Per-call codec settings for a different usage are ignored too. As with the decoder, tuning options are passed to the codec without extra range checks; use the documented ranges. Image dimensions and RGBA byte length are checked before encoding.
+
 ### Babylon.js textures
 
 There is no public API for encoding a Babylon.js texture in this release. The upcoming glTF exporter will be the public entry point. The configuration of `KhronosTextureContainer2Encoder` in `@babylonjs/core` is groundwork for that exporter. Like the decoder, it must be configured before the first encoder is created: `URLConfig`, `DefaultNumWorkers`, and the injected dependencies all take effect at first initialization.
