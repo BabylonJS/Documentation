@@ -180,7 +180,7 @@ This scans all known placeholders (stubs) and reports which features haven't bee
   - Texture
 Note: These are only required if your application uses the corresponding features.
 If you do use them, import the modules or their parent packages to avoid runtime errors.
-See: https://doc.babylonjs.com/setup/treeshaking
+See: https://doc.babylonjs.com/setup/frameworkPackages/es6Support/treeShaking
 ```
 
 **Important**: `CheckMissingImports` reports ALL unregistered stubs, even ones your app may never hit. Not every reported module needs to be imported — only the ones your code actually uses.
