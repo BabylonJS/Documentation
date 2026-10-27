@@ -43,7 +43,7 @@ Options are passed to the splat loader through `pluginOptions.splat`:
 | --- | --- |
 | `keepInRam` | Keeps the splat data in memory (`splatsData`) so it can be edited or downloaded later. |
 | `flipY` | Flips the position and orientation of the splats vertically. |
-| `disableAutoCameraLimits` | Prevents the camera limits stored in the file from being applied automatically. See [Safe orbit camera limits](#safe-orbit-camera-limits). |
+| `disableAutoCameraLimits` | Prevents the camera limits stored in PLY and SPZ files from being applied automatically. See [Safe orbit camera limits](#safe-orbit-camera-limits). |
 | `gaussianSplattingMesh` | Loads the data in an existing mesh instead of creating a new one. |
 | `needsRotationScaleTextures` | Generates the rotation and scale textures required by voxel-based IBL shadows when `keepInRam` is `false`. |
 | `useSogTextures` | Uploads SOG files as raw GPU textures and dequantizes them in the shader. This skips the CPU decode and loads much faster. Requires WebGL2 or WebGPU. Defaults to `false`. |
@@ -58,7 +58,7 @@ const result = await BABYLON.ImportMeshAsync("https://assets.babylonjs.com/splat
 
 ### Safe orbit camera limits
 
-Some splat files carry recommended camera limits (minimum orbit radius and elevation range). When the active camera is an `ArcRotateCamera`, these limits are applied automatically at load time unless `disableAutoCameraLimits` is set. The parsed values are also stored on the mesh in `safeOrbitCameraLimits` (`null` when the file doesn't provide any), so they can be applied to any kind of camera. Elevation angles are expressed in radians from the horizontal plane, while an `ArcRotateCamera` `beta` angle is measured from the vertical axis:
+Some splat files carry recommended camera limits (minimum orbit radius and elevation range). For PLY and SPZ files, when the active camera is an `ArcRotateCamera`, these limits are applied automatically at load time unless `disableAutoCameraLimits` is set. For SOG files, the limits are only stored: apply them yourself as shown below. The parsed values are stored on the mesh in `safeOrbitCameraLimits` (`null` when the file doesn't provide any), so they can be applied to any kind of camera. Elevation angles are expressed in radians from the horizontal plane, while an `ArcRotateCamera` `beta` angle is measured from the vertical axis:
 
 ```javascript
 const limits = gaussianSplattingMesh.safeOrbitCameraLimits;
@@ -215,7 +215,7 @@ const maxPartCount = BABYLON.GetGaussianSplattingMaxPartCount(scene.getEngine())
 
 Each part can have an independent visibility value through the `visibility` property, which influences each individual splat. This means the overall transparency of the Gaussian Splatting is greatly influenced by splat density and overdraw. A visibility of 0.1 may leave the Gaussian Splatting almost opaque if enough splats share the same pixel.
 
-Added parts can be removed by index using the `removePart` method. Removing a part only marks its region as free. Call `compactAtlas()` to relocate the remaining parts and reclaim the memory of the removed ones. Several parts can be added at once with `addParts`.
+Added parts can be removed by index using the `removePart` method. Several parts can be added at once with `addParts`. When the compound has no streamed part, the remaining parts are rebuilt immediately, so their indices are reassigned and memory is reclaimed. When the compound hosts a streamed part, the removed part is only hidden and its region stays allocated, because relocating the resident streamed data is expensive. Call `compactAtlas()` to relocate the remaining parts and reclaim that memory (it does nothing when there is nothing to reclaim).
 
 ```javascript
 const part = compound.addPart(otherSplat);
@@ -372,7 +372,7 @@ Splats are blended with alpha, so they must be sorted from back to front relativ
 | `GaussianSplattingMaterial.KernelSize` / `material.kernelSize` | Point spread function added to each splat (default `0.3`). SPZ files trained with antialiasing automatically use `0.1`. |
 | `GaussianSplattingMaterial.Compensation` / `material.compensation` | Compensates the opacity of splats when the kernel size is applied (default `false`). |
 | `GaussianSplattingMaterial.MinPixelSize` / `material.minPixelSize` | Discards splats whose projected size is smaller than this value in pixels (default `0`, disabled). Applied in real time. |
-| `mesh.viewUpdateThreshold` | Cosine of the angle threshold above which the view dependent sort is refreshed (default `0.0001`). |
+| `mesh.viewUpdateThreshold` | Absolute tolerance (default `0.0001`) used to compare the camera position, the camera forward vector and the mesh world matrix with the values of the last sort. The sort is refreshed when any component differs by more than this value. Keep it small: a large value can skip necessary sorts and produce incorrect blending. |
 | `mesh.disableDepthSort` | Disables the depth sort entirely. |
 | `GaussianSplattingMeshBase.UseCountingSort` | Uses a fast O(n) counting sort in the sort worker (default `true`). |
 | `mesh.setSplatIndexRanges(ranges)` | Restricts rendering to ranges of splats. `renderedSplatCount` returns the number of splats currently rendered. |
@@ -450,7 +450,10 @@ gsDebugger.clippingBox = { min: new BABYLON.Vector3(-2, -2, -2), max: new BABYLO
 // Discard splats by opacity or by projected size
 gsDebugger.opacityCulling = { min: 0.1, max: 1 };
 const sizeRange = BABYLON.GaussianSplattingDebugger.GetSplatSizeRange(gaussianSplattingMesh);
-gsDebugger.sizeCulling = { min: sizeRange.min, max: sizeRange.max * 0.5 };
+// The range can be null, for example with SOG meshes using GPU textures (useSogTextures)
+if (sizeRange) {
+    gsDebugger.sizeCulling = { min: sizeRange.min, max: sizeRange.max * 0.5 };
+}
 // Scale opacities, or render splats as flat disks
 gsDebugger.opacityScale = 0.5;
 gsDebugger.opacitySaturate = true;
@@ -527,7 +530,7 @@ Large scenes (more than 32 referenced files) load their coarse layer first, and 
 
 ### Limiting the number of rendered splats
 
-By default, the LOD is selected from the distance to the camera, which doesn't limit the number of splats drawn. The optional `splatBudget` caps the total number of rendered splats, for a steady frame cost on laptops and phones. Detail is spent where it matters most: large and close splats stay sharp while small or distant ones drop detail. Pass `"auto"` for a default depending on the device (2.5M on desktop, 1.5M on iOS, 1M on other mobile devices), or leave it undefined to disable the cap.
+By default, the LOD is selected from the distance to the camera, which doesn't limit the number of splats drawn. The optional `splatBudget` caps the total number of rendered splats, for a steady frame cost on laptops and phones. Detail is spent where it matters most: large and close splats stay sharp while small or distant ones drop detail. The budget cannot go below what is always rendered: if the coarsest LODs and the environment alone exceed it, the minimum detail is rendered anyway, so it isn't an unconditional limit on rendering cost. Pass `"auto"` for a default depending on the device (2.5M on desktop, 1.5M on iOS, 1M on other mobile devices), or leave it undefined to disable the cap.
 
 ```javascript
 const stream = new BABYLON.GaussianSplattingStream("GaussianSplattingStream", metadata, rootUrl, scene, {
