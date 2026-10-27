@@ -21,7 +21,7 @@ Supported formats are:
 - Niantic Labs .spz format https://scaniverse.com/news/spz-gaussian-splat-open-source-file-format (including the version 4 format and spherical harmonics up to order 4)
 - .SOG/SOGS Self-Organizing Gaussian https://github.com/fraunhoferhhi/Self-Organizing-Gaussians
 - glTF files using the [KHR_gaussian_splatting](https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Khronos/KHR_gaussian_splatting/README.md) extension
-- Streamed SOG bundles described by a `lod-meta.json` file. See [Streaming large scenes with LOD](#streaming-large-scenes-with-lod-experimental)
+- Streamed SOG bundles described by a `lod-meta.json` file. See [Streaming large scenes with LOD](#streaming-large-scenes-with-lod)
 
 **Note: Triangular meshes stored in .PLY are also supported and used by Triangular Splatting**
 
@@ -226,7 +226,7 @@ compound.compactAtlas();
 
 <Playground id="#BTS11N#0" title="Parts visibility and suppression" description="Add parts, change their visibility and remove one of them."/>
 
-A [streamed SOG](#streaming-large-scenes-with-lod-experimental) can also be a part of a compound mesh, see [Streaming as a part of a compound](#streaming-as-a-part-of-a-compound).
+A [streamed SOG](#streaming-large-scenes-with-lod) can also be a part of a compound mesh, see [Streaming as a part of a compound](#streaming-as-a-part-of-a-compound).
 
 ## Picking
 
@@ -378,10 +378,10 @@ Splats are blended with alpha, so they must be sorted from back to front relativ
 | `mesh.setSplatIndexRanges(ranges)` | Restricts rendering to ranges of splats. `renderedSplatCount` returns the number of splats currently rendered. |
 | `GaussianSplattingMeshBase.ProgressiveUpdateAmount` | Number of 16384-splat batches after which the display is updated while loading. `0` waits for the whole asset. |
 
-### GPU depth sorting (Experimental)
+### GPU depth sorting
 
 <Alert severity="warning">
-GPU sorting is an experimental feature and is off by default. Its API may change in future releases.
+GPU sorting is off by default and its API may change in future releases.
 </Alert>
 
 On WebGPU with compute shader support, splats can be sorted on the GPU with a compute shader instead of the CPU worker. The sorted indices stay on the GPU, which avoids reading back and re-uploading them. GPU sorting is opt-in because the sort competes with rendering: on low-end GPUs, the asynchronous CPU worker can be faster while the camera is moving. Measure on your target hardware before enabling it.
@@ -406,7 +406,7 @@ The CPU worker is used instead of the GPU sort when:
 - the engine is WebGL or Native, or WebGPU without compute shader support,
 - the splat count exceeds the GPU sorter limit,
 - the scene uses a custom render function (`scene.customRenderFunction`) other than the frame graph one,
-- the mesh is a [streamed](#streaming-large-scenes-with-lod-experimental) Gaussian Splatting,
+- the mesh is a [streamed](#streaming-large-scenes-with-lod) Gaussian Splatting,
 - point splatting is enabled, or depth sorting is disabled at runtime. A mesh does not come back to the GPU sort afterwards.
 
 ### Point splatting (WebGPU)
@@ -436,7 +436,6 @@ Point color falls back independently from point depth: a color-only fallback doe
 
 **Note: Each pixel is depth-tested as a whole against its latest sample. Where other geometry intersects the splats, occluded splats can bleed through and the result can flicker. Mostly opaque splats and non-intersecting geometry render correctly.**
 
-<Playground id="#F39YWU#2" engine="webgpu" title="Gaussian Point Splatting" description="WebGPU point splatting rendering of a Gaussian Splatting."/>
 
 ## Debugging with the GaussianSplattingDebugger
 
@@ -475,11 +474,7 @@ The Inspector also provides the debug visualizations for the selected Gaussian S
 
 <Playground id="#XSNFXP#21" title="Gaussian Splatting debug clipping box" description="Clipping a Gaussian Splatting with the debug material plugin."/>
 
-## Streaming large scenes with LOD (Experimental)
-
-<Alert severity="warning">
-LOD streaming is an experimental feature. Its API (the `GaussianSplattingStream` class, its options and properties) may change in future releases.
-</Alert>
+## Streaming large scenes with LOD
 
 Very large Gaussian Splatting captures (hundreds of millions of splats, several gigabytes) do not fit in memory and cannot be rendered at full detail everywhere at once. Babylon.js can stream such scenes from a PlayCanvas-style **streamed SOG** bundle described by a `lod-meta.json` file: the scene is split into a spatial octree of chunks, each available at several levels of detail (LOD). Only the LODs needed for the current point of view are downloaded, GPU-decoded and rendered, and far/off-screen chunks use coarser levels.
 
