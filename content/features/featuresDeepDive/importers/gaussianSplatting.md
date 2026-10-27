@@ -15,6 +15,10 @@ Babylon.js supports multiple Gaussian splatting file formats:
 - .compressed.PLY
 - Niantic .SPZ
 - .SOG/SOGS Self-Organizing Gaussian https://github.com/fraunhoferhhi/Self-Organizing-Gaussians
+- Streamed SOG (`lod-meta.json`) for very large scenes
+- glTF files using the `KHR_gaussian_splatting` extension (with the glTF loader)
+
+Loader options, supported variants (compressed and half-float PLY, SPZ v4) and streaming are described in the [Gaussian Splatting](/features/featuresDeepDive/mesh/gaussianSplatting) page.
 
 To use it, you just have to reference it after Babylon.js:
 

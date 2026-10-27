@@ -16,10 +16,12 @@ Gaussian Splatting is a volume-rendering method. It's useful for capturing real-
 
 Supported formats are:
 
-- .PLY https://en.wikipedia.org/wiki/PLY_(file_format)
+- .PLY https://en.wikipedia.org/wiki/PLY_(file_format), including compressed PLY and PLY files storing properties as 16-bit (half-float) values
 - .splat, which is a JavaScript typed-array serialized version of .PLY data
-- Niantic Labs .spz format https://scaniverse.com/news/spz-gaussian-splat-open-source-file-format
+- Niantic Labs .spz format https://scaniverse.com/news/spz-gaussian-splat-open-source-file-format (including the version 4 format and spherical harmonics up to order 4)
 - .SOG/SOGS Self-Organizing Gaussian https://github.com/fraunhoferhhi/Self-Organizing-Gaussians
+- glTF files using the [KHR_gaussian_splatting](https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Khronos/KHR_gaussian_splatting/README.md) extension
+- Streamed SOG bundles described by a `lod-meta.json` file. See [Streaming large scenes with LOD](#streaming-large-scenes-with-lod-experimental)
 
 **Note: Triangular meshes stored in .PLY are also supported and used by Triangular Splatting**
 
@@ -27,6 +29,48 @@ The .SPZ file import supports the flipY option to handle vertically flipped file
 
 ```javascript
 const pit = await BABYLON.ImportMeshAsync("https://assets.babylonjs.com/splats/hornedlizard.spz", scene, {pluginOptions:{splat:{flipY:true}}})
+```
+
+glTF files using the `KHR_gaussian_splatting` extension are loaded with the regular glTF loader. Each primitive tagged with the extension becomes a `GaussianSplattingMesh`. The rotation, scale, opacity and spherical harmonics attributes defined by the extension are supported.
+
+<Playground id="#WSAFDA#0" title="Gaussian Splatting in glTF" description="Loading a glTF file using the KHR_gaussian_splatting extension."/>
+
+### Loader options
+
+Options are passed to the splat loader through `pluginOptions.splat`:
+
+| Option | Description |
+| --- | --- |
+| `keepInRam` | Keeps the splat data in memory (`splatsData`) so it can be edited or downloaded later. |
+| `flipY` | Flips the position and orientation of the splats vertically. |
+| `disableAutoCameraLimits` | Prevents the camera limits stored in the file from being applied automatically. See [Safe orbit camera limits](#safe-orbit-camera-limits). |
+| `gaussianSplattingMesh` | Loads the data in an existing mesh instead of creating a new one. |
+| `needsRotationScaleTextures` | Generates the rotation and scale textures required by voxel-based IBL shadows when `keepInRam` is `false`. |
+| `useSogTextures` | Uploads SOG files as raw GPU textures and dequantizes them in the shader. This skips the CPU decode and loads much faster. Requires WebGL2 or WebGPU. Defaults to `false`. |
+| `spzLibraryUrl` | URL of the SPZ WebAssembly module. It is required for SPZ version 4 files and enables SPZ extensions such as antialiasing and safe-orbit camera limits metadata. Set it to `undefined` to force the built-in SPZ parser. |
+| `deflateURL`, `fflate` | Location or instance of the [fflate](https://github.com/101arrowz/fflate) library used to inflate compressed files. |
+
+```javascript
+const result = await BABYLON.ImportMeshAsync("https://assets.babylonjs.com/splats/scene.sog", scene, {
+    pluginOptions: { splat: { useSogTextures: true, keepInRam: false } }
+});
+```
+
+### Safe orbit camera limits
+
+Some splat files carry recommended camera limits (minimum orbit radius and elevation range). When the active camera is an `ArcRotateCamera`, these limits are applied automatically at load time unless `disableAutoCameraLimits` is set. The parsed values are also stored on the mesh in `safeOrbitCameraLimits` (`null` when the file doesn't provide any), so they can be applied to any kind of camera. Elevation angles are expressed in radians from the horizontal plane, while an `ArcRotateCamera` `beta` angle is measured from the vertical axis:
+
+```javascript
+const limits = gaussianSplattingMesh.safeOrbitCameraLimits;
+if (limits) {
+    if (limits.radiusMin) {
+        camera.lowerRadiusLimit = limits.radiusMin;
+    }
+    if (limits.elevationMinMax) {
+        camera.lowerBetaLimit = Math.PI * 0.5 - limits.elevationMinMax[1];
+        camera.upperBetaLimit = Math.PI * 0.5 - limits.elevationMinMax[0];
+    }
+}
 ```
 
 ## Triangular Splatting
@@ -171,9 +215,18 @@ const maxPartCount = BABYLON.GetGaussianSplattingMaxPartCount(scene.getEngine())
 
 Each part can have an independent visibility value through the `visibility` property, which influences each individual splat. This means the overall transparency of the Gaussian Splatting is greatly influenced by splat density and overdraw. A visibility of 0.1 may leave the Gaussian Splatting almost opaque if enough splats share the same pixel.
 
-Added parts can be removed by index using the `removePart` method.
+Added parts can be removed by index using the `removePart` method. Removing a part only marks its region as free. Call `compactAtlas()` to relocate the remaining parts and reclaim the memory of the removed ones. Several parts can be added at once with `addParts`.
+
+```javascript
+const part = compound.addPart(otherSplat);
+// ...
+compound.removePart(part.partIndex);
+compound.compactAtlas();
+```
 
 <Playground id="#BTS11N#0" title="Parts visibility and suppression" description="Add parts, change their visibility and remove one of them."/>
+
+A [streamed SOG](#streaming-large-scenes-with-lod-experimental) can also be a part of a compound mesh, see [Streaming as a part of a compound](#streaming-as-a-part-of-a-compound).
 
 ## Picking
 
@@ -310,6 +363,118 @@ Both `sizeScale` and `intensity` must be positive, finite numbers. Disabling ove
 
 In [Inspector V2](/toolsAndResources/inspectorv2), select a Gaussian splatting mesh and open **Gaussian Splatting → Debug Rendering**. Choose **Normal**, **Projected size**, or **Overdraw**, then adjust **Size Scale (pixels)** or **Overdraw Intensity** in the same section. The Inspector uses a temporary material for debug rendering. **Min Pixel Size** edits in the Inspector also update the original material, so they persist when you return to **Normal**. **Normal** and closing the Inspector restore the original material if it is still available; if it was disposed while debug rendering was active, the mesh is left without a material rather than receiving a replacement. Switching the selection away and back retains the chosen debug mode. If your original material already has app-attached debug plugins, **Normal** restores that material as-is rather than disabling those plugins.
 
+## Rendering and sorting settings
+
+Splats are blended with alpha, so they must be sorted from back to front relative to the camera. The sort runs in a worker (or on the GPU, see below) and is refreshed when the view changes. The following settings control quality and cost:
+
+| Setting | Description |
+| --- | --- |
+| `GaussianSplattingMaterial.KernelSize` / `material.kernelSize` | Point spread function added to each splat (default `0.3`). SPZ files trained with antialiasing automatically use `0.1`. |
+| `GaussianSplattingMaterial.Compensation` / `material.compensation` | Compensates the opacity of splats when the kernel size is applied (default `false`). |
+| `GaussianSplattingMaterial.MinPixelSize` / `material.minPixelSize` | Discards splats whose projected size is smaller than this value in pixels (default `0`, disabled). Applied in real time. |
+| `mesh.viewUpdateThreshold` | Cosine of the angle threshold above which the view dependent sort is refreshed (default `0.0001`). |
+| `mesh.disableDepthSort` | Disables the depth sort entirely. |
+| `GaussianSplattingMeshBase.UseCountingSort` | Uses a fast O(n) counting sort in the sort worker (default `true`). |
+| `mesh.setSplatIndexRanges(ranges)` | Restricts rendering to ranges of splats. `renderedSplatCount` returns the number of splats currently rendered. |
+| `GaussianSplattingMeshBase.ProgressiveUpdateAmount` | Number of 16384-splat batches after which the display is updated while loading. `0` waits for the whole asset. |
+
+### GPU depth sorting (Experimental)
+
+<Alert severity="warning">
+GPU sorting is an experimental feature and is off by default. Its API may change in future releases.
+</Alert>
+
+On WebGPU with compute shader support, splats can be sorted on the GPU with a compute shader instead of the CPU worker. The sorted indices stay on the GPU, which avoids reading back and re-uploading them. GPU sorting is opt-in because the sort competes with rendering: on low-end GPUs, the asynchronous CPU worker can be faster while the camera is moving. Measure on your target hardware before enabling it.
+
+Enable it before loading data, either for all meshes or for a single mesh:
+
+```javascript
+// All Gaussian Splatting meshes created afterwards
+BABYLON.GaussianSplattingMeshBase.UseGpuSort = true;
+
+// Or override for a specific mesh (null follows the static value)
+mesh.useGpuSort = true;
+
+// Optional: re-sort at most once every 2 frames when only the view changes
+BABYLON.GaussianSplattingMeshBase.GpuSortMinFrameInterval = 2;
+```
+
+`GpuSortMinFrameInterval` (default `1`) trades a slightly stale order during camera motion for a lower GPU cost. Sorts caused by data changes, like new splats or parts, are not throttled.
+
+The CPU worker is used instead of the GPU sort when:
+
+- the engine is WebGL or Native, or WebGPU without compute shader support,
+- the splat count exceeds the GPU sorter limit,
+- the scene uses a custom render function (`scene.customRenderFunction`) other than the frame graph one,
+- the mesh is a [streamed](#streaming-large-scenes-with-lod-experimental) Gaussian Splatting,
+- point splatting is enabled, or depth sorting is disabled at runtime. A mesh does not come back to the GPU sort afterwards.
+
+### Point splatting (WebGPU)
+
+Point splatting is an opt-in WebGPU compute renderer based on [Gaussian point splatting](https://jorisar.nl/gaussian_point_splatting/). Instead of sorting and rasterizing overlapping splat quads, it samples random points from each Gaussian, keeps the nearest sample per pixel and progressively averages the result. The image starts noisy and converges while the view and the scene stay stable. Skipping the sort and the quad overdraw can substantially improve performance on large assets.
+
+```javascript
+mesh.pointSplattingRenderMode = true;       // use point splatting for color
+mesh.pointSplattingDepthRenderMode = true;  // independently use point depth for the DepthRenderer
+mesh.pointSplattingScale = 1;               // point density. Higher is denser and slower
+mesh.pointSplattingRenderScale = "auto";    // or a fixed fraction of the full resolution
+mesh.pointSplattingOcclusionCulling = false; // previous-frame Hi-Z culling
+
+// Counters of the latest compute frame: { renderedFrameCount, accumulationVersion, pixelCycleLength }
+console.log(mesh.pointSplattingProgress);
+```
+
+Both render modes are off by default. They are WebGPU only: enabling them on another engine logs a warning and keeps the classic rendering. The settings are serialized with the mesh. When using ES6 modules, import `@babylonjs/core/Meshes/GaussianSplatting/gaussianPointSplattingController`.
+
+Point splatting supports compound meshes (part transforms, ranges and visibility), spherical harmonics, `GaussianSplattingDebugMaterialPlugin`, orthographic, reverse depth and logarithmic depth projections. Eligibility is evaluated at each draw and Babylon.js falls back to the classic path when needed, for example with:
+
+- multiple active cameras or rig cameras, floating origin, clip planes,
+- streamed parts or GPU-only splat data,
+- materials other than the built-in `GaussianSplattingMaterial` (such as node materials), unsupported plugins, alpha test or opaque transparency modes, or wireframe and point fill modes.
+
+Point color falls back independently from point depth: a color-only fallback doesn't disable point depth.
+
+**Note: Each pixel is depth-tested as a whole against its latest sample. Where other geometry intersects the splats, occluded splats can bleed through and the result can flicker. Mostly opaque splats and non-intersecting geometry render correctly.**
+
+<Playground id="#F39YWU#2" engine="webgpu" title="Gaussian Point Splatting" description="WebGPU point splatting rendering of a Gaussian Splatting."/>
+
+## Debugging with the GaussianSplattingDebugger
+
+`GaussianSplattingDebugger` applies debug rendering options to several Gaussian Splatting meshes at once, through a `GaussianSplattingDebugMaterialPlugin` attached to each mesh material. It has no rendering cost until an option is enabled. The mesh must already have its material, meaning the data was loaded at least once. See also [Debug rendering](#debug-rendering) for the projected size and overdraw visualizations.
+
+```javascript
+const gsDebugger = new BABYLON.GaussianSplattingDebugger();
+gsDebugger.addMesh(gaussianSplattingMesh);
+
+// Hide splats outside a world-space box
+gsDebugger.clippingBox = { min: new BABYLON.Vector3(-2, -2, -2), max: new BABYLON.Vector3(2, 2, 2) };
+// Discard splats by opacity or by projected size
+gsDebugger.opacityCulling = { min: 0.1, max: 1 };
+const sizeRange = BABYLON.GaussianSplattingDebugger.GetSplatSizeRange(gaussianSplattingMesh);
+gsDebugger.sizeCulling = { min: sizeRange.min, max: sizeRange.max * 0.5 };
+// Scale opacities, or render splats as flat disks
+gsDebugger.opacityScale = 0.5;
+gsDebugger.opacitySaturate = true;
+// Toggle spherical harmonics bands independently
+gsDebugger.shDc = true;
+gsDebugger.shOrder1 = false;
+gsDebugger.shOrder2 = false;
+gsDebugger.shOrder3 = false;
+gsDebugger.shOrder4 = false;
+```
+
+Meshes added later inherit the current settings. For compound meshes, `setPartOptions(mesh, partIndex, options)` overrides the options of a single part and `clearPartOptions(mesh, partIndex)` restores the global settings. Call `dispose()` to remove all plugins.
+
+`GaussianSplattingSolidColorMaterialPlugin` replaces the color of each part of a compound mesh with a solid color. `updatePartColors` changes the colors and `isEnabled` toggles the override without recompiling the shader.
+
+```javascript
+const solidColor = new BABYLON.GaussianSplattingSolidColorMaterialPlugin(compoundMesh.material, [BABYLON.Color3.Red(), BABYLON.Color3.Green()]);
+```
+
+The Inspector also provides the debug visualizations for the selected Gaussian Splatting mesh, and live diagnostics for streamed scenes (rendered splats, resident budget and LOD 0 total).
+
+<Playground id="#XSNFXP#21" title="Gaussian Splatting debug clipping box" description="Clipping a Gaussian Splatting with the debug material plugin."/>
+
 ## Streaming large scenes with LOD (Experimental)
 
 <Alert severity="warning">
@@ -359,18 +524,74 @@ const stream = new BABYLON.GaussianSplattingStream("GaussianSplattingStream", me
 await stream.whenSettledAsync();
 ```
 
-When a `memoryBudgetMb` (or `maxResidentSplats`) is set and is smaller than the whole dataset, LOD files are streamed through a fixed-size work buffer and unreferenced files are evicted to stay within budget — this is what allows datasets far larger than a single buffer to be displayed. When left unset, the work buffer is sized for the entire dataset and nothing is evicted.
+When a `memoryBudgetMb` (or `maxResidentSplats`) is set and is smaller than the whole dataset, LOD files are streamed through a fixed-size work buffer and unreferenced files are evicted to stay within budget — this is what allows datasets far larger than a single buffer to be displayed. When left unset and the full size of the dataset is known, the work buffer is sized for the entire dataset and nothing is evicted. Scenes with a lot of files and unknown finer levels use a bounded default budget depending on the device (desktop or mobile).
+
+The capacity is fixed when the stream is created: construct a new stream to use another limit. A requested limit lower than `minimumResidentSplats` (the size of the complete coarse layer, which always stays resident) is raised to that minimum with a warning. Memory figures are estimates of the combined CPU and GPU cost, not exact VRAM caps.
+
+Large scenes (more than 32 referenced files) load their coarse layer first, and each coarse file becomes visible as soon as it is decoded, before the metadata of finer levels is requested. This reduces the time to first visible geometry.
+
+### Limiting the number of rendered splats
+
+By default, the LOD is selected from the distance to the camera, which doesn't limit the number of splats drawn. The optional `splatBudget` caps the total number of rendered splats, for a steady frame cost on laptops and phones. Detail is spent where it matters most: large and close splats stay sharp while small or distant ones drop detail. Pass `"auto"` for a default depending on the device (2.5M on desktop, 1.5M on iOS, 1M on other mobile devices), or leave it undefined to disable the cap.
+
+```javascript
+const stream = new BABYLON.GaussianSplattingStream("GaussianSplattingStream", metadata, rootUrl, scene, {
+    splatBudget: 2_000_000,
+});
+
+// Can be changed at runtime
+stream.splatBudget = 1_000_000;
+console.log(stream.renderedSplatCount, stream.effectiveSplatBudget);
+```
+
+LOD selection and culling take all the active cameras into account (split views and multi-view), and the LOD is refreshed when the camera zooms, the canvas is resized or the splat moves, not only when the camera moves.
+
+### Other streaming options
+
+- `decodeSh` (default `true`) — decodes the spherical harmonics stored in the SOG files, for view-dependent lighting. Set it to `false` to render flat colors and save memory.
+- `needsRotationScale` (default `false`) — decodes rotation and scale textures so the streamed splats can receive voxel-based IBL shadows.
+- `lodBehindPenalty`, `lodRangeMin`, `lodRangeMax`, `lodCooldownFrames`, `lodUpdateInterval`, `lodUpdateDistance`, `maxDecodesPerFrame` — fine tuning of the LOD selection and of the work done per frame.
+- `rangeResidency` (experimental) — keeps resident only the splat ranges that are selected, instead of whole source files.
+
+### Streaming as a part of a compound
+
+A streamed SOG can be a part of a `GaussianSplattingCompoundMesh`. Its splats are then depth-sorted and drawn in a single pass together with the static parts of the compound, instead of using a separate mesh, sort worker and draw call. `AddGaussianSplattingStreamPartAsync` returns the same proxy as `addPart` does for static parts, so it can be placed, hidden, picked or removed in the same way.
+
+```javascript
+const compound = new BABYLON.GaussianSplattingCompoundMesh("GSplatRoot", null, scene);
+
+const proxyA = await BABYLON.AddGaussianSplattingStreamPartAsync(compound, "partA", metadataA, rootUrlA);
+const proxyB = await BABYLON.AddGaussianSplattingStreamPartAsync(compound, "partB", metadataB, rootUrlB);
+proxyB.position.x = 10;
+
+// One budget shared by all the streamed parts of the compound, shared according to their demand
+compound.splatBudget = 3_000_000;
+
+// Remove a part and reclaim its memory
+compound.removePart(proxyA.partIndex);
+compound.compactAtlas();
+```
+
+**Note: The base layer is decoded on the GPU in the render loop. Start rendering (`engine.runRenderLoop`) before awaiting `AddGaussianSplattingStreamPartAsync`, otherwise the promise never resolves.** Use the synchronous `AddGaussianSplattingStreamPart` to add a part without waiting.
+
+Hosted streams support several streamed parts, memory-budgeted eviction, spherical harmonics and voxel-based IBL shadows. They require WebGL2 or WebGPU.
+
+<Playground id="#418POI#21" title="Streamed SOG parts in a compound" description="Two streamed SOG scenes and a static splat sorted together in one compound mesh."/>
 
 ### Useful properties and methods
 
 - `maxDetailLod` — finest LOD any chunk may render (`0` = full detail). Raise it to trade detail for performance; changes apply in real time.
 - `maxLodLevel` — coarsest LOD level index available in the scene (upper bound for `maxDetailLod`).
 - `frustumCulling` — when `true` (default), off-screen chunks are biased to their coarsest LOD instead of full detail (they stay in the render set so they appear instantly when the camera turns).
+- `splatBudget`, `effectiveSplatBudget`, `renderedSplatCount` — configured budget, budget actually in force (it reflects the shared budget when the stream is part of a compound), and number of splats currently rendered.
+- `minimumResidentSplats`, `residentSplatBudget` — size of the coarse layer that always stays resident, and the resident capacity of the work buffer. `minimumResidentSplats` is `0` until the coarse metadata is loaded.
+- `lod0SplatCount` — total splats of the finest LOD, as `{ status: "pending" | "available" | "unavailable", count? }`.
 - `evaluateOptimalLods(camera)` — forces a re-evaluation of the per-chunk target LODs for a given camera.
 - `debugDisplay` / `debugLodSource` — draw a wireframe box per chunk, colored by LOD level, to visualize streaming.
 - `whenSettledAsync(stableFrames = 3)` — returns a promise that resolves once every chunk reachable from the **current** camera position has finished downloading, decoding and depth-sorting, and the result has been rendered. This is intended for deterministic automated testing and screenshot/image comparison. Keep the camera still while awaiting it (a moving camera keeps changing the target LODs, so the scene never settles). If no render loop is running yet (for example when awaited inside an async `createScene`), it drives rendering itself so it never deadlocks.
 
 <Playground id="#418POI#12" title="Streamed SOG with LOD" description="Loads a large scene from a lod-meta.json streamed SOG bundle and waits for it to settle."/>
+
 
 ### Generating a streamed SOG with splat-transform
 
