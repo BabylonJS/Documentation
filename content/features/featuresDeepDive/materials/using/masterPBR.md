@@ -156,6 +156,13 @@ and the specular reflection lobe with spherical Gaussians, taking the view direc
 and roughness into account. It works on glossy as well as rough materials; it does
 not fade out at low roughness.
 
+Fully open AO leaves environment specular unoccluded, while zero AO blocks it.
+Near-zero AO converges toward closed visibility, including on glossy surfaces.
+When specular antialiasing is enabled, visibility uses the broadened reflection
+lobe rather than the unadjusted material roughness.
+The approximated visibility cone is kept inside the shading hemisphere: as AO
+opens fully, its axis converges to the shading normal.
+
 ### Inputs and baking
 
 | Input               | Requirements                                                                                                                                                                                                                   |
