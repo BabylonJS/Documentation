@@ -143,6 +143,97 @@ pbrMat.useOnlyMetallicFromMetallicReflectanceTexture = true;
 <Playground id="#FU2ZQ7" title="Specular Reflections Using PBRMaterial" description="How to control specular reflections on a PBR Metallic-Roughness material." image="/img/playgroundsAndNMEs/pbrMaterial_specular.webp"/>
 
 
+## Bent-Normal Reflection Occlusion
+
+Ambient occlusion (AO) describes how much of the surrounding hemisphere is visible.
+A bent normal describes the average direction toward that visible space. Together,
+they can reduce environment-reflection light leaking into creases and cavities
+that a scalar AO value alone cannot describe.
+
+Set `bentNormalTexture` on `PBRMaterial`, `PBRMetallicRoughnessMaterial`, or
+`PBRSpecularGlossinessMaterial`. The engine approximates the overlap of visibility
+and the specular reflection lobe with spherical Gaussians, taking the view direction
+and roughness into account. It works on glossy as well as rough materials; it does
+not fade out at low roughness.
+
+Fully open AO leaves environment specular unoccluded, while zero AO blocks it.
+Near-zero AO converges toward closed visibility, including on glossy surfaces.
+When specular antialiasing is enabled, visibility uses the broadened reflection
+lobe rather than the unadjusted material roughness.
+The approximated visibility cone is kept inside the shading hemisphere: as AO
+opens fully, its axis converges to the shading normal.
+
+### Inputs and baking
+
+| Input               | Requirements                                                                                                                                                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Bent-normal texture | Tangent-space directions encoded from `[-1, 1]` into RGB `[0, 1]`. Load as linear data, not sRGB. This is a separate bake, not an ordinary normal map.                                                                         |
+| Matching AO         | Cosine-weighted ambient visibility baked for the same geometry, UVs, and occlusion distance. Use `ambientTexture` or the AO channel of a metallic texture on `PBRMaterial`, or `occlusionTexture` on the simplified materials. |
+| Normal map          | Optional. If used, its tangent frame and channel convention must agree with the bent-normal texture.                                                                                                                           |
+
+Without an active AO texture, the bent-normal texture has no effect. Existing
+roughness, view direction, and environment lighting are reused; no additional
+camera-dependent texture is needed. Match the bent-normal and AO baking settings
+to avoid one describing occluders that the other does not include.
+
+The [shared test model](https://assets.babylonjs.com/meshes/BentNormalTest/bent_normal_test.gltf)
+includes normal and packed ORM textures. Its separate
+`bent_normal_low_bent_normal_mat_BentNormal_OpenGL.png` has already been
+green-channel corrected to match the glTF tangent convention. Do not invert that
+channel again.
+
+```javascript
+const root = "https://assets.babylonjs.com/meshes/BentNormalTest/";
+const container = await BABYLON.LoadAssetContainerAsync(root + "bent_normal_test.gltf", scene);
+container.addAllToScene();
+const mesh = container.meshes.find((candidate) => candidate.getTotalVertices() > 0);
+const material = mesh?.material;
+if (!(material instanceof BABYLON.PBRMaterial)) {
+  throw new Error("The test model must have a PBR material.");
+}
+material.bentNormalTexture = new BABYLON.Texture(root + "bent_normal_low_bent_normal_mat_BentNormal_OpenGL.png", scene, { invertY: false, gammaSpace: false });
+```
+
+The glTF loader attaches the model's AO and normal maps, but does not attach the
+bent-normal map automatically. The `invertY: false` setting above matches glTF
+image orientation; other asset formats or bakes may need different image-origin
+and normal-channel settings.
+
+`material.bentNormalTexture.level` blends the directional occlusion from zero
+(unoccluded environment specular) to one (the full bent-normal result).
+To restore the ordinary scalar radiance-occlusion path instead, remove the
+bent-normal texture.
+
+<Playground id="#8N2ROI#5" title="Bent-Normal Reflection Occlusion" description="Compare bent-normal and scalar occlusion on the shared test model; adjust roughness, normal mapping, horizon occlusion, and environment rotation." image="/img/playgroundsAndNMEs/pbrBentNormalOcclusion.png"/>
+
+### Radiance and horizon occlusion
+
+When bent-normal occlusion is active, it **replaces** the standard AO-based
+`useRadianceOcclusion` calculation instead of multiplying the two approximations.
+Without an active bent-normal map, radiance occlusion behaves as before.
+
+`PBRMaterial.useHorizonOcclusion` remains enabled by default and can still be
+switched off. It suppresses reflections that a normal map points below the
+geometric surface. It only contributes when a normal map and a 3D reflection map
+are active, so its flag has no effect when normal mapping is disabled. Keeping it
+enabled is a useful safeguard, but overlapping occlusion approximations can
+darken some bakes more than desired.
+
+### Node Material and limitations
+
+On `PBRMetallicRoughnessBlock`, connect both `bentNormal` and `ambientOcc`.
+`bentNormal` expects a **world-space direction**, not raw RGB or a tangent-space
+texture sample. Decode and transform the texture with the same tangent frame as
+the shading normal. Supply the same unoriented world space as `worldNormal`;
+`forceNormalForward` is applied to both normals.
+
+This feature attenuates the base material's environment specular reflections.
+It does not change direct lighting or diffuse AO, add missing reflected geometry,
+or replace local reflection probes, screen-space reflections, or ray tracing.
+Clear-coat and sheen reflections are not directionally occluded by this input.
+As a baked, low-dimensional approximation, it cannot represent every visibility
+shape or follow moving occluders without an updated bake.
+
 ## Opacity
 
 Another interesting addition to reflection is the ability to keep the most luminous part of the reflection over a transparent surface. It may not sound intuitive at first, but if you look through a window at night from a lit room, you can see the reflection of lights or a TV on the glass. The same is true for reflection in the PBR Material. A special property, `pbr.useRadianceOverAlpha = true;`, has been added to let you control this effect. Not only reflection (AKA radiance), but also specular highlights can be seen on top of transparency.
