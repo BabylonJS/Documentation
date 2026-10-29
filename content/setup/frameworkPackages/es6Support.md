@@ -690,6 +690,8 @@ This setup manages workers automatically. Set `numWorkers: 0` to encode on the m
 
 The `@babylonjs/ktx2encoder` package includes the Basis encoder factory and WASM binary:
 
+The installation command and package imports below require a published version. Check [package availability](/features/featuresDeepDive/materials/using/ktx2Compression#encoder-package) before following this setup.
+
 ```bash
 npm install @babylonjs/ktx2encoder
 ```

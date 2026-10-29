@@ -93,6 +93,8 @@ BABYLON.KhronosTextureContainer2.DefaultDecoderOptions.useRGBAIfOnlyBC1BC3Availa
 
 The complementary `@babylonjs/ktx2encoder` package converts pixels into `.ktx2` files.
 
+**Package availability:** As of October 29, 2026, the public npm registry's `latest` endpoint for `@babylonjs/ktx2encoder` returns HTTP 404. The package-based examples below require a published package; merging the encoder does not make an npm release available. Use the [external tools](#tools) until the package is available.
+
 ```javascript
 import { KTX2Encoder } from "@babylonjs/ktx2encoder";
 
@@ -103,6 +105,7 @@ const ktx2 = await encoder.encode(rgba, 4, 4, { usage: "color" }); // Returns Ui
 #### Options
 
 - Supply top-down RGBA8 pixels with exactly `width * height * 4` bytes. 
+- Width and height must each be a multiple of 4 from 4 through 16,384 pixels, with at most 12,582,912 pixels in total.
 - Choose `usage: "color"` for color textures, which uses ETC1S
 - Choose `usage: "data"` for metallic/roughness maps, or `"normal"` for normal maps. 
 - Pass `flipY: true` for bottom-up pixels (default `false`)
