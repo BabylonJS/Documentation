@@ -92,6 +92,34 @@ const meshPick = new FlowGraphMeshPickEventBlock({ targetMesh: mesh });
 meshPick.done.connectTo(nextBlock.in);
 ```
 
+### MeshIntersectionEventBlock
+
+This block checks whether a source mesh starts or stops intersecting one or more target meshes. It checks the meshes' bounding volumes before each frame and does not require a physics engine.
+
+| data inputs | data outputs | execution inputs | execution outputs |
+| ----------- | ------------ | ---------------- | ----------------- |
+| sourceMesh - the mesh to check | otherMesh - the target mesh for the transition | | onEnter - triggered when a target starts intersecting |
+| targetMeshes - one mesh or an array of meshes | isIntersecting - true for an enter, false for an exit | | onExit - triggered when a target stops intersecting |
+| usePreciseIntersection [false] - use oriented instead of axis-aligned bounding boxes | | | out - triggered for either transition |
+| | | | done - triggered for either transition |
+
+```javascript
+const intersection = new FlowGraphMeshIntersectionEventBlock();
+const logEnteredMesh = new FlowGraphConsoleLogBlock();
+
+graph.addEventBlock(intersection);
+intersection.sourceMesh.setValue(player, context);
+intersection.targetMeshes.setValue([triggerA, triggerB], context);
+intersection.otherMesh.connectTo(logEnteredMesh.message);
+intersection.onEnter.connectTo(logEnteredMesh.in);
+```
+
+The default axis-aligned bounding-box check is suitable for broad trigger zones. Set `usePreciseIntersection` to `true` to use oriented bounding boxes when mesh rotation makes the axis-aligned result too broad. This is still a bounds check, not a physics collision, and it does not provide contact points or collision impulses.
+
+Targets are tracked independently. Duplicate targets and the source mesh itself are ignored. A disabled or disposed mesh is treated as not intersecting, which can produce an exit transition. The state resets when the graph restarts.
+
+Target arrays are serialized as scene-node references. When the graph is parsed or moved to another scene with `setScene`, Babylon.js resolves each reference against that scene when a matching node is available.
+
 ### PointerOverEventBlock
 
 This block is triggered when the pointer is over a mesh.

@@ -33,6 +33,48 @@ ctx.logger.logToConsole = false;
 console.log(ctx.logger.log);
 ```
 
+## Coordinator sound assets
+
+A [FlowGraphCoordinator](/typedoc/classes/babylon.flowgraphcoordinator) can declare named Audio V2 sound assets. Audio blocks can then use the asset name instead of holding a direct sound object. The declaration is serialized with the coordinator, so the same sound reference continues to work after the graph is saved and parsed again.
+
+```javascript
+const coordinator = new FlowGraphCoordinator({ scene });
+
+await coordinator.addSoundAssetAsync({
+    name: "coin",
+    url: "/sounds/coin.mp3",
+});
+
+const graph = coordinator.createGraph();
+const context = graph.createContext();
+const sceneReady = new FlowGraphSceneReadyEventBlock();
+const playSound = new FlowGraphPlaySoundBlock();
+
+graph.addEventBlock(sceneReady);
+playSound.sound.setValue("coin", context);
+sceneReady.done.connectTo(playSound.in);
+
+coordinator.start();
+```
+
+The `PlaySound`, `StopSound`, `PauseSound`, `SetSoundVolume`, `GetSoundVolume`, `IsSoundPlaying`, and `SoundEnded` blocks accept any of these values for their `sound` input:
+
+- An Audio V2 sound object.
+- The name of an asset declared on the coordinator.
+- A serialized reference such as `{ name: "coin" }`.
+
+Use `getSoundAsset(name)` to get the loaded sound, `soundAssets` to list the declarations, and `removeSoundAsset(name)` to remove a declaration. Removing an asset disposes its loaded sound. Adding another asset with the same name replaces the declaration and disposes the previous sound. Blocks that refer to the name use the replacement, and `SoundEnded` updates its listener even if the asset is loaded or replaced after the graph starts.
+
+The asset URL can also be a `data:` URL. This embeds the audio in the serialized coordinator. A normal URL keeps the serialized data smaller, but that URL must still be available when the graph is parsed.
+
+By default, `addSoundAssetAsync` uses the most recently created Audio V2 engine. It creates a shared fallback engine when no engine exists. The fallback engine is disposed after the last coordinator using it is disposed. You can pass an audio engine as the second argument when the graph must use a specific engine:
+
+```javascript
+await coordinator.addSoundAssetAsync({ name: "coin", url: "/sounds/coin.mp3" }, audioEngine);
+```
+
+If a sound fails to load, `addSoundAssetAsync` rejects, but the declaration remains available for serialization or a later replacement. When a serialized coordinator is parsed, sound-load failures produce warnings and do not stop the graphs from being parsed. You can also pass `audioEngine` in the options for `ParseCoordinatorAsync`.
+
 ## Create your own block
 
 When creating your first block, you first need to decide whether it is a data block or an execution block. Most blocks are probably data blocks (i.e., they provide passive data), unless the block needs to react to an event or a signal input.
