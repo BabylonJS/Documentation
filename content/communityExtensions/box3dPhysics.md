@@ -25,14 +25,15 @@ video-content:
 - Mass properties with Havok's semantics, including inertia per unit mass and locked rotation axes
 - Collision started, continued and finished events, trigger events, per body observables, Havok's event mask bits
 - Ray casts with membership and collide masks
-- Box3D extras: explosions, wheel joints with suspension and steering, parallel joints, collision groups, rolling resistance
+- Box3D extras: explosions, wheel joints with suspension and steering, parallel joints, collision groups, rolling resistance, restitution passes and a per body continuous collision safety factor
+- Box3D's two [character movers](#character-movers), a dynamic one and a geometric one, ported from its samples
 - An optional threaded build that runs one world step across several worker threads, with identical results
 
 ## Limitations
 
 Box3D is a different engine, so parts of the API map onto it approximately and a few do not map at all:
 
-- `PhysicsCharacterController` is not supported yet: it depends on Havok internals.
+- `PhysicsCharacterController` is not supported: it depends on Havok internals. Box3D has [character movers](#character-movers) of its own, with a different API.
 - `MESH` shapes are for static and animated bodies and `HEIGHTFIELD` shapes for static ones, as in Box3D itself. A dynamic body needs convex shapes, or a `CONTAINER` of them.
 - `BOX`, `CYLINDER` and `CONVEX_HULL` are built as Box3D convex hulls. A cylinder is a 16 sided prism, and a hull above Box3D's limit of 128 vertices, faces or edges is simplified until it fits.
 - Box3D has a fixed set of joints, so a `Physics6DoFConstraint` becomes the one its axes describe: weld, revolute, spherical, prismatic or distance. The swing cone is symmetric (the larger of the `ANGULAR_Y` and `ANGULAR_Z` ranges is used) and at most 90 degrees, limit stiffness and damping become one softness for the whole joint, and a motor on an axis the chosen joint does not have does nothing. Combinations that match no joint fall back to the closest one or leave the bodies unconstrained, and say so once in the console.
@@ -195,7 +196,34 @@ plugin.createParallelJoint(groundBody, chassisBody, Vector3.Up(), Vector3.Up(), 
 
 // ragdoll bones that never collide with each other
 plugin.setShapeFilterGroup(boneShape, -ragdollIndex);
+
+// more restitution passes after the solve, and let a bounce carry on through a stack
+plugin.setRestitutionIterations(4);
+plugin.setRestitutionPropagationEnabled(true);
+
+// sweep a small fast body with continuous collision sooner (Box3D's default is 0.5)
+plugin.setBodySafetyFactor(bulletBody, 0.05);
 ```
+
+### Character movers
+
+Babylon's `PhysicsCharacterController` is built on Havok, so the package ships Box3D's own character controllers, ported from its samples. Both stand on a pogo, a spring along a ray to the ground that holds the capsule above it, so they walk up steps without the capsule catching on an edge, and both move by Quake's ground and air model:
+
+- `Box3DDynamicMover` is a rigid capsule with its rotation locked, held up by a pogo joint and driven by a mover joint with a limited force. It collides with everything, pushes with its own mass and is pushed back, rides animated platforms and slides off slopes too steep to walk.
+- `Box3DGeometricMover` is not a body. Each update it finds the planes its capsule touches, solves the move against them and casts the capsule along the result, so the game controls all of its motion. It pushes the dynamic bodies it walks into.
+
+```typescript
+import { Box3DDynamicMover } from "babylon-box3d";
+
+const mover = new Box3DDynamicMover(plugin, scene, { position: new Vector3(0, 2, 0), transformNode: characterRoot });
+plugin.onBeforeWorldStepObservable.add((dt) => {
+  // forward and right: the camera's directions flattened to the ground; the throttles run from -1 to 1
+  mover.update(dt, forward, right, throttleForward, throttleRight);
+});
+window.addEventListener("keydown", (event) => event.code === "Space" && mover.jump());
+```
+
+`update` runs once per world step, right before it, which is what `onBeforeWorldStepObservable` is for. The speeds, acceleration, friction and the pogo's spring default to Box3D's sample and are public fields to tune. The dynamic mover keeps its node upright, so turn a child mesh to face the way the character walks. Both run on the [live demo](https://pryme8.github.io/babylon-box3d/?demo=character) over stairs, a ramp, a slope too steep to walk, a moving platform and crates (add `&mover=geometric` for the second one).
 
 ## Performance
 
@@ -227,11 +255,13 @@ Reading these fairly:
 - Every threaded run ends in the same state as the single threaded one, drift and pile height included.
 - Chrome tells the same story, with one difference: there Havok's full step wins the 4000 body pile on one thread.
 
+These were measured on Box3D 47d7f7c. The Box3D commit babylon-box3d builds from now, 3362633, brought a new broad phase and a wide SIMD contact solver, and its engine step is 34% to 48% faster on the same scenes, single threaded.
+
 The harness is in the repository: `npm run bench`, `npm run bench -- --workers 4`, or `bench.html` in the demo, with full tables in [bench/results](https://github.com/Pryme8/babylon-box3d/tree/master/bench/results).
 
 ## Examples
 
-The repository contains a showcase with a 5000 box pyramid, Box3D's human ragdoll, a drivable car and a wrecking ball demolition: `npm run demo` in a checkout, then open `http://localhost:5178/?demo=pyramid|ragdolls|car|destruction`. The dev server sends the cross origin isolation headers, so `?demo=pyramid&rows=100&workers=8` runs the 5050 box pyramid on threads and the overlay reports the worker count.
+The repository contains a showcase with a 5000 box pyramid, Box3D's human ragdoll, a drivable car, a wrecking ball demolition and the character movers, [live](https://pryme8.github.io/babylon-box3d/) or with `npm run demo` in a checkout, then `http://localhost:5178/?demo=pyramid|ragdolls|car|destruction|character`. The dev server sends the cross origin isolation headers, so `?demo=pyramid&rows=100&workers=8` runs the 5050 box pyramid on threads and the overlay reports the worker count.
 
 ## Documentation
 
