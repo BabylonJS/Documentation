@@ -26,8 +26,8 @@ describe("pre-paint documentation theme", () => {
         expect(head.querySelector("style")!.textContent).toContain("--mui-customPalette-sideMenu-backgroundColor");
         const body = document.querySelector("body")!;
         expect(body.firstChild).toBe(body.querySelector("script"));
-        expect(body.firstChild?.textContent).toContain(`localStorage.getItem('${themePreferenceKey}')`);
-        expect(body.firstChild?.textContent).toContain(`setAttribute('${themeAttribute}'`);
+        expect(body.firstChild?.textContent).toMatch(new RegExp(`localStorage\\.getItem\\(["']${themePreferenceKey}["']\\)`));
+        expect(body.firstChild?.textContent).toMatch(new RegExp(`setAttribute\\(["']${themeAttribute}["']`));
         expect(body.querySelector("main")?.textContent).toBe("Article content");
     });
 
