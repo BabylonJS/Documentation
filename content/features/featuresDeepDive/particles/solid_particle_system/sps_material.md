@@ -63,7 +63,7 @@ sps.buildMesh();
 
 Example: <Playground id="#RCUHJA#2" title="Solid Particle Material Assignment" description="Simple example of assigning materials to solid particles."/>
 
-This method can be used to build non-updatable meshes with MultiMaterials by assembling shapes of different materials, even when you know nothing about indices or vertices, as would be required to define a MultiMaterial object by hand: https://doc.babylonjs.com/how_to/multi_materials
+This method can be used to build non-updatable meshes with MultiMaterials by assembling shapes of different materials, even when you know nothing about indices or vertices, as would be required to define a MultiMaterial object by hand: https://doc.babylonjs.com/features/featuresDeepDive/materials/using/multiMaterials
 
 ### Intermediate way
 
