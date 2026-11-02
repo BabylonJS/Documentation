@@ -32,7 +32,7 @@
         "@mui/material": "^9.4.0",
         "@mui/system": "^9.4.0",
         "@next/mdx": "^16.3.6",
-        "next": "^16.3.6",
+        "next": "^16.4.1",
         "next-mdx-remote": "^6.0.0",
         "node-html-parser": "^9.0.4",
         "prism-react-renderer": "^2.4.1",
