@@ -10,7 +10,7 @@ executing repository scripts or exposing infrastructure credentials.
 | --- | --- | --- |
 | Workflow prepared | **Prepared locally** | `.github/workflows/codeql.yml` |
 | Fork PR successfully scanned | **Not verified** | Requires an authorized benign fork PR after activation |
-| Merge gate verified | **Not configured or verified** | The repository has no CodeQL ruleset and CodeQL is not a required status check |
+| Merge gate verified | **Not configured or verified** | Requires separate proof of pending/missing-analysis blocking and qualifying-alert blocking |
 
 Do not describe this preparation as active protection until both live
 verification milestones are complete.
@@ -48,10 +48,11 @@ verification milestones are complete.
   write permissions and may approve pull request reviews, but this CodeQL job
   narrows its own token to `contents: read` and `security-events: write`.
 - Outside-contributor workflow approval is required for first-time
-  contributors. Organization-level Actions policy and allowlist inspection was
-  denied with HTTP 403 because the inspecting account lacks the organization
-  Actions-policy permission and `admin:org` scope. Treat the organization
-  policy as **unknown** until an organization owner verifies it.
+  contributors. This policy does not gate workflow changes from returning
+  contributors. Organization-level Actions policy and allowlist inspection
+  was denied with HTTP 403 because the inspecting account lacks the
+  organization Actions-policy permission and `admin:org` scope. Treat the
+  organization policy as **unknown** until an organization owner verifies it.
 - The repository has no `github-codeql-config-file` custom property and no
   CodeQL configuration or model-extension file other than the old workflow.
 - GitHub's code-scanning merge protection does not apply to merge queue groups
@@ -82,7 +83,8 @@ verification milestones are complete.
   configuration selects GitHub's bundled `security-extended` suite and does
   not load repository or external extension packs. The PR's JavaScript,
   TypeScript, and Actions workflow source is still analyzed as untrusted input;
-  it is not executed.
+  it is not executed by this scanner. This does not guarantee that another
+  repository workflow cannot execute changed PR workflow content.
 - No actor, event-author, path, or changed-file filter can skip a targeted PR.
 - Pinned official action commits:
   - `actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1`
@@ -113,7 +115,18 @@ existing `Documentation` required check while replacing only CodeQL setup.
    required check is exactly `Documentation`; there is no CodeQL required
    check. **Recovery:** cancel without saving. Do not remove or rename
    `Documentation` during this migration.
-3. Open **Settings > Security and quality > Advanced Security**. In the
+3. Open **Settings > Security and quality > Advanced Security > CodeQL
+   analysis > Edit configuration** and record every UI-selected language,
+   query suite, threat model, model pack, runner, and schedule. **Permission:**
+   repository administrator or security manager with the required
+   code-security permission. **Consequence:** none if no value is changed.
+   **Expected:** languages, default suite, remote threat model, standard
+   runner, and weekly schedule match the REST evidence; separately record any
+   model packs because the default-setup REST response does not expose
+   UI-selected model packs. **Recovery:** cancel without saving. If any trusted
+   model pack or other coverage cannot be represented and reviewed safely in
+   the advanced configuration, stop the migration rather than lose coverage.
+4. Open **Settings > Security and quality > Advanced Security**. In the
    **CodeQL analysis** row, open the menu, choose **Switch to advanced**, then
    choose **Disable CodeQL** in the confirmation dialog, as documented at
    <https://docs.github.com/en/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning>.
@@ -126,13 +139,13 @@ existing `Documentation` required check while replacing only CodeQL setup.
    be enabled or upload, re-enable default setup with the captured languages,
    default query suite, remote threat model, weekly schedule, and standard
    runner. Default and advanced uploads are incompatible, so do not run both.
-4. Open **Actions > CodeQL** for `.github/workflows/codeql.yml` and select
+5. Open **Actions > CodeQL** for `.github/workflows/codeql.yml` and select
    **Enable workflow** if GitHub still shows it as disabled. **Permission:**
    repository Actions write/administration. **Consequence:** future configured
    events can run the reviewed workflow. **Expected:** its state becomes
    active. **Recovery:** disable this workflow and immediately restore default
    setup if activation cannot proceed.
-5. On the same workflow page, select **Run workflow**, choose `master`, and run
+6. On the same workflow page, select **Run workflow**, choose `master`, and run
    it. **Permission:** Actions write. **Consequence:** starts two disposable
    GitHub-hosted jobs and uploads advanced CodeQL results. **Expected:**
    `Analyze (actions)` and `Analyze (javascript-typescript)` both succeed.
@@ -143,7 +156,7 @@ existing `Documentation` required check while replacing only CodeQL setup.
    **Recovery:** disable the workflow, inspect the failure without weakening
    permissions or queries, and restore default setup if a safe correction
    cannot be deployed immediately.
-6. Confirm the scheduled and push baseline before testing a fork. **Permission:**
+7. Confirm the scheduled and push baseline before testing a fork. **Permission:**
    repository/security read. **Consequence:** none. **Expected:** the successful
    analysis SHA equals the selected `master` revision and both categories are
    current. **Recovery:** do not proceed to a fork test until both categories
@@ -155,10 +168,11 @@ This preparation does not create a fork, PR, approval, or workflow run. A
 repository owner must explicitly authorize the test.
 
 1. Create a benign fork PR targeting `master` that changes only a harmless
-   documentation line and, if needed to prove both analyzers see the merge
-   revision, a harmless comment in a workflow YAML file. Do not add executable
-   steps, dependencies, CodeQL configuration, model packs, secrets, or external
-   actions. **Permission:** contributor plus owner authorization for the test.
+   documentation line. Do not edit any workflow, executable content,
+   dependency, CodeQL configuration, model pack, secret reference, or action.
+   The Actions-language job's pull ref and SHA are sufficient evidence that it
+   analyzed the merge revision; the test does not need to modify workflow
+   files. **Permission:** contributor plus owner authorization for the test.
    **Consequence:** creates a public PR and may consume Actions minutes.
    **Expected:** the PR is safe to inspect manually. **Recovery:** close the PR
    without merging.
@@ -167,11 +181,13 @@ repository owner must explicitly authorize the test.
    `first_time_contributors`; approval can release workflows other than CodeQL.
    The default branch currently contains only the repository CodeQL workflow,
    but GitHub-managed dynamic workflows and external checks also exist and must
-   be reviewed in the live UI. **Permission:** Actions approval permission.
-   **Consequence:** approving allows the queued workflows for that contribution
-   to run. **Expected:** only reviewed workflows and GitHub-managed checks are
-   released. **Recovery:** do not approve; close the PR if anything unexpected
-   is queued. Approval must never be treated as a routine CodeQL bypass.
+   be reviewed in the live UI. On the PR, open **Checks > Awaiting approval >
+   Approve workflows to run** only after that review. **Permission:** Actions
+   approval permission. **Consequence:** approving allows the queued workflows
+   for that contribution to run. **Expected:** only reviewed workflows and
+   GitHub-managed checks are released. **Recovery:** do not approve; close the
+   PR if anything unexpected is queued. Approval must never be treated as a
+   routine CodeQL bypass.
 3. After explicit approval, verify both CodeQL jobs complete successfully.
    **Permission:** Actions/security read. **Consequence:** none beyond the
    approved run. **Expected:** the `CodeQL` workflow has successful
@@ -189,6 +205,13 @@ repository owner must explicitly authorize the test.
 
 Only after step 3 succeeds may the status be changed from **workflow prepared**
 to **fork PR successfully scanned**.
+
+The current `first_time_contributors` approval policy does not protect against
+workflow changes from returning contributors. The prepared CodeQL scanner is
+nonexecuting as reviewed, but that is not a repository-wide guarantee that
+other workflows cannot execute PR-controlled content. A stronger approval
+policy is an optional, separately approved hardening decision; this migration
+does not change it.
 
 ## Merge protection after successful scans
 
@@ -210,14 +233,16 @@ The scan jobs and vulnerability-based merge gate are separate controls.
    `master`, has no bypass actor unless the owner explicitly approves one, and
    names CodeQL. **Recovery:** keep enforcement disabled or delete the draft
    ruleset before activation.
-3. Activate the ruleset only after the benign fork test succeeds, then repeat a
-   benign fork check and verify GitHub reports the rule as evaluated and
-   passing. **Permission:** repository administrator. **Consequence:** enables
-   vulnerability-based merge protection. **Expected:** the PR is mergeable
-   only after both CodeQL analyses complete and meet the selected thresholds.
-   **Recovery:** return the new ruleset to disabled while retaining the
-   existing `Documentation` branch protection; restore it only after correcting
-   the configuration.
+3. Activate the ruleset only after the benign fork test succeeds, then use an
+   authorized benign fork update to record the gate while CodeQL is missing or
+   pending and after it passes. **Permission:** repository administrator.
+   **Consequence:** enables vulnerability-based merge protection. **Expected:**
+   the PR is blocked while required CodeQL analysis is missing or in progress,
+   then the clean PR passes after both analyses complete. Record these as
+   **pending/missing-analysis blocking verified** and **clean result passes**;
+   they do not prove that a qualifying alert blocks. **Recovery:** return the
+   new ruleset to disabled while retaining the existing `Documentation` branch
+   protection; restore it only after correcting the configuration.
 4. Do not replace the existing `Documentation` status check with the CodeQL
    ruleset. If the owner also wants execution-status checks, add the exact live
    CodeQL check names to branch protection only after observing them on both a
@@ -226,9 +251,25 @@ The scan jobs and vulnerability-based merge gate are separate controls.
    **Expected:** existing `Documentation` remains required. **Recovery:** remove
    only the newly added CodeQL status contexts if they deadlock, leaving all
    pre-existing protection intact.
+5. Verify qualifying-alert blocking only with a separately authorized,
+   pre-existing genuine CodeQL finding that naturally meets the selected
+   threshold and whose locations are all in the PR diff. Never create or insert
+   a vulnerability, malicious payload, or intentionally unsafe example merely
+   to test the gate. **Permission:** explicit repository-owner authorization
+   for that existing finding and test PR. **Consequence:** confirms the
+   severity threshold actually blocks a real qualifying result. **Expected:**
+   GitHub reports the CodeQL rule as blocking until the genuine finding is
+   resolved or the authorized test is closed. **Recovery:** close the test PR
+   without merging; do not lower thresholds or bypass protections. If no safe
+   existing genuine finding is available, record
+   **qualifying-alert blocking unverified**.
 
-Only after the active ruleset is exercised on an authorized fork PR may the
-status be changed to **merge gate verified**.
+Do not mark **merge gate verified** from a clean benign PR alone. That test can
+verify missing/pending enforcement and a passing result. Mark the full gate
+verified only after both missing/pending-analysis blocking and separately
+authorized qualifying-alert blocking have been demonstrated. Otherwise report
+the verified sub-statuses and keep qualifying-alert blocking explicitly
+unverified.
 
 ## Merge queue and Dependabot gaps
 
@@ -245,7 +286,8 @@ status be changed to **merge gate verified**.
   and validate it separately before claiming coverage.
 - Code-scanning merge protection evaluates alerts only when all alert
   locations exist in the PR diff. It is not a general baseline-alert gate.
-- If upload reports a SARIF soft-limit warning such as
-  `js/polynomial-redos`, investigate and reduce the result safely. Do not
-  disable the query, weaken `security-extended`, or add source exclusions to
-  make the upload pass.
+- `Locations for an alert exceeded limits` is a SARIF soft-limit warning that
+  truncates supporting locations; it does not mean the upload failed. Record
+  the warning and confirm the alert's primary location and result remain
+  usable. Do not reduce findings or paths, disable a query, weaken
+  `security-extended`, or add source exclusions merely to remove the warning.
