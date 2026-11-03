@@ -2007,9 +2007,9 @@ function _createMdxContent(props) {
           className: "katex-html",
           "aria-hidden": "true",
           children: [_jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "0.6833em"
               }
@@ -2046,9 +2046,9 @@ function _createMdxContent(props) {
           }, undefined, true, {
             fileName: "<source.js>"
           }, this), _jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "0.8141em"
               }
@@ -2090,7 +2090,7 @@ function _createMdxContent(props) {
                         }, undefined, false, {
                           fileName: "<source.js>"
                         }, this), _jsxDEV(_components.span, {
-                          className: "sizing reset-size6 size3 mtight",
+                          className: "katex-sizing reset-size6 size3 mtight",
                           children: _jsxDEV(_components.span, {
                             className: "mord mtight",
                             children: "2"
@@ -2175,9 +2175,9 @@ function _createMdxContent(props) {
           className: "katex-html",
           "aria-hidden": "true",
           children: [_jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "0.6667em",
                 verticalAlign: "-0.0833em"
@@ -2215,9 +2215,9 @@ function _createMdxContent(props) {
           }, undefined, true, {
             fileName: "<source.js>"
           }, this), _jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "0.8889em",
                 verticalAlign: "-0.1944em"
@@ -2255,9 +2255,9 @@ function _createMdxContent(props) {
           }, undefined, true, {
             fileName: "<source.js>"
           }, this), _jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "0.625em",
                 verticalAlign: "-0.1944em"
@@ -2650,9 +2650,9 @@ function _createMdxContent(props) {
           className: "katex-html",
           "aria-hidden": "true",
           children: [_jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "0.8778em",
                 verticalAlign: "-0.1944em"
@@ -2715,7 +2715,7 @@ function _createMdxContent(props) {
                         }, undefined, false, {
                           fileName: "<source.js>"
                         }, this), _jsxDEV(_components.span, {
-                          className: "sizing reset-size6 size3 mtight",
+                          className: "katex-sizing reset-size6 size3 mtight",
                           children: _jsxDEV(_components.span, {
                             className: "mord mtight",
                             children: [_jsxDEV(_components.span, {
@@ -2808,9 +2808,9 @@ function _createMdxContent(props) {
           }, undefined, true, {
             fileName: "<source.js>"
           }, this), _jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "4.8em",
                 verticalAlign: "-2.15em"
@@ -3687,9 +3687,9 @@ function _createMdxContent(props) {
           className: "katex-html",
           "aria-hidden": "true",
           children: [_jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "0.4306em"
               }
@@ -3723,9 +3723,9 @@ function _createMdxContent(props) {
           }, undefined, true, {
             fileName: "<source.js>"
           }, this), _jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "2.2019em",
                 verticalAlign: "-0.8804em"
@@ -4024,9 +4024,9 @@ function _createMdxContent(props) {
           className: "katex-html",
           "aria-hidden": "true",
           children: [_jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "2.9291em",
                 verticalAlign: "-1.2777em"
@@ -4057,7 +4057,7 @@ function _createMdxContent(props) {
                       }, undefined, false, {
                         fileName: "<source.js>"
                       }, this), _jsxDEV(_components.span, {
-                        className: "sizing reset-size6 size3 mtight",
+                        className: "katex-sizing reset-size6 size3 mtight",
                         children: _jsxDEV(_components.span, {
                           className: "mord mtight",
                           children: [_jsxDEV(_components.span, {
@@ -4120,7 +4120,7 @@ function _createMdxContent(props) {
                       }, undefined, false, {
                         fileName: "<source.js>"
                       }, this), _jsxDEV(_components.span, {
-                        className: "sizing reset-size6 size3 mtight",
+                        className: "katex-sizing reset-size6 size3 mtight",
                         children: _jsxDEV(_components.span, {
                           className: "mord mtight",
                           children: _jsxDEV(_components.span, {
@@ -4208,7 +4208,7 @@ function _createMdxContent(props) {
                         }, undefined, false, {
                           fileName: "<source.js>"
                         }, this), _jsxDEV(_components.span, {
-                          className: "sizing reset-size6 size3 mtight",
+                          className: "katex-sizing reset-size6 size3 mtight",
                           children: _jsxDEV(_components.span, {
                             className: "mord mathnormal mtight",
                             children: "i"
@@ -4278,9 +4278,9 @@ function _createMdxContent(props) {
           }, undefined, true, {
             fileName: "<source.js>"
           }, this), _jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "0.7333em",
                 verticalAlign: "-0.15em"
@@ -4319,7 +4319,7 @@ function _createMdxContent(props) {
                         }, undefined, false, {
                           fileName: "<source.js>"
                         }, this), _jsxDEV(_components.span, {
-                          className: "sizing reset-size6 size3 mtight",
+                          className: "katex-sizing reset-size6 size3 mtight",
                           children: _jsxDEV(_components.span, {
                             className: "mord mtight",
                             children: "0"
@@ -4389,9 +4389,9 @@ function _createMdxContent(props) {
           }, undefined, true, {
             fileName: "<source.js>"
           }, this), _jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "0.7333em",
                 verticalAlign: "-0.15em"
@@ -4430,7 +4430,7 @@ function _createMdxContent(props) {
                         }, undefined, false, {
                           fileName: "<source.js>"
                         }, this), _jsxDEV(_components.span, {
-                          className: "sizing reset-size6 size3 mtight",
+                          className: "katex-sizing reset-size6 size3 mtight",
                           children: _jsxDEV(_components.span, {
                             className: "mord mtight",
                             children: "1"
@@ -4500,9 +4500,9 @@ function _createMdxContent(props) {
           }, undefined, true, {
             fileName: "<source.js>"
           }, this), _jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "0.6667em",
                 verticalAlign: "-0.0833em"
@@ -4537,9 +4537,9 @@ function _createMdxContent(props) {
           }, undefined, true, {
             fileName: "<source.js>"
           }, this), _jsxDEV(_components.span, {
-            className: "base",
+            className: "katex-base",
             children: [_jsxDEV(_components.span, {
-              className: "strut",
+              className: "katex-strut",
               style: {
                 height: "0.5806em",
                 verticalAlign: "-0.15em"
@@ -4578,7 +4578,7 @@ function _createMdxContent(props) {
                         }, undefined, false, {
                           fileName: "<source.js>"
                         }, this), _jsxDEV(_components.span, {
-                          className: "sizing reset-size6 size3 mtight",
+                          className: "katex-sizing reset-size6 size3 mtight",
                           children: _jsxDEV(_components.span, {
                             className: "mord mathnormal mtight",
                             children: "n"
