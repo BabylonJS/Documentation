@@ -87,6 +87,27 @@ content. After deployment, fetch an article without executing JavaScript and
 check that its headings, prose, code, tables, and links appear in the HTML body.
 `robots.txt` and `llms.txt` aid discovery but do not replace readable page HTML.
 
+## Markdown for agents
+
+`npm run build:agent-docs` (part of `npm run build` and `npm run build:ci`)
+generates agent-friendly copies of the documentation in `public/`:
+
+- `public/llms.txt`: an [llms.txt](https://llmstxt.org) index of the top three
+  levels of every section, linking to the markdown version of each page.
+- `public/<route>.md`: every documentation page as plain markdown, so
+  `https://doc.babylonjs.com/setup/starterHTML` is also available at
+  `https://doc.babylonjs.com/setup/starterHTML.md`. The home page is `index.md`.
+  Each file ends with links to its subpages.
+
+Custom components are converted to plain markdown: `<Playground>` and editor
+embeds become links, `<Alert>` becomes a `> [!NOTE]`-style callout, and
+site-relative URLs become absolute. Code blocks are copied unchanged. Each HTML
+page links to its markdown copy with `<link rel="alternate" type="text/markdown">`.
+These files are generated, ignored by git, and must not be edited by hand. When
+adding a custom markdown component, add a conversion in
+`lib/agentDocs/markdownExport.ts`; the build warns about unconverted components
+and `__tests__/agent-docs.test.ts` fails on them.
+
 ## Code package variants
 
 JavaScript and TypeScript code fences that use the `BABYLON` namespace are converted at build time into ES6, ES6-pure (when supported), and UMD tabs. The Markdown remains the canonical UMD source. Run the strict audit after changing the transformer, symbol map, or code examples:

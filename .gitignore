@@ -39,6 +39,11 @@ public/api-search/
 public/*-search-index.json
 public/lite/
 
+# generated agent-facing docs (llms.txt and per-page markdown)
+/public/llms.txt
+/public/**/*.md
+!/public/img/**/*.md
+
 # vercel
 .vercel
 public/sitemap.xml
