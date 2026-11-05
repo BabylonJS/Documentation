@@ -38,6 +38,7 @@ We offer Babylon.js core and its modules as npm packages. The following are avai
 - [@babylonjs/viewer](https://www.npmjs.com/package/@babylonjs/viewer) - The stand-alone Babylon.js Viewer.
 - [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The Babylon.js Inspector for visual debugging.
 - [@babylonjs/ktx2decoder](https://www.npmjs.com/package/@babylonjs/ktx2decoder) - Babylon's KTX2 Decoder module.
+- [@babylonjs/ktx2encoder](https://www.npmjs.com/package/@babylonjs/ktx2encoder) - Babylon's KTX2 Encoder module.
 
 ## Basic Example
 
@@ -666,6 +667,58 @@ BABYLON.ImportMeshAsync("https://awesomeserver.mine.com/my.glb", scene).then(() 
   }
 );
 ```
+
+### Draco Encoder packages
+
+Copy `draco_encoder_wasm_wrapper.js`, `draco_encoder.wasm`, and `draco_encoder.js` from `@babylonjs/core/assets/Draco` to your server. Configure their URLs before accessing `DracoEncoder.Default`:
+
+```javascript
+import { DracoEncoder } from "@babylonjs/core/Meshes/Compression/dracoEncoder.js";
+
+DracoEncoder.DefaultConfiguration = {
+    wasmUrl: "/draco/draco_encoder_wasm_wrapper.js",
+    wasmBinaryUrl: "/draco/draco_encoder.wasm",
+    fallbackUrl: "/draco/draco_encoder.js",
+};
+
+const dracoData = await DracoEncoder.Default.encodeMeshAsync(mesh);
+```
+
+This setup manages workers automatically. Set `numWorkers: 0` to encode on the main thread, or provide a `workerPool` as with the decoder. Custom encoder workers use `EncoderWorkerFunction` instead of `DecoderWorkerFunction` and must load the encoder wrapper and binary.
+
+### KTX2 Encoder packages
+
+The `@babylonjs/ktx2encoder` package includes the Basis encoder factory and WASM binary:
+
+The installation command and package imports below require a published version. Check [package availability](/features/featuresDeepDive/materials/using/ktx2Compression#encoder-package) before following this setup.
+
+```bash
+npm install @babylonjs/ktx2encoder
+```
+
+Copy `@babylonjs/ktx2encoder/wasm/basis_encoder.js` to `/basis/` on your server. Bundle the Babylon encoder module and import the WASM binary as an ArrayBuffer, as described above. Configure these resources before the first encoder is created:
+
+```javascript
+import { KhronosTextureContainer2Encoder } from "@babylonjs/core/Misc/khronosTextureContainer2Encoder.js";
+import * as KTX2EncoderModule from "@babylonjs/ktx2encoder";
+import wasm from "@babylonjs/ktx2encoder/wasm/basis_encoder.wasm"; // import as an ArrayBuffer
+
+KhronosTextureContainer2Encoder.URLConfig.jsBasisEncoder = "/basis/basis_encoder.js";
+
+const encoder = new KhronosTextureContainer2Encoder({
+    numWorkers: 0,
+    binariesAndModulesContainer: {
+        jsEncoderModule: KTX2EncoderModule,
+        wasmBasisEncoder: wasm,
+    },
+});
+```
+
+Injecting the Babylon encoder module requires main-thread encoding (`numWorkers: 0`). Core texture encoding is internal; the upcoming glTF exporter will be its public entry point. To encode pixels directly, use the [standalone encoder](/features/featuresDeepDive/materials/using/ktx2Compression#encoder-package).
+
+For automatic workers, set the encoder's [resource URLs](/setup/frameworkPackages/CDN) instead of injecting JavaScript modules. There is no public worker bootstrap for KTX2 encoding; a caller-provided pool must contain workers already initialized for the internal encoder protocol, and the caller owns their dependencies and lifecycle.
+
+The official Basis v2_50 encoder requires CSP `'unsafe-eval'`, even when its factory is injected.
 
 ### Basis Decoder
 

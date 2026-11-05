@@ -152,6 +152,12 @@ BABYLON.KhronosTextureContainer2.URLConfig = {
     wasmZSTDDecoder: baseUrl + "/zstddec.wasm",
 };
 
+BABYLON.KhronosTextureContainer2Encoder.URLConfig = {
+    jsEncoderModule: baseUrl + "/babylon.ktx2Encoder.js",
+    jsBasisEncoder: baseUrl + "/basisEncoder/v2_50/basis_encoder.js",
+    wasmBasisEncoder: baseUrl + "/basisEncoder/v2_50/basis_encoder.wasm",
+};
+
 BABYLON.BasisToolsOptions.JSModuleURL = baseUrl + "/basisTranscoder/1/basis_transcoder.js";
 BABYLON.BasisToolsOptions.WasmModuleURL = baseUrl + "/basisTranscoder/1/basis_transcoder.wasm";
 ```
@@ -182,4 +188,3 @@ const options = {
 const engine = new BABYLON.WebGPUEngine(window.canvas, options);
 await engine.initAsync(glslangOptions, twgslOptions);
 ```
-
