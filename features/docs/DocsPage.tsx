@@ -1,8 +1,9 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import GithubIcon from "@mui/icons-material/GitHub";
 import { Box, IconButton, Tooltip } from "@mui/material";
+import Head from "next/head";
 import Link from "next/link";
-import { FunctionComponent, useCallback, useEffect, useRef } from "react";
+import { FunctionComponent, useCallback, useContext, useEffect, useRef } from "react";
 
 import { BucketContent } from "../../components/bucketContent.component";
 import { InlineExampleComponent } from "../../components/contentComponents/inlineExample.component";
@@ -11,6 +12,7 @@ import Layout from "../../components/layout.component";
 import { MediaMarkdownComponent } from "../../components/markdownComponents/media.component";
 import { VideoCollection } from "../../components/videoCollection.component";
 import { IDocumentationPageProps } from "../../lib/content.interfaces";
+import { BaseUrlContext } from "../../pages/_app";
 import styles from "../../pages/documentationPage.module.scss";
 import { DocumentationContextProvider } from "./DocumentationContext";
 import { DocsExamplesPanel } from "./DocsExamplesProvider";
@@ -53,6 +55,8 @@ const DocsPageContent: FunctionComponent<IDocumentationPageProps> = ({ breadcrum
     }, [clearExampleLinks, clearTOCItems, setActiveExample]);
 
     const scrollToTop = useHashScroll(markdownRef, id, tableOfContents.tocLinks, resetPageState);
+    const baseUrl = useContext(BaseUrlContext);
+    const markdownUrl = `${baseUrl}/${id.length ? id.join("/") : "index"}.md`;
 
     const editOnGitHub = () => {
         window.open(gitHubUrl, "_blank");
@@ -60,6 +64,9 @@ const DocsPageContent: FunctionComponent<IDocumentationPageProps> = ({ breadcrum
 
     return (
         <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id} flavorMenuItems={flavorMenuItems}>
+            <Head>
+                <link rel="alternate" type="text/markdown" href={markdownUrl} />
+            </Head>
             <DocumentationContextProvider examples={examples} tableOfContents={tableOfContents}>
                 <div className={styles["documentation-container"]}>
                     <div className={styles["markdown-and-playground"]}>
