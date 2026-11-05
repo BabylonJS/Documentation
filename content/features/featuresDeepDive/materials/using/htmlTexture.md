@@ -36,6 +36,42 @@ Because the SVG fallback is enabled by default, `HtmlTexture` renders in regular
 
 Both **WebGL2** and **WebGPU** engines are supported; the correct upload path is selected automatically.
 
+## Low-level HTML-in-Canvas API compatibility
+
+Babylon.js includes TypeScript declarations for the experimental browser API used by `HtmlTexture`. These declarations follow the current [WICG HTML-in-Canvas explainer](https://github.com/WICG/html-in-canvas) while keeping older names as deprecated aliases for browsers and polyfills that still expose them.
+
+Use the current API names in new code:
+
+- Set `canvas.content = "drawable"` instead of using the deprecated `layoutSubtree` property.
+- Listen for `CanvasPaintEvent`; the older `PaintEvent` name remains as a deprecated alias.
+- Read the default drawable size with `canvas.getElementImageDefaultSize(element)`.
+- Use `texElementSubImage2D` for WebGL and `drawElementImageToTexture` for WebGPU. The older `texElementImage2D` and `copyElementImageToTexture` methods remain deprecated.
+
+`CanvasRenderingContext2D.drawElementImage()` now returns `void`, matching browser behavior. If you need the element's current canvas transform, call `canvas.getElementTransform(element)` instead of reading the draw call's return value. Existing draw call shapes still compile, including legacy calls with optional destination dimensions.
+
+```javascript
+const canvas = document.createElement("canvas");
+canvas.content = "drawable";
+
+const element = document.createElement("div");
+element.setAttribute("drawable", "");
+element.textContent = "Drawn into the canvas";
+canvas.appendChild(element);
+document.body.appendChild(canvas);
+
+const context = canvas.getContext("2d");
+
+canvas.addEventListener("paint", () => {
+  context.drawElementImage(element, 0, 0);
+  const transform = canvas.getElementTransform(element);
+  console.log(transform);
+});
+```
+
+By default, `drawElementImage()` also updates the element geometry used for hit testing and accessibility. Pass `{ preserveElementGeometry: true }` to keep the current geometry instead. For `OffscreenCanvas`, geometry updates are batched and the associated HTML canvas fires `elementgeometryupdate` after they are applied.
+
+These declaration changes do not change `HtmlTexture` runtime behavior. See [BabylonJS/Babylon.js#19116](https://github.com/BabylonJS/Babylon.js/pull/19116) for the compatibility details.
+
 ## Creating an HTML Texture
 
 ```javascript
@@ -54,7 +90,7 @@ const plane = BABYLON.MeshBuilder.CreatePlane("plane", { size: 2 }, scene);
 plane.material = material;
 ```
 
-The element is hosted inside a hidden `<canvas layoutsubtree>` that Babylon adds to the document for you, so the browser can lay it out and paint it. You do not need to attach the element to the DOM yourself.
+The element is hosted inside a hidden `<canvas content="drawable">` that Babylon adds to the document for you, so the browser can lay it out and paint it. You do not need to attach the element to the DOM yourself.
 
 ### Creation options
 
