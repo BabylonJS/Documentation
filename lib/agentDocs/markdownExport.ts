@@ -79,7 +79,7 @@ export const normalizeImageUrl = (url: string, baseUrl = agentDocsBaseUrl) => {
     return toAbsoluteUrl(cleanUrl, baseUrl);
 };
 
-const escapeLinkText = (text: string) => text.replace(/([[\]])/g, "\\$1").replace(/\s+/g, " ").trim();
+const escapeLinkText = (text: string) => text.replace(/([\\[\]])/g, "\\$1").replace(/\s+/g, " ").trim();
 
 const getAttribute = (node: MarkdownNode, name: string): string | undefined => {
     const attribute = node.attributes?.find((candidate) => candidate.type === "mdxJsxAttribute" && candidate.name === name);

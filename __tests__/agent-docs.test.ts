@@ -45,6 +45,8 @@ describe("convertMdxToMarkdown", () => {
     });
 
     it("converts media embeds to links", () => {
+        expect(convertMdxToMarkdown('<CodePen pen="p" title="Path C:\\"/>')).toBe("[CodePen: Path C:\\\\](https://codepen.io/BabylonJS/pen/p/)\n");
+
         const markdown = convertMdxToMarkdown(['<Youtube id="abc123"/>', "", '<CodePen pen="xyz" title="Pen"/>', "", '<CodeSandbox id="sb1" title="Sandbox"/>'].join("\n"));
 
         expect(markdown).toContain("[YouTube video](https://www.youtube.com/watch?v=abc123)");
