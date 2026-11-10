@@ -51,6 +51,22 @@ const modern = BABYLON.ImportMeshAsync("model.glb", scene);
         expect(result.es6Pure.code).toContain('ImportMeshAsync("model.glb", scene)');
     });
 
+    it("converts KTX2 encoder resource configuration to both ES6 variants", () => {
+        const result = transformBabylonCodeVariants("BABYLON.KhronosTextureContainer2Encoder.URLConfig = urls;");
+
+        expect(result.diagnostics).toEqual([]);
+        expect(result.standardEs6.code).toContain(
+            'import { KhronosTextureContainer2Encoder } from "@babylonjs/core/Misc/khronosTextureContainer2Encoder";',
+        );
+        expect(result.es6Pure.code).toContain(
+            'import { KhronosTextureContainer2Encoder } from "@babylonjs/core/pure";',
+        );
+        for (const variant of [result.standardEs6, result.es6Pure]) {
+            expect(variant.success).toBe(true);
+            expect(variant.code).toContain("KhronosTextureContainer2Encoder.URLConfig = urls;");
+        }
+    });
+
     it("converts GUI namespace symbols", () => {
         const result = transformBabylonCodeVariants(
             'const button = BABYLON.GUI.Button.CreateSimpleButton("button", "Click");',
