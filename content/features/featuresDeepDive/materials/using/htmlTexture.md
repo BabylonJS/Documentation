@@ -18,9 +18,9 @@ It also ships with optional **interaction managers** that route Babylon pointer 
 
 ## Examples
 
-<Playground id="#C9MWZC#2" title="HTML Texture Control Panel" description="An interactive HTML control panel (theme swatches, counter, toggle and animated progress bar) rendered onto a plane as an HtmlTexture."/>
+<Playground id="#C9MWZC#3" title="HTML Texture Control Panel" description="An interactive HTML control panel (theme swatches, counter, toggle and animated progress bar) rendered onto a plane as an HtmlTexture."/>
 
-<Playground id="#8RDVXG#1" title="Multiple HTML Textures" description="Two independent HtmlTextures — a live counter and an interactive button card — each on its own rotating plane."/>
+<Playground id="#8RDVXG#2" title="Multiple HTML Textures" description="Two independent HtmlTextures — a live counter and an interactive button card — each on its own rotating plane."/>
 
 Both demos load the polyfill from a CDN so they run in any browser (see [Enabling the polyfill](#enabling-the-polyfill)).
 
@@ -29,7 +29,7 @@ Both demos load the polyfill from a CDN so they run in any browser (see [Enablin
 The underlying API is experimental and not yet broadly shipped. `HtmlTexture` renders through the first available of these paths:
 
 - **Natively**, in a browser that exposes the API (for example, Chrome Canary with `chrome://flags/#canvas-draw-element` enabled). This is the fastest path: the browser copies the laid-out element straight into the GPU texture.
-- **Via a polyfill**, using [`three-html-render`](https://github.com/repalash/three-html-render), installed through the helper in `@babylonjs/core` (see [Enabling the polyfill](#enabling-the-polyfill) below).
+- **Via a polyfill**, using [`@underglass/html-in-canvas-polyfill`](https://www.npmjs.com/package/@underglass/html-in-canvas-polyfill), imported directly before creating the engine (see [Enabling the polyfill](#enabling-the-polyfill) below).
 - **Via the built-in SVG fallback**, which works in any modern browser with no extra setup (see [The built-in SVG fallback](#the-built-in-svg-fallback) below). This is the default when neither of the above is present.
 
 Because the SVG fallback is enabled by default, `HtmlTexture` renders in regular browsers out of the box. It never throws, so it is safe to include in code that also runs on browsers without the native API.
@@ -196,60 +196,44 @@ Both managers expose a `dispose()` method that detaches their observers.
 
 ## Enabling the polyfill
 
-When the native API is not present, install the polyfill helper from `@babylonjs/core`. It lazily imports `three-html-render` only when needed, so it never adds to your bundle unless it is actually used.
+Install an up-to-date polyfill such as [`@underglass/html-in-canvas-polyfill`](https://www.npmjs.com/package/@underglass/html-in-canvas-polyfill):
 
-```javascript
-import { InstallHtmlInCanvasPolyfill } from "@babylonjs/core/Materials/Textures/HTML/htmlInCanvasPolyfill";
-
-// No-op when the API is supported natively; installs the polyfill otherwise.
-await InstallHtmlInCanvasPolyfill();
+```bash
+npm install @underglass/html-in-canvas-polyfill
 ```
 
-Helpers available in `@babylonjs/core`:
-
-- `IsHtmlInCanvasSupportedNatively()` — returns `true` when the browser exposes the API natively.
-- `InstallHtmlInCanvasPolyfill(options?)` — installs the polyfill and resolves to `true` when it was installed. By default it is a no-op when native support is present; pass `{ force: true }` to install regardless. Appending `?polyfillHIC` to the page URL also forces installation.
-- `UninstallHtmlInCanvasPolyfill()` — removes a previously installed polyfill.
-
-### In the Playground
-
-The Playground's UMD bundle can't dynamically import the polyfill package, so load the self-installing CDN build with a `<script>` tag before creating any `HtmlTexture`. The script installs itself on load, is idempotent, and no-ops when the native API is present:
+Import its auto-installing entry before creating the engine:
 
 ```javascript
-const ensureHtmlInCanvasAsync = function () {
-    if ("captureElementImage" in HTMLCanvasElement.prototype) {
-        return Promise.resolve();
-    }
-    if (document.querySelector("script[data-hic-polyfill]")) {
-        return Promise.resolve();
-    }
-    return new Promise(function (resolve, reject) {
-        const script = document.createElement("script");
-        script.src = "https://cdn.jsdelivr.net/npm/three-html-render@0.1.2/dist/polyfill.js";
-        script.dataset.hicPolyfill = "";
-        script.onload = function () { resolve(); };
-        script.onerror = function () { reject(new Error("Failed to load the HTML-in-Canvas polyfill")); };
-        document.head.appendChild(script);
-    });
-};
+import "@underglass/html-in-canvas-polyfill/auto";
+```
 
-// at the top of your async createScene, before building any HtmlTexture:
-await ensureHtmlInCanvasAsync();
+Installation is a no-op when the browser supports the API natively. `HtmlTexture`, `HtmlInteractionManager`, and `HtmlRaycastInteractionManager` detect the directly imported polyfill like native support, so no Babylon helper is needed.
+
+For explicit lifecycle control, import `install` and `uninstall` from `@underglass/html-in-canvas-polyfill` instead. Call `install()` before creating the engine, and `uninstall()` after disposing the textures, interaction managers, and engine that use it.
+
+> `InstallHtmlInCanvasPolyfill` and `UninstallHtmlInCanvasPolyfill` still work but are deprecated. The installer loads `three-html-render`, which implements an older version of the proposal and forces `HtmlTexture` onto legacy APIs. Its full-canvas overlay also blocks pointer input, breaking `HtmlRaycastInteractionManager`. Do not pass an up-to-date polyfill through `InstallHtmlInCanvasPolyfill`: that forces the legacy WebGL path, which the current polyfill does not support. Import it directly instead. See [BabylonJS/Babylon.js#19132](https://github.com/BabylonJS/Babylon.js/pull/19132).
+
+### In the Playground or a UMD app
+
+The package's `/iife` entry is the browser build at `dist/html-in-canvas-polyfill.iife.js`. It installs automatically on load and is a no-op with native support; no call to `HTMLInCanvasPolyfill.install()` is needed.
+
+Load it before creating the engine. In the Playground, await it at the top level of the entry module, before defining `createScene` or `Playground.CreateScene`. In a UMD app, await it before calling `new BABYLON.Engine(...)` or initializing a `BABYLON.WebGPUEngine`:
+
+```javascript
+await BABYLON.Tools.LoadScriptAsync("https://cdn.jsdelivr.net/npm/@underglass/html-in-canvas-polyfill@0.5.0/dist/html-in-canvas-polyfill.iife.js");
 ```
 
 ## Putting it together
 
 ```javascript
-import { InstallHtmlInCanvasPolyfill } from "@babylonjs/core/Materials/Textures/HTML/htmlInCanvasPolyfill";
+import "@underglass/html-in-canvas-polyfill/auto";
 
 const createScene = async function () {
   const scene = new BABYLON.Scene(engine);
   const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 4, BABYLON.Vector3.Zero(), scene);
   camera.attachControl(true);
   new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
-
-  // Use the native API when present, fall back to the polyfill otherwise.
-  await InstallHtmlInCanvasPolyfill();
 
   const el = document.createElement("div");
   el.style.cssText = "width:512px;height:512px;background:#1e293b;color:#fff;font:24px sans-serif;padding:24px;box-sizing:border-box";
