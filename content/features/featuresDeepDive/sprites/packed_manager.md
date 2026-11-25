@@ -23,6 +23,8 @@ The corresponding JSON file will have a format based on that produced by the [Te
 - Trim: None
 - Allow Rotation: Off
 
+Other packers that write the same JSON Hash layout work as well. For example, [SpriteSheet.dev](https://spritesheet.dev) is a free browser tool: keep *JSON (Hash)* ticked under *Data files*, and the ZIP it downloads holds the PNG and a JSON file with the same name, which *SpritePackedManager* loads in the same way.
+
 
 ```javascript
 {   "frames": {
