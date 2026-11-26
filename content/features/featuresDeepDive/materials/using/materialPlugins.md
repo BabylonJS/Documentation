@@ -360,7 +360,8 @@ Here are some other examples of plugins:
 
 <Playground id="#HCLC5W#41" title="Animate parameter" description="Using a class variable to animate a parameter for all instances"/>
 <Playground id="#SYQW69#1377" title="Volumetric fog" description="Power plant with volumetric fog"/>
-<Playground id="#9L9IZX" title="Volumetric fog (WebGL2 + WebGPU)" description="Same fog plugin written in GLSL and WGSL, with live settings"/>
+<Playground id="#9L9IZX#1" title="Volumetric fog (WebGL2 + WebGPU)" description="Same fog plugin written in GLSL and WGSL, with live settings. Opens with WebGL2"/>
+<Playground id="#9L9IZX#1" engine="webgpu" title="Volumetric fog (WebGPU)" description="The same example started with WebGPU, running the WGSL shaders"/>
 <Playground id="#IQPBS4#62" title="Grain" description="Grain (solves banding issues)"/>
 <Playground id="#8WJTJG#19" title="Fog of War" description="Simple Fog of War effect"/>
 <Playground id="#P8B91Z#102" title="Serialize and parse" description="Implements the methods to serialize and parse the plugin"/>
