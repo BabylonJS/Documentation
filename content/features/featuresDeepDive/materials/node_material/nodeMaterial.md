@@ -303,7 +303,7 @@ nodeMaterial.setToDefault();
 ```
 
 Here's an advanced and fantastic example of creating an impressive Node Material manually.
-<Playground id="#GETMGI#2" title="Advanced Dissolve Node Material" description="Advanced Node Material shader created manually."/>
+<Playground id="#GETMGI#53" title="Advanced Dissolve Node Material" description="Advanced Node Material shader created manually."/>
 
 ### Using the Node Material Editor
 
